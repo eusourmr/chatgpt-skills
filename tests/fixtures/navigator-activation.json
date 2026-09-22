@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "policy": "Automatic activation should occur for capability-selection intent, not merely because ChatGPT can perform a normal task.",
+  "outcomes": [
+    "native-only",
+    "skill",
+    "external-discovery",
+    "coverage-gap",
+    "clarify"
+  ],
+  "cases": [
+    {
+      "id": "which-skill",
+      "prompt": "Which skill should I use to evaluate the systemic effects of a major policy change?",
+      "expected_activation": true,
+      "expected_outcome": "skill",
+      "reason": "The user explicitly asks for skill selection."
+    },
+    {
+      "id": "need-skill",
+      "prompt": "Do I need a skill for this, or can ChatGPT handle it directly?",
+      "expected_activation": true,
+      "expected_outcome": "native-only",
+      "reason": "The user explicitly asks whether a skill is needed."
+    },
+    {
+      "id": "smallest-set",
+      "prompt": "What is the smallest useful skill set for building an OpenAI Agents SDK starter?",
+      "expected_activation": true,
+      "expected_outcome": "skill",
+      "reason": "The user explicitly asks for the smallest skill set."
+    },
+    {
+      "id": "external-trust",
+      "prompt": "Is the external data-storyteller skill trustworthy enough to use?",
+      "expected_activation": true,
+      "expected_outcome": "external-discovery",
+      "reason": "The user asks for trust evaluation of an external skill."
+    },
+    {
+      "id": "compare-skills",
+      "prompt": "Compare the available CS skills for explaining a technical policy to non-technical managers.",
+      "expected_activation": true,
+      "expected_outcome": "skill",
+      "reason": "The user asks to compare CS skills."
+    },
+    {
+      "id": "coverage-question",
+      "prompt": "Does CS have a trusted skill for reconciling crypto tax lots across five exchanges?",
+      "expected_activation": true,
+      "expected_outcome": "coverage-gap",
+      "reason": "The user asks whether CS covers a specific job."
+    },
+    {
+      "id": "simple-math",
+      "prompt": "What is 17 times 4?",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "Simple arithmetic should remain a direct ChatGPT task."
+    },
+    {
+      "id": "weather",
+      "prompt": "What is the weather in Goiânia today?",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "Weather is a native tool task, not skill selection."
+    },
+    {
+      "id": "simple-translation",
+      "prompt": "Translate 'good morning' into Portuguese.",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "Simple translation does not need Navigator routing."
+    },
+    {
+      "id": "summarize-file",
+      "prompt": "Summarize the PDF I just uploaded.",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "Normal file summarization should not trigger Navigator."
+    },
+    {
+      "id": "ordinary-writing",
+      "prompt": "Write a short birthday message for my friend.",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "Ordinary writing should not trigger Navigator."
+    },
+    {
+      "id": "direct-explanation",
+      "prompt": "Explain API retries to a non-technical manager.",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "Navigator should not interrupt a direct task merely because a related skill exists."
+    }
+  ]
+}
