@@ -94,7 +94,7 @@ jobs:
           "$CLI" inspect openai-agents-sdk-builder | grep -q 'Recomendação: conditional'
           "$CLI" inspect openai-agents-sdk-builder | grep -q 'Execução: local-agent — evidência=tested'
           "$CLI" inspect regenerative-language-bridge | grep -q 'Execução: chat-native — evidência=designed'
-          "$CLI" inspect cs-navigator | grep -q 'Execução: chat-native — evidência=designed'
+          "$CLI" inspect cs-navigator | grep -q 'Execução: chat-native — evidência=tested'
           "$CLI" inspect chatgpt-apps-deployer | grep -q 'Integridade: tested'
           "$CLI" inspect dkyazzentwatwa/chatgpt-skills | grep -q 'Confiança: not-evaluated'
           "$CLI" inspect https://github.com/dkyazzentwatwa/chatgpt-skills | grep -q 'Licença: unresolved'
