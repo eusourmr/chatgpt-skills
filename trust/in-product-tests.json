@@ -418,6 +418,126 @@
           "expected_activation": false
         }
       ]
+    },
+    {
+      "id": "cs-navigator-chatgpt-v6-intent-router-r3",
+      "skill_id": "cs-navigator",
+      "surface": "chatgpt-skills",
+      "execution_mode": "chat-native",
+      "required_distribution": "github-pinned",
+      "required_source_revision": "f085f0dd111062e5a2a3189c5efbc66642c0ba51",
+      "required_artifact_sha256": "7248edaeaee214c3ee405bd6af2fb49855b3af322a5e3005c69b4fba2611cddc",
+      "minimum_cases": 12,
+      "supersedes": "cs-navigator-chatgpt-v5-intent-router-r2",
+      "change_note": "Re-qualifies Intent Router I after explicit invocation failed to route and the skill added explicit invocation precedence. Uses the exact r3 artifact.",
+      "evaluation_policy": "semantic-outcome-and-activation",
+      "cases": [
+        {
+          "id": "explicit-language-bridge",
+          "invocation": "explicit",
+          "prompt": "Preciso explicar uma política técnica de retry de API para gestores não técnicos sem perder as ressalvas.",
+          "expected_skill_ids": [
+            "regenerative-language-bridge"
+          ],
+          "expected_outcome": "skill",
+          "must_not_claim_tested": true
+        },
+        {
+          "id": "explicit-agents-sdk",
+          "invocation": "explicit",
+          "prompt": "Quero criar um starter mínimo usando OpenAI Agents SDK.",
+          "expected_skill_ids": [
+            "openai-agents-sdk-builder"
+          ],
+          "expected_outcome": "skill",
+          "must_disclose_setup": true
+        },
+        {
+          "id": "explicit-coverage-gap",
+          "invocation": "explicit",
+          "prompt": "O CS tem uma skill confiável para conciliar lotes fiscais de criptomoedas em cinco exchanges?",
+          "expected_skill_ids": [],
+          "expected_outcome": "coverage-gap"
+        },
+        {
+          "id": "explicit-external-trust",
+          "invocation": "explicit",
+          "prompt": "Vi uma skill chamada data-storyteller em um repositório externo. Ela é confiável o suficiente para eu usar?",
+          "expected_skill_ids": [],
+          "expected_outcome": "external-discovery",
+          "must_include_trust_state": "not-evaluated",
+          "must_not_assign_trust_score": true
+        },
+        {
+          "id": "implicit-which-skill",
+          "invocation": "implicit",
+          "prompt": "Qual skill devo usar para avaliar os efeitos sistêmicos de uma decisão importante?",
+          "expected_skill_ids": [
+            "regenerative-impact-map"
+          ],
+          "expected_outcome": "skill",
+          "expected_activation": true
+        },
+        {
+          "id": "implicit-need-skill",
+          "invocation": "implicit",
+          "prompt": "Preciso saber se esta tarefa realmente precisa de uma skill ou se o próprio ChatGPT já resolve sozinho: resumir um PDF que vou enviar.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": true
+        },
+        {
+          "id": "implicit-external-trust",
+          "invocation": "implicit",
+          "prompt": "Vi uma skill chamada data-storyteller em um repositório externo. Ela é confiável o suficiente para eu usar?",
+          "expected_skill_ids": [],
+          "expected_outcome": "external-discovery",
+          "expected_activation": true,
+          "must_include_trust_state": "not-evaluated",
+          "must_not_assign_trust_score": true
+        },
+        {
+          "id": "implicit-coverage-question",
+          "invocation": "implicit",
+          "prompt": "O CS tem uma skill confiável para conciliar lotes fiscais de criptomoedas em cinco exchanges?",
+          "expected_skill_ids": [],
+          "expected_outcome": "coverage-gap",
+          "expected_activation": true
+        },
+        {
+          "id": "negative-simple-math",
+          "invocation": "implicit",
+          "prompt": "Quanto é 17 × 4?",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false,
+          "expected_answer": "68"
+        },
+        {
+          "id": "negative-simple-translation",
+          "invocation": "implicit",
+          "prompt": "Traduza “good morning” para português.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false
+        },
+        {
+          "id": "negative-ordinary-writing",
+          "invocation": "implicit",
+          "prompt": "Escreva uma mensagem curta de aniversário para um amigo.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false
+        },
+        {
+          "id": "negative-direct-explanation",
+          "invocation": "implicit",
+          "prompt": "Explique de forma simples o que é uma API.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false
+        }
+      ]
     }
   ]
 }
