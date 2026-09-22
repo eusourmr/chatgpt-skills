@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "policy": "Automatic activation should occur for capability-selection intent, not merely because ChatGPT can perform a normal task.",
+  "policy": "Automatic activation is based on capability-selection intent, never task subject matter alone. If the user is simply asking ChatGPT to do the work, Navigator stays out.",
   "outcomes": [
     "native-only",
     "skill",
@@ -92,6 +92,34 @@
       "expected_activation": false,
       "expected_outcome": "native-only",
       "reason": "Navigator should not interrupt a direct task merely because a related skill exists."
+    },
+    {
+      "id": "direct-systemic-analysis",
+      "prompt": "Evaluate the systemic effects of this decision on people, knowledge, resources, and indirect impacts.",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "A direct analysis request is not capability selection, even though regenerative-impact-map is related."
+    },
+    {
+      "id": "direct-agents-starter",
+      "prompt": "Create a minimal OpenAI Agents SDK starter for me.",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "A direct build request should not activate Navigator merely because a matching catalog skill exists."
+    },
+    {
+      "id": "direct-spreadsheet-analysis",
+      "prompt": "Analyze this spreadsheet and point out the main risks.",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "Normal analysis with native file capabilities should remain direct."
+    },
+    {
+      "id": "workflow-selection-without-skill-word",
+      "prompt": "Should I use a reusable workflow for this, or can ChatGPT just handle it directly?",
+      "expected_activation": true,
+      "expected_outcome": "native-only",
+      "reason": "The user is explicitly deciding about capability/workflow selection even without saying skill."
     }
   ]
 }
