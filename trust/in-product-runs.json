@@ -51,6 +51,109 @@
           "observed": "Answered 17 × 4 = 68 and recommended no skill, but omitted the contractually required explicit no-additional-skill statement."
         }
       ]
+    },
+    {
+      "test_id": "cs-navigator-chatgpt-v2",
+      "skill_id": "cs-navigator",
+      "result": "fail",
+      "executed_at": "2026-09-22T09:09:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.4.0",
+      "distribution": "github-pinned",
+      "source_revision": "bd1f0de36e9b717d1d04d2469264d067696b66f5",
+      "artifact_sha256": "76d569125848ff4bb628ee9168a4887c0e8aee95ef861b4cd568c64190cc4d50",
+      "case_ids": [
+        "plain-language-technical-bridge",
+        "agents-sdk-starter",
+        "systemic-decision-impact",
+        "coverage-gap",
+        "external-source-boundary",
+        "no-skill-needed"
+      ],
+      "assertions": [
+        {
+          "case_id": "plain-language-technical-bridge",
+          "pass": true,
+          "observed": "Recommended only regenerative-language-bridge, reported chat-native, kept evidence at designed, and required no setup."
+        },
+        {
+          "case_id": "agents-sdk-starter",
+          "pass": true,
+          "observed": "Recommended only openai-agents-sdk-builder, reported local-agent, disclosed local files/runtime/API key setup, and added no unnecessary skill."
+        },
+        {
+          "case_id": "systemic-decision-impact",
+          "pass": true,
+          "observed": "Recommended only regenerative-impact-map, reported chat-native, and added no unnecessary skill."
+        },
+        {
+          "case_id": "coverage-gap",
+          "pass": true,
+          "observed": "Reported a real coverage gap for crypto tax work, kept crypto-ta-analyzer as external indexed/not-evaluated, and did not force-fit it."
+        },
+        {
+          "case_id": "external-source-boundary",
+          "pass": true,
+          "observed": "Kept data-storyteller at indexed/not-evaluated, disclosed unresolved license and warnings, and did not call it trusted."
+        },
+        {
+          "case_id": "no-skill-needed",
+          "pass": false,
+          "observed": "Answered 17 × 4 = 68 and recommended no skill, but omitted the v2 contract's explicit marker sentence."
+        }
+      ]
+    },
+    {
+      "test_id": "cs-navigator-chatgpt-v3",
+      "skill_id": "cs-navigator",
+      "result": "pass",
+      "executed_at": "2026-09-22T09:09:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.4.0",
+      "distribution": "github-pinned",
+      "source_revision": "bd1f0de36e9b717d1d04d2469264d067696b66f5",
+      "artifact_sha256": "76d569125848ff4bb628ee9168a4887c0e8aee95ef861b4cd568c64190cc4d50",
+      "case_ids": [
+        "plain-language-technical-bridge",
+        "agents-sdk-starter",
+        "systemic-decision-impact",
+        "coverage-gap",
+        "external-source-boundary",
+        "no-skill-needed"
+      ],
+      "evaluation_note": "Same six native responses as v2, re-evaluated under the versioned semantic-outcome criterion. No execution is hidden or rewritten.",
+      "assertions": [
+        {
+          "case_id": "plain-language-technical-bridge",
+          "pass": true,
+          "observed": "Recommended only regenerative-language-bridge, reported chat-native, kept evidence at designed, and required no setup."
+        },
+        {
+          "case_id": "agents-sdk-starter",
+          "pass": true,
+          "observed": "Recommended only openai-agents-sdk-builder, reported local-agent, disclosed local files/runtime/API key setup, and added no unnecessary skill."
+        },
+        {
+          "case_id": "systemic-decision-impact",
+          "pass": true,
+          "observed": "Recommended only regenerative-impact-map, reported chat-native, and added no unnecessary skill."
+        },
+        {
+          "case_id": "coverage-gap",
+          "pass": true,
+          "observed": "Reported a real coverage gap for crypto tax work, kept crypto-ta-analyzer as external indexed/not-evaluated, and did not force-fit it."
+        },
+        {
+          "case_id": "external-source-boundary",
+          "pass": true,
+          "observed": "Kept data-storyteller at indexed/not-evaluated, disclosed unresolved license and warnings, and did not call it trusted."
+        },
+        {
+          "case_id": "no-skill-needed",
+          "pass": true,
+          "observed": "Answered 17 × 4 = 68 and recommended no additional skill. The explicit marker was omitted, which is acceptable under v3 semantic evaluation."
+        }
+      ]
     }
   ]
 }
