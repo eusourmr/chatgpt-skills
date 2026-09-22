@@ -154,6 +154,70 @@
           "observed": "Answered 17 × 4 = 68 and recommended no additional skill. The explicit marker was omitted, which is acceptable under v3 semantic evaluation."
         }
       ]
+    },
+    {
+      "test_id": "cs-navigator-chatgpt-v8-simple-gate",
+      "skill_id": "cs-navigator",
+      "result": "pass",
+      "executed_at": "2026-09-22T18:18:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.5.1",
+      "distribution": "github-pinned",
+      "source_revision": "98bb308997e679b47f5c3da02c9edbdae4a06026",
+      "artifact_sha256": "5cbdce20703e7cb43dd75ea6a11718cf3f5303b7904e92e457361f13c99d0992",
+      "case_ids": [
+        "direct-systemic-analysis",
+        "select-systemic-skill",
+        "direct-agents-starter",
+        "select-agents-skill",
+        "need-skill-pdf-summary",
+        "external-trust-boundary",
+        "coverage-gap-crypto-tax",
+        "negative-simple-math"
+      ],
+      "evaluation_note": "Native ChatGPT qualification of the 0.5.1 Simple Gate. The artifact was tested as-is; later evidence-only repository commits do not change the qualified skill bytes.",
+      "assertions": [
+        {
+          "case_id": "direct-systemic-analysis",
+          "pass": true,
+          "observed": "Performed the concrete systemic analysis directly and did not recommend regenerative-impact-map or another skill."
+        },
+        {
+          "case_id": "select-systemic-skill",
+          "pass": true,
+          "observed": "Capability-selection wording activated routing and recommended only regenerative-impact-map, with chat-native execution and designed-not-tested evidence."
+        },
+        {
+          "case_id": "direct-agents-starter",
+          "pass": true,
+          "observed": "Created and validated a minimal Agents SDK starter directly, including files and run instructions, without recommending openai-agents-sdk-builder."
+        },
+        {
+          "case_id": "select-agents-skill",
+          "pass": true,
+          "observed": "Capability-selection wording recommended only openai-agents-sdk-builder, disclosed local files/runtime requirements, and preserved tested execution evidence with the live end-to-end gap."
+        },
+        {
+          "case_id": "need-skill-pdf-summary",
+          "pass": true,
+          "observed": "Recognized capability-selection intent but chose native-only, explicitly stating that ChatGPT can summarize the PDF without an additional skill."
+        },
+        {
+          "case_id": "external-trust-boundary",
+          "pass": true,
+          "observed": "Kept data-storyteller at indexed/not-evaluated, assigned no trust score, separated upstream claims from CS evidence, and stated that discovery is not validation."
+        },
+        {
+          "case_id": "coverage-gap-crypto-tax",
+          "pass": true,
+          "observed": "Reported a coverage gap, rejected force-fitting crypto-ta-analyzer, preserved its indexed/not-evaluated state, and described the missing tax-lot capabilities."
+        },
+        {
+          "case_id": "negative-simple-math",
+          "pass": true,
+          "observed": "Answered 17 × 4 = 68 directly with no skill, catalog, Navigator, or routing commentary."
+        }
+      ]
     }
   ]
 }
