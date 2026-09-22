@@ -58,6 +58,10 @@ const ui = plugin.extensions?.['com.openai']?.interface || {};
 expect(plugin.version === p.version, 'plugin.json version must match submission version');
 expect(ui.displayName === l.display_name, 'plugin displayName must match submission listing');
 expect(ui.shortDescription === l.short_description, 'plugin shortDescription must match submission listing');
+expect(ui.composerIcon === './assets/cs-icon.png', 'plugin composerIcon must point to ./assets/cs-icon.png');
+expect(ui.logo === './assets/cs-icon.png', 'plugin logo must point to ./assets/cs-icon.png');
+expect(ui.privacyPolicyURL === l.privacy_url, 'plugin privacyPolicyURL must match submission listing');
+expect(ui.termsOfServiceURL === l.terms_url, 'plugin termsOfServiceURL must match submission listing');
 expect(plugin.mcp === undefined && plugin.mcpServers === undefined, 'plugin.json must not introduce MCP');
 
 if (errors.length) {
