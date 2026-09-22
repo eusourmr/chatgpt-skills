@@ -56,10 +56,10 @@
     },
     "cs-navigator": {
       "mode": "chat-native",
-      "evidence_state": "tested",
-      "minimum_setup": "Install/load CS Navigator with its bundled versioned catalog snapshot, then describe the job in the same chat.",
+      "evidence_state": "conditional",
+      "minimum_setup": "Install CS Navigator. Explicit @ invocation remains available; 0.5.1 also defines bounded implicit activation for capability-selection intent.",
       "required_capabilities": [],
-      "evidence": "Native ChatGPT Skills execution qualified 6/6 under cs-navigator-chatgpt-v3 against exact artifact SHA-256 76d569125848ff4bb628ee9168a4887c0e8aee95ef861b4cd568c64190cc4d50. Self-trust is authoritative in trust/execution.json, not in the bundled recommendation snapshot."
+      "evidence": "Historical evidence: the exact 0.5.0 artifact passed 6/6 native ChatGPT cases. Current 0.5.1 Intent Router bytes are not yet promoted to tested; they require explicit-invocation regression plus implicit-activation qualification."
     },
     "regenerative-adaptive-experiment": {
       "mode": "chat-native",
