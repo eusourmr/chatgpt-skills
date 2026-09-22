@@ -19,15 +19,15 @@ CASE_IDS = [
 
 def valid_run():
     return {
-        "test_id": "cs-navigator-chatgpt-v1",
+        "test_id": "cs-navigator-chatgpt-v3",
         "skill_id": "cs-navigator",
         "result": "pass",
         "executed_at": "2026-09-09T14:00:00Z",
         "product_surface": "chatgpt-skills",
         "package_version": "0.4.0",
         "distribution": "github-pinned",
-        "source_revision": "8b814c93980175fa61da141d659cfa28a8e6bd92",
-        "artifact_sha256": "1851dcc33a462f0a7503d42f2a5b0d5a4a27a8fe2e3977872da4d3c876e07f68",
+        "source_revision": "bd1f0de36e9b717d1d04d2469264d067696b66f5",
+        "artifact_sha256": "76d569125848ff4bb628ee9168a4887c0e8aee95ef861b4cd568c64190cc4d50",
         "case_ids": CASE_IDS,
         "assertions": [
             {"case_id": case_id, "pass": True, "observed": f"Observed expected behavior for {case_id}."}
