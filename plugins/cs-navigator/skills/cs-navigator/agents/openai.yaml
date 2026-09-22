@@ -1,4 +1,5 @@
 interface:
   display_name: "CS Navigator"
   short_description: "Route goals to trusted skills"
-  default_prompt: "Find the smallest useful skill set for this goal, or tell me if no additional skill is needed."
+  default_prompt: >-
+    Route this request before performing the underlying task. First choose exactly one CS Navigator outcome: native-only, skill, external-discovery, coverage-gap, or clarify. If the outcome is skill, explicitly name the exact skill ID(s), give the material evidence state, and stop before performing the underlying task. Do not skip routing merely because ChatGPT can complete the task itself.
