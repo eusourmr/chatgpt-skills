@@ -28,7 +28,11 @@
         "defaultPrompt": [
           "Use CS Navigator to find the smallest useful skill set for what I want to accomplish.",
           "Use CS Navigator to tell me whether this task needs a skill at all."
-        ]
+        ],
+        "privacyPolicyURL": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/PRIVACY.md",
+        "termsOfServiceURL": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/TERMS.md",
+        "composerIcon": "./assets/cs-icon.png",
+        "logo": "./assets/cs-icon.png"
       }
     }
   }
