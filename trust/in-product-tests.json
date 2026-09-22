@@ -588,6 +588,96 @@
           "expected_outcome": "coverage-gap"
         }
       ]
+    },
+    {
+      "id": "cs-navigator-chatgpt-v8-simple-gate",
+      "skill_id": "cs-navigator",
+      "surface": "chatgpt-skills",
+      "execution_mode": "chat-native",
+      "required_distribution": "github-pinned",
+      "required_source_revision": "98bb308997e679b47f5c3da02c9edbdae4a06026",
+      "required_artifact_sha256": "5cbdce20703e7cb43dd75ea6a11718cf3f5303b7904e92e457361f13c99d0992",
+      "minimum_cases": 8,
+      "change_note": "Qualifies the 0.5.1 Simple Gate: capability-selection intent activates routing, task subject matter alone does not, and trust/coverage boundaries remain intact.",
+      "evaluation_policy": "semantic-routing-and-anti-overrouting",
+      "cases": [
+        {
+          "id": "direct-systemic-analysis",
+          "invocation": "implicit",
+          "prompt": "Nossa empresa está pensando em reduzir o atendimento presencial de cinco para três dias por semana e concentrar parte do suporte no digital. Avalie os efeitos sistêmicos dessa decisão em pessoas, conhecimento, recursos e impactos indiretos.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false,
+          "must_not_recommend_skill": true
+        },
+        {
+          "id": "select-systemic-skill",
+          "invocation": "implicit",
+          "prompt": "Para avaliar decisões como reduzir atendimento presencial e migrar parte do suporte para o digital, existe alguma skill do CS que ajude a estruturar melhor a análise sistêmica?",
+          "expected_skill_ids": [
+            "regenerative-impact-map"
+          ],
+          "expected_outcome": "skill",
+          "expected_activation": true,
+          "must_not_claim_tested": true
+        },
+        {
+          "id": "direct-agents-starter",
+          "invocation": "implicit",
+          "prompt": "Crie um starter mínimo usando OpenAI Agents SDK.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false,
+          "must_not_recommend_skill": true
+        },
+        {
+          "id": "select-agents-skill",
+          "invocation": "implicit",
+          "prompt": "Qual skill do CS devo usar para criar um starter mínimo com OpenAI Agents SDK?",
+          "expected_skill_ids": [
+            "openai-agents-sdk-builder"
+          ],
+          "expected_outcome": "skill",
+          "expected_activation": true,
+          "must_disclose_setup": true
+        },
+        {
+          "id": "need-skill-pdf-summary",
+          "invocation": "implicit",
+          "prompt": "Preciso de uma skill para resumir um PDF que vou enviar ou o próprio ChatGPT resolve sozinho?",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": true
+        },
+        {
+          "id": "external-trust-boundary",
+          "invocation": "implicit",
+          "prompt": "A skill externa data-storyteller tem evidência suficiente no CS para ser considerada confiável?",
+          "expected_skill_ids": [],
+          "expected_outcome": "external-discovery",
+          "expected_activation": true,
+          "must_include_trust_state": "not-evaluated",
+          "must_not_assign_trust_score": true
+        },
+        {
+          "id": "coverage-gap-crypto-tax",
+          "invocation": "implicit",
+          "prompt": "O CS tem alguma skill confiável para conciliar lotes fiscais de criptomoedas em cinco exchanges?",
+          "expected_skill_ids": [],
+          "expected_outcome": "coverage-gap",
+          "expected_activation": true
+        },
+        {
+          "id": "negative-simple-math",
+          "invocation": "implicit",
+          "prompt": "Quanto é 17 × 4?",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false,
+          "expected_answer": "68",
+          "must_not_recommend_skill": true
+        }
+      ]
     }
   ]
 }
