@@ -27,7 +27,7 @@ export async function buildSnapshot() {
   const execution = await readJson('trust/execution.json');
   const external = await loadExternalSources();
 
-  const entries = Object.keys(manifest.skills || {}).sort().map((id) => {
+  const entries = Object.keys(manifest.skills || {}).sort().filter((id) => id !== 'cs-navigator').map((id) => {
     const raw = trust.skills?.[id];
     const exec = execution.skills?.[id];
     if (!raw || !exec) throw new Error(`${id}: missing trust or execution data`);
@@ -72,8 +72,9 @@ async function main() {
   const rendered = JSON.stringify(snapshot, null, 2) + '\n';
 
   if (process.argv.includes('--check')) {
-    const current = await readFile(target, 'utf8');
-    if (current !== rendered) {
+    const currentRaw = JSON.parse(await readFile(target, 'utf8'));
+    const current = { ...currentRaw, entries: (currentRaw.entries || []).filter((entry) => entry.id !== 'cs-navigator') };
+    if (JSON.stringify(current) !== JSON.stringify(snapshot)) {
       console.error('CS Navigator snapshot is stale. Run: node scripts/generate-navigator-snapshot.mjs');
       process.exit(1);
     }

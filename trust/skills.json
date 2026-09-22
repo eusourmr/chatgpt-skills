@@ -135,12 +135,13 @@
         "destructive_actions": "none required"
       },
       "usefulness": {
-        "state": "inspected",
-        "evidence": "navigation rules, source-preserving trust boundaries and deterministic catalog snapshot are validated in CI"
+        "state": "tested",
+        "evidence": "Native ChatGPT Skills execution passed all six versioned cases under cs-navigator-chatgpt-v3 against the exact tested artifact hash."
       },
       "known_gaps": [
-        "End-to-end recommendation behavior inside a qualifying ChatGPT Skills surface has not yet been promoted from designed to tested.",
-        "The bundled snapshot is intentionally finite and can report a coverage gap when a job is not represented."
+        "Implicit activation without an explicit @CS Navigator invocation has not yet been qualified.",
+        "The bundled snapshot is intentionally finite and can report a coverage gap when a job is not represented.",
+        "The tested artifact contains a legacy self-entry marked designed; that self-entry is non-authoritative. Current self-trust is held in the external Trust Layer."
       ]
     },
     "regenerative-adaptive-experiment": {
@@ -157,7 +158,9 @@
         "state": "inspected",
         "evidence": "instruction-only skill passed repository regenerative design gates and structural validation"
       },
-      "known_gaps": ["No dedicated outcome fixture measuring task-level effectiveness yet."]
+      "known_gaps": [
+        "No dedicated outcome fixture measuring task-level effectiveness yet."
+      ]
     },
     "regenerative-capability-exchange": {
       "name": "Regenerative Capability Exchange",
@@ -173,7 +176,9 @@
         "state": "inspected",
         "evidence": "instruction-only skill passed repository regenerative design gates and structural validation"
       },
-      "known_gaps": ["No dedicated outcome fixture measuring task-level effectiveness yet."]
+      "known_gaps": [
+        "No dedicated outcome fixture measuring task-level effectiveness yet."
+      ]
     },
     "regenerative-impact-map": {
       "name": "Regenerative Impact Map",
@@ -189,7 +194,9 @@
         "state": "inspected",
         "evidence": "instruction-only skill passed repository regenerative design gates and structural validation"
       },
-      "known_gaps": ["No dedicated outcome fixture measuring task-level effectiveness yet."]
+      "known_gaps": [
+        "No dedicated outcome fixture measuring task-level effectiveness yet."
+      ]
     },
     "regenerative-knowledge-commons": {
       "name": "Regenerative Knowledge Commons",
@@ -205,7 +212,9 @@
         "state": "inspected",
         "evidence": "instruction-only skill passed repository regenerative design gates and structural validation"
       },
-      "known_gaps": ["No dedicated outcome fixture measuring task-level effectiveness yet."]
+      "known_gaps": [
+        "No dedicated outcome fixture measuring task-level effectiveness yet."
+      ]
     },
     "regenerative-language-bridge": {
       "name": "Regenerative Language Bridge",
@@ -221,7 +230,9 @@
         "state": "inspected",
         "evidence": "instruction-only skill passed repository regenerative design gates and structural validation"
       },
-      "known_gaps": ["No dedicated outcome fixture measuring task-level effectiveness yet."]
+      "known_gaps": [
+        "No dedicated outcome fixture measuring task-level effectiveness yet."
+      ]
     },
     "regenerative-listening-loop": {
       "name": "Regenerative Listening Loop",
@@ -237,7 +248,9 @@
         "state": "inspected",
         "evidence": "instruction-only skill passed repository regenerative design gates and structural validation"
       },
-      "known_gaps": ["No dedicated outcome fixture measuring task-level effectiveness yet."]
+      "known_gaps": [
+        "No dedicated outcome fixture measuring task-level effectiveness yet."
+      ]
     },
     "regenerative-participatory-decision": {
       "name": "Regenerative Participatory Decision",
@@ -253,7 +266,9 @@
         "state": "inspected",
         "evidence": "instruction-only skill passed repository regenerative design gates and structural validation"
       },
-      "known_gaps": ["No dedicated outcome fixture measuring task-level effectiveness yet."]
+      "known_gaps": [
+        "No dedicated outcome fixture measuring task-level effectiveness yet."
+      ]
     },
     "regenerative-resilience-plan": {
       "name": "Regenerative Resilience Plan",
@@ -269,7 +284,9 @@
         "state": "inspected",
         "evidence": "instruction-only skill passed repository regenerative design gates and structural validation"
       },
-      "known_gaps": ["No dedicated outcome fixture measuring task-level effectiveness yet."]
+      "known_gaps": [
+        "No dedicated outcome fixture measuring task-level effectiveness yet."
+      ]
     }
   }
 }

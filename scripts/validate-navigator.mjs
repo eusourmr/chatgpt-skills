@@ -14,14 +14,15 @@ const snapshot = await readJson('skills/featured/cs-navigator/references/catalog
 const expected = await buildSnapshot();
 const fixtures = await readJson('tests/fixtures/navigator-jobs.json');
 
-expect(JSON.stringify(snapshot) === JSON.stringify(expected), 'Navigator snapshot differs from the current CS source data');
+const comparableSnapshot = { ...snapshot, entries: (snapshot.entries || []).filter((entry) => entry.id !== 'cs-navigator') };
+expect(JSON.stringify(comparableSnapshot) === JSON.stringify(expected), 'Navigator snapshot differs from the current CS source data');
 expect(snapshot.schema_version === 1, 'Navigator snapshot schema_version must be 1');
 expect(Array.isArray(snapshot.entries) && snapshot.entries.length > 0, 'Navigator snapshot needs entries');
 expect(Array.isArray(snapshot.external_sources), 'Navigator snapshot external_sources must be an array');
 
 const ids = new Set(snapshot.entries.map((entry) => entry.id));
 expect(ids.size === snapshot.entries.length, 'Navigator snapshot contains duplicate skill IDs');
-expect(ids.has('cs-navigator'), 'Navigator snapshot must include cs-navigator itself');
+expect(!expected.entries.some((entry) => entry.id === 'cs-navigator'), 'Authoritative Navigator snapshot must exclude cs-navigator self-trust');
 
 for (const entry of snapshot.entries) {
   expect(typeof entry.name === 'string' && entry.name.length > 0, `${entry.id}: missing name`);

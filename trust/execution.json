@@ -7,42 +7,59 @@
     "connected": "Core job requires an external app, plugin, MCP server, API, OAuth connection, or other connected provider.",
     "local-agent": "Core deterministic workflow materially depends on a local filesystem, CLI, executable script, or agent runtime."
   },
-  "evidence_states": ["designed", "tested", "conditional", "unknown"],
+  "evidence_states": [
+    "designed",
+    "tested",
+    "conditional",
+    "unknown"
+  ],
   "skills": {
     "openai-agents-sdk-builder": {
       "mode": "local-agent",
       "evidence_state": "tested",
       "minimum_setup": "Local agent/runtime with filesystem access; generated app later needs OpenAI API credentials to run.",
-      "required_capabilities": ["local-files", "local-runtime"],
+      "required_capabilities": [
+        "local-files",
+        "local-runtime"
+      ],
       "evidence": "Packaged smoke tests exercise the deterministic scaffolder; this does not prove an equivalent complete workflow inside ChatGPT."
     },
     "realtime-api-integration": {
       "mode": "local-agent",
       "evidence_state": "tested",
       "minimum_setup": "Local Node/runtime and filesystem access; generated integration later needs network access and OpenAI API credentials.",
-      "required_capabilities": ["local-files", "local-runtime"],
+      "required_capabilities": [
+        "local-files",
+        "local-runtime"
+      ],
       "evidence": "Packaged smoke tests exercise deterministic starter generation; live Realtime execution remains a separate evidence gap."
     },
     "chatgpt-apps-deployer": {
       "mode": "local-agent",
       "evidence_state": "tested",
       "minimum_setup": "Local filesystem/runtime for deterministic release-manifest generation.",
-      "required_capabilities": ["local-files", "local-runtime"],
+      "required_capabilities": [
+        "local-files",
+        "local-runtime"
+      ],
       "evidence": "Manifest generation is directly tested; platform submission or approval is not performed by the skill."
     },
     "codex-pr-reviewer": {
       "mode": "local-agent",
       "evidence_state": "tested",
       "minimum_setup": "Local filesystem/runtime to validate rules and generate the deterministic review prompt.",
-      "required_capabilities": ["local-files", "local-runtime"],
+      "required_capabilities": [
+        "local-files",
+        "local-runtime"
+      ],
       "evidence": "Prompt generation is directly tested; fetching and reviewing a live pull request happens on another surface."
     },
     "cs-navigator": {
       "mode": "chat-native",
-      "evidence_state": "designed",
+      "evidence_state": "tested",
       "minimum_setup": "Install/load CS Navigator with its bundled versioned catalog snapshot, then describe the job in the same chat.",
       "required_capabilities": [],
-      "evidence": "The core recommendation workflow requires only skill instructions and a bundled immutable reference snapshot; no external account, network, local runtime or gateway is required."
+      "evidence": "Native ChatGPT Skills execution qualified 6/6 under cs-navigator-chatgpt-v3 against exact artifact SHA-256 76d569125848ff4bb628ee9168a4887c0e8aee95ef861b4cd568c64190cc4d50. Self-trust is authoritative in trust/execution.json, not in the bundled recommendation snapshot."
     },
     "regenerative-adaptive-experiment": {
       "mode": "chat-native",
