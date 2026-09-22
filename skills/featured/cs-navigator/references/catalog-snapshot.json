@@ -39,19 +39,6 @@
       ]
     },
     {
-      "id": "cs-navigator",
-      "name": "CS Navigator",
-      "summary": "Turns a plain-language job into the smallest evidence-backed ChatGPT Skills recommendation using a versioned local catalog snapshot.",
-      "recommendation": "conditional",
-      "execution_mode": "chat-native",
-      "execution_evidence": "designed",
-      "required_capabilities": [],
-      "known_gaps": [
-        "End-to-end recommendation behavior inside a qualifying ChatGPT Skills surface has not yet been promoted from designed to tested.",
-        "The bundled snapshot is intentionally finite and can report a coverage gap when a job is not represented."
-      ]
-    },
-    {
       "id": "openai-agents-sdk-builder",
       "name": "OpenAI Agents SDK Builder",
       "summary": "Scaffolds a minimal Agents SDK project and guides production hardening.",
