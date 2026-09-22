@@ -17,6 +17,19 @@ Read `references/catalog-snapshot.json` before making a skill recommendation.
 
 CS Navigator may be explicitly invoked or selected automatically when useful.
 
+### Explicit invocation precedence
+
+When the user explicitly invokes `@CS Navigator`, treat the request as a capability-selection request by default. Route the goal before doing the underlying task.
+
+- If a CS skill materially fits the goal, recommend the smallest useful set.
+- If no additional skill is needed, return `native-only`.
+- If the catalog does not cover the job, return `coverage-gap`.
+- If an external candidate is only indexed/not-evaluated, return `external-discovery`.
+- Do not silently switch into ordinary task execution merely because ChatGPT can answer the request itself.
+- Only skip routing after explicit invocation when the user clearly asks to bypass recommendation and just perform the task.
+
+The anti-activation rules below apply to **implicit** activation, not to an explicit `@CS Navigator` call.
+
 Strong activation signals:
 - the user asks which skill, plugin, workflow, or capability to use;
 - the user asks whether a task needs a skill at all;
