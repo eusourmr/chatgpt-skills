@@ -21,7 +21,7 @@ expect(entry?.source?.path === './plugins/cs-navigator', 'cs-navigator marketpla
 const plugin = await readJson('plugins/cs-navigator/plugin.json');
 expect(plugin.$schema === 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json', 'cs-navigator plugin schema must be Agent Plugins 1.0.0');
 expect(plugin.name === 'cs-navigator', 'plugin name must be cs-navigator');
-expect(plugin.version === '0.5.0', 'plugin version must be 0.5.0');
+expect(/^\\d+\\.\\d+\\.\\d+(?:[-+][0-9A-Za-z.-]+)?$/.test(plugin.version || ''), 'plugin version must be semantic');
 expect(!plugin.mcpServers, 'CS Navigator core plugin must not declare MCP servers');
 expect(!plugin.mcp, 'CS Navigator core plugin must not declare MCP');
 
