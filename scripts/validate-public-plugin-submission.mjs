@@ -11,7 +11,8 @@ const expect = (ok, msg) => { if (!ok) errors.push(msg); };
 const oneLine = (s) => typeof s === 'string' && s.length > 0 && !/[\r\n\u2028\u2029]/u.test(s);
 const httpsUrl = (s) => { try { const u = new URL(s); return u.protocol === 'https:' && !u.username && !u.password; } catch { return false; } };
 
-const s = await readJson('submission/cs-navigator-0.5.0.json');
+const plugin = await readJson('plugins/cs-navigator/plugin.json');
+const s = await readJson(`submission/cs-navigator-${plugin.version}.json`);
 const p = s.plugin || {};
 const l = s.listing || {};
 const a = s.architecture || {};
@@ -53,7 +54,6 @@ for (const group of ['positive','negative']) {
   }
 }
 
-const plugin = await readJson('plugins/cs-navigator/plugin.json');
 const ui = plugin.extensions?.['com.openai']?.interface || {};
 expect(plugin.version === p.version, 'plugin.json version must match submission version');
 expect(ui.displayName === l.display_name, 'plugin displayName must match submission listing');
