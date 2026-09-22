@@ -20,8 +20,8 @@
     "com.openai": {
       "interface": {
         "displayName": "CS Navigator",
-        "shortDescription": "Find the smallest evidence-backed skill set",
-        "longDescription": "Describe what you want to accomplish and CS Navigator recommends the smallest useful skill set while keeping execution mode, evidence, setup, and known gaps visible.",
+        "shortDescription": "Find trusted skills",
+        "longDescription": "Describe what you want to accomplish and CS Navigator finds the smallest useful evidence-backed skill set, while keeping execution mode, trust evidence, setup requirements, and known gaps visible.",
         "developerName": "ChatGPT Skills",
         "category": "Productivity",
         "websiteURL": "https://github.com/eusourmr/chatgpt-skills",
