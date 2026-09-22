@@ -56,10 +56,10 @@
     },
     "cs-navigator": {
       "mode": "chat-native",
-      "evidence_state": "conditional",
-      "minimum_setup": "Install CS Navigator. Explicit @ invocation remains available; 0.5.1 also defines bounded implicit activation for capability-selection intent.",
+      "evidence_state": "tested",
+      "minimum_setup": "Install CS Navigator. It runs chat-native with no mandatory external app, local runtime, or added network dependency.",
       "required_capabilities": [],
-      "evidence": "Historical evidence: the exact 0.5.0 artifact passed 6/6 native ChatGPT cases. Current 0.5.1 Intent Router bytes are not yet promoted to tested; they require explicit-invocation regression plus implicit-activation qualification."
+      "evidence": "The exact 0.5.1 Simple Gate artifact passed 8/8 native ChatGPT qualification cases on the chatgpt-skills surface, covering direct-task anti-overrouting, capability-selection routing, native-only, external trust boundary, coverage gap, and simple-task anti-activation."
     },
     "regenerative-adaptive-experiment": {
       "mode": "chat-native",
