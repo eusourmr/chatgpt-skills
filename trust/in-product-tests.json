@@ -538,6 +538,56 @@
           "expected_activation": false
         }
       ]
+    },
+    {
+      "id": "cs-navigator-chatgpt-v7-explicit-routing-intent",
+      "skill_id": "cs-navigator",
+      "surface": "chatgpt-skills",
+      "execution_mode": "chat-native",
+      "required_distribution": "github-pinned",
+      "required_source_revision": "5b5550caaa44f4b2e844d2541dfd03145b7dea7f",
+      "required_artifact_sha256": "241f0e4100b44f52de96c238fe28e18133da003f6c301b6f1cbd4bea87191a64",
+      "minimum_cases": 4,
+      "change_note": "Supplemental explicit-invocation qualification for Intent Router I using capability-selection intent. Direct ordinary-task execution after selecting @CS Navigator is intentionally not a route-only acceptance criterion because native ChatGPT repeatedly treated the selected skill as the workflow to perform the task.",
+      "evaluation_policy": "semantic-routing-intent",
+      "cases": [
+        {
+          "id": "explicit-select-language-bridge",
+          "invocation": "explicit",
+          "prompt": "Qual skill do CS devo usar para explicar uma política técnica de retry de API para gestores não técnicos sem perder as ressalvas?",
+          "expected_skill_ids": [
+            "regenerative-language-bridge"
+          ],
+          "expected_outcome": "skill",
+          "must_not_claim_tested": true
+        },
+        {
+          "id": "explicit-select-agents-sdk",
+          "invocation": "explicit",
+          "prompt": "Qual skill do CS devo usar para criar um starter mínimo com OpenAI Agents SDK?",
+          "expected_skill_ids": [
+            "openai-agents-sdk-builder"
+          ],
+          "expected_outcome": "skill",
+          "must_disclose_setup": true
+        },
+        {
+          "id": "explicit-external-trust",
+          "invocation": "explicit",
+          "prompt": "A skill externa data-storyteller tem evidência suficiente no CS para ser considerada confiável?",
+          "expected_skill_ids": [],
+          "expected_outcome": "external-discovery",
+          "must_include_trust_state": "not-evaluated",
+          "must_not_assign_trust_score": true
+        },
+        {
+          "id": "explicit-coverage-gap",
+          "invocation": "explicit",
+          "prompt": "O CS tem alguma skill confiável para conciliar lotes fiscais de criptomoedas em cinco exchanges?",
+          "expected_skill_ids": [],
+          "expected_outcome": "coverage-gap"
+        }
+      ]
     }
   ]
 }
