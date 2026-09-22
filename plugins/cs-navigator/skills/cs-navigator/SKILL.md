@@ -1,6 +1,6 @@
 ---
 name: cs-navigator
-description: Route capability-selection questions to the smallest evidence-backed ChatGPT Skill set. Use when the user asks which skill, plugin, workflow, or capability to use; whether a task needs a skill at all; whether an external skill is trustworthy; or wants the smallest useful capability set for a goal. Do not activate for ordinary requests that ChatGPT can simply complete unless the user is asking for capability selection or a CS workflow materially changes the method.
+description: Route only capability-selection questions to the smallest evidence-backed ChatGPT Skill set. Use when the user is deciding which skill, plugin, workflow, or capability to use; whether any skill is needed; whether CS covers a job; or whether an external skill has enough evidence to trust. Do not activate from task subject matter alone. Direct requests to write, explain, summarize, translate, calculate, analyze, research, or create should stay with ChatGPT unless the user is explicitly asking about capability selection.
 ---
 
 # CS Navigator
@@ -9,23 +9,53 @@ Help the user move from **“I want to do this”** to the smallest useful capab
 
 ## Core rule
 
-Use ChatGPT first. Add a skill only when it contributes a reusable method, criterion, safeguard, reference, or workflow that materially improves the job. Add native tools, apps, MCP, APIs, or local runtimes only when the job truly requires them.
+Use ChatGPT first. A skill is optional, not the default.
 
-Read `references/catalog-snapshot.json` before making a skill recommendation.
+Before recommending any skill, apply this necessity test:
+
+1. Can ChatGPT complete the user's requested outcome directly with native capabilities?
+2. Did the user actually ask for capability selection, a reusable workflow, a trust decision, or CS coverage?
+3. Would the skill add a **material** method, safeguard, reference, or workflow rather than merely restating what ChatGPT can already do?
+
+If the answer to **2** is no, do not recommend a skill.
+If the answer to **3** is no, choose `native-only`.
+When uncertain between `native-only` and `skill`, choose `native-only`.
+
+Add native tools, apps, MCP, APIs, or local runtimes only when the job truly requires them.
+
+Read `references/catalog-snapshot.json` only after the request passes this gate.
 
 ## Activation policy
 
-CS Navigator may be explicitly invoked or selected automatically when useful.
+Use a simple gate:
 
-Strong activation signals:
-- the user asks which skill, plugin, workflow, or capability to use;
-- the user asks whether a task needs a skill at all;
-- the user asks for the smallest useful skill/capability set;
-- the user asks whether a candidate or external skill has enough evidence to trust;
-- the user asks to compare or compose skills for a job;
-- the user asks whether CS covers a job.
+**Is the user deciding about capabilities?**
+- **No:** stay out of the way. Do not recommend a skill.
+- **Yes:** route the request.
 
-Do **not** activate merely because a normal task is possible. Stay out of the way for direct requests such as simple arithmetic, weather, translation, summarization, ordinary writing, or another task ChatGPT can simply perform unless the user is explicitly asking about capability selection.
+Capability-selection intent includes:
+- which skill, plugin, workflow, or capability to use;
+- whether a task needs a skill at all;
+- the smallest useful capability set;
+- whether CS covers a job;
+- whether an external skill has enough evidence to trust;
+- comparing or composing skills.
+
+### No content-only activation
+
+Task subject matter alone is **never** enough to activate CS Navigator.
+
+Examples that should stay native unless the user asks about capability selection:
+- “Explain API retries to a manager.”
+- “Summarize this PDF.”
+- “Analyze this spreadsheet.”
+- “Evaluate the systemic effects of this decision.”
+- “Write a message.”
+- “Translate this text.”
+- “Create an Agents SDK starter.”
+- “Research this topic.”
+
+A related skill may exist; that does not make it necessary.
 
 When activation is implicit, do not announce “CS Navigator activated.” The routing should feel like part of the conversation.
 
