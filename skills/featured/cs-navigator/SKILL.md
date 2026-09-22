@@ -13,30 +13,28 @@ Use ChatGPT first. Add a skill only when it contributes a reusable method, crite
 
 Read `references/catalog-snapshot.json` before making a skill recommendation.
 
-## Loaded-skill contract
+## Activation policy
 
-Activation boundaries belong primarily in the frontmatter `description`. Once this skill is loaded, **always act as a capability router first**.
+CS Navigator may be explicitly invoked or selected automatically when useful.
 
-Do not silently perform the user's underlying task before deciding the route.
+Strong activation signals:
+- the user asks which skill, plugin, workflow, or capability to use;
+- the user asks whether a task needs a skill at all;
+- the user asks for the smallest useful skill/capability set;
+- the user asks whether a candidate or external skill has enough evidence to trust;
+- the user asks to compare or compose skills for a job;
+- the user asks whether CS covers a job.
 
-When loaded:
+Do **not** activate merely because a normal task is possible. Stay out of the way for direct requests such as simple arithmetic, weather, translation, summarization, ordinary writing, or another task ChatGPT can simply perform unless the user is explicitly asking about capability selection.
 
-1. Identify the user's intended outcome.
-2. Choose one primary routing outcome from the section below.
-3. If a CS skill materially fits, recommend the smallest useful set.
-4. If no additional skill is needed, say so briefly as `native-only`.
-5. If the catalog does not cover the job, report `coverage-gap`.
-6. If an external candidate is only indexed/not-evaluated, report `external-discovery`.
-7. Only perform the underlying task immediately when the route is `native-only` **and** doing so is useful after the routing decision, or when the user explicitly asks to bypass recommendation.
-
-For ordinary direct tasks, the frontmatter description should prevent implicit activation. If the host nevertheless loads CS Navigator, preserve the routing behavior rather than pretending the skill was not loaded.
+When activation is implicit, do not announce “CS Navigator activated.” The routing should feel like part of the conversation.
 
 ## Routing outcomes
 
-Choose exactly one primary outcome before answering, and make that routing decision behaviorally visible:
+Choose exactly one primary outcome before answering:
 
 1. **native-only** — ChatGPT can complete the task without an additional skill.
-2. **skill** — one or more CS skills materially improve the job. For this outcome, explicitly name the skill ID and stop before doing the task.
+2. **skill** — one or more CS skills materially improve the job.
 3. **external-discovery** — an external candidate exists, but CS evidence is insufficient for a trust recommendation.
 4. **coverage-gap** — the current CS snapshot does not cover the job reliably.
 5. **clarify** — one short question is genuinely required because a missing constraint would change the route.
@@ -47,7 +45,7 @@ Prefer `native-only` over adding a skill with marginal value. Prefer one skill o
 
 1. Identify the intended outcome. Do not force the user to know a category or skill name.
 2. Select one routing outcome.
-3. If the outcome is `native-only`, state briefly that no additional skill is needed. You may then answer the user's task normally when useful.
+3. If the outcome is `native-only`, answer the user's task normally when possible. Do not add catalog commentary unless they asked why no skill is needed.
 4. If the outcome is `skill`, search the snapshot for the smallest useful set.
 5. Prefer `chat-native` when sufficient, then `native-tools`; use `connected` or `local-agent` only when the capability cannot stay inside the chat.
 6. Prefer stronger evidence, but never turn catalog status, popularity, or an upstream claim into execution proof.
@@ -59,21 +57,12 @@ Prefer `native-only` over adding a skill with marginal value. Prefer one skill o
 
 Use the user's language.
 
-### Mandatory routing output
-
-When the primary outcome is `skill`, do **not** perform the underlying task in the same turn. Stop after routing and expose the recommendation explicitly.
-
-The response must begin with:
-
-- **Recommended:** exact skill ID(s).
+For a skill recommendation, keep the default response compact:
+- **Recommended:** skill ID(s).
 - **Why:** one concise reason per skill.
-- **Evidence:** current evidence state when material (for example, `designed`, `tested`, or `conditional`).
 - **Execution:** only when it changes what the user must do.
+- **Evidence / gap:** only the material trust limitation.
 - **Next:** the simplest action to continue in the same chat.
-
-Do not replace this routing block with a completed answer, even when you already know how to perform the requested task. After recommending the skill, wait for the user to continue or explicitly ask you to perform the task.
-
-For `native-only`, `external-discovery`, and `coverage-gap`, follow their dedicated rules and keep the answer concise.
 
 Do not expose internal catalog mechanics unless they help the user decide.
 
