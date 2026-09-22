@@ -13,7 +13,19 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 ## 🚀 Comece em 1 minuto
 
-Instalação interativa pelo npm:
+A versão `0.5.0` está sendo preparada em torno do princípio **Chat-Native First**: o CS Navigator já foi qualificado nativamente no ChatGPT, e o caminho preferido de distribuição passa a ser um marketplace gerenciado pelo GitHub, sem upload manual de ZIP.
+
+Em um workspace ChatGPT compatível, importe este repositório como marketplace de plugins:
+
+```text
+Origem: https://github.com/eusourmr/chatgpt-skills
+Caminho: (deixe vazio)
+Branch: main
+```
+
+O marketplace disponibiliza o plugin **CS Navigator**, composto somente pela skill. O GitHub é a fonte gerenciada; o ChatGPT importa/sincroniza o plugin e pode atualizar sob demanda com **Sync now**. O núcleo do Navigator não precisa de MCP, chave de API, servidor ou gateway de terceiros. Veja [Distribuição via GitHub](docs/GITHUB_PLUGIN_DISTRIBUTION.md).
+
+Caminho de compatibilidade pelo npm:
 
 ```bash
 npx chatgpt-skills install
@@ -41,7 +53,7 @@ npx chatgpt-skills install --bundle education --tool cursor --scope project --ye
 npx chatgpt-skills install --bundle data-analyst --tool agents-portable --scope project --yes
 ```
 
-Para o ChatGPT, o CLI apenas prepara os arquivos para upload manual e **não afirma instalação direta no ChatGPT Web**:
+Para superfícies do ChatGPT que ainda não suportem importação de marketplace pelo GitHub, o CLI continua gerando ZIPs como **fallback de compatibilidade**:
 
 ```bash
 npx chatgpt-skills install --bundle openai-ecosystem --tool chatgpt-web --yes
@@ -157,7 +169,7 @@ Cada pasta `skills/<nome>/` segue a estrutura de uma skill independente. Skills 
 Use $regenerative-impact-map para comparar esta decisão nas cinco áreas.
 ```
 
-Para usar essas skills no ChatGPT web, mobile ou Work, será preciso empacotá-las como plugin; esta versão ainda não declara essa forma de distribuição.
+Na v0.5, o CS Navigator já possui distribuição como plugin via marketplace GitHub. As demais skills continuam sendo expandidas de forma conservadora conforme cada superfície for testada.
 
 ## O que pode entrar
 
