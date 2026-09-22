@@ -68,6 +68,20 @@ Do not expose internal catalog mechanics unless they help the user decide.
 
 If no additional skill is needed, there is **no required boilerplate sentence**. Solve the task normally. If the user explicitly asked whether a skill is needed, say briefly that no additional skill is needed.
 
+## External trust boundary
+
+For an external skill whose CS trust state is `not-evaluated`:
+
+- Say plainly that CS does not yet have enough evidence to recommend it as trusted.
+- Preserve the exact boundary: discovery/source inspection is not trust validation.
+- Do not invent or assign a trust score, rating, tier, confidence percentage, safety label, or "use with caution" verdict.
+- Do not convert popularity, documentation quality, repository activity, self-audit claims, or dependency inspection into CS trust evidence.
+- You may report separately verified source facts, but label them as source facts rather than CS trust evidence.
+- If the user wants to continue, offer an audit path: inspect permissions, scripts, dependencies, data movement, destructive actions, and reproducible task tests.
+- Until separate CS evidence exists, do not tell the user that the external skill is safe, trusted, recommended, or suitable for sensitive data.
+
+A concise default answer is: **"CS has indexed this external skill, but it is still not-evaluated. I do not have enough CS evidence to recommend it as trusted yet. Discovery is not validation."**
+
 ## Freshness rule
 
 The bundled snapshot is finite and versioned. Do not describe it as a complete live view of the ecosystem.
