@@ -6,8 +6,9 @@ import { fileURLToPath } from 'node:url';
 import { createZip } from '../installer/zip.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const submission = JSON.parse(await readFile(path.join(root, 'submission', 'cs-navigator-0.5.0.json'), 'utf8'));
 const pluginRoot = path.join(root, 'plugins', 'cs-navigator');
+const plugin = JSON.parse(await readFile(path.join(pluginRoot, 'plugin.json'), 'utf8'));
+const submission = JSON.parse(await readFile(path.join(root, 'submission', `cs-navigator-${plugin.version}.json`), 'utf8'));
 
 async function walk(dir, prefix = '') {
   const out = [];
