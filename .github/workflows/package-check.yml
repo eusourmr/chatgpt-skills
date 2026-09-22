@@ -72,6 +72,28 @@ jobs:
           NODE
           cmp /tmp/external-source.json sources/external/dkyazzentwatwa-chatgpt-skills.json
 
+      - name: Build and verify public Plugin Directory archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run build:public-plugin
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          p = Path('dist/plugin-submission/cs-navigator-plugin-0.5.0.zip')
+          assert p.is_file(), p
+          with ZipFile(p) as z:
+              names = z.namelist()
+              assert z.testzip() is None
+          expected = [
+              'cs-navigator/plugin.json',
+              'cs-navigator/skills/cs-navigator/agents/openai.yaml',
+              'cs-navigator/skills/cs-navigator/references/catalog-snapshot.json',
+              'cs-navigator/skills/cs-navigator/SKILL.md',
+          ]
+          assert names == expected, (names, expected)
+          PY
+
       - name: Build npm tarball
         id: pack
         shell: bash

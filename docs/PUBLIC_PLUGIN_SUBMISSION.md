@@ -41,7 +41,7 @@ dist/plugin-submission/cs-navigator-skills-0.5.0.zip
 dist/plugin-submission/cs-navigator-skills-0.5.0.zip.sha256
 ```
 
-The ZIP is for the OpenAI review portal only. End users should install the published plugin from the Plugin Directory.
+The ZIP is for the OpenAI review portal only. It contains exactly one top-level plugin folder, `cs-navigator/`, with `plugin.json` at that plugin root and the Skill under `skills/cs-navigator/`. End users should install the published plugin from the Plugin Directory.
 
 ## Review evidence
 

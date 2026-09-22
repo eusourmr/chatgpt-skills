@@ -7,7 +7,7 @@ import { createZip } from '../installer/zip.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const submission = JSON.parse(await readFile(path.join(root, 'submission', 'cs-navigator-0.5.0.json'), 'utf8'));
-const skillRoot = path.join(root, 'plugins', 'cs-navigator', 'skills', 'cs-navigator');
+const pluginRoot = path.join(root, 'plugins', 'cs-navigator');
 
 async function walk(dir, prefix = '') {
   const out = [];
@@ -19,19 +19,22 @@ async function walk(dir, prefix = '') {
   return out;
 }
 
-const files = await walk(skillRoot);
+const files = await walk(pluginRoot);
+if (!files.includes('plugin.json')) throw new Error('plugin.json missing from plugin root');
+if (!files.includes('skills/cs-navigator/SKILL.md')) throw new Error('skills/cs-navigator/SKILL.md missing from plugin root');
+
 const entries = [];
 for (const rel of files) {
   entries.push({
     name: path.posix.join('cs-navigator', rel),
-    data: await readFile(path.join(skillRoot, rel))
+    data: await readFile(path.join(pluginRoot, rel))
   });
 }
 
 const zip = createZip(entries);
 const outDir = path.join(root, 'dist', 'plugin-submission');
 await mkdir(outDir, { recursive: true });
-const fileName = `cs-navigator-skills-${submission.plugin.version}.zip`;
+const fileName = `cs-navigator-plugin-${submission.plugin.version}.zip`;
 const outPath = path.join(outDir, fileName);
 await writeFile(outPath, zip);
 
