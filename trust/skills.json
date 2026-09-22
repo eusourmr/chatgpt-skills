@@ -126,7 +126,7 @@
     },
     "cs-navigator": {
       "name": "CS Navigator",
-      "summary": "Turns a plain-language job into the smallest evidence-backed ChatGPT Skills recommendation using a versioned local catalog snapshot.",
+      "summary": "Routes capability-selection questions to the smallest evidence-backed ChatGPT Skills set, while staying out of the way when no skill is needed.",
       "permissions": {
         "local_files": "none required by the chat-native workflow; it reads only its bundled reference snapshot through the skill runtime",
         "network": "none required",
@@ -135,13 +135,12 @@
         "destructive_actions": "none required"
       },
       "usefulness": {
-        "state": "tested",
-        "evidence": "Native ChatGPT Skills execution passed all six versioned cases under cs-navigator-chatgpt-v3 against the exact tested artifact hash."
+        "state": "conditional",
+        "evidence": "The exact 0.5.0 artifact passed six native ChatGPT qualification cases. The 0.5.1 Intent Router changes are a new artifact and must pass regression plus implicit-activation qualification before promotion."
       },
       "known_gaps": [
-        "Implicit activation without an explicit @CS Navigator invocation has not yet been qualified.",
-        "The bundled snapshot is intentionally finite and can report a coverage gap when a job is not represented.",
-        "The tested artifact contains a legacy self-entry marked designed; that self-entry is non-authoritative. Current self-trust is held in the external Trust Layer."
+        "Implicit activation in 0.5.1 is designed and covered by repository fixtures but has not yet been qualified on the native ChatGPT plugin surface.",
+        "The bundled snapshot is intentionally finite and can report a coverage gap when a job is not represented."
       ]
     },
     "regenerative-adaptive-experiment": {
