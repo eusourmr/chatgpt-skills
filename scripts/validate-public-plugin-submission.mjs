@@ -62,6 +62,16 @@ expect(ui.composerIcon === './assets/cs-icon.png', 'plugin composerIcon must poi
 expect(ui.logo === './assets/cs-icon.png', 'plugin logo must point to ./assets/cs-icon.png');
 expect(ui.privacyPolicyURL === l.privacy_url, 'plugin privacyPolicyURL must match submission listing');
 expect(ui.termsOfServiceURL === l.terms_url, 'plugin termsOfServiceURL must match submission listing');
+
+const icon = await readFile(path.join(root, 'plugins', 'cs-navigator', 'assets', 'cs-icon.png'));
+expect(icon.length <= 5 * 1024 * 1024, 'plugin icon must be <=5 MiB');
+expect(icon.length >= 24 && icon.subarray(0, 8).equals(Buffer.from([0x89,0x50,0x4e,0x47,0x0d,0x0a,0x1a,0x0a])), 'plugin icon must be a valid PNG signature');
+if (icon.length >= 24) {
+  const width = icon.readUInt32BE(16);
+  const height = icon.readUInt32BE(20);
+  expect(width === height, 'plugin icon must be square');
+  expect(width >= 48 && width <= 4096, 'plugin icon dimensions must be between 48 and 4096 px');
+}
 expect(plugin.mcp === undefined && plugin.mcpServers === undefined, 'plugin.json must not introduce MCP');
 
 if (errors.length) {
