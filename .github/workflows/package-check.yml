@@ -207,7 +207,9 @@ jobs:
               names = z.namelist()
               assert z.testzip() is None
               snapshot = z.read('cs-navigator/references/catalog-snapshot.json')
-              assert b'"cs-navigator"' in snapshot
+              import json
+              parsed = json.loads(snapshot)
+              assert all(entry.get('id') != 'cs-navigator' for entry in parsed['entries'])
               assert b'"not-evaluated"' in snapshot
           expected = [
               'cs-navigator/SKILL.md',
