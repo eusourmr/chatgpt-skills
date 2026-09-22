@@ -35,7 +35,7 @@ Read `references/catalog-snapshot.json` before making a recommendation.
 - **Known gaps:** material limitations only.
 - **Next step:** the simplest action to continue, preferably in the same chat.
 
-If no additional skill is needed, say so explicitly.
+If the Navigator is explicitly invoked and no additional skill is needed, answer the user's task normally and append exactly one brief sentence: **“Nenhuma Skill adicional é necessária.”** Do not expand into the full recommendation format unless the user asks for more detail.
 
 ## Composition safeguards
 
