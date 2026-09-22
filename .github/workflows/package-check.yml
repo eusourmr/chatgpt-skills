@@ -86,6 +86,7 @@ jobs:
               names = z.namelist()
               assert z.testzip() is None
           expected = [
+              'cs-navigator/assets/cs-icon.png',
               'cs-navigator/plugin.json',
               'cs-navigator/skills/cs-navigator/agents/openai.yaml',
               'cs-navigator/skills/cs-navigator/references/catalog-snapshot.json',
