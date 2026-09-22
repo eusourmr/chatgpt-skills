@@ -87,9 +87,9 @@ jobs:
               assert z.testzip() is None
           expected = [
               'cs-navigator/plugin.json',
-              'cs-navigator/skills/cs-navigator/SKILL.md',
               'cs-navigator/skills/cs-navigator/agents/openai.yaml',
               'cs-navigator/skills/cs-navigator/references/catalog-snapshot.json',
+              'cs-navigator/skills/cs-navigator/SKILL.md',
           ]
           assert names == expected, (names, expected)
           PY
