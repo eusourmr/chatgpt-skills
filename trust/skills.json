@@ -126,7 +126,7 @@
     },
     "cs-navigator": {
       "name": "CS Navigator",
-      "summary": "Turns a plain-language job into the smallest evidence-backed ChatGPT Skills recommendation using a versioned local catalog snapshot.",
+      "summary": "Routes capability-selection questions to the smallest evidence-backed ChatGPT Skills set, while staying out of the way when no skill is needed.",
       "permissions": {
         "local_files": "none required by the chat-native workflow; it reads only its bundled reference snapshot through the skill runtime",
         "network": "none required",
@@ -136,12 +136,11 @@
       },
       "usefulness": {
         "state": "tested",
-        "evidence": "Native ChatGPT Skills execution passed all six versioned cases under cs-navigator-chatgpt-v3 against the exact tested artifact hash."
+        "evidence": "The exact 0.5.1 Simple Gate artifact passed 8/8 native ChatGPT cases: direct tasks stayed native, capability-selection prompts routed correctly, and trust/coverage boundaries held."
       },
       "known_gaps": [
-        "Implicit activation without an explicit @CS Navigator invocation has not yet been qualified.",
         "The bundled snapshot is intentionally finite and can report a coverage gap when a job is not represented.",
-        "The tested artifact contains a legacy self-entry marked designed; that self-entry is non-authoritative. Current self-trust is held in the external Trust Layer."
+        "Selecting @CS Navigator and then issuing an ordinary direct task is not treated as a guaranteed skill-to-skill handoff; 0.5.1 qualifies routing when capability-selection intent is present."
       ]
     },
     "regenerative-adaptive-experiment": {

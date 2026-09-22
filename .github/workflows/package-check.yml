@@ -80,7 +80,9 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           from zipfile import ZipFile
-          p = Path('dist/plugin-submission/cs-navigator-plugin-0.5.0.zip')
+          import json
+          version = json.loads(Path('plugins/cs-navigator/plugin.json').read_text())['version']
+          p = Path(f'dist/plugin-submission/cs-navigator-plugin-{version}.zip')
           assert p.is_file(), p
           with ZipFile(p) as z:
               names = z.namelist()
@@ -119,7 +121,7 @@ jobs:
           "$CLI" inspect openai-agents-sdk-builder | grep -q 'Recomendação: conditional'
           "$CLI" inspect openai-agents-sdk-builder | grep -q 'Execução: local-agent — evidência=tested'
           "$CLI" inspect regenerative-language-bridge | grep -q 'Execução: chat-native — evidência=designed'
-          "$CLI" inspect cs-navigator | grep -q 'Execução: chat-native — evidência=tested'
+          "$CLI" inspect cs-navigator | grep -q 'Execução: chat-native — evidência=conditional'
           "$CLI" inspect chatgpt-apps-deployer | grep -q 'Integridade: tested'
           "$CLI" inspect dkyazzentwatwa/chatgpt-skills | grep -q 'Confiança: not-evaluated'
           "$CLI" inspect https://github.com/dkyazzentwatwa/chatgpt-skills | grep -q 'Licença: unresolved'
@@ -205,7 +207,9 @@ jobs:
               names = z.namelist()
               assert z.testzip() is None
               snapshot = z.read('cs-navigator/references/catalog-snapshot.json')
-              assert b'"cs-navigator"' in snapshot
+              import json
+              parsed = json.loads(snapshot)
+              assert all(entry.get('id') != 'cs-navigator' for entry in parsed['entries'])
               assert b'"not-evaluated"' in snapshot
           expected = [
               'cs-navigator/SKILL.md',

@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "policy": "Automatic activation is based on capability-selection intent, never task subject matter alone. If the user is simply asking ChatGPT to do the work, Navigator stays out.",
+  "outcomes": [
+    "native-only",
+    "skill",
+    "external-discovery",
+    "coverage-gap",
+    "clarify"
+  ],
+  "cases": [
+    {
+      "id": "which-skill",
+      "prompt": "Which skill should I use to evaluate the systemic effects of a major policy change?",
+      "expected_activation": true,
+      "expected_outcome": "skill",
+      "reason": "The user explicitly asks for skill selection."
+    },
+    {
+      "id": "need-skill",
+      "prompt": "Do I need a skill for this, or can ChatGPT handle it directly?",
+      "expected_activation": true,
+      "expected_outcome": "native-only",
+      "reason": "The user explicitly asks whether a skill is needed."
+    },
+    {
+      "id": "smallest-set",
+      "prompt": "What is the smallest useful skill set for building an OpenAI Agents SDK starter?",
+      "expected_activation": true,
+      "expected_outcome": "skill",
+      "reason": "The user explicitly asks for the smallest skill set."
+    },
+    {
+      "id": "external-trust",
+      "prompt": "Is the external data-storyteller skill trustworthy enough to use?",
+      "expected_activation": true,
+      "expected_outcome": "external-discovery",
+      "reason": "The user asks for trust evaluation of an external skill."
+    },
+    {
+      "id": "compare-skills",
+      "prompt": "Compare the available CS skills for explaining a technical policy to non-technical managers.",
+      "expected_activation": true,
+      "expected_outcome": "skill",
+      "reason": "The user asks to compare CS skills."
+    },
+    {
+      "id": "coverage-question",
+      "prompt": "Does CS have a trusted skill for reconciling crypto tax lots across five exchanges?",
+      "expected_activation": true,
+      "expected_outcome": "coverage-gap",
+      "reason": "The user asks whether CS covers a specific job."
+    },
+    {
+      "id": "simple-math",
+      "prompt": "What is 17 times 4?",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "Simple arithmetic should remain a direct ChatGPT task."
+    },
+    {
+      "id": "weather",
+      "prompt": "What is the weather in Goiânia today?",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "Weather is a native tool task, not skill selection."
+    },
+    {
+      "id": "simple-translation",
+      "prompt": "Translate 'good morning' into Portuguese.",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "Simple translation does not need Navigator routing."
+    },
+    {
+      "id": "summarize-file",
+      "prompt": "Summarize the PDF I just uploaded.",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "Normal file summarization should not trigger Navigator."
+    },
+    {
+      "id": "ordinary-writing",
+      "prompt": "Write a short birthday message for my friend.",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "Ordinary writing should not trigger Navigator."
+    },
+    {
+      "id": "direct-explanation",
+      "prompt": "Explain API retries to a non-technical manager.",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "Navigator should not interrupt a direct task merely because a related skill exists."
+    },
+    {
+      "id": "direct-systemic-analysis",
+      "prompt": "Evaluate the systemic effects of this decision on people, knowledge, resources, and indirect impacts.",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "A direct analysis request is not capability selection, even though regenerative-impact-map is related."
+    },
+    {
+      "id": "direct-agents-starter",
+      "prompt": "Create a minimal OpenAI Agents SDK starter for me.",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "A direct build request should not activate Navigator merely because a matching catalog skill exists."
+    },
+    {
+      "id": "direct-spreadsheet-analysis",
+      "prompt": "Analyze this spreadsheet and point out the main risks.",
+      "expected_activation": false,
+      "expected_outcome": "native-only",
+      "reason": "Normal analysis with native file capabilities should remain direct."
+    },
+    {
+      "id": "workflow-selection-without-skill-word",
+      "prompt": "Should I use a reusable workflow for this, or can ChatGPT just handle it directly?",
+      "expected_activation": true,
+      "expected_outcome": "native-only",
+      "reason": "The user is explicitly deciding about capability/workflow selection even without saying skill."
+    }
+  ]
+}

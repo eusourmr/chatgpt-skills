@@ -13,10 +13,12 @@ const expect = (condition, message) => { if (!condition) errors.push(message); }
 const snapshot = await readJson('skills/featured/cs-navigator/references/catalog-snapshot.json');
 const expected = await buildSnapshot();
 const fixtures = await readJson('tests/fixtures/navigator-jobs.json');
+const activation = await readJson('tests/fixtures/navigator-activation.json');
 
 const comparableSnapshot = { ...snapshot, entries: (snapshot.entries || []).filter((entry) => entry.id !== 'cs-navigator') };
 expect(JSON.stringify(comparableSnapshot) === JSON.stringify(expected), 'Navigator snapshot differs from the current CS source data');
 expect(snapshot.schema_version === 1, 'Navigator snapshot schema_version must be 1');
+expect(!snapshot.entries.some((entry) => entry.id === 'cs-navigator'), '0.5.1+ Navigator snapshot must not carry self-trust');
 expect(Array.isArray(snapshot.entries) && snapshot.entries.length > 0, 'Navigator snapshot needs entries');
 expect(Array.isArray(snapshot.external_sources), 'Navigator snapshot external_sources must be an array');
 
@@ -55,10 +57,30 @@ for (const job of fixtures.jobs || []) {
   expect(typeof job.reason === 'string' && job.reason.length > 0, `${job.id}: missing reason`);
 }
 
+expect(activation.schema_version === 1, 'Navigator activation fixture schema_version must be 1');
+expect(Array.isArray(activation.outcomes) && activation.outcomes.length === 5, 'Navigator activation fixtures must declare five routing outcomes');
+expect(Array.isArray(activation.cases) && activation.cases.length >= 10, 'Navigator needs at least ten activation cases');
+const activationIds = new Set();
+let positiveActivation = 0;
+let negativeActivation = 0;
+for (const item of activation.cases || []) {
+  expect(typeof item.id === 'string' && item.id.length > 0, 'Activation fixture missing id');
+  expect(!activationIds.has(item.id), `Duplicate activation fixture id: ${item.id}`);
+  activationIds.add(item.id);
+  expect(typeof item.prompt === 'string' && item.prompt.length > 0, `${item.id}: missing activation prompt`);
+  expect(typeof item.expected_activation === 'boolean', `${item.id}: expected_activation must be boolean`);
+  expect(activation.outcomes.includes(item.expected_outcome), `${item.id}: invalid activation outcome ${item.expected_outcome}`);
+  expect(typeof item.reason === 'string' && item.reason.length > 0, `${item.id}: missing activation reason`);
+  if (item.expected_activation) positiveActivation += 1;
+  else negativeActivation += 1;
+}
+expect(positiveActivation >= 4, 'Navigator activation design needs at least four positive cases');
+expect(negativeActivation >= 4, 'Navigator activation design needs at least four negative cases');
+
 if (errors.length) {
   console.error('CS Navigator validation failed:');
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
 
-console.log(`CS Navigator OK: ${snapshot.entries.length} skills, ${snapshot.external_sources.length} external source(s), ${fixtures.jobs.length} job fixtures.`);
+console.log(`CS Navigator OK: ${snapshot.entries.length} skills, ${snapshot.external_sources.length} external source(s), ${fixtures.jobs.length} job fixtures, ${activation.cases.length} activation fixtures.`);

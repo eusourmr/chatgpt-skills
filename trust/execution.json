@@ -56,10 +56,10 @@
     },
     "cs-navigator": {
       "mode": "chat-native",
-      "evidence_state": "tested",
-      "minimum_setup": "Install/load CS Navigator with its bundled versioned catalog snapshot, then describe the job in the same chat.",
+      "evidence_state": "conditional",
+      "minimum_setup": "Install CS Navigator. It runs chat-native with no mandatory external app, local runtime, or added network dependency.",
       "required_capabilities": [],
-      "evidence": "Native ChatGPT Skills execution qualified 6/6 under cs-navigator-chatgpt-v3 against exact artifact SHA-256 76d569125848ff4bb628ee9168a4887c0e8aee95ef861b4cd568c64190cc4d50. Self-trust is authoritative in trust/execution.json, not in the bundled recommendation snapshot."
+      "evidence": "The exact 0.5.1 Simple Gate candidate passed 8/8 native ChatGPT qualification cases. Repository execution status remains conditional until the 0.5.1 release boundary is opened after the currently submitted 0.5.0 review, so the public/package state is not advanced ahead of distribution."
     },
     "regenerative-adaptive-experiment": {
       "mode": "chat-native",

@@ -8,26 +8,28 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 VALIDATOR = ROOT / "scripts" / "validate-in-product-evidence.mjs"
 CASE_IDS = [
-    "plain-language-technical-bridge",
-    "agents-sdk-starter",
-    "systemic-decision-impact",
-    "coverage-gap",
-    "external-source-boundary",
-    "no-skill-needed",
+    "direct-systemic-analysis",
+    "select-systemic-skill",
+    "direct-agents-starter",
+    "select-agents-skill",
+    "need-skill-pdf-summary",
+    "external-trust-boundary",
+    "coverage-gap-crypto-tax",
+    "negative-simple-math",
 ]
 
 
 def valid_run():
     return {
-        "test_id": "cs-navigator-chatgpt-v3",
+        "test_id": "cs-navigator-chatgpt-v8-simple-gate",
         "skill_id": "cs-navigator",
         "result": "pass",
-        "executed_at": "2026-09-09T14:00:00Z",
+        "executed_at": "2026-09-22T18:18:00-03:00",
         "product_surface": "chatgpt-skills",
-        "package_version": "0.4.0",
+        "package_version": "0.5.1",
         "distribution": "github-pinned",
-        "source_revision": "bd1f0de36e9b717d1d04d2469264d067696b66f5",
-        "artifact_sha256": "76d569125848ff4bb628ee9168a4887c0e8aee95ef861b4cd568c64190cc4d50",
+        "source_revision": "98bb308997e679b47f5c3da02c9edbdae4a06026",
+        "artifact_sha256": "5cbdce20703e7cb43dd75ea6a11718cf3f5303b7904e92e457361f13c99d0992",
         "case_ids": CASE_IDS,
         "assertions": [
             {"case_id": case_id, "pass": True, "observed": f"Observed expected behavior for {case_id}."}

@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cs-navigator",
-  "version": "0.5.0",
-  "description": "Find the smallest evidence-backed ChatGPT Skills set for a user's goal.",
+  "version": "0.5.1",
+  "description": "Route capability-selection questions to the smallest evidence-backed ChatGPT Skills set, or say when no skill is needed.",
   "author": {
     "name": "ChatGPT Skills",
     "url": "https://github.com/eusourmr/chatgpt-skills"
@@ -21,13 +21,13 @@
       "interface": {
         "displayName": "CS Navigator",
         "shortDescription": "Find trusted skills",
-        "longDescription": "Describe what you want to accomplish and CS Navigator finds the smallest useful evidence-backed skill set, while keeping execution mode, trust evidence, setup requirements, and known gaps visible.",
-        "developerName": "ChatGPT Skills",
+        "longDescription": "Describe what you want to accomplish and CS Navigator routes capability-selection questions to the smallest useful evidence-backed skill set. It stays out of the way when no skill is needed, separates discovery from trust evidence, and reports real coverage gaps instead of inventing capabilities.",
+        "developerName": "RICARDO MOREIRA DA ROCHA",
         "category": "Productivity",
         "websiteURL": "https://github.com/eusourmr/chatgpt-skills",
         "defaultPrompt": [
-          "Use CS Navigator to find the smallest useful skill set for what I want to accomplish.",
-          "Use CS Navigator to tell me whether this task needs a skill at all."
+          "Find the smallest useful skill set for this goal, or tell me if no additional skill is needed.",
+          "Check whether this external skill has enough evidence to trust."
         ],
         "privacyPolicyURL": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/PRIVACY.md",
         "termsOfServiceURL": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/TERMS.md",
