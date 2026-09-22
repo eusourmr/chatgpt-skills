@@ -7,7 +7,7 @@
 [![Validate catalog](https://github.com/eusourmr/chatgpt-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/eusourmr/chatgpt-skills/actions/workflows/validate.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Curation](https://img.shields.io/badge/curation-human--governed-2f6f4e.svg)](CONTRIBUTING.md)
-[![Catalog](https://img.shields.io/badge/catalog-30%20skills-4c1.svg)](PROGRESS.md)
+[![Catalog](https://img.shields.io/badge/catalog-31%20skills-4c1.svg)](PROGRESS.md)
 [![npm](https://img.shields.io/npm/v/chatgpt-skills.svg)](https://www.npmjs.com/package/chatgpt-skills)
 [![Standard](https://img.shields.io/badge/Agent%20Skills-agentskills.io-6f42c1.svg)](https://agentskills.io/)
 
@@ -25,7 +25,7 @@ This section is a **source-verified window into OpenAI-published skills/plugins*
 [![OpenAI Build Web Apps](https://img.shields.io/badge/OpenAI-Build%20Web%20Apps-000000?logo=openai&logoColor=white)](https://github.com/openai/plugins/tree/main/plugins/build-web-apps)
 [![OpenAI Developers](https://img.shields.io/badge/OpenAI-Developers-000000?logo=openai&logoColor=white)](https://github.com/openai/plugins/tree/main/plugins/openai-developers)
 
-The quality catalog currently tracks **30 skills**: **12 OpenAI-published**, **14 project-verified**, and **4 community-authored**. Rejections are reported only when there is an auditable record; the current recorded rejection count is **0**, not an invented confidence statistic. See [`PROGRESS.md`](PROGRESS.md) and [`catalog.json`](catalog.json).
+The quality catalog currently tracks **31 skills**: **12 OpenAI-published**, **15 project-verified**, and **4 community-authored**. Rejections are reported only when there is an auditable record; the current recorded rejection count is **0**, not an invented confidence statistic. See [`PROGRESS.md`](PROGRESS.md) and [`catalog.json`](catalog.json).
 
 ## Why this catalog is different
 
@@ -43,7 +43,19 @@ The quality catalog currently tracks **30 skills**: **12 OpenAI-published**, **1
 
 ## 🚀 Start in 1 Minute
 
-Interactive install:
+Version `0.5.0` is being prepared around **Chat-Native First**: CS Navigator is now natively qualified in ChatGPT, and the preferred distribution path is a GitHub-managed plugin marketplace rather than ZIP upload.
+
+For a compatible ChatGPT workspace, import this repository as a plugin marketplace:
+
+```text
+Source: https://github.com/eusourmr/chatgpt-skills
+Path:   (leave empty)
+Branch: main
+```
+
+The marketplace exposes the **CS Navigator** skill-only plugin. GitHub is the managed source; ChatGPT imports/synchronizes the plugin and can refresh it with **Sync now**. No MCP server, API key, or third-party gateway is required for the core Navigator. See [GitHub-native distribution](docs/GITHUB_PLUGIN_DISTRIBUTION.md).
+
+CLI compatibility path:
 
 ```bash
 npx chatgpt-skills install
@@ -71,7 +83,7 @@ npx chatgpt-skills install --bundle education --tool cursor --scope project --ye
 npx chatgpt-skills install --bundle data-analyst --tool agents-portable --scope project --yes
 ```
 
-For ChatGPT, the CLI prepares files for manual upload and **does not claim direct installation into ChatGPT Web**:
+For ChatGPT surfaces that do not support GitHub marketplace import, the CLI still prepares ZIP files as a **compatibility fallback**:
 
 ```bash
 npx chatgpt-skills install --bundle openai-ecosystem --tool chatgpt-web --yes
