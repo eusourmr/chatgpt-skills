@@ -22,12 +22,14 @@ if (!Array.isArray(tests.tests) || tests.tests.length === 0) errors.push('at lea
 if (!Array.isArray(runs.runs)) errors.push('runs must be an array');
 
 const plans = new Map();
+const latestPlanBySkill = new Map();
 for (const [i, plan] of (tests.tests || []).entries()) {
   const where = `tests[${i}]`;
   if (!isString(plan.id)) errors.push(`${where}.id is required`);
   if (!isString(plan.skill_id)) errors.push(`${where}.skill_id is required`);
   if (plans.has(plan.id)) errors.push(`duplicate test plan id: ${plan.id}`);
   plans.set(plan.id, plan);
+  if (isString(plan.skill_id)) latestPlanBySkill.set(plan.skill_id, plan.id);
 
   const skillExecution = execution.skills?.[plan.skill_id];
   if (!skillExecution) errors.push(`${where} references unknown execution skill ${plan.skill_id}`);
@@ -57,7 +59,7 @@ for (const [i, plan] of (tests.tests || []).entries()) {
   }
 }
 
-const passingBySkill = new Set();
+const passingPlans = new Set();
 for (const [i, run] of (runs.runs || []).entries()) {
   const where = `runs[${i}]`;
   const plan = plans.get(run.test_id);
@@ -95,13 +97,16 @@ for (const [i, run] of (runs.runs || []).entries()) {
     if (plan && [...expectedCases].some((id) => !assertionCaseIds.has(id))) errors.push(`${where} pass result does not include an assertion for every planned case`);
     if (plan && [...assertionCaseIds].some((id) => !expectedCases.has(id))) errors.push(`${where} assertions include an unknown case_id`);
     if ((run.assertions || []).some((a) => a.pass !== true)) errors.push(`${where} pass result contains a failed assertion`);
-    passingBySkill.add(run.skill_id);
+    passingPlans.add(run.test_id);
   }
 }
 
 for (const [skillId, info] of Object.entries(execution.skills || {})) {
-  if (info.mode === 'chat-native' && info.evidence_state === 'tested' && !passingBySkill.has(skillId)) {
-    errors.push(`${skillId} is chat-native/tested without a passing in-product evidence run`);
+  if (info.mode === 'chat-native' && info.evidence_state === 'tested') {
+    const latestPlanId = latestPlanBySkill.get(skillId);
+    if (!latestPlanId || !passingPlans.has(latestPlanId)) {
+      errors.push(`${skillId} is chat-native/tested without a passing run for its latest in-product test plan`);
+    }
   }
 }
 
