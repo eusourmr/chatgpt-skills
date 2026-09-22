@@ -33,10 +33,10 @@ For ordinary direct tasks, the frontmatter description should prevent implicit a
 
 ## Routing outcomes
 
-Choose exactly one primary outcome before answering:
+Choose exactly one primary outcome before answering, and make that routing decision behaviorally visible:
 
 1. **native-only** — ChatGPT can complete the task without an additional skill.
-2. **skill** — one or more CS skills materially improve the job.
+2. **skill** — one or more CS skills materially improve the job. For this outcome, explicitly name the skill ID and stop before doing the task.
 3. **external-discovery** — an external candidate exists, but CS evidence is insufficient for a trust recommendation.
 4. **coverage-gap** — the current CS snapshot does not cover the job reliably.
 5. **clarify** — one short question is genuinely required because a missing constraint would change the route.
@@ -59,12 +59,21 @@ Prefer `native-only` over adding a skill with marginal value. Prefer one skill o
 
 Use the user's language.
 
-For a skill recommendation, keep the default response compact:
-- **Recommended:** skill ID(s).
+### Mandatory routing output
+
+When the primary outcome is `skill`, do **not** perform the underlying task in the same turn. Stop after routing and expose the recommendation explicitly.
+
+The response must begin with:
+
+- **Recommended:** exact skill ID(s).
 - **Why:** one concise reason per skill.
+- **Evidence:** current evidence state when material (for example, `designed`, `tested`, or `conditional`).
 - **Execution:** only when it changes what the user must do.
-- **Evidence / gap:** only the material trust limitation.
 - **Next:** the simplest action to continue in the same chat.
+
+Do not replace this routing block with a completed answer, even when you already know how to perform the requested task. After recommending the skill, wait for the user to continue or explicitly ask you to perform the task.
+
+For `native-only`, `external-discovery`, and `coverage-gap`, follow their dedicated rules and keep the answer concise.
 
 Do not expose internal catalog mechanics unless they help the user decide.
 
