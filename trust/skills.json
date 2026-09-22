@@ -135,12 +135,12 @@
         "destructive_actions": "none required"
       },
       "usefulness": {
-        "state": "conditional",
-        "evidence": "The exact 0.5.0 artifact passed six native ChatGPT qualification cases. The 0.5.1 Intent Router changes are a new artifact and must pass regression plus implicit-activation qualification before promotion."
+        "state": "tested",
+        "evidence": "The exact 0.5.1 Simple Gate artifact passed 8/8 native ChatGPT cases: direct tasks stayed native, capability-selection prompts routed correctly, and trust/coverage boundaries held."
       },
       "known_gaps": [
-        "Implicit activation in 0.5.1 is designed and covered by repository fixtures but has not yet been qualified on the native ChatGPT plugin surface.",
-        "The bundled snapshot is intentionally finite and can report a coverage gap when a job is not represented."
+        "The bundled snapshot is intentionally finite and can report a coverage gap when a job is not represented.",
+        "Selecting @CS Navigator and then issuing an ordinary direct task is not treated as a guaranteed skill-to-skill handoff; 0.5.1 qualifies routing when capability-selection intent is present."
       ]
     },
     "regenerative-adaptive-experiment": {
