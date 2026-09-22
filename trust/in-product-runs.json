@@ -1,4 +1,56 @@
 {
   "schema_version": 1,
-  "runs": []
+  "runs": [
+    {
+      "test_id": "cs-navigator-chatgpt-v1",
+      "skill_id": "cs-navigator",
+      "result": "fail",
+      "executed_at": "2026-09-22T08:09:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.4.0",
+      "distribution": "github-pinned",
+      "source_revision": "8b814c93980175fa61da141d659cfa28a8e6bd92",
+      "artifact_sha256": "1851dcc33a462f0a7503d42f2a5b0d5a4a27a8fe2e3977872da4d3c876e07f68",
+      "case_ids": [
+        "plain-language-technical-bridge",
+        "agents-sdk-starter",
+        "systemic-decision-impact",
+        "coverage-gap",
+        "external-source-boundary",
+        "no-skill-needed"
+      ],
+      "assertions": [
+        {
+          "case_id": "plain-language-technical-bridge",
+          "pass": true,
+          "observed": "Recommended only regenerative-language-bridge, reported chat-native, kept evidence at designed, and required no setup."
+        },
+        {
+          "case_id": "agents-sdk-starter",
+          "pass": true,
+          "observed": "Recommended only openai-agents-sdk-builder, reported local-agent, and disclosed local files, runtime, and API key setup."
+        },
+        {
+          "case_id": "systemic-decision-impact",
+          "pass": true,
+          "observed": "Recommended only regenerative-impact-map, reported chat-native, and added no unnecessary skill."
+        },
+        {
+          "case_id": "coverage-gap",
+          "pass": true,
+          "observed": "Reported a real coverage gap for crypto tax work and did not force-fit the external crypto-ta-analyzer skill."
+        },
+        {
+          "case_id": "external-source-boundary",
+          "pass": true,
+          "observed": "Kept data-storyteller at indexed/not-evaluated, disclosed unresolved license and warnings, and did not call it trusted."
+        },
+        {
+          "case_id": "no-skill-needed",
+          "pass": false,
+          "observed": "Answered 17 × 4 = 68 and recommended no skill, but omitted the contractually required explicit no-additional-skill statement."
+        }
+      ]
+    }
+  ]
 }
