@@ -1,0 +1,35 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "cs-navigator",
+  "version": "0.5.0",
+  "description": "Find the smallest evidence-backed ChatGPT Skills set for a user's goal.",
+  "author": {
+    "name": "ChatGPT Skills",
+    "url": "https://github.com/eusourmr/chatgpt-skills"
+  },
+  "homepage": "https://github.com/eusourmr/chatgpt-skills",
+  "repository": "https://github.com/eusourmr/chatgpt-skills",
+  "license": "MIT",
+  "keywords": [
+    "chatgpt",
+    "skills",
+    "trust",
+    "discovery"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "CS Navigator",
+        "shortDescription": "Find the smallest evidence-backed skill set",
+        "longDescription": "Describe what you want to accomplish and CS Navigator recommends the smallest useful skill set while keeping execution mode, evidence, setup, and known gaps visible.",
+        "developerName": "ChatGPT Skills",
+        "category": "Productivity",
+        "websiteURL": "https://github.com/eusourmr/chatgpt-skills",
+        "defaultPrompt": [
+          "Use CS Navigator to find the smallest useful skill set for what I want to accomplish.",
+          "Use CS Navigator to tell me whether this task needs a skill at all."
+        ]
+      }
+    }
+  }
+}
