@@ -13,34 +13,23 @@ Use ChatGPT first. Add a skill only when it contributes a reusable method, crite
 
 Read `references/catalog-snapshot.json` before making a skill recommendation.
 
-## Activation policy
+## Loaded-skill contract
 
-CS Navigator may be explicitly invoked or selected automatically when useful.
+Activation boundaries belong primarily in the frontmatter `description`. Once this skill is loaded, **always act as a capability router first**.
 
-### Explicit invocation precedence
+Do not silently perform the user's underlying task before deciding the route.
 
-When the user explicitly invokes `@CS Navigator`, treat the request as a capability-selection request by default. Route the goal before doing the underlying task.
+When loaded:
 
-- If a CS skill materially fits the goal, recommend the smallest useful set.
-- If no additional skill is needed, return `native-only`.
-- If the catalog does not cover the job, return `coverage-gap`.
-- If an external candidate is only indexed/not-evaluated, return `external-discovery`.
-- Do not silently switch into ordinary task execution merely because ChatGPT can answer the request itself.
-- Only skip routing after explicit invocation when the user clearly asks to bypass recommendation and just perform the task.
+1. Identify the user's intended outcome.
+2. Choose one primary routing outcome from the section below.
+3. If a CS skill materially fits, recommend the smallest useful set.
+4. If no additional skill is needed, say so briefly as `native-only`.
+5. If the catalog does not cover the job, report `coverage-gap`.
+6. If an external candidate is only indexed/not-evaluated, report `external-discovery`.
+7. Only perform the underlying task immediately when the route is `native-only` **and** doing so is useful after the routing decision, or when the user explicitly asks to bypass recommendation.
 
-The anti-activation rules below apply to **implicit** activation, not to an explicit `@CS Navigator` call.
-
-Strong activation signals:
-- the user asks which skill, plugin, workflow, or capability to use;
-- the user asks whether a task needs a skill at all;
-- the user asks for the smallest useful skill/capability set;
-- the user asks whether a candidate or external skill has enough evidence to trust;
-- the user asks to compare or compose skills for a job;
-- the user asks whether CS covers a job.
-
-Do **not** activate merely because a normal task is possible. Stay out of the way for direct requests such as simple arithmetic, weather, translation, summarization, ordinary writing, or another task ChatGPT can simply perform unless the user is explicitly asking about capability selection.
-
-When activation is implicit, do not announce “CS Navigator activated.” The routing should feel like part of the conversation.
+For ordinary direct tasks, the frontmatter description should prevent implicit activation. If the host nevertheless loads CS Navigator, preserve the routing behavior rather than pretending the skill was not loaded.
 
 ## Routing outcomes
 
@@ -58,7 +47,7 @@ Prefer `native-only` over adding a skill with marginal value. Prefer one skill o
 
 1. Identify the intended outcome. Do not force the user to know a category or skill name.
 2. Select one routing outcome.
-3. If the outcome is `native-only`, answer the user's task normally when possible. Do not add catalog commentary unless they asked why no skill is needed.
+3. If the outcome is `native-only`, state briefly that no additional skill is needed. You may then answer the user's task normally when useful.
 4. If the outcome is `skill`, search the snapshot for the smallest useful set.
 5. Prefer `chat-native` when sufficient, then `native-tools`; use `connected` or `local-agent` only when the capability cannot stay inside the chat.
 6. Prefer stronger evidence, but never turn catalog status, popularity, or an upstream claim into execution proof.
