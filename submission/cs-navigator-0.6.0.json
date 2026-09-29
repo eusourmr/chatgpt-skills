@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "plugin": {
+    "name": "cs-navigator",
+    "version": "0.6.0",
+    "type": "skills-only"
+  },
+  "listing": {
+    "display_name": "CS Navigator",
+    "short_description": "Find trusted skills",
+    "long_description": "CS Navigator routes capability-selection questions to the smallest useful evidence-backed set while keeping ordinary direct tasks with ChatGPT. Capability Pack I bundles four lightweight chat-native workflows in one install: Regenerative Language Bridge, Regenerative Impact Map, Regenerative Resilience Plan, and Regenerative Adaptive Experiment. Bundled availability does not imply automatic activation or stronger evidence.",
+    "developer_name": "RICARDO MOREIRA DA ROCHA",
+    "category": "Productivity",
+    "capabilities": [
+      "Decide whether a task needs a skill or should stay native",
+      "Route capability-selection questions to the smallest useful set",
+      "Use four bundled chat-native workflows without separate installs",
+      "Keep evidence states independent for every bundled skill",
+      "Separate external discovery from trust validation",
+      "Report coverage gaps instead of inventing capabilities"
+    ],
+    "starter_prompts": [
+      "Do I need a bundled skill for this, or can ChatGPT handle it directly?",
+      "Which bundled CS capability best fits this goal?",
+      "Does this external skill have enough CS evidence to trust?"
+    ],
+    "website_url": "https://github.com/eusourmr/chatgpt-skills",
+    "support_url": "https://github.com/eusourmr/chatgpt-skills/issues",
+    "privacy_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/PRIVACY.md",
+    "terms_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/TERMS.md"
+  },
+  "architecture": {
+    "mcp": false,
+    "external_server": false,
+    "external_auth": false,
+    "external_network": false,
+    "skill_only": true,
+    "capability_pack": {
+      "router": "cs-navigator",
+      "included_skills": [
+        "regenerative-language-bridge",
+        "regenerative-impact-map",
+        "regenerative-resilience-plan",
+        "regenerative-adaptive-experiment"
+      ],
+      "handoff": "explicit-capability-selection; no guaranteed skill-to-skill handoff"
+    }
+  },
+  "review_cases": {
+    "positive": [
+      {
+        "id": "choose-impact-map",
+        "prompt": "Qual capacidade do CS devo usar para estruturar uma análise sistêmica de uma decisão?",
+        "expected": "Recommend the bundled regenerative-impact-map as the smallest useful capability and preserve its independent evidence state."
+      },
+      {
+        "id": "choose-language-bridge",
+        "prompt": "Qual capacidade do CS ajuda a explicar uma política técnica para gestores sem perder precisão?",
+        "expected": "Recommend the bundled regenerative-language-bridge and preserve designed evidence rather than implying proven superiority."
+      },
+      {
+        "id": "choose-resilience-plan",
+        "prompt": "Qual capacidade do CS devo usar para estruturar continuidade, recuperação e aprendizado após interrupções?",
+        "expected": "Recommend the bundled regenerative-resilience-plan as one capability when it materially fits."
+      },
+      {
+        "id": "choose-adaptive-experiment",
+        "prompt": "Quero testar uma mudança pequena e reversível antes de escalar. Qual capacidade do CS ajuda?",
+        "expected": "Recommend the bundled regenerative-adaptive-experiment and keep the experiment reversible and evidence-bounded."
+      },
+      {
+        "id": "native-only-pdf",
+        "prompt": "Preciso de uma skill para resumir um PDF ou o ChatGPT resolve sozinho?",
+        "expected": "Choose native-only when no bundled skill adds material value."
+      },
+      {
+        "id": "external-trust",
+        "prompt": "Essa skill externa tem evidência suficiente no CS para eu confiar?",
+        "expected": "Preserve indexed/not-evaluated boundaries and do not invent a trust score."
+      }
+    ],
+    "negative": [
+      {
+        "id": "direct-systemic-task",
+        "prompt": "Analise os impactos sistêmicos desta decisão.",
+        "expected": "Do not route merely because regenerative-impact-map is bundled; a direct task should remain with ChatGPT unless capability selection is requested."
+      },
+      {
+        "id": "direct-writing-task",
+        "prompt": "Explique esta política de forma simples.",
+        "expected": "Do not route merely because regenerative-language-bridge is bundled; ordinary explanation should stay native unless a reusable structured workflow is requested."
+      },
+      {
+        "id": "simple-math",
+        "prompt": "Quanto é 17 × 4?",
+        "expected": "Answer directly with no skill or routing commentary."
+      },
+      {
+        "id": "coverage-gap",
+        "prompt": "O CS cobre conciliação fiscal de lotes de cripto em cinco exchanges?",
+        "expected": "Report a coverage gap if no bundled or catalog capability covers the job reliably."
+      }
+    ]
+  },
+  "release_notes": "0.6.0 Capability Pack I candidate. One CS Navigator plugin now bundles four chat-native CS workflows while preserving the Simple Gate: direct tasks stay native; capability-selection intent routes narrowly; evidence remains independent per skill; no skill-to-skill handoff is assumed.",
+  "submission_requirements": {
+    "verified_developer_identity": "reuse-verified-identity",
+    "logo_asset": "reuse-existing-asset",
+    "availability_regions": "select-in-portal",
+    "openai_review_required": true
+  },
+  "submission_state": "draft-pending-capability-pack-native-qualification"
+}
