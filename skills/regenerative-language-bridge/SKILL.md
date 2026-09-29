@@ -41,7 +41,15 @@ Before action, name at least one resource or capability expected to end above ba
 - **Learning loop:** what feedback will improve the next version.
 - **Resource note:** reading time, maintenance owner, and expiry or review date.
 
-On explicit invocation, all six output sections above are mandatory. Do not rename a section in a way that hides a required field. The **Resource note** must explicitly include all three fields: **reading time**, **maintenance owner**, and **expiry or review date**. If the user has not supplied an owner or review date, label them as **to be defined** rather than omitting them.
+On explicit invocation, all six output sections above are mandatory. Do not rename or merge them.
+
+The **Resource note** is valid only if it contains these three explicit labeled lines, even when values are unknown:
+
+- **Reading time:** estimate in minutes.
+- **Maintenance owner:** named owner when known; otherwise `to be defined`.
+- **Review/expiry date:** concrete date when known; otherwise `to be defined`.
+
+Do not substitute a general paragraph about resources for these fields. A Resource note without all three labels is incomplete.
 
 Respond in the user's language. Offer another language only when useful; do not assume literacy, disability, culture, or expertise from identity.
 
