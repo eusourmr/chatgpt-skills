@@ -1,9 +1,15 @@
 ---
 name: regenerative-impact-map
-description: Map a complex initiative across people, relationships, knowledge, resources, and ecology before a high-impact decision or when local fixes create downstream effects.
+description: Use only when the user explicitly asks to use Regenerative Impact Map (or $regenerative-impact-map), or explicitly asks for this reusable CS workflow. Do not activate from a direct request to analyze systemic impacts or evaluate a decision; direct tasks stay native unless capability selection is requested.
 ---
 
 # Regenerative Impact Map
+
+## Activation boundary
+
+Apply this workflow only when the user explicitly invokes this skill by name or skill ID, or explicitly asks for a reusable CS skill, workflow, or capability and this skill has been selected. Subject-matter similarity alone is not activation.
+
+If the user directly asks to explain, analyze, plan, test, write, summarize, translate, calculate, research, or create something without capability-selection intent, do not impose this workflow or its structured output. Handle the task natively.
 
 Make the whole system visible before recommending an intervention. Use the user's language and put a plain explanation before technical detail.
 
