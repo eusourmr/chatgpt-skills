@@ -1,6 +1,6 @@
 ---
 name: regenerative-language-bridge
-description: Explain technical, legal, scientific, or institutional material to a broader audience in plain language without erasing precision, uncertainty, or necessary terminology. Activate this skill only when the user explicitly asks to use Regenerative Language Bridge (or its skill ID), or explicitly selects this reusable CS workflow; a direct explanation request alone stays native.
+description: Explain technical, legal, scientific, or institutional material to a broader audience in plain language without erasing precision, uncertainty, or necessary terminology. Activate only when the user explicitly asks to use Regenerative Language Bridge (or its skill ID), or explicitly selects this reusable CS workflow; a direct explanation request alone stays native.
 ---
 
 # Regenerative Language Bridge
@@ -53,39 +53,24 @@ Do not substitute a general paragraph about resources for these fields. A Resour
 
 ### Required explicit-invocation template
 
-When the user explicitly invokes this skill, use the six required sections in this order. Translate the labels to the user's language, but do not omit, merge, or replace them with alternative headings.
+When this skill is explicitly invoked, the response MUST contain all six sections below in this order. Do not replace them with alternative headings. Translate the headings to the user's language.
 
-For Portuguese, use exactly:
+For Portuguese, use exactly these headings:
 
-```markdown
-### Em linguagem simples
+1. `### Em linguagem simples`
+2. `### Termos-chave`
+3. `### Camada técnica`
+4. `### Verificação de entendimento`
+5. `### Ciclo de aprendizado`
+6. `### Nota de recursos`
 
-...
+Inside `### Nota de recursos`, include all three labeled lines:
 
-### Termos-chave
+- `**Tempo de leitura:**` estimate in minutes
+- `**Responsável pela manutenção:**` name or `a definir`
+- `**Data de revisão/expiração:**` date or `a definir`
 
-...
-
-### Camada técnica
-
-...
-
-### Verificação de entendimento
-
-...
-
-### Ciclo de aprendizado
-
-...
-
-### Nota de recursos
-
-- **Tempo de leitura:** <estimate in minutes>
-- **Responsável pela manutenção:** <name or "a definir">
-- **Data de revisão/expiração:** <date or "a definir">
-```
-
-A response that omits any of these six sections, or replaces the three resource fields with generic prose, is incomplete.
+Do not finish the response until all six sections and all three resource fields are present.
 
 Respond in the user's language. Offer another language only when useful; do not assume literacy, disability, culture, or expertise from identity.
 
