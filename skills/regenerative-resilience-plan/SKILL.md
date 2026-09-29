@@ -1,9 +1,15 @@
 ---
 name: regenerative-resilience-plan
-description: Prepare a team, community, service, or project to prevent, absorb, adapt to, recover from, and learn through disruption without shifting risk.
+description: Use only when the user explicitly asks to use Regenerative Resilience Plan (or $regenerative-resilience-plan), or explicitly asks for this reusable CS workflow. Do not activate from a direct request to plan continuity, resilience, recovery, or incident response; direct tasks stay native unless capability selection is requested.
 ---
 
 # Regenerative Resilience Plan
+
+## Activation boundary
+
+Apply this workflow only when the user explicitly invokes this skill by name or skill ID, or explicitly asks for a reusable CS skill, workflow, or capability and this skill has been selected. Subject-matter similarity alone is not activation.
+
+If the user directly asks to explain, analyze, plan, test, write, summarize, translate, calculate, research, or create something without capability-selection intent, do not impose this workflow or its structured output. Handle the task natively.
 
 Protect essential functions while increasing shared capacity for the next disruption. Resilience is not asking vulnerable people to tolerate preventable harm.
 
