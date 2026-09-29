@@ -1,0 +1,115 @@
+name: Release CS Navigator v0.6.0
+
+on:
+  push:
+    branches:
+      - ops/release-cs-navigator-v0.6.0
+    paths:
+      - '.github/workflows/release-cs-navigator-v060.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out exact merged release source
+        uses: actions/checkout@v6
+        with:
+          ref: 3f195049826340021c415111ad9221f45feae447
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Build and verify qualified plugin archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build-public-plugin-submission.mjs
+          ZIP='dist/plugin-submission/cs-navigator-plugin-0.6.0.zip'
+          SHA_FILE="${ZIP}.sha256"
+          test -f "$ZIP"
+          test -f "$SHA_FILE"
+          unzip -t "$ZIP"
+          actual=$(sha256sum "$ZIP" | awk '{print $1}')
+          expected='58e587a13ed5ff3f7dfa47ef5d7da392a767a21ae0421621bbaae48cbb0622d0'
+          test "$actual" = "$expected"
+          grep -q "$expected" "$SHA_FILE"
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: cs-navigator-v0.6.0
+          RELEASE_SHA: 3f195049826340021c415111ad9221f45feae447
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if gh release view "$TAG" --repo eusourmr/chatgpt-skills >/dev/null 2>&1; then
+            echo "Release $TAG already exists."
+            exit 0
+          fi
+
+          if gh api "repos/eusourmr/chatgpt-skills/git/ref/tags/$TAG" >/tmp/tag.json 2>/dev/null; then
+            current=$(jq -r '.object.sha' /tmp/tag.json)
+            test "$current" = "$RELEASE_SHA"
+          else
+            gh api --method POST repos/eusourmr/chatgpt-skills/git/refs \
+              -f ref="refs/tags/$TAG" \
+              -f sha="$RELEASE_SHA"
+          fi
+
+          cat > /tmp/release-notes.md <<'EOF'
+          ## CS Navigator 0.6.0 — Capability Pack I
+
+          This release adds the first **Capability Pack** to CS Navigator: one plugin install now exposes Navigator plus four lightweight, chat-native CS workflows.
+
+          ### Included capabilities
+          - Regenerative Language Bridge
+          - Regenerative Impact Map
+          - Regenerative Resilience Plan
+          - Regenerative Adaptive Experiment
+
+          ### Product contract
+          - Direct tasks stay native unless the user is selecting or explicitly invoking a capability.
+          - Bundled availability does not imply automatic activation.
+          - All four capabilities keep independent evidence states.
+          - No MCP server, external server, external auth, API key, or custom runtime is introduced.
+          - One installation is enough to use all four bundled capabilities.
+
+          ### Qualification
+          - Explicit invocation regression: **4/4 PASS**
+          - Capability-selection routing regression: **4/4 PASS**
+          - No-second-install gate: **PASS**
+          - Native-only PDF gate: **PASS**
+          - External trust boundary: **PASS**
+          - Evidence boundary: **PASS**
+          - Final Language Bridge anti-overrouting regression: **PASS**
+          - Catalog and npm-package validation: **PASS**
+
+          The packaged snapshot intentionally keeps the four bundled capabilities at `execution_evidence: designed`. Installation and successful workflow qualification do not silently promote efficacy evidence.
+
+          ### Integrity
+          - Release source commit: `3f195049826340021c415111ad9221f45feae447`
+          - Qualified plugin source: `80669fc10b6e963dd1f17fec52c00186fd40ba8e`
+          - Plugin ZIP SHA-256: `58e587a13ed5ff3f7dfa47ef5d7da392a767a21ae0421621bbaae48cbb0622d0`
+          - Plugin entries: **14**
+
+          The plugin payload in the merged release source is byte-for-byte identical to the qualified payload.
+
+          ### Scope note
+          This is the **CS Navigator plugin 0.6.0** release. The repository's root npm package remains on its own version line and is not being published as npm 0.6.0 by this release.
+          EOF
+
+          gh release create "$TAG" \
+            'dist/plugin-submission/cs-navigator-plugin-0.6.0.zip#CS Navigator 0.6.0 plugin' \
+            'dist/plugin-submission/cs-navigator-plugin-0.6.0.zip.sha256#SHA-256 checksum' \
+            --repo eusourmr/chatgpt-skills \
+            --target "$RELEASE_SHA" \
+            --title 'CS Navigator 0.6.0 — Capability Pack I' \
+            --notes-file /tmp/release-notes.md
