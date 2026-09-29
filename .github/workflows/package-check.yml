@@ -106,6 +106,16 @@ jobs:
           assert names == expected, (names, expected)
           PY
 
+      - name: Upload public plugin submission artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cs-navigator-plugin-submission
+          path: |
+            dist/plugin-submission/cs-navigator-plugin-*.zip
+            dist/plugin-submission/cs-navigator-plugin-*.zip.sha256
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Build npm tarball
         id: pack
         shell: bash
