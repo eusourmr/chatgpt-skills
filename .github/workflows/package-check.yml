@@ -89,10 +89,19 @@ jobs:
               assert z.testzip() is None
           expected = [
               'cs-navigator/assets/cs-icon.png',
+              'cs-navigator/capability-pack.json',
               'cs-navigator/plugin.json',
               'cs-navigator/skills/cs-navigator/agents/openai.yaml',
               'cs-navigator/skills/cs-navigator/references/catalog-snapshot.json',
               'cs-navigator/skills/cs-navigator/SKILL.md',
+              'cs-navigator/skills/regenerative-adaptive-experiment/agents/openai.yaml',
+              'cs-navigator/skills/regenerative-adaptive-experiment/SKILL.md',
+              'cs-navigator/skills/regenerative-impact-map/agents/openai.yaml',
+              'cs-navigator/skills/regenerative-impact-map/SKILL.md',
+              'cs-navigator/skills/regenerative-language-bridge/agents/openai.yaml',
+              'cs-navigator/skills/regenerative-language-bridge/SKILL.md',
+              'cs-navigator/skills/regenerative-resilience-plan/agents/openai.yaml',
+              'cs-navigator/skills/regenerative-resilience-plan/SKILL.md',
           ]
           assert names == expected, (names, expected)
           PY
