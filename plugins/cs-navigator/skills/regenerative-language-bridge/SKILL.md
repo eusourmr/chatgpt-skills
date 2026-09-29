@@ -1,6 +1,6 @@
 ---
 name: regenerative-language-bridge
-description: Use only when the user explicitly asks to use Regenerative Language Bridge (or $regenerative-language-bridge), or explicitly asks for this reusable CS workflow. Do not activate from a direct request to explain, rewrite, summarize, or translate content; direct tasks stay native unless capability selection is requested.
+description: Explain technical, legal, scientific, or institutional material to a broader audience in plain language without erasing precision, uncertainty, or necessary terminology. Activate only when the user explicitly asks to use Regenerative Language Bridge (or its skill ID), or explicitly selects this reusable CS workflow; a direct explanation request alone stays native.
 ---
 
 # Regenerative Language Bridge
@@ -50,6 +50,27 @@ The **Resource note** is valid only if it contains these three explicit labeled 
 - **Review/expiry date:** concrete date when known; otherwise `to be defined`.
 
 Do not substitute a general paragraph about resources for these fields. A Resource note without all three labels is incomplete.
+
+### Required explicit-invocation template
+
+When this skill is explicitly invoked, the response MUST contain all six sections below in this order. Do not replace them with alternative headings. Translate the headings to the user's language.
+
+For Portuguese, use exactly these headings:
+
+1. `### Em linguagem simples`
+2. `### Termos-chave`
+3. `### Camada técnica`
+4. `### Verificação de entendimento`
+5. `### Ciclo de aprendizado`
+6. `### Nota de recursos`
+
+Inside `### Nota de recursos`, include all three labeled lines:
+
+- `**Tempo de leitura:**` estimate in minutes
+- `**Responsável pela manutenção:**` name or `a definir`
+- `**Data de revisão/expiração:**` date or `a definir`
+
+Do not finish the response until all six sections and all three resource fields are present.
 
 Respond in the user's language. Offer another language only when useful; do not assume literacy, disability, culture, or expertise from identity.
 
