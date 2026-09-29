@@ -1,9 +1,15 @@
 ---
 name: regenerative-adaptive-experiment
-description: Turn an uncertain improvement idea into a small, reversible experiment that measures systemic benefit, detects harm early, and returns useful learning.
+description: Use only when the user explicitly asks to use Regenerative Adaptive Experiment (or $regenerative-adaptive-experiment), or explicitly asks for this reusable CS workflow. Do not activate from a direct request to design a pilot, experiment, or reversible change; direct tasks stay native unless capability selection is requested.
 ---
 
 # Regenerative Adaptive Experiment
+
+## Activation boundary
+
+Apply this workflow only when the user explicitly invokes this skill by name or skill ID, or explicitly asks for a reusable CS skill, workflow, or capability and this skill has been selected. Subject-matter similarity alone is not activation.
+
+If the user directly asks to explain, analyze, plan, test, write, summarize, translate, calculate, research, or create something without capability-selection intent, do not impose this workflow or its structured output. Handle the task natively.
 
 Learn with the smallest responsible intervention. A failed hypothesis can still create value when the test is safe and its learning is returned.
 
