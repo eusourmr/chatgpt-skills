@@ -43,7 +43,7 @@ The quality catalog currently tracks **31 skills**: **12 OpenAI-published**, **1
 
 ## 🚀 Start in 1 Minute
 
-Version `0.5.0` is being prepared around **Chat-Native First**: CS Navigator is now natively qualified in ChatGPT, and the preferred distribution path is a GitHub-managed plugin marketplace rather than ZIP upload.
+CS Navigator `0.6.0` **Capability Pack I** is merged and natively qualified in ChatGPT. One plugin install exposes Navigator plus four chat-native capabilities: Regenerative Language Bridge, Regenerative Impact Map, Regenerative Resilience Plan, and Regenerative Adaptive Experiment. Direct tasks still stay native unless the user is selecting or explicitly invoking a capability.
 
 For a compatible ChatGPT workspace, import this repository as a plugin marketplace:
 
@@ -53,7 +53,9 @@ Path:   (leave empty)
 Branch: main
 ```
 
-The marketplace exposes the **CS Navigator** skill-only plugin. GitHub is the managed source; ChatGPT imports/synchronizes the plugin and can refresh it with **Sync now**. No MCP server, API key, or third-party gateway is required for the core Navigator. See [GitHub-native distribution](docs/GITHUB_PLUGIN_DISTRIBUTION.md).
+The marketplace exposes the **CS Navigator** skill-only plugin. GitHub is the managed source; ChatGPT imports/synchronizes the plugin and can refresh it with **Sync now**. No MCP server, API key, external auth, or third-party gateway is required for the core pack. See [GitHub-native distribution](docs/GITHUB_PLUGIN_DISTRIBUTION.md) and [Capability Pack I](docs/CAPABILITY_PACK.md).
+
+Plugin versioning is independent from the npm CLI package version. The plugin is `0.6.0`; the published npm Trust Layer remains on its own release line.
 
 CLI compatibility path:
 
