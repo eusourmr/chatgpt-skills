@@ -102,12 +102,12 @@
       }
     ]
   },
-  "release_notes": "0.6.0 Capability Pack I candidate. One CS Navigator plugin now bundles four chat-native CS workflows while preserving the Simple Gate: direct tasks stay native; capability-selection intent routes narrowly; evidence remains independent per skill; no skill-to-skill handoff is assumed.",
+  "release_notes": "0.6.0 Capability Pack I qualified candidate. One CS Navigator plugin bundles four chat-native CS workflows while preserving the Simple Gate: direct tasks stay native; capability-selection intent routes narrowly; all four bundled capabilities passed explicit in-product workflow regression from one installation; no second install was required; external trust and native-only boundaries held; per-skill packaged evidence remains independent and designed until separately promoted by the evidence model.",
   "submission_requirements": {
     "verified_developer_identity": "reuse-verified-identity",
     "logo_asset": "reuse-existing-asset",
     "availability_regions": "select-in-portal",
     "openai_review_required": true
   },
-  "submission_state": "draft-pending-capability-pack-native-qualification"
+  "submission_state": "qualified-ready-for-review"
 }
