@@ -7,12 +7,18 @@ on:
       - ops/release-cs-navigator-v0.6.0
     paths:
       - '.github/workflows/release-cs-navigator-v060.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/release-cs-navigator-v060.yml'
 
 permissions:
   contents: write
 
 jobs:
   release:
+    if: github.event_name == 'push' || github.head_ref == 'ops/release-cs-navigator-v0.6.0'
     runs-on: ubuntu-latest
     steps:
       - name: Check out exact merged release source
