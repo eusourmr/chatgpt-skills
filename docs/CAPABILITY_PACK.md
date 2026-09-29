@@ -34,7 +34,7 @@ Each skill remains a byte-for-byte mirror of its canonical source and keeps its 
 
 Capability Pack I was merged through PR #44 and qualified on ChatGPT using the exact R6 payload.
 
-- qualified plugin source revision: `80669fc10b6e963dd40ba8e`;
+- qualified plugin source revision: `80669fc10b6e963dd1f17fec52c00186fd40ba8e`;
 - merged to `main` in commit `3f195049826340021c415111ad9221f45feae447`;
 - post-merge plugin SHA-256: `58e587a13ed5ff3f7dfa47ef5d7da392a767a21ae0421621bbaae48cbb0622d0`;
 - explicit invocation: 4/4 PASS;
