@@ -5,6 +5,7 @@
   "policy": "Install once, route narrowly. Bundled capability availability does not imply automatic activation or stronger evidence.",
   "activation_contract": [
     "CS Navigator activates on capability-selection intent, not task subject matter alone.",
+    "Bundled skills must not self-activate from subject matter alone; explicit skill invocation or capability-selection intent is required.",
     "Bundled skills remain independently evidenced and versioned.",
     "A matching bundled skill is not necessary when ChatGPT can handle the direct task natively.",
     "Do not assume skill-to-skill handoff; recommend the capability and keep the next action explicit when needed."
