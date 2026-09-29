@@ -30,6 +30,21 @@ The Simple Gate remains authoritative:
 
 Each skill remains a byte-for-byte mirror of its canonical source and keeps its own execution evidence. Being bundled does not promote `designed` to `tested`.
 
+## Qualified status
+
+Capability Pack I was merged through PR #44 and qualified on ChatGPT using the exact R6 payload.
+
+- qualified plugin source revision: `80669fc10b6e963dd1f17fec52c00186fd40ba8e`;
+- merged to `main` in commit `3f195049826340021c415111ad9221f45feae447`;
+- post-merge plugin SHA-256: `58e587a13ed5ff3f7dfa47ef5d7da392a767a21ae0421621bbaae48cbb0622d0`;
+- explicit invocation: 4/4 PASS;
+- capability-selection routing: 4/4 PASS;
+- no-second-install: PASS;
+- native-only, external-trust, evidence-boundary, and anti-overrouting gates: PASS;
+- post-merge catalog and package validation: PASS.
+
+The in-product evidence is recorded in `trust/in-product-tests.json` and `trust/in-product-runs.json`. The packaged snapshot remains conservative: installation and successful qualification do not silently promote independent evidence states.
+
 ## Handoff model
 
 Do not assume an undocumented skill-to-skill handoff primitive.

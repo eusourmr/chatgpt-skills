@@ -13,7 +13,7 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 ## 🚀 Comece em 1 minuto
 
-A versão `0.5.0` está sendo preparada em torno do princípio **Chat-Native First**: o CS Navigator já foi qualificado nativamente no ChatGPT, e o caminho preferido de distribuição passa a ser um marketplace gerenciado pelo GitHub, sem upload manual de ZIP.
+O CS Navigator `0.6.0` **Capability Pack I** está mesclado ao `main` e qualificado nativamente no ChatGPT. Uma única instalação disponibiliza o Navigator e quatro capacidades chat-native: Regenerative Language Bridge, Regenerative Impact Map, Regenerative Resilience Plan e Regenerative Adaptive Experiment. Tarefas diretas continuam nativas, salvo quando o usuário escolhe ou invoca explicitamente uma capacidade.
 
 Em um workspace ChatGPT compatível, importe este repositório como marketplace de plugins:
 
@@ -23,7 +23,9 @@ Caminho: (deixe vazio)
 Branch: main
 ```
 
-O marketplace disponibiliza o plugin **CS Navigator**, composto somente pela skill. O GitHub é a fonte gerenciada; o ChatGPT importa/sincroniza o plugin e pode atualizar sob demanda com **Sync now**. O núcleo do Navigator não precisa de MCP, chave de API, servidor ou gateway de terceiros. Veja [Distribuição via GitHub](docs/GITHUB_PLUGIN_DISTRIBUTION.md).
+O marketplace disponibiliza o plugin **CS Navigator**, composto somente por skills. O GitHub é a fonte gerenciada; o ChatGPT importa/sincroniza o plugin e pode atualizar sob demanda com **Sync now**. O pacote não exige MCP, chave de API, autenticação externa, servidor ou gateway de terceiros. Veja [Distribuição via GitHub](docs/GITHUB_PLUGIN_DISTRIBUTION.md) e [Capability Pack I](docs/CAPABILITY_PACK.md).
+
+A versão do plugin é independente da versão do pacote CLI publicado no npm. O plugin está em `0.6.0`; o npm Trust Layer segue sua própria linha de releases.
 
 Caminho de compatibilidade pelo npm:
 
@@ -169,7 +171,7 @@ Cada pasta `skills/<nome>/` segue a estrutura de uma skill independente. Skills 
 Use $regenerative-impact-map para comparar esta decisão nas cinco áreas.
 ```
 
-Na v0.5, o CS Navigator já possui distribuição como plugin via marketplace GitHub. As demais skills continuam sendo expandidas de forma conservadora conforme cada superfície for testada.
+Na v0.6.0, o CS Navigator distribui o Capability Pack I como plugin via marketplace GitHub. As demais skills continuam sendo expandidas de forma conservadora conforme cada superfície for testada.
 
 ## O que pode entrar
 
