@@ -11,6 +11,8 @@ Apply this workflow only when the user explicitly invokes this skill by name or 
 
 If the user directly asks to explain, analyze, plan, test, write, summarize, translate, calculate, research, or create something without capability-selection intent, do not impose this workflow or its structured output. Handle the task natively.
 
+If the user explicitly invokes this skill by name or skill ID, that is sufficient activation. When activated, execute the full Workflow and Output contract below and preserve every required output section or field. Do not silently collapse the skill into an unstructured native-style answer unless the user explicitly asks for a different format.
+
 Create shared understanding between experts and non-specialists. Simplicity is a route to depth, not a substitute for it.
 
 ## Systemic contract
