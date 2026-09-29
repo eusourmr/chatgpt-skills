@@ -1,9 +1,15 @@
 ---
 name: regenerative-language-bridge
-description: Explain technical, legal, scientific, or institutional material to a broader audience in plain language without erasing precision, uncertainty, or necessary terminology.
+description: Use only when the user explicitly asks to use Regenerative Language Bridge (or $regenerative-language-bridge), or explicitly asks for this reusable CS workflow. Do not activate from a direct request to explain, rewrite, summarize, or translate content; direct tasks stay native unless capability selection is requested.
 ---
 
 # Regenerative Language Bridge
+
+## Activation boundary
+
+Apply this workflow only when the user explicitly invokes this skill by name or skill ID, or explicitly asks for a reusable CS skill, workflow, or capability and this skill has been selected. Subject-matter similarity alone is not activation.
+
+If the user directly asks to explain, analyze, plan, test, write, summarize, translate, calculate, research, or create something without capability-selection intent, do not impose this workflow or its structured output. Handle the task natively.
 
 Create shared understanding between experts and non-specialists. Simplicity is a route to depth, not a substitute for it.
 
