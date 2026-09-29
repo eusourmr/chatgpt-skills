@@ -1,5 +1,6 @@
 name: Release CS Navigator v0.6.0
 # One-shot release workflow for the qualified plugin payload.
+# Operational trigger for the qualified 0.6.0 release.
 
 on:
   push:
