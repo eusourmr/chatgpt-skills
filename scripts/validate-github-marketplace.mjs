@@ -26,6 +26,7 @@ expect(!plugin.mcpServers, 'CS Navigator core plugin must not declare MCP server
 expect(!plugin.mcp, 'CS Navigator core plugin must not declare MCP');
 
 const pack = await readJson('plugins/cs-navigator/capability-pack.json');
+const packFixtures = await readJson('tests/fixtures/capability-pack.json');
 const execution = await readJson('trust/execution.json');
 const expectedIncluded = [
   'regenerative-language-bridge',
@@ -37,6 +38,25 @@ const expectedPluginSkills = ['cs-navigator', ...expectedIncluded].sort();
 
 expect(pack.schema_version === 1, 'Capability Pack manifest schema_version must be 1');
 expect(pack.pack_version === plugin.version, 'Capability Pack version must match plugin version');
+expect(packFixtures.schema_version === 1, 'Capability Pack fixtures schema_version must be 1');
+expect(packFixtures.pack_version === plugin.version, 'Capability Pack fixture version must match plugin version');
+expect(packFixtures.router === 'cs-navigator', 'Capability Pack fixtures router must be cs-navigator');
+expect(Array.isArray(packFixtures.cases) && packFixtures.cases.length >= 8, 'Capability Pack needs at least eight collision/handoff fixtures');
+const packFixtureIds = new Set();
+let directCases = 0;
+let routingCases = 0;
+for (const item of packFixtures.cases || []) {
+  expect(typeof item.id === 'string' && item.id.length > 0, 'Capability Pack fixture missing id');
+  expect(!packFixtureIds.has(item.id), `Duplicate Capability Pack fixture id: ${item.id}`);
+  packFixtureIds.add(item.id);
+  expect(typeof item.prompt === 'string' && item.prompt.length > 0, `${item.id}: missing prompt`);
+  expect(['native-only','router','explicit-skill','pack-handoff'].includes(item.expected_activation), `${item.id}: invalid expected_activation`);
+  expect(typeof item.reason === 'string' && item.reason.length > 0, `${item.id}: missing reason`);
+  if (item.expected_activation === 'native-only') directCases += 1;
+  if (item.expected_activation === 'router') routingCases += 1;
+}
+expect(directCases >= 4, 'Capability Pack fixtures need at least four anti-overrouting cases');
+expect(routingCases >= 4, 'Capability Pack fixtures need at least four capability-routing cases');
 expect(pack.router === 'cs-navigator', 'Capability Pack router must be cs-navigator');
 expect(Array.isArray(pack.included_skills), 'Capability Pack included_skills must be an array');
 
