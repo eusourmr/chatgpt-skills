@@ -136,11 +136,11 @@
       },
       "usefulness": {
         "state": "tested",
-        "evidence": "The exact 0.5.1 Simple Gate artifact passed 8/8 native ChatGPT cases: direct tasks stayed native, capability-selection prompts routed correctly, and trust/coverage boundaries held."
+        "evidence": "CS Navigator 0.6.0 Capability Pack I passed recorded in-product qualification covering four bundled capability routes, native-only handling, external trust boundaries, direct-task anti-overrouting, and one-install use across all four bundled capabilities."
       },
       "known_gaps": [
         "The bundled snapshot is intentionally finite and can report a coverage gap when a job is not represented.",
-        "Selecting @CS Navigator and then issuing an ordinary direct task is not treated as a guaranteed skill-to-skill handoff; 0.5.1 qualifies routing when capability-selection intent is present."
+        "The GitHub marketplace import/sync path remains a separate distribution-surface qualification tracked independently from the qualified plugin payload."
       ]
     },
     "regenerative-adaptive-experiment": {
