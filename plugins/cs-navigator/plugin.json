@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cs-navigator",
-  "version": "0.5.1",
-  "description": "Route capability-selection questions to the smallest evidence-backed ChatGPT Skills set, or say when no skill is needed.",
+  "version": "0.6.0",
+  "description": "Route capability-selection questions and bundle a small set of evidence-tracked chat-native CS skills.",
   "author": {
     "name": "ChatGPT Skills",
     "url": "https://github.com/eusourmr/chatgpt-skills"
@@ -14,19 +14,22 @@
     "chatgpt",
     "skills",
     "trust",
-    "discovery"
+    "discovery",
+    "capability-pack",
+    "regenerative"
   ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "CS Navigator",
         "shortDescription": "Find trusted skills",
-        "longDescription": "Describe what you want to accomplish and CS Navigator routes capability-selection questions to the smallest useful evidence-backed skill set. It stays out of the way when no skill is needed, separates discovery from trust evidence, and reports real coverage gaps instead of inventing capabilities.",
+        "longDescription": "CS Navigator routes capability-selection questions to the smallest useful evidence-backed set and now bundles four lightweight chat-native workflows: Language Bridge, Impact Map, Resilience Plan, and Adaptive Experiment. Ordinary direct tasks should still stay with ChatGPT when no skill is needed.",
         "developerName": "RICARDO MOREIRA DA ROCHA",
         "category": "Productivity",
         "websiteURL": "https://github.com/eusourmr/chatgpt-skills",
         "defaultPrompt": [
-          "Find the smallest useful skill set for this goal, or tell me if no additional skill is needed.",
+          "Tell me whether this task needs a bundled capability or ChatGPT can handle it directly.",
+          "Find the smallest useful bundled CS capability for this goal.",
           "Check whether this external skill has enough evidence to trust."
         ],
         "privacyPolicyURL": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/PRIVACY.md",

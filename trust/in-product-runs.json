@@ -218,6 +218,149 @@
           "observed": "Answered 17 × 4 = 68 directly with no skill, catalog, Navigator, or routing commentary."
         }
       ]
+    },
+    {
+      "test_id": "regenerative-language-bridge-chatgpt-v1-r6",
+      "skill_id": "regenerative-language-bridge",
+      "result": "pass",
+      "executed_at": "2026-09-29T15:20:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.6.0",
+      "distribution": "local",
+      "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+      "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+      "case_ids": [
+        "explicit-language-bridge-r6"
+      ],
+      "evaluation_note": "The installed local R6 artifact was later verified entry-by-entry equivalent to the source-frozen CI payload. Whole-ZIP hashes differ only because ZIP container metadata differs.",
+      "assertions": [
+        {
+          "case_id": "explicit-language-bridge-r6",
+          "pass": true,
+          "observed": "Explicit invocation produced all six mandatory sections, preserved technical caveats and terminology, included a comprehension check and learning loop, and included the three labeled resource fields: reading time, maintenance owner, and review/expiry date."
+        }
+      ]
+    },
+    {
+      "test_id": "regenerative-impact-map-chatgpt-v1-r6",
+      "skill_id": "regenerative-impact-map",
+      "result": "pass",
+      "executed_at": "2026-09-29T15:25:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.6.0",
+      "distribution": "local",
+      "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+      "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+      "case_ids": [
+        "explicit-impact-map-r6"
+      ],
+      "assertions": [
+        {
+          "case_id": "explicit-impact-map-r6",
+          "pass": true,
+          "observed": "Explicit invocation produced the plain-language brief plus decision, boundary, affected/missing voices, all five lenses, reinforcing loop, balancing safeguard, resource baseline/budget, chosen intervention, regenerative seed, and review owner/date/stop/restoration fields, with reversible-next-step reasoning."
+        }
+      ]
+    },
+    {
+      "test_id": "regenerative-resilience-plan-chatgpt-v1-r6",
+      "skill_id": "regenerative-resilience-plan",
+      "result": "pass",
+      "executed_at": "2026-09-29T15:34:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.6.0",
+      "distribution": "local",
+      "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+      "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+      "case_ids": [
+        "explicit-resilience-plan-r6"
+      ],
+      "assertions": [
+        {
+          "case_id": "explicit-resilience-plan-r6",
+          "pass": true,
+          "observed": "Explicit invocation produced essential functions/minimum service, dependency and cascade mapping, multiple disruption scenarios, prevention-through-transformation actions, distributed roles, communication, resource budgets, leading/harm indicators, activation thresholds, recovery/restoration, a reversible drill, and a clear planned-versus-tested capability distinction."
+        }
+      ]
+    },
+    {
+      "test_id": "regenerative-adaptive-experiment-chatgpt-v1-r6",
+      "skill_id": "regenerative-adaptive-experiment",
+      "result": "pass",
+      "executed_at": "2026-09-29T15:40:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.6.0",
+      "distribution": "local",
+      "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+      "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+      "case_ids": [
+        "explicit-adaptive-experiment-r6"
+      ],
+      "assertions": [
+        {
+          "case_id": "explicit-adaptive-experiment-r6",
+          "pass": true,
+          "observed": "Explicit invocation produced problem/baseline/uncertainty framing, causal hypothesis, a small reversible 6–8 person five-day test, outcome/process/balancing measures, five lenses, disaggregation, consent/accessibility safeguards, bounded resources, stop/rollback/restoration rules, signal/noise/mechanism-failure/implementation-failure distinctions, decision rules, and a reusable learning asset while labeling the experiment designed-not-tested."
+        }
+      ]
+    },
+    {
+      "test_id": "cs-navigator-chatgpt-v9-capability-pack-r6",
+      "skill_id": "cs-navigator",
+      "result": "pass",
+      "executed_at": "2026-09-29T15:55:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.6.0",
+      "distribution": "local",
+      "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+      "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+      "case_ids": [
+        "route-impact-map-r6",
+        "route-language-bridge-r6",
+        "route-resilience-plan-r6",
+        "route-adaptive-experiment-r6",
+        "native-only-pdf-r6",
+        "external-trust-data-storyteller-r6",
+        "direct-language-explanation-r6"
+      ],
+      "evaluation_note": "All four bundled capabilities were invoked from the same installed R6 plugin with no second install. Navigator routing remained capability-selection-only; the direct Language Bridge subject-matter regression stayed native.",
+      "assertions": [
+        {
+          "case_id": "route-impact-map-r6",
+          "pass": true,
+          "observed": "Selected Regenerative Impact Map for systemic decision analysis and did not execute the analysis prematurely."
+        },
+        {
+          "case_id": "route-language-bridge-r6",
+          "pass": true,
+          "observed": "Selected Regenerative Language Bridge for explaining technical policy to managers without losing precision and did not execute a policy explanation prematurely."
+        },
+        {
+          "case_id": "route-resilience-plan-r6",
+          "pass": true,
+          "observed": "Selected Regenerative Resilience Plan for continuity, recovery, and learning after disruptions and did not build a plan prematurely."
+        },
+        {
+          "case_id": "route-adaptive-experiment-r6",
+          "pass": true,
+          "observed": "Selected Regenerative Adaptive Experiment for a small reversible test before scaling and did not design the experiment prematurely."
+        },
+        {
+          "case_id": "native-only-pdf-r6",
+          "pass": true,
+          "observed": "Chose native ChatGPT for ordinary PDF summarization and stated that no additional skill is necessary unless a reusable standardized workflow is desired."
+        },
+        {
+          "case_id": "external-trust-data-storyteller-r6",
+          "pass": true,
+          "observed": "Preserved data-storyteller as indexed/not-evaluated, did not invent a trust score, and did not equate insufficient evidence with maliciousness."
+        },
+        {
+          "case_id": "direct-language-explanation-r6",
+          "pass": true,
+          "observed": "Handled the direct retry-policy explanation natively, did not mention Regenerative Language Bridge, and did not impose the six-section skill template."
+        }
+      ]
     }
   ]
 }

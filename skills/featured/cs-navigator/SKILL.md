@@ -59,6 +59,12 @@ A related skill may exist; that does not make it necessary.
 
 When activation is implicit, do not announce “CS Navigator activated.” The routing should feel like part of the conversation.
 
+## Input isolation
+
+For direct tasks, use prior material only when the user explicitly refers to content present in the current chat. If the requested object is missing from the current chat, ask for it briefly instead of filling it from saved memory, prior chats, examples, or test fixtures.
+
+This applies to missing decisions, policies, documents, datasets, and other task inputs.
+
 ## Routing outcomes
 
 Choose exactly one primary outcome before answering:

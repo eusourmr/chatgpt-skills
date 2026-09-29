@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "policy": "Bundling a skill makes it available, not automatically necessary. Direct tasks should remain native unless the user requests a reusable structured capability or explicitly invokes a bundled skill.",
+  "pack_version": "0.6.0",
+  "router": "cs-navigator",
+  "cases": [
+    {
+      "id": "direct-language",
+      "prompt": "Explique esta política técnica de forma simples para gestores.",
+      "expected_activation": "native-only",
+      "expected_skill": null,
+      "reason": "Generic explanation should stay native even though Language Bridge is bundled."
+    },
+    {
+      "id": "select-language",
+      "prompt": "Qual capacidade do CS devo usar para explicar uma política técnica para gestores sem perder precisão?",
+      "expected_activation": "router",
+      "expected_skill": "regenerative-language-bridge",
+      "reason": "Capability-selection intent should route to the bundled language workflow."
+    },
+    {
+      "id": "direct-impact",
+      "prompt": "Avalie os impactos sistêmicos desta decisão.",
+      "expected_activation": "native-only",
+      "expected_skill": null,
+      "reason": "Generic analysis should not auto-use Impact Map from topic words alone."
+    },
+    {
+      "id": "select-impact",
+      "prompt": "Qual capacidade do CS devo usar para estruturar uma análise sistêmica de uma decisão?",
+      "expected_activation": "router",
+      "expected_skill": "regenerative-impact-map",
+      "reason": "Capability-selection intent should route to Impact Map."
+    },
+    {
+      "id": "direct-resilience",
+      "prompt": "Analise os riscos de interrupção do serviço.",
+      "expected_activation": "native-only",
+      "expected_skill": null,
+      "reason": "Generic risk analysis should stay native."
+    },
+    {
+      "id": "select-resilience",
+      "prompt": "Qual capacidade do CS devo usar para estruturar prevenção, absorção, recuperação e aprendizado após interrupções?",
+      "expected_activation": "router",
+      "expected_skill": "regenerative-resilience-plan",
+      "reason": "Capability-selection intent should route to Resilience Plan."
+    },
+    {
+      "id": "direct-experiment",
+      "prompt": "Me ajude a testar essa ideia.",
+      "expected_activation": "native-only",
+      "expected_skill": null,
+      "reason": "Generic help should not auto-select the structured experiment workflow."
+    },
+    {
+      "id": "select-experiment",
+      "prompt": "Qual capacidade do CS ajuda a desenhar um experimento pequeno, reversível e com critérios de parada?",
+      "expected_activation": "router",
+      "expected_skill": "regenerative-adaptive-experiment",
+      "reason": "Capability-selection intent should route to Adaptive Experiment."
+    },
+    {
+      "id": "explicit-included-skill",
+      "prompt": "@regenerative-impact-map use esta skill para estruturar a decisão.",
+      "expected_activation": "explicit-skill",
+      "expected_skill": "regenerative-impact-map",
+      "reason": "A bundled skill must remain directly invocable."
+    },
+    {
+      "id": "router-then-use-it",
+      "prompt": "Depois que o Navigator recomendar uma capacidade já incluída, use essa capacidade sem exigir uma nova instalação.",
+      "expected_activation": "pack-handoff",
+      "expected_skill": "recommended-bundled-skill",
+      "reason": "The pack's core value is one install; follow-up use should not require another install, without assuming hidden skill-to-skill handoff."
+    }
+  ]
+}
