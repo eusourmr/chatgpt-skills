@@ -1,0 +1,78 @@
+name: Generate Security Gate v2 evidence
+
+on:
+  push:
+    branches:
+      - v0.7.0/verifiable-trust-i
+    paths:
+      - '.github/workflows/generate-security-v2.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/generate-security-v2.yml'
+      - 'scripts/security-gate-v2.mjs'
+      - 'scripts/generate-risk-labels.mjs'
+      - 'trust/passports/**'
+      - 'trust/skills.json'
+      - 'installer/manifest.json'
+      - 'skills/**'
+      - 'tests/fixtures/security-v2/**'
+      - 'tests/test_security_gate_v2.py'
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event_name == 'push' && 'v0.7.0/verifiable-trust-i' || github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Generate structured security reports and Risk Labels
+        run: |
+          node scripts/security-gate-v2.mjs --write
+          node scripts/security-gate-v2.mjs --check
+          node scripts/generate-risk-labels.mjs --write
+          node scripts/generate-risk-labels.mjs --check
+          python -m unittest tests.test_security_gate_v2
+
+      - name: Upload generated evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: v070-security-v2-evidence
+          path: |
+            trust/security-reports
+            trust/risk-labels
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Commit generated evidence on release branch
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain -- trust/security-reports trust/risk-labels)" ]; then
+            echo 'Security evidence already current.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add trust/security-reports trust/risk-labels
+          git commit -m 'Generate Security Gate v2 evidence'
+          git push origin HEAD:v0.7.0/verifiable-trust-i
