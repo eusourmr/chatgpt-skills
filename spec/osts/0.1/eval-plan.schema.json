@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/eusourmr/chatgpt-skills/spec/osts/0.1/eval-plan.schema.json",
+  "title": "OSTS 0.1 - Behavior Eval Plan",
+  "type": "object",
+  "required": ["schema_version","plan_id","skill_id","surface","execution_mode","required_distribution","source_revision","artifact_sha256","minimum_cases","evaluation_policy","cases","provenance"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "plan_id": {"type": "string"},
+    "skill_id": {"type": "string"},
+    "surface": {"type": "string"},
+    "execution_mode": {"type": "string"},
+    "required_distribution": {"type": "string"},
+    "source_revision": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "artifact_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "minimum_cases": {"type": "integer", "minimum": 1},
+    "evaluation_policy": {"type": "string"},
+    "supersedes": {"type": ["string","null"]},
+    "change_note": {"type": ["string","null"]},
+    "cases": {"type": "array"},
+    "provenance": {"type": "object"}
+  },
+  "additionalProperties": false
+}
