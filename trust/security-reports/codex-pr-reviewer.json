@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "gate_version": "v2",
+  "skill_id": "codex-pr-reviewer",
+  "scanned_at": "2026-09-30",
+  "source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+  "artifact_sha256": "13006a226a157908476397bfd6d0f5af755fcbb748ea1081fc223c290263e825",
+  "result": "pass",
+  "summary": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 1,
+    "blocking": 0
+  },
+  "observed_capabilities": {
+    "network_operations": false,
+    "process_execution": false,
+    "filesystem_writes": true,
+    "secret_references": false,
+    "destructive_operations": false,
+    "lifecycle_hooks": false,
+    "encoded_or_obfuscated_content": false
+  },
+  "findings": [
+    {
+      "rule_id": "filesystem-write-reference",
+      "family": "filesystem-write",
+      "severity": "info",
+      "blocking": false,
+      "path": "scripts/build_review_prompt.py",
+      "line": 27,
+      "evidence_sha256": "e6f4359cad289f861b4950060b597199ff1a66de862f3e58377c9b6f40b9f851",
+      "message": "Filesystem write reference observed.",
+      "disposition": "review"
+    }
+  ],
+  "policy": "Automated findings are evidence for review, not a permanent safety guarantee. Blocking rules stop admission; informational signals remain visible."
+}
