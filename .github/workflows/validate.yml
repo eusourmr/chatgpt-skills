@@ -53,6 +53,10 @@ jobs:
           node scripts/generate-risk-labels.mjs --check
       - name: Verify normalized behavior eval evidence
         run: node scripts/export-behavior-evals.mjs --check
+      - name: Verify governance and localized trust vocabulary
+        run: |
+          node scripts/validate-review-log.mjs
+          node scripts/validate-trust-i18n.mjs
       - name: Check Node installer syntax
         run: node --check installer/index.js
       - name: Test regenerative gates
