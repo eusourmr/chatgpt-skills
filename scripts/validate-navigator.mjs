@@ -17,7 +17,7 @@ const activation = await readJson('tests/fixtures/navigator-activation.json');
 
 const comparableSnapshot = { ...snapshot, entries: (snapshot.entries || []).filter((entry) => entry.id !== 'cs-navigator') };
 expect(JSON.stringify(comparableSnapshot) === JSON.stringify(expected), 'Navigator snapshot differs from the current CS source data');
-expect(snapshot.schema_version === 1, 'Navigator snapshot schema_version must be 1');
+expect(snapshot.schema_version === 2, 'Navigator snapshot schema_version must be 2');
 expect(!snapshot.entries.some((entry) => entry.id === 'cs-navigator'), '0.5.1+ Navigator snapshot must not carry self-trust');
 expect(Array.isArray(snapshot.entries) && snapshot.entries.length > 0, 'Navigator snapshot needs entries');
 expect(Array.isArray(snapshot.external_sources), 'Navigator snapshot external_sources must be an array');
@@ -33,6 +33,16 @@ for (const entry of snapshot.entries) {
   expect(['chat-native', 'native-tools', 'connected', 'local-agent'].includes(entry.execution_mode), `${entry.id}: invalid execution mode ${entry.execution_mode}`);
   expect(['designed', 'tested', 'conditional', 'unknown'].includes(entry.execution_evidence), `${entry.id}: invalid execution evidence ${entry.execution_evidence}`);
   expect(Array.isArray(entry.required_capabilities), `${entry.id}: required_capabilities must be an array`);
+  expect(entry.trust && typeof entry.trust === 'object', `${entry.id}: trust summary required`);
+  expect(['current','changed-unreviewed','stale'].includes(entry.trust?.freshness_state), `${entry.id}: invalid freshness state ${entry.trust?.freshness_state}`);
+  expect(/^\d{4}-\d{2}-\d{2}$/.test(entry.trust?.review_due_at || ''), `${entry.id}: review_due_at required`);
+  expect(['pass','blocked'].includes(entry.trust?.security_gate), `${entry.id}: security_gate result required`);
+  expect(Number.isInteger(entry.trust?.blocking_findings), `${entry.id}: blocking_findings integer required`);
+  expect(typeof entry.trust?.independent_review === 'boolean', `${entry.id}: independent_review boolean required`);
+  expect(entry.permissions && typeof entry.permissions === 'object', `${entry.id}: permissions summary required`);
+  for (const key of ['local_files','network','secrets','process_execution','destructive_actions']) {
+    expect(typeof entry.permissions?.[key] === 'string', `${entry.id}: permissions.${key} required`);
+  }
   expect(Array.isArray(entry.known_gaps), `${entry.id}: known_gaps must be an array`);
 }
 
