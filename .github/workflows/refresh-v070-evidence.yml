@@ -1,0 +1,76 @@
+name: Refresh v0.7 Evidence Graph
+
+on:
+  push:
+    branches:
+      - v0.7.0/verifiable-trust-i
+    paths:
+      - 'skills/**'
+      - 'plugins/cs-navigator/**'
+      - 'trust/skills.json'
+      - 'trust/execution.json'
+      - 'trust/in-product-tests.json'
+      - 'trust/in-product-runs.json'
+      - 'trust/passport-policy.json'
+      - 'scripts/passport-lib.mjs'
+      - 'scripts/generate-trust-passports.mjs'
+      - 'scripts/security-gate-v2.mjs'
+      - 'scripts/generate-risk-labels.mjs'
+      - 'scripts/update-drift-status.mjs'
+      - 'scripts/generate-navigator-snapshot.mjs'
+      - 'scripts/generate-evals-v070.mjs'
+      - 'scripts/refresh-v070-evidence.mjs'
+      - 'i18n/trust/**'
+      - 'trust/reviews/**'
+      - 'trust/regional-taxonomy.json'
+      - 'spec/osts/0.1/**'
+      - '.github/workflows/refresh-v070-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: v0.7.0/verifiable-trust-i
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Refresh deterministic v0.7 evidence graph
+        run: node scripts/refresh-v070-evidence.mjs --as-of 2026-09-30
+      - name: Run v0.7 focused tests
+        run: |
+          python -m unittest tests.test_trust_passports
+          python -m unittest tests.test_security_gate_v2
+          python -m unittest tests.test_drift_watch
+      - name: Commit generated evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          paths=(
+            trust/passports
+            trust/security-reports
+            trust/risk-labels
+            trust/upstream
+            trust/evals
+            skills/featured/cs-navigator/references/catalog-snapshot.json
+            plugins/cs-navigator/skills/cs-navigator/references/catalog-snapshot.json
+          )
+          if git diff --quiet -- "${paths[@]}"; then
+            echo 'Evidence graph already current.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "${paths[@]}"
+          git commit -m 'Refresh v0.7 evidence graph'
+          git push origin HEAD:v0.7.0/verifiable-trust-i
