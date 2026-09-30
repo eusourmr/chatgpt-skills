@@ -1,0 +1,62 @@
+name: Generate v0.7 Behavior Evals
+
+on:
+  push:
+    branches:
+      - v0.7.0/security-drift
+    paths:
+      - '.github/workflows/generate-behavior-evals-v070.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/generate-behavior-evals-v070.yml'
+      - 'trust/in-product-tests.json'
+      - 'trust/in-product-runs.json'
+      - 'scripts/export-behavior-evals.mjs'
+      - 'tests/test_behavior_evals.py'
+      - 'trust/evals/**'
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event_name == 'push' && 'v0.7.0/security-drift' || github.event.pull_request.head.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Export and verify normalized eval evidence
+        run: |
+          node scripts/export-behavior-evals.mjs --write
+          node scripts/export-behavior-evals.mjs --check
+          python -m unittest tests.test_behavior_evals
+
+      - name: Commit normalized eval evidence
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain -- trust/evals)" ]; then
+            echo 'Behavior eval evidence already current.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add trust/evals
+          git commit -m 'Generate normalized v0.7 behavior eval evidence'
+          git push origin HEAD:v0.7.0/security-drift
