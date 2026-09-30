@@ -47,6 +47,10 @@ jobs:
 
       - name: Verify Trust Passports against immutable Git source
         run: node scripts/validate-trust-passports.mjs --verify-git-source
+      - name: Verify Security Gate v2 evidence and Risk Labels
+        run: |
+          node scripts/security-gate-v2.mjs --check
+          node scripts/generate-risk-labels.mjs --check
       - name: Check Node installer syntax
         run: node --check installer/index.js
       - name: Test regenerative gates
