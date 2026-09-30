@@ -1,10 +1,13 @@
 {
-  "schema_version": 1,
-  "policy": "Use the smallest useful set. Execution and trust are separate. External indexed sources are discovery-only until separately evidenced.",
+  "schema_version": 2,
+  "policy": "Use native ChatGPT first, then the smallest useful evidence-current set. Freshness, permissions, security evidence, execution fit, and known gaps are independent. External indexed sources remain discovery-only until separately evidenced.",
   "source_contract": [
     "installer/manifest.json",
     "trust/skills.json",
     "trust/execution.json",
+    "trust/passports/*.json",
+    "trust/risk-labels/*.json",
+    "trust/upstream/*.json",
     "sources/external/*.json"
   ],
   "entries": [
@@ -19,6 +22,22 @@
         "local-files",
         "local-runtime"
       ],
+      "trust": {
+        "freshness_state": "current",
+        "review_due_at": "2026-12-29",
+        "security_gate": "pass",
+        "blocking_findings": 0,
+        "independent_review": false,
+        "latest_behavior_plan": null,
+        "latest_behavior_run": null
+      },
+      "permissions": {
+        "local_files": "recursively reads project files and writes a release manifest",
+        "network": "none",
+        "secrets": "none required",
+        "process_execution": "none",
+        "destructive_actions": "overwrites the configured manifest output path"
+      },
       "known_gaps": [
         "Does not submit or approve an app in ChatGPT; deployment remains a separate platform action."
       ]
@@ -34,6 +53,22 @@
         "local-files",
         "local-runtime"
       ],
+      "trust": {
+        "freshness_state": "current",
+        "review_due_at": "2026-12-29",
+        "security_gate": "pass",
+        "blocking_findings": 0,
+        "independent_review": false,
+        "latest_behavior_plan": null,
+        "latest_behavior_run": null
+      },
+      "permissions": {
+        "local_files": "reads a JSON rules file and writes one Markdown prompt",
+        "network": "none",
+        "secrets": "none required",
+        "process_execution": "none",
+        "destructive_actions": "overwrites the configured output prompt"
+      },
       "known_gaps": [
         "Does not itself fetch or review a pull request; Codex or another review surface performs that step."
       ]
@@ -49,6 +84,22 @@
         "local-files",
         "local-runtime"
       ],
+      "trust": {
+        "freshness_state": "current",
+        "review_due_at": "2026-12-29",
+        "security_gate": "pass",
+        "blocking_findings": 0,
+        "independent_review": false,
+        "latest_behavior_plan": null,
+        "latest_behavior_run": null
+      },
+      "permissions": {
+        "local_files": "writes scaffold files in a user-selected target",
+        "network": "none during scaffolding; generated app uses OpenAI API when later run",
+        "secrets": "does not read secrets; generated app expects OPENAI_API_KEY",
+        "process_execution": "none in the scaffolder",
+        "destructive_actions": "--force can overwrite generated files in the selected target"
+      },
       "known_gaps": [
         "No dedicated end-to-end task fixture against a live Agents SDK environment yet."
       ]
@@ -64,6 +115,22 @@
         "local-files",
         "local-runtime"
       ],
+      "trust": {
+        "freshness_state": "current",
+        "review_due_at": "2026-12-29",
+        "security_gate": "pass",
+        "blocking_findings": 0,
+        "independent_review": false,
+        "latest_behavior_plan": null,
+        "latest_behavior_run": null
+      },
+      "permissions": {
+        "local_files": "writes server.mjs, package.json, .env.example and transport-plan.json",
+        "network": "none during scaffolding; generated server uses OpenAI Realtime when later run",
+        "secrets": "does not read secrets; generated server expects OPENAI_API_KEY",
+        "process_execution": "none in the scaffolder",
+        "destructive_actions": "writes named files in the selected target"
+      },
       "known_gaps": [
         "No dedicated end-to-end WebRTC/WebSocket fixture against a live Realtime session yet."
       ]
@@ -76,6 +143,22 @@
       "execution_mode": "chat-native",
       "execution_evidence": "designed",
       "required_capabilities": [],
+      "trust": {
+        "freshness_state": "current",
+        "review_due_at": "2026-12-29",
+        "security_gate": "pass",
+        "blocking_findings": 0,
+        "independent_review": false,
+        "latest_behavior_plan": "regenerative-adaptive-experiment-chatgpt-v1-r6",
+        "latest_behavior_run": "regenerative-adaptive-experiment-chatgpt-v1-r6"
+      },
+      "permissions": {
+        "local_files": "none required by the packaged instruction skill",
+        "network": "none required",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]
@@ -88,6 +171,22 @@
       "execution_mode": "chat-native",
       "execution_evidence": "designed",
       "required_capabilities": [],
+      "trust": {
+        "freshness_state": "current",
+        "review_due_at": "2026-12-29",
+        "security_gate": "pass",
+        "blocking_findings": 0,
+        "independent_review": false,
+        "latest_behavior_plan": null,
+        "latest_behavior_run": null
+      },
+      "permissions": {
+        "local_files": "none required by the packaged instruction skill",
+        "network": "none required",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]
@@ -100,6 +199,22 @@
       "execution_mode": "chat-native",
       "execution_evidence": "designed",
       "required_capabilities": [],
+      "trust": {
+        "freshness_state": "current",
+        "review_due_at": "2026-12-29",
+        "security_gate": "pass",
+        "blocking_findings": 0,
+        "independent_review": false,
+        "latest_behavior_plan": "regenerative-impact-map-chatgpt-v1-r6",
+        "latest_behavior_run": "regenerative-impact-map-chatgpt-v1-r6"
+      },
+      "permissions": {
+        "local_files": "none required by the packaged instruction skill",
+        "network": "none required",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]
@@ -112,6 +227,22 @@
       "execution_mode": "chat-native",
       "execution_evidence": "designed",
       "required_capabilities": [],
+      "trust": {
+        "freshness_state": "current",
+        "review_due_at": "2026-12-29",
+        "security_gate": "pass",
+        "blocking_findings": 0,
+        "independent_review": false,
+        "latest_behavior_plan": null,
+        "latest_behavior_run": null
+      },
+      "permissions": {
+        "local_files": "none required by the packaged instruction skill",
+        "network": "none required",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]
@@ -124,6 +255,22 @@
       "execution_mode": "chat-native",
       "execution_evidence": "designed",
       "required_capabilities": [],
+      "trust": {
+        "freshness_state": "current",
+        "review_due_at": "2026-12-29",
+        "security_gate": "pass",
+        "blocking_findings": 0,
+        "independent_review": false,
+        "latest_behavior_plan": "regenerative-language-bridge-chatgpt-v1-r6",
+        "latest_behavior_run": "regenerative-language-bridge-chatgpt-v1-r6"
+      },
+      "permissions": {
+        "local_files": "none required by the packaged instruction skill",
+        "network": "none required",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]
@@ -136,6 +283,22 @@
       "execution_mode": "chat-native",
       "execution_evidence": "designed",
       "required_capabilities": [],
+      "trust": {
+        "freshness_state": "current",
+        "review_due_at": "2026-12-29",
+        "security_gate": "pass",
+        "blocking_findings": 0,
+        "independent_review": false,
+        "latest_behavior_plan": null,
+        "latest_behavior_run": null
+      },
+      "permissions": {
+        "local_files": "none required by the packaged instruction skill",
+        "network": "none required",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]
@@ -148,6 +311,22 @@
       "execution_mode": "chat-native",
       "execution_evidence": "designed",
       "required_capabilities": [],
+      "trust": {
+        "freshness_state": "current",
+        "review_due_at": "2026-12-29",
+        "security_gate": "pass",
+        "blocking_findings": 0,
+        "independent_review": false,
+        "latest_behavior_plan": null,
+        "latest_behavior_run": null
+      },
+      "permissions": {
+        "local_files": "none required by the packaged instruction skill",
+        "network": "none required",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]
@@ -160,6 +339,22 @@
       "execution_mode": "chat-native",
       "execution_evidence": "designed",
       "required_capabilities": [],
+      "trust": {
+        "freshness_state": "current",
+        "review_due_at": "2026-12-29",
+        "security_gate": "pass",
+        "blocking_findings": 0,
+        "independent_review": false,
+        "latest_behavior_plan": "regenerative-resilience-plan-chatgpt-v1-r6",
+        "latest_behavior_run": "regenerative-resilience-plan-chatgpt-v1-r6"
+      },
+      "permissions": {
+        "local_files": "none required by the packaged instruction skill",
+        "network": "none required",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]
