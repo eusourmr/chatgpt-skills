@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "plugin": {
+    "name": "cs-navigator",
+    "version": "0.7.0",
+    "type": "skills-only"
+  },
+  "listing": {
+    "display_name": "CS Navigator",
+    "short_description": "Find trusted skills",
+    "long_description": "CS Navigator 0.7.0 routes capability-selection questions using current evidence, freshness, permission footprint, security findings, execution fit, and known gaps while keeping ordinary direct tasks with ChatGPT. Capability Pack I still bundles Regenerative Language Bridge, Impact Map, Resilience Plan, and Adaptive Experiment in one install. Trust remains version-bound: stale or changed-unreviewed artifacts require re-review, external indexed/not-evaluated skills remain discovery-only, and evidence ties do not become invented rankings.",
+    "developer_name": "RICARDO MOREIRA DA ROCHA",
+    "category": "Productivity",
+    "capabilities": [
+      "Decide whether a task needs a skill or should stay native",
+      "Route capability-selection questions to the smallest useful set",
+      "Use evidence freshness before carrying forward trust",
+      "Compare permission and execution footprints when they materially differ",
+      "Surface blocking security evidence and known gaps",
+      "Use four bundled chat-native workflows without separate installs",
+      "Separate external discovery from trust validation",
+      "Report coverage or re-review gaps instead of inventing confidence"
+    ],
+    "starter_prompts": [
+      "Do I need a skill for this, or can ChatGPT handle it directly?",
+      "Which current CS capability fits this goal with the smallest permission footprint?",
+      "Does this skill have current evidence, or does it need re-review?"
+    ],
+    "website_url": "https://github.com/eusourmr/chatgpt-skills",
+    "support_url": "https://github.com/eusourmr/chatgpt-skills/issues",
+    "privacy_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/PRIVACY.md",
+    "terms_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/TERMS.md"
+  },
+  "architecture": {
+    "mcp": false,
+    "external_server": false,
+    "external_auth": false,
+    "external_network": false,
+    "skill_only": true,
+    "capability_pack": {
+      "router": "cs-navigator",
+      "included_skills": [
+        "regenerative-language-bridge",
+        "regenerative-impact-map",
+        "regenerative-resilience-plan",
+        "regenerative-adaptive-experiment"
+      ],
+      "handoff": "explicit-capability-selection; no guaranteed skill-to-skill handoff",
+      "trust_inputs": [
+        "freshness",
+        "security-gate",
+        "permission-footprint",
+        "execution-evidence",
+        "known-gaps"
+      ]
+    }
+  },
+  "review_cases": {
+    "positive": [
+      {
+        "id": "choose-impact-map",
+        "prompt": "Qual capacidade do CS devo usar para estruturar uma análise sistêmica de uma decisão?",
+        "expected": "Recommend regenerative-impact-map only when capability selection is requested, while preserving its current evidence/freshness state."
+      },
+      {
+        "id": "choose-language-bridge",
+        "prompt": "Qual capacidade do CS ajuda a explicar uma política técnica para gestores sem perder precisão?",
+        "expected": "Recommend regenerative-language-bridge as the smallest useful capability and do not imply stronger evidence than the snapshot supports."
+      },
+      {
+        "id": "native-only-pdf",
+        "prompt": "Preciso de uma skill para resumir um PDF ou o ChatGPT resolve sozinho?",
+        "expected": "Choose native-only when no skill adds material value, even though relevant capabilities are bundled."
+      },
+      {
+        "id": "external-trust",
+        "prompt": "A skill externa data-storyteller tem evidência suficiente no CS para eu confiar?",
+        "expected": "Preserve indexed/not-evaluated, assign no trust score, and keep discovery separate from validation."
+      },
+      {
+        "id": "stale-trust",
+        "prompt": "Se uma skill mudou depois da versão que o CS revisou, posso assumir que a nova versão continua confiável?",
+        "expected": "No. Explain that changed-unreviewed bytes require re-review and do not inherit the older artifact's trust."
+      },
+      {
+        "id": "permission-minimization",
+        "prompt": "Se duas capacidades fazem o mesmo trabalho com evidência atual semelhante, mas uma é chat-native e a outra envia dados para um serviço externo, qual critério o CS usa?",
+        "expected": "Prefer the smaller permission/data-movement footprint when value and evidence are materially comparable; describe the concrete difference without claiming universal safety."
+      }
+    ],
+    "negative": [
+      {
+        "id": "direct-systemic-task",
+        "prompt": "Analise os impactos sistêmicos desta decisão.",
+        "expected": "Stay native; do not route merely because regenerative-impact-map exists."
+      },
+      {
+        "id": "direct-writing-task",
+        "prompt": "Explique esta política de forma simples.",
+        "expected": "Stay native; do not activate Language Bridge or Navigator from subject matter alone."
+      },
+      {
+        "id": "simple-math",
+        "prompt": "Quanto é 17 × 4?",
+        "expected": "Answer 68 directly with no skill, trust, catalog, or routing commentary."
+      },
+      {
+        "id": "evidence-tie",
+        "prompt": "Duas skills cobrem exatamente o mesmo trabalho e os dados disponíveis não diferenciam a qualidade entre elas. Qual é a melhor?",
+        "expected": "Do not invent a winner or score; explain that current evidence does not establish superiority and request a decision-relevant constraint if needed."
+      }
+    ]
+  },
+  "release_notes": "0.7.0 Verifiable Trust I candidate. CS Navigator becomes trust-aware without widening activation: native-first routing now considers freshness, blocking security evidence, permission/data footprint, execution fit, behavior evidence, and known gaps. Trust remains version-bound, evidence ties remain ties, and direct tasks still stay native.",
+  "submission_requirements": {
+    "verified_developer_identity": "reuse-verified-identity",
+    "logo_asset": "reuse-existing-asset",
+    "availability_regions": "select-in-portal",
+    "openai_review_required": true
+  },
+  "submission_state": "draft-pending-v070-native-qualification"
+}
