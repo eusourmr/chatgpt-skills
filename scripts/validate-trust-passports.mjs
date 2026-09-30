@@ -91,6 +91,12 @@ for (const [id, expected] of expectedPassports) {
   if (passport.behavior_evidence?.latest_run_id !== null) {
     expect(runIds.has(passport.behavior_evidence.latest_run_id), `${id}: unknown behavior run ${passport.behavior_evidence.latest_run_id}`);
   }
+  if (passport.behavior_evidence?.normalized_plan_ref !== null) {
+    expect(await fileExists(passport.behavior_evidence.normalized_plan_ref), `${id}: normalized eval plan ref missing`);
+  }
+  if (passport.behavior_evidence?.normalized_run_ref !== null) {
+    expect(await fileExists(passport.behavior_evidence.normalized_run_ref), `${id}: normalized eval run ref missing`);
+  }
   for (const ref of passport.behavior_evidence?.evidence_refs ?? []) {
     if (!(await fileExists(ref))) errors.push(`${id}: missing behavior evidence ref ${ref}`);
   }
