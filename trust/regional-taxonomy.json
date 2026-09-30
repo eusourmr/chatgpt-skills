@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "policy": "Regional usefulness is a discovery dimension, not a lower trust tier.",
+  "locales": [
+    "en",
+    "pt-BR",
+    "es",
+    "fr"
+  ],
+  "regions": [
+    {
+      "id": "latin-america",
+      "name": "Latin America",
+      "priority": true,
+      "languages": [
+        "pt-BR",
+        "es"
+      ],
+      "contexts": [
+        "public-education",
+        "research",
+        "small-business",
+        "public-administration",
+        "nonprofit-social-impact",
+        "agriculture",
+        "climate-biodiversity",
+        "cross-border-work",
+        "low-bandwidth"
+      ]
+    },
+    {
+      "id": "global",
+      "name": "Global",
+      "priority": true,
+      "languages": [
+        "en"
+      ],
+      "contexts": [
+        "general-purpose"
+      ]
+    }
+  ],
+  "domains": [
+    "science-research",
+    "education",
+    "health",
+    "small-business",
+    "public-administration",
+    "nonprofit-social-impact",
+    "climate-environment",
+    "data-analysis",
+    "software-development",
+    "creative-work"
+  ],
+  "dimensions": [
+    "language",
+    "jurisdiction",
+    "accessibility",
+    "bandwidth",
+    "compute",
+    "external-service-dependency",
+    "data-residency",
+    "domain-relevance"
+  ]
+}
