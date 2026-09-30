@@ -224,6 +224,8 @@
         "state",
         "latest_plan_id",
         "latest_run_id",
+        "normalized_plan_ref",
+        "normalized_run_ref",
         "evidence_refs"
       ],
       "properties": {
@@ -253,6 +255,18 @@
             "type": "string",
             "minLength": 1
           }
+        },
+        "normalized_plan_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "normalized_run_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
       "additionalProperties": false
