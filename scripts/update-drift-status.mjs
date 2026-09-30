@@ -5,7 +5,7 @@ import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 import { hashSkillArtifact, readJson } from './passport-lib.mjs';
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const root = process.cwd() === '/' ? path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..') : process.cwd();
 const write = process.argv.includes('--write');
 const check = process.argv.includes('--check');
 const asOfIndex = process.argv.indexOf('--as-of');
