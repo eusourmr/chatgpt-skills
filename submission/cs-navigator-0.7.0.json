@@ -23,8 +23,7 @@
     "starter_prompts": [
       "Do I need a skill for this, or can ChatGPT handle it directly?",
       "Which CS capability fits this goal with the smallest permission footprint?",
-      "Is this skill current, tested, and sufficiently evidenced for this use?",
-      "Compare these capabilities by evidence, freshness, permissions, and execution requirements."
+      "Is this skill current, tested, and sufficiently evidenced for this use?"
     ],
     "website_url": "https://github.com/eusourmr/chatgpt-skills",
     "support_url": "https://github.com/eusourmr/chatgpt-skills/issues",
