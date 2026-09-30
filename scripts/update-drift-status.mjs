@@ -46,7 +46,6 @@ for (const id of Object.keys(manifest.skills).sort()) {
     reviewed_artifact_sha256: passport.integrity.artifact_sha256,
     current_artifact_sha256: current.artifact_sha256,
     review_due_at: passport.freshness.review_due_at,
-    evaluated_as_of: asOf,
     state,
     action,
     policy: 'A reviewed artifact cannot inherit trust after byte drift or evidence expiry without re-review.'
