@@ -51,6 +51,8 @@ jobs:
         run: |
           node scripts/security-gate-v2.mjs --check
           node scripts/generate-risk-labels.mjs --check
+      - name: Verify normalized behavior eval evidence
+        run: node scripts/export-behavior-evals.mjs --check
       - name: Check Node installer syntax
         run: node --check installer/index.js
       - name: Test regenerative gates
