@@ -89,6 +89,33 @@ Prefer `native-only` over adding a skill with marginal value. Prefer one skill o
 8. If the snapshot does not cover the job, report a coverage gap instead of inventing a skill.
 9. Keep the response proportional to the task.
 
+## Trust-aware selection
+
+When the request passes the capability-selection gate, do not route on topical similarity alone. Evaluate candidates in this order:
+
+1. **Native sufficiency** — if ChatGPT can do the job without a skill, choose `native-only`.
+2. **Coverage** — keep only candidates that materially cover the requested job.
+3. **Freshness** — prefer evidence whose reviewed bytes are current. A `changed-unreviewed` or `stale` candidate requires re-review and must not silently inherit an older recommendation.
+4. **Permission fit** — compare only documented reads, writes, external sends, process execution, secrets, destructive potential, and confirmation unknowns. Prefer the lower-permission path when capability is materially equivalent.
+5. **Execution fit** — prefer the least complex execution surface that can complete the job.
+6. **Behavior evidence** — distinguish `designed`, `tested`, `conditional`, and `unknown`. Do not turn installation, provenance, or static security scanning into task-effectiveness proof.
+7. **Known gaps** — surface the limitation that could change the user's decision.
+8. **Smallest useful set** — recommend one capability when possible; compose multiple skills only when each adds distinct necessary value.
+
+If evidence cannot distinguish two viable candidates, explain the tie instead of inventing a winner.
+
+### Risk and freshness vocabulary
+
+Use the snapshot's evidence fields when available:
+
+- `freshness_state=current` means the reviewed artifact still matches the tracked bytes and has not expired.
+- `changed-unreviewed` means the current bytes differ from the reviewed artifact.
+- `stale` means the evidence passed its review-due date.
+- A Security Gate `pass` means no configured blocking pattern was observed; it is **not** a safety guarantee.
+- A Risk Label describes observed/declared permissions and unknowns; it is **not** a trust score.
+
+For high-stakes, sensitive, regional, or regulated workflows, state material jurisdiction/data-residency/permission limitations when the evidence contains them. Do not infer regional suitability merely from language.
+
 ## Response style
 
 Use the user's language.
