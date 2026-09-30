@@ -19,44 +19,97 @@
     "known_gaps"
   ],
   "properties": {
-    "schema_version": {"const": "0.1"},
-    "skill_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "schema_version": {
+      "const": "0.1"
+    },
+    "skill_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
     "identity": {
       "type": "object",
-      "required": ["name", "summary", "publisher"],
+      "required": [
+        "name",
+        "summary",
+        "publisher"
+      ],
       "properties": {
-        "name": {"type": "string", "minLength": 1},
-        "summary": {"type": "string", "minLength": 1},
-        "publisher": {"type": "string", "minLength": 1}
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "publisher": {
+          "type": "string",
+          "minLength": 1
+        }
       },
       "additionalProperties": false
     },
     "provenance": {
       "type": "object",
-      "required": ["source_repository", "canonical_path", "reviewed_source_revision", "license"],
+      "required": [
+        "source_repository",
+        "canonical_path",
+        "reviewed_source_revision",
+        "license"
+      ],
       "properties": {
-        "source_repository": {"type": "string", "format": "uri"},
-        "canonical_path": {"type": "string", "minLength": 1},
-        "reviewed_source_revision": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
-        "license": {"type": "string", "minLength": 1}
+        "source_repository": {
+          "type": "string",
+          "format": "uri"
+        },
+        "canonical_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewed_source_revision": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1
+        }
       },
       "additionalProperties": false
     },
     "integrity": {
       "type": "object",
-      "required": ["algorithm", "artifact_sha256", "files"],
+      "required": [
+        "algorithm",
+        "artifact_sha256",
+        "files"
+      ],
       "properties": {
-        "algorithm": {"const": "sha256-manifest-v1"},
-        "artifact_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "algorithm": {
+          "const": "sha256-manifest-v1"
+        },
+        "artifact_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
         "files": {
           "type": "array",
           "minItems": 1,
           "items": {
             "type": "object",
-            "required": ["path", "sha256"],
+            "required": [
+              "path",
+              "sha256"
+            ],
             "properties": {
-              "path": {"type": "string", "minLength": 1},
-              "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
             },
             "additionalProperties": false
           }
@@ -66,80 +119,232 @@
     },
     "execution": {
       "type": "object",
-      "required": ["mode", "evidence_state", "minimum_setup", "required_capabilities"],
+      "required": [
+        "mode",
+        "evidence_state",
+        "minimum_setup",
+        "required_capabilities"
+      ],
       "properties": {
-        "mode": {"enum": ["chat-native", "native-tools", "connected", "local-agent"]},
-        "evidence_state": {"enum": ["designed", "tested", "conditional", "unknown"]},
-        "minimum_setup": {"type": "string", "minLength": 1},
-        "required_capabilities": {"type": "array", "items": {"type": "string"}}
+        "mode": {
+          "enum": [
+            "chat-native",
+            "native-tools",
+            "connected",
+            "local-agent"
+          ]
+        },
+        "evidence_state": {
+          "enum": [
+            "designed",
+            "tested",
+            "conditional",
+            "unknown"
+          ]
+        },
+        "minimum_setup": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required_capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       },
       "additionalProperties": false
     },
     "permissions": {
       "type": "object",
-      "required": ["local_files", "network", "secrets", "process_execution", "destructive_actions"],
+      "required": [
+        "local_files",
+        "network",
+        "secrets",
+        "process_execution",
+        "destructive_actions"
+      ],
       "properties": {
-        "local_files": {"type": "string"},
-        "network": {"type": "string"},
-        "secrets": {"type": "string"},
-        "process_execution": {"type": "string"},
-        "destructive_actions": {"type": "string"}
+        "local_files": {
+          "type": "string"
+        },
+        "network": {
+          "type": "string"
+        },
+        "secrets": {
+          "type": "string"
+        },
+        "process_execution": {
+          "type": "string"
+        },
+        "destructive_actions": {
+          "type": "string"
+        }
       },
       "additionalProperties": false
     },
     "security": {
       "type": "object",
-      "required": ["state", "gate_version", "evidence_refs", "report_ref"],
+      "required": [
+        "state",
+        "gate_version",
+        "evidence_refs",
+        "report_ref",
+        "risk_label_ref"
+      ],
       "properties": {
-        "state": {"type": "string", "minLength": 1},
-        "gate_version": {"type": "string", "minLength": 1},
-        "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}},
-        "report_ref": {"type": ["string", "null"]}
+        "state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "gate_version": {
+          "const": "v2"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "report_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "risk_label_ref": {
+          "type": "string",
+          "minLength": 1
+        }
       },
       "additionalProperties": false
     },
     "behavior_evidence": {
       "type": "object",
-      "required": ["state", "latest_plan_id", "latest_run_id", "evidence_refs"],
+      "required": [
+        "state",
+        "latest_plan_id",
+        "latest_run_id",
+        "evidence_refs"
+      ],
       "properties": {
-        "state": {"enum": ["designed", "tested", "conditional", "unknown"]},
-        "latest_plan_id": {"type": ["string", "null"]},
-        "latest_run_id": {"type": ["string", "null"]},
-        "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}}
+        "state": {
+          "enum": [
+            "designed",
+            "tested",
+            "conditional",
+            "unknown"
+          ]
+        },
+        "latest_plan_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "latest_run_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
       },
       "additionalProperties": false
     },
     "freshness": {
       "type": "object",
-      "required": ["status", "reviewed_at", "stale_after_days", "review_due_at"],
+      "required": [
+        "status",
+        "reviewed_at",
+        "stale_after_days",
+        "review_due_at"
+      ],
       "properties": {
-        "status": {"enum": ["current", "changed-unreviewed", "source-unavailable", "stale", "superseded"]},
-        "reviewed_at": {"type": "string", "format": "date"},
-        "stale_after_days": {"type": "integer", "minimum": 1},
-        "review_due_at": {"type": "string", "format": "date"}
+        "status": {
+          "enum": [
+            "current",
+            "changed-unreviewed",
+            "source-unavailable",
+            "stale",
+            "superseded"
+          ]
+        },
+        "reviewed_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "stale_after_days": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "review_due_at": {
+          "type": "string",
+          "format": "date"
+        }
       },
       "additionalProperties": false
     },
     "governance": {
       "type": "object",
-      "required": ["maintainers", "reviewers", "independent_review"],
+      "required": [
+        "maintainers",
+        "reviewers",
+        "independent_review"
+      ],
       "properties": {
-        "maintainers": {"type": "array", "items": {"type": "object"}},
-        "reviewers": {"type": "array", "items": {"type": "object"}},
-        "independent_review": {"type": "boolean"}
+        "maintainers": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "reviewers": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "independent_review": {
+          "type": "boolean"
+        }
       },
       "additionalProperties": false
     },
     "recommendation": {
       "type": "object",
-      "required": ["state", "reason"],
+      "required": [
+        "state",
+        "reason"
+      ],
       "properties": {
-        "state": {"enum": ["recommended", "conditional", "unverified", "do-not-install", "deprecated"]},
-        "reason": {"type": "string", "minLength": 1}
+        "state": {
+          "enum": [
+            "recommended",
+            "conditional",
+            "unverified",
+            "do-not-install",
+            "deprecated"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
       },
       "additionalProperties": false
     },
-    "known_gaps": {"type": "array", "items": {"type": "string"}}
+    "known_gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
   },
   "additionalProperties": false
 }
