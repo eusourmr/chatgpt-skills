@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "skill_id": "realtime-api-integration",
+  "identity": {
+    "name": "Realtime API Integration",
+    "summary": "Creates a starter for Realtime API transport design with browser/server separation and fallback guidance.",
+    "publisher": "ChatGPT Skills project"
+  },
+  "provenance": {
+    "source_repository": "https://github.com/eusourmr/chatgpt-skills",
+    "canonical_path": "skills/featured/realtime-api-integration",
+    "reviewed_source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+    "license": "MIT"
+  },
+  "integrity": {
+    "algorithm": "sha256-manifest-v1",
+    "artifact_sha256": "ce593c123c9bede73f35f98dbe9e4ebbbc7a7de66ae31457dd3bdbc996031610",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "38ae89ac91c9b9430c52a757dcdcfe9db8864fcf9de44f96a02642528a712cb2"
+      },
+      {
+        "path": "agents/openai.yaml",
+        "sha256": "7b2568715f3f3dcb987d18777428091ead8b5a08dbad34ba39f4517fdc44306f"
+      },
+      {
+        "path": "scripts/scaffold_realtime.py",
+        "sha256": "11a60065cf572c10160b7c0378fb5a81fe7e77f5e4d23182116d38952d9b4482"
+      }
+    ]
+  },
+  "execution": {
+    "mode": "local-agent",
+    "evidence_state": "tested",
+    "minimum_setup": "Local Node/runtime and filesystem access; generated integration later needs network access and OpenAI API credentials.",
+    "required_capabilities": [
+      "local-files",
+      "local-runtime"
+    ]
+  },
+  "permissions": {
+    "local_files": "writes server.mjs, package.json, .env.example and transport-plan.json",
+    "network": "none during scaffolding; generated server uses OpenAI Realtime when later run",
+    "secrets": "does not read secrets; generated server expects OPENAI_API_KEY",
+    "process_execution": "none in the scaffolder",
+    "destructive_actions": "writes named files in the selected target"
+  },
+  "security": {
+    "state": "inspected",
+    "gate_version": "v1",
+    "evidence_refs": [
+      "trust/skills.json",
+      "scripts/security-check.mjs"
+    ],
+    "report_ref": null
+  },
+  "behavior_evidence": {
+    "state": "tested",
+    "latest_plan_id": null,
+    "latest_run_id": null,
+    "evidence_refs": [
+      "trust/skills.json",
+      "trust/execution.json"
+    ]
+  },
+  "freshness": {
+    "status": "current",
+    "reviewed_at": "2026-09-30",
+    "stale_after_days": 90,
+    "review_due_at": "2026-12-29"
+  },
+  "governance": {
+    "maintainers": [
+      {
+        "github": "eusourmr",
+        "role": "maintainer"
+      }
+    ],
+    "reviewers": [
+      {
+        "github": "eusourmr",
+        "role": "author-maintainer-reviewer",
+        "conflict_of_interest": "self-review"
+      }
+    ],
+    "independent_review": false
+  },
+  "recommendation": {
+    "state": "conditional",
+    "reason": "Bundled, source-reviewed and integrity-checked; dedicated task-level end-to-end evidence is still incomplete."
+  },
+  "known_gaps": [
+    "No dedicated end-to-end WebRTC/WebSocket fixture against a live Realtime session yet."
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "skill_id": "chatgpt-apps-deployer",
+  "identity": {
+    "name": "ChatGPT Apps Deployer",
+    "summary": "Builds a deterministic release manifest for a ChatGPT app project without implying platform approval.",
+    "publisher": "ChatGPT Skills project"
+  },
+  "provenance": {
+    "source_repository": "https://github.com/eusourmr/chatgpt-skills",
+    "canonical_path": "skills/featured/chatgpt-apps-deployer",
+    "reviewed_source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+    "license": "MIT"
+  },
+  "integrity": {
+    "algorithm": "sha256-manifest-v1",
+    "artifact_sha256": "e81a2524fc499e0d1ea9b85a1d70bcea9c164ba824345df755f9ae13cfb063c3",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "7dfabdf24506d0ce9b8e9c3a79b0f8432586ded424ba8b7dc7107ab5b22129f1"
+      },
+      {
+        "path": "agents/openai.yaml",
+        "sha256": "933211e6c79ef6a78d5a2cada652aaf4458a34f29f4a474e842932bd0c83f546"
+      },
+      {
+        "path": "scripts/package_app.py",
+        "sha256": "c1e11044fe79441406f7fc8542def6ede8f168468c92f3d03ee04a6e6c1ef33a"
+      }
+    ]
+  },
+  "execution": {
+    "mode": "local-agent",
+    "evidence_state": "tested",
+    "minimum_setup": "Local filesystem/runtime for deterministic release-manifest generation.",
+    "required_capabilities": [
+      "local-files",
+      "local-runtime"
+    ]
+  },
+  "permissions": {
+    "local_files": "recursively reads project files and writes a release manifest",
+    "network": "none",
+    "secrets": "none required",
+    "process_execution": "none",
+    "destructive_actions": "overwrites the configured manifest output path"
+  },
+  "security": {
+    "state": "inspected",
+    "gate_version": "v1",
+    "evidence_refs": [
+      "trust/skills.json",
+      "scripts/security-check.mjs"
+    ],
+    "report_ref": null
+  },
+  "behavior_evidence": {
+    "state": "tested",
+    "latest_plan_id": null,
+    "latest_run_id": null,
+    "evidence_refs": [
+      "trust/skills.json",
+      "trust/execution.json"
+    ]
+  },
+  "freshness": {
+    "status": "current",
+    "reviewed_at": "2026-09-30",
+    "stale_after_days": 90,
+    "review_due_at": "2026-12-29"
+  },
+  "governance": {
+    "maintainers": [
+      {
+        "github": "eusourmr",
+        "role": "maintainer"
+      }
+    ],
+    "reviewers": [
+      {
+        "github": "eusourmr",
+        "role": "author-maintainer-reviewer",
+        "conflict_of_interest": "self-review"
+      }
+    ],
+    "independent_review": false
+  },
+  "recommendation": {
+    "state": "conditional",
+    "reason": "Bundled, source-reviewed and integrity-checked; dedicated task-level end-to-end evidence is still incomplete."
+  },
+  "known_gaps": [
+    "Does not submit or approve an app in ChatGPT; deployment remains a separate platform action."
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "skill_id": "regenerative-listening-loop",
+  "identity": {
+    "name": "Regenerative Listening Loop",
+    "summary": "Creates an ethical listen-understand-act-report-back feedback cycle.",
+    "publisher": "ChatGPT Skills project"
+  },
+  "provenance": {
+    "source_repository": "https://github.com/eusourmr/chatgpt-skills",
+    "canonical_path": "skills/regenerative-listening-loop",
+    "reviewed_source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+    "license": "MIT"
+  },
+  "integrity": {
+    "algorithm": "sha256-manifest-v1",
+    "artifact_sha256": "238882d2f228cf5c085cfba9ae504540b783f48d27e855e70f9daaab7141c388",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "e5c5b4bd44d488aa41c6ba2aae290012225672d03b8ccca81e16214db040433b"
+      },
+      {
+        "path": "agents/openai.yaml",
+        "sha256": "40429072eaa64b9083de0320df3ad91913f0a54787c723891d36c9898fde15f8"
+      }
+    ]
+  },
+  "execution": {
+    "mode": "chat-native",
+    "evidence_state": "designed",
+    "minimum_setup": "Install/load the skill, then continue in the same chat.",
+    "required_capabilities": []
+  },
+  "permissions": {
+    "local_files": "none required by the packaged instruction skill",
+    "network": "none required",
+    "secrets": "none required",
+    "process_execution": "none required",
+    "destructive_actions": "none required"
+  },
+  "security": {
+    "state": "inspected",
+    "gate_version": "v1",
+    "evidence_refs": [
+      "trust/skills.json",
+      "scripts/security-check.mjs"
+    ],
+    "report_ref": null
+  },
+  "behavior_evidence": {
+    "state": "designed",
+    "latest_plan_id": null,
+    "latest_run_id": null,
+    "evidence_refs": [
+      "trust/skills.json",
+      "trust/execution.json"
+    ]
+  },
+  "freshness": {
+    "status": "current",
+    "reviewed_at": "2026-09-30",
+    "stale_after_days": 90,
+    "review_due_at": "2026-12-29"
+  },
+  "governance": {
+    "maintainers": [
+      {
+        "github": "eusourmr",
+        "role": "maintainer"
+      }
+    ],
+    "reviewers": [
+      {
+        "github": "eusourmr",
+        "role": "author-maintainer-reviewer",
+        "conflict_of_interest": "self-review"
+      }
+    ],
+    "independent_review": false
+  },
+  "recommendation": {
+    "state": "conditional",
+    "reason": "Bundled, source-reviewed and integrity-checked; dedicated task-level end-to-end evidence is still incomplete."
+  },
+  "known_gaps": [
+    "No dedicated outcome fixture measuring task-level effectiveness yet."
+  ]
+}

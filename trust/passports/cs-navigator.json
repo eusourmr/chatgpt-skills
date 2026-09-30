@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "skill_id": "cs-navigator",
+  "identity": {
+    "name": "CS Navigator",
+    "summary": "Routes capability-selection questions to the smallest evidence-backed ChatGPT Skills set, while staying out of the way when no skill is needed.",
+    "publisher": "ChatGPT Skills project"
+  },
+  "provenance": {
+    "source_repository": "https://github.com/eusourmr/chatgpt-skills",
+    "canonical_path": "skills/featured/cs-navigator",
+    "reviewed_source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+    "license": "MIT"
+  },
+  "integrity": {
+    "algorithm": "sha256-manifest-v1",
+    "artifact_sha256": "b6eca989e9d6f9a450877ac7892b86d0fb2ad1f33e73bd5646773bd89eb19790",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "c894b3896e58b7b44d70adc893aaf5f0a744fe696ce012ce8495d685f200ec23"
+      },
+      {
+        "path": "agents/openai.yaml",
+        "sha256": "941c3bd3f7fa16acd52153c562f60a767987c68ba450bb85199b150f8c1b9da8"
+      },
+      {
+        "path": "references/catalog-snapshot.json",
+        "sha256": "49296c73d7c78f674c4b96f6f243aadc5165d6e50fecfbe4f65c18e2eb70712e"
+      }
+    ]
+  },
+  "execution": {
+    "mode": "chat-native",
+    "evidence_state": "tested",
+    "minimum_setup": "Install CS Navigator. It runs chat-native with no mandatory external app, local runtime, or added network dependency.",
+    "required_capabilities": []
+  },
+  "permissions": {
+    "local_files": "none required by the chat-native workflow; it reads only its bundled reference snapshot through the skill runtime",
+    "network": "none required",
+    "secrets": "none required",
+    "process_execution": "none required",
+    "destructive_actions": "none required"
+  },
+  "security": {
+    "state": "inspected",
+    "gate_version": "v1",
+    "evidence_refs": [
+      "trust/skills.json",
+      "scripts/security-check.mjs"
+    ],
+    "report_ref": null
+  },
+  "behavior_evidence": {
+    "state": "tested",
+    "latest_plan_id": "cs-navigator-chatgpt-v9-capability-pack-r6",
+    "latest_run_id": "cs-navigator-chatgpt-v9-capability-pack-r6",
+    "evidence_refs": [
+      "trust/skills.json",
+      "trust/execution.json",
+      "trust/in-product-tests.json",
+      "trust/in-product-runs.json"
+    ]
+  },
+  "freshness": {
+    "status": "current",
+    "reviewed_at": "2026-09-30",
+    "stale_after_days": 90,
+    "review_due_at": "2026-12-29"
+  },
+  "governance": {
+    "maintainers": [
+      {
+        "github": "eusourmr",
+        "role": "maintainer"
+      }
+    ],
+    "reviewers": [
+      {
+        "github": "eusourmr",
+        "role": "author-maintainer-reviewer",
+        "conflict_of_interest": "self-review"
+      }
+    ],
+    "independent_review": false
+  },
+  "recommendation": {
+    "state": "conditional",
+    "reason": "Bundled, source-reviewed and integrity-checked; dedicated task-level end-to-end evidence is still incomplete."
+  },
+  "known_gaps": [
+    "The bundled snapshot is intentionally finite and can report a coverage gap when a job is not represented.",
+    "The GitHub marketplace import/sync path remains a separate distribution-surface qualification tracked independently from the qualified plugin payload."
+  ]
+}
