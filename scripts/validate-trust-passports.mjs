@@ -62,9 +62,26 @@ for (const [id, expected] of expectedPassports) {
     expect(typeof passport.permissions?.[key] === 'string', `${id}: permissions.${key} required`);
   }
 
+  expect(passport.security?.gate_version === 'v2', `${id}: Security Gate v2 required`);
   expect(Array.isArray(passport.security?.evidence_refs), `${id}: security.evidence_refs must be array`);
   for (const ref of passport.security?.evidence_refs ?? []) {
     if (!(await fileExists(ref))) errors.push(`${id}: missing security evidence ref ${ref}`);
+  }
+  expect(isString(passport.security?.report_ref), `${id}: security.report_ref required`);
+  expect(isString(passport.security?.risk_label_ref), `${id}: security.risk_label_ref required`);
+  if (isString(passport.security?.report_ref) && await fileExists(passport.security.report_ref)) {
+    const report = JSON.parse(await readFile(path.join(root, passport.security.report_ref), 'utf8'));
+    expect(report.skill_id === id, `${id}: security report skill_id mismatch`);
+    expect(report.gate_version === 'v2', `${id}: security report must use gate v2`);
+    expect(report.source_revision === passport.provenance.reviewed_source_revision, `${id}: security report source revision mismatch`);
+    expect(report.artifact_sha256 === passport.integrity.artifact_sha256, `${id}: security report artifact hash mismatch`);
+    expect(report.result === 'pass', `${id}: bundled skill security report is not pass`);
+  }
+  if (isString(passport.security?.risk_label_ref) && await fileExists(passport.security.risk_label_ref)) {
+    const label = JSON.parse(await readFile(path.join(root, passport.security.risk_label_ref), 'utf8'));
+    expect(label.skill_id === id, `${id}: risk label skill_id mismatch`);
+    expect(label.source_revision === passport.provenance.reviewed_source_revision, `${id}: risk label source revision mismatch`);
+    expect(label.artifact_sha256 === passport.integrity.artifact_sha256, `${id}: risk label artifact hash mismatch`);
   }
 
   expect(executionStates.has(passport.behavior_evidence?.state), `${id}: invalid behavior evidence state`);
