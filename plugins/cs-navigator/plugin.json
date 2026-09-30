@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cs-navigator",
-  "version": "0.6.0",
-  "description": "Route capability-selection questions and bundle a small set of evidence-tracked chat-native CS skills.",
+  "version": "0.7.0",
+  "description": "Route capability-selection questions using verifiable trust, freshness, permissions, execution evidence, and the smallest useful set.",
   "author": {
     "name": "ChatGPT Skills",
     "url": "https://github.com/eusourmr/chatgpt-skills"
@@ -16,21 +16,24 @@
     "trust",
     "discovery",
     "capability-pack",
-    "regenerative"
+    "regenerative",
+    "trust-passport",
+    "risk-label",
+    "freshness"
   ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "CS Navigator",
         "shortDescription": "Find trusted skills",
-        "longDescription": "CS Navigator routes capability-selection questions to the smallest useful evidence-backed set and now bundles four lightweight chat-native workflows: Language Bridge, Impact Map, Resilience Plan, and Adaptive Experiment. Ordinary direct tasks should still stay with ChatGPT when no skill is needed.",
+        "longDescription": "CS Navigator routes capability-selection questions to the smallest useful evidence-backed set. Version 0.7 adds trust-aware routing using current evidence, freshness, permissions, security findings, Risk Labels, and known gaps while keeping ordinary direct tasks with ChatGPT.",
         "developerName": "RICARDO MOREIRA DA ROCHA",
         "category": "Productivity",
         "websiteURL": "https://github.com/eusourmr/chatgpt-skills",
         "defaultPrompt": [
-          "Tell me whether this task needs a bundled capability or ChatGPT can handle it directly.",
-          "Find the smallest useful bundled CS capability for this goal.",
-          "Check whether this external skill has enough evidence to trust."
+          "Tell me whether this task needs a skill or ChatGPT can handle it directly.",
+          "Find the smallest useful CS capability for this goal and show the material trust or permission trade-off.",
+          "Check whether this skill is current, tested, and appropriate for the permissions this task requires."
         ],
         "privacyPolicyURL": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/PRIVACY.md",
         "termsOfServiceURL": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/TERMS.md",
