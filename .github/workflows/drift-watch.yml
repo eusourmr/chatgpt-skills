@@ -3,7 +3,7 @@ name: Drift Watch
 on:
   push:
     branches:
-      - v0.7.0/verifiable-trust-i
+      - v0.7.0/security-drift
     paths:
       - '.github/workflows/drift-watch.yml'
   pull_request:
@@ -31,7 +31,7 @@ jobs:
       - name: Check out
         uses: actions/checkout@v6
         with:
-          ref: ${{ github.event_name == 'push' && 'v0.7.0/verifiable-trust-i' || github.sha }}
+          ref: ${{ github.event_name == 'push' && 'v0.7.0/security-drift' || github.sha }}
           fetch-depth: 0
 
       - name: Set up Python
@@ -80,7 +80,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add trust/upstream
           git commit -m 'Generate v0.7 drift status'
-          git push origin HEAD:v0.7.0/verifiable-trust-i
+          git push origin HEAD:v0.7.0/security-drift
 
       - name: Open or refresh re-review alert
         if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && steps.drift.outputs.changed == 'true'
