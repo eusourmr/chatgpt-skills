@@ -310,21 +310,23 @@ These commitments apply to every release from 0.7 through 1.0:
 18. **Do not claim scale we have not earned.** Global ambition, community governance, and regional leadership must be demonstrated with real contributors and usage.
 19. **Strengthen the ChatGPT ecosystem rather than fragment it.** Complement OpenAI-native capabilities and surface them when they are the best fit.
 20. **Keep innovating.** Every release should add a real capability, stronger evidence, lower user risk, better accessibility, broader regional usefulness, or improved interoperability — not novelty for its own sake.
-## Later — Community, Internationalization & Recognition
+## Beyond v1.0 — Durable Public Infrastructure
 
-Community recognition and marketplace-like features are deliberately deferred until the trust layer has real usage and review history.
+After v1.0, expansion should be driven by demonstrated usage, external adoption, unresolved user needs, and evidence quality — not by pressure to add features for their own sake.
 
-Potential later work:
+Potential post-1.0 directions:
 
-- an Evidence Maintainers / Curators program that rewards durable review and freshness rather than submission volume;
-- public reviewer program;
-- signed maintainer/provenance metadata;
-- community collections and bundles;
-- contribution recognition based on durable value, not paid placement or popularity;
-- localized catalog metadata/UI beyond English and Brazilian Portuguese, beginning with languages that have active maintainers and usage.
+- broader OSTS adoption and independent implementations;
+- additional regional steward programs where real maintainers exist;
+- deeper domain benchmarks with universities, research groups, nonprofits, and industry partners;
+- privacy-preserving aggregate ecosystem health metrics;
+- additional signing/attestation ecosystems as open standards mature;
+- long-term archival and reproducibility infrastructure for reviewed artifacts;
+- federated catalogs that exchange evidence without surrendering independent governance;
+- recognition programs only when enough external evidence exists to make recognition meaningful;
+- sustainability models that fund maintenance without selling trust, rank, verification, or access to favorable review.
 
-Do **not** launch an "Awarded Skills" program before there is enough external evidence to make the award meaningful. Do **not** optimize for a large marketplace while the project cannot continuously explain why an item should be trusted.
-
+Do **not** launch awards, badges, regional claims, or governance claims before the underlying evidence/community exists. The project should prefer being precise and smaller over appearing larger than it is.
 ## Explicit non-goals
 
 - Do not build a proprietary "ChatGPT Actions Gateway" while OpenAI's Apps SDK/Plugins and MCP already provide the relevant action/integration primitives.
