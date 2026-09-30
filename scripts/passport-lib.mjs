@@ -58,8 +58,12 @@ export async function buildPassport(root, inputs, skillId) {
 
   const integrity = await hashSkillArtifact(root, skill);
   const latestPlan = latestForSkill(tests.tests ?? [], skillId);
-  const latestRun = latestPlan
-    ? [...(runs.runs ?? [])].reverse().find((run) => run.skill_id === skillId && run.test_id === latestPlan.id) ?? null
+  const matchingRuns = latestPlan
+    ? (runs.runs ?? []).filter((run) => run.skill_id === skillId && run.test_id === latestPlan.id)
+    : [];
+  const latestRun = matchingRuns.length ? matchingRuns[matchingRuns.length - 1] : null;
+  const normalizedRunId = latestRun
+    ? `${latestPlan.id}--${String(matchingRuns.length).padStart(3, '0')}`
     : null;
 
   const evidenceRefs = ['trust/skills.json', 'trust/execution.json'];
@@ -110,7 +114,11 @@ export async function buildPassport(root, inputs, skillId) {
       state: exec.evidence_state,
       latest_plan_id: latestPlan?.id ?? null,
       latest_run_id: latestRun?.test_id ?? null,
-      evidence_refs: evidenceRefs
+      normalized_plan_ref: latestPlan ? `trust/evals/plans/${latestPlan.id}.json` : null,
+      normalized_run_ref: normalizedRunId ? `trust/evals/runs/${normalizedRunId}.json` : null,
+      evidence_refs: latestPlan
+        ? [...evidenceRefs, `trust/evals/plans/${latestPlan.id}.json`, ...(normalizedRunId ? [`trust/evals/runs/${normalizedRunId}.json`] : [])]
+        : evidenceRefs
     },
     freshness: {
       status: 'current',
