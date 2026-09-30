@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "skill_id": "regenerative-capability-exchange",
+  "reviewed_source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+  "reviewed_artifact_sha256": "66f8fd9ef7aab196a8939fc80182fb416bae861c9b4b30a0b8d77fc888b1259e",
+  "current_artifact_sha256": "66f8fd9ef7aab196a8939fc80182fb416bae861c9b4b30a0b8d77fc888b1259e",
+  "review_due_at": "2026-12-29",
+  "state": "current",
+  "action": "none",
+  "policy": "A reviewed artifact cannot inherit trust after byte drift or evidence expiry without re-review."
+}
