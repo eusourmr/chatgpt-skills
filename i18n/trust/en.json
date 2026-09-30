@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "locale": "en",
+  "canonical": true,
+  "review_state": "canonical",
+  "evidence_states": {
+    "indexed": "Indexed — discovered, not yet trusted.",
+    "source_checked": "Source-checked — provenance/source inspected.",
+    "tested": "Tested — reproducible behavior or compatibility evidence exists.",
+    "recommended": "Recommended — current evidence meets the documented gate for a defined context.",
+    "stale": "Stale — prior evidence exists but is outside its freshness window.",
+    "re_review_required": "Re-review required — source or evidence changed and prior trust must not carry forward.",
+    "blocked": "Blocked — current evidence indicates the project should not recommend installation/use."
+  },
+  "recommendation_states": {
+    "recommended": "Recommended",
+    "conditional": "Conditional",
+    "unverified": "Unverified",
+    "do_not_install": "Do not install",
+    "deprecated": "Deprecated"
+  },
+  "risk_dimensions": {
+    "reads": "Reads",
+    "writes": "Writes",
+    "sends_externally": "Sends externally",
+    "executes": "Executes",
+    "secrets": "Secrets",
+    "destructive_potential": "Destructive potential",
+    "human_confirmation": "Human confirmation",
+    "unknowns": "Unknowns"
+  }
+}
