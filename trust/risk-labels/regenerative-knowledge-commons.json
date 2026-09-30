@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1",
   "skill_id": "regenerative-knowledge-commons",
-  "source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+  "source_revision": "ab8cb8cd7e2c7ca5c9bb73800552b25e361a0098",
   "artifact_sha256": "718d625749708581f8fab07448782118a51cf2c25deaf7bb6432801690e982fd",
   "security_gate": {
     "version": "v2",

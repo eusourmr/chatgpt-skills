@@ -9,16 +9,16 @@
   "provenance": {
     "source_repository": "https://github.com/eusourmr/chatgpt-skills",
     "canonical_path": "skills/featured/cs-navigator",
-    "reviewed_source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+    "reviewed_source_revision": "ab8cb8cd7e2c7ca5c9bb73800552b25e361a0098",
     "license": "MIT"
   },
   "integrity": {
     "algorithm": "sha256-manifest-v1",
-    "artifact_sha256": "b6eca989e9d6f9a450877ac7892b86d0fb2ad1f33e73bd5646773bd89eb19790",
+    "artifact_sha256": "61640b4d5052c3bb83679f18b22b9f9a324cc02b227965e10b925bc7504d107b",
     "files": [
       {
         "path": "SKILL.md",
-        "sha256": "c894b3896e58b7b44d70adc893aaf5f0a744fe696ce012ce8495d685f200ec23"
+        "sha256": "7e9f687947fc3876f971bc186fa103074012f7914b35caffd497dbaf2b81d562"
       },
       {
         "path": "agents/openai.yaml",
@@ -26,7 +26,7 @@
       },
       {
         "path": "references/catalog-snapshot.json",
-        "sha256": "49296c73d7c78f674c4b96f6f243aadc5165d6e50fecfbe4f65c18e2eb70712e"
+        "sha256": "a6256bfd2c683f5b5e3f1f048ea0ef1eb5c2034dae37437f9fc1377f42bd4515"
       }
     ]
   },

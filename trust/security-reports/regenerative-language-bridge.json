@@ -3,7 +3,7 @@
   "gate_version": "v2",
   "skill_id": "regenerative-language-bridge",
   "scanned_at": "2026-09-30",
-  "source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+  "source_revision": "ab8cb8cd7e2c7ca5c9bb73800552b25e361a0098",
   "artifact_sha256": "207fa1b2df267d7b90678b53e9514f2cc0257b57a76372245b5cb639c5e731c4",
   "result": "pass",
   "summary": {

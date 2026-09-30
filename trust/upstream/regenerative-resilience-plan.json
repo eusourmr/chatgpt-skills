@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "skill_id": "regenerative-resilience-plan",
-  "reviewed_source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+  "reviewed_source_revision": "ab8cb8cd7e2c7ca5c9bb73800552b25e361a0098",
   "reviewed_artifact_sha256": "ac201e7b386e00a9bc212210fa8adb25153733f50fe9ae6ff1e384e7165fb57f",
   "current_artifact_sha256": "ac201e7b386e00a9bc212210fa8adb25153733f50fe9ae6ff1e384e7165fb57f",
   "review_due_at": "2026-12-29",

@@ -3,7 +3,7 @@
   "gate_version": "v2",
   "skill_id": "regenerative-capability-exchange",
   "scanned_at": "2026-09-30",
-  "source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+  "source_revision": "ab8cb8cd7e2c7ca5c9bb73800552b25e361a0098",
   "artifact_sha256": "66f8fd9ef7aab196a8939fc80182fb416bae861c9b4b30a0b8d77fc888b1259e",
   "result": "pass",
   "summary": {

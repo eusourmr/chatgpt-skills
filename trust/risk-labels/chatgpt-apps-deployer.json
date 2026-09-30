@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1",
   "skill_id": "chatgpt-apps-deployer",
-  "source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+  "source_revision": "ab8cb8cd7e2c7ca5c9bb73800552b25e361a0098",
   "artifact_sha256": "e81a2524fc499e0d1ea9b85a1d70bcea9c164ba824345df755f9ae13cfb063c3",
   "security_gate": {
     "version": "v2",

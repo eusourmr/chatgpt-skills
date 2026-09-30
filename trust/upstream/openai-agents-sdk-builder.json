@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "skill_id": "openai-agents-sdk-builder",
-  "reviewed_source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+  "reviewed_source_revision": "ab8cb8cd7e2c7ca5c9bb73800552b25e361a0098",
   "reviewed_artifact_sha256": "6f89c0ee7fca10165214abf08b71c92c7974306724625d53f14aea5dfeb3d515",
   "current_artifact_sha256": "6f89c0ee7fca10165214abf08b71c92c7974306724625d53f14aea5dfeb3d515",
   "review_due_at": "2026-12-29",

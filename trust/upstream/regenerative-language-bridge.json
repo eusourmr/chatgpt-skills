@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "skill_id": "regenerative-language-bridge",
-  "reviewed_source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+  "reviewed_source_revision": "ab8cb8cd7e2c7ca5c9bb73800552b25e361a0098",
   "reviewed_artifact_sha256": "207fa1b2df267d7b90678b53e9514f2cc0257b57a76372245b5cb639c5e731c4",
   "current_artifact_sha256": "207fa1b2df267d7b90678b53e9514f2cc0257b57a76372245b5cb639c5e731c4",
   "review_due_at": "2026-12-29",
