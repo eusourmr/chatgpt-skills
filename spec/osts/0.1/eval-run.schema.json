@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/eusourmr/chatgpt-skills/spec/osts/0.1/eval-run.schema.json",
+  "title": "OSTS 0.1 - Behavior Eval Run",
+  "type": "object",
+  "required": ["schema_version","run_id","plan_id","skill_id","result","executed_at","product_surface","package_version","distribution","source_revision","artifact_sha256","case_ids","assertions","metrics","provenance"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "run_id": {"type": "string"},
+    "plan_id": {"type": "string"},
+    "skill_id": {"type": "string"},
+    "result": {"enum": ["pass","fail"]},
+    "executed_at": {"type": "string"},
+    "product_surface": {"type": "string"},
+    "package_version": {"type": "string"},
+    "distribution": {"type": "string"},
+    "source_revision": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "artifact_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "case_ids": {"type": "array"},
+    "assertions": {"type": "array"},
+    "evaluation_note": {"type": ["string","null"]},
+    "metrics": {
+      "type": "object",
+      "required": ["measurement_state","input_tokens","output_tokens","elapsed_ms","cost_usd","tool_calls"],
+      "properties": {
+        "measurement_state": {"enum": ["not-collected","measured"]},
+        "input_tokens": {"type": ["integer","null"]},
+        "output_tokens": {"type": ["integer","null"]},
+        "elapsed_ms": {"type": ["integer","null"]},
+        "cost_usd": {"type": ["number","null"]},
+        "tool_calls": {"type": ["integer","null"]}
+      },
+      "additionalProperties": false
+    },
+    "provenance": {"type": "object"}
+  },
+  "additionalProperties": false
+}
