@@ -6,6 +6,13 @@ on:
       - v0.7.0/verifiable-trust-i
     paths:
       - '.github/workflows/generate-passports-v070.yml'
+      - 'scripts/passport-lib.mjs'
+      - 'scripts/generate-trust-passports.mjs'
+      - 'scripts/validate-trust-passports.mjs'
+      - 'trust/passport-policy.json'
+      - 'trust/security-reports/**'
+      - 'trust/risk-labels/**'
+      - 'spec/osts/0.1/trust-passport.schema.json'
   pull_request:
     branches:
       - main
