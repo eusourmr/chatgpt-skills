@@ -6,6 +6,10 @@ on:
       - v0.7.0/security-drift
     paths:
       - '.github/workflows/drift-watch.yml'
+      - 'scripts/update-drift-status.mjs'
+      - 'scripts/passport-lib.mjs'
+      - 'trust/passports/**'
+      - 'skills/**'
   pull_request:
     branches:
       - main
