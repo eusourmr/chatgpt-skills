@@ -45,22 +45,29 @@
   },
   "security": {
     "state": "inspected",
-    "gate_version": "v1",
+    "gate_version": "v2",
     "evidence_refs": [
       "trust/skills.json",
-      "scripts/security-check.mjs"
+      "scripts/security-gate-v2.mjs",
+      "trust/security-reports/cs-navigator.json",
+      "trust/risk-labels/cs-navigator.json"
     ],
-    "report_ref": null
+    "report_ref": "trust/security-reports/cs-navigator.json",
+    "risk_label_ref": "trust/risk-labels/cs-navigator.json"
   },
   "behavior_evidence": {
     "state": "tested",
     "latest_plan_id": "cs-navigator-chatgpt-v9-capability-pack-r6",
     "latest_run_id": "cs-navigator-chatgpt-v9-capability-pack-r6",
+    "normalized_plan_ref": "trust/evals/plans/cs-navigator-chatgpt-v9-capability-pack-r6.json",
+    "normalized_run_ref": "trust/evals/runs/cs-navigator-chatgpt-v9-capability-pack-r6--001.json",
     "evidence_refs": [
       "trust/skills.json",
       "trust/execution.json",
       "trust/in-product-tests.json",
-      "trust/in-product-runs.json"
+      "trust/in-product-runs.json",
+      "trust/evals/plans/cs-navigator-chatgpt-v9-capability-pack-r6.json",
+      "trust/evals/runs/cs-navigator-chatgpt-v9-capability-pack-r6--001.json"
     ]
   },
   "freshness": {

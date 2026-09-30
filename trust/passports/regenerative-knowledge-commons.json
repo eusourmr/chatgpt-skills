@@ -41,17 +41,22 @@
   },
   "security": {
     "state": "inspected",
-    "gate_version": "v1",
+    "gate_version": "v2",
     "evidence_refs": [
       "trust/skills.json",
-      "scripts/security-check.mjs"
+      "scripts/security-gate-v2.mjs",
+      "trust/security-reports/regenerative-knowledge-commons.json",
+      "trust/risk-labels/regenerative-knowledge-commons.json"
     ],
-    "report_ref": null
+    "report_ref": "trust/security-reports/regenerative-knowledge-commons.json",
+    "risk_label_ref": "trust/risk-labels/regenerative-knowledge-commons.json"
   },
   "behavior_evidence": {
     "state": "designed",
     "latest_plan_id": null,
     "latest_run_id": null,
+    "normalized_plan_ref": null,
+    "normalized_run_ref": null,
     "evidence_refs": [
       "trust/skills.json",
       "trust/execution.json"

@@ -41,22 +41,29 @@
   },
   "security": {
     "state": "inspected",
-    "gate_version": "v1",
+    "gate_version": "v2",
     "evidence_refs": [
       "trust/skills.json",
-      "scripts/security-check.mjs"
+      "scripts/security-gate-v2.mjs",
+      "trust/security-reports/regenerative-impact-map.json",
+      "trust/risk-labels/regenerative-impact-map.json"
     ],
-    "report_ref": null
+    "report_ref": "trust/security-reports/regenerative-impact-map.json",
+    "risk_label_ref": "trust/risk-labels/regenerative-impact-map.json"
   },
   "behavior_evidence": {
     "state": "designed",
     "latest_plan_id": "regenerative-impact-map-chatgpt-v1-r6",
     "latest_run_id": "regenerative-impact-map-chatgpt-v1-r6",
+    "normalized_plan_ref": "trust/evals/plans/regenerative-impact-map-chatgpt-v1-r6.json",
+    "normalized_run_ref": "trust/evals/runs/regenerative-impact-map-chatgpt-v1-r6--001.json",
     "evidence_refs": [
       "trust/skills.json",
       "trust/execution.json",
       "trust/in-product-tests.json",
-      "trust/in-product-runs.json"
+      "trust/in-product-runs.json",
+      "trust/evals/plans/regenerative-impact-map-chatgpt-v1-r6.json",
+      "trust/evals/runs/regenerative-impact-map-chatgpt-v1-r6--001.json"
     ]
   },
   "freshness": {
