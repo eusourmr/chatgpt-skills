@@ -1,0 +1,104 @@
+name: Drift Watch
+
+on:
+  push:
+    branches:
+      - v0.7.0/verifiable-trust-i
+    paths:
+      - '.github/workflows/drift-watch.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/drift-watch.yml'
+      - 'scripts/update-drift-status.mjs'
+      - 'scripts/passport-lib.mjs'
+      - 'trust/passports/**'
+      - 'skills/**'
+      - 'tests/test_drift_watch.py'
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event_name == 'push' && 'v0.7.0/verifiable-trust-i' || github.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Generate drift state
+        id: drift
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            AS_OF="$(date -u +%F)"
+          else
+            AS_OF="2026-09-30"
+          fi
+          node scripts/update-drift-status.mjs --write --as-of "$AS_OF"
+          python -m unittest tests.test_drift_watch
+          if [ -n "$(git status --porcelain -- trust/upstream)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload drift evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: drift-watch-state
+          path: trust/upstream
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Commit baseline drift state on v0.7 branch
+        if: github.event_name == 'push' && steps.drift.outputs.changed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add trust/upstream
+          git commit -m 'Generate v0.7 drift status'
+          git push origin HEAD:v0.7.0/verifiable-trust-i
+
+      - name: Open or refresh re-review alert
+        if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && steps.drift.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            echo "Drift Watch detected evidence-state changes on $(date -u +%F)."
+            echo
+            git diff -- trust/upstream || true
+            echo
+            echo "Generated state is attached to workflow run ${{ github.run_id }}."
+          } > /tmp/drift-body.txt
+          existing=$(gh issue list --repo eusourmr/chatgpt-skills --state open --search '"[Drift Watch] Re-review required" in:title' --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --repo eusourmr/chatgpt-skills --body-file /tmp/drift-body.txt
+          else
+            gh issue create --repo eusourmr/chatgpt-skills --title '[Drift Watch] Re-review required' --body-file /tmp/drift-body.txt
+          fi
