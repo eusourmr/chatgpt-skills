@@ -14,10 +14,12 @@ const snapshot = await readJson('skills/featured/cs-navigator/references/catalog
 const expected = await buildSnapshot();
 const fixtures = await readJson('tests/fixtures/navigator-jobs.json');
 const activation = await readJson('tests/fixtures/navigator-activation.json');
+const plugin = await readJson('plugins/cs-navigator/plugin.json');
 
 const comparableSnapshot = { ...snapshot, entries: (snapshot.entries || []).filter((entry) => entry.id !== 'cs-navigator') };
 expect(JSON.stringify(comparableSnapshot) === JSON.stringify(expected), 'Navigator snapshot differs from the current CS source data');
 expect(snapshot.schema_version === 2, 'Navigator snapshot schema_version must be 2');
+expect(snapshot.generated_for_plugin === plugin.version, 'Navigator snapshot generated_for_plugin must match plugin version');
 expect(!snapshot.entries.some((entry) => entry.id === 'cs-navigator'), '0.5.1+ Navigator snapshot must not carry self-trust');
 expect(Array.isArray(snapshot.entries) && snapshot.entries.length > 0, 'Navigator snapshot needs entries');
 expect(Array.isArray(snapshot.external_sources), 'Navigator snapshot external_sources must be an array');
