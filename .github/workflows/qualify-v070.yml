@@ -1,0 +1,75 @@
+name: Qualify CS Navigator v0.7.0
+
+on:
+  push:
+    branches:
+      - v0.7.0/verifiable-trust-i
+    paths:
+      - '.github/workflows/qualify-v070.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: v0.7.0/verifiable-trust-i
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+          package-manager-cache: false
+
+      - name: Validate complete repository
+        run: npm run validate
+
+      - name: Verify immutable Trust Passport sources
+        run: node scripts/validate-trust-passports.mjs --verify-git-source
+
+      - name: Run 0.7 focused regressions
+        run: |
+          python -m unittest tests.test_trust_passports
+          python -m unittest tests.test_security_gate_v2
+          python -m unittest tests.test_drift_watch
+
+      - name: Build exact 0.7 plugin candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run build:public-plugin
+          ZIP='dist/plugin-submission/cs-navigator-plugin-0.7.0.zip'
+          test -f "$ZIP"
+          unzip -t "$ZIP"
+          sha256sum "$ZIP" | tee "$ZIP.qualification.sha256"
+          python - <<'PY'
+          from zipfile import ZipFile
+          p='dist/plugin-submission/cs-navigator-plugin-0.7.0.zip'
+          with ZipFile(p) as z:
+              names=z.namelist()
+              assert z.testzip() is None
+              assert len(names)==14, names
+              assert 'cs-navigator/plugin.json' in names
+              assert 'cs-navigator/skills/cs-navigator/references/catalog-snapshot.json' in names
+          print('Plugin entries: 14')
+          PY
+          git rev-parse HEAD | tee dist/plugin-submission/source-commit.txt
+
+      - name: Upload exact qualification candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: cs-navigator-0.7.0-qualification-candidate
+          path: |
+            dist/plugin-submission/cs-navigator-plugin-0.7.0.zip
+            dist/plugin-submission/cs-navigator-plugin-0.7.0.zip.sha256
+            dist/plugin-submission/cs-navigator-plugin-0.7.0.zip.qualification.sha256
+            dist/plugin-submission/source-commit.txt
+          if-no-files-found: error
+          retention-days: 30
