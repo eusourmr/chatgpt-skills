@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "locale": "fr",
+  "canonical": false,
+  "review_state": "draft-not-independently-reviewed",
+  "evidence_states": {
+    "indexed": "Indexée — découverte, pas encore considérée comme fiable.",
+    "source_checked": "Source vérifiée — provenance et source inspectées.",
+    "tested": "Testée — des preuves reproductibles de comportement ou de compatibilité existent.",
+    "recommended": "Recommandée — les preuves actuelles satisfont au critère documenté pour un contexte défini.",
+    "stale": "Périmée — des preuves antérieures existent mais dépassent leur fenêtre de validité.",
+    "re_review_required": "Nouvelle revue requise — la source ou les preuves ont changé et la confiance précédente ne doit pas être héritée.",
+    "blocked": "Bloquée — les preuves actuelles indiquent que le projet ne doit pas recommander l’installation ou l’utilisation."
+  },
+  "recommendation_states": {
+    "recommended": "Recommandée",
+    "conditional": "Conditionnelle",
+    "unverified": "Non vérifiée",
+    "do_not_install": "Ne pas installer",
+    "deprecated": "Obsolète"
+  },
+  "risk_dimensions": {
+    "reads": "Lit",
+    "writes": "Écrit",
+    "sends_externally": "Envoie à l’extérieur",
+    "executes": "Exécute",
+    "secrets": "Secrets et identifiants",
+    "destructive_potential": "Potentiel destructif",
+    "human_confirmation": "Confirmation humaine",
+    "unknowns": "Inconnues"
+  }
+}
