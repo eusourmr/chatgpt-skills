@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "skill_id": "realtime-api-integration",
+  "reviewed_source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+  "reviewed_artifact_sha256": "ce593c123c9bede73f35f98dbe9e4ebbbc7a7de66ae31457dd3bdbc996031610",
+  "current_artifact_sha256": "ce593c123c9bede73f35f98dbe9e4ebbbc7a7de66ae31457dd3bdbc996031610",
+  "review_due_at": "2026-12-29",
+  "state": "current",
+  "action": "none",
+  "policy": "A reviewed artifact cannot inherit trust after byte drift or evidence expiry without re-review."
+}

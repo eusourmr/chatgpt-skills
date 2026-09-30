@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "skill_id": "chatgpt-apps-deployer",
+  "reviewed_source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+  "reviewed_artifact_sha256": "e81a2524fc499e0d1ea9b85a1d70bcea9c164ba824345df755f9ae13cfb063c3",
+  "current_artifact_sha256": "e81a2524fc499e0d1ea9b85a1d70bcea9c164ba824345df755f9ae13cfb063c3",
+  "review_due_at": "2026-12-29",
+  "state": "current",
+  "action": "none",
+  "policy": "A reviewed artifact cannot inherit trust after byte drift or evidence expiry without re-review."
+}

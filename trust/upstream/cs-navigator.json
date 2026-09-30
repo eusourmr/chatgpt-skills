@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "skill_id": "cs-navigator",
+  "reviewed_source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+  "reviewed_artifact_sha256": "b6eca989e9d6f9a450877ac7892b86d0fb2ad1f33e73bd5646773bd89eb19790",
+  "current_artifact_sha256": "b6eca989e9d6f9a450877ac7892b86d0fb2ad1f33e73bd5646773bd89eb19790",
+  "review_due_at": "2026-12-29",
+  "state": "current",
+  "action": "none",
+  "policy": "A reviewed artifact cannot inherit trust after byte drift or evidence expiry without re-review."
+}
