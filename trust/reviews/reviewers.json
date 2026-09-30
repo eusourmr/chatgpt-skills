@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "policy": "Reviewer records identify real contributors and conflicts. Automation may assist review but must not be represented as a human reviewer.",
+  "reviewers": [
+    {
+      "id": "eusourmr",
+      "github": "eusourmr",
+      "name": "Ricardo Rocha",
+      "roles": [
+        "maintainer",
+        "author",
+        "reviewer",
+        "release-decision"
+      ],
+      "active": true,
+      "independent_of_project": false,
+      "conflict_note": "Project author and maintainer; self-review must be disclosed on decisions until independent reviewers participate."
+    }
+  ]
+}
