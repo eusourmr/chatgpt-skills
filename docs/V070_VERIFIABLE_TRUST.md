@@ -1,5 +1,23 @@
 # CS 0.7.0 — Verifiable Trust I
 
+## Implementation status — 2026-09-30
+
+The 0.7 engineering foundation is implemented on the release branch:
+
+- Trust Passport 0.1 for all bundled repository-authored skills;
+- Security Gate v2 with adversarial fixtures and structured reports;
+- generated Risk Labels;
+- Drift Watch with byte-change and stale-evidence regression tests;
+- normalized behavior eval plans/runs with explicit measured-vs-uncollected metrics;
+- trust-aware CS Navigator routing contract and snapshot;
+- public reviewer registry and append-only review-decision log;
+- trust vocabulary in EN, PT-BR, ES, and FR;
+- regional/domain taxonomy with Latin America and science/research foundations;
+- OSTS 0.1 schemas, conformance rules, and change log;
+- ordered evidence-graph refresh so Passports, security reports, Risk Labels, drift state, evals, and Navigator snapshot remain mutually consistent.
+
+The remaining gates before release are repository-wide CI, exact 0.7 plugin artifact freeze/hash verification, and native ChatGPT qualification of the trust-aware Navigator behavior.
+
 ## Product center
 
 ChatGPT Skills has three visible surfaces:
