@@ -10,6 +10,7 @@ function run(cmd,args){
   if(r.status!==0) process.exit(r.status??1);
 }
 
+// Trust Passport v2 fixture compatibility is validated after the graph refresh.
 // Break the intentional Passport <-> security evidence dependency in a stable order:
 // 1) compute current artifact/source passport view;
 // 2) scan exactly that artifact;
