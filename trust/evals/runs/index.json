@@ -1,0 +1,438 @@
+{
+  "schema_version": "0.1",
+  "runs": [
+    {
+      "schema_version": "0.1",
+      "test_id": "cs-navigator-chatgpt-v1",
+      "skill_id": "cs-navigator",
+      "result": "fail",
+      "executed_at": "2026-09-22T08:09:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.4.0",
+      "distribution": "github-pinned",
+      "source_revision": "8b814c93980175fa61da141d659cfa28a8e6bd92",
+      "artifact_sha256": "1851dcc33a462f0a7503d42f2a5b0d5a4a27a8fe2e3977872da4d3c876e07f68",
+      "case_ids": [
+        "plain-language-technical-bridge",
+        "agents-sdk-starter",
+        "systemic-decision-impact",
+        "coverage-gap",
+        "external-source-boundary",
+        "no-skill-needed"
+      ],
+      "assertions": [
+        {
+          "case_id": "plain-language-technical-bridge",
+          "pass": true,
+          "observed": "Recommended only regenerative-language-bridge, reported chat-native, kept evidence at designed, and required no setup."
+        },
+        {
+          "case_id": "agents-sdk-starter",
+          "pass": true,
+          "observed": "Recommended only openai-agents-sdk-builder, reported local-agent, and disclosed local files, runtime, and API key setup."
+        },
+        {
+          "case_id": "systemic-decision-impact",
+          "pass": true,
+          "observed": "Recommended only regenerative-impact-map, reported chat-native, and added no unnecessary skill."
+        },
+        {
+          "case_id": "coverage-gap",
+          "pass": true,
+          "observed": "Reported a real coverage gap for crypto tax work and did not force-fit the external crypto-ta-analyzer skill."
+        },
+        {
+          "case_id": "external-source-boundary",
+          "pass": true,
+          "observed": "Kept data-storyteller at indexed/not-evaluated, disclosed unresolved license and warnings, and did not call it trusted."
+        },
+        {
+          "case_id": "no-skill-needed",
+          "pass": false,
+          "observed": "Answered 17 × 4 = 68 and recommended no skill, but omitted the contractually required explicit no-additional-skill statement."
+        }
+      ],
+      "metrics": {
+        "collection_state": "not-collected",
+        "tokens": null,
+        "elapsed_ms": null,
+        "cost_usd": null,
+        "tool_calls": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "test_id": "cs-navigator-chatgpt-v2",
+      "skill_id": "cs-navigator",
+      "result": "fail",
+      "executed_at": "2026-09-22T09:09:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.4.0",
+      "distribution": "github-pinned",
+      "source_revision": "bd1f0de36e9b717d1d04d2469264d067696b66f5",
+      "artifact_sha256": "76d569125848ff4bb628ee9168a4887c0e8aee95ef861b4cd568c64190cc4d50",
+      "case_ids": [
+        "plain-language-technical-bridge",
+        "agents-sdk-starter",
+        "systemic-decision-impact",
+        "coverage-gap",
+        "external-source-boundary",
+        "no-skill-needed"
+      ],
+      "assertions": [
+        {
+          "case_id": "plain-language-technical-bridge",
+          "pass": true,
+          "observed": "Recommended only regenerative-language-bridge, reported chat-native, kept evidence at designed, and required no setup."
+        },
+        {
+          "case_id": "agents-sdk-starter",
+          "pass": true,
+          "observed": "Recommended only openai-agents-sdk-builder, reported local-agent, disclosed local files/runtime/API key setup, and added no unnecessary skill."
+        },
+        {
+          "case_id": "systemic-decision-impact",
+          "pass": true,
+          "observed": "Recommended only regenerative-impact-map, reported chat-native, and added no unnecessary skill."
+        },
+        {
+          "case_id": "coverage-gap",
+          "pass": true,
+          "observed": "Reported a real coverage gap for crypto tax work, kept crypto-ta-analyzer as external indexed/not-evaluated, and did not force-fit it."
+        },
+        {
+          "case_id": "external-source-boundary",
+          "pass": true,
+          "observed": "Kept data-storyteller at indexed/not-evaluated, disclosed unresolved license and warnings, and did not call it trusted."
+        },
+        {
+          "case_id": "no-skill-needed",
+          "pass": false,
+          "observed": "Answered 17 × 4 = 68 and recommended no skill, but omitted the v2 contract's explicit marker sentence."
+        }
+      ],
+      "metrics": {
+        "collection_state": "not-collected",
+        "tokens": null,
+        "elapsed_ms": null,
+        "cost_usd": null,
+        "tool_calls": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "test_id": "cs-navigator-chatgpt-v3",
+      "skill_id": "cs-navigator",
+      "result": "pass",
+      "executed_at": "2026-09-22T09:09:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.4.0",
+      "distribution": "github-pinned",
+      "source_revision": "bd1f0de36e9b717d1d04d2469264d067696b66f5",
+      "artifact_sha256": "76d569125848ff4bb628ee9168a4887c0e8aee95ef861b4cd568c64190cc4d50",
+      "case_ids": [
+        "plain-language-technical-bridge",
+        "agents-sdk-starter",
+        "systemic-decision-impact",
+        "coverage-gap",
+        "external-source-boundary",
+        "no-skill-needed"
+      ],
+      "evaluation_note": "Same six native responses as v2, re-evaluated under the versioned semantic-outcome criterion. No execution is hidden or rewritten.",
+      "assertions": [
+        {
+          "case_id": "plain-language-technical-bridge",
+          "pass": true,
+          "observed": "Recommended only regenerative-language-bridge, reported chat-native, kept evidence at designed, and required no setup."
+        },
+        {
+          "case_id": "agents-sdk-starter",
+          "pass": true,
+          "observed": "Recommended only openai-agents-sdk-builder, reported local-agent, disclosed local files/runtime/API key setup, and added no unnecessary skill."
+        },
+        {
+          "case_id": "systemic-decision-impact",
+          "pass": true,
+          "observed": "Recommended only regenerative-impact-map, reported chat-native, and added no unnecessary skill."
+        },
+        {
+          "case_id": "coverage-gap",
+          "pass": true,
+          "observed": "Reported a real coverage gap for crypto tax work, kept crypto-ta-analyzer as external indexed/not-evaluated, and did not force-fit it."
+        },
+        {
+          "case_id": "external-source-boundary",
+          "pass": true,
+          "observed": "Kept data-storyteller at indexed/not-evaluated, disclosed unresolved license and warnings, and did not call it trusted."
+        },
+        {
+          "case_id": "no-skill-needed",
+          "pass": true,
+          "observed": "Answered 17 × 4 = 68 and recommended no additional skill. The explicit marker was omitted, which is acceptable under v3 semantic evaluation."
+        }
+      ],
+      "metrics": {
+        "collection_state": "not-collected",
+        "tokens": null,
+        "elapsed_ms": null,
+        "cost_usd": null,
+        "tool_calls": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "test_id": "cs-navigator-chatgpt-v8-simple-gate",
+      "skill_id": "cs-navigator",
+      "result": "pass",
+      "executed_at": "2026-09-22T18:18:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.5.1",
+      "distribution": "github-pinned",
+      "source_revision": "98bb308997e679b47f5c3da02c9edbdae4a06026",
+      "artifact_sha256": "5cbdce20703e7cb43dd75ea6a11718cf3f5303b7904e92e457361f13c99d0992",
+      "case_ids": [
+        "direct-systemic-analysis",
+        "select-systemic-skill",
+        "direct-agents-starter",
+        "select-agents-skill",
+        "need-skill-pdf-summary",
+        "external-trust-boundary",
+        "coverage-gap-crypto-tax",
+        "negative-simple-math"
+      ],
+      "evaluation_note": "Native ChatGPT qualification of the 0.5.1 Simple Gate. The artifact was tested as-is; later evidence-only repository commits do not change the qualified skill bytes.",
+      "assertions": [
+        {
+          "case_id": "direct-systemic-analysis",
+          "pass": true,
+          "observed": "Performed the concrete systemic analysis directly and did not recommend regenerative-impact-map or another skill."
+        },
+        {
+          "case_id": "select-systemic-skill",
+          "pass": true,
+          "observed": "Capability-selection wording activated routing and recommended only regenerative-impact-map, with chat-native execution and designed-not-tested evidence."
+        },
+        {
+          "case_id": "direct-agents-starter",
+          "pass": true,
+          "observed": "Created and validated a minimal Agents SDK starter directly, including files and run instructions, without recommending openai-agents-sdk-builder."
+        },
+        {
+          "case_id": "select-agents-skill",
+          "pass": true,
+          "observed": "Capability-selection wording recommended only openai-agents-sdk-builder, disclosed local files/runtime requirements, and preserved tested execution evidence with the live end-to-end gap."
+        },
+        {
+          "case_id": "need-skill-pdf-summary",
+          "pass": true,
+          "observed": "Recognized capability-selection intent but chose native-only, explicitly stating that ChatGPT can summarize the PDF without an additional skill."
+        },
+        {
+          "case_id": "external-trust-boundary",
+          "pass": true,
+          "observed": "Kept data-storyteller at indexed/not-evaluated, assigned no trust score, separated upstream claims from CS evidence, and stated that discovery is not validation."
+        },
+        {
+          "case_id": "coverage-gap-crypto-tax",
+          "pass": true,
+          "observed": "Reported a coverage gap, rejected force-fitting crypto-ta-analyzer, preserved its indexed/not-evaluated state, and described the missing tax-lot capabilities."
+        },
+        {
+          "case_id": "negative-simple-math",
+          "pass": true,
+          "observed": "Answered 17 × 4 = 68 directly with no skill, catalog, Navigator, or routing commentary."
+        }
+      ],
+      "metrics": {
+        "collection_state": "not-collected",
+        "tokens": null,
+        "elapsed_ms": null,
+        "cost_usd": null,
+        "tool_calls": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "test_id": "regenerative-language-bridge-chatgpt-v1-r6",
+      "skill_id": "regenerative-language-bridge",
+      "result": "pass",
+      "executed_at": "2026-09-29T15:20:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.6.0",
+      "distribution": "local",
+      "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+      "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+      "case_ids": [
+        "explicit-language-bridge-r6"
+      ],
+      "evaluation_note": "The installed local R6 artifact was later verified entry-by-entry equivalent to the source-frozen CI payload. Whole-ZIP hashes differ only because ZIP container metadata differs.",
+      "assertions": [
+        {
+          "case_id": "explicit-language-bridge-r6",
+          "pass": true,
+          "observed": "Explicit invocation produced all six mandatory sections, preserved technical caveats and terminology, included a comprehension check and learning loop, and included the three labeled resource fields: reading time, maintenance owner, and review/expiry date."
+        }
+      ],
+      "metrics": {
+        "collection_state": "not-collected",
+        "tokens": null,
+        "elapsed_ms": null,
+        "cost_usd": null,
+        "tool_calls": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "test_id": "regenerative-impact-map-chatgpt-v1-r6",
+      "skill_id": "regenerative-impact-map",
+      "result": "pass",
+      "executed_at": "2026-09-29T15:25:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.6.0",
+      "distribution": "local",
+      "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+      "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+      "case_ids": [
+        "explicit-impact-map-r6"
+      ],
+      "assertions": [
+        {
+          "case_id": "explicit-impact-map-r6",
+          "pass": true,
+          "observed": "Explicit invocation produced the plain-language brief plus decision, boundary, affected/missing voices, all five lenses, reinforcing loop, balancing safeguard, resource baseline/budget, chosen intervention, regenerative seed, and review owner/date/stop/restoration fields, with reversible-next-step reasoning."
+        }
+      ],
+      "metrics": {
+        "collection_state": "not-collected",
+        "tokens": null,
+        "elapsed_ms": null,
+        "cost_usd": null,
+        "tool_calls": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "test_id": "regenerative-resilience-plan-chatgpt-v1-r6",
+      "skill_id": "regenerative-resilience-plan",
+      "result": "pass",
+      "executed_at": "2026-09-29T15:34:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.6.0",
+      "distribution": "local",
+      "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+      "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+      "case_ids": [
+        "explicit-resilience-plan-r6"
+      ],
+      "assertions": [
+        {
+          "case_id": "explicit-resilience-plan-r6",
+          "pass": true,
+          "observed": "Explicit invocation produced essential functions/minimum service, dependency and cascade mapping, multiple disruption scenarios, prevention-through-transformation actions, distributed roles, communication, resource budgets, leading/harm indicators, activation thresholds, recovery/restoration, a reversible drill, and a clear planned-versus-tested capability distinction."
+        }
+      ],
+      "metrics": {
+        "collection_state": "not-collected",
+        "tokens": null,
+        "elapsed_ms": null,
+        "cost_usd": null,
+        "tool_calls": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "test_id": "regenerative-adaptive-experiment-chatgpt-v1-r6",
+      "skill_id": "regenerative-adaptive-experiment",
+      "result": "pass",
+      "executed_at": "2026-09-29T15:40:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.6.0",
+      "distribution": "local",
+      "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+      "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+      "case_ids": [
+        "explicit-adaptive-experiment-r6"
+      ],
+      "assertions": [
+        {
+          "case_id": "explicit-adaptive-experiment-r6",
+          "pass": true,
+          "observed": "Explicit invocation produced problem/baseline/uncertainty framing, causal hypothesis, a small reversible 6–8 person five-day test, outcome/process/balancing measures, five lenses, disaggregation, consent/accessibility safeguards, bounded resources, stop/rollback/restoration rules, signal/noise/mechanism-failure/implementation-failure distinctions, decision rules, and a reusable learning asset while labeling the experiment designed-not-tested."
+        }
+      ],
+      "metrics": {
+        "collection_state": "not-collected",
+        "tokens": null,
+        "elapsed_ms": null,
+        "cost_usd": null,
+        "tool_calls": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "test_id": "cs-navigator-chatgpt-v9-capability-pack-r6",
+      "skill_id": "cs-navigator",
+      "result": "pass",
+      "executed_at": "2026-09-29T15:55:00-03:00",
+      "product_surface": "chatgpt-skills",
+      "package_version": "0.6.0",
+      "distribution": "local",
+      "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+      "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+      "case_ids": [
+        "route-impact-map-r6",
+        "route-language-bridge-r6",
+        "route-resilience-plan-r6",
+        "route-adaptive-experiment-r6",
+        "native-only-pdf-r6",
+        "external-trust-data-storyteller-r6",
+        "direct-language-explanation-r6"
+      ],
+      "evaluation_note": "All four bundled capabilities were invoked from the same installed R6 plugin with no second install. Navigator routing remained capability-selection-only; the direct Language Bridge subject-matter regression stayed native.",
+      "assertions": [
+        {
+          "case_id": "route-impact-map-r6",
+          "pass": true,
+          "observed": "Selected Regenerative Impact Map for systemic decision analysis and did not execute the analysis prematurely."
+        },
+        {
+          "case_id": "route-language-bridge-r6",
+          "pass": true,
+          "observed": "Selected Regenerative Language Bridge for explaining technical policy to managers without losing precision and did not execute a policy explanation prematurely."
+        },
+        {
+          "case_id": "route-resilience-plan-r6",
+          "pass": true,
+          "observed": "Selected Regenerative Resilience Plan for continuity, recovery, and learning after disruptions and did not build a plan prematurely."
+        },
+        {
+          "case_id": "route-adaptive-experiment-r6",
+          "pass": true,
+          "observed": "Selected Regenerative Adaptive Experiment for a small reversible test before scaling and did not design the experiment prematurely."
+        },
+        {
+          "case_id": "native-only-pdf-r6",
+          "pass": true,
+          "observed": "Chose native ChatGPT for ordinary PDF summarization and stated that no additional skill is necessary unless a reusable standardized workflow is desired."
+        },
+        {
+          "case_id": "external-trust-data-storyteller-r6",
+          "pass": true,
+          "observed": "Preserved data-storyteller as indexed/not-evaluated, did not invent a trust score, and did not equate insufficient evidence with maliciousness."
+        },
+        {
+          "case_id": "direct-language-explanation-r6",
+          "pass": true,
+          "observed": "Handled the direct retry-policy explanation natively, did not mention Regenerative Language Bridge, and did not impose the six-section skill template."
+        }
+      ],
+      "metrics": {
+        "collection_state": "not-collected",
+        "tokens": null,
+        "elapsed_ms": null,
+        "cost_usd": null,
+        "tool_calls": null
+      }
+    }
+  ]
+}
