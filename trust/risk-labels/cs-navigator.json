@@ -31,12 +31,12 @@
   "secrets": {
     "state": "declared-plus-static-scan",
     "declared": "none required",
-    "observed": "No secret/credential reference observed."
+    "observed": "Secret/credential terminology observed."
   },
   "destructive_potential": {
     "state": "declared-plus-static-scan",
     "declared": "none required",
-    "observed": "No destructive operation reference observed."
+    "observed": "Destructive operation reference observed."
   },
   "human_confirmation": {
     "state": "unknown",
