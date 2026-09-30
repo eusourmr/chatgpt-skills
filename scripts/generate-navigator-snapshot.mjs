@@ -27,6 +27,7 @@ export async function buildSnapshot(){
   const manifest=await readJson('installer/manifest.json');
   const trust=await readJson(manifest.trust_file||'trust/skills.json');
   const execution=await readJson('trust/execution.json');
+  const plugin=await readJson('plugins/cs-navigator/plugin.json');
   const external=await loadExternalSources();
 
   const entries=[];
@@ -88,11 +89,13 @@ export async function buildSnapshot(){
 
   return {
     schema_version:2,
+    generated_for_plugin:plugin.version,
     policy:'Use the smallest useful set. Native sufficiency comes first. For skills, freshness, permissions, execution evidence, security evidence, and known gaps remain separate. External indexed sources are discovery-only until separately evidenced.',
     source_contract:[
       'installer/manifest.json',
       'trust/skills.json',
       'trust/execution.json',
+      'plugins/cs-navigator/plugin.json',
       'trust/passports/*.json',
       'trust/security-reports/*.json',
       'trust/risk-labels/*.json',
