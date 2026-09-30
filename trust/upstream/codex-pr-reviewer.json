@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "skill_id": "codex-pr-reviewer",
+  "reviewed_source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+  "reviewed_artifact_sha256": "13006a226a157908476397bfd6d0f5af755fcbb748ea1081fc223c290263e825",
+  "current_artifact_sha256": "13006a226a157908476397bfd6d0f5af755fcbb748ea1081fc223c290263e825",
+  "review_due_at": "2026-12-29",
+  "state": "current",
+  "action": "none",
+  "policy": "A reviewed artifact cannot inherit trust after byte drift or evidence expiry without re-review."
+}
