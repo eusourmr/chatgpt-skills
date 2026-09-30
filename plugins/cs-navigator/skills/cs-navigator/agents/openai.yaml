@@ -1,4 +1,4 @@
 interface:
   display_name: "CS Navigator"
-  short_description: "Route goals to trusted skills"
-  default_prompt: "Find the smallest useful skill set for this goal, or tell me if no additional skill is needed."
+  short_description: "Route goals with trust evidence"
+  default_prompt: "Find the smallest useful capability for this goal, or tell me if none is needed. Use current evidence, freshness, permission footprint, security findings, execution fit, and known gaps without inventing a ranking."
