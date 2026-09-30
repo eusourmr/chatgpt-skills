@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "skill_id": "codex-pr-reviewer",
+  "identity": {
+    "name": "Codex PR Reviewer",
+    "summary": "Builds a deterministic review prompt from versioned business rules and severities.",
+    "publisher": "ChatGPT Skills project"
+  },
+  "provenance": {
+    "source_repository": "https://github.com/eusourmr/chatgpt-skills",
+    "canonical_path": "skills/featured/codex-pr-reviewer",
+    "reviewed_source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+    "license": "MIT"
+  },
+  "integrity": {
+    "algorithm": "sha256-manifest-v1",
+    "artifact_sha256": "13006a226a157908476397bfd6d0f5af755fcbb748ea1081fc223c290263e825",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "50f271d53ccaa30c8b2c2b9344d9444296dce3913f8ef9f595e02d806689d90a"
+      },
+      {
+        "path": "agents/openai.yaml",
+        "sha256": "49a70ef469df935935c542137ac68758dc3a585036b2faa4a71efe4217327753"
+      },
+      {
+        "path": "scripts/build_review_prompt.py",
+        "sha256": "ffa3a6de140ffc9fe3a6d4bab4920f561b141aab644776824cfd6ff9e2f07a2e"
+      }
+    ]
+  },
+  "execution": {
+    "mode": "local-agent",
+    "evidence_state": "tested",
+    "minimum_setup": "Local filesystem/runtime to validate rules and generate the deterministic review prompt.",
+    "required_capabilities": [
+      "local-files",
+      "local-runtime"
+    ]
+  },
+  "permissions": {
+    "local_files": "reads a JSON rules file and writes one Markdown prompt",
+    "network": "none",
+    "secrets": "none required",
+    "process_execution": "none",
+    "destructive_actions": "overwrites the configured output prompt"
+  },
+  "security": {
+    "state": "inspected",
+    "gate_version": "v1",
+    "evidence_refs": [
+      "trust/skills.json",
+      "scripts/security-check.mjs"
+    ],
+    "report_ref": null
+  },
+  "behavior_evidence": {
+    "state": "tested",
+    "latest_plan_id": null,
+    "latest_run_id": null,
+    "evidence_refs": [
+      "trust/skills.json",
+      "trust/execution.json"
+    ]
+  },
+  "freshness": {
+    "status": "current",
+    "reviewed_at": "2026-09-30",
+    "stale_after_days": 90,
+    "review_due_at": "2026-12-29"
+  },
+  "governance": {
+    "maintainers": [
+      {
+        "github": "eusourmr",
+        "role": "maintainer"
+      }
+    ],
+    "reviewers": [
+      {
+        "github": "eusourmr",
+        "role": "author-maintainer-reviewer",
+        "conflict_of_interest": "self-review"
+      }
+    ],
+    "independent_review": false
+  },
+  "recommendation": {
+    "state": "conditional",
+    "reason": "Bundled, source-reviewed and integrity-checked; dedicated task-level end-to-end evidence is still incomplete."
+  },
+  "known_gaps": [
+    "Does not itself fetch or review a pull request; Codex or another review surface performs that step."
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "skill_id": "openai-agents-sdk-builder",
+  "identity": {
+    "name": "OpenAI Agents SDK Builder",
+    "summary": "Scaffolds a minimal Agents SDK project and guides production hardening.",
+    "publisher": "ChatGPT Skills project"
+  },
+  "provenance": {
+    "source_repository": "https://github.com/eusourmr/chatgpt-skills",
+    "canonical_path": "skills/featured/openai-agents-sdk-builder",
+    "reviewed_source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+    "license": "MIT"
+  },
+  "integrity": {
+    "algorithm": "sha256-manifest-v1",
+    "artifact_sha256": "6f89c0ee7fca10165214abf08b71c92c7974306724625d53f14aea5dfeb3d515",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "a3a57f4ad29ff32fe672ed5eeeedcedba0ac83387b4c6bb3e70c13e11ca8953f"
+      },
+      {
+        "path": "agents/openai.yaml",
+        "sha256": "ad254d81c9882bcce8c6f662c2c06839cdef17ba681fec5179bd5a28b1056f69"
+      },
+      {
+        "path": "scripts/scaffold_agent.py",
+        "sha256": "0f2285496f3b802ab1438e060d84561f25d434bc602dec762b73ecf402152af4"
+      }
+    ]
+  },
+  "execution": {
+    "mode": "local-agent",
+    "evidence_state": "tested",
+    "minimum_setup": "Local agent/runtime with filesystem access; generated app later needs OpenAI API credentials to run.",
+    "required_capabilities": [
+      "local-files",
+      "local-runtime"
+    ]
+  },
+  "permissions": {
+    "local_files": "writes scaffold files in a user-selected target",
+    "network": "none during scaffolding; generated app uses OpenAI API when later run",
+    "secrets": "does not read secrets; generated app expects OPENAI_API_KEY",
+    "process_execution": "none in the scaffolder",
+    "destructive_actions": "--force can overwrite generated files in the selected target"
+  },
+  "security": {
+    "state": "inspected",
+    "gate_version": "v1",
+    "evidence_refs": [
+      "trust/skills.json",
+      "scripts/security-check.mjs"
+    ],
+    "report_ref": null
+  },
+  "behavior_evidence": {
+    "state": "tested",
+    "latest_plan_id": null,
+    "latest_run_id": null,
+    "evidence_refs": [
+      "trust/skills.json",
+      "trust/execution.json"
+    ]
+  },
+  "freshness": {
+    "status": "current",
+    "reviewed_at": "2026-09-30",
+    "stale_after_days": 90,
+    "review_due_at": "2026-12-29"
+  },
+  "governance": {
+    "maintainers": [
+      {
+        "github": "eusourmr",
+        "role": "maintainer"
+      }
+    ],
+    "reviewers": [
+      {
+        "github": "eusourmr",
+        "role": "author-maintainer-reviewer",
+        "conflict_of_interest": "self-review"
+      }
+    ],
+    "independent_review": false
+  },
+  "recommendation": {
+    "state": "conditional",
+    "reason": "Bundled, source-reviewed and integrity-checked; dedicated task-level end-to-end evidence is still incomplete."
+  },
+  "known_gaps": [
+    "No dedicated end-to-end task fixture against a live Agents SDK environment yet."
+  ]
+}

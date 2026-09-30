@@ -29,6 +29,24 @@ jobs:
           set -euo pipefail
           python scripts/validate_catalog.py --write-progress
           git diff --exit-code -- PROGRESS.md
+      - name: Fetch reviewed Trust Passport source revisions
+        shell: bash
+        run: |
+          set -euo pipefail
+          for rev in $(python - <<'PY'
+          import glob, json
+          refs=set()
+          for p in glob.glob('trust/passports/*.json'):
+              with open(p, encoding='utf-8') as f:
+                  refs.add(json.load(f)['provenance']['reviewed_source_revision'])
+          print(' '.join(sorted(refs)))
+          PY
+          ); do
+            git cat-file -e "$rev^{commit}" 2>/dev/null || git fetch --no-tags --depth=1 origin "$rev"
+          done
+
+      - name: Verify Trust Passports against immutable Git source
+        run: node scripts/validate-trust-passports.mjs --verify-git-source
       - name: Check Node installer syntax
         run: node --check installer/index.js
       - name: Test regenerative gates
