@@ -1,6 +1,6 @@
 ---
 name: cs-navigator
-description: Route only capability-selection questions to the smallest evidence-backed ChatGPT Skill set. Use when the user is deciding which skill, plugin, workflow, or capability to use; whether any skill is needed; whether CS covers a job; or whether an external skill has enough evidence to trust. Do not activate from task subject matter alone. Direct requests to write, explain, summarize, translate, calculate, analyze, research, or create should stay with ChatGPT unless the user is explicitly asking about capability selection.
+description: Route only capability-selection questions to the smallest useful evidence-backed ChatGPT Skill set, using evidence freshness, permission footprint, security findings, execution fit, and known gaps when they materially change the route. Use when the user is deciding which skill, plugin, workflow, or capability to use; whether any skill is needed; whether CS covers a job; or whether an external skill has enough evidence to trust. Do not activate from task subject matter alone. Direct requests to write, explain, summarize, translate, calculate, analyze, research, or create should stay with ChatGPT unless the user is explicitly asking about capability selection.
 ---
 
 # CS Navigator
@@ -77,16 +77,40 @@ Choose exactly one primary outcome before answering:
 
 Prefer `native-only` over adding a skill with marginal value. Prefer one skill over several. Use two or three only when each contributes a distinct necessary capability.
 
+## Trust-aware selection order
+
+When the outcome is `skill`, do not choose by name similarity alone. Evaluate candidates in this order:
+
+1. **Coverage:** does the capability materially solve the user's actual job?
+2. **Freshness:** prefer evidence marked `current`. A candidate marked `stale` or `changed-unreviewed` must not inherit an older positive trust conclusion; disclose `re-review-required`.
+3. **Blocking security evidence:** do not recommend a candidate whose current snapshot reports a blocked Security Gate or blocking findings.
+4. **Permission and data footprint:** when candidates provide materially comparable value and evidence, prefer the one requiring fewer permissions, less external data movement, and a smaller execution surface.
+5. **Execution fit:** prefer `chat-native`, then `native-tools`, when they are sufficient. Use `connected` or `local-agent` only when their added capability is necessary.
+6. **Behavior evidence:** distinguish `designed`, `tested`, `conditional`, and `unknown`. A passing test for one exact artifact does not prove all future versions.
+7. **Known gaps:** surface only gaps that could change the user's decision or safe use.
+
+### Tie rule
+
+If current evidence cannot distinguish two materially equivalent candidates, say that the evidence does not establish a winner. Ask for one decision-relevant constraint when needed (for example execution surface, external data movement, language, or required setup).
+
+Do not invent a score, rank, "best" label, or superiority claim to break a tie.
+
+### Permission language
+
+You may say one option has a **smaller permission footprint** when the snapshot shows the concrete difference.
+
+Do not call a skill "safer" merely because it has fewer permissions. Safety is broader than one permission dimension and requires evidence.
+
 ## Workflow
 
 1. Identify the intended outcome. Do not force the user to know a category or skill name.
 2. Select one routing outcome.
 3. If the outcome is `native-only`, answer the user's task normally when possible. Do not add catalog commentary unless they asked why no skill is needed.
 4. If the outcome is `skill`, search the snapshot for the smallest useful set.
-5. Prefer `chat-native` when sufficient, then `native-tools`; use `connected` or `local-agent` only when the capability cannot stay inside the chat.
-6. Prefer stronger evidence, but never turn catalog status, popularity, or an upstream claim into execution proof.
+5. Apply the trust-aware selection order: coverage → freshness → blocking security evidence → permission footprint → execution fit → behavior evidence → known gaps.
+6. Prefer stronger **current** evidence, but never turn catalog status, popularity, an upstream claim, or an older artifact's evidence into proof for the current candidate.
 7. Treat `indexed / not-evaluated` external sources as discovery only. Lack of evidence is not proof of danger.
-8. If the snapshot does not cover the job, report a coverage gap instead of inventing a skill.
+8. If the snapshot does not cover the job, or every materially matching candidate requires re-review, report the limitation instead of inventing confidence.
 9. Keep the response proportional to the task.
 
 ## Response style
@@ -98,6 +122,8 @@ For a skill recommendation, keep the default response compact:
 - **Why:** one concise reason per skill.
 - **Execution:** only when it changes what the user must do.
 - **Evidence / gap:** only the material trust limitation.
+- **Trust / freshness:** only when stale, changed-unreviewed, blocked, independently reviewed, or otherwise decision-relevant.
+- **Permissions:** only when the footprint changes the choice or setup.
 - **Next:** the simplest action to continue in the same chat.
 
 Do not expose internal catalog mechanics unless they help the user decide.
@@ -120,7 +146,9 @@ A concise default answer is: **"CS has indexed this external skill, but it is st
 
 ## Freshness rule
 
-The bundled snapshot is finite and versioned. Do not describe it as a complete live view of the ecosystem.
+The bundled snapshot is finite, versioned, and carries a compact freshness/security/permission summary. Do not describe it as a complete live view of the ecosystem.
+
+If a bundled candidate is `stale` or `changed-unreviewed`, do not present its older review as current. Say that re-review is required.
 
 If the user asks for current status of an external or unfamiliar skill and native web access is available, verify current publisher/source metadata before describing it. Current source discovery still does not become CS trust evidence automatically. If current verification is unavailable, state the limitation.
 
