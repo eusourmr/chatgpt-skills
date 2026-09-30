@@ -104,6 +104,212 @@ Allowed evidence:
 Remain `unrated` until real review data exists.
 
 **Exit criteria:** every bundled repository-authored skill has a valid Passport linked to real evidence; Security Gate v2 emits structured public reports and blocks adversarial fixtures; upstream drift can trigger stale/re-review-required; task-level eval evidence is machine-readable; Navigator can use trust/freshness/permissions without over-routing; review decisions are auditable; EN/PT-BR/ES/FR trust vocabulary exists; and the reusable trust schema is published as OSTS 0.1.
+
+## v0.8 — Global & Regional Excellence
+
+Turn the trust layer into a genuinely global product while building unusually strong support for Latin America and other underserved contexts.
+
+### Product objective
+
+Make the catalog useful not only across languages, but across **jurisdictions, infrastructure realities, institutions, research cultures, accessibility needs, and resource constraints**.
+
+### Deliverables
+
+- Add structured regional metadata: country/region, jurisdiction relevance, supported languages, regulatory sensitivity, connectivity assumptions, device/resource requirements, and offline/low-bandwidth suitability.
+- Create first-class regional collections for **Latin America**, starting with Brazil and Spanish-speaking Latin America, without weakening any trust or security gate.
+- Add domain collections for **science & research, education, health, small business, public administration, nonprofit/social impact, climate/environment, data analysis, software development, and creative work**.
+- Add locale-aware discovery so Navigator can distinguish language from jurisdiction and from domain context.
+- Add localization quality gates: translations must preserve evidence state, warnings, permissions, legal caveats, uncertainty, and technical terminology.
+- Expand trust-facing localization beyond EN/PT-BR/ES/FR where maintainers and evidence justify it; never claim language support from machine translation alone.
+- Add accessibility metadata: reading level, screen-reader friendliness, structured output compatibility, color-independent warnings, and cognitive-load considerations.
+- Add low-resource suitability metadata for users with limited bandwidth, older hardware, constrained compute, intermittent connectivity, or limited access to paid external services.
+- Add regional privacy/data-residency fields where a workflow sends information to external providers.
+- Support jurisdiction-aware warnings for workflows touching regulated or high-stakes domains; do not turn the catalog into legal, medical, or financial certification.
+- Add regional examples and case studies that are real, reproducible, and clearly separated from generic/global claims.
+
+### Latin America excellence track
+
+The project should become exceptionally useful for people and organizations working in or with Latin America.
+
+Priority areas:
+- Portuguese and Spanish as first-class user-facing languages;
+- public education and university workflows;
+- scientific research groups with limited infrastructure;
+- small and medium businesses;
+- public administration and civic service delivery;
+- NGOs, cooperatives, social enterprises, and community organizations;
+- agriculture, climate resilience, biodiversity, and local development;
+- cross-border work, localization, and document-heavy institutional processes;
+- accessibility and low-bandwidth operation;
+- regional compliance/provenance notes when external services store or process data outside the user's jurisdiction.
+
+Regional relevance must never become a shortcut around provenance, security, licensing, privacy, or behavioral evidence.
+
+### Science & research excellence track
+
+- Add research-workflow metadata: literature review, data analysis, reproducibility, experiment planning, citation/provenance support, code/data availability, and domain limitations.
+- Add a reproducibility label for skills that produce code, analyses, datasets, or research artifacts.
+- Record whether outputs can preserve source citations, uncertainty, units, assumptions, and methodological provenance.
+- Add benchmark fixtures for scientific/research workflows using public, non-sensitive datasets where possible.
+- Add explicit safeguards against fabricated citations, unsupported claims, unit errors, and hidden data transformations.
+- Add hooks for domain-expert review without pretending that one reviewer certifies an entire scientific field.
+
+### Exit criteria
+
+- regional metadata is validated and queryable;
+- Latin America collections are available in PT-BR and ES with real evidence, not translated marketing;
+- science/research skills expose reproducibility and provenance metadata;
+- Navigator can use locale/jurisdiction/domain/resource constraints without over-routing;
+- accessibility and low-bandwidth fields are visible in the Trust Passport/Risk Label;
+- at least three regional or domain-specific case studies are reproducible and publicly documented.
+
+## v0.9 — Ecosystem Intelligence & Community Scale
+
+Turn the verified trust foundation into a collaborative intelligence layer for the wider ChatGPT skill ecosystem.
+
+### Product objective
+
+Help users and developers understand **which capabilities compose well, which overlap, which conflict, which are stale, which are safer/lighter, and which actually succeed on the same task**.
+
+### Deliverables
+
+- Build a **Skill Capability Graph** linking jobs, capabilities, dependencies, permissions, evidence, domains, locales, and alternatives.
+- Add composition analysis for multi-skill workflows: overlap, contradictory instructions, duplicated permissions, context pressure, failure propagation, and fallback paths.
+- Add evidence-backed alternative suggestions: lower-permission, more current, more local, cheaper, simpler, or native-only when the data supports the comparison.
+- Add reproducible **like-for-like benchmarks** for skills that solve the same job; publish raw fixtures/results and avoid unsupported overall rankings.
+- Add a developer-facing **submission/evidence toolkit** so skill authors can generate Passport-compatible metadata, hashes, security reports, and eval fixtures before opening a PR.
+- Add CI templates and reference GitHub Actions for third-party repositories to produce OSTS-compatible attestations.
+- Add versioned machine-readable APIs/artifacts for catalog search, Trust Passports, Risk Labels, drift status, review history, and eval evidence.
+- Add privacy-preserving, opt-in usage evidence collection architecture; no silent telemetry and no user-content collection by default.
+- Add verified user-review records with context, version binding, conflict-of-interest disclosure, and anti-spam controls.
+- Add maintainer/reviewer reputation based on durable review quality, freshness work, reproduced findings, and accepted corrections — never paid placement or raw submission volume.
+- Add a public corrections process so users can challenge stale evidence, false positives, mistranslations, or missing risk disclosures.
+- Add deprecation and migration guidance when a skill becomes stale, unsafe, superseded, or incompatible.
+- Add incident handling for compromised upstream sources, malicious updates, leaked secrets, broken signatures, or materially changed permissions.
+- Add compatibility matrices across ChatGPT, Codex, Work, Agent Skills-compatible runtimes, and connected execution surfaces where evidence exists.
+- Add resource-efficiency measurements when observable: token use, tool calls, latency, external calls, and artifact size.
+
+### Community and governance
+
+- Establish a public reviewer/maintainer program with clear onboarding, code of conduct, review expectations, conflicts policy, and removal process.
+- Require attributed review decisions; automated checks may inform, but cannot impersonate human review.
+- Add contribution recognition for translators, security reporters, benchmark authors, regional maintainers, researchers, and documentation contributors.
+- Support regional maintainers and domain stewards without creating closed territorial ownership.
+- Maintain a public backlog of unreviewed, stale, disputed, and high-impact candidates.
+
+### Exit criteria
+
+- users can compare evidence for multiple candidates on the same job;
+- composition conflicts and permission expansion are machine-detectable;
+- third-party authors can generate OSTS-compatible evidence without copying the repository;
+- at least one external contributor has completed a real review/contribution path;
+- opt-in quality evidence has provenance and version binding;
+- stale/unsafe/superseded skills have visible migration paths.
+
+## v1.0 — Trusted Skill Ecosystem
+
+Graduate from a curated repository and plugin into a mature, open, verifiable trust layer that strengthens the ChatGPT ecosystem and its users.
+
+### Product promise
+
+A user can describe a goal and receive the **smallest useful path** — native ChatGPT when sufficient, otherwise one or more skills — with clear evidence about trust, permissions, freshness, compatibility, regional fit, and known limitations.
+
+A developer can publish a skill and understand exactly what evidence is required for discovery, source-checking, testing, recommendation, and continued trust over time.
+
+### v1.0 core capabilities
+
+- **Trust Passport 1.0**: stable schema, backwards-compatibility policy, migration rules, examples, validators, and reference implementation.
+- **OSTS 1.0 candidate path**: open specification mature enough for external adoption, with conformance levels and implementation guidance.
+- **Security Gate mature profile**: structured static/dynamic findings, adversarial fixtures, suppressions with rationale, review history, and supply-chain checks.
+- **Continuous Verification**: scheduled drift detection, stale-state propagation, re-review queues, incident response, and immutable evidence history.
+- **Behavior Evidence**: reproducible eval plans/runs, regression history, objective metrics when measured, domain fixtures, and transparent failure cases.
+- **Trust-Aware Navigator**: native-first, evidence-aware, permission-aware, freshness-aware, locale/jurisdiction-aware, compatibility-aware, and anti-overrouting-qualified.
+- **Risk Labels**: consistent plain-language labels across supported languages with machine-readable backing.
+- **Regional Excellence**: strong Latin America coverage plus a framework that lets other regions build equivalent evidence-backed collections.
+- **Science & Research**: reproducibility/provenance support, public benchmark fixtures, citation/uncertainty safeguards, and domain-review hooks.
+- **Governance**: public review history, reviewer registry, conflicts policy, appeals/corrections, contribution recognition, and transparent release decisions.
+- **Developer Ecosystem**: author tooling, validation CLI, reusable CI templates, evidence generators, and migration tools.
+- **Interoperability**: preserve open Agent Skills compatibility and support external catalogs/tools consuming OSTS evidence without vendor lock-in.
+- **Privacy**: no hidden telemetry; explicit consent and provenance for any usage evidence; data minimization by default.
+- **Accessibility**: trust and risk information understandable to non-specialists and inspectable in technical depth.
+- **Resilience**: mirrors, artifact hashes, release attestations, reproducible generation where practical, backup/restore of catalog state, and documented recovery procedures.
+
+### v1.0 trust levels
+
+Keep discovery and trust separate. A candidate may progress through evidence-backed states such as:
+
+- `indexed` — discovered, not trusted;
+- `source-checked` — provenance/source inspected;
+- `tested` — one or more reproducible behavior/compatibility tests passed;
+- `recommended` — current evidence meets the documented recommendation gate for a defined use context;
+- `stale` / `re-review-required` — prior evidence exists but is no longer current enough for the previous recommendation;
+- `blocked` — evidence indicates the project should not recommend installation/use under the defined policy.
+
+These states must remain explainable and version-bound. No state is a permanent safety guarantee.
+
+### v1.0 success metrics
+
+Do not optimize only for catalog size. Track:
+
+- percentage of indexed skills with immutable provenance;
+- percentage with valid Trust Passports;
+- percentage with structured security reports;
+- percentage with reproducible behavior evidence;
+- verification freshness and median re-review lag;
+- number of upstream changes caught before users inherit old trust;
+- proportion of Navigator requests resolved native-only versus skill-assisted;
+- permission reduction achieved through smaller recommended sets;
+- reproducible benchmark coverage by domain;
+- real external reviewers/contributors and review turnaround;
+- localization coverage with human review;
+- documented corrections and time-to-resolution;
+- regional/domain coverage, including Latin America and science/research;
+- user-reported successful use cases bound to exact versions when consented and verifiable.
+
+Raw stars, downloads, repository count, and submission volume may be reported, but must not substitute for trust or quality.
+
+### v1.0 release gates
+
+v1.0 should not ship until:
+
+- every bundled/recommended skill has a valid current Trust Passport;
+- recommendation claims are version-bound and freshness-aware;
+- Security Gate covers the defined major threat families with regression fixtures;
+- continuous verification has demonstrated at least one real or simulated upstream-drift transition end-to-end;
+- behavior evals are reproducible from documented fixtures;
+- Navigator passes native-only, routing, trust-boundary, permission-aware, freshness-aware, and anti-overrouting qualification;
+- regional metadata and Latin America collections pass the same trust gates as global entries;
+- science/research workflows expose provenance/reproducibility evidence where applicable;
+- governance records are public and at least one external contribution/review path has been exercised;
+- EN/PT-BR/ES/FR trust surfaces are consistent and validated;
+- release artifacts are hash-verifiable and tied to immutable source;
+- disaster/recovery and compromised-upstream procedures are documented;
+- the project can clearly state what remains unknown.
+
+## Cross-version commitments — things we must not forget
+
+These commitments apply to every release from 0.7 through 1.0:
+
+1. **Trust is evidence, not branding.** Never invent confidence, safety, ratings, reviews, or validation.
+2. **Native-first.** A skill should not be recommended when ChatGPT already solves the job adequately without it.
+3. **Smallest useful set.** More capabilities are not automatically better.
+4. **Version-bound trust.** A new upstream version does not inherit old evidence automatically.
+5. **Security is continuous.** Static inspection, behavior evidence, drift checks, and human review complement each other.
+6. **Privacy by default.** No hidden telemetry, no unnecessary user-data collection, and no silent external transmission.
+7. **Regional excellence without lower standards.** Latin America and underserved markets receive better context, not weaker gates.
+8. **Science requires provenance.** Citations, units, assumptions, uncertainty, transformations, and reproducibility matter.
+9. **Accessibility is part of quality.** Plain language and technical depth should coexist.
+10. **Open standards over lock-in.** Prefer interoperable schemas, Agent Skills compatibility, MCP/official integration surfaces, and portable evidence.
+11. **Human governance stays visible.** Automation assists review; it does not impersonate reviewers.
+12. **Regenerative design remains a distinctive authored track.** It strengthens systemic quality without becoming a mandatory ideology for third-party catalog inclusion.
+13. **No paid trust or paid ranking.** Commercial support must never buy recommendation status.
+14. **Corrections are a feature.** Make it easy to challenge evidence, fix mistakes, and preserve the history of what changed.
+15. **Failure evidence matters.** Publish meaningful failures and limitations, not only successes.
+16. **Resource efficiency matters.** When measurable, track token, time, network, compute, and maintenance costs.
+17. **High-stakes domains need stronger caution.** Health, finance, legal, public-sector, and security workflows require explicit limitations and evidence boundaries.
+18. **Do not claim scale we have not earned.** Global ambition, community governance, and regional leadership must be demonstrated with real contributors and usage.
+19. **Strengthen the ChatGPT ecosystem rather than fragment it.** Complement OpenAI-native capabilities and surface them when they are the best fit.
+20. **Keep innovating.** Every release should add a real capability, stronger evidence, lower user risk, better accessibility, broader regional usefulness, or improved interoperability — not novelty for its own sake.
 ## Later — Community, Internationalization & Recognition
 
 Community recognition and marketplace-like features are deliberately deferred until the trust layer has real usage and review history.
