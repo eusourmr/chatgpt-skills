@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "gate_version": "v2",
+  "skill_id": "cs-navigator",
+  "scanned_at": "2026-09-30",
+  "source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+  "artifact_sha256": "b6eca989e9d6f9a450877ac7892b86d0fb2ad1f33e73bd5646773bd89eb19790",
+  "result": "pass",
+  "summary": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0,
+    "blocking": 0
+  },
+  "observed_capabilities": {
+    "network_operations": false,
+    "process_execution": false,
+    "filesystem_writes": false,
+    "secret_references": false,
+    "destructive_operations": false,
+    "lifecycle_hooks": false,
+    "encoded_or_obfuscated_content": false
+  },
+  "findings": [],
+  "policy": "Automated findings are evidence for review, not a permanent safety guarantee. Blocking rules stop admission; informational signals remain visible."
+}

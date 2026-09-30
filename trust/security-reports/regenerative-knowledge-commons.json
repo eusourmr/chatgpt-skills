@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "gate_version": "v2",
+  "skill_id": "regenerative-knowledge-commons",
+  "scanned_at": "2026-09-30",
+  "source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+  "artifact_sha256": "718d625749708581f8fab07448782118a51cf2c25deaf7bb6432801690e982fd",
+  "result": "pass",
+  "summary": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0,
+    "info": 1,
+    "blocking": 0
+  },
+  "observed_capabilities": {
+    "network_operations": false,
+    "process_execution": false,
+    "filesystem_writes": false,
+    "secret_references": true,
+    "destructive_operations": false,
+    "lifecycle_hooks": false,
+    "encoded_or_obfuscated_content": false
+  },
+  "findings": [
+    {
+      "rule_id": "permission-description-mismatch",
+      "family": "description-behavior-mismatch",
+      "severity": "medium",
+      "blocking": false,
+      "path": "skills/regenerative-knowledge-commons",
+      "line": null,
+      "evidence_sha256": "e2f8e06f435d828bbe94bb1fc178237e88534a9f59cd8335a53cdadce49c8a1e",
+      "message": "Observed secrets signal while permission declaration says none.",
+      "disposition": "review"
+    },
+    {
+      "rule_id": "secret-reference",
+      "family": "secrets",
+      "severity": "info",
+      "blocking": false,
+      "path": "SKILL.md",
+      "line": 35,
+      "evidence_sha256": "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b",
+      "message": "Secret or credential terminology observed.",
+      "disposition": "review"
+    }
+  ],
+  "policy": "Automated findings are evidence for review, not a permanent safety guarantee. Blocking rules stop admission; informational signals remain visible."
+}
