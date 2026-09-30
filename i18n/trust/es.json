@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "locale": "es",
+  "canonical": false,
+  "review_state": "draft-not-independently-reviewed",
+  "evidence_states": {
+    "indexed": "Indexada — descubierta, todavía no considerada confiable.",
+    "source_checked": "Fuente revisada — se inspeccionaron la procedencia y la fuente.",
+    "tested": "Probada — existe evidencia reproducible de comportamiento o compatibilidad.",
+    "recommended": "Recomendada — la evidencia actual cumple el criterio documentado para un contexto definido.",
+    "stale": "Desactualizada — existe evidencia previa, pero está fuera de su ventana de vigencia.",
+    "re_review_required": "Revisión necesaria — la fuente o la evidencia cambió y la confianza anterior no debe heredarse.",
+    "blocked": "Bloqueada — la evidencia actual indica que el proyecto no debe recomendar su instalación o uso."
+  },
+  "recommendation_states": {
+    "recommended": "Recomendada",
+    "conditional": "Condicional",
+    "unverified": "No verificada",
+    "do_not_install": "No instalar",
+    "deprecated": "Obsoleta"
+  },
+  "risk_dimensions": {
+    "reads": "Lee",
+    "writes": "Escribe",
+    "sends_externally": "Envía al exterior",
+    "executes": "Ejecuta",
+    "secrets": "Secretos y credenciales",
+    "destructive_potential": "Potencial destructivo",
+    "human_confirmation": "Confirmación humana",
+    "unknowns": "Desconocidos"
+  }
+}
