@@ -29,6 +29,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -44,6 +46,9 @@ jobs:
 
       - name: Validate repository
         run: npm run validate
+
+      - name: Verify Trust Passports against immutable Git source
+        run: node scripts/validate-trust-passports.mjs --verify-git-source
 
       - name: Prove Security Gate blocks unsafe fixture
         shell: bash
