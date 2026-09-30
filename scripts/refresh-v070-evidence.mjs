@@ -17,14 +17,25 @@ function run(cmd,args){
 // 3) derive Risk Labels;
 // 4) re-render passports with stable evidence refs;
 // 5) compute freshness/drift and Navigator snapshot;
-// 6) normalize behavior evidence;
-// 7) validate the complete graph.
+// 6) because the Navigator snapshot is itself part of the cs-navigator artifact,
+//    rescan and re-render security/passport/drift evidence after snapshot generation;
+// 7) normalize behavior evidence;
+// 8) validate the complete graph.
 run('node',['scripts/generate-trust-passports.mjs','--write']);
 run('node',['scripts/security-gate-v2.mjs','--write']);
 run('node',['scripts/generate-risk-labels.mjs','--write']);
 run('node',['scripts/generate-trust-passports.mjs','--write']);
 run('node',['scripts/update-drift-status.mjs','--write','--as-of',asOf]);
 run('node',['scripts/generate-navigator-snapshot.mjs']);
+
+// Final stabilization pass. The snapshot changes cs-navigator bytes but does not
+// depend on cs-navigator's own Passport/upstream entry, so this pass breaks the
+// remaining one-way dependency without regenerating the snapshot again.
+run('node',['scripts/security-gate-v2.mjs','--write']);
+run('node',['scripts/generate-risk-labels.mjs','--write']);
+run('node',['scripts/generate-trust-passports.mjs','--write']);
+run('node',['scripts/update-drift-status.mjs','--write','--as-of',asOf]);
+
 run('node',['scripts/generate-evals-v070.mjs','--write']);
 
 run('node',['scripts/generate-trust-passports.mjs','--check']);
