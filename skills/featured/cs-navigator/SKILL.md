@@ -104,6 +104,24 @@ When the request passes the capability-selection gate, do not route on topical s
 
 If evidence cannot distinguish two viable candidates, explain the tie instead of inventing a winner.
 
+### Evidence-state response contract
+
+When the user explicitly asks for a skill's **state of evidence, trust, freshness, or current status**, answer from the **currently bundled snapshot**, not from a remembered older release.
+
+For the selected skill, report the material fields that exist in the snapshot:
+- `execution_evidence`;
+- `recommendation` when relevant;
+- `execution_mode` when relevant;
+- `freshness_state`;
+- `review_due_at` when present;
+- the material `known_gaps`.
+
+If the snapshot declares `generated_for_plugin`, use that value when naming the snapshot/release context. **Do not call the current snapshot “R6” or another historical candidate unless the user explicitly asks about that historical artifact.**
+
+If `security_result=pass`, you may report it only with the boundary that this means no configured blocking pattern was observed; it is not proof that the skill is safe.
+
+Do not omit `freshness_state` when the user's question is about the current evidence state. A skill can be `designed` for execution evidence while simultaneously being `current` for freshness; these are separate dimensions.
+
 ### Risk and freshness vocabulary
 
 Use the snapshot's evidence fields when available:
