@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1",
   "skill_id": "codex-pr-reviewer",
-  "source_revision": "ab8cb8cd7e2c7ca5c9bb73800552b25e361a0098",
+  "source_revision": "64c2e06e7feee917096f0f7091bbb51db5da1f97",
   "artifact_sha256": "13006a226a157908476397bfd6d0f5af755fcbb748ea1081fc223c290263e825",
   "security_gate": {
     "version": "v2",

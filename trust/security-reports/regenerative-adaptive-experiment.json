@@ -3,7 +3,7 @@
   "gate_version": "v2",
   "skill_id": "regenerative-adaptive-experiment",
   "scanned_at": "2026-09-30",
-  "source_revision": "ab8cb8cd7e2c7ca5c9bb73800552b25e361a0098",
+  "source_revision": "64c2e06e7feee917096f0f7091bbb51db5da1f97",
   "artifact_sha256": "4e698fc8c755144202f41d3ec59353370f8cf52dabca4006c2c81b61d434980f",
   "result": "pass",
   "summary": {

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "skill_id": "regenerative-knowledge-commons",
-  "reviewed_source_revision": "ab8cb8cd7e2c7ca5c9bb73800552b25e361a0098",
+  "reviewed_source_revision": "64c2e06e7feee917096f0f7091bbb51db5da1f97",
   "reviewed_artifact_sha256": "718d625749708581f8fab07448782118a51cf2c25deaf7bb6432801690e982fd",
   "current_artifact_sha256": "718d625749708581f8fab07448782118a51cf2c25deaf7bb6432801690e982fd",
   "review_due_at": "2026-12-29",
