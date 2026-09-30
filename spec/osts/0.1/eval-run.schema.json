@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/eusourmr/chatgpt-skills/spec/osts/0.1/eval-run.schema.json",
+  "title": "OSTS 0.1 Behavior Eval Run",
+  "type": "object",
+  "required": ["schema_version","test_id","skill_id","result","executed_at","product_surface","package_version","distribution","source_revision","artifact_sha256","case_ids","assertions","metrics"],
+  "properties": {
+    "schema_version": {"const":"0.1"},
+    "test_id": {"type":"string","minLength":1},
+    "skill_id": {"type":"string","pattern":"^[a-z0-9][a-z0-9-]*$"},
+    "result": {"enum":["pass","fail"]},
+    "executed_at": {"type":"string","format":"date-time"},
+    "product_surface": {"type":"string","minLength":1},
+    "package_version": {"type":"string","minLength":1},
+    "distribution": {"enum":["npm","github-pinned","local"]},
+    "source_revision": {"type":"string","pattern":"^[a-f0-9]{40}$"},
+    "artifact_sha256": {"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "case_ids": {"type":"array","items":{"type":"string"}},
+    "assertions": {"type":"array","items":{"type":"object","required":["case_id","pass","observed"],"properties":{"case_id":{"type":"string"},"pass":{"type":"boolean"},"observed":{"type":"string"}},"additionalProperties":false}},
+    "metrics": {
+      "type":"object",
+      "required":["collection_state","tokens","elapsed_ms","cost_usd","tool_calls"],
+      "properties":{
+        "collection_state":{"enum":["not-collected","measured"]},
+        "tokens":{"type":["integer","null"],"minimum":0},
+        "elapsed_ms":{"type":["number","null"],"minimum":0},
+        "cost_usd":{"type":["number","null"],"minimum":0},
+        "tool_calls":{"type":["integer","null"],"minimum":0}
+      },
+      "additionalProperties":false
+    }
+  },
+  "additionalProperties": true
+}
