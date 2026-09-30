@@ -14,6 +14,7 @@ const snapshot = await readJson('skills/featured/cs-navigator/references/catalog
 const expected = await buildSnapshot();
 const fixtures = await readJson('tests/fixtures/navigator-jobs.json');
 const activation = await readJson('tests/fixtures/navigator-activation.json');
+const trustAware = await readJson('tests/fixtures/navigator-trust-aware.json');
 
 const comparableSnapshot = { ...snapshot, entries: (snapshot.entries || []).filter((entry) => entry.id !== 'cs-navigator') };
 expect(JSON.stringify(comparableSnapshot) === JSON.stringify(expected), 'Navigator snapshot differs from the current CS source data');
@@ -87,10 +88,21 @@ for (const item of activation.cases || []) {
 expect(positiveActivation >= 4, 'Navigator activation design needs at least four positive cases');
 expect(negativeActivation >= 4, 'Navigator activation design needs at least four negative cases');
 
+expect(trustAware.schema_version === 1, 'Navigator trust-aware fixture schema_version must be 1');
+expect(Array.isArray(trustAware.cases) && trustAware.cases.length >= 6, 'Navigator needs at least six trust-aware routing cases');
+const trustCaseIds = new Set();
+for (const item of trustAware.cases || []) {
+  expect(typeof item.id === 'string' && item.id.length > 0, 'Trust-aware fixture missing id');
+  expect(!trustCaseIds.has(item.id), `Duplicate trust-aware fixture id: ${item.id}`);
+  trustCaseIds.add(item.id);
+  expect(typeof item.condition === 'string' && item.condition.length > 0, `${item.id}: condition required`);
+  expect(typeof item.expected === 'string' && item.expected.length > 0, `${item.id}: expected behavior required`);
+}
+
 if (errors.length) {
   console.error('CS Navigator validation failed:');
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
 
-console.log(`CS Navigator OK: ${snapshot.entries.length} skills, ${snapshot.external_sources.length} external source(s), ${fixtures.jobs.length} job fixtures, ${activation.cases.length} activation fixtures.`);
+console.log(`CS Navigator OK: ${snapshot.entries.length} skills, ${snapshot.external_sources.length} external source(s), ${fixtures.jobs.length} job fixtures, ${activation.cases.length} activation fixtures, ${trustAware.cases.length} trust-aware fixtures.`);
