@@ -17,7 +17,7 @@ const activation = await readJson('tests/fixtures/navigator-activation.json');
 
 const comparableSnapshot = { ...snapshot, entries: (snapshot.entries || []).filter((entry) => entry.id !== 'cs-navigator') };
 expect(JSON.stringify(comparableSnapshot) === JSON.stringify(expected), 'Navigator snapshot differs from the current CS source data');
-expect(snapshot.schema_version === 1, 'Navigator snapshot schema_version must be 1');
+expect(snapshot.schema_version === 2, 'Navigator snapshot schema_version must be 2');
 expect(!snapshot.entries.some((entry) => entry.id === 'cs-navigator'), '0.5.1+ Navigator snapshot must not carry self-trust');
 expect(Array.isArray(snapshot.entries) && snapshot.entries.length > 0, 'Navigator snapshot needs entries');
 expect(Array.isArray(snapshot.external_sources), 'Navigator snapshot external_sources must be an array');
@@ -33,6 +33,20 @@ for (const entry of snapshot.entries) {
   expect(['chat-native', 'native-tools', 'connected', 'local-agent'].includes(entry.execution_mode), `${entry.id}: invalid execution mode ${entry.execution_mode}`);
   expect(['designed', 'tested', 'conditional', 'unknown'].includes(entry.execution_evidence), `${entry.id}: invalid execution evidence ${entry.execution_evidence}`);
   expect(Array.isArray(entry.required_capabilities), `${entry.id}: required_capabilities must be an array`);
+  expect(['current','changed-unreviewed','source-unavailable','stale','superseded','unknown'].includes(entry.freshness_state), `${entry.id}: invalid freshness state ${entry.freshness_state}`);
+  expect(entry.review_due_at === null || /^\d{4}-\d{2}-\d{2}$/.test(entry.review_due_at), `${entry.id}: review_due_at must be date or null`);
+  expect(entry.security_result === null || ['pass','blocked'].includes(entry.security_result), `${entry.id}: invalid security result`);
+  expect(entry.risk && typeof entry.risk === 'object', `${entry.id}: risk summary required`);
+  for (const key of ['writes','sends_externally','executes','secrets','destructive_potential','human_confirmation']) {
+    expect(typeof entry.risk?.[key] === 'string' && entry.risk[key].length > 0, `${entry.id}: risk.${key} required`);
+  }
+  expect(entry.permissions && typeof entry.permissions === 'object', `${entry.id}: permissions summary required`);
+  for (const key of ['local_files','network','secrets','process_execution','destructive_actions']) {
+    expect(typeof entry.permissions?.[key] === 'string', `${entry.id}: permissions.${key} required`);
+  }
+  expect(typeof entry.trust_passport_ref === 'string' || entry.trust_passport_ref === null, `${entry.id}: trust_passport_ref invalid`);
+  expect(typeof entry.risk_label_ref === 'string' || entry.risk_label_ref === null, `${entry.id}: risk_label_ref invalid`);
+  expect(typeof entry.upstream_ref === 'string' || entry.upstream_ref === null, `${entry.id}: upstream_ref invalid`);
   expect(Array.isArray(entry.known_gaps), `${entry.id}: known_gaps must be an array`);
 }
 
