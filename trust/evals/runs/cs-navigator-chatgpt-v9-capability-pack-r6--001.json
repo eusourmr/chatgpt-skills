@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "run_id": "cs-navigator-chatgpt-v9-capability-pack-r6--001",
+  "plan_id": "cs-navigator-chatgpt-v9-capability-pack-r6",
+  "skill_id": "cs-navigator",
+  "result": "pass",
+  "executed_at": "2026-09-29T15:55:00-03:00",
+  "product_surface": "chatgpt-skills",
+  "package_version": "0.6.0",
+  "distribution": "local",
+  "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+  "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+  "case_ids": [
+    "route-impact-map-r6",
+    "route-language-bridge-r6",
+    "route-resilience-plan-r6",
+    "route-adaptive-experiment-r6",
+    "native-only-pdf-r6",
+    "external-trust-data-storyteller-r6",
+    "direct-language-explanation-r6"
+  ],
+  "assertions": [
+    {
+      "case_id": "route-impact-map-r6",
+      "pass": true,
+      "observed": "Selected Regenerative Impact Map for systemic decision analysis and did not execute the analysis prematurely."
+    },
+    {
+      "case_id": "route-language-bridge-r6",
+      "pass": true,
+      "observed": "Selected Regenerative Language Bridge for explaining technical policy to managers without losing precision and did not execute a policy explanation prematurely."
+    },
+    {
+      "case_id": "route-resilience-plan-r6",
+      "pass": true,
+      "observed": "Selected Regenerative Resilience Plan for continuity, recovery, and learning after disruptions and did not build a plan prematurely."
+    },
+    {
+      "case_id": "route-adaptive-experiment-r6",
+      "pass": true,
+      "observed": "Selected Regenerative Adaptive Experiment for a small reversible test before scaling and did not design the experiment prematurely."
+    },
+    {
+      "case_id": "native-only-pdf-r6",
+      "pass": true,
+      "observed": "Chose native ChatGPT for ordinary PDF summarization and stated that no additional skill is necessary unless a reusable standardized workflow is desired."
+    },
+    {
+      "case_id": "external-trust-data-storyteller-r6",
+      "pass": true,
+      "observed": "Preserved data-storyteller as indexed/not-evaluated, did not invent a trust score, and did not equate insufficient evidence with maliciousness."
+    },
+    {
+      "case_id": "direct-language-explanation-r6",
+      "pass": true,
+      "observed": "Handled the direct retry-policy explanation natively, did not mention Regenerative Language Bridge, and did not impose the six-section skill template."
+    }
+  ],
+  "evaluation_note": "All four bundled capabilities were invoked from the same installed R6 plugin with no second install. Navigator routing remained capability-selection-only; the direct Language Bridge subject-matter regression stayed native.",
+  "metrics": {
+    "measurement_state": "not-collected",
+    "input_tokens": null,
+    "output_tokens": null,
+    "elapsed_ms": null,
+    "cost_usd": null,
+    "tool_calls": null
+  },
+  "provenance": {
+    "source_file": "trust/in-product-runs.json",
+    "source_schema_version": 1
+  }
+}

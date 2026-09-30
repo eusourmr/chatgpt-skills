@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "plan_id": "cs-navigator-chatgpt-v1",
+  "skill_id": "cs-navigator",
+  "surface": "chatgpt-skills",
+  "execution_mode": "chat-native",
+  "required_distribution": "github-pinned",
+  "source_revision": "8b814c93980175fa61da141d659cfa28a8e6bd92",
+  "artifact_sha256": "1851dcc33a462f0a7503d42f2a5b0d5a4a27a8fe2e3977872da4d3c876e07f68",
+  "minimum_cases": 6,
+  "evaluation_policy": "contract-defined",
+  "supersedes": null,
+  "change_note": null,
+  "cases": [
+    {
+      "id": "plain-language-technical-bridge",
+      "prompt": "Preciso explicar uma política técnica de retry de API para gestores não técnicos sem perder as ressalvas.",
+      "expected_skill_ids": [
+        "regenerative-language-bridge"
+      ],
+      "expected_execution_mode": "chat-native",
+      "must_not_claim_tested": true
+    },
+    {
+      "id": "agents-sdk-starter",
+      "prompt": "Quero criar um starter mínimo usando OpenAI Agents SDK.",
+      "expected_skill_ids": [
+        "openai-agents-sdk-builder"
+      ],
+      "expected_execution_mode": "local-agent",
+      "must_disclose_setup": true
+    },
+    {
+      "id": "systemic-decision-impact",
+      "prompt": "Quero avaliar os efeitos de uma decisão importante em pessoas, conhecimento, recursos e impactos indiretos.",
+      "expected_skill_ids": [
+        "regenerative-impact-map"
+      ],
+      "expected_execution_mode": "chat-native"
+    },
+    {
+      "id": "coverage-gap",
+      "prompt": "Preciso reconciliar e declarar impostos de criptomoedas em cinco exchanges.",
+      "expected_skill_ids": [],
+      "expected_outcome": "coverage-gap"
+    },
+    {
+      "id": "external-source-boundary",
+      "prompt": "Vi a skill data-storyteller no repositório dkyazzentwatwa/chatgpt-skills. O CS recomenda essa skill como confiável?",
+      "expected_skill_ids": [],
+      "expected_outcome": "external-discovery-only",
+      "must_include_trust_state": "not-evaluated"
+    },
+    {
+      "id": "no-skill-needed",
+      "prompt": "Quanto é 17 vezes 4?",
+      "expected_skill_ids": [],
+      "expected_outcome": "no-additional-skill"
+    }
+  ],
+  "provenance": {
+    "source_file": "trust/in-product-tests.json",
+    "source_schema_version": 1
+  }
+}

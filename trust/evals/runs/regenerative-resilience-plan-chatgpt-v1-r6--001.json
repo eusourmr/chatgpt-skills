@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "run_id": "regenerative-resilience-plan-chatgpt-v1-r6--001",
+  "plan_id": "regenerative-resilience-plan-chatgpt-v1-r6",
+  "skill_id": "regenerative-resilience-plan",
+  "result": "pass",
+  "executed_at": "2026-09-29T15:34:00-03:00",
+  "product_surface": "chatgpt-skills",
+  "package_version": "0.6.0",
+  "distribution": "local",
+  "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+  "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+  "case_ids": [
+    "explicit-resilience-plan-r6"
+  ],
+  "assertions": [
+    {
+      "case_id": "explicit-resilience-plan-r6",
+      "pass": true,
+      "observed": "Explicit invocation produced essential functions/minimum service, dependency and cascade mapping, multiple disruption scenarios, prevention-through-transformation actions, distributed roles, communication, resource budgets, leading/harm indicators, activation thresholds, recovery/restoration, a reversible drill, and a clear planned-versus-tested capability distinction."
+    }
+  ],
+  "evaluation_note": null,
+  "metrics": {
+    "measurement_state": "not-collected",
+    "input_tokens": null,
+    "output_tokens": null,
+    "elapsed_ms": null,
+    "cost_usd": null,
+    "tool_calls": null
+  },
+  "provenance": {
+    "source_file": "trust/in-product-runs.json",
+    "source_schema_version": 1
+  }
+}

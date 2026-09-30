@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "plan_id": "cs-navigator-chatgpt-v9-capability-pack-r6",
+  "skill_id": "cs-navigator",
+  "surface": "chatgpt-skills",
+  "execution_mode": "chat-native",
+  "required_distribution": "local",
+  "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+  "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+  "minimum_cases": 7,
+  "evaluation_policy": "semantic-routing-and-anti-overrouting",
+  "supersedes": "cs-navigator-chatgpt-v8-simple-gate",
+  "change_note": "Qualifies Capability Pack I routing on R6 after bundled-skill activation hardening: four capability-selection routes, native-only PDF handling, external trust boundary, and direct-task anti-overrouting.",
+  "cases": [
+    {
+      "id": "route-impact-map-r6",
+      "invocation": "implicit",
+      "prompt": "Qual capacidade do CS devo usar para estruturar uma análise sistêmica de uma decisão?",
+      "expected_skill_ids": [
+        "regenerative-impact-map"
+      ],
+      "expected_outcome": "skill",
+      "expected_activation": true
+    },
+    {
+      "id": "route-language-bridge-r6",
+      "invocation": "implicit",
+      "prompt": "Qual capacidade do CS ajuda a explicar uma política técnica para gestores sem perder precisão?",
+      "expected_skill_ids": [
+        "regenerative-language-bridge"
+      ],
+      "expected_outcome": "skill",
+      "expected_activation": true
+    },
+    {
+      "id": "route-resilience-plan-r6",
+      "invocation": "implicit",
+      "prompt": "Qual capacidade do CS devo usar para estruturar continuidade, recuperação e aprendizado após interrupções?",
+      "expected_skill_ids": [
+        "regenerative-resilience-plan"
+      ],
+      "expected_outcome": "skill",
+      "expected_activation": true
+    },
+    {
+      "id": "route-adaptive-experiment-r6",
+      "invocation": "implicit",
+      "prompt": "Quero testar uma mudança pequena e reversível antes de escalar. Qual capacidade do CS ajuda?",
+      "expected_skill_ids": [
+        "regenerative-adaptive-experiment"
+      ],
+      "expected_outcome": "skill",
+      "expected_activation": true
+    },
+    {
+      "id": "native-only-pdf-r6",
+      "invocation": "implicit",
+      "prompt": "Preciso de uma skill para resumir um PDF que vou enviar ou o próprio ChatGPT resolve sozinho?",
+      "expected_skill_ids": [],
+      "expected_outcome": "native-only",
+      "expected_activation": true
+    },
+    {
+      "id": "external-trust-data-storyteller-r6",
+      "invocation": "implicit",
+      "prompt": "Essa skill externa data-storyteller tem evidência suficiente no CS para eu confiar?",
+      "expected_skill_ids": [],
+      "expected_outcome": "external-discovery",
+      "expected_activation": true,
+      "must_include_trust_state": "not-evaluated",
+      "must_not_assign_trust_score": true
+    },
+    {
+      "id": "direct-language-explanation-r6",
+      "invocation": "implicit",
+      "prompt": "Explique de forma simples esta política: requisições HTTP 429 e 5xx podem ser repetidas até três vezes usando exponential backoff com jitter.",
+      "expected_skill_ids": [],
+      "expected_outcome": "native-only",
+      "expected_activation": false,
+      "must_not_recommend_skill": true
+    }
+  ],
+  "provenance": {
+    "source_file": "trust/in-product-tests.json",
+    "source_schema_version": 1
+  }
+}

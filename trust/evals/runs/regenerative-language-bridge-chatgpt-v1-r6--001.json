@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "run_id": "regenerative-language-bridge-chatgpt-v1-r6--001",
+  "plan_id": "regenerative-language-bridge-chatgpt-v1-r6",
+  "skill_id": "regenerative-language-bridge",
+  "result": "pass",
+  "executed_at": "2026-09-29T15:20:00-03:00",
+  "product_surface": "chatgpt-skills",
+  "package_version": "0.6.0",
+  "distribution": "local",
+  "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+  "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+  "case_ids": [
+    "explicit-language-bridge-r6"
+  ],
+  "assertions": [
+    {
+      "case_id": "explicit-language-bridge-r6",
+      "pass": true,
+      "observed": "Explicit invocation produced all six mandatory sections, preserved technical caveats and terminology, included a comprehension check and learning loop, and included the three labeled resource fields: reading time, maintenance owner, and review/expiry date."
+    }
+  ],
+  "evaluation_note": "The installed local R6 artifact was later verified entry-by-entry equivalent to the source-frozen CI payload. Whole-ZIP hashes differ only because ZIP container metadata differs.",
+  "metrics": {
+    "measurement_state": "not-collected",
+    "input_tokens": null,
+    "output_tokens": null,
+    "elapsed_ms": null,
+    "cost_usd": null,
+    "tool_calls": null
+  },
+  "provenance": {
+    "source_file": "trust/in-product-runs.json",
+    "source_schema_version": 1
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "plan_id": "regenerative-adaptive-experiment-chatgpt-v1-r6",
+  "skill_id": "regenerative-adaptive-experiment",
+  "surface": "chatgpt-skills",
+  "execution_mode": "chat-native",
+  "required_distribution": "local",
+  "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+  "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+  "minimum_cases": 1,
+  "evaluation_policy": "semantic-workflow-contract",
+  "supersedes": null,
+  "change_note": "R6 explicit-invocation qualification for the bundled Adaptive Experiment workflow.",
+  "cases": [
+    {
+      "id": "explicit-adaptive-experiment-r6",
+      "invocation": "explicit",
+      "prompt": "Use the Regenerative Adaptive Experiment skill to design the smallest responsible experiment for this idea: a 40-person software team suspects that protecting one 90-minute interruption-free focus block each morning could improve concentration, but it may harm collaboration, accessibility, response time, or workload distribution. Design a reversible test before any organization-wide rollout.",
+      "expected_skill_ids": [
+        "regenerative-adaptive-experiment"
+      ],
+      "expected_outcome": "skill-workflow"
+    }
+  ],
+  "provenance": {
+    "source_file": "trust/in-product-tests.json",
+    "source_schema_version": 1
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "plan_id": "regenerative-language-bridge-chatgpt-v1-r6",
+  "skill_id": "regenerative-language-bridge",
+  "surface": "chatgpt-skills",
+  "execution_mode": "chat-native",
+  "required_distribution": "local",
+  "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+  "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+  "minimum_cases": 1,
+  "evaluation_policy": "semantic-workflow-contract",
+  "supersedes": null,
+  "change_note": "R6 explicit-invocation qualification after strengthening semantic activation and the mandatory six-section output contract.",
+  "cases": [
+    {
+      "id": "explicit-language-bridge-r6",
+      "invocation": "explicit",
+      "prompt": "Use the Regenerative Language Bridge skill to explain this to a non-specialist manager: exponential backoff with jitter reduces synchronized retries, but retries can increase latency and load during outages.",
+      "expected_skill_ids": [
+        "regenerative-language-bridge"
+      ],
+      "expected_outcome": "skill-workflow",
+      "required_sections": [
+        "Em linguagem simples",
+        "Termos-chave",
+        "Camada técnica",
+        "Verificação de entendimento",
+        "Ciclo de aprendizado",
+        "Nota de recursos"
+      ],
+      "required_resource_fields": [
+        "Tempo de leitura",
+        "Responsável pela manutenção",
+        "Data de revisão/expiração"
+      ]
+    }
+  ],
+  "provenance": {
+    "source_file": "trust/in-product-tests.json",
+    "source_schema_version": 1
+  }
+}

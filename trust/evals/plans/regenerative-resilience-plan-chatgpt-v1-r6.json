@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "plan_id": "regenerative-resilience-plan-chatgpt-v1-r6",
+  "skill_id": "regenerative-resilience-plan",
+  "surface": "chatgpt-skills",
+  "execution_mode": "chat-native",
+  "required_distribution": "local",
+  "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+  "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+  "minimum_cases": 1,
+  "evaluation_policy": "semantic-workflow-contract",
+  "supersedes": null,
+  "change_note": "R6 explicit-invocation qualification for the bundled Resilience Plan workflow.",
+  "cases": [
+    {
+      "id": "explicit-resilience-plan-r6",
+      "invocation": "explicit",
+      "prompt": "Use the Regenerative Resilience Plan skill to prepare a resilience plan for this scenario: a 25-person support team depends on one cloud ticketing platform. If the platform becomes unavailable, requests accumulate and the team loses access to conversation history. Protect essential service without shifting excessive workload to employees.",
+      "expected_skill_ids": [
+        "regenerative-resilience-plan"
+      ],
+      "expected_outcome": "skill-workflow"
+    }
+  ],
+  "provenance": {
+    "source_file": "trust/in-product-tests.json",
+    "source_schema_version": 1
+  }
+}

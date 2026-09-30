@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "run_id": "regenerative-adaptive-experiment-chatgpt-v1-r6--001",
+  "plan_id": "regenerative-adaptive-experiment-chatgpt-v1-r6",
+  "skill_id": "regenerative-adaptive-experiment",
+  "result": "pass",
+  "executed_at": "2026-09-29T15:40:00-03:00",
+  "product_surface": "chatgpt-skills",
+  "package_version": "0.6.0",
+  "distribution": "local",
+  "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+  "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+  "case_ids": [
+    "explicit-adaptive-experiment-r6"
+  ],
+  "assertions": [
+    {
+      "case_id": "explicit-adaptive-experiment-r6",
+      "pass": true,
+      "observed": "Explicit invocation produced problem/baseline/uncertainty framing, causal hypothesis, a small reversible 6–8 person five-day test, outcome/process/balancing measures, five lenses, disaggregation, consent/accessibility safeguards, bounded resources, stop/rollback/restoration rules, signal/noise/mechanism-failure/implementation-failure distinctions, decision rules, and a reusable learning asset while labeling the experiment designed-not-tested."
+    }
+  ],
+  "evaluation_note": null,
+  "metrics": {
+    "measurement_state": "not-collected",
+    "input_tokens": null,
+    "output_tokens": null,
+    "elapsed_ms": null,
+    "cost_usd": null,
+    "tool_calls": null
+  },
+  "provenance": {
+    "source_file": "trust/in-product-runs.json",
+    "source_schema_version": 1
+  }
+}
