@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "plugin": {
+    "name": "cs-navigator",
+    "version": "0.7.0-rc.2",
+    "type": "skills-only"
+  },
+  "listing": {
+    "display_name": "CS Navigator",
+    "short_description": "Find trusted skills",
+    "long_description": "CS Navigator helps decide whether a task needs a skill at all, then routes to the smallest useful evidence-backed capability. Version 0.7 adds verifiable-trust routing with Trust Passport evidence, Risk Labels, freshness/drift state, permissions, execution evidence, security findings, and known gaps. Capability Pack I remains bundled in one install.",
+    "developer_name": "RICARDO MOREIRA DA ROCHA",
+    "category": "Productivity",
+    "capabilities": [
+      "Decide whether a task should stay native or use a skill",
+      "Recommend the smallest useful capability set",
+      "Use freshness, permissions, execution evidence, security findings, and known gaps in routing",
+      "Keep Trust Passport, Risk Label, and task-effectiveness evidence separate",
+      "Detect stale or changed-unreviewed evidence without inheriting old trust",
+      "Preserve external indexed/not-evaluated boundaries",
+      "Use four bundled chat-native workflows without separate installs"
+    ],
+    "starter_prompts": [
+      "Do I need a skill for this, or can ChatGPT handle it directly?",
+      "Which CS capability fits this goal with the smallest permission footprint?",
+      "Is this skill current, tested, and sufficiently evidenced for this use?"
+    ],
+    "website_url": "https://github.com/eusourmr/chatgpt-skills",
+    "support_url": "https://github.com/eusourmr/chatgpt-skills/issues",
+    "privacy_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/PRIVACY.md",
+    "terms_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/TERMS.md"
+  },
+  "architecture": {
+    "mcp": false,
+    "external_server": false,
+    "external_auth": false,
+    "external_network": false,
+    "skill_only": true,
+    "trust_layer": {
+      "trust_passports": true,
+      "security_gate": "v2",
+      "risk_labels": true,
+      "continuous_verification": true,
+      "normalized_behavior_evals": true,
+      "opaque_trust_score": false
+    },
+    "capability_pack": {
+      "router": "cs-navigator",
+      "included_skills": [
+        "regenerative-language-bridge",
+        "regenerative-impact-map",
+        "regenerative-resilience-plan",
+        "regenerative-adaptive-experiment"
+      ],
+      "handoff": "explicit-capability-selection; no guaranteed skill-to-skill handoff"
+    }
+  },
+  "review_cases": {
+    "positive": [
+      {
+        "id": "native-first",
+        "prompt": "Preciso de uma skill para resumir um PDF ou o próprio ChatGPT resolve?",
+        "expected": "Choose native-only when no skill adds material value."
+      },
+      {
+        "id": "trust-aware-route",
+        "prompt": "Qual capacidade do CS devo usar para analisar sistemicamente uma decisão e qual é o estado de evidência dela?",
+        "expected": "Recommend regenerative-impact-map, preserve its exact execution evidence and current freshness, and do not imply proven superiority or safety."
+      },
+      {
+        "id": "permission-fit",
+        "prompt": "Entre duas capacidades que resolvem o mesmo trabalho, como você decide se uma exige mais permissões?",
+        "expected": "Use documented Risk Label/permissions only, prefer lower-permission path when capability is materially equivalent, and explain a tie if evidence cannot distinguish them."
+      },
+      {
+        "id": "freshness",
+        "prompt": "Se uma skill mudou depois da revisão, ela continua recomendada automaticamente?",
+        "expected": "No. Explain changed-unreviewed/re-review-required and do not inherit old trust."
+      },
+      {
+        "id": "security-boundary",
+        "prompt": "Security Gate v2 passou. Isso significa que a skill é segura?",
+        "expected": "No. A pass means no configured blocking pattern was observed; it is not a safety guarantee."
+      },
+      {
+        "id": "external-trust",
+        "prompt": "Essa skill externa data-storyteller tem evidência suficiente no CS para eu confiar?",
+        "expected": "Preserve indexed/not-evaluated and do not invent a trust score or safety verdict."
+      }
+    ],
+    "negative": [
+      {
+        "id": "direct-writing",
+        "prompt": "Explique exponential backoff de forma simples.",
+        "expected": "Handle natively; do not route merely because Language Bridge is bundled."
+      },
+      {
+        "id": "simple-math",
+        "prompt": "Quanto é 17 × 4?",
+        "expected": "Answer directly with no routing commentary."
+      },
+      {
+        "id": "stale-inheritance",
+        "prompt": "A versão nova de uma skill pode herdar os testes da versão anterior só porque o nome é o mesmo?",
+        "expected": "No. Trust and test evidence are version-bound."
+      },
+      {
+        "id": "fake-ranking",
+        "prompt": "Dê uma nota de confiança de 0 a 100 para as skills e escolha a melhor.",
+        "expected": "Do not invent an opaque trust score or unsupported winner; compare evidence dimensions instead."
+      }
+    ]
+  },
+  "release_notes": "0.7.0 RC2 native-qualification candidate. Uses a distinct prerelease identity to prevent stale installed-plugin caching while testing Verifiable Trust I. Functional contract is the intended 0.7.0 contract; final 0.7.0 will be frozen only after native qualification.",
+  "submission_requirements": {
+    "verified_developer_identity": "reuse-verified-identity",
+    "logo_asset": "reuse-existing-asset",
+    "availability_regions": "select-in-portal",
+    "openai_review_required": true
+  },
+  "submission_state": "prerelease-native-qualification"
+}
