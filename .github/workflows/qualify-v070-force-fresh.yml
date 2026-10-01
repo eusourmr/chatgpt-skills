@@ -1,0 +1,80 @@
+name: Qualify CS Navigator 0.7 Force-Fresh Alias
+
+on:
+  push:
+    branches:
+      - v0.7.0/verifiable-trust-i
+    paths:
+      - 'scripts/build-v070-native-qualification-plugin.mjs'
+      - '.github/workflows/qualify-v070-force-fresh.yml'
+      - 'plugins/cs-navigator/**'
+      - 'skills/featured/cs-navigator/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qualify-alias:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: v0.7.0/verifiable-trust-i
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Validate canonical 0.7 source
+        run: npm run validate
+      - name: Build force-fresh qualification alias
+        run: node scripts/build-v070-native-qualification-plugin.mjs
+      - name: Verify alias identity and payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          ZIP='dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.3.zip'
+          test -f "$ZIP"
+          unzip -t "$ZIP"
+          python - <<'PY'
+          import json, zipfile
+          p='dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.3.zip'
+          with zipfile.ZipFile(p) as z:
+              names=z.namelist()
+              assert len(names)==14, names
+              root='cs-navigator-v070-qa/'
+              assert root+'plugin.json' in names
+              assert root+'skills/cs-navigator-v070-qa/SKILL.md' in names
+              assert root+'skills/cs-navigator-v070-qa/references/catalog-snapshot.json' in names
+              assert root+'skills/cs-navigator/SKILL.md' not in names
+              plugin=json.loads(z.read(root+'plugin.json'))
+              snap=json.loads(z.read(root+'skills/cs-navigator-v070-qa/references/catalog-snapshot.json'))
+              skill=z.read(root+'skills/cs-navigator-v070-qa/SKILL.md').decode()
+              assert plugin['name']=='cs-navigator-v070-qa'
+              assert plugin['version']=='0.7.0-rc.3'
+              assert snap['schema_version']==2
+              assert snap['generated_for_plugin']=='0.7.0-rc.3'
+              assert snap['qualification_identity']=='cs-navigator-v070-qa@0.7.0-rc.3'
+              assert 'name: cs-navigator-v070-qa' in skill
+              assert 'Do not answer from remembered R6' in skill
+              impact=next(x for x in snap['entries'] if x['id']=='regenerative-impact-map')
+              assert impact['execution_evidence']=='designed'
+              assert impact['recommendation']=='conditional'
+              assert impact['execution_mode']=='chat-native'
+              assert impact['freshness_state']=='current'
+          print('Force-fresh alias identity and 0.7 snapshot verified.')
+          PY
+          sha256sum "$ZIP" | tee "$ZIP.qualification.sha256"
+          git rev-parse HEAD | tee dist/plugin-submission/force-fresh-source-commit.txt
+      - name: Upload force-fresh qualification artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cs-navigator-v070-force-fresh-rc3
+          path: |
+            dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.3.zip
+            dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.3.zip.sha256
+            dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.3.zip.qualification.sha256
+            dist/plugin-submission/force-fresh-source-commit.txt
+          if-no-files-found: error
+          retention-days: 30
