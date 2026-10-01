@@ -2,7 +2,7 @@
   "schema_version": 1,
   "gate_version": "v2",
   "skill_id": "chatgpt-apps-deployer",
-  "scanned_at": "2026-09-30",
+  "scanned_at": "2026-10-01",
   "source_revision": "64c2e06e7feee917096f0f7091bbb51db5da1f97",
   "artifact_sha256": "e81a2524fc499e0d1ea9b85a1d70bcea9c164ba824345df755f9ae13cfb063c3",
   "result": "pass",

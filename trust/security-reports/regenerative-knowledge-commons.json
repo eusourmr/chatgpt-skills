@@ -2,7 +2,7 @@
   "schema_version": 1,
   "gate_version": "v2",
   "skill_id": "regenerative-knowledge-commons",
-  "scanned_at": "2026-09-30",
+  "scanned_at": "2026-10-01",
   "source_revision": "64c2e06e7feee917096f0f7091bbb51db5da1f97",
   "artifact_sha256": "718d625749708581f8fab07448782118a51cf2c25deaf7bb6432801690e982fd",
   "result": "pass",

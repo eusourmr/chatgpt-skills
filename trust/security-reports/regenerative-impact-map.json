@@ -2,7 +2,7 @@
   "schema_version": 1,
   "gate_version": "v2",
   "skill_id": "regenerative-impact-map",
-  "scanned_at": "2026-09-30",
+  "scanned_at": "2026-10-01",
   "source_revision": "64c2e06e7feee917096f0f7091bbb51db5da1f97",
   "artifact_sha256": "fbf0bd0a93bd1d0a7c14593bdd4d8cfc81dea92bef619de37cdfcdbb0703ad69",
   "result": "pass",
