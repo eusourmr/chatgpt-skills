@@ -2,8 +2,8 @@
   "schema_version": 1,
   "passport_schema_version": "0.1",
   "source_repository": "https://github.com/eusourmr/chatgpt-skills",
-  "reviewed_source_revision": "64c2e06e7feee917096f0f7091bbb51db5da1f97",
-  "reviewed_at": "2026-09-30",
+  "reviewed_source_revision": "b75e2f282372336d5d839782a5dd8a392c7519dc",
+  "reviewed_at": "2026-10-01",
   "stale_after_days": 90,
   "license": "MIT",
   "governance": {
@@ -22,5 +22,5 @@
     ],
     "independent_review": false
   },
-  "policy": "A Trust Passport records evidence for an exact reviewed skill artifact. It is not a safety guarantee, popularity score, or permanent recommendation. If skill bytes change, the reviewed source revision and artifact evidence must be renewed; stale or changed evidence requires re-review before inheriting prior recommendation status."
+  "policy": "A Trust Passport records evidence for an exact reviewed skill artifact. It is not a safety guarantee, popularity score, or permanent recommendation. The current reviewed source is the unique 0.7.0 RC2 qualification candidate; if skill bytes change, the reviewed source revision and artifact evidence must be renewed."
 }
