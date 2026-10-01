@@ -9,12 +9,12 @@
   "provenance": {
     "source_repository": "https://github.com/eusourmr/chatgpt-skills",
     "canonical_path": "skills/featured/cs-navigator",
-    "reviewed_source_revision": "64c2e06e7feee917096f0f7091bbb51db5da1f97",
+    "reviewed_source_revision": "b75e2f282372336d5d839782a5dd8a392c7519dc",
     "license": "MIT"
   },
   "integrity": {
     "algorithm": "sha256-manifest-v1",
-    "artifact_sha256": "6f74d3c9fa008c21c148f3d1119b1b070b902a2ca6464fc93a7ca471c0fcf093",
+    "artifact_sha256": "d51587d4f4bfc9405c7e2070e8e162d14ce884f879e2745e3e35d9da39c869cc",
     "files": [
       {
         "path": "SKILL.md",
@@ -26,7 +26,7 @@
       },
       {
         "path": "references/catalog-snapshot.json",
-        "sha256": "343db5289007510d38cfb3090488408918b59bd43f8eb439d37c27fe5db0d4d8"
+        "sha256": "5f329db980c56f5d067c6132968c6542a93f1cb48ad95445024d7b6a3d61580e"
       }
     ]
   },
@@ -68,9 +68,9 @@
   },
   "freshness": {
     "status": "current",
-    "reviewed_at": "2026-09-30",
+    "reviewed_at": "2026-10-01",
     "stale_after_days": 90,
-    "review_due_at": "2026-12-29"
+    "review_due_at": "2026-12-30"
   },
   "governance": {
     "maintainers": [

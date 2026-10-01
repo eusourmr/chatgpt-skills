@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "skill_id": "openai-agents-sdk-builder",
-  "reviewed_source_revision": "64c2e06e7feee917096f0f7091bbb51db5da1f97",
+  "reviewed_source_revision": "b75e2f282372336d5d839782a5dd8a392c7519dc",
   "reviewed_artifact_sha256": "6f89c0ee7fca10165214abf08b71c92c7974306724625d53f14aea5dfeb3d515",
   "current_artifact_sha256": "6f89c0ee7fca10165214abf08b71c92c7974306724625d53f14aea5dfeb3d515",
-  "review_due_at": "2026-12-29",
+  "review_due_at": "2026-12-30",
   "state": "current",
   "action": "none",
   "policy": "A reviewed artifact cannot inherit trust after byte drift or evidence expiry without re-review."

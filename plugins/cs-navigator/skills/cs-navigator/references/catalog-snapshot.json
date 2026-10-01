@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_for_plugin": "0.7.0",
+  "generated_for_plugin": "0.7.0-rc.2",
   "policy": "Use the smallest useful set. Native sufficiency comes first. For skills, freshness, permissions, execution evidence, security evidence, and known gaps remain separate. External indexed sources are discovery-only until separately evidenced.",
   "source_contract": [
     "installer/manifest.json",
@@ -26,7 +26,7 @@
         "local-runtime"
       ],
       "freshness_state": "current",
-      "review_due_at": "2026-12-29",
+      "review_due_at": "2026-12-30",
       "security_result": "pass",
       "risk": {
         "writes": "declared-plus-static-scan",
@@ -62,7 +62,7 @@
         "local-runtime"
       ],
       "freshness_state": "current",
-      "review_due_at": "2026-12-29",
+      "review_due_at": "2026-12-30",
       "security_result": "pass",
       "risk": {
         "writes": "declared-plus-static-scan",
@@ -98,7 +98,7 @@
         "local-runtime"
       ],
       "freshness_state": "current",
-      "review_due_at": "2026-12-29",
+      "review_due_at": "2026-12-30",
       "security_result": "pass",
       "risk": {
         "writes": "declared-plus-static-scan",
@@ -134,7 +134,7 @@
         "local-runtime"
       ],
       "freshness_state": "current",
-      "review_due_at": "2026-12-29",
+      "review_due_at": "2026-12-30",
       "security_result": "pass",
       "risk": {
         "writes": "declared-plus-static-scan",
@@ -167,7 +167,7 @@
       "execution_evidence": "designed",
       "required_capabilities": [],
       "freshness_state": "current",
-      "review_due_at": "2026-12-29",
+      "review_due_at": "2026-12-30",
       "security_result": "pass",
       "risk": {
         "writes": "declared-plus-static-scan",
@@ -200,7 +200,7 @@
       "execution_evidence": "designed",
       "required_capabilities": [],
       "freshness_state": "current",
-      "review_due_at": "2026-12-29",
+      "review_due_at": "2026-12-30",
       "security_result": "pass",
       "risk": {
         "writes": "declared-plus-static-scan",
@@ -233,7 +233,7 @@
       "execution_evidence": "designed",
       "required_capabilities": [],
       "freshness_state": "current",
-      "review_due_at": "2026-12-29",
+      "review_due_at": "2026-12-30",
       "security_result": "pass",
       "risk": {
         "writes": "declared-plus-static-scan",
@@ -266,7 +266,7 @@
       "execution_evidence": "designed",
       "required_capabilities": [],
       "freshness_state": "current",
-      "review_due_at": "2026-12-29",
+      "review_due_at": "2026-12-30",
       "security_result": "pass",
       "risk": {
         "writes": "declared-plus-static-scan",
@@ -299,7 +299,7 @@
       "execution_evidence": "designed",
       "required_capabilities": [],
       "freshness_state": "current",
-      "review_due_at": "2026-12-29",
+      "review_due_at": "2026-12-30",
       "security_result": "pass",
       "risk": {
         "writes": "declared-plus-static-scan",
@@ -332,7 +332,7 @@
       "execution_evidence": "designed",
       "required_capabilities": [],
       "freshness_state": "current",
-      "review_due_at": "2026-12-29",
+      "review_due_at": "2026-12-30",
       "security_result": "pass",
       "risk": {
         "writes": "declared-plus-static-scan",
@@ -365,7 +365,7 @@
       "execution_evidence": "designed",
       "required_capabilities": [],
       "freshness_state": "current",
-      "review_due_at": "2026-12-29",
+      "review_due_at": "2026-12-30",
       "security_result": "pass",
       "risk": {
         "writes": "declared-plus-static-scan",
@@ -398,7 +398,7 @@
       "execution_evidence": "designed",
       "required_capabilities": [],
       "freshness_state": "current",
-      "review_due_at": "2026-12-29",
+      "review_due_at": "2026-12-30",
       "security_result": "pass",
       "risk": {
         "writes": "declared-plus-static-scan",

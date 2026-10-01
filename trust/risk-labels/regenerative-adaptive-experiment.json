@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1",
   "skill_id": "regenerative-adaptive-experiment",
-  "source_revision": "64c2e06e7feee917096f0f7091bbb51db5da1f97",
+  "source_revision": "b75e2f282372336d5d839782a5dd8a392c7519dc",
   "artifact_sha256": "4e698fc8c755144202f41d3ec59353370f8cf52dabca4006c2c81b61d434980f",
   "security_gate": {
     "version": "v2",

@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1",
   "skill_id": "regenerative-listening-loop",
-  "source_revision": "64c2e06e7feee917096f0f7091bbb51db5da1f97",
+  "source_revision": "b75e2f282372336d5d839782a5dd8a392c7519dc",
   "artifact_sha256": "238882d2f228cf5c085cfba9ae504540b783f48d27e855e70f9daaab7141c388",
   "security_gate": {
     "version": "v2",
