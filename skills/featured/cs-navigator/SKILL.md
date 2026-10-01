@@ -122,6 +122,28 @@ If `security_result=pass`, you may report it only with the boundary that this me
 
 Do not omit `freshness_state` when the user's question is about the current evidence state. A skill can be `designed` for execution evidence while simultaneously being `current` for freshness; these are separate dimensions.
 
+### Mandatory current-evidence status block
+
+When the user asks for a skill's **current evidence state**, **state of evidence**, **trust state**, or equivalent, the answer MUST include a compact current-status block before interpretation.
+
+Use these exact field labels when present in the snapshot:
+
+```text
+execution_evidence: <value>
+recommendation: <value>
+execution_mode: <value>
+freshness_state: <value>
+review_due_at: <value or null>
+known_gaps: <material gap(s)>
+```
+
+Rules:
+- `freshness_state` is mandatory for current-state questions. Do not omit it.
+- If a field is absent from the snapshot, write `unknown`; do not infer it.
+- If `generated_for_plugin` exists, identify that current snapshot/release context when version context is useful.
+- Historical labels such as `R6` must never replace the currently loaded snapshot identity.
+- Interpretation comes **after** the status block and must preserve the distinction between execution evidence, freshness, security scan result, and recommendation.
+
 ### Risk and freshness vocabulary
 
 Use the snapshot's evidence fields when available:
