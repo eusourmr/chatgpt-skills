@@ -34,12 +34,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ZIP='dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.3.zip'
+          ZIP='dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.4.zip'
           test -f "$ZIP"
           unzip -t "$ZIP"
           python - <<'PY'
           import json, zipfile
-          p='dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.3.zip'
+          p='dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.4.zip'
           with zipfile.ZipFile(p) as z:
               names=z.namelist()
               assert len(names)==14, names
@@ -52,10 +52,10 @@ jobs:
               snap=json.loads(z.read(root+'skills/cs-navigator-v070-qa/references/catalog-snapshot.json'))
               skill=z.read(root+'skills/cs-navigator-v070-qa/SKILL.md').decode()
               assert plugin['name']=='cs-navigator-v070-qa'
-              assert plugin['version']=='0.7.0-rc.3'
+              assert plugin['version']=='0.7.0-rc.4'
               assert snap['schema_version']==2
-              assert snap['generated_for_plugin']=='0.7.0-rc.3'
-              assert snap['qualification_identity']=='cs-navigator-v070-qa@0.7.0-rc.3'
+              assert snap['generated_for_plugin']=='0.7.0-rc.4'
+              assert snap['qualification_identity']=='cs-navigator-v070-qa@0.7.0-rc.4'
               assert 'name: cs-navigator-v070-qa' in skill
               assert 'Do not answer from remembered R6' in skill
               impact=next(x for x in snap['entries'] if x['id']=='regenerative-impact-map')
@@ -70,11 +70,11 @@ jobs:
       - name: Upload force-fresh qualification artifact
         uses: actions/upload-artifact@v4
         with:
-          name: cs-navigator-v070-force-fresh-rc3
+          name: cs-navigator-v070-force-fresh-rc4
           path: |
-            dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.3.zip
-            dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.3.zip.sha256
-            dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.3.zip.qualification.sha256
+            dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.4.zip
+            dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.4.zip.sha256
+            dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.4.zip.qualification.sha256
             dist/plugin-submission/force-fresh-source-commit.txt
           if-no-files-found: error
           retention-days: 30
