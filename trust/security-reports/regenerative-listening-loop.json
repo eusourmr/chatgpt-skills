@@ -3,7 +3,7 @@
   "gate_version": "v2",
   "skill_id": "regenerative-listening-loop",
   "scanned_at": "2026-10-01",
-  "source_revision": "b75e2f282372336d5d839782a5dd8a392c7519dc",
+  "source_revision": "fb595c02abb77dc213b1e0b1ae41aea46932aa39",
   "artifact_sha256": "238882d2f228cf5c085cfba9ae504540b783f48d27e855e70f9daaab7141c388",
   "result": "pass",
   "summary": {

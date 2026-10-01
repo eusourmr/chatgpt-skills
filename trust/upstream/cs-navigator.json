@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "skill_id": "cs-navigator",
-  "reviewed_source_revision": "b75e2f282372336d5d839782a5dd8a392c7519dc",
+  "reviewed_source_revision": "fb595c02abb77dc213b1e0b1ae41aea46932aa39",
   "reviewed_artifact_sha256": "d51587d4f4bfc9405c7e2070e8e162d14ce884f879e2745e3e35d9da39c869cc",
   "current_artifact_sha256": "d51587d4f4bfc9405c7e2070e8e162d14ce884f879e2745e3e35d9da39c869cc",
   "review_due_at": "2026-12-30",

@@ -3,7 +3,7 @@
   "gate_version": "v2",
   "skill_id": "regenerative-resilience-plan",
   "scanned_at": "2026-10-01",
-  "source_revision": "b75e2f282372336d5d839782a5dd8a392c7519dc",
+  "source_revision": "fb595c02abb77dc213b1e0b1ae41aea46932aa39",
   "artifact_sha256": "ac201e7b386e00a9bc212210fa8adb25153733f50fe9ae6ff1e384e7165fb57f",
   "result": "pass",
   "summary": {
