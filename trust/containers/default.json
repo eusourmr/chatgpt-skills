@@ -1,0 +1,91 @@
+{
+  "schema_version": "0.1",
+  "container_id": "cs-default-fail-closed",
+  "title": "CS Default Skill Container",
+  "release_line": "0.7.5",
+  "mode": "fail-closed",
+  "principles": {
+    "safe_failure_is_valid": true,
+    "completion_at_any_cost": false,
+    "self_escalation": false,
+    "child_may_widen_parent": false
+  },
+  "epistemic_boundary": {
+    "unsupported_factual_claim": "unknown-or-stop",
+    "missing_required_data": "ask-degrade-or-stop",
+    "fabricated_citations": "deny",
+    "fabricated_observations": "deny",
+    "fabricated_tool_results": "deny",
+    "inference_must_be_labeled": true,
+    "source_conflict": "surface-conflict"
+  },
+  "capability_boundary": {
+    "default": "deny",
+    "effective_permission_rule": "requested ∩ container ∩ user/environment authorization ∩ host/runtime policy",
+    "undeclared_tool": "deny",
+    "permission_widening": "deny",
+    "destructive_action": "explicit-policy-and-confirmation"
+  },
+  "acquisition_boundary": {
+    "credential_theft": "deny",
+    "secret_harvesting": "deny",
+    "unauthorized_access": "deny",
+    "authentication_bypass": "deny",
+    "authorization_bypass": "deny",
+    "privilege_escalation": "deny",
+    "stealth_persistence": "deny",
+    "undeclared_external_transfer": "deny"
+  },
+  "data_boundary": {
+    "minimum_necessary": true,
+    "external_send_default": "deny",
+    "secrets_default": "deny",
+    "cross_user_data": "deny",
+    "cross_task_private_context": "deny-unless-explicitly-authorized"
+  },
+  "budget": {
+    "bounded_attempts": true,
+    "budget_exhaustion": "stop",
+    "may_expand_permission_after_exhaustion": false
+  },
+  "composition": {
+    "child_may_widen_parent": false,
+    "effective_child_policy": "intersection-with-parent",
+    "hidden_skill_handoff_may_expand_permission": false
+  },
+  "decisions": [
+    "allow",
+    "allow-with-confirmation",
+    "degrade",
+    "stop"
+  ],
+  "stop_codes": [
+    "EVIDENCE_EXHAUSTED",
+    "PERMISSION_DENIED",
+    "AUTHORIZATION_REQUIRED",
+    "TOOL_UNAVAILABLE",
+    "SOURCE_CONFLICT",
+    "BUDGET_EXHAUSTED",
+    "CONTAINER_ESCAPE_ATTEMPT",
+    "POLICY_BOUNDARY"
+  ],
+  "audit": {
+    "decision_record_required": true,
+    "sensitive_content_minimization": true,
+    "fields": [
+      "container_id",
+      "decision",
+      "reason",
+      "requested_capability",
+      "effective_permission",
+      "evidence_state",
+      "confirmation_state",
+      "stop_code"
+    ]
+  },
+  "limitations": [
+    "Logical containment does not replace host/runtime security controls.",
+    "This policy cannot guarantee zero hallucination.",
+    "Static evidence cannot prove all runtime behavior."
+  ]
+}

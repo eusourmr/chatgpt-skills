@@ -40,6 +40,25 @@ The quality catalog currently tracks **31 skills**: **12 OpenAI-published**, **1
 | Interactive installer | ✅ | ❌ |
 | Public health/progress report | ✅ | ❌ |
 | Regenerative/systemic design standard | ✅ | ❌ |
+| Skill Containers: fail-closed execution and hallucination/permission containment | 🚧 0.7.5 | ❌ |
+
+## 🛡️ Coming in 0.7.5 — Skill Containers
+
+**CS 0.7.5 — Verifiable Trust II & Containers** introduces **Skill Containers**, a defense-in-depth guard layer around skills and agentic workflows.
+
+The problem is not only malicious code. A capable agent can also fail by trying too hard to complete a task: inventing a missing fact, fabricating a tool result, repeatedly searching after the authorized path is exhausted, asking for more privilege than the task originally allowed, or reaching for private/external data because the expected output still has an empty field.
+
+Skill Containers make one rule explicit:
+
+> **No evidence → no invented fact. No permission → no self-escalation. No authorized path → stop.**
+
+A container defines what a skill may **know, claim, read, write, send, execute, retry, compose, and persist**. The planned **Container Guardian** evaluates each proposed step as `allow`, `allow-with-confirmation`, `degrade`, or `stop`. A child skill may never widen the parent container, and exhausting a retry/tool budget may never unlock broader permissions.
+
+This is designed to make **safe failure a valid success state**. A trustworthy workflow must be able to return “unknown,” request the missing evidence, produce a bounded partial result, or stop instead of manufacturing completion.
+
+Skill Containers are not a claim of perfect safety and are not a replacement for real runtime sandboxing, authentication, platform safeguards, or network/filesystem isolation. They are a portable containment contract that can be enforced at the skill, Navigator, tool, runtime, and sandbox layers.
+
+Read the design: [Skill Containers](docs/SKILL_CONTAINERS.md) · [0.7.5 plan](docs/V075_VERIFIABLE_TRUST_II_CONTAINERS.md)
 
 ## 🚀 Start in 1 Minute
 

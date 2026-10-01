@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/eusourmr/chatgpt-skills/spec/containers/0.1/skill-container.schema.json",
+  "title": "Skill Container Profile 0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "container_id",
+    "title",
+    "release_line",
+    "mode",
+    "principles",
+    "epistemic_boundary",
+    "capability_boundary",
+    "acquisition_boundary",
+    "data_boundary",
+    "budget",
+    "composition",
+    "decisions",
+    "stop_codes",
+    "audit",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "container_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "title": {"type": "string", "minLength": 1},
+    "release_line": {"const": "0.7.5"},
+    "mode": {"enum": ["fail-closed", "monitor-only"]},
+    "principles": {
+      "type": "object",
+      "required": ["safe_failure_is_valid", "completion_at_any_cost", "self_escalation", "child_may_widen_parent"],
+      "properties": {
+        "safe_failure_is_valid": {"const": true},
+        "completion_at_any_cost": {"const": false},
+        "self_escalation": {"const": false},
+        "child_may_widen_parent": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "epistemic_boundary": {
+      "type": "object",
+      "required": ["unsupported_factual_claim","missing_required_data","fabricated_citations","fabricated_observations","fabricated_tool_results","inference_must_be_labeled","source_conflict"],
+      "properties": {
+        "unsupported_factual_claim": {"enum": ["unknown-or-stop"]},
+        "missing_required_data": {"enum": ["ask-degrade-or-stop"]},
+        "fabricated_citations": {"const": "deny"},
+        "fabricated_observations": {"const": "deny"},
+        "fabricated_tool_results": {"const": "deny"},
+        "inference_must_be_labeled": {"const": true},
+        "source_conflict": {"const": "surface-conflict"}
+      },
+      "additionalProperties": false
+    },
+    "capability_boundary": {
+      "type": "object",
+      "required": ["default","effective_permission_rule","undeclared_tool","permission_widening","destructive_action"],
+      "properties": {
+        "default": {"const": "deny"},
+        "effective_permission_rule": {"type": "string", "minLength": 1},
+        "undeclared_tool": {"const": "deny"},
+        "permission_widening": {"const": "deny"},
+        "destructive_action": {"enum": ["explicit-policy-and-confirmation", "deny"]}
+      },
+      "additionalProperties": false
+    },
+    "acquisition_boundary": {
+      "type": "object",
+      "required": ["credential_theft","secret_harvesting","unauthorized_access","authentication_bypass","authorization_bypass","privilege_escalation","stealth_persistence","undeclared_external_transfer"],
+      "properties": {
+        "credential_theft": {"const": "deny"},
+        "secret_harvesting": {"const": "deny"},
+        "unauthorized_access": {"const": "deny"},
+        "authentication_bypass": {"const": "deny"},
+        "authorization_bypass": {"const": "deny"},
+        "privilege_escalation": {"const": "deny"},
+        "stealth_persistence": {"const": "deny"},
+        "undeclared_external_transfer": {"const": "deny"}
+      },
+      "additionalProperties": false
+    },
+    "data_boundary": {
+      "type": "object",
+      "required": ["minimum_necessary","external_send_default","secrets_default","cross_user_data","cross_task_private_context"],
+      "properties": {
+        "minimum_necessary": {"const": true},
+        "external_send_default": {"const": "deny"},
+        "secrets_default": {"const": "deny"},
+        "cross_user_data": {"const": "deny"},
+        "cross_task_private_context": {"enum": ["deny-unless-explicitly-authorized"]}
+      },
+      "additionalProperties": false
+    },
+    "budget": {
+      "type": "object",
+      "required": ["bounded_attempts","budget_exhaustion","may_expand_permission_after_exhaustion"],
+      "properties": {
+        "bounded_attempts": {"const": true},
+        "budget_exhaustion": {"const": "stop"},
+        "may_expand_permission_after_exhaustion": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "composition": {
+      "type": "object",
+      "required": ["child_may_widen_parent","effective_child_policy","hidden_skill_handoff_may_expand_permission"],
+      "properties": {
+        "child_may_widen_parent": {"const": false},
+        "effective_child_policy": {"const": "intersection-with-parent"},
+        "hidden_skill_handoff_may_expand_permission": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "decisions": {
+      "type": "array",
+      "minItems": 4,
+      "uniqueItems": true,
+      "items": {"enum": ["allow","allow-with-confirmation","degrade","stop"]}
+    },
+    "stop_codes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]+$"}
+    },
+    "audit": {
+      "type": "object",
+      "required": ["decision_record_required","sensitive_content_minimization","fields"],
+      "properties": {
+        "decision_record_required": {"const": true},
+        "sensitive_content_minimization": {"const": true},
+        "fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      },
+      "additionalProperties": false
+    },
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+  },
+  "additionalProperties": false
+}
