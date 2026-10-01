@@ -28,12 +28,12 @@ run('node',['scripts/generate-trust-passports.mjs','--write']);
 run('node',['scripts/update-drift-status.mjs','--write','--as-of',asOf]);
 run('node',['scripts/generate-navigator-snapshot.mjs']);
 
-// Final stabilization pass. The snapshot changes cs-navigator bytes but does not
-// depend on cs-navigator's own Passport/upstream entry, so this pass breaks the
-// remaining one-way dependency without regenerating the snapshot again.
+// Final stabilization pass. The snapshot changes cs-navigator bytes.
+// Refresh the Passport first so Security Gate binds to the final artifact hash;
+// then derive security/risk evidence and drift without regenerating the snapshot.
+run('node',['scripts/generate-trust-passports.mjs','--write']);
 run('node',['scripts/security-gate-v2.mjs','--write']);
 run('node',['scripts/generate-risk-labels.mjs','--write']);
-run('node',['scripts/generate-trust-passports.mjs','--write']);
 run('node',['scripts/update-drift-status.mjs','--write','--as-of',asOf]);
 
 run('node',['scripts/generate-evals-v070.mjs','--write']);
