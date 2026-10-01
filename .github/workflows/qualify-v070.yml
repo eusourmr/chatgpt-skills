@@ -8,7 +8,7 @@ on:
     paths:
       - '.github/workflows/qualify-v070.yml'
       - 'plugins/cs-navigator/**'
-      - 'submission/cs-navigator-0.7.0.json'
+      - 'submission/cs-navigator-0.7.0*.json'
       - 'tests/fixtures/capability-pack.json'
       - 'skills/featured/cs-navigator/**'
       - 'trust/**'
@@ -54,13 +54,16 @@ jobs:
         run: |
           set -euo pipefail
           npm run build:public-plugin
-          ZIP='dist/plugin-submission/cs-navigator-plugin-0.7.0.zip'
+          VERSION=$(node -p "JSON.parse(require('fs').readFileSync('plugins/cs-navigator/plugin.json','utf8')).version")
+          ZIP="dist/plugin-submission/cs-navigator-plugin-${VERSION}.zip"
           test -f "$ZIP"
           unzip -t "$ZIP"
           sha256sum "$ZIP" | tee "$ZIP.qualification.sha256"
           python - <<'PY'
           from zipfile import ZipFile
-          p='dist/plugin-submission/cs-navigator-plugin-0.7.0.zip'
+          import json
+          v=json.load(open('plugins/cs-navigator/plugin.json'))['version']
+          p=f'dist/plugin-submission/cs-navigator-plugin-{v}.zip'
           with ZipFile(p) as z:
               names=z.namelist()
               assert z.testzip() is None
@@ -74,11 +77,11 @@ jobs:
       - name: Upload exact qualification candidate
         uses: actions/upload-artifact@v4
         with:
-          name: cs-navigator-0.7.0-qualification-candidate
+          name: cs-navigator-v070-qualification-candidate
           path: |
-            dist/plugin-submission/cs-navigator-plugin-0.7.0.zip
-            dist/plugin-submission/cs-navigator-plugin-0.7.0.zip.sha256
-            dist/plugin-submission/cs-navigator-plugin-0.7.0.zip.qualification.sha256
+            dist/plugin-submission/cs-navigator-plugin-*.zip
+            dist/plugin-submission/cs-navigator-plugin-*.zip.sha256
+            dist/plugin-submission/cs-navigator-plugin-*.zip.qualification.sha256
             dist/plugin-submission/source-commit.txt
           if-no-files-found: error
           retention-days: 30
