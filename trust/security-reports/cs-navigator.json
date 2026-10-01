@@ -4,7 +4,7 @@
   "skill_id": "cs-navigator",
   "scanned_at": "2026-10-01",
   "source_revision": "fb595c02abb77dc213b1e0b1ae41aea46932aa39",
-  "artifact_sha256": "d51587d4f4bfc9405c7e2070e8e162d14ce884f879e2745e3e35d9da39c869cc",
+  "artifact_sha256": "044a3fda603b17f8e575e5ae321b9d0e247b5c41d1a44d6d62884f9879141292",
   "result": "pass",
   "summary": {
     "critical": 0,
