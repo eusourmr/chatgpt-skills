@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "pack_version": "0.7.0",
+  "pack_version": "0.7.0-rc.2",
   "router": "cs-navigator",
   "policy": "Install once, route narrowly, and use current evidence. Bundled availability does not imply activation, safety, freshness, or stronger task-effectiveness evidence.",
   "activation_contract": [
