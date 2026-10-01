@@ -1,5 +1,6 @@
 name: Qualify CS Navigator v0.7.0
 # Requalification after evidence-state contract hardening.
+# RC2 uses a distinct plugin identity to avoid stale installed-package reuse.
 
 on:
   push:
