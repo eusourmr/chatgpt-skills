@@ -1,0 +1,140 @@
+name: Release CS Navigator v0.7.0
+# One-shot release workflow for the qualified Verifiable Trust I plugin payload.
+
+on:
+  push:
+    branches:
+      - ops/release-cs-navigator-v0.7.0
+    paths:
+      - '.github/workflows/release-cs-navigator-v070.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out exact merged release source
+        uses: actions/checkout@v6
+        with:
+          ref: 6cc953705a069b3f384e7cc266110e7f51f0b988
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Build and verify qualified plugin archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build-public-plugin-submission.mjs
+          ZIP='dist/plugin-submission/cs-navigator-plugin-0.7.0.zip'
+          SHA_FILE="${ZIP}.sha256"
+          EXPECTED='a1ac38a482f6e3ad839eefc3ed555c2cc001e24cf28b1be2740024d963b6048d'
+
+          test -f "$ZIP"
+          test -f "$SHA_FILE"
+          unzip -t "$ZIP"
+
+          actual=$(sha256sum "$ZIP" | awk '{print $1}')
+          test "$actual" = "$EXPECTED"
+          grep -q "$EXPECTED" "$SHA_FILE"
+
+          python - <<'PY'
+          import json, zipfile
+          p='dist/plugin-submission/cs-navigator-plugin-0.7.0.zip'
+          with zipfile.ZipFile(p) as z:
+              names=z.namelist()
+              assert z.testzip() is None
+              assert len(names)==14, names
+              plugin=json.loads(z.read('cs-navigator/plugin.json'))
+              snap=json.loads(z.read('cs-navigator/skills/cs-navigator/references/catalog-snapshot.json'))
+              assert plugin['name']=='cs-navigator'
+              assert plugin['version']=='0.7.0'
+              assert snap['schema_version']==2
+              assert snap['generated_for_plugin']=='0.7.0'
+          print('Release payload verified: 14 entries, production identity, snapshot v2.')
+          PY
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: cs-navigator-v0.7.0
+          RELEASE_SHA: 6cc953705a069b3f384e7cc266110e7f51f0b988
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if gh release view "$TAG" --repo eusourmr/chatgpt-skills >/dev/null 2>&1; then
+            echo "Release $TAG already exists."
+            exit 0
+          fi
+
+          if gh api "repos/eusourmr/chatgpt-skills/git/ref/tags/$TAG" >/tmp/tag.json 2>/dev/null; then
+            current=$(jq -r '.object.sha' /tmp/tag.json)
+            test "$current" = "$RELEASE_SHA"
+          else
+            gh api --method POST repos/eusourmr/chatgpt-skills/git/refs \
+              -f ref="refs/tags/$TAG" \
+              -f sha="$RELEASE_SHA"
+          fi
+
+          cat > /tmp/release-notes.md <<'EOF'
+          ## CS Navigator 0.7.0 — Verifiable Trust I
+
+          This release adds the first verifiable-trust layer to CS Navigator while preserving native-first routing and the Capability Pack I one-install model.
+
+          ### What changed
+          - Trust Passports for bundled skills
+          - Security Gate v2 evidence
+          - Public Risk Labels
+          - freshness, drift and reviewed-version binding
+          - normalized behavior-evaluation records
+          - trust-aware Navigator routing
+          - governance and multilingual trust vocabulary foundations
+          - regional/domain metadata foundations
+          - Open Skill Trust Standard (OSTS) 0.1
+
+          ### Qualification
+          - Required native ChatGPT review matrix: **PASS / complete**
+          - Native-only and anti-overrouting behavior: **PASS**
+          - freshness/version-inheritance boundary: **PASS**
+          - Security Gate semantics boundary: **PASS**
+          - external indexed/not-evaluated boundary: **PASS**
+          - lower-permission routing and unresolved-evidence tie handling: **PASS**
+          - opaque trust-score / unsupported-winner rejection: **PASS**
+          - final repository CI: **PASS**
+          - final production plugin qualification: **PASS**
+
+          The four regenerative Capability Pack workflows remain independently evidenced. A capability marked `designed` is not promoted to `tested` merely because it is bundled or routed successfully.
+
+          ### Evidence boundaries
+          - Security Gate `pass` means no configured blocking pattern was observed; it is not a safety guarantee.
+          - External `indexed / not-evaluated` sources remain discovery only.
+          - CS Navigator does not invent a 0–100 trust score or a generic best skill.
+          - Evidence is version-bound and is not automatically inherited after artifact changes.
+
+          ### Integrity
+          - Release source commit: `6cc953705a069b3f384e7cc266110e7f51f0b988`
+          - Qualified source head: `c15df4cce9cc2d3f1105419e6b1d16ead6f86bbc`
+          - Qualification workflow run: `37058865513`
+          - Plugin ZIP SHA-256: `a1ac38a482f6e3ad839eefc3ed555c2cc001e24cf28b1be2740024d963b6048d`
+          - Plugin entries: **14**
+
+          The release workflow rebuilds the plugin from the exact merged release source and refuses publication unless its SHA-256 matches the qualified payload.
+
+          ### Scope note
+          The force-fresh `CS Navigator 0.7 QA` identity was qualification-only and is not the production plugin identity. This release is **CS Navigator plugin 0.7.0**; the repository root npm package remains on its independent version line.
+          EOF
+
+          gh release create "$TAG" \
+            'dist/plugin-submission/cs-navigator-plugin-0.7.0.zip#CS Navigator 0.7.0 plugin' \
+            'dist/plugin-submission/cs-navigator-plugin-0.7.0.zip.sha256#SHA-256 checksum' \
+            --repo eusourmr/chatgpt-skills \
+            --target "$RELEASE_SHA" \
+            --title 'CS Navigator 0.7.0 — Verifiable Trust I' \
+            --notes-file /tmp/release-notes.md
