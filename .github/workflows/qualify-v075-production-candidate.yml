@@ -273,10 +273,14 @@ jobs:
             scripts/generate-navigator-snapshot.mjs \
             scripts/passport-lib.mjs \
             submission/cs-navigator-0.7.5.json
-          git commit -m "Promote CS Navigator 0.7.5 production candidate"
+          if git diff --cached --quiet; then
+            echo "No canonical source changes to commit."
+          else
+            git commit -m "Promote CS Navigator 0.7.5 production candidate"
+            git push origin HEAD:release/v0.7.5
+          fi
           SHA=$(git rev-parse HEAD)
           echo "source_sha=$SHA" >> "$GITHUB_OUTPUT"
-          git push origin HEAD:release/v0.7.5
 
       - name: Build and verify exact production candidate
         id: package
@@ -315,7 +319,7 @@ jobs:
           {
             "plugin": "cs-navigator",
             "version": "0.7.5",
-            "source_commit": "\${{ steps.commit.outputs.source_sha }}",
+            "source_commit": "${{ steps.commit.outputs.source_sha }}",
             "zip_sha256": "$SHA",
             "entries": $COUNT,
             "qa_native_matrix": "12/12 PASS",
@@ -323,7 +327,7 @@ jobs:
             "trust_renewal": "pending until exact production bytes pass native qualification"
           }
           EOF
-          echo "Source \${{ steps.commit.outputs.source_sha }}"
+          echo "Source ${{ steps.commit.outputs.source_sha }}"
           echo "ZIP SHA-256 $SHA"
           echo "Entries $COUNT"
 
