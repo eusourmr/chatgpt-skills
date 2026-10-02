@@ -13,7 +13,7 @@
 
 **The curated skills catalog for the OpenAI ecosystem.** Unlike a flat community list, entries here are source-checked, categorized by use case, mapped to the open Agent Skills format, and separated by provenance: OpenAI-published, independently verified, or community-authored.
 
-[Português do Brasil](README.pt-BR.md) · [Bundles](BUNDLES.md) · [Progress](PROGRESS.md) · [Roadmap](ROADMAP.md) · [Community](COMMUNITY.md)
+[Português do Brasil](README.pt-BR.md) · [Getting Started](docs/GETTING_STARTED.md) · [Bundles](BUNDLES.md) · [Progress](PROGRESS.md) · [Roadmap](ROADMAP.md) · [Community](COMMUNITY.md)
 
 > **Independent community project. Not affiliated with or endorsed by OpenAI.** “Official” in this repository describes attributable OpenAI publication/provenance; it never means OpenAI has endorsed this repository.
 
@@ -42,81 +42,33 @@ The quality catalog currently tracks **31 skills**: **12 OpenAI-published**, **1
 | Regenerative/systemic design standard | ✅ | ❌ |
 | Skill Containers: fail-closed execution and hallucination/permission containment | 🚧 0.7.5 | ❌ |
 
-## 🛡️ Coming in 0.7.5 — Skill Containers
+## 🛡️ Current release and next trust layer
 
-**CS 0.7.5 — Verifiable Trust II & Containers** introduces **Skill Containers**, a defense-in-depth guard layer around skills and agentic workflows.
+**Stable plugin:** CS Navigator `0.7.0 — Verifiable Trust I` is released and natively qualified. It adds Trust Passports, Security Gate v2 evidence, public Risk Labels, freshness/drift state, version-bound evidence, normalized behavior evals, and trust-aware routing while preserving Chat-Native First.
 
-The problem is not only malicious code. A capable agent can also fail by trying too hard to complete a task: inventing a missing fact, fabricating a tool result, repeatedly searching after the authorized path is exhausted, asking for more privilege than the task originally allowed, or reaching for private/external data because the expected output still has an empty field.
-
-Skill Containers make one rule explicit:
+**Next:** CS `0.7.5 — Verifiable Trust II & Containers` is in qualification. The deterministic **Container Guardian** foundation is already merged into `main`, including adversarial fixtures, runtime behavior evals, bounded retry/tool attempts, parent/child permission containment, and auditable `ALLOW / CONFIRM / DEGRADE / STOP` decisions.
 
 > **No evidence → no invented fact. No permission → no self-escalation. No authorized path → stop.**
 
-A container defines what a skill may **know, claim, read, write, send, execute, retry, compose, and persist**. The planned **Container Guardian** evaluates each proposed step as `allow`, `allow-with-confirmation`, `degrade`, or `stop`. A child skill may never widen the parent container, and exhausting a retry/tool budget may never unlock broader permissions.
+0.7.5 is **not** the stable plugin yet. Native ChatGPT qualification remains a release gate. Skill Containers are defense in depth, not a claim of perfect safety or zero hallucination.
 
-This is designed to make **safe failure a valid success state**. A trustworthy workflow must be able to return “unknown,” request the missing evidence, produce a bounded partial result, or stop instead of manufacturing completion.
-
-Skill Containers are not a claim of perfect safety and are not a replacement for real runtime sandboxing, authentication, platform safeguards, or network/filesystem isolation. They are a portable containment contract that can be enforced at the skill, Navigator, tool, runtime, and sandbox layers.
-
-Read the design: [Skill Containers](docs/SKILL_CONTAINERS.md) · [0.7.5 plan](docs/V075_VERIFIABLE_TRUST_II_CONTAINERS.md)
+Read: [Getting Started](docs/GETTING_STARTED.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [0.7.5 plan](docs/V075_VERIFIABLE_TRUST_II_CONTAINERS.md) · [Plugin maintenance](docs/PLUGIN_MAINTENANCE.md)
 
 ## 🚀 Start in 1 Minute
 
-CS Navigator `0.6.0` **Capability Pack I** is merged and natively qualified in ChatGPT. One plugin install exposes Navigator plus four chat-native capabilities: Regenerative Language Bridge, Regenerative Impact Map, Regenerative Resilience Plan, and Regenerative Adaptive Experiment. Direct tasks still stay native unless the user is selecting or explicitly invoking a capability.
+The stable **CS Navigator 0.7.0** plugin exposes Navigator plus Capability Pack I in one install. Direct tasks stay native unless the user is selecting or explicitly invoking a capability.
 
-For a compatible ChatGPT workspace, import this repository as a plugin marketplace:
+For canonical installation and first-use instructions — GitHub marketplace import, stable release artifact, CLI paths, integrity checks, and example prompts — use:
 
-```text
-Source: https://github.com/eusourmr/chatgpt-skills
-Path:   (leave empty)
-Branch: main
-```
+**[Getting Started →](docs/GETTING_STARTED.md)**
 
-The marketplace exposes the **CS Navigator** skill-only plugin. GitHub is the managed source; ChatGPT imports/synchronizes the plugin and can refresh it with **Sync now**. No MCP server, API key, external auth, or third-party gateway is required for the core pack. See [GitHub-native distribution](docs/GITHUB_PLUGIN_DISTRIBUTION.md) and [Capability Pack I](docs/CAPABILITY_PACK.md).
+Version lines are intentionally independent:
 
-Plugin versioning is independent from the npm CLI package version. The plugin is `0.6.0`; the published npm Trust Layer remains on its own release line.
+- CS Navigator plugin: **0.7.0 stable**
+- CS Navigator 0.7.5: **in qualification**
+- `chatgpt-skills` CLI/npm: **0.4.0**
 
-CLI compatibility path:
-
-```bash
-npx chatgpt-skills install
-```
-
-Version `0.4.0` introduces the Trust Layer: target-aware installation/export, Evidence Cards, `inspect`, a stronger hash-based `doctor`, and Security Gate v1.
-
-Inspect a bundled skill before adopting it:
-
-```bash
-npx chatgpt-skills inspect openai-agents-sdk-builder
-```
-
-Check an installed/exported bundle:
-
-```bash
-npx chatgpt-skills doctor
-```
-
-Install to a native project target:
-
-```bash
-npx chatgpt-skills install --bundle openai-ecosystem --tool codex-cli --scope project --yes
-npx chatgpt-skills install --bundle education --tool cursor --scope project --yes
-npx chatgpt-skills install --bundle data-analyst --tool agents-portable --scope project --yes
-```
-
-For ChatGPT surfaces that do not support GitHub marketplace import, the CLI still prepares ZIP files as a **compatibility fallback**:
-
-```bash
-npx chatgpt-skills install --bundle openai-ecosystem --tool chatgpt-web --yes
-```
-
-Repository fallback (npm 12-safe; Git access is enabled only for this command):
-
-```bash
-npx --allow-git=root github:eusourmr/chatgpt-skills install
-```
-
-See all curated packages in [`BUNDLES.md`](BUNDLES.md).
+Controlled plugin deployments should prefer the release tag `cs-navigator-v0.7.0` instead of tracking mutable `main`.
 
 ## Featured OpenAI-native production skills
 
