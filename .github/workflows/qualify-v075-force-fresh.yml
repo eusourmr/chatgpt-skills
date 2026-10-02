@@ -13,6 +13,7 @@ on:
       - 'trust/evals/container-guardian/**'
       - 'scripts/eval-container-guardian.mjs'
       - 'scripts/build-v075-native-qualification-plugin.mjs'
+      - 'package.json'
       - '.github/workflows/qualify-v075-force-fresh.yml'
       - 'plugins/cs-navigator/**'
       - 'skills/featured/cs-navigator/**'
