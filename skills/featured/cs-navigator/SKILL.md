@@ -126,6 +126,8 @@ Do not omit `freshness_state` when the user's question is about the current evid
 
 When the user asks for a skill's **current evidence state**, **state of evidence**, **trust state**, or equivalent, the answer MUST include a compact current-status block before interpretation.
 
+If the selected snapshot entry contains `current_status`, treat that object as **atomic and authoritative for the status block**. Copy every field in `current_status`; do not summarize, cherry-pick, reorder away, or omit `freshness_state`/`review_due_at`. The status block is incomplete if any field listed by snapshot `current_evidence_required_fields` is missing.
+
 Use these exact field labels when present in the snapshot:
 
 ```text
