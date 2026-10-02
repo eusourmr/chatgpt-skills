@@ -20,6 +20,7 @@ const comparableSnapshot = { ...snapshot, entries: (snapshot.entries || []).filt
 expect(JSON.stringify(comparableSnapshot) === JSON.stringify(expected), 'Navigator snapshot differs from the current CS source data');
 expect(snapshot.schema_version === 2, 'Navigator snapshot schema_version must be 2');
 expect(snapshot.generated_for_plugin === plugin.version, 'Navigator snapshot generated_for_plugin must match plugin version');
+expect(JSON.stringify(snapshot.current_evidence_required_fields) === JSON.stringify(['execution_evidence','recommendation','execution_mode','freshness_state','review_due_at','known_gaps']), 'Navigator snapshot current_evidence_required_fields invalid');
 expect(!snapshot.entries.some((entry) => entry.id === 'cs-navigator'), '0.5.1+ Navigator snapshot must not carry self-trust');
 expect(Array.isArray(snapshot.entries) && snapshot.entries.length > 0, 'Navigator snapshot needs entries');
 expect(Array.isArray(snapshot.external_sources), 'Navigator snapshot external_sources must be an array');
@@ -35,6 +36,13 @@ for (const entry of snapshot.entries) {
   expect(['chat-native', 'native-tools', 'connected', 'local-agent'].includes(entry.execution_mode), `${entry.id}: invalid execution mode ${entry.execution_mode}`);
   expect(['designed', 'tested', 'conditional', 'unknown'].includes(entry.execution_evidence), `${entry.id}: invalid execution evidence ${entry.execution_evidence}`);
   expect(Array.isArray(entry.required_capabilities), `${entry.id}: required_capabilities must be an array`);
+  expect(entry.current_status && typeof entry.current_status === 'object', `${entry.id}: current_status required`);
+  expect(entry.current_status.execution_evidence === entry.execution_evidence, `${entry.id}: current_status execution_evidence drift`);
+  expect(entry.current_status.recommendation === entry.recommendation, `${entry.id}: current_status recommendation drift`);
+  expect(entry.current_status.execution_mode === entry.execution_mode, `${entry.id}: current_status execution_mode drift`);
+  expect(entry.current_status.freshness_state === entry.freshness_state, `${entry.id}: current_status freshness_state drift`);
+  expect(entry.current_status.review_due_at === entry.review_due_at, `${entry.id}: current_status review_due_at drift`);
+  expect(JSON.stringify(entry.current_status.known_gaps) === JSON.stringify(entry.known_gaps), `${entry.id}: current_status known_gaps drift`);
   expect(['current','changed-unreviewed','source-unavailable','stale','superseded','unknown'].includes(entry.freshness_state), `${entry.id}: invalid freshness state ${entry.freshness_state}`);
   expect(entry.review_due_at === null || /^\d{4}-\d{2}-\d{2}$/.test(entry.review_due_at), `${entry.id}: review_due_at must be date or null`);
   expect(entry.security_result === null || ['pass','blocked'].includes(entry.security_result), `${entry.id}: invalid security result`);
