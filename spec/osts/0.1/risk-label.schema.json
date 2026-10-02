@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/eusourmr/chatgpt-skills/spec/osts/0.1/risk-label.schema.json",
+  "title": "OSTS 0.1 - Skill Risk Label",
+  "type": "object",
+  "required": ["schema_version","skill_id","source_revision","artifact_sha256","security_gate","reads","writes","sends_externally","executes","secrets","destructive_potential","human_confirmation","unknowns","evidence_refs"],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "skill_id": {"type": "string"},
+    "source_revision": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "artifact_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "security_gate": {"type": "object"},
+    "reads": {"type": "object"},
+    "writes": {"type": "object"},
+    "sends_externally": {"type": "object"},
+    "executes": {"type": "object"},
+    "secrets": {"type": "object"},
+    "destructive_potential": {"type": "object"},
+    "human_confirmation": {"type": "object"},
+    "unknowns": {"type": "array", "items": {"type": "string"}},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

@@ -96,9 +96,15 @@ export async function buildPassport(root, inputs, skillId) {
     },
     security: {
       state: trust.defaults?.security?.state ?? 'unknown',
-      gate_version: 'v1',
-      evidence_refs: ['trust/skills.json', 'scripts/security-check.mjs'],
-      report_ref: null
+      gate_version: 'v2',
+      evidence_refs: [
+        'trust/skills.json',
+        'scripts/security-gate-v2.mjs',
+        `trust/security-reports/${skillId}.json`,
+        `trust/risk-labels/${skillId}.json`
+      ],
+      report_ref: `trust/security-reports/${skillId}.json`,
+      risk_label_ref: `trust/risk-labels/${skillId}.json`
     },
     behavior_evidence: {
       state: exec.evidence_state,

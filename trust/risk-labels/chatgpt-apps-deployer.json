@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1",
+  "skill_id": "chatgpt-apps-deployer",
+  "source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
+  "artifact_sha256": "e81a2524fc499e0d1ea9b85a1d70bcea9c164ba824345df755f9ae13cfb063c3",
+  "security_gate": {
+    "version": "v2",
+    "result": "pass",
+    "blocking_findings": 0
+  },
+  "reads": {
+    "state": "declared-plus-static-scan",
+    "declared": "recursively reads project files and writes a release manifest",
+    "observed": "Filesystem activity signal observed; review report for context."
+  },
+  "writes": {
+    "state": "declared-plus-static-scan",
+    "declared": "recursively reads project files and writes a release manifest",
+    "observed": "Filesystem write reference observed."
+  },
+  "sends_externally": {
+    "state": "declared-plus-static-scan",
+    "declared": "none",
+    "observed": "No active network operation reference observed."
+  },
+  "executes": {
+    "state": "declared-plus-static-scan",
+    "declared": "none",
+    "observed": "No process execution reference observed."
+  },
+  "secrets": {
+    "state": "declared-plus-static-scan",
+    "declared": "none required",
+    "observed": "Secret/credential terminology observed."
+  },
+  "destructive_potential": {
+    "state": "declared-plus-static-scan",
+    "declared": "overwrites the configured manifest output path",
+    "observed": "No destructive operation reference observed."
+  },
+  "human_confirmation": {
+    "state": "unknown",
+    "declared": "Not yet modeled as a normalized permission dimension in 0.7-B.",
+    "observed": "Static scanning cannot prove runtime confirmation behavior."
+  },
+  "unknowns": [
+    "Static analysis cannot prove absence of malicious behavior.",
+    "Runtime behavior may differ across execution surfaces or external dependencies.",
+    "Human-confirmation semantics are not yet normalized."
+  ],
+  "evidence_refs": [
+    "trust/passports/chatgpt-apps-deployer.json",
+    "trust/security-reports/chatgpt-apps-deployer.json"
+  ]
+}

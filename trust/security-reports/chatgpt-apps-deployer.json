@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "gate_version": "v2",
+  "skill_id": "chatgpt-apps-deployer",
+  "scanned_at": "2026-10-01",
+  "source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
+  "artifact_sha256": "e81a2524fc499e0d1ea9b85a1d70bcea9c164ba824345df755f9ae13cfb063c3",
+  "result": "pass",
+  "summary": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0,
+    "info": 2,
+    "blocking": 0
+  },
+  "observed_capabilities": {
+    "network_operations": false,
+    "process_execution": false,
+    "filesystem_writes": true,
+    "secret_references": true,
+    "destructive_operations": false,
+    "lifecycle_hooks": false,
+    "encoded_or_obfuscated_content": false
+  },
+  "findings": [
+    {
+      "rule_id": "permission-description-mismatch",
+      "family": "description-behavior-mismatch",
+      "severity": "medium",
+      "blocking": false,
+      "path": "skills/featured/chatgpt-apps-deployer",
+      "line": null,
+      "evidence_sha256": "e2f8e06f435d828bbe94bb1fc178237e88534a9f59cd8335a53cdadce49c8a1e",
+      "message": "Observed secrets signal while permission declaration says none.",
+      "disposition": "review"
+    },
+    {
+      "rule_id": "filesystem-write-reference",
+      "family": "filesystem-write",
+      "severity": "info",
+      "blocking": false,
+      "path": "scripts/package_app.py",
+      "line": 28,
+      "evidence_sha256": "31a8a89c8bb77487b9fed52faf2916fbff03532b7f85a6929cf7e5070a5422f1",
+      "message": "Filesystem write reference observed.",
+      "disposition": "review"
+    },
+    {
+      "rule_id": "secret-reference",
+      "family": "secrets",
+      "severity": "info",
+      "blocking": false,
+      "path": "SKILL.md",
+      "line": 28,
+      "evidence_sha256": "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b",
+      "message": "Secret or credential terminology observed.",
+      "disposition": "review"
+    }
+  ],
+  "policy": "Automated findings are evidence for review, not a permanent safety guarantee. Blocking rules stop admission; informational signals remain visible."
+}

@@ -1,0 +1,30 @@
+{
+  "locale": "pt-BR",
+  "evidence_states": {
+    "indexed": "Indexada",
+    "source_checked": "Fonte verificada",
+    "designed": "Projetada",
+    "tested": "Testada",
+    "conditional": "Condicional",
+    "unknown": "Desconhecida",
+    "recommended": "Recomendada",
+    "stale": "Desatualizada",
+    "re_review_required": "Revisão necessária",
+    "blocked": "Bloqueada"
+  },
+  "risk": {
+    "reads": "Lê",
+    "writes": "Grava",
+    "sends_externally": "Envia para fora",
+    "executes": "Executa",
+    "secrets": "Segredos/credenciais",
+    "destructive_potential": "Potencial destrutivo",
+    "human_confirmation": "Confirmação humana",
+    "unknowns": "Pontos desconhecidos"
+  },
+  "notices": {
+    "not_safety_guarantee": "Esta evidência não é uma garantia permanente de segurança.",
+    "discovery_not_validation": "Descoberta não é validação.",
+    "reviewed_version_differs": "A versão revisada é diferente da versão mais recente observada."
+  }
+}

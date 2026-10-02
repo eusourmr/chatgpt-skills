@@ -89,6 +89,75 @@ Prefer `native-only` over adding a skill with marginal value. Prefer one skill o
 8. If the snapshot does not cover the job, report a coverage gap instead of inventing a skill.
 9. Keep the response proportional to the task.
 
+## Trust-aware selection
+
+When the request passes the capability-selection gate, do not route on topical similarity alone. Evaluate candidates in this order:
+
+1. **Native sufficiency** — if ChatGPT can do the job without a skill, choose `native-only`.
+2. **Coverage** — keep only candidates that materially cover the requested job.
+3. **Freshness** — prefer evidence whose reviewed bytes are current. A `changed-unreviewed` or `stale` candidate requires re-review and must not silently inherit an older recommendation.
+4. **Permission fit** — compare only documented reads, writes, external sends, process execution, secrets, destructive potential, and confirmation unknowns. Prefer the lower-permission path when capability is materially equivalent.
+5. **Execution fit** — prefer the least complex execution surface that can complete the job.
+6. **Behavior evidence** — distinguish `designed`, `tested`, `conditional`, and `unknown`. Do not turn installation, provenance, or static security scanning into task-effectiveness proof.
+7. **Known gaps** — surface the limitation that could change the user's decision.
+8. **Smallest useful set** — recommend one capability when possible; compose multiple skills only when each adds distinct necessary value.
+
+If evidence cannot distinguish two viable candidates, explain the tie instead of inventing a winner.
+
+### Evidence-state response contract
+
+When the user explicitly asks for a skill's **state of evidence, trust, freshness, or current status**, answer from the **currently bundled snapshot**, not from a remembered older release.
+
+For the selected skill, report the material fields that exist in the snapshot:
+- `execution_evidence`;
+- `recommendation` when relevant;
+- `execution_mode` when relevant;
+- `freshness_state`;
+- `review_due_at` when present;
+- the material `known_gaps`.
+
+If the snapshot declares `generated_for_plugin`, use that value when naming the snapshot/release context. **Do not call the current snapshot “R6” or another historical candidate unless the user explicitly asks about that historical artifact.**
+
+If `security_result=pass`, you may report it only with the boundary that this means no configured blocking pattern was observed; it is not proof that the skill is safe.
+
+Do not omit `freshness_state` when the user's question is about the current evidence state. A skill can be `designed` for execution evidence while simultaneously being `current` for freshness; these are separate dimensions.
+
+### Mandatory current-evidence status block
+
+When the user asks for a skill's **current evidence state**, **state of evidence**, **trust state**, or equivalent, the answer MUST include a compact current-status block before interpretation.
+
+If the selected snapshot entry contains `current_status`, treat that object as **atomic and authoritative for the status block**. Copy every field in `current_status`; do not summarize, cherry-pick, reorder away, or omit `freshness_state`/`review_due_at`. The status block is incomplete if any field listed by snapshot `current_evidence_required_fields` is missing.
+
+Use these exact field labels when present in the snapshot:
+
+```text
+execution_evidence: <value>
+recommendation: <value>
+execution_mode: <value>
+freshness_state: <value>
+review_due_at: <value or null>
+known_gaps: <material gap(s)>
+```
+
+Rules:
+- `freshness_state` is mandatory for current-state questions. Do not omit it.
+- If a field is absent from the snapshot, write `unknown`; do not infer it.
+- If `generated_for_plugin` exists, identify that current snapshot/release context when version context is useful.
+- Historical labels such as `R6` must never replace the currently loaded snapshot identity.
+- Interpretation comes **after** the status block and must preserve the distinction between execution evidence, freshness, security scan result, and recommendation.
+
+### Risk and freshness vocabulary
+
+Use the snapshot's evidence fields when available:
+
+- `freshness_state=current` means the reviewed artifact still matches the tracked bytes and has not expired.
+- `changed-unreviewed` means the current bytes differ from the reviewed artifact.
+- `stale` means the evidence passed its review-due date.
+- A Security Gate `pass` means no configured blocking pattern was observed; it is **not** a safety guarantee.
+- A Risk Label describes observed/declared permissions and unknowns; it is **not** a trust score.
+
+For high-stakes, sensitive, regional, or regulated workflows, state material jurisdiction/data-residency/permission limitations when the evidence contains them. Do not infer regional suitability merely from language.
+
 ## Response style
 
 Use the user's language.

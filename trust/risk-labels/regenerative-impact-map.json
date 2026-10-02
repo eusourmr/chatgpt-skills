@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1",
+  "skill_id": "regenerative-impact-map",
+  "source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
+  "artifact_sha256": "fbf0bd0a93bd1d0a7c14593bdd4d8cfc81dea92bef619de37cdfcdbb0703ad69",
+  "security_gate": {
+    "version": "v2",
+    "result": "pass",
+    "blocking_findings": 0
+  },
+  "reads": {
+    "state": "declared-plus-static-scan",
+    "declared": "none required by the packaged instruction skill",
+    "observed": "No additional read signal inferred by Security Gate v2."
+  },
+  "writes": {
+    "state": "declared-plus-static-scan",
+    "declared": "none required by the packaged instruction skill",
+    "observed": "No filesystem write reference observed."
+  },
+  "sends_externally": {
+    "state": "declared-plus-static-scan",
+    "declared": "none required",
+    "observed": "No active network operation reference observed."
+  },
+  "executes": {
+    "state": "declared-plus-static-scan",
+    "declared": "none required",
+    "observed": "No process execution reference observed."
+  },
+  "secrets": {
+    "state": "declared-plus-static-scan",
+    "declared": "none required",
+    "observed": "No secret/credential reference observed."
+  },
+  "destructive_potential": {
+    "state": "declared-plus-static-scan",
+    "declared": "none required",
+    "observed": "No destructive operation reference observed."
+  },
+  "human_confirmation": {
+    "state": "unknown",
+    "declared": "Not yet modeled as a normalized permission dimension in 0.7-B.",
+    "observed": "Static scanning cannot prove runtime confirmation behavior."
+  },
+  "unknowns": [
+    "Static analysis cannot prove absence of malicious behavior.",
+    "Runtime behavior may differ across execution surfaces or external dependencies.",
+    "Human-confirmation semantics are not yet normalized."
+  ],
+  "evidence_refs": [
+    "trust/passports/regenerative-impact-map.json",
+    "trust/security-reports/regenerative-impact-map.json"
+  ]
+}

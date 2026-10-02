@@ -9,7 +9,7 @@
   "provenance": {
     "source_repository": "https://github.com/eusourmr/chatgpt-skills",
     "canonical_path": "skills/featured/codex-pr-reviewer",
-    "reviewed_source_revision": "6ef65595ddb23164e602cc8cec77c3f666136f24",
+    "reviewed_source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
     "license": "MIT"
   },
   "integrity": {
@@ -48,12 +48,15 @@
   },
   "security": {
     "state": "inspected",
-    "gate_version": "v1",
+    "gate_version": "v2",
     "evidence_refs": [
       "trust/skills.json",
-      "scripts/security-check.mjs"
+      "scripts/security-gate-v2.mjs",
+      "trust/security-reports/codex-pr-reviewer.json",
+      "trust/risk-labels/codex-pr-reviewer.json"
     ],
-    "report_ref": null
+    "report_ref": "trust/security-reports/codex-pr-reviewer.json",
+    "risk_label_ref": "trust/risk-labels/codex-pr-reviewer.json"
   },
   "behavior_evidence": {
     "state": "tested",
@@ -66,9 +69,9 @@
   },
   "freshness": {
     "status": "current",
-    "reviewed_at": "2026-09-30",
+    "reviewed_at": "2026-10-01",
     "stale_after_days": 90,
-    "review_due_at": "2026-12-29"
+    "review_due_at": "2026-12-30"
   },
   "governance": {
     "maintainers": [

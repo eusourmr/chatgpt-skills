@@ -16,6 +16,7 @@ class TrustPassportGateTests(unittest.TestCase):
             shutil.copytree(ROOT / name, self.tmp / name)
         (self.tmp / "scripts").mkdir()
         shutil.copy2(ROOT / "scripts" / "security-check.mjs", self.tmp / "scripts" / "security-check.mjs")
+        shutil.copy2(ROOT / "scripts" / "security-gate-v2.mjs", self.tmp / "scripts" / "security-gate-v2.mjs")
 
     def tearDown(self):
         shutil.rmtree(self.tmp)

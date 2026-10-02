@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "gate_version": "v2",
+  "skill_id": "cs-navigator",
+  "scanned_at": "2026-10-01",
+  "source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
+  "artifact_sha256": "cbdcee8f84481ea5daa2e6f73fd1bef128df004b3918be624ead62fe8091641c",
+  "result": "pass",
+  "summary": {
+    "critical": 0,
+    "high": 0,
+    "medium": 2,
+    "low": 0,
+    "info": 3,
+    "blocking": 0
+  },
+  "observed_capabilities": {
+    "network_operations": false,
+    "process_execution": false,
+    "filesystem_writes": false,
+    "secret_references": true,
+    "destructive_operations": true,
+    "lifecycle_hooks": false,
+    "encoded_or_obfuscated_content": false
+  },
+  "findings": [
+    {
+      "rule_id": "permission-description-mismatch",
+      "family": "description-behavior-mismatch",
+      "severity": "medium",
+      "blocking": false,
+      "path": "skills/featured/cs-navigator",
+      "line": null,
+      "evidence_sha256": "e2f8e06f435d828bbe94bb1fc178237e88534a9f59cd8335a53cdadce49c8a1e",
+      "message": "Observed secrets signal while permission declaration says none.",
+      "disposition": "review"
+    },
+    {
+      "rule_id": "permission-description-mismatch",
+      "family": "description-behavior-mismatch",
+      "severity": "medium",
+      "blocking": false,
+      "path": "skills/featured/cs-navigator",
+      "line": null,
+      "evidence_sha256": "ff7037a66ee441ceed040d7431bd4354d2aaf8fb4f81f1c6e0a5981c0cb3d250",
+      "message": "Observed destructive-operation signal while permission declaration says none.",
+      "disposition": "review"
+    },
+    {
+      "rule_id": "destructive-reference",
+      "family": "destructive-operation",
+      "severity": "info",
+      "blocking": false,
+      "path": "references/catalog-snapshot.json",
+      "line": 154,
+      "evidence_sha256": "be262a109369ff4174b4b7a7aa917a83ca99dc94093be7d497384bb8c0f9cee6",
+      "message": "Potentially destructive operation reference observed.",
+      "disposition": "review"
+    },
+    {
+      "rule_id": "secret-reference",
+      "family": "secrets",
+      "severity": "info",
+      "blocking": false,
+      "path": "references/catalog-snapshot.json",
+      "line": 53,
+      "evidence_sha256": "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b",
+      "message": "Secret or credential terminology observed.",
+      "disposition": "review"
+    },
+    {
+      "rule_id": "secret-reference",
+      "family": "secrets",
+      "severity": "info",
+      "blocking": false,
+      "path": "SKILL.md",
+      "line": 99,
+      "evidence_sha256": "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b",
+      "message": "Secret or credential terminology observed.",
+      "disposition": "review"
+    }
+  ],
+  "policy": "Automated findings are evidence for review, not a permanent safety guarantee. Blocking rules stop admission; informational signals remain visible."
+}

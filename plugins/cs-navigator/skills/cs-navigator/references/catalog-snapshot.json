@@ -1,10 +1,24 @@
 {
-  "schema_version": 1,
-  "policy": "Use the smallest useful set. Execution and trust are separate. External indexed sources are discovery-only until separately evidenced.",
+  "schema_version": 2,
+  "generated_for_plugin": "0.7.0",
+  "current_evidence_required_fields": [
+    "execution_evidence",
+    "recommendation",
+    "execution_mode",
+    "freshness_state",
+    "review_due_at",
+    "known_gaps"
+  ],
+  "policy": "Use the smallest useful set. Native sufficiency comes first. For skills, freshness, permissions, execution evidence, security evidence, and known gaps remain separate. External indexed sources are discovery-only until separately evidenced.",
   "source_contract": [
     "installer/manifest.json",
     "trust/skills.json",
     "trust/execution.json",
+    "plugins/cs-navigator/plugin.json",
+    "trust/passports/*.json",
+    "trust/security-reports/*.json",
+    "trust/risk-labels/*.json",
+    "trust/upstream/*.json",
     "sources/external/*.json"
   ],
   "entries": [
@@ -19,6 +33,37 @@
         "local-files",
         "local-runtime"
       ],
+      "freshness_state": "current",
+      "review_due_at": "2026-12-30",
+      "current_status": {
+        "execution_evidence": "tested",
+        "recommendation": "conditional",
+        "execution_mode": "local-agent",
+        "freshness_state": "current",
+        "review_due_at": "2026-12-30",
+        "known_gaps": [
+          "Does not submit or approve an app in ChatGPT; deployment remains a separate platform action."
+        ]
+      },
+      "security_result": "pass",
+      "risk": {
+        "writes": "declared-plus-static-scan",
+        "sends_externally": "declared-plus-static-scan",
+        "executes": "declared-plus-static-scan",
+        "secrets": "declared-plus-static-scan",
+        "destructive_potential": "declared-plus-static-scan",
+        "human_confirmation": "unknown"
+      },
+      "permissions": {
+        "local_files": "recursively reads project files and writes a release manifest",
+        "network": "none",
+        "secrets": "none required",
+        "process_execution": "none",
+        "destructive_actions": "overwrites the configured manifest output path"
+      },
+      "trust_passport_ref": "trust/passports/chatgpt-apps-deployer.json",
+      "risk_label_ref": "trust/risk-labels/chatgpt-apps-deployer.json",
+      "upstream_ref": "trust/upstream/chatgpt-apps-deployer.json",
       "known_gaps": [
         "Does not submit or approve an app in ChatGPT; deployment remains a separate platform action."
       ]
@@ -34,6 +79,37 @@
         "local-files",
         "local-runtime"
       ],
+      "freshness_state": "current",
+      "review_due_at": "2026-12-30",
+      "current_status": {
+        "execution_evidence": "tested",
+        "recommendation": "conditional",
+        "execution_mode": "local-agent",
+        "freshness_state": "current",
+        "review_due_at": "2026-12-30",
+        "known_gaps": [
+          "Does not itself fetch or review a pull request; Codex or another review surface performs that step."
+        ]
+      },
+      "security_result": "pass",
+      "risk": {
+        "writes": "declared-plus-static-scan",
+        "sends_externally": "declared-plus-static-scan",
+        "executes": "declared-plus-static-scan",
+        "secrets": "declared-plus-static-scan",
+        "destructive_potential": "declared-plus-static-scan",
+        "human_confirmation": "unknown"
+      },
+      "permissions": {
+        "local_files": "reads a JSON rules file and writes one Markdown prompt",
+        "network": "none",
+        "secrets": "none required",
+        "process_execution": "none",
+        "destructive_actions": "overwrites the configured output prompt"
+      },
+      "trust_passport_ref": "trust/passports/codex-pr-reviewer.json",
+      "risk_label_ref": "trust/risk-labels/codex-pr-reviewer.json",
+      "upstream_ref": "trust/upstream/codex-pr-reviewer.json",
       "known_gaps": [
         "Does not itself fetch or review a pull request; Codex or another review surface performs that step."
       ]
@@ -49,6 +125,37 @@
         "local-files",
         "local-runtime"
       ],
+      "freshness_state": "current",
+      "review_due_at": "2026-12-30",
+      "current_status": {
+        "execution_evidence": "tested",
+        "recommendation": "conditional",
+        "execution_mode": "local-agent",
+        "freshness_state": "current",
+        "review_due_at": "2026-12-30",
+        "known_gaps": [
+          "No dedicated end-to-end task fixture against a live Agents SDK environment yet."
+        ]
+      },
+      "security_result": "pass",
+      "risk": {
+        "writes": "declared-plus-static-scan",
+        "sends_externally": "declared-plus-static-scan",
+        "executes": "declared-plus-static-scan",
+        "secrets": "declared-plus-static-scan",
+        "destructive_potential": "declared-plus-static-scan",
+        "human_confirmation": "unknown"
+      },
+      "permissions": {
+        "local_files": "writes scaffold files in a user-selected target",
+        "network": "none during scaffolding; generated app uses OpenAI API when later run",
+        "secrets": "does not read secrets; generated app expects OPENAI_API_KEY",
+        "process_execution": "none in the scaffolder",
+        "destructive_actions": "--force can overwrite generated files in the selected target"
+      },
+      "trust_passport_ref": "trust/passports/openai-agents-sdk-builder.json",
+      "risk_label_ref": "trust/risk-labels/openai-agents-sdk-builder.json",
+      "upstream_ref": "trust/upstream/openai-agents-sdk-builder.json",
       "known_gaps": [
         "No dedicated end-to-end task fixture against a live Agents SDK environment yet."
       ]
@@ -64,6 +171,37 @@
         "local-files",
         "local-runtime"
       ],
+      "freshness_state": "current",
+      "review_due_at": "2026-12-30",
+      "current_status": {
+        "execution_evidence": "tested",
+        "recommendation": "conditional",
+        "execution_mode": "local-agent",
+        "freshness_state": "current",
+        "review_due_at": "2026-12-30",
+        "known_gaps": [
+          "No dedicated end-to-end WebRTC/WebSocket fixture against a live Realtime session yet."
+        ]
+      },
+      "security_result": "pass",
+      "risk": {
+        "writes": "declared-plus-static-scan",
+        "sends_externally": "declared-plus-static-scan",
+        "executes": "declared-plus-static-scan",
+        "secrets": "declared-plus-static-scan",
+        "destructive_potential": "declared-plus-static-scan",
+        "human_confirmation": "unknown"
+      },
+      "permissions": {
+        "local_files": "writes server.mjs, package.json, .env.example and transport-plan.json",
+        "network": "none during scaffolding; generated server uses OpenAI Realtime when later run",
+        "secrets": "does not read secrets; generated server expects OPENAI_API_KEY",
+        "process_execution": "none in the scaffolder",
+        "destructive_actions": "writes named files in the selected target"
+      },
+      "trust_passport_ref": "trust/passports/realtime-api-integration.json",
+      "risk_label_ref": "trust/risk-labels/realtime-api-integration.json",
+      "upstream_ref": "trust/upstream/realtime-api-integration.json",
       "known_gaps": [
         "No dedicated end-to-end WebRTC/WebSocket fixture against a live Realtime session yet."
       ]
@@ -76,6 +214,37 @@
       "execution_mode": "chat-native",
       "execution_evidence": "designed",
       "required_capabilities": [],
+      "freshness_state": "current",
+      "review_due_at": "2026-12-30",
+      "current_status": {
+        "execution_evidence": "designed",
+        "recommendation": "conditional",
+        "execution_mode": "chat-native",
+        "freshness_state": "current",
+        "review_due_at": "2026-12-30",
+        "known_gaps": [
+          "No dedicated outcome fixture measuring task-level effectiveness yet."
+        ]
+      },
+      "security_result": "pass",
+      "risk": {
+        "writes": "declared-plus-static-scan",
+        "sends_externally": "declared-plus-static-scan",
+        "executes": "declared-plus-static-scan",
+        "secrets": "declared-plus-static-scan",
+        "destructive_potential": "declared-plus-static-scan",
+        "human_confirmation": "unknown"
+      },
+      "permissions": {
+        "local_files": "none required by the packaged instruction skill",
+        "network": "none required",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
+      "trust_passport_ref": "trust/passports/regenerative-adaptive-experiment.json",
+      "risk_label_ref": "trust/risk-labels/regenerative-adaptive-experiment.json",
+      "upstream_ref": "trust/upstream/regenerative-adaptive-experiment.json",
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]
@@ -88,6 +257,37 @@
       "execution_mode": "chat-native",
       "execution_evidence": "designed",
       "required_capabilities": [],
+      "freshness_state": "current",
+      "review_due_at": "2026-12-30",
+      "current_status": {
+        "execution_evidence": "designed",
+        "recommendation": "conditional",
+        "execution_mode": "chat-native",
+        "freshness_state": "current",
+        "review_due_at": "2026-12-30",
+        "known_gaps": [
+          "No dedicated outcome fixture measuring task-level effectiveness yet."
+        ]
+      },
+      "security_result": "pass",
+      "risk": {
+        "writes": "declared-plus-static-scan",
+        "sends_externally": "declared-plus-static-scan",
+        "executes": "declared-plus-static-scan",
+        "secrets": "declared-plus-static-scan",
+        "destructive_potential": "declared-plus-static-scan",
+        "human_confirmation": "unknown"
+      },
+      "permissions": {
+        "local_files": "none required by the packaged instruction skill",
+        "network": "none required",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
+      "trust_passport_ref": "trust/passports/regenerative-capability-exchange.json",
+      "risk_label_ref": "trust/risk-labels/regenerative-capability-exchange.json",
+      "upstream_ref": "trust/upstream/regenerative-capability-exchange.json",
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]
@@ -100,6 +300,37 @@
       "execution_mode": "chat-native",
       "execution_evidence": "designed",
       "required_capabilities": [],
+      "freshness_state": "current",
+      "review_due_at": "2026-12-30",
+      "current_status": {
+        "execution_evidence": "designed",
+        "recommendation": "conditional",
+        "execution_mode": "chat-native",
+        "freshness_state": "current",
+        "review_due_at": "2026-12-30",
+        "known_gaps": [
+          "No dedicated outcome fixture measuring task-level effectiveness yet."
+        ]
+      },
+      "security_result": "pass",
+      "risk": {
+        "writes": "declared-plus-static-scan",
+        "sends_externally": "declared-plus-static-scan",
+        "executes": "declared-plus-static-scan",
+        "secrets": "declared-plus-static-scan",
+        "destructive_potential": "declared-plus-static-scan",
+        "human_confirmation": "unknown"
+      },
+      "permissions": {
+        "local_files": "none required by the packaged instruction skill",
+        "network": "none required",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
+      "trust_passport_ref": "trust/passports/regenerative-impact-map.json",
+      "risk_label_ref": "trust/risk-labels/regenerative-impact-map.json",
+      "upstream_ref": "trust/upstream/regenerative-impact-map.json",
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]
@@ -112,6 +343,37 @@
       "execution_mode": "chat-native",
       "execution_evidence": "designed",
       "required_capabilities": [],
+      "freshness_state": "current",
+      "review_due_at": "2026-12-30",
+      "current_status": {
+        "execution_evidence": "designed",
+        "recommendation": "conditional",
+        "execution_mode": "chat-native",
+        "freshness_state": "current",
+        "review_due_at": "2026-12-30",
+        "known_gaps": [
+          "No dedicated outcome fixture measuring task-level effectiveness yet."
+        ]
+      },
+      "security_result": "pass",
+      "risk": {
+        "writes": "declared-plus-static-scan",
+        "sends_externally": "declared-plus-static-scan",
+        "executes": "declared-plus-static-scan",
+        "secrets": "declared-plus-static-scan",
+        "destructive_potential": "declared-plus-static-scan",
+        "human_confirmation": "unknown"
+      },
+      "permissions": {
+        "local_files": "none required by the packaged instruction skill",
+        "network": "none required",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
+      "trust_passport_ref": "trust/passports/regenerative-knowledge-commons.json",
+      "risk_label_ref": "trust/risk-labels/regenerative-knowledge-commons.json",
+      "upstream_ref": "trust/upstream/regenerative-knowledge-commons.json",
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]
@@ -124,6 +386,37 @@
       "execution_mode": "chat-native",
       "execution_evidence": "designed",
       "required_capabilities": [],
+      "freshness_state": "current",
+      "review_due_at": "2026-12-30",
+      "current_status": {
+        "execution_evidence": "designed",
+        "recommendation": "conditional",
+        "execution_mode": "chat-native",
+        "freshness_state": "current",
+        "review_due_at": "2026-12-30",
+        "known_gaps": [
+          "No dedicated outcome fixture measuring task-level effectiveness yet."
+        ]
+      },
+      "security_result": "pass",
+      "risk": {
+        "writes": "declared-plus-static-scan",
+        "sends_externally": "declared-plus-static-scan",
+        "executes": "declared-plus-static-scan",
+        "secrets": "declared-plus-static-scan",
+        "destructive_potential": "declared-plus-static-scan",
+        "human_confirmation": "unknown"
+      },
+      "permissions": {
+        "local_files": "none required by the packaged instruction skill",
+        "network": "none required",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
+      "trust_passport_ref": "trust/passports/regenerative-language-bridge.json",
+      "risk_label_ref": "trust/risk-labels/regenerative-language-bridge.json",
+      "upstream_ref": "trust/upstream/regenerative-language-bridge.json",
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]
@@ -136,6 +429,37 @@
       "execution_mode": "chat-native",
       "execution_evidence": "designed",
       "required_capabilities": [],
+      "freshness_state": "current",
+      "review_due_at": "2026-12-30",
+      "current_status": {
+        "execution_evidence": "designed",
+        "recommendation": "conditional",
+        "execution_mode": "chat-native",
+        "freshness_state": "current",
+        "review_due_at": "2026-12-30",
+        "known_gaps": [
+          "No dedicated outcome fixture measuring task-level effectiveness yet."
+        ]
+      },
+      "security_result": "pass",
+      "risk": {
+        "writes": "declared-plus-static-scan",
+        "sends_externally": "declared-plus-static-scan",
+        "executes": "declared-plus-static-scan",
+        "secrets": "declared-plus-static-scan",
+        "destructive_potential": "declared-plus-static-scan",
+        "human_confirmation": "unknown"
+      },
+      "permissions": {
+        "local_files": "none required by the packaged instruction skill",
+        "network": "none required",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
+      "trust_passport_ref": "trust/passports/regenerative-listening-loop.json",
+      "risk_label_ref": "trust/risk-labels/regenerative-listening-loop.json",
+      "upstream_ref": "trust/upstream/regenerative-listening-loop.json",
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]
@@ -148,6 +472,37 @@
       "execution_mode": "chat-native",
       "execution_evidence": "designed",
       "required_capabilities": [],
+      "freshness_state": "current",
+      "review_due_at": "2026-12-30",
+      "current_status": {
+        "execution_evidence": "designed",
+        "recommendation": "conditional",
+        "execution_mode": "chat-native",
+        "freshness_state": "current",
+        "review_due_at": "2026-12-30",
+        "known_gaps": [
+          "No dedicated outcome fixture measuring task-level effectiveness yet."
+        ]
+      },
+      "security_result": "pass",
+      "risk": {
+        "writes": "declared-plus-static-scan",
+        "sends_externally": "declared-plus-static-scan",
+        "executes": "declared-plus-static-scan",
+        "secrets": "declared-plus-static-scan",
+        "destructive_potential": "declared-plus-static-scan",
+        "human_confirmation": "unknown"
+      },
+      "permissions": {
+        "local_files": "none required by the packaged instruction skill",
+        "network": "none required",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
+      "trust_passport_ref": "trust/passports/regenerative-participatory-decision.json",
+      "risk_label_ref": "trust/risk-labels/regenerative-participatory-decision.json",
+      "upstream_ref": "trust/upstream/regenerative-participatory-decision.json",
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]
@@ -160,6 +515,37 @@
       "execution_mode": "chat-native",
       "execution_evidence": "designed",
       "required_capabilities": [],
+      "freshness_state": "current",
+      "review_due_at": "2026-12-30",
+      "current_status": {
+        "execution_evidence": "designed",
+        "recommendation": "conditional",
+        "execution_mode": "chat-native",
+        "freshness_state": "current",
+        "review_due_at": "2026-12-30",
+        "known_gaps": [
+          "No dedicated outcome fixture measuring task-level effectiveness yet."
+        ]
+      },
+      "security_result": "pass",
+      "risk": {
+        "writes": "declared-plus-static-scan",
+        "sends_externally": "declared-plus-static-scan",
+        "executes": "declared-plus-static-scan",
+        "secrets": "declared-plus-static-scan",
+        "destructive_potential": "declared-plus-static-scan",
+        "human_confirmation": "unknown"
+      },
+      "permissions": {
+        "local_files": "none required by the packaged instruction skill",
+        "network": "none required",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
+      "trust_passport_ref": "trust/passports/regenerative-resilience-plan.json",
+      "risk_label_ref": "trust/risk-labels/regenerative-resilience-plan.json",
+      "upstream_ref": "trust/upstream/regenerative-resilience-plan.json",
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]

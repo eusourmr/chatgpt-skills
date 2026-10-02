@@ -1,0 +1,47 @@
+name: Generate v0.7 Navigator Snapshot
+
+on:
+  push:
+    branches:
+      - v0.7.0/verifiable-trust-i
+    paths:
+      - 'scripts/generate-navigator-snapshot.mjs'
+      - 'skills/featured/cs-navigator/SKILL.md'
+      - 'plugins/cs-navigator/skills/cs-navigator/SKILL.md'
+      - 'trust/passports/**'
+      - 'trust/security-reports/**'
+      - 'trust/risk-labels/**'
+      - 'trust/upstream/**'
+      - 'trust/skills.json'
+      - 'trust/execution.json'
+      - 'sources/external/**'
+      - '.github/workflows/generate-navigator-v070.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: v0.7.0/verifiable-trust-i
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Generate trust-aware snapshot
+        run: node scripts/generate-navigator-snapshot.mjs
+      - name: Commit snapshot when changed
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- skills/featured/cs-navigator/references/catalog-snapshot.json plugins/cs-navigator/skills/cs-navigator/references/catalog-snapshot.json; then
+            echo 'Snapshot already current.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add skills/featured/cs-navigator/references/catalog-snapshot.json plugins/cs-navigator/skills/cs-navigator/references/catalog-snapshot.json
+          git commit -m 'Generate trust-aware Navigator snapshot'
+          git push origin HEAD:v0.7.0/verifiable-trust-i

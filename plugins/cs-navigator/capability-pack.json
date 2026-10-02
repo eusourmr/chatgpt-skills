@@ -1,13 +1,14 @@
 {
   "schema_version": 1,
-  "pack_version": "0.6.0",
+  "pack_version": "0.7.0",
   "router": "cs-navigator",
-  "policy": "Install once, route narrowly. Bundled capability availability does not imply automatic activation or stronger evidence.",
+  "policy": "Install once, route narrowly, and use current evidence. Bundled availability does not imply activation, safety, freshness, or stronger task-effectiveness evidence.",
   "activation_contract": [
     "CS Navigator activates on capability-selection intent, not task subject matter alone.",
     "Bundled skills must not self-activate from subject matter alone; explicit skill invocation or capability-selection intent is required.",
     "Bundled skills remain independently evidenced and versioned.",
     "A matching bundled skill is not necessary when ChatGPT can handle the direct task natively.",
+    "Freshness, permissions, security findings, execution evidence, and known gaps must remain separate.",
     "Do not assume skill-to-skill handoff; recommend the capability and keep the next action explicit when needed."
   ],
   "included_skills": [

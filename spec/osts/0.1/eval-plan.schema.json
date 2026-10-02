@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/eusourmr/chatgpt-skills/spec/osts/0.1/eval-plan.schema.json",
+  "title": "OSTS 0.1 Behavior Eval Plan",
+  "type": "object",
+  "required": ["schema_version","id","skill_id","surface","execution_mode","required_distribution","required_source_revision","required_artifact_sha256","minimum_cases","cases"],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "id": {"type":"string","minLength":1},
+    "skill_id": {"type":"string","pattern":"^[a-z0-9][a-z0-9-]*$"},
+    "surface": {"type":"string","minLength":1},
+    "execution_mode": {"enum":["chat-native","native-tools","connected","local-agent"]},
+    "required_distribution": {"enum":["npm","github-pinned","local"]},
+    "required_source_revision": {"type":"string","pattern":"^[a-f0-9]{40}$"},
+    "required_artifact_sha256": {"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "minimum_cases": {"type":"integer","minimum":1},
+    "evaluation_policy": {"type":["string","null"]},
+    "cases": {"type":"array","minItems":1,"items":{"type":"object","required":["id","prompt","expected_skill_ids"],"properties":{"id":{"type":"string","minLength":1},"prompt":{"type":"string","minLength":1},"expected_skill_ids":{"type":"array","items":{"type":"string"}}},"additionalProperties":true}}
+  },
+  "additionalProperties": true
+}

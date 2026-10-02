@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "gate_version": "v2",
+  "skill_id": "realtime-api-integration",
+  "scanned_at": "2026-10-01",
+  "source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
+  "artifact_sha256": "ce593c123c9bede73f35f98dbe9e4ebbbc7a7de66ae31457dd3bdbc996031610",
+  "result": "pass",
+  "summary": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 3,
+    "blocking": 0
+  },
+  "observed_capabilities": {
+    "network_operations": false,
+    "process_execution": false,
+    "filesystem_writes": true,
+    "secret_references": true,
+    "destructive_operations": false,
+    "lifecycle_hooks": false,
+    "encoded_or_obfuscated_content": false
+  },
+  "findings": [
+    {
+      "rule_id": "filesystem-write-reference",
+      "family": "filesystem-write",
+      "severity": "info",
+      "blocking": false,
+      "path": "scripts/scaffold_realtime.py",
+      "line": 21,
+      "evidence_sha256": "31a8a89c8bb77487b9fed52faf2916fbff03532b7f85a6929cf7e5070a5422f1",
+      "message": "Filesystem write reference observed.",
+      "disposition": "review"
+    },
+    {
+      "rule_id": "secret-reference",
+      "family": "secrets",
+      "severity": "info",
+      "blocking": false,
+      "path": "scripts/scaffold_realtime.py",
+      "line": 8,
+      "evidence_sha256": "1bd0074c9fd82ff86b8a0f167c771b4d5a563c22cb6f364cb2980ef7608f4754",
+      "message": "Secret or credential terminology observed.",
+      "disposition": "review"
+    },
+    {
+      "rule_id": "secret-reference",
+      "family": "secrets",
+      "severity": "info",
+      "blocking": false,
+      "path": "SKILL.md",
+      "line": 3,
+      "evidence_sha256": "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b",
+      "message": "Secret or credential terminology observed.",
+      "disposition": "review"
+    }
+  ],
+  "policy": "Automated findings are evidence for review, not a permanent safety guarantee. Blocking rules stop admission; informational signals remain visible."
+}

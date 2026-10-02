@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "skill_id": "regenerative-listening-loop",
+  "reviewed_source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
+  "reviewed_artifact_sha256": "238882d2f228cf5c085cfba9ae504540b783f48d27e855e70f9daaab7141c388",
+  "current_artifact_sha256": "238882d2f228cf5c085cfba9ae504540b783f48d27e855e70f9daaab7141c388",
+  "review_due_at": "2026-12-30",
+  "state": "current",
+  "action": "none",
+  "policy": "A reviewed artifact cannot inherit trust after byte drift or evidence expiry without re-review."
+}

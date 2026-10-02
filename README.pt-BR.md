@@ -11,6 +11,26 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 > Projeto comunitário independente. Não possui afiliação nem endosso da OpenAI. ChatGPT e Codex são marcas da OpenAI.
 
+## 🛡️ Próxima camada: Skill Containers — 0.7.5
+
+A **CS 0.7.5 — Verifiable Trust II & Containers** introduz os **Skill Containers**, uma camada adicional de contenção para skills e fluxos com agentes.
+
+O risco não está apenas em código malicioso. Um agente também pode falhar ao tentar concluir uma tarefa “a qualquer custo”: preencher um dado que não existe, inventar uma fonte ou resultado de ferramenta, continuar procurando depois que o caminho autorizado acabou, tentar ampliar permissões ou buscar dados privados/externos porque ainda falta uma resposta.
+
+O princípio central será:
+
+> **Sem evidência → não inventar. Sem permissão → não ampliar acesso. Sem caminho autorizado → parar.**
+
+O Skill Container define o limite do que uma skill pode **saber, afirmar, ler, gravar, enviar, executar, tentar novamente, combinar e persistir**. O **Container Guardian** avaliará cada próximo passo como `permitir`, `permitir-com-confirmação`, `degradar` ou `parar`.
+
+Isso transforma a falha segura em um comportamento correto. Uma skill confiável precisa poder dizer “não sei”, pedir a informação que falta, entregar somente a parte comprovada ou interromper a execução — em vez de fabricar uma conclusão.
+
+Os Skill Containers também impedem que uma skill filha amplie silenciosamente os privilégios do fluxo principal e que o esgotamento de tentativas/retries seja usado como justificativa para buscar um caminho mais invasivo.
+
+**Importante:** Skill Containers são defesa em profundidade. Eles não substituem sandbox real, autenticação, autorização, isolamento de arquivos/rede nem as proteções da plataforma, e não prometem eliminar toda alucinação.
+
+Leia: [Skill Containers](docs/SKILL_CONTAINERS.md) · [Plano 0.7.5](docs/V075_VERIFIABLE_TRUST_II_CONTAINERS.md)
+
 ## 🚀 Comece em 1 minuto
 
 O CS Navigator `0.6.0` **Capability Pack I** está mesclado ao `main` e qualificado nativamente no ChatGPT. Uma única instalação disponibiliza o Navigator e quatro capacidades chat-native: Regenerative Language Bridge, Regenerative Impact Map, Regenerative Resilience Plan e Regenerative Adaptive Experiment. Tarefas diretas continuam nativas, salvo quando o usuário escolhe ou invoca explicitamente uma capacidade.

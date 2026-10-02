@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "skill_id": "regenerative-adaptive-experiment",
+  "reviewed_source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
+  "reviewed_artifact_sha256": "4e698fc8c755144202f41d3ec59353370f8cf52dabca4006c2c81b61d434980f",
+  "current_artifact_sha256": "4e698fc8c755144202f41d3ec59353370f8cf52dabca4006c2c81b61d434980f",
+  "review_due_at": "2026-12-30",
+  "state": "current",
+  "action": "none",
+  "policy": "A reviewed artifact cannot inherit trust after byte drift or evidence expiry without re-review."
+}

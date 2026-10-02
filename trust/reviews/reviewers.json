@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "policy": "Reviewer identities must be real and attributable. Automation may assist review but must not impersonate a human reviewer.",
+  "reviewers": [
+    {
+      "github": "eusourmr",
+      "name": "Ricardo Rocha",
+      "roles": [
+        "maintainer",
+        "author",
+        "reviewer"
+      ],
+      "regions": [
+        "Brazil",
+        "Latin America"
+      ],
+      "languages": [
+        "pt-BR"
+      ],
+      "conflict_policy": "Self-review must be disclosed; independent review remains false until another qualified reviewer participates."
+    }
+  ]
+}

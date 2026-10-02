@@ -1,0 +1,887 @@
+{
+  "schema_version": "0.1",
+  "plans": [
+    {
+      "schema_version": "0.1",
+      "id": "cs-navigator-chatgpt-v1",
+      "skill_id": "cs-navigator",
+      "surface": "chatgpt-skills",
+      "execution_mode": "chat-native",
+      "required_distribution": "github-pinned",
+      "required_source_revision": "8b814c93980175fa61da141d659cfa28a8e6bd92",
+      "required_artifact_sha256": "1851dcc33a462f0a7503d42f2a5b0d5a4a27a8fe2e3977872da4d3c876e07f68",
+      "minimum_cases": 6,
+      "cases": [
+        {
+          "id": "plain-language-technical-bridge",
+          "prompt": "Preciso explicar uma política técnica de retry de API para gestores não técnicos sem perder as ressalvas.",
+          "expected_skill_ids": [
+            "regenerative-language-bridge"
+          ],
+          "expected_execution_mode": "chat-native",
+          "must_not_claim_tested": true
+        },
+        {
+          "id": "agents-sdk-starter",
+          "prompt": "Quero criar um starter mínimo usando OpenAI Agents SDK.",
+          "expected_skill_ids": [
+            "openai-agents-sdk-builder"
+          ],
+          "expected_execution_mode": "local-agent",
+          "must_disclose_setup": true
+        },
+        {
+          "id": "systemic-decision-impact",
+          "prompt": "Quero avaliar os efeitos de uma decisão importante em pessoas, conhecimento, recursos e impactos indiretos.",
+          "expected_skill_ids": [
+            "regenerative-impact-map"
+          ],
+          "expected_execution_mode": "chat-native"
+        },
+        {
+          "id": "coverage-gap",
+          "prompt": "Preciso reconciliar e declarar impostos de criptomoedas em cinco exchanges.",
+          "expected_skill_ids": [],
+          "expected_outcome": "coverage-gap"
+        },
+        {
+          "id": "external-source-boundary",
+          "prompt": "Vi a skill data-storyteller no repositório dkyazzentwatwa/chatgpt-skills. O CS recomenda essa skill como confiável?",
+          "expected_skill_ids": [],
+          "expected_outcome": "external-discovery-only",
+          "must_include_trust_state": "not-evaluated"
+        },
+        {
+          "id": "no-skill-needed",
+          "prompt": "Quanto é 17 vezes 4?",
+          "expected_skill_ids": [],
+          "expected_outcome": "no-additional-skill"
+        }
+      ]
+    },
+    {
+      "schema_version": "0.1",
+      "id": "cs-navigator-chatgpt-v2",
+      "skill_id": "cs-navigator",
+      "surface": "chatgpt-skills",
+      "execution_mode": "chat-native",
+      "required_distribution": "github-pinned",
+      "required_source_revision": "bd1f0de36e9b717d1d04d2469264d067696b66f5",
+      "required_artifact_sha256": "76d569125848ff4bb628ee9168a4887c0e8aee95ef861b4cd568c64190cc4d50",
+      "minimum_cases": 6,
+      "supersedes": "cs-navigator-chatgpt-v1",
+      "change_note": "Makes the no-skill-needed outcome explicit while preserving the remaining Navigator behavior.",
+      "cases": [
+        {
+          "id": "plain-language-technical-bridge",
+          "prompt": "Preciso explicar uma política técnica de retry de API para gestores não técnicos sem perder as ressalvas.",
+          "expected_skill_ids": [
+            "regenerative-language-bridge"
+          ],
+          "expected_execution_mode": "chat-native",
+          "must_not_claim_tested": true
+        },
+        {
+          "id": "agents-sdk-starter",
+          "prompt": "Quero criar um starter mínimo usando OpenAI Agents SDK.",
+          "expected_skill_ids": [
+            "openai-agents-sdk-builder"
+          ],
+          "expected_execution_mode": "local-agent",
+          "must_disclose_setup": true
+        },
+        {
+          "id": "systemic-decision-impact",
+          "prompt": "Quero avaliar os efeitos de uma decisão importante em pessoas, conhecimento, recursos e impactos indiretos.",
+          "expected_skill_ids": [
+            "regenerative-impact-map"
+          ],
+          "expected_execution_mode": "chat-native"
+        },
+        {
+          "id": "coverage-gap",
+          "prompt": "Preciso reconciliar e declarar impostos de criptomoedas em cinco exchanges.",
+          "expected_skill_ids": [],
+          "expected_outcome": "coverage-gap"
+        },
+        {
+          "id": "external-source-boundary",
+          "prompt": "Vi a skill data-storyteller no repositório dkyazzentwatwa/chatgpt-skills. O CS recomenda essa skill como confiável?",
+          "expected_skill_ids": [],
+          "expected_outcome": "external-discovery-only",
+          "must_include_trust_state": "not-evaluated"
+        },
+        {
+          "id": "no-skill-needed",
+          "prompt": "Quanto é 17 vezes 4?",
+          "expected_skill_ids": [],
+          "expected_outcome": "no-additional-skill"
+        }
+      ]
+    },
+    {
+      "schema_version": "0.1",
+      "id": "cs-navigator-chatgpt-v3",
+      "skill_id": "cs-navigator",
+      "surface": "chatgpt-skills",
+      "execution_mode": "chat-native",
+      "required_distribution": "github-pinned",
+      "required_source_revision": "bd1f0de36e9b717d1d04d2469264d067696b66f5",
+      "required_artifact_sha256": "76d569125848ff4bb628ee9168a4887c0e8aee95ef861b4cd568c64190cc4d50",
+      "minimum_cases": 6,
+      "supersedes": "cs-navigator-chatgpt-v2",
+      "change_note": "Clarifies the no-skill-needed acceptance criterion as semantic: solve the task correctly and recommend no additional skill. An explicit marker sentence is optional because forcing it adds user-visible noise without increasing capability or trust.",
+      "cases": [
+        {
+          "id": "plain-language-technical-bridge",
+          "prompt": "Preciso explicar uma política técnica de retry de API para gestores não técnicos sem perder as ressalvas.",
+          "expected_skill_ids": [
+            "regenerative-language-bridge"
+          ],
+          "expected_execution_mode": "chat-native",
+          "must_not_claim_tested": true
+        },
+        {
+          "id": "agents-sdk-starter",
+          "prompt": "Quero criar um starter mínimo usando OpenAI Agents SDK.",
+          "expected_skill_ids": [
+            "openai-agents-sdk-builder"
+          ],
+          "expected_execution_mode": "local-agent",
+          "must_disclose_setup": true
+        },
+        {
+          "id": "systemic-decision-impact",
+          "prompt": "Quero avaliar os efeitos de uma decisão importante em pessoas, conhecimento, recursos e impactos indiretos.",
+          "expected_skill_ids": [
+            "regenerative-impact-map"
+          ],
+          "expected_execution_mode": "chat-native"
+        },
+        {
+          "id": "coverage-gap",
+          "prompt": "Preciso reconciliar e declarar impostos de criptomoedas em cinco exchanges.",
+          "expected_skill_ids": [],
+          "expected_outcome": "coverage-gap"
+        },
+        {
+          "id": "external-source-boundary",
+          "prompt": "Vi a skill data-storyteller no repositório dkyazzentwatwa/chatgpt-skills. O CS recomenda essa skill como confiável?",
+          "expected_skill_ids": [],
+          "expected_outcome": "external-discovery-only",
+          "must_include_trust_state": "not-evaluated"
+        },
+        {
+          "id": "no-skill-needed",
+          "prompt": "Quanto é 17 vezes 4?",
+          "expected_skill_ids": [],
+          "expected_outcome": "no-additional-skill",
+          "expected_answer": "68",
+          "must_not_recommend_skill": true,
+          "explicit_no_skill_marker_required": false
+        }
+      ],
+      "evaluation_policy": "semantic-outcome"
+    },
+    {
+      "schema_version": "0.1",
+      "id": "cs-navigator-chatgpt-v4-intent-router",
+      "skill_id": "cs-navigator",
+      "surface": "chatgpt-skills",
+      "execution_mode": "chat-native",
+      "required_distribution": "github-pinned",
+      "required_source_revision": "43cf0e992176a95ff06ca6f1b53866fc5b6ead50",
+      "required_artifact_sha256": "aac45774c589222538253f749546d2836b4ddb0543810e109477ed0ab773ae35",
+      "minimum_cases": 12,
+      "supersedes": "cs-navigator-chatgpt-v3",
+      "change_note": "Qualifies CS Navigator 0.5.1 Intent Router I: explicit-invocation regression plus bounded implicit activation and anti-activation.",
+      "evaluation_policy": "semantic-outcome-and-activation",
+      "cases": [
+        {
+          "id": "explicit-language-bridge",
+          "invocation": "explicit",
+          "prompt": "Preciso explicar uma política técnica de retry de API para gestores não técnicos sem perder as ressalvas.",
+          "expected_skill_ids": [
+            "regenerative-language-bridge"
+          ],
+          "expected_outcome": "skill"
+        },
+        {
+          "id": "explicit-agents-sdk",
+          "invocation": "explicit",
+          "prompt": "Quero criar um starter mínimo usando OpenAI Agents SDK.",
+          "expected_skill_ids": [
+            "openai-agents-sdk-builder"
+          ],
+          "expected_outcome": "skill",
+          "must_disclose_setup": true
+        },
+        {
+          "id": "explicit-coverage-gap",
+          "invocation": "explicit",
+          "prompt": "Preciso reconciliar e declarar impostos de criptomoedas em cinco exchanges.",
+          "expected_skill_ids": [],
+          "expected_outcome": "coverage-gap"
+        },
+        {
+          "id": "explicit-external-trust",
+          "invocation": "explicit",
+          "prompt": "Vi a skill data-storyteller no repositório dkyazzentwatwa/chatgpt-skills. O CS recomenda essa skill como confiável?",
+          "expected_skill_ids": [],
+          "expected_outcome": "external-discovery",
+          "must_include_trust_state": "not-evaluated"
+        },
+        {
+          "id": "implicit-which-skill",
+          "invocation": "implicit",
+          "prompt": "Qual skill devo usar para avaliar os efeitos sistêmicos de uma decisão importante?",
+          "expected_skill_ids": [
+            "regenerative-impact-map"
+          ],
+          "expected_outcome": "skill",
+          "expected_activation": true
+        },
+        {
+          "id": "implicit-need-skill",
+          "invocation": "implicit",
+          "prompt": "Preciso de uma skill para calcular 17 vezes 4 ou o ChatGPT resolve isso sozinho?",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": true,
+          "expected_answer": "68"
+        },
+        {
+          "id": "implicit-external-trust",
+          "invocation": "implicit",
+          "prompt": "A skill externa data-storyteller tem evidência suficiente para eu confiar nela?",
+          "expected_skill_ids": [],
+          "expected_outcome": "external-discovery",
+          "expected_activation": true,
+          "must_include_trust_state": "not-evaluated"
+        },
+        {
+          "id": "implicit-coverage-question",
+          "invocation": "implicit",
+          "prompt": "O CS tem alguma skill confiável para reconciliar impostos de criptomoedas em cinco exchanges?",
+          "expected_skill_ids": [],
+          "expected_outcome": "coverage-gap",
+          "expected_activation": true
+        },
+        {
+          "id": "negative-simple-math",
+          "invocation": "implicit",
+          "prompt": "Quanto é 17 vezes 4?",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false,
+          "expected_answer": "68"
+        },
+        {
+          "id": "negative-simple-translation",
+          "invocation": "implicit",
+          "prompt": "Traduza 'good morning' para português.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false
+        },
+        {
+          "id": "negative-ordinary-writing",
+          "invocation": "implicit",
+          "prompt": "Escreva uma mensagem curta de aniversário para um amigo.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false
+        },
+        {
+          "id": "negative-direct-explanation",
+          "invocation": "implicit",
+          "prompt": "Explique retry de API para um gestor não técnico.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false
+        }
+      ]
+    },
+    {
+      "schema_version": "0.1",
+      "id": "cs-navigator-chatgpt-v5-intent-router-r2",
+      "skill_id": "cs-navigator",
+      "surface": "chatgpt-skills",
+      "execution_mode": "chat-native",
+      "required_distribution": "github-pinned",
+      "required_source_revision": "eb3f04dea4e62d16f17ab1f0f25257d02792743f",
+      "required_artifact_sha256": "241f0e4100b44f52de96c238fe28e18133da003f6c301b6f1cbd4bea87191a64",
+      "minimum_cases": 12,
+      "supersedes": "cs-navigator-chatgpt-v4-intent-router",
+      "change_note": "Re-qualifies Intent Router I after the native external-trust failure hardened the trust boundary. Uses the exact r2 artifact and the actual implicit/anti-activation prompts exercised in ChatGPT.",
+      "evaluation_policy": "semantic-outcome-and-activation",
+      "cases": [
+        {
+          "id": "explicit-language-bridge",
+          "invocation": "explicit",
+          "prompt": "Preciso explicar uma política técnica de retry de API para gestores não técnicos sem perder as ressalvas.",
+          "expected_skill_ids": [
+            "regenerative-language-bridge"
+          ],
+          "expected_outcome": "skill",
+          "must_not_claim_tested": true
+        },
+        {
+          "id": "explicit-agents-sdk",
+          "invocation": "explicit",
+          "prompt": "Quero criar um starter mínimo usando OpenAI Agents SDK.",
+          "expected_skill_ids": [
+            "openai-agents-sdk-builder"
+          ],
+          "expected_outcome": "skill",
+          "must_disclose_setup": true
+        },
+        {
+          "id": "explicit-coverage-gap",
+          "invocation": "explicit",
+          "prompt": "O CS tem uma skill confiável para conciliar lotes fiscais de criptomoedas em cinco exchanges?",
+          "expected_skill_ids": [],
+          "expected_outcome": "coverage-gap"
+        },
+        {
+          "id": "explicit-external-trust",
+          "invocation": "explicit",
+          "prompt": "Vi uma skill chamada data-storyteller em um repositório externo. Ela é confiável o suficiente para eu usar?",
+          "expected_skill_ids": [],
+          "expected_outcome": "external-discovery",
+          "must_include_trust_state": "not-evaluated",
+          "must_not_assign_trust_score": true
+        },
+        {
+          "id": "implicit-which-skill",
+          "invocation": "implicit",
+          "prompt": "Qual skill devo usar para avaliar os efeitos sistêmicos de uma decisão importante?",
+          "expected_skill_ids": [
+            "regenerative-impact-map"
+          ],
+          "expected_outcome": "skill",
+          "expected_activation": true
+        },
+        {
+          "id": "implicit-need-skill",
+          "invocation": "implicit",
+          "prompt": "Preciso saber se esta tarefa realmente precisa de uma skill ou se o próprio ChatGPT já resolve sozinho: resumir um PDF que vou enviar.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": true
+        },
+        {
+          "id": "implicit-external-trust",
+          "invocation": "implicit",
+          "prompt": "Vi uma skill chamada data-storyteller em um repositório externo. Ela é confiável o suficiente para eu usar?",
+          "expected_skill_ids": [],
+          "expected_outcome": "external-discovery",
+          "expected_activation": true,
+          "must_include_trust_state": "not-evaluated",
+          "must_not_assign_trust_score": true
+        },
+        {
+          "id": "implicit-coverage-question",
+          "invocation": "implicit",
+          "prompt": "O CS tem uma skill confiável para conciliar lotes fiscais de criptomoedas em cinco exchanges?",
+          "expected_skill_ids": [],
+          "expected_outcome": "coverage-gap",
+          "expected_activation": true
+        },
+        {
+          "id": "negative-simple-math",
+          "invocation": "implicit",
+          "prompt": "Quanto é 17 × 4?",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false,
+          "expected_answer": "68"
+        },
+        {
+          "id": "negative-simple-translation",
+          "invocation": "implicit",
+          "prompt": "Traduza “good morning” para português.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false
+        },
+        {
+          "id": "negative-ordinary-writing",
+          "invocation": "implicit",
+          "prompt": "Escreva uma mensagem curta de aniversário para um amigo.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false
+        },
+        {
+          "id": "negative-direct-explanation",
+          "invocation": "implicit",
+          "prompt": "Explique de forma simples o que é uma API.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false
+        }
+      ]
+    },
+    {
+      "schema_version": "0.1",
+      "id": "cs-navigator-chatgpt-v6-intent-router-r3",
+      "skill_id": "cs-navigator",
+      "surface": "chatgpt-skills",
+      "execution_mode": "chat-native",
+      "required_distribution": "github-pinned",
+      "required_source_revision": "f085f0dd111062e5a2a3189c5efbc66642c0ba51",
+      "required_artifact_sha256": "7248edaeaee214c3ee405bd6af2fb49855b3af322a5e3005c69b4fba2611cddc",
+      "minimum_cases": 12,
+      "supersedes": "cs-navigator-chatgpt-v5-intent-router-r2",
+      "change_note": "Re-qualifies Intent Router I after explicit invocation failed to route and the skill added explicit invocation precedence. Uses the exact r3 artifact.",
+      "evaluation_policy": "semantic-outcome-and-activation",
+      "cases": [
+        {
+          "id": "explicit-language-bridge",
+          "invocation": "explicit",
+          "prompt": "Preciso explicar uma política técnica de retry de API para gestores não técnicos sem perder as ressalvas.",
+          "expected_skill_ids": [
+            "regenerative-language-bridge"
+          ],
+          "expected_outcome": "skill",
+          "must_not_claim_tested": true
+        },
+        {
+          "id": "explicit-agents-sdk",
+          "invocation": "explicit",
+          "prompt": "Quero criar um starter mínimo usando OpenAI Agents SDK.",
+          "expected_skill_ids": [
+            "openai-agents-sdk-builder"
+          ],
+          "expected_outcome": "skill",
+          "must_disclose_setup": true
+        },
+        {
+          "id": "explicit-coverage-gap",
+          "invocation": "explicit",
+          "prompt": "O CS tem uma skill confiável para conciliar lotes fiscais de criptomoedas em cinco exchanges?",
+          "expected_skill_ids": [],
+          "expected_outcome": "coverage-gap"
+        },
+        {
+          "id": "explicit-external-trust",
+          "invocation": "explicit",
+          "prompt": "Vi uma skill chamada data-storyteller em um repositório externo. Ela é confiável o suficiente para eu usar?",
+          "expected_skill_ids": [],
+          "expected_outcome": "external-discovery",
+          "must_include_trust_state": "not-evaluated",
+          "must_not_assign_trust_score": true
+        },
+        {
+          "id": "implicit-which-skill",
+          "invocation": "implicit",
+          "prompt": "Qual skill devo usar para avaliar os efeitos sistêmicos de uma decisão importante?",
+          "expected_skill_ids": [
+            "regenerative-impact-map"
+          ],
+          "expected_outcome": "skill",
+          "expected_activation": true
+        },
+        {
+          "id": "implicit-need-skill",
+          "invocation": "implicit",
+          "prompt": "Preciso saber se esta tarefa realmente precisa de uma skill ou se o próprio ChatGPT já resolve sozinho: resumir um PDF que vou enviar.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": true
+        },
+        {
+          "id": "implicit-external-trust",
+          "invocation": "implicit",
+          "prompt": "Vi uma skill chamada data-storyteller em um repositório externo. Ela é confiável o suficiente para eu usar?",
+          "expected_skill_ids": [],
+          "expected_outcome": "external-discovery",
+          "expected_activation": true,
+          "must_include_trust_state": "not-evaluated",
+          "must_not_assign_trust_score": true
+        },
+        {
+          "id": "implicit-coverage-question",
+          "invocation": "implicit",
+          "prompt": "O CS tem uma skill confiável para conciliar lotes fiscais de criptomoedas em cinco exchanges?",
+          "expected_skill_ids": [],
+          "expected_outcome": "coverage-gap",
+          "expected_activation": true
+        },
+        {
+          "id": "negative-simple-math",
+          "invocation": "implicit",
+          "prompt": "Quanto é 17 × 4?",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false,
+          "expected_answer": "68"
+        },
+        {
+          "id": "negative-simple-translation",
+          "invocation": "implicit",
+          "prompt": "Traduza “good morning” para português.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false
+        },
+        {
+          "id": "negative-ordinary-writing",
+          "invocation": "implicit",
+          "prompt": "Escreva uma mensagem curta de aniversário para um amigo.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false
+        },
+        {
+          "id": "negative-direct-explanation",
+          "invocation": "implicit",
+          "prompt": "Explique de forma simples o que é uma API.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false
+        }
+      ]
+    },
+    {
+      "schema_version": "0.1",
+      "id": "cs-navigator-chatgpt-v7-explicit-routing-intent",
+      "skill_id": "cs-navigator",
+      "surface": "chatgpt-skills",
+      "execution_mode": "chat-native",
+      "required_distribution": "github-pinned",
+      "required_source_revision": "5b5550caaa44f4b2e844d2541dfd03145b7dea7f",
+      "required_artifact_sha256": "241f0e4100b44f52de96c238fe28e18133da003f6c301b6f1cbd4bea87191a64",
+      "minimum_cases": 4,
+      "change_note": "Supplemental explicit-invocation qualification for Intent Router I using capability-selection intent. Direct ordinary-task execution after selecting @CS Navigator is intentionally not a route-only acceptance criterion because native ChatGPT repeatedly treated the selected skill as the workflow to perform the task.",
+      "evaluation_policy": "semantic-routing-intent",
+      "cases": [
+        {
+          "id": "explicit-select-language-bridge",
+          "invocation": "explicit",
+          "prompt": "Qual skill do CS devo usar para explicar uma política técnica de retry de API para gestores não técnicos sem perder as ressalvas?",
+          "expected_skill_ids": [
+            "regenerative-language-bridge"
+          ],
+          "expected_outcome": "skill",
+          "must_not_claim_tested": true
+        },
+        {
+          "id": "explicit-select-agents-sdk",
+          "invocation": "explicit",
+          "prompt": "Qual skill do CS devo usar para criar um starter mínimo com OpenAI Agents SDK?",
+          "expected_skill_ids": [
+            "openai-agents-sdk-builder"
+          ],
+          "expected_outcome": "skill",
+          "must_disclose_setup": true
+        },
+        {
+          "id": "explicit-external-trust",
+          "invocation": "explicit",
+          "prompt": "A skill externa data-storyteller tem evidência suficiente no CS para ser considerada confiável?",
+          "expected_skill_ids": [],
+          "expected_outcome": "external-discovery",
+          "must_include_trust_state": "not-evaluated",
+          "must_not_assign_trust_score": true
+        },
+        {
+          "id": "explicit-coverage-gap",
+          "invocation": "explicit",
+          "prompt": "O CS tem alguma skill confiável para conciliar lotes fiscais de criptomoedas em cinco exchanges?",
+          "expected_skill_ids": [],
+          "expected_outcome": "coverage-gap"
+        }
+      ]
+    },
+    {
+      "schema_version": "0.1",
+      "id": "cs-navigator-chatgpt-v8-simple-gate",
+      "skill_id": "cs-navigator",
+      "surface": "chatgpt-skills",
+      "execution_mode": "chat-native",
+      "required_distribution": "github-pinned",
+      "required_source_revision": "98bb308997e679b47f5c3da02c9edbdae4a06026",
+      "required_artifact_sha256": "5cbdce20703e7cb43dd75ea6a11718cf3f5303b7904e92e457361f13c99d0992",
+      "minimum_cases": 8,
+      "change_note": "Qualifies the 0.5.1 Simple Gate: capability-selection intent activates routing, task subject matter alone does not, and trust/coverage boundaries remain intact.",
+      "evaluation_policy": "semantic-routing-and-anti-overrouting",
+      "cases": [
+        {
+          "id": "direct-systemic-analysis",
+          "invocation": "implicit",
+          "prompt": "Nossa empresa está pensando em reduzir o atendimento presencial de cinco para três dias por semana e concentrar parte do suporte no digital. Avalie os efeitos sistêmicos dessa decisão em pessoas, conhecimento, recursos e impactos indiretos.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false,
+          "must_not_recommend_skill": true
+        },
+        {
+          "id": "select-systemic-skill",
+          "invocation": "implicit",
+          "prompt": "Para avaliar decisões como reduzir atendimento presencial e migrar parte do suporte para o digital, existe alguma skill do CS que ajude a estruturar melhor a análise sistêmica?",
+          "expected_skill_ids": [
+            "regenerative-impact-map"
+          ],
+          "expected_outcome": "skill",
+          "expected_activation": true,
+          "must_not_claim_tested": true
+        },
+        {
+          "id": "direct-agents-starter",
+          "invocation": "implicit",
+          "prompt": "Crie um starter mínimo usando OpenAI Agents SDK.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false,
+          "must_not_recommend_skill": true
+        },
+        {
+          "id": "select-agents-skill",
+          "invocation": "implicit",
+          "prompt": "Qual skill do CS devo usar para criar um starter mínimo com OpenAI Agents SDK?",
+          "expected_skill_ids": [
+            "openai-agents-sdk-builder"
+          ],
+          "expected_outcome": "skill",
+          "expected_activation": true,
+          "must_disclose_setup": true
+        },
+        {
+          "id": "need-skill-pdf-summary",
+          "invocation": "implicit",
+          "prompt": "Preciso de uma skill para resumir um PDF que vou enviar ou o próprio ChatGPT resolve sozinho?",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": true
+        },
+        {
+          "id": "external-trust-boundary",
+          "invocation": "implicit",
+          "prompt": "A skill externa data-storyteller tem evidência suficiente no CS para ser considerada confiável?",
+          "expected_skill_ids": [],
+          "expected_outcome": "external-discovery",
+          "expected_activation": true,
+          "must_include_trust_state": "not-evaluated",
+          "must_not_assign_trust_score": true
+        },
+        {
+          "id": "coverage-gap-crypto-tax",
+          "invocation": "implicit",
+          "prompt": "O CS tem alguma skill confiável para conciliar lotes fiscais de criptomoedas em cinco exchanges?",
+          "expected_skill_ids": [],
+          "expected_outcome": "coverage-gap",
+          "expected_activation": true
+        },
+        {
+          "id": "negative-simple-math",
+          "invocation": "implicit",
+          "prompt": "Quanto é 17 × 4?",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false,
+          "expected_answer": "68",
+          "must_not_recommend_skill": true
+        }
+      ]
+    },
+    {
+      "schema_version": "0.1",
+      "id": "regenerative-language-bridge-chatgpt-v1-r6",
+      "skill_id": "regenerative-language-bridge",
+      "surface": "chatgpt-skills",
+      "execution_mode": "chat-native",
+      "required_distribution": "local",
+      "required_source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+      "required_artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+      "source_frozen_ci_artifact_sha256": "58e587a13ed5ff3f7dfa47ef5d7da392a767a21ae0421621bbaae48cbb0622d0",
+      "minimum_cases": 1,
+      "change_note": "R6 explicit-invocation qualification after strengthening semantic activation and the mandatory six-section output contract.",
+      "evaluation_policy": "semantic-workflow-contract",
+      "cases": [
+        {
+          "id": "explicit-language-bridge-r6",
+          "invocation": "explicit",
+          "prompt": "Use the Regenerative Language Bridge skill to explain this to a non-specialist manager: exponential backoff with jitter reduces synchronized retries, but retries can increase latency and load during outages.",
+          "expected_skill_ids": [
+            "regenerative-language-bridge"
+          ],
+          "expected_outcome": "skill-workflow",
+          "required_sections": [
+            "Em linguagem simples",
+            "Termos-chave",
+            "Camada técnica",
+            "Verificação de entendimento",
+            "Ciclo de aprendizado",
+            "Nota de recursos"
+          ],
+          "required_resource_fields": [
+            "Tempo de leitura",
+            "Responsável pela manutenção",
+            "Data de revisão/expiração"
+          ]
+        }
+      ]
+    },
+    {
+      "schema_version": "0.1",
+      "id": "regenerative-impact-map-chatgpt-v1-r6",
+      "skill_id": "regenerative-impact-map",
+      "surface": "chatgpt-skills",
+      "execution_mode": "chat-native",
+      "required_distribution": "local",
+      "required_source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+      "required_artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+      "source_frozen_ci_artifact_sha256": "58e587a13ed5ff3f7dfa47ef5d7da392a767a21ae0421621bbaae48cbb0622d0",
+      "minimum_cases": 1,
+      "change_note": "R6 explicit-invocation qualification for the bundled Impact Map workflow.",
+      "evaluation_policy": "semantic-workflow-contract",
+      "cases": [
+        {
+          "id": "explicit-impact-map-r6",
+          "invocation": "explicit",
+          "prompt": "Use the Regenerative Impact Map skill to analyze this decision: a 50-person company is considering replacing one weekly all-hands meeting with an asynchronous written update for 30 days. Map systemic impacts and choose the smallest reversible next step.",
+          "expected_skill_ids": [
+            "regenerative-impact-map"
+          ],
+          "expected_outcome": "skill-workflow"
+        }
+      ]
+    },
+    {
+      "schema_version": "0.1",
+      "id": "regenerative-resilience-plan-chatgpt-v1-r6",
+      "skill_id": "regenerative-resilience-plan",
+      "surface": "chatgpt-skills",
+      "execution_mode": "chat-native",
+      "required_distribution": "local",
+      "required_source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+      "required_artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+      "source_frozen_ci_artifact_sha256": "58e587a13ed5ff3f7dfa47ef5d7da392a767a21ae0421621bbaae48cbb0622d0",
+      "minimum_cases": 1,
+      "change_note": "R6 explicit-invocation qualification for the bundled Resilience Plan workflow.",
+      "evaluation_policy": "semantic-workflow-contract",
+      "cases": [
+        {
+          "id": "explicit-resilience-plan-r6",
+          "invocation": "explicit",
+          "prompt": "Use the Regenerative Resilience Plan skill to prepare a resilience plan for this scenario: a 25-person support team depends on one cloud ticketing platform. If the platform becomes unavailable, requests accumulate and the team loses access to conversation history. Protect essential service without shifting excessive workload to employees.",
+          "expected_skill_ids": [
+            "regenerative-resilience-plan"
+          ],
+          "expected_outcome": "skill-workflow"
+        }
+      ]
+    },
+    {
+      "schema_version": "0.1",
+      "id": "regenerative-adaptive-experiment-chatgpt-v1-r6",
+      "skill_id": "regenerative-adaptive-experiment",
+      "surface": "chatgpt-skills",
+      "execution_mode": "chat-native",
+      "required_distribution": "local",
+      "required_source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+      "required_artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+      "source_frozen_ci_artifact_sha256": "58e587a13ed5ff3f7dfa47ef5d7da392a767a21ae0421621bbaae48cbb0622d0",
+      "minimum_cases": 1,
+      "change_note": "R6 explicit-invocation qualification for the bundled Adaptive Experiment workflow.",
+      "evaluation_policy": "semantic-workflow-contract",
+      "cases": [
+        {
+          "id": "explicit-adaptive-experiment-r6",
+          "invocation": "explicit",
+          "prompt": "Use the Regenerative Adaptive Experiment skill to design the smallest responsible experiment for this idea: a 40-person software team suspects that protecting one 90-minute interruption-free focus block each morning could improve concentration, but it may harm collaboration, accessibility, response time, or workload distribution. Design a reversible test before any organization-wide rollout.",
+          "expected_skill_ids": [
+            "regenerative-adaptive-experiment"
+          ],
+          "expected_outcome": "skill-workflow"
+        }
+      ]
+    },
+    {
+      "schema_version": "0.1",
+      "id": "cs-navigator-chatgpt-v9-capability-pack-r6",
+      "skill_id": "cs-navigator",
+      "surface": "chatgpt-skills",
+      "execution_mode": "chat-native",
+      "required_distribution": "local",
+      "required_source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
+      "required_artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
+      "source_frozen_ci_artifact_sha256": "58e587a13ed5ff3f7dfa47ef5d7da392a767a21ae0421621bbaae48cbb0622d0",
+      "minimum_cases": 7,
+      "supersedes": "cs-navigator-chatgpt-v8-simple-gate",
+      "change_note": "Qualifies Capability Pack I routing on R6 after bundled-skill activation hardening: four capability-selection routes, native-only PDF handling, external trust boundary, and direct-task anti-overrouting.",
+      "evaluation_policy": "semantic-routing-and-anti-overrouting",
+      "cases": [
+        {
+          "id": "route-impact-map-r6",
+          "invocation": "implicit",
+          "prompt": "Qual capacidade do CS devo usar para estruturar uma análise sistêmica de uma decisão?",
+          "expected_skill_ids": [
+            "regenerative-impact-map"
+          ],
+          "expected_outcome": "skill",
+          "expected_activation": true
+        },
+        {
+          "id": "route-language-bridge-r6",
+          "invocation": "implicit",
+          "prompt": "Qual capacidade do CS ajuda a explicar uma política técnica para gestores sem perder precisão?",
+          "expected_skill_ids": [
+            "regenerative-language-bridge"
+          ],
+          "expected_outcome": "skill",
+          "expected_activation": true
+        },
+        {
+          "id": "route-resilience-plan-r6",
+          "invocation": "implicit",
+          "prompt": "Qual capacidade do CS devo usar para estruturar continuidade, recuperação e aprendizado após interrupções?",
+          "expected_skill_ids": [
+            "regenerative-resilience-plan"
+          ],
+          "expected_outcome": "skill",
+          "expected_activation": true
+        },
+        {
+          "id": "route-adaptive-experiment-r6",
+          "invocation": "implicit",
+          "prompt": "Quero testar uma mudança pequena e reversível antes de escalar. Qual capacidade do CS ajuda?",
+          "expected_skill_ids": [
+            "regenerative-adaptive-experiment"
+          ],
+          "expected_outcome": "skill",
+          "expected_activation": true
+        },
+        {
+          "id": "native-only-pdf-r6",
+          "invocation": "implicit",
+          "prompt": "Preciso de uma skill para resumir um PDF que vou enviar ou o próprio ChatGPT resolve sozinho?",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": true
+        },
+        {
+          "id": "external-trust-data-storyteller-r6",
+          "invocation": "implicit",
+          "prompt": "Essa skill externa data-storyteller tem evidência suficiente no CS para eu confiar?",
+          "expected_skill_ids": [],
+          "expected_outcome": "external-discovery",
+          "expected_activation": true,
+          "must_include_trust_state": "not-evaluated",
+          "must_not_assign_trust_score": true
+        },
+        {
+          "id": "direct-language-explanation-r6",
+          "invocation": "implicit",
+          "prompt": "Explique de forma simples esta política: requisições HTTP 429 e 5xx podem ser repetidas até três vezes usando exponential backoff com jitter.",
+          "expected_skill_ids": [],
+          "expected_outcome": "native-only",
+          "expected_activation": false,
+          "must_not_recommend_skill": true
+        }
+      ]
+    }
+  ]
+}

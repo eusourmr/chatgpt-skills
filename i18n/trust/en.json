@@ -1,0 +1,30 @@
+{
+  "locale": "en",
+  "evidence_states": {
+    "indexed": "Indexed",
+    "source_checked": "Source checked",
+    "designed": "Designed",
+    "tested": "Tested",
+    "conditional": "Conditional",
+    "unknown": "Unknown",
+    "recommended": "Recommended",
+    "stale": "Stale",
+    "re_review_required": "Re-review required",
+    "blocked": "Blocked"
+  },
+  "risk": {
+    "reads": "Reads",
+    "writes": "Writes",
+    "sends_externally": "Sends externally",
+    "executes": "Executes",
+    "secrets": "Secrets",
+    "destructive_potential": "Destructive potential",
+    "human_confirmation": "Human confirmation",
+    "unknowns": "Unknowns"
+  },
+  "notices": {
+    "not_safety_guarantee": "This evidence is not a permanent safety guarantee.",
+    "discovery_not_validation": "Discovery is not validation.",
+    "reviewed_version_differs": "The reviewed version differs from the latest observed version."
+  }
+}

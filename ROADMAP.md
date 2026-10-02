@@ -105,6 +105,39 @@ Remain `unrated` until real review data exists.
 
 **Exit criteria:** every bundled repository-authored skill has a valid Passport linked to real evidence; Security Gate v2 emits structured public reports and blocks adversarial fixtures; upstream drift can trigger stale/re-review-required; task-level eval evidence is machine-readable; Navigator can use trust/freshness/permissions without over-routing; review decisions are auditable; EN/PT-BR/ES/FR trust vocabulary exists; and the reusable trust schema is published as OSTS 0.1.
 
+## v0.7.5 — Verifiable Trust II & Containers
+
+Extend verifiable trust from **what was reviewed** to **what the skill is allowed to do during execution**.
+
+See [`docs/V075_VERIFIABLE_TRUST_II_CONTAINERS.md`](docs/V075_VERIFIABLE_TRUST_II_CONTAINERS.md) and [`docs/SKILL_CONTAINERS.md`](docs/SKILL_CONTAINERS.md).
+
+### Product innovation: Skill Containers
+
+Introduce a portable **Skill Container** policy envelope with a **Container Guardian**. The container is fail-closed by default and treats safe failure as a valid outcome.
+
+Core rule:
+
+> **No evidence → no invented fact. No permission → no self-escalation. No authorized path → stop.**
+
+### Deliverables
+
+- Publish the Skill Container 0.1 machine-readable schema and default fail-closed policy.
+- Add an epistemic boundary: unsupported facts, citations, observations, and tool results cannot be fabricated to satisfy an expected output.
+- Add a capability boundary: undeclared tools and permission widening are denied by default.
+- Add an acquisition boundary that blocks credential theft, secret harvesting, unauthorized access, auth bypass, privilege escalation, stealth persistence, and undeclared external transfer.
+- Add data-minimization and external-send defaults.
+- Add bounded attempt/retry/tool budgets; exhaustion must stop rather than broaden capability.
+- Add composition containment so child skills cannot widen the parent/user/runtime envelope.
+- Define deterministic Guardian decisions: `allow`, `allow-with-confirmation`, `degrade`, and `stop`.
+- Define explicit stop codes and privacy-minimized audit records.
+- Integrate container state into CS Navigator so it can explain why a workflow was degraded or stopped.
+- Add adversarial fixtures for fabricated evidence, fabricated tool results, permission escalation, unauthorized acquisition, container escape, and composition privilege expansion.
+- Preserve defense-in-depth language: a logical Skill Container does not replace OS/runtime sandboxing, host policy, authentication, or authorization.
+
+### Exit criteria
+
+The 0.7.5 line is not qualified until deterministic fixtures prove that missing evidence does not become invented data; denied permissions cannot self-expand; unauthorized acquisition is blocked; child workflows cannot widen the parent envelope; retry exhaustion cannot unlock more privilege; stop/degrade decisions are auditable; and the user can understand why execution stopped.
+
 ## v0.8 — Global & Regional Excellence
 
 Turn the trust layer into a genuinely global product while building unusually strong support for Latin America and other underserved contexts.
