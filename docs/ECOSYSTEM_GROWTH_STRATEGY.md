@@ -147,7 +147,7 @@ Do not reward raw submission count. That would create the same catalog inflation
 
 Stars are useful reach indicators, not product-quality evidence.
 
-Before broad promotion, complete the v0.4 exit criteria and publish reproducible examples. Then distribute through developer/community channels with evidence-led launches.
+Before broad promotion of a new release line, complete its current evidence gates and publish reproducible examples. The stable reference is CS Navigator 0.7.0; 0.7.5 remains qualification-gated, and 0.8 first-party skills should launch only after their own behavior evidence passes.
 
 Recommended launch assets:
 
@@ -203,7 +203,7 @@ Do not optimize the product directly for the secondary metrics.
 - app/tool dependency modeling;
 - one optional Composio reference integration after the schema exists;
 - job-first discovery and richer taxonomy;
-- real case studies after v0.4 exits.
+- real case studies tied to exact qualified versions and evidence.
 
 ### Adopt later
 
