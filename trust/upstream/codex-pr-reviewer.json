@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "skill_id": "codex-pr-reviewer",
-  "reviewed_source_revision": "fb595c02abb77dc213b1e0b1ae41aea46932aa39",
+  "reviewed_source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
   "reviewed_artifact_sha256": "13006a226a157908476397bfd6d0f5af755fcbb748ea1081fc223c290263e825",
   "current_artifact_sha256": "13006a226a157908476397bfd6d0f5af755fcbb748ea1081fc223c290263e825",
   "review_due_at": "2026-12-30",

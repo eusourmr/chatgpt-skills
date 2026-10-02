@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1",
   "skill_id": "regenerative-language-bridge",
-  "source_revision": "fb595c02abb77dc213b1e0b1ae41aea46932aa39",
+  "source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
   "artifact_sha256": "207fa1b2df267d7b90678b53e9514f2cc0257b57a76372245b5cb639c5e731c4",
   "security_gate": {
     "version": "v2",

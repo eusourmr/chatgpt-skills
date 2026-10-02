@@ -3,7 +3,7 @@
   "gate_version": "v2",
   "skill_id": "codex-pr-reviewer",
   "scanned_at": "2026-10-01",
-  "source_revision": "fb595c02abb77dc213b1e0b1ae41aea46932aa39",
+  "source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
   "artifact_sha256": "13006a226a157908476397bfd6d0f5af755fcbb748ea1081fc223c290263e825",
   "result": "pass",
   "summary": {

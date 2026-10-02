@@ -3,7 +3,7 @@
   "gate_version": "v2",
   "skill_id": "regenerative-participatory-decision",
   "scanned_at": "2026-10-01",
-  "source_revision": "fb595c02abb77dc213b1e0b1ae41aea46932aa39",
+  "source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
   "artifact_sha256": "9946e830454a3a9ad5b23d7a2922fbae35c16856ded13c4d1cbafaf6c1dae7f2",
   "result": "pass",
   "summary": {

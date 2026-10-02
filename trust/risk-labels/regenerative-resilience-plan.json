@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1",
   "skill_id": "regenerative-resilience-plan",
-  "source_revision": "fb595c02abb77dc213b1e0b1ae41aea46932aa39",
+  "source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
   "artifact_sha256": "ac201e7b386e00a9bc212210fa8adb25153733f50fe9ae6ff1e384e7165fb57f",
   "security_gate": {
     "version": "v2",

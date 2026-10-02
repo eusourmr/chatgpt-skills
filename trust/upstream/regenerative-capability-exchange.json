@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "skill_id": "regenerative-capability-exchange",
-  "reviewed_source_revision": "fb595c02abb77dc213b1e0b1ae41aea46932aa39",
+  "reviewed_source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
   "reviewed_artifact_sha256": "66f8fd9ef7aab196a8939fc80182fb416bae861c9b4b30a0b8d77fc888b1259e",
   "current_artifact_sha256": "66f8fd9ef7aab196a8939fc80182fb416bae861c9b4b30a0b8d77fc888b1259e",
   "review_due_at": "2026-12-30",

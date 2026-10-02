@@ -3,7 +3,7 @@
   "gate_version": "v2",
   "skill_id": "realtime-api-integration",
   "scanned_at": "2026-10-01",
-  "source_revision": "fb595c02abb77dc213b1e0b1ae41aea46932aa39",
+  "source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
   "artifact_sha256": "ce593c123c9bede73f35f98dbe9e4ebbbc7a7de66ae31457dd3bdbc996031610",
   "result": "pass",
   "summary": {
