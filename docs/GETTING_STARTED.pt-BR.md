@@ -18,6 +18,18 @@ Não trate a 0.7.5 como plugin estável antes de concluir a qualificação nativ
 
 Release estável: [CS Navigator 0.7.0 — Verifiable Trust I](https://github.com/eusourmr/chatgpt-skills/releases/tag/cs-navigator-v0.7.0)
 
+## Plugin Directory público
+
+Quando o CS Navigator tiver uma versão publicada e verificada no Plugin Directory público da OpenAI, o caminho mais simples para o usuário é:
+
+```text
+ChatGPT / Codex → Plugins → buscar "CS Navigator" → Instalar
+```
+
+O repositório **não** afirma disponibilidade pública apenas porque existe uma release no GitHub ou uma importação de marketplace em workspace. A listing/versão publicada precisa ser verificada antes de orientar usuários por esse caminho.
+
+Atualizações públicas de skills/metadata empacotadas não são puxadas automaticamente do GitHub; os mantenedores precisam enviar e publicar a atualização aprovada no plugin público existente. Veja [Manutenção do Plugin](PLUGIN_MAINTENANCE.pt-BR.md).
+
 ## Opção A — Instalar o CS Navigator em um workspace ChatGPT compatível
 
 Onde houver suporte a marketplaces de plugins gerenciados pelo GitHub:
