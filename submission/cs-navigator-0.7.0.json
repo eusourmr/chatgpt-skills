@@ -118,13 +118,15 @@
     "availability_regions": "select-in-portal",
     "openai_review_required": true
   },
-  "submission_state": "native-qualified-final-artifact-freeze",
+  "submission_state": "native-qualified-final-ci",
   "native_qualification": {
     "status": "pass",
     "completed_on": "2026-10-02",
     "pr": 55,
     "required_review_matrix": "complete",
     "evidence_comment": "https://github.com/eusourmr/chatgpt-skills/pull/55#issuecomment-5959833659",
-    "note": "Native qualification passed without promoting designed capability evidence to tested or treating Security Gate pass as a safety guarantee."
+    "note": "Native qualification passed without promoting designed capability evidence to tested or treating Security Gate pass as a safety guarantee.",
+    "evidence_graph_commit": "f1630dc14fac2b48af57b27de2fb38a2a3b57e6b",
+    "final_ci_required": true
   }
 }
