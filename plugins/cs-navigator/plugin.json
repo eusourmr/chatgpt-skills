@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cs-navigator",
-  "version": "0.7.0",
-  "description": "Route capability-selection questions using verifiable trust, freshness, permissions, execution evidence, and the smallest useful set.",
+  "version": "0.7.5",
+  "description": "Route capability-selection questions using verifiable trust, freshness, permissions, execution evidence, and Skill Container boundaries.",
   "author": {
     "name": "ChatGPT Skills",
     "url": "https://github.com/eusourmr/chatgpt-skills"
@@ -19,21 +19,23 @@
     "regenerative",
     "trust-passport",
     "risk-label",
-    "freshness"
+    "freshness",
+    "skill-containers",
+    "container-guardian"
   ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "CS Navigator",
         "shortDescription": "Find trusted skills",
-        "longDescription": "CS Navigator 0.7.0 routes capability-selection questions using current verifiable-trust evidence, freshness, permissions, security findings, Risk Labels, and known gaps while keeping ordinary direct tasks with ChatGPT.",
+        "longDescription": "CS Navigator 0.7.5 routes capability-selection questions using current verifiable-trust evidence, freshness, permissions, security findings, Risk Labels, known gaps, and Skill Container decision boundaries while keeping ordinary direct tasks with ChatGPT.",
         "developerName": "RICARDO MOREIRA DA ROCHA",
         "category": "Productivity",
         "websiteURL": "https://github.com/eusourmr/chatgpt-skills",
         "defaultPrompt": [
           "Tell me whether this task needs a skill or ChatGPT can handle it directly.",
           "Find the smallest useful CS capability for this goal and show the material trust or permission trade-off.",
-          "Check whether this skill is current, tested, and appropriate for the permissions this task requires."
+          "Explain a Container Guardian decision without claiming runtime enforcement unless a real decision record is present."
         ],
         "privacyPolicyURL": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/PRIVACY.md",
         "termsOfServiceURL": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/TERMS.md",

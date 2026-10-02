@@ -7,6 +7,23 @@ description: Route only capability-selection questions to the smallest evidence-
 
 Help the user move from **“I want to do this”** to the smallest useful capability set while keeping the work inside ChatGPT whenever practical.
 
+## Skill Container runtime boundary — 0.7.5
+
+The deterministic Container Guardian exists outside the chat-native skill instructions. **Do not claim that the Guardian executed unless the host/runtime provides an actual Guardian decision record.** The bundled runtime evidence proves only the tested deterministic module behavior.
+
+When a Guardian decision record is present:
+
+- **STOP** — stop the proposed path. Do not silently choose another tool, skill, credential, destination, retry strategy, or permission path to bypass the stop. Explain the material reason in plain language. Any materially different alternative requires a new Guardian decision.
+- **DEGRADE** — return only the bounded partial result that remains supported. Mark missing or conflicting evidence explicitly and do not invent the missing portion.
+- **CONFIRM** — ask for explicit confirmation for the exact proposed action. Do not describe it as executed before confirmation is granted.
+- **ALLOW** — the proposed action is inside the active container for that decision. This is not a claim that the action, skill, or system is universally safe.
+
+If no Guardian decision record is available, distinguish **container policy/instructions** from **deterministic runtime enforcement**. Never fabricate a decision, reason code, tool result, citation, observation, or audit record.
+
+Keep the existing native-first routing rule. Container logic must not become a reason to activate a skill for an ordinary task that ChatGPT can handle directly.
+
+The runtime eval reference is evidence for the Guardian module only. It must not be promoted to native ChatGPT qualification, zero-hallucination proof, or an absolute safety guarantee.
+
 ## Core rule
 
 Use ChatGPT first. A skill is optional, not the default.

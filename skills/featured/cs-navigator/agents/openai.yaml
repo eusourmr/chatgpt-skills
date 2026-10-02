@@ -1,4 +1,4 @@
 interface:
   display_name: "CS Navigator"
-  short_description: "Route goals to trusted skills"
-  default_prompt: "Find the smallest useful skill set for this goal, or tell me if no additional skill is needed."
+  short_description: "Route goals with verifiable trust"
+  default_prompt: "Find the smallest useful capability set for this goal, preserve native-first routing, and interpret Container Guardian decisions without claiming runtime enforcement unless a real decision record is present."

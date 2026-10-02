@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "pack_version": "0.7.0",
+  "pack_version": "0.7.5",
   "router": "cs-navigator",
   "policy": "Install once, route narrowly, and use current evidence. Bundled availability does not imply activation, safety, freshness, or stronger task-effectiveness evidence.",
   "activation_contract": [
@@ -36,5 +36,19 @@
       "mode": "chat-native",
       "evidence_state": "designed"
     }
-  ]
+  ],
+  "container_guardian": {
+    "release_line": "0.7.5",
+    "decision_contract": [
+      "ALLOW",
+      "CONFIRM",
+      "DEGRADE",
+      "STOP"
+    ],
+    "runtime_module": "runtime/container-guardian.mjs",
+    "navigator_adapter": "runtime/navigator-container-adapter.mjs",
+    "policy_reference": "skills/cs-navigator/references/container-default-policy.json",
+    "runtime_eval_reference": "skills/cs-navigator/references/container-guardian-runtime-eval.json",
+    "evidence_boundary": "Deterministic runtime evidence does not prove that the Guardian executed inside the ChatGPT native skill surface."
+  }
 }
