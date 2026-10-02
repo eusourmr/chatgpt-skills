@@ -1,0 +1,102 @@
+name: Qualify CS Navigator 0.7.5 Force-Fresh Alias
+
+on:
+  push:
+    branches:
+      - v0.7.5/container-guardian
+    paths:
+      - 'runtime/**'
+      - 'tests/fixtures/container-guardian/**'
+      - 'tests/test_container_guardian*.py'
+      - 'tests/test_navigator_container_adapter.py'
+      - 'trust/containers/**'
+      - 'trust/evals/container-guardian/**'
+      - 'scripts/eval-container-guardian.mjs'
+      - 'scripts/build-v075-native-qualification-plugin.mjs'
+      - '.github/workflows/qualify-v075-force-fresh.yml'
+      - 'plugins/cs-navigator/**'
+      - 'skills/featured/cs-navigator/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qualify-alias:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: v0.7.5/container-guardian
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Validate repository and deterministic Guardian gates
+        run: |
+          npm run validate
+          python -m unittest tests.test_container_guardian
+          python -m unittest tests.test_container_guardian_fixtures
+          python -m unittest tests.test_navigator_container_adapter
+          node scripts/eval-container-guardian.mjs --check
+
+      - name: Build force-fresh 0.7.5 qualification alias
+        run: node scripts/build-v075-native-qualification-plugin.mjs
+
+      - name: Verify 0.7.5 alias identity and evidence boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          ZIP='dist/plugin-submission/cs-navigator-v075-qa-0.7.5-rc.1.zip'
+          test -f "$ZIP"
+          unzip -t "$ZIP"
+          python - <<'PY'
+          import json, zipfile
+          p='dist/plugin-submission/cs-navigator-v075-qa-0.7.5-rc.1.zip'
+          with zipfile.ZipFile(p) as z:
+              names=z.namelist()
+              assert len(names)==16, names
+              root='cs-navigator-v075-qa/'
+              skill_path=root+'skills/cs-navigator-v075-qa/SKILL.md'
+              snap_path=root+'skills/cs-navigator-v075-qa/references/catalog-snapshot.json'
+              policy_path=root+'skills/cs-navigator-v075-qa/references/container-default-policy.json'
+              eval_path=root+'skills/cs-navigator-v075-qa/references/container-guardian-runtime-eval.json'
+              for required in [root+'plugin.json', skill_path, snap_path, policy_path, eval_path]:
+                  assert required in names, required
+              assert root+'skills/cs-navigator/SKILL.md' not in names
+              plugin=json.loads(z.read(root+'plugin.json'))
+              snap=json.loads(z.read(snap_path))
+              policy=json.loads(z.read(policy_path))
+              runtime_eval=json.loads(z.read(eval_path))
+              skill=z.read(skill_path).decode()
+              assert plugin['name']=='cs-navigator-v075-qa'
+              assert plugin['version']=='0.7.5-rc.1'
+              assert snap['generated_for_plugin']=='0.7.5-rc.1'
+              assert snap['qualification_identity']=='cs-navigator-v075-qa@0.7.5-rc.1'
+              assert policy['mode']=='fail-closed'
+              assert runtime_eval['eval_id']=='container-guardian-runtime-v1'
+              assert runtime_eval['summary']=={'total':9,'passed':9,'failed':0}
+              assert 'Do not claim that the Guardian executed unless' in skill
+              assert '**STOP**' in skill and '**DEGRADE**' in skill and '**CONFIRM**' in skill and '**ALLOW**' in skill
+              assert 'not a claim that the action, skill, or system is universally safe' in skill
+          print('Force-fresh 0.7.5 alias identity, container references, and evidence boundaries verified.')
+          PY
+          sha256sum "$ZIP" | tee "$ZIP.qualification.sha256"
+          git rev-parse HEAD | tee dist/plugin-submission/v075-force-fresh-source-commit.txt
+
+      - name: Upload force-fresh 0.7.5 qualification artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cs-navigator-v075-force-fresh-rc1
+          path: |
+            dist/plugin-submission/cs-navigator-v075-qa-0.7.5-rc.1.zip
+            dist/plugin-submission/cs-navigator-v075-qa-0.7.5-rc.1.zip.sha256
+            dist/plugin-submission/cs-navigator-v075-qa-0.7.5-rc.1.zip.qualification.sha256
+            dist/plugin-submission/v075-force-fresh-source-commit.txt
+          if-no-files-found: error
+          retention-days: 30
