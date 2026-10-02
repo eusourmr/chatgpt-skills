@@ -66,7 +66,7 @@ Before CS adds a dependency, ask in this order:
 
 If two approaches produce comparable value, prefer the one with fewer setup steps, fewer permissions, fewer dependencies, less data movement, and more work completed in the same chat.
 
-## Current v0.5 baseline
+## Current baseline
 
 The first baseline classifies the 12 skills bundled in the npm package.
 
@@ -74,7 +74,7 @@ The first baseline classifies the 12 skills bundled in the npm package.
 - The four featured developer skills are currently `local-agent` because their deterministic workflows include local scaffolding or file-processing helpers.
 - No bundled skill is currently labeled `native-tools` or `connected`; those classes are reserved for workflows whose required capabilities are explicitly modeled and tested.
 
-These are conservative classifications, not claims that every skill has already been executed in a qualifying ChatGPT workspace. The first v0.5 end-to-end milestone is to promote at least one `chat-native` skill from `designed` to `tested` using the native ChatGPT Skills installation/activation flow.
+These are conservative classifications, not claims that every skill has been executed on every qualifying surface. CS Navigator 0.7.0 has completed its own native qualification, while each bundled capability keeps its independent execution-evidence state. A new or changed artifact does not inherit `tested` merely because an older version or the containing plugin was qualified.
 
 ## Product metric
 

@@ -1,5 +1,9 @@
 # Skill Containers
 
+## Implementation status
+
+The deterministic Container Guardian foundation is implemented and merged to `main`. Repository/runtime tests are green. Integration into the released CS Navigator plugin remains **qualification-gated**; the current stable plugin is 0.7.0 and 0.7.5 must not be presented as released yet.
+
 **Skill Containers** are a defense-in-depth containment layer for AI skills and agentic workflows.
 
 The core idea is simple:
@@ -8,7 +12,7 @@ The core idea is simple:
 
 A Skill Container places an explicit boundary around what a skill may **know, claim, access, attempt, send, execute, and persist**. When evidence or permission ends, the task must degrade or stop instead of fabricating an answer, silently escalating capability, repeatedly searching for a way around a boundary, or acquiring data through an unauthorized path.
 
-Skill Containers are planned for **CS 0.7.5 — Verifiable Trust II & Containers**.
+Skill Containers are the containment architecture for **CS 0.7.5 — Verifiable Trust II & Containers**. The deterministic Guardian foundation is implemented; release integration remains qualification-gated.
 
 ## Why this exists
 

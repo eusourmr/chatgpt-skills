@@ -1,67 +1,82 @@
-# ChatGPT Upload Path
+# ChatGPT ZIP Upload / Export Path
 
-The preferred CS experience is **Chat-Native First**: prepare one focused skill, load it into ChatGPT where Skills are available, and keep working in the same chat.
+The preferred CS Navigator distribution paths are now:
 
-## Minimal path
+1. **public OpenAI Plugin Directory**, when the plugin is publicly published;
+2. **GitHub-managed plugin marketplace** for compatible managed workspaces;
+3. **ZIP upload/export** as a compatibility, qualification, or controlled-workspace path.
 
-Prepare one bundled skill:
+See [Getting Started](GETTING_STARTED.md) for the canonical user guide.
+
+## Current stable plugin
+
+CS Navigator **0.7.0 — Verifiable Trust I** is the current stable plugin release.
+
+Official GitHub release artifact:
+
+```text
+cs-navigator-plugin-0.7.0.zip
+```
+
+SHA-256:
+
+```text
+a1ac38a482f6e3ad839eefc3ed555c2cc001e24cf28b1be2740024d963b6048d
+```
+
+A ZIP existing locally is not proof that the plugin is installed, active, approved, or publicly published.
+
+## CLI export path
+
+The CLI can prepare deterministic ChatGPT-oriented ZIP exports:
 
 ```bash
-npx chatgpt-skills install \
-  --skill regenerative-language-bridge \
-  --tool chatgpt-web \
-  --yes
+npx chatgpt-skills install --skill cs-navigator --tool chatgpt-web --yes
 ```
 
-CS writes two representations:
+For another bundled skill:
 
-- a readable folder under `.chatgpt-skills/export/skills/` for inspection;
-- one deterministic ZIP under `.chatgpt-skills/export/packages/` for upload.
-
-For the first chat-native candidate:
-
-```text
-.chatgpt-skills/export/packages/regenerative-language-bridge.zip
+```bash
+npx chatgpt-skills install --skill regenerative-language-bridge --tool chatgpt-web --yes
 ```
 
-The export configuration records the SHA-256 of the ZIP. `chatgpt-skills doctor` verifies both the readable files and the ZIP before upload.
+CS records readable exported files and the package hash so `chatgpt-skills doctor` can detect local corruption.
 
-## Why one ZIP per skill
+## Manually uploaded workspace plugin
 
-A single focused package is easier to inspect, hash, upload, revoke and test than a multi-skill archive. It also preserves a simple mental model:
+Where ChatGPT exposes plugin ZIP upload:
 
-`one skill → one upload artifact → one execution claim`
+1. go to the workspace plugin administration surface;
+2. upload the complete plugin ZIP;
+3. test the exact uploaded version;
+4. for a later manually uploaded version, use the product's **Upload new version** action when available.
 
-Bundles remain useful for Codex, Cursor and portable Agent Skills, and CS can still prepare multiple ChatGPT ZIPs from a bundle. The individual ZIP remains the unit of ChatGPT upload evidence.
+A manually uploaded workspace plugin does not update merely because GitHub changed.
 
-## In ChatGPT
+## Public Plugin Directory is different
 
-Where the Skills feature is available for the account/workspace, use the product's Skills upload flow and select the ZIP for the skill you want to add.
+For a public CS Navigator plugin, bundled skill/metadata changes require a **new ZIP package version** in the existing public plugin, applicable checks/review, and publication of the approved update.
 
-CS deliberately stops short of claiming that a local export equals an installed ChatGPT skill. In-product execution evidence is recorded only after the exact artifact has actually been loaded and exercised on a qualifying ChatGPT surface.
+GitHub repository changes alone do not update the public directory package.
 
-## First end-to-end proof
+See [Plugin Maintenance](PLUGIN_MAINTENANCE.md).
 
-`regenerative-language-bridge` is the first candidate because its core job is instruction-only and requires no external account, MCP server, local runtime, API credential or new network dependency.
+## Qualification artifacts
 
-The reproducible test contract lives at:
+Qualification identities such as `cs-navigator-v075-qa` are test-only identities. They exist to avoid stale package/cache reuse during native qualification.
 
-```text
-tests/chat-native/regenerative-language-bridge.json
-```
-
-Its execution state remains `designed` until the actual ChatGPT run satisfies that contract.
+Do not present a qualification artifact as the production CS Navigator plugin.
 
 ## Integrity boundary
 
-The ZIP is deterministic for a given packaged skill version:
+Deterministic ZIP/hash verification proves artifact integrity for the bytes that were built. It does **not** prove:
 
-- file order comes from the package manifest;
-- timestamps are fixed;
-- no network content is fetched during export;
-- the ZIP SHA-256 is stored in the export config;
-- `doctor` fails if the ZIP changes afterward.
+- public OpenAI approval;
+- availability on every plan/region/workspace;
+- successful installation;
+- native ChatGPT behavior;
+- universal safety.
 
-This proves local artifact integrity. It does **not** prove OpenAI approval, availability on every plan, or successful in-product execution.
+Those claims require their own evidence.
 
 Independent community project. Not affiliated with or endorsed by OpenAI.

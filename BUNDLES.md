@@ -2,11 +2,11 @@
 
 Bundles turn the catalog into useful starting points instead of a flat list. Each bundle installs only repository-bundled skills with inspectable files.
 
-> The npm command works after the package is published. Until then, the repository package can be invoked with `npx github:eusourmr/chatgpt-skills install --bundle <name>`.
+The `chatgpt-skills` CLI is published on npm. Plugin and CLI version lines are independent; see [Getting Started](docs/GETTING_STARTED.md).
 
 ## 🧭 CS Core Bundle
 
-The smallest entry point to ChatGPT Skills: describe the job in plain language and let `cs-navigator` recommend the smallest evidence-backed skill set.
+The smallest CLI entry point to CS Navigator:
 
 - `cs-navigator`
 
@@ -14,15 +14,15 @@ The smallest entry point to ChatGPT Skills: describe the job in plain language a
 npx chatgpt-skills install --bundle cs-core
 ```
 
-For ChatGPT upload/export:
+For ChatGPT-oriented ZIP export:
 
 ```bash
 npx chatgpt-skills install --skill cs-navigator --tool chatgpt-web --yes
 ```
 
-## 🧑‍💻 Developer Bundle
+For the stable plugin installation path, prefer the qualified **CS Navigator 0.7.0** release / managed GitHub marketplace described in [Getting Started](docs/GETTING_STARTED.md).
 
-For agent architecture, realtime systems, ChatGPT apps, PR review, and resilient delivery.
+## 🧑‍💻 Developer Bundle
 
 - `openai-agents-sdk-builder`
 - `realtime-api-integration`
@@ -36,8 +36,6 @@ npx chatgpt-skills install --bundle developer
 
 ## 📊 Data Analyst Bundle
 
-For experiments, system-level impact analysis, reusable knowledge, and clear technical communication.
-
 - `regenerative-adaptive-experiment`
 - `regenerative-impact-map`
 - `regenerative-knowledge-commons`
@@ -48,8 +46,6 @@ npx chatgpt-skills install --bundle data-analyst
 ```
 
 ## 📈 Marketing & Growth Bundle
-
-For ethical listening, clear messaging, capability building, and participatory decisions rather than extractive growth loops.
 
 - `regenerative-listening-loop`
 - `regenerative-language-bridge`
@@ -62,8 +58,6 @@ npx chatgpt-skills install --bundle marketing-growth
 
 ## 🎓 Education Bundle
 
-For explanation, research reuse, learning experiments, and feedback loops.
-
 - `regenerative-language-bridge`
 - `regenerative-knowledge-commons`
 - `regenerative-adaptive-experiment`
@@ -74,8 +68,6 @@ npx chatgpt-skills install --bundle education
 ```
 
 ## 🤖 OpenAI Ecosystem Bundle
-
-For the OpenAI Agents SDK, Realtime API, ChatGPT Apps SDK, and Codex-based PR review.
 
 - `openai-agents-sdk-builder`
 - `realtime-api-integration`
@@ -92,4 +84,12 @@ npx chatgpt-skills install --bundle openai-ecosystem
 npx chatgpt-skills install --bundle openai-ecosystem --tool codex-cli --yes
 ```
 
-The installer writes each skill to the target adapter's native or portable directory and records the selected bundle/skill, version, target, hashes, and enabled skills in the corresponding CS config. For `chatgpt-web`, CS exports upload-ready ZIPs instead of claiming direct installation.
+The installer records the selected bundle/skill, CLI version, target, hashes and enabled skills in the corresponding CS configuration.
+
+For `chatgpt-web`, the CLI prepares export artifacts; it does not claim that writing files locally equals installing them in ChatGPT.
+
+## Bundle policy
+
+A bundle is a convenience grouping, not a trust promotion. Each skill retains its own evidence, permission, freshness and recommendation state.
+
+Independent community project. Not affiliated with or endorsed by OpenAI.

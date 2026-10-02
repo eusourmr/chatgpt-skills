@@ -2,6 +2,53 @@
 
 All notable changes to ChatGPT Skills are documented here.
 
+
+## 0.7.5 — Unreleased / qualification
+
+### Added
+
+- Deterministic Container Guardian runtime with auditable `ALLOW`, `CONFIRM`, `DEGRADE`, and `STOP` decisions.
+- Effective-permission intersection and no runtime permission self-escalation.
+- Fabricated citation/observation/tool-result denial.
+- Unauthorized acquisition, secret-use, external-transfer, cross-user and cross-task data boundaries.
+- Bounded retry/tool-attempt budgets.
+- Parent-contained child workflow permissions.
+- Adversarial fixtures and deterministic Container Guardian behavior eval.
+- Executable CS Navigator → Container Guardian adapter.
+- Force-fresh 0.7.5 QA artifact/build workflow.
+- Frozen native qualification matrix for the 0.7.5 RC.
+- Canonical EN/PT-BR Getting Started and plugin-maintenance documentation.
+
+### Status
+
+- Container Guardian I foundation merged to `main` through PR #59.
+- Canonical production plugin remains **0.7.0**.
+- 0.7.5 is not released until native ChatGPT qualification, byte-bound evidence renewal, final production qualification, and release/publication gates pass.
+
+## 0.7.0 — 2026-10-02 — Verifiable Trust I
+
+### Added
+
+- Trust Passports for bundled repository-authored skills.
+- Security Gate v2 structured evidence.
+- Public Risk Labels.
+- Freshness/drift state and reviewed-version binding.
+- Normalized behavior-evaluation evidence.
+- Trust-aware CS Navigator routing.
+- Governance and multilingual trust vocabulary foundations.
+- Open Skill Trust Standard (OSTS) 0.1.
+
+### Qualification and integrity
+
+- Required native ChatGPT qualification matrix: PASS.
+- Final production qualification workflow: PASS.
+- Release workflow: PASS.
+- Release tag: `cs-navigator-v0.7.0`.
+- Production plugin SHA-256: `a1ac38a482f6e3ad839eefc3ed555c2cc001e24cf28b1be2740024d963b6048d`.
+- Security Gate `pass` remains evidence of configured checks, not a safety guarantee.
+- New/changed skill bytes do not automatically inherit old trust/evidence.
+- CS Navigator does not invent opaque 0–100 trust scores or unsupported winners.
+
 ## 0.4.0 — 2026-09-08
 
 ### Added
