@@ -2,24 +2,24 @@
 
 ## Goal
 
-Install one CS Navigator plugin and make a small, evidence-tracked set of chat-native CS workflows available without requiring separate plugin installs.
+One CS Navigator plugin install exposes a small, evidence-tracked set of chat-native CS workflows without requiring a second plugin install for each capability.
 
-OpenAI's current plugin model supports plugins that include skills, apps, or both, and plugin pages can expose one or more skills. The pack uses that native model; it does not introduce a custom runtime, MCP server, API key, or control plane.
+## Current release context
+
+Capability Pack I was introduced and natively qualified on the 0.6 line. It remains bundled in the **stable CS Navigator 0.7.0** release, which adds Verifiable Trust I around the routing/evidence layer.
+
+0.7.5 is in qualification and adds Container Guardian infrastructure; it does not automatically change the independent evidence state of the four bundled capabilities.
 
 ## Product contract
 
 **Availability is not activation.**
 
-Bundling a skill means the user has it available. It does not mean the skill should intercept every related task.
-
-The Simple Gate remains authoritative:
-
-- direct task -> ChatGPT first;
-- capability-selection intent -> CS Navigator routes;
-- explicit bundled-skill invocation -> that skill runs;
-- no material capability gain -> native-only;
-- missing capability -> coverage-gap;
-- external not-evaluated source -> discovery is not validation.
+- direct ordinary task → ChatGPT first;
+- capability-selection intent → CS Navigator may route;
+- explicit bundled-skill invocation → that capability may be used;
+- no material capability gain → native-only;
+- missing capability → coverage-gap;
+- external `indexed / not-evaluated` source → discovery is not validation.
 
 ## Capability Pack I
 
@@ -28,40 +28,49 @@ The Simple Gate remains authoritative:
 - `regenerative-resilience-plan`
 - `regenerative-adaptive-experiment`
 
-Each skill remains a byte-for-byte mirror of its canonical source and keeps its own execution evidence. Being bundled does not promote `designed` to `tested`.
+Each capability keeps its own execution evidence. Being bundled does not promote `designed` to `tested`.
 
-## Qualified status
+## Qualification history
 
-Capability Pack I was merged through PR #44 and qualified on ChatGPT using the exact R6 payload.
+The original Capability Pack qualification used the exact R6 payload and passed:
 
-- qualified plugin source revision: `80669fc10b6e963dd1f17fec52c00186fd40ba8e`;
-- merged to `main` in commit `3f195049826340021c415111ad9221f45feae447`;
-- post-merge plugin SHA-256: `58e587a13ed5ff3f7dfa47ef5d7da392a767a21ae0421621bbaae48cbb0622d0`;
-- explicit invocation: 4/4 PASS;
-- capability-selection routing: 4/4 PASS;
-- no-second-install: PASS;
-- native-only, external-trust, evidence-boundary, and anti-overrouting gates: PASS;
-- post-merge catalog and package validation: PASS.
+- explicit invocation: 4/4;
+- capability-selection routing: 4/4;
+- no-second-install;
+- native-only;
+- external-trust boundary;
+- evidence-boundary;
+- anti-overrouting.
 
-The in-product evidence is recorded in `trust/in-product-tests.json` and `trust/in-product-runs.json`. The packaged snapshot remains conservative: installation and successful qualification do not silently promote independent evidence states.
+That evidence remains historical and version-bound.
+
+The **0.7.0 production plugin** was separately qualified through the Verifiable Trust I review matrix and released as:
+
+- tag: `cs-navigator-v0.7.0`;
+- release source: `6cc953705a069b3f384e7cc266110e7f51f0b988`;
+- production ZIP SHA-256: `a1ac38a482f6e3ad839eefc3ed555c2cc001e24cf28b1be2740024d963b6048d`.
+
+The 0.7.0 qualification preserved each bundled capability's independent evidence state.
 
 ## Handoff model
 
 Do not assume an undocumented skill-to-skill handoff primitive.
 
-When Navigator recommends a bundled skill, it should make clear that the capability is already included in the installed plugin. The user can continue with that capability without a separate installation. Qualification must test the actual native ChatGPT behavior rather than inventing a hidden chaining mechanism.
+When Navigator recommends a bundled capability, it should state that the capability is already included in the installed plugin. A follow-up can continue using that capability without a second install where the product surface supports it.
 
 ## Native qualification gates
 
-1. One plugin install exposes Navigator plus all four bundled skills.
-2. Each bundled skill can be explicitly invoked.
-3. Direct ordinary tasks do not auto-route only because a related skill is bundled.
-4. Capability-selection prompts route to the correct smallest useful bundled skill.
-5. Follow-up use of a recommended bundled skill requires no second install.
-6. Evidence states remain independent and visible.
+1. One plugin install exposes Navigator plus all four bundled capabilities.
+2. Each capability can be explicitly invoked.
+3. Direct ordinary tasks do not route merely because a related capability is bundled.
+4. Capability-selection prompts choose the smallest useful capability.
+5. Follow-up use does not require a second plugin install.
+6. Evidence states remain independent.
 7. Coverage-gap and external-trust boundaries do not regress.
-8. No mandatory external runtime, auth, server, MCP, or network dependency is introduced.
+8. No mandatory external runtime/auth/server/MCP/network dependency is introduced for the core pack.
 
 ## Expansion rule
 
-Do not add more skills merely to increase catalog size. A new bundled capability must be chat-native, broadly useful, non-overlapping, evidence-compatible, and able to pass activation-collision tests.
+Do not add a capability merely to increase catalog size. A new bundled capability must be broadly useful, non-overlapping, evidence-compatible, compatible with Skill Containers, and able to pass activation-collision / anti-overrouting tests.
+
+Independent community project. Not affiliated with or endorsed by OpenAI.
