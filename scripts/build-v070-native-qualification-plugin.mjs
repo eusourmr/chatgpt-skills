@@ -10,7 +10,7 @@ const pluginRoot = path.join(root, 'plugins', 'cs-navigator');
 
 const QA_PLUGIN_NAME = 'cs-navigator-v070-qa';
 const QA_ROUTER_SKILL = 'cs-navigator-v070-qa';
-const QA_VERSION = '0.7.0-rc.4';
+const QA_VERSION = '0.7.0-rc.5';
 const QA_DISPLAY_NAME = 'CS Navigator 0.7 QA';
 const QA_IDENTITY = QA_PLUGIN_NAME + '@' + QA_VERSION;
 
