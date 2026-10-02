@@ -41,6 +41,10 @@ export async function buildSnapshot(){
     const risk=await optionalJson(`trust/risk-labels/${id}.json`);
     const security=await optionalJson(`trust/security-reports/${id}.json`);
 
+    const freshnessState=upstream?.state??passport?.freshness?.status??'unknown';
+    const reviewDueAt=passport?.freshness?.review_due_at??null;
+    const knownGaps=raw.known_gaps||trust.defaults?.known_gaps||[];
+
     entries.push({
       id,
       name:raw.name,
@@ -49,8 +53,16 @@ export async function buildSnapshot(){
       execution_mode:exec.mode,
       execution_evidence:exec.evidence_state,
       required_capabilities:exec.required_capabilities||[],
-      freshness_state:upstream?.state??passport?.freshness?.status??'unknown',
-      review_due_at:passport?.freshness?.review_due_at??null,
+      freshness_state:freshnessState,
+      review_due_at:reviewDueAt,
+      current_status:{
+        execution_evidence:exec.evidence_state,
+        recommendation:recommendation.state,
+        execution_mode:exec.mode,
+        freshness_state:freshnessState,
+        review_due_at:reviewDueAt,
+        known_gaps:knownGaps
+      },
       security_result:security?.result??null,
       risk:{
         writes:risk?.writes?.state??'unknown',
@@ -70,7 +82,7 @@ export async function buildSnapshot(){
       trust_passport_ref:passport?`trust/passports/${id}.json`:null,
       risk_label_ref:risk?`trust/risk-labels/${id}.json`:null,
       upstream_ref:upstream?`trust/upstream/${id}.json`:null,
-      known_gaps:raw.known_gaps||trust.defaults?.known_gaps||[]
+      known_gaps:knownGaps
     });
   }
 
@@ -90,6 +102,7 @@ export async function buildSnapshot(){
   return {
     schema_version:2,
     generated_for_plugin:plugin.version,
+    current_evidence_required_fields:['execution_evidence','recommendation','execution_mode','freshness_state','review_due_at','known_gaps'],
     policy:'Use the smallest useful set. Native sufficiency comes first. For skills, freshness, permissions, execution evidence, security evidence, and known gaps remain separate. External indexed sources are discovery-only until separately evidenced.',
     source_contract:[
       'installer/manifest.json',
