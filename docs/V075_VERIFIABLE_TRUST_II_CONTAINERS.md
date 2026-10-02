@@ -1,5 +1,18 @@
 # CS 0.7.5 — Verifiable Trust II & Containers
 
+## Current implementation status
+
+**IN QUALIFICATION — not released.**
+
+Container Guardian I foundation was merged to `main` through PR #59. Deterministic repository gates cover the Guardian runtime, adversarial fixtures, runtime behavior evals, and the Navigator adapter. The stable production plugin remains **CS Navigator 0.7.0**.
+
+The remaining release path is:
+
+`native 0.7.5 QA → promote exact qualified canonical bytes → renew byte-bound evidence → final production qualification → GitHub release → update any public Plugin Directory package version`
+
+Do not claim 0.7.5 as stable until all of those gates are complete.
+
+
 ## Product center
 
 Version 0.7.5 extends Verifiable Trust from **evidence about a skill** to **containment during execution**.
