@@ -6,9 +6,9 @@ See [`docs/ECOSYSTEM_GROWTH_STRATEGY.md`](docs/ECOSYSTEM_GROWTH_STRATEGY.md) for
 
 ## Current position
 
-The project has completed the first distribution milestone: a versioned npm CLI, curated bundles, machine-readable catalog metadata, validation workflows, and public provenance rules.
+The project has completed the first distribution milestone and the **CS Navigator 0.7.0 — Verifiable Trust I** release. The current engineering line is **0.7.5 — Verifiable Trust II & Containers**, whose Container Guardian foundation is merged while native release qualification remains open.
 
-The next goal is **not catalog size alone**. OpenAI already provides first-party Plugin and Skills discovery surfaces, while generic Agent Skills installers already serve broad multi-agent distribution. ChatGPT Skills should therefore differentiate as an independent trust, evidence, compatibility, execution, and composition layer.
+The next goal is **not catalog size alone**. CS should differentiate through verifiable trust, native-first routing, runtime containment, and first-party workflows that solve recurring user problems with clear evidence and permission boundaries.
 
 The project may scale discovery broadly while keeping trust claims narrow: `indexed`, `source-checked`, `tested`, and `recommended` must remain distinct states.
 
@@ -70,9 +70,9 @@ Make CS Navigator useful after routing without turning it into a monolith.
 
 **Exit criteria:** completed. The release proved that one install can expose multiple independently evidenced capabilities without sacrificing the Simple Gate.
 
-## v0.7 — Verifiable Trust I
+## v0.7 — Verifiable Trust I — DELIVERED
 
-Make **trust and curation** the unmistakable product center. The catalog, CS Navigator, and the Regenerative core remain, but each should reinforce an auditable evidence layer.
+Released as **CS Navigator 0.7.0** on 2026-10-02. Make **trust and curation** the unmistakable product center. The catalog, CS Navigator, and the Regenerative core remain, but each should reinforce an auditable evidence layer.
 
 See [`docs/V070_VERIFIABLE_TRUST.md`](docs/V070_VERIFIABLE_TRUST.md).
 
@@ -105,7 +105,9 @@ Remain `unrated` until real review data exists.
 
 **Exit criteria:** every bundled repository-authored skill has a valid Passport linked to real evidence; Security Gate v2 emits structured public reports and blocks adversarial fixtures; upstream drift can trigger stale/re-review-required; task-level eval evidence is machine-readable; Navigator can use trust/freshness/permissions without over-routing; review decisions are auditable; EN/PT-BR/ES/FR trust vocabulary exists; and the reusable trust schema is published as OSTS 0.1.
 
-## v0.7.5 — Verifiable Trust II & Containers
+## v0.7.5 — Verifiable Trust II & Containers — IN QUALIFICATION
+
+Container Guardian I foundation is merged to `main`; deterministic tests are green. Native ChatGPT qualification and final production promotion remain release gates.
 
 Extend verifiable trust from **what was reviewed** to **what the skill is allowed to do during execution**.
 
@@ -138,63 +140,75 @@ Core rule:
 
 The 0.7.5 line is not qualified until deterministic fixtures prove that missing evidence does not become invented data; denied permissions cannot self-expand; unauthorized acquisition is blocked; child workflows cannot widen the parent envelope; retry exhaustion cannot unlock more privilege; stop/degrade decisions are auditable; and the user can understand why execution stopped.
 
-## v0.8 — Global & Regional Excellence
+## v0.8 — First-Party Skills I: Everyday Trust & Community Profiles
 
-Turn the trust layer into a genuinely global product while building unusually strong support for Latin America and other underserved contexts.
+Turn the trust/runtime foundation into practical first-party workflows for ordinary users, researchers, writers, designers and visual creators.
+
+Track the product definition in Issue #60.
 
 ### Product objective
 
-Make the catalog useful not only across languages, but across **jurisdictions, infrastructure realities, institutions, research cultures, accessibility needs, and resource constraints**.
+Build a small set of **first-party CS skills** that add a repeatable method, safeguard, or verifiable ruleset beyond what plain ChatGPT already does natively.
 
-### Deliverables
+Use a **Core Skill + Community Profile** architecture where possible.
 
-- Add structured regional metadata: country/region, jurisdiction relevance, supported languages, regulatory sensitivity, connectivity assumptions, device/resource requirements, and offline/low-bandwidth suitability.
-- Create first-class regional collections for **Latin America**, starting with Brazil and Spanish-speaking Latin America, without weakening any trust or security gate.
-- Add domain collections for **science & research, education, health, small business, public administration, nonprofit/social impact, climate/environment, data analysis, software development, and creative work**.
-- Add locale-aware discovery so Navigator can distinguish language from jurisdiction and from domain context.
-- Add localization quality gates: translations must preserve evidence state, warnings, permissions, legal caveats, uncertainty, and technical terminology.
-- Expand trust-facing localization beyond EN/PT-BR/ES/FR where maintainers and evidence justify it; never claim language support from machine translation alone.
-- Add accessibility metadata: reading level, screen-reader friendliness, structured output compatibility, color-independent warnings, and cognitive-load considerations.
-- Add low-resource suitability metadata for users with limited bandwidth, older hardware, constrained compute, intermittent connectivity, or limited access to paid external services.
-- Add regional privacy/data-residency fields where a workflow sends information to external providers.
-- Support jurisdiction-aware warnings for workflows touching regulated or high-stakes domains; do not turn the catalog into legal, medical, or financial certification.
-- Add regional examples and case studies that are real, reproducible, and clearly separated from generic/global claims.
+Example:
 
-### Latin America excellence track
+```text
+document-compliance-auditor
+  + abnt-br
+  + university profile
+  + journal profile
+  + edital profile
+```
 
-The project should become exceptionally useful for people and organizations working in or with Latin America.
+A profile should be versioned, source-bound, testable, and able to return states such as `COMPLIANT`, `NONCOMPLIANT`, `UNKNOWN / EVIDENCE MISSING`, or `CONFLICTING RULES`.
 
-Priority areas:
+### Initial first-party candidates
+
+- `document-compliance-auditor`
+- `academic-integrity-reviewer`
+- `evidence-first-research`
+- `text-integrity-editor`
+- `visual-intent-guardian`
+- `photo-restoration-conservator`
+- `art-critique-studio`
+
+### First implementation wedge
+
+Prioritize:
+
+1. document compliance + ABNT-BR profile;
+2. academic integrity;
+3. evidence-first research;
+4. visual-intent preservation;
+5. restoration conservation.
+
+### 0.8 gates
+
+- choose a narrow first bundle instead of shipping every candidate;
+- define activation contracts so ordinary tasks remain native;
+- add deterministic fixtures where possible;
+- add native behavior qualification;
+- bind evidence to exact bytes;
+- add Skill Container profiles/permissions;
+- test anti-overrouting;
+- define a community profile contribution format;
+- qualify at least one contributed/external profile path;
+- never mark a first-party skill `tested` before its own behavior evidence passes.
+
+### Global & regional excellence continues
+
+The earlier global/regional program remains part of the roadmap, especially:
+
 - Portuguese and Spanish as first-class user-facing languages;
-- public education and university workflows;
-- scientific research groups with limited infrastructure;
-- small and medium businesses;
-- public administration and civic service delivery;
-- NGOs, cooperatives, social enterprises, and community organizations;
-- agriculture, climate resilience, biodiversity, and local development;
-- cross-border work, localization, and document-heavy institutional processes;
-- accessibility and low-bandwidth operation;
-- regional compliance/provenance notes when external services store or process data outside the user's jurisdiction.
+- jurisdiction-aware profiles and warnings;
+- Brazilian academic/institutional workflows;
+- Latin America collections and examples;
+- accessibility and low-resource suitability;
+- regional privacy/data-residency metadata.
 
-Regional relevance must never become a shortcut around provenance, security, licensing, privacy, or behavioral evidence.
-
-### Science & research excellence track
-
-- Add research-workflow metadata: literature review, data analysis, reproducibility, experiment planning, citation/provenance support, code/data availability, and domain limitations.
-- Add a reproducibility label for skills that produce code, analyses, datasets, or research artifacts.
-- Record whether outputs can preserve source citations, uncertainty, units, assumptions, and methodological provenance.
-- Add benchmark fixtures for scientific/research workflows using public, non-sensitive datasets where possible.
-- Add explicit safeguards against fabricated citations, unsupported claims, unit errors, and hidden data transformations.
-- Add hooks for domain-expert review without pretending that one reviewer certifies an entire scientific field.
-
-### Exit criteria
-
-- regional metadata is validated and queryable;
-- Latin America collections are available in PT-BR and ES with real evidence, not translated marketing;
-- science/research skills expose reproducibility and provenance metadata;
-- Navigator can use locale/jurisdiction/domain/resource constraints without over-routing;
-- accessibility and low-bandwidth fields are visible in the Trust Passport/Risk Label;
-- at least three regional or domain-specific case studies are reproducible and publicly documented.
+Regional relevance never bypasses provenance, security, licensing, privacy or behavioral evidence.
 
 ## v0.9 — Ecosystem Intelligence & Community Scale
 
