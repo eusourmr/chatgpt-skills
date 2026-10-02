@@ -1,29 +1,83 @@
-# Executive Summary — The Catalog Becomes a Product
+# Executive Summary — ChatGPT Skills
 
-This release moves the project beyond a flat “awesome list” into an auditable skill distribution system for the OpenAI ecosystem.
+ChatGPT Skills (CS) is an independent, human-governed catalog and trust layer for reusable ChatGPT/Codex capabilities. The project is no longer only a curated list: it now combines discovery, evidence, distribution, runtime containment foundations, and a path for first-party/community extensibility.
 
-## What changed
+## Current release state
 
-- Added a quality metadata layer (`catalog.json`) with explicit status, rating state, review count, verification date, and compatibility.
-- Added repository health validation and a daily-updated `PROGRESS.md` panel.
-- Added curated bundles for developers, data analysts, marketing/growth, education, and OpenAI-native workflows.
-- Added an interactive Node.js installer that writes selected skills into `.chatgpt/skills/` and produces `skills-config.json`.
-- Added four production-oriented featured skills: Agents SDK Builder, Realtime API Integration, ChatGPT Apps Deployer, and Codex PR Reviewer.
-- Published a public roadmap, community process, Hall of Fame framework, and stricter contribution gates.
-- Strengthened the trust model: “official” is used only with attributable OpenAI provenance/authorship, while third-party and repository-verified work remain clearly distinguished.
+- **CS Navigator plugin 0.7.0 — Verifiable Trust I:** stable and natively qualified.
+- **CS Navigator 0.7.5 — Verifiable Trust II & Containers:** in qualification; Container Guardian foundation is merged, but 0.7.5 is not yet the stable plugin.
+- **`chatgpt-skills` CLI/npm 0.4.0:** independent release line.
 
-## Why this matters
+## What exists today
 
-The project now has three reinforcing layers: **discoverability**, **verification**, and **installation**. Users can find a workflow, understand why it is trusted, and install a curated set without manually assembling files. Maintainers gain machine-readable health signals, stale-entry detection, and a clearer contribution contract.
+### Discovery and curation
 
-## The differentiator
+- machine-readable catalog metadata;
+- provenance separation between OpenAI-published, project-verified, and community-authored entries;
+- curated bundles and a public roadmap;
+- human-governed contribution rules.
 
-The catalog retains its Regenerative Skills Standard: quality is not reduced to local efficiency. Repository-authored systemic skills are designed to improve multiple human-system lenses, create reusable capability, expose resource costs, and preserve plain-language understanding alongside technical depth.
+### Verifiable trust
 
-## Trust statement
+0.7.0 adds:
 
-This remains an independent community project and is not affiliated with or endorsed by OpenAI. References labeled “official” point to verifiable OpenAI-published sources or OpenAI-controlled catalog entries; they do not imply endorsement of this repository.
+- Trust Passports;
+- Security Gate v2 evidence;
+- Risk Labels;
+- freshness/drift tracking;
+- version-bound review evidence;
+- normalized behavior evals;
+- trust-aware Navigator routing;
+- governance and multilingual trust vocabulary;
+- OSTS 0.1.
 
-## Next
+Trust is deliberately multidimensional. The project does not collapse evidence into an invented universal score.
 
-The next release cycle should focus on compatibility testing, public review records, and publishing the CLI package so `npx chatgpt-skills install` works directly from npm without the GitHub fallback.
+### Chat-Native First
+
+CS Navigator first asks whether a skill is needed at all.
+
+Ordinary tasks should stay native when a skill adds no material capability. When a skill is useful, Navigator should prefer the smallest evidence-backed path with the least unnecessary permission/integration/data movement.
+
+### Containment — 0.7.5
+
+The Container Guardian foundation now provides deterministic runtime decisions:
+
+`ALLOW / CONFIRM / DEGRADE / STOP`
+
+It enforces boundaries for evidence fabrication, permission self-escalation, unauthorized acquisition/transfer, retry budgets, and parent/child workflow permissions.
+
+This is defense in depth, not a claim of perfect safety or zero hallucination. Native ChatGPT qualification remains required before 0.7.5 release.
+
+## Distribution
+
+The project supports distinct distribution paths:
+
+- public OpenAI Plugin Directory, when/if the plugin package version is approved and published;
+- GitHub-managed plugin marketplaces for compatible managed workspaces;
+- deterministic ZIP artifacts for release/qualification/controlled upload paths;
+- CLI installation/export for Codex, Cursor and portable Agent Skills targets.
+
+These paths have different update semantics. See [Getting Started](docs/GETTING_STARTED.md) and [Plugin Maintenance](docs/PLUGIN_MAINTENANCE.md).
+
+## Next product line — 0.8
+
+0.8 is being planned around **first-party Everyday Trust Skills** and reusable **Community Profiles**.
+
+Initial directions include:
+
+- evidence-first research;
+- document compliance auditing with versioned rule profiles such as ABNT-BR;
+- academic integrity review;
+- text-integrity editing;
+- visual-intent preservation;
+- photo-restoration conservation;
+- art critique workflows.
+
+The goal is not a larger prompt collection. A CS first-party skill should add a repeatable method, verifiable rule, safeguard, or workflow that plain ChatGPT does not already provide well enough natively.
+
+## Project principle
+
+> **No evidence → no invented fact. No permission → no self-escalation. No authorized path → stop.**
+
+The project remains independent and is not affiliated with or endorsed by OpenAI.
