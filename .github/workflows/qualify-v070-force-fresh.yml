@@ -34,12 +34,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ZIP='dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.4.zip'
+          ZIP='dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.5.zip'
           test -f "$ZIP"
           unzip -t "$ZIP"
           python - <<'PY'
           import json, zipfile
-          p='dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.4.zip'
+          p='dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.5.zip'
           with zipfile.ZipFile(p) as z:
               names=z.namelist()
               assert len(names)==14, names
@@ -52,10 +52,10 @@ jobs:
               snap=json.loads(z.read(root+'skills/cs-navigator-v070-qa/references/catalog-snapshot.json'))
               skill=z.read(root+'skills/cs-navigator-v070-qa/SKILL.md').decode()
               assert plugin['name']=='cs-navigator-v070-qa'
-              assert plugin['version']=='0.7.0-rc.4'
+              assert plugin['version']=='0.7.0-rc.5'
               assert snap['schema_version']==2
-              assert snap['generated_for_plugin']=='0.7.0-rc.4'
-              assert snap['qualification_identity']=='cs-navigator-v070-qa@0.7.0-rc.4'
+              assert snap['generated_for_plugin']=='0.7.0-rc.5'
+              assert snap['qualification_identity']=='cs-navigator-v070-qa@0.7.0-rc.5'
               assert 'name: cs-navigator-v070-qa' in skill
               assert 'Do not answer from remembered R6' in skill
               impact=next(x for x in snap['entries'] if x['id']=='regenerative-impact-map')
@@ -63,6 +63,10 @@ jobs:
               assert impact['recommendation']=='conditional'
               assert impact['execution_mode']=='chat-native'
               assert impact['freshness_state']=='current'
+              assert snap['current_evidence_required_fields']==['execution_evidence','recommendation','execution_mode','freshness_state','review_due_at','known_gaps']
+              assert impact['current_status']['freshness_state']=='current'
+              assert impact['current_status']['review_due_at']=='2026-12-30'
+              assert impact['current_status']['execution_evidence']=='designed'
           print('Force-fresh alias identity and 0.7 snapshot verified.')
           PY
           sha256sum "$ZIP" | tee "$ZIP.qualification.sha256"
@@ -70,11 +74,11 @@ jobs:
       - name: Upload force-fresh qualification artifact
         uses: actions/upload-artifact@v4
         with:
-          name: cs-navigator-v070-force-fresh-rc4
+          name: cs-navigator-v070-force-fresh-rc5
           path: |
-            dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.4.zip
-            dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.4.zip.sha256
-            dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.4.zip.qualification.sha256
+            dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.5.zip
+            dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.5.zip.sha256
+            dist/plugin-submission/cs-navigator-v070-qa-0.7.0-rc.5.zip.qualification.sha256
             dist/plugin-submission/force-fresh-source-commit.txt
           if-no-files-found: error
           retention-days: 30
