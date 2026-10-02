@@ -4,7 +4,7 @@
   "skill_id": "cs-navigator",
   "scanned_at": "2026-10-01",
   "source_revision": "fb595c02abb77dc213b1e0b1ae41aea46932aa39",
-  "artifact_sha256": "044a3fda603b17f8e575e5ae321b9d0e247b5c41d1a44d6d62884f9879141292",
+  "artifact_sha256": "3886bb0e3ef5c43b00be4ef0dfe758a9a9535b6ea94e3b1bdc69040c509b4354",
   "result": "pass",
   "summary": {
     "critical": 0,
@@ -52,7 +52,7 @@
       "severity": "info",
       "blocking": false,
       "path": "references/catalog-snapshot.json",
-      "line": 116,
+      "line": 154,
       "evidence_sha256": "be262a109369ff4174b4b7a7aa917a83ca99dc94093be7d497384bb8c0f9cee6",
       "message": "Potentially destructive operation reference observed.",
       "disposition": "review"
@@ -63,7 +63,7 @@
       "severity": "info",
       "blocking": false,
       "path": "references/catalog-snapshot.json",
-      "line": 35,
+      "line": 53,
       "evidence_sha256": "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b",
       "message": "Secret or credential terminology observed.",
       "disposition": "review"

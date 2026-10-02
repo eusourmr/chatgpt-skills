@@ -14,11 +14,11 @@
   },
   "integrity": {
     "algorithm": "sha256-manifest-v1",
-    "artifact_sha256": "044a3fda603b17f8e575e5ae321b9d0e247b5c41d1a44d6d62884f9879141292",
+    "artifact_sha256": "3886bb0e3ef5c43b00be4ef0dfe758a9a9535b6ea94e3b1bdc69040c509b4354",
     "files": [
       {
         "path": "SKILL.md",
-        "sha256": "b6db27b7c1011fea175c7238c966fb8bfee206d8d38ca7da9cbbfa9ff6a61e43"
+        "sha256": "7fff65c2ba3d9e7062b4267483e706bc2672eae7d8a7853e11175071e9ea0b0e"
       },
       {
         "path": "agents/openai.yaml",
@@ -26,7 +26,7 @@
       },
       {
         "path": "references/catalog-snapshot.json",
-        "sha256": "5f329db980c56f5d067c6132968c6542a93f1cb48ad95445024d7b6a3d61580e"
+        "sha256": "dd9f5b63850a368d47162a95a542aa8187b37d51040e803ec72a3f0021b91705"
       }
     ]
   },
