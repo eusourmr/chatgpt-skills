@@ -1,5 +1,9 @@
 # Skill Containers
 
+## Implementation status
+
+The deterministic Container Guardian foundation is implemented and merged to `main`. Repository/runtime tests are green. Integration into the released CS Navigator plugin remains **qualification-gated**; the current stable plugin is 0.7.0 and 0.7.5 must not be presented as released yet.
+
 **Skill Containers** are a defense-in-depth containment layer for AI skills and agentic workflows.
 
 The core idea is simple:
