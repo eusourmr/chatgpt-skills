@@ -32,7 +32,7 @@ No server, API key, MCP gateway, external account, or local runtime is part of t
 
 ### Prepare the pre-release artifact
 
-The public npm release is still `0.4.0` and does not contain CS Navigator. Do not use unpinned `npx chatgpt-skills` for this pre-release proof.
+The npm CLI remains on its independent `0.4.0` release line and is not the source of truth for current CS Navigator plugin qualification. Always test the exact versioned plugin artifact or force-fresh QA identity named by the qualification plan; do not substitute an unpinned CLI/export artifact.
 
 Use the exact repository revision that introduced the evidence gate:
 
