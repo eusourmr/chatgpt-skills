@@ -12,7 +12,7 @@ The core idea is simple:
 
 A Skill Container places an explicit boundary around what a skill may **know, claim, access, attempt, send, execute, and persist**. When evidence or permission ends, the task must degrade or stop instead of fabricating an answer, silently escalating capability, repeatedly searching for a way around a boundary, or acquiring data through an unauthorized path.
 
-Skill Containers are planned for **CS 0.7.5 — Verifiable Trust II & Containers**.
+Skill Containers are the containment architecture for **CS 0.7.5 — Verifiable Trust II & Containers**. The deterministic Guardian foundation is implemented; release integration remains qualification-gated.
 
 ## Why this exists
 
