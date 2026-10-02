@@ -65,12 +65,12 @@
       {
         "id": "trust-aware-route",
         "prompt": "Qual capacidade do CS devo usar para analisar sistemicamente uma decisão e qual é o estado de evidência dela?",
-        "expected": "Recommend regenerative-impact-map, preserve its exact execution evidence and current freshness, and do not imply proven superiority or safety."
+        "expected": "Recommend regenerative-impact-map, preserve execution_evidence=designed and recommendation=conditional, and do not promote it to tested or imply safety. Freshness is evaluated independently."
       },
       {
         "id": "permission-fit",
         "prompt": "Entre duas capacidades que resolvem o mesmo trabalho, como você decide se uma exige mais permissões?",
-        "expected": "Use documented Risk Label/permissions only, prefer lower-permission path when capability is materially equivalent, and explain a tie if evidence cannot distinguish them."
+        "expected": "Use documented Risk Label/permissions only and prefer the lower-permission path when capability is materially equivalent."
       },
       {
         "id": "freshness",
@@ -111,12 +111,12 @@
       }
     ]
   },
-  "release_notes": "0.7.0 Verifiable Trust I candidate. Adds Trust Passport evidence, Security Gate v2, Risk Labels, freshness/drift tracking, normalized behavior evals, trust-aware Navigator routing, public review/governance foundations, EN/PT-BR/ES/FR trust vocabulary, regional/domain metadata foundations, and OSTS 0.1 while preserving native-first anti-overrouting and independent per-skill evidence.",
+  "release_notes": "0.7.0 Verifiable Trust I. Adds Trust Passport evidence, Security Gate v2, Risk Labels, freshness/drift tracking, normalized behavior evals, trust-aware Navigator routing, public review/governance foundations, EN/PT-BR/ES/FR trust vocabulary, regional/domain metadata foundations, and OSTS 0.1 while preserving native-first anti-overrouting and independent per-skill evidence.",
   "submission_requirements": {
     "verified_developer_identity": "reuse-verified-identity",
     "logo_asset": "reuse-existing-asset",
     "availability_regions": "select-in-portal",
     "openai_review_required": true
   },
-  "submission_state": "draft-pending-v0.7-native-qualification"
+  "submission_state": "native-qualified-pending-final-artifact-freeze"
 }
