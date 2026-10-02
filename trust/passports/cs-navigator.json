@@ -14,7 +14,7 @@
   },
   "integrity": {
     "algorithm": "sha256-manifest-v1",
-    "artifact_sha256": "3886bb0e3ef5c43b00be4ef0dfe758a9a9535b6ea94e3b1bdc69040c509b4354",
+    "artifact_sha256": "cbdcee8f84481ea5daa2e6f73fd1bef128df004b3918be624ead62fe8091641c",
     "files": [
       {
         "path": "SKILL.md",
@@ -26,7 +26,7 @@
       },
       {
         "path": "references/catalog-snapshot.json",
-        "sha256": "dd9f5b63850a368d47162a95a542aa8187b37d51040e803ec72a3f0021b91705"
+        "sha256": "6cb673116010b22440f53afdc706caf0c17239e28d6c62eb9d11f75682429aca"
       }
     ]
   },

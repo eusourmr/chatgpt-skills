@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_for_plugin": "0.7.0-rc.2",
+  "generated_for_plugin": "0.7.0",
   "current_evidence_required_fields": [
     "execution_evidence",
     "recommendation",
