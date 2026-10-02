@@ -40,7 +40,7 @@ The quality catalog currently tracks **31 skills**: **12 OpenAI-published**, **1
 | Interactive installer | ✅ | ❌ |
 | Public health/progress report | ✅ | ❌ |
 | Regenerative/systemic design standard | ✅ | ❌ |
-| Skill Containers: fail-closed execution and hallucination/permission containment | 🚧 0.7.5 | ❌ |
+| Skill Containers: fail-closed evidence/permission containment | 🚧 0.7.5 | ❌ |
 
 ## 🛡️ Current release and next trust layer
 
