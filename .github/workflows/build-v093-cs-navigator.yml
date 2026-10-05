@@ -1,0 +1,149 @@
+name: Build CS Navigator v0.9.3 R3 final candidate
+
+on:
+  push:
+    branches:
+      - release/v0.9.3-r3-cs-navigator
+    paths:
+      - '.github/workflows/build-v093-cs-navigator.yml'
+      - 'scripts/build-v093-cs-navigator.mjs'
+      - 'skills/**'
+      - 'release/v093-first-party-skills.json'
+      - 'plugins/cs-navigator/plugin.json'
+  workflow_dispatch:
+
+concurrency:
+  group: v093-r3-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: release/v0.9.3-r3-cs-navigator
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Assemble CS Navigator 0.9.3 R3
+        run: node scripts/build-v093-cs-navigator.mjs
+
+      - name: Verify builder idempotency
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --binary > /tmp/first-build.diff
+          node scripts/build-v093-cs-navigator.mjs
+          git diff --binary > /tmp/second-build.diff
+          cmp /tmp/first-build.diff /tmp/second-build.diff
+          echo 'Builder idempotency PASS.'
+
+      - name: Validate R3 source
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check scripts/build-v093-cs-navigator.mjs
+          node scripts/validate-skill-profiles.mjs
+          node scripts/validate-skill-containers.mjs
+          node scripts/eval-container-guardian.mjs --check
+          node scripts/validate-public-plugin-submission.mjs
+          node scripts/security-gate-v2.mjs --path plugins/cs-navigator > /tmp/cs-navigator-v093-security.json
+          if grep -RIn --exclude='*.png' -F 'CS Connect' plugins/cs-navigator; then
+            echo 'Legacy public brand found inside R3 plugin payload.'
+            exit 1
+          fi
+          python - <<'PY'
+          import json, pathlib
+          release=json.load(open('release/v093-first-party-skills.json',encoding='utf-8'))
+          plugin=json.load(open('plugins/cs-navigator/plugin.json',encoding='utf-8'))
+          pack=json.load(open('plugins/cs-navigator/capability-pack.json',encoding='utf-8'))
+          fp=json.load(open('plugins/cs-navigator/skills/cs-navigator/references/first-party-capabilities.json',encoding='utf-8'))
+          assert plugin['name']=='cs-navigator'
+          assert plugin['version']=='0.9.3'
+          assert plugin['extensions']['com.openai']['interface']['displayName']=='CS Navigator'
+          assert plugin['description'].startswith('CS Navigator ')
+          assert 'cs-connect' not in plugin.get('keywords',[])
+          assert pack['pack_version']=='0.9.3'
+          assert pack['product_name']=='CS Navigator'
+          assert len(pack['included_skills'])==len(release['skills'])-1
+          assert len(fp['entries'])==15
+          assert fp['generated_for_plugin']=='0.9.3'
+          assert fp['product_name']=='CS Navigator'
+          for sid in release['skills']:
+              assert pathlib.Path('plugins/cs-navigator/skills',sid,'SKILL.md').is_file(), sid
+          print('CS Navigator 0.9.3 R3 source boundary OK.')
+          PY
+
+      - name: Commit exact R3 final candidate source
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add plugins/cs-navigator skills/featured/cs-navigator submission/cs-navigator-0.9.3.json
+          if git diff --cached --quiet; then
+            echo "No candidate source changes."
+          else
+            git commit -m "v0.9.3: assemble CS Navigator R3 final candidate"
+            git push origin HEAD:release/v0.9.3-r3-cs-navigator
+          fi
+
+      - name: Build exact R3 ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build-public-plugin-submission.mjs
+          ZIP='dist/plugin-submission/cs-navigator-plugin-0.9.3.zip'
+          test -f "$ZIP"
+          unzip -t "$ZIP"
+          SHA=$(sha256sum "$ZIP" | awk '{print $1}')
+          COUNT=$(unzip -Z1 "$ZIP" | wc -l | tr -d ' ')
+          SOURCE=$(git rev-parse HEAD)
+          python - <<'PY'
+          import json, zipfile
+          p='dist/plugin-submission/cs-navigator-plugin-0.9.3.zip'
+          release=json.load(open('release/v093-first-party-skills.json',encoding='utf-8'))
+          with zipfile.ZipFile(p) as z:
+              names=set(z.namelist())
+              plugin=json.loads(z.read('cs-navigator/plugin.json'))
+              assert plugin['name']=='cs-navigator'
+              assert plugin['version']=='0.9.3'
+              assert plugin['extensions']['com.openai']['interface']['displayName']=='CS Navigator'
+              for sid in release['skills']:
+                  assert f'cs-navigator/skills/{sid}/SKILL.md' in names, sid
+              for name in names:
+                  if name.endswith(('.md','.json','.yaml','.yml','.txt')):
+                      assert b'CS Connect' not in z.read(name), name
+          print('Exact CS Navigator 0.9.3 R3 ZIP verified with no legacy brand text.')
+          PY
+          cat > dist/plugin-submission/cs-navigator-v093-r3-candidate.json <<EOF
+          {
+            "product": "CS Navigator",
+            "technical_plugin_slug": "cs-navigator",
+            "version": "0.9.3",
+            "candidate": "R3",
+            "source_commit": "$SOURCE",
+            "zip_sha256": "$SHA",
+            "entries": $COUNT,
+            "qualification_state": "pending-native-requalification",
+            "change_scope": "brand-normalization-and-version-increment"
+          }
+          EOF
+          cat dist/plugin-submission/cs-navigator-v093-r3-candidate.json
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: cs-navigator-v0.9.3-r3-final-candidate
+          path: |
+            dist/plugin-submission/cs-navigator-plugin-0.9.3.zip
+            dist/plugin-submission/cs-navigator-plugin-0.9.3.zip.sha256
+            dist/plugin-submission/cs-navigator-v093-r3-candidate.json
+          if-no-files-found: error
