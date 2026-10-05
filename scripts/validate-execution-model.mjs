@@ -10,6 +10,7 @@ const readJson = async (rel) => JSON.parse(await readFile(path.join(root, rel), 
 const manifest = await readJson('installer/manifest.json');
 const trust = await readJson('trust/skills.json');
 const execution = await readJson('trust/execution.json');
+const capabilityPack = await readJson('plugins/cs-navigator/capability-pack.json');
 
 const errors = [];
 const expect = (condition, message) => {
@@ -19,6 +20,8 @@ const expect = (condition, message) => {
 const modes = new Set(['chat-native', 'native-tools', 'connected', 'local-agent']);
 const states = new Set(['designed', 'tested', 'conditional', 'unknown']);
 const bundled = new Set(Object.keys(manifest.skills ?? {}));
+const pluginWorkflows = new Set((capabilityPack.included_skills ?? []).map((item) => item.id));
+const executionScope = new Set([...bundled, ...pluginWorkflows]);
 const evidenceCards = new Set(Object.keys(trust.skills ?? {}));
 const executionCards = new Set(Object.keys(execution.skills ?? {}));
 
@@ -30,7 +33,7 @@ for (const id of bundled) {
   expect(executionCards.has(id), `${id}: missing execution classification`);
 }
 for (const id of executionCards) {
-  expect(bundled.has(id), `${id}: execution classification exists for a skill not bundled by installer/manifest.json`);
+  expect(executionScope.has(id), `${id}: execution classification exists outside installer/manifest.json and the declared CS Connect capability pack`);
 }
 
 for (const [id, card] of Object.entries(execution.skills ?? {})) {
@@ -56,5 +59,5 @@ if (errors.length) {
 
 const counts = {};
 for (const card of Object.values(execution.skills ?? {})) counts[card.mode] = (counts[card.mode] || 0) + 1;
-console.log(`Execution model OK: ${executionCards.size} bundled skills; ` +
+console.log(`Execution model OK: ${executionCards.size} classified workflows (${bundled.size} installer-bundled, ${pluginWorkflows.size} CS Connect pack workflows); ` +
   [...modes].map((mode) => `${mode}=${counts[mode] || 0}`).join(', '));
