@@ -38,7 +38,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if git diff --quiet -- trust/passports/v090; then
+          if [ -z "$(git status --porcelain -- trust/passports/v090)" ]; then
             echo 'Passports already current.'
             exit 0
           fi
