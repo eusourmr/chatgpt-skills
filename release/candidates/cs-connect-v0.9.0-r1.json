@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "product": "CS Connect",
+  "technical_plugin_slug": "cs-navigator",
+  "version": "0.9.0",
+  "candidate_revision": "R1",
+  "plugin_source_commit": "e7278119e4e0dcb03711cfcab1a310bb7e43d4df",
+  "branch_control_head": "f8d5309ae0b6b7e10b1f8cf62ba46e8404db6820",
+  "parent_candidate_sha256": "28f45c9ae2922ba0aba6057a1ee04895d860ede0918fa65800f4c7b173c88350",
+  "zip_sha256": "1073737545b2742f3c56afb04e5e168cd7393144c8be028766801adc9a70eaf5",
+  "entries": 63,
+  "builder_equivalence": "installer/zip.js byte-equivalent reconstruction verified against the original 0.9 candidate",
+  "fixes": [
+    {
+      "native_test": 9,
+      "skill": "evidence-first-research",
+      "profile": "brasil-context",
+      "change": "Make jurisdiction/issuing authority a mandatory gate before a current Brazilian rule conclusion; unresolved scope => UNKNOWN / EVIDENCE MISSING."
+    },
+    {
+      "native_test": 19,
+      "skill": "project-execution-director",
+      "change": "Make reversible checkpoint/rollback explicit before expensive, destructive, externally committed, or hard-to-reverse changes; if impossible, require stronger confirmation/evidence gating."
+    }
+  ],
+  "requalification_scope": [
+    "native test 9",
+    "native test 19",
+    "Guardian STOP/no-bypass regression",
+    "native-first simple-task regression",
+    "designed/pending evidence-state regression"
+  ],
+  "prior_matrix_result": {
+    "pass": 21,
+    "fail": 2,
+    "total": 23
+  },
+  "trust_state": "not-renewed-until-R1-native-regression-passes"
+}
