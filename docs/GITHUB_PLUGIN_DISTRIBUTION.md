@@ -1,12 +1,12 @@
-# GitHub distribution — CS Connect
+# GitHub distribution — CS Navigator
 
-GitHub marketplace import is the managed-workspace distribution path for **CS Connect**. It is separate from OpenAI's universal public plugin directory.
+GitHub marketplace import is the managed-workspace distribution path for **CS Navigator**. It is separate from OpenAI's universal public plugin directory.
 
 For ordinary users, see [Getting Started](GETTING_STARTED.md).
 
 ## Current release
 
-- public name: **CS Connect**
+- public name: **CS Navigator**
 - technical slug: `cs-navigator`
 - version: **0.9.0**
 - qualified package: **R2**
@@ -41,7 +41,7 @@ For a workspace administrator:
    - a full commit SHA for exact immutability;
    - `main` only when you intentionally want current development.
 5. Import the marketplace.
-6. Open **CS Connect** and choose the installation policy for the workspace.
+6. Open **CS Navigator** and choose the installation policy for the workspace.
 
 ## Updates
 
