@@ -21,6 +21,12 @@
       "prompt": "Use Project Execution Director. Já repetimos a mesma correção cinco vezes.",
       "expected_activation": true,
       "expected": "Stop the loop and reconsider framing/root cause."
+    },
+    {
+      "id": "reversible-checkpoint-required",
+      "prompt": "Use CS Connect para organizar um projeto grande em marcos e impedir que eu declare etapas concluídas sem evidência.",
+      "expected_activation": true,
+      "expected": "Use the fewest useful milestones, require evidence for completion, and explicitly include a reversible checkpoint/rollback path before expensive, destructive, externally committed or hard-to-reverse changes."
     }
   ]
 }
