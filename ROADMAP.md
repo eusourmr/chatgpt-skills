@@ -8,7 +8,7 @@ See [`docs/ECOSYSTEM_GROWTH_STRATEGY.md`](docs/ECOSYSTEM_GROWTH_STRATEGY.md) for
 
 The project has completed the first distribution milestone and the **CS Navigator 0.7.0 — Verifiable Trust I** release. The current engineering line is **0.7.5 — Verifiable Trust II & Containers**, whose Container Guardian foundation is merged while native release qualification remains open.
 
-The next public product target is **CS 0.9.0 — First-Party Skills Platform**. The 0.7.5 line remains its mandatory trust/runtime qualification foundation. CS should differentiate through verifiable trust, native-first routing, runtime containment, original first-party workflows, Brazilian-context excellence, and clear evidence/permission boundaries.
+The next public product target is **CS 0.9.0 — First-Party Skills Platform**. The 0.7.5 line remains its mandatory trust/runtime engineering foundation; exact-byte native qualification moves to the final 0.9 package because 0.7.5 will not ship separately. CS should differentiate through verifiable trust, native-first routing, runtime containment, original first-party workflows, Brazilian-context excellence, and clear evidence/permission boundaries.
 
 The project may scale discovery broadly while keeping trust claims narrow: `indexed`, `source-checked`, `tested`, and `recommended` must remain distinct states.
 
@@ -175,7 +175,7 @@ Track the full product definition and release gates in **Issue #62**.
 - exact-byte trust renewal;
 - native-first anti-overrouting.
 
-The canonical 0.7.5 production candidate remains a **technical qualification gate**, not a shortcut around evidence. Its exact bytes must pass native qualification before 0.9 inherits the foundation.
+The 0.7.5 production candidate becomes an **internal foundation artifact**, not a standalone release. Preserve its 12/12 RC native semantic evidence and production structural/security checks, but do not renew trust or claim exact-byte native qualification for the unreleased 0.7.5 package. The next exact-byte native qualification is performed once against the final 0.9 production package.
 
 ### Product architecture
 
@@ -232,7 +232,7 @@ External skills can inspire problem selection and benchmarking, but CS implement
 
 ### 0.9 release gates
 
-- exact-byte 0.7.5 container foundation qualified before inheritance;
+- 0.7.5 RC semantic evidence and production structural/security checks preserved as foundation evidence, without falsely calling the unreleased 0.7.5 production bytes natively qualified;
 - narrow activation contract for every skill;
 - anti-overrouting regressions;
 - deterministic fixtures where meaningful;
