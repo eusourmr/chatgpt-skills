@@ -1,0 +1,104 @@
+name: Scaffold and validate v0.9 first-party family
+
+on:
+  push:
+    branches:
+      - feature/v0.9-first-party
+    paths:
+      - 'scripts/scaffold-v090-first-party.mjs'
+      - '.github/workflows/scaffold-v090-first-party.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scaffold:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/v0.9-first-party
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Generate remaining first-party skills
+        run: node scripts/scaffold-v090-first-party.mjs
+
+      - name: Regenerate catalog README blocks
+        run: python scripts/catalog.py --write
+
+      - name: Validate generated skills and profiles
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/catalog.py --check
+          python scripts/validate_catalog.py
+          node scripts/validate-skill-profiles.mjs
+          node scripts/validate-skill-containers.mjs
+          node scripts/eval-container-guardian.mjs --check
+          node --check scripts/scaffold-v090-first-party.mjs
+          python - <<'PY'
+          import json, glob
+          for p in sorted(glob.glob('tests/fixtures/v090-*.json')):
+              d=json.load(open(p,encoding='utf-8'))
+              assert d.get('release_line')=='0.9.0', p
+              assert d.get('cases'), p
+          print('All v0.9 semantic fixture files parsed.')
+          PY
+
+      - name: Enforce draft admission boundary
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFile } from 'node:fs/promises';
+          const release=JSON.parse(await readFile('release/v090-first-party-skills.json','utf8'));
+          const catalog=JSON.parse(await readFile('catalog.json','utf8'));
+          const manifest=JSON.parse(await readFile('installer/manifest.json','utf8'));
+          const trust=JSON.parse(await readFile('trust/skills.json','utf8'));
+          const execution=JSON.parse(await readFile('trust/execution.json','utf8'));
+          const foundation=new Set(['cs-navigator','regenerative-impact-map','regenerative-language-bridge','regenerative-resilience-plan','regenerative-adaptive-experiment']);
+          const drafts=release.skills.filter(id=>!foundation.has(id));
+          for(const id of drafts){
+            const e=catalog.entries.find(x=>x.id===id);
+            if(!e) throw new Error(id+': missing catalog entry');
+            if(e.status!=='draft') throw new Error(id+': must remain draft before qualification');
+            if(manifest.skills?.[id]) throw new Error(id+': must not enter installer manifest before qualification');
+            if(trust.skills?.[id]) throw new Error(id+': must not inherit trust before qualification');
+            if(execution.skills?.[id]) throw new Error(id+': must not claim execution evidence before qualification');
+          }
+          console.log('Draft admission boundary OK for '+drafts.length+' v0.9 first-party skills.');
+          NODE
+
+      - name: Security scan generated first-party skill sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE' > /tmp/v090-draft-ids.txt
+          import { readFile } from 'node:fs/promises';
+          const r=JSON.parse(await readFile('release/v090-first-party-skills.json','utf8'));
+          const foundation=new Set(['cs-navigator','regenerative-impact-map','regenerative-language-bridge','regenerative-resilience-plan','regenerative-adaptive-experiment']);
+          for(const id of r.skills) if(!foundation.has(id)) console.log(id);
+          NODE
+          while read -r id; do
+            node scripts/security-gate-v2.mjs --path "skills/$id" > "/tmp/$id-security.json"
+          done < /tmp/v090-draft-ids.txt
+          echo "Security Gate v2 completed for all v0.9 draft sources."
+
+      - name: Commit generated family
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add skills tests/fixtures/v090-*.json catalog/skills.json catalog.json README.md README.pt-BR.md
+          if git diff --cached --quiet; then
+            echo "No generated changes."
+          else
+            git commit -m "v0.9: scaffold remaining first-party skill family"
+            git push origin HEAD:feature/v0.9-first-party
+          fi
