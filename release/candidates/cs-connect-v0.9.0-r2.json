@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "product": "CS Connect",
+  "technical_plugin_slug": "cs-navigator",
+  "version": "0.9.0",
+  "candidate_revision": "R2",
+  "plugin_source_commit": "6d0f712f1e7c1fae5287135e2d1a6dd25e9e4a7a",
+  "parent_candidate": {
+    "revision": "R1",
+    "zip_sha256": "1073737545b2742f3c56afb04e5e168cd7393144c8be028766801adc9a70eaf5",
+    "disposition": "rejected-native-gate-1"
+  },
+  "zip_sha256": "3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce",
+  "entries": 63,
+  "exact_byte_binding": true,
+  "qualification": {
+    "state": "qualified-scoped-regression",
+    "completed_on": "2026-10-05",
+    "initial_matrix": {
+      "artifact_sha256": "28f45c9ae2922ba0aba6057a1ee04895d860ede0918fa65800f4c7b173c88350",
+      "result": {
+        "pass": 21,
+        "fail": 2,
+        "total": 23
+      },
+      "failed_cases": [
+        "route-evidence-brazil",
+        "route-project"
+      ]
+    },
+    "r2_requalification": {
+      "result": {
+        "pass": 5,
+        "fail": 0,
+        "total": 5
+      },
+      "method": "change-impact-scoped native requalification",
+      "rationale": "The R2 changes were limited to the Brazil jurisdiction/authority routing contract, the related Evidence-First Research contract/capability index, and the previously corrected Project Execution Director checkpoint contract. The frozen policy called for re-running the two failed cases plus essential Guardian/native-first/evidence-state regressions rather than re-running all unaffected cases.",
+      "evidence_ref": "trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json"
+    },
+    "claim_boundary": "Qualified for the recorded semantic cases and scoped regressions on these exact bytes. This is not proof of zero hallucinations, universal safety, or deterministic Guardian execution inside ChatGPT."
+  },
+  "distribution_state": "production-candidate-qualified-not-yet-published",
+  "public_name": "CS Connect",
+  "technical_identity_preserved": "cs-navigator"
+}
