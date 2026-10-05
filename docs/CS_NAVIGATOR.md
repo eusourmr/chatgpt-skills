@@ -1,12 +1,12 @@
-# CS Connect Navigator
+# CS Navigator Navigator
 
-**CS Connect** is the public product name. `cs-navigator` is the preserved technical router ID. The Navigator is the ChatGPT Skills (CS) capability router that combines **Chat-Native First** with independent trust/evidence context.
+**CS Navigator** is the public product name. `cs-navigator` is the preserved technical router ID. The Navigator is the ChatGPT Skills (CS) capability router that combines **Chat-Native First** with independent trust/evidence context.
 
 For installation and first use, see [Getting Started](GETTING_STARTED.md).
 
 ## Current status
 
-- public product line: **CS Connect 0.9.0**;
+- public product line: **CS Navigator 0.9.0**;
 - qualified package: **R2**;
 - exact ZIP SHA-256: `3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`;
 - 0.7.5: absorbed as the internal Skill Containers / Container Guardian foundation;
@@ -34,7 +34,7 @@ Examples that normally stay native:
 - straightforward explanation;
 - summarizing a provided file when no specialized workflow is needed.
 
-## What ships in CS Connect 0.9.0
+## What ships in CS Navigator 0.9.0
 
 - `SKILL.md` — navigation/routing contract;
 - `agents/openai.yaml` — product-facing metadata;
