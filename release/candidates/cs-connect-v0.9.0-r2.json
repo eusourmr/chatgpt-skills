@@ -42,5 +42,15 @@
   },
   "distribution_state": "production-candidate-qualified-not-yet-published",
   "public_name": "CS Connect",
-  "technical_identity_preserved": "cs-navigator"
+  "technical_identity_preserved": "cs-navigator",
+  "ci_reproduction": {
+    "workflow_run_id": 37366010388,
+    "job_id": 111951238813,
+    "artifact_id": 11368935114,
+    "artifact_name": "cs-connect-v090-production-candidate",
+    "artifact_outer_digest_sha256": "d5b9bbe59370dee1cced9e5546baf80661af09f6225354f2f38bfa0f5f303104",
+    "reproduced_inner_zip_sha256": "3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce",
+    "entries": 63,
+    "result": "exact-match"
+  }
 }
