@@ -6,6 +6,10 @@ on:
       - feature/v0.9-first-party
     paths:
       - '.github/workflows/build-v090-cs-connect.yml'
+      - 'scripts/build-v090-cs-connect.mjs'
+      - 'skills/**'
+      - 'tests/fixtures/v090-*.json'
+      - 'release/v090-first-party-skills.json'
   workflow_dispatch:
 
 permissions:
