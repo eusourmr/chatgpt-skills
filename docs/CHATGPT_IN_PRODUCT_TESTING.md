@@ -32,7 +32,7 @@ No server, API key, MCP gateway, external account, or local runtime is part of t
 
 ### Historical 0.7 preparation example
 
-The npm CLI remains on its independent `0.4.0` line and is not the source of truth for CS Connect plugin qualification. For current release qualification, test the exact versioned plugin artifact named by the qualification plan; do not substitute an unpinned CLI/export artifact.
+The npm CLI remains on its independent `0.4.0` line and is not the source of truth for CS Navigator plugin qualification. For current release qualification, test the exact versioned plugin artifact named by the qualification plan; do not substitute an unpinned CLI/export artifact.
 
 Use the exact repository revision that introduced the evidence gate:
 
@@ -69,7 +69,7 @@ After a passing run is committed, the execution evidence may be promoted in a se
 
 ## Current 0.9 evidence
 
-CS Connect 0.9.0 R2 was qualified from the exact plugin ZIP with SHA-256:
+CS Navigator 0.9.0 R2 was qualified from the exact plugin ZIP with SHA-256:
 
 ```text
 3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce
@@ -78,8 +78,8 @@ CS Connect 0.9.0 R2 was qualified from the exact plugin ZIP with SHA-256:
 The frozen matrix first exposed two defects. After the Brazil jurisdiction/authority and Project Execution Director rollback fixes, R2 passed a change-impact requalification of 5/5 cases. Do not describe this as a full 23/23 rerun on R2.
 
 Machine-readable evidence:
-- `release/candidates/cs-connect-v0.9.0-r2.json`
-- `trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json`
+- `release/candidates/cs-navigator-v0.9.0-r2.json`
+- `trust/evals/runs/cs-navigator-v0.9.0-r2-native-requalification.json`
 
 ## Evidence is not endorsement
 
