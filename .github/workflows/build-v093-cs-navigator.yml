@@ -1,4 +1,5 @@
 name: Build CS Navigator v0.9.3 R3 final candidate
+# Rebuild trigger after trust-chain snapshot refresh.
 
 on:
   push:
