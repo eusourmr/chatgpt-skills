@@ -98,6 +98,8 @@ jobs:
           assert len(qids)==len(set(qids)), q
           print(f'v0.9 skill fixtures parsed: {len(skill_paths)}; frozen qualification matrix parsed separately: {len(qids)} cases')
           PY
+      - name: Audit current CS Connect 0.9 documentation
+        run: node scripts/validate-v090-docs.mjs
       - name: Security Gate v2 — draft skill sources
         shell: bash
         run: |
