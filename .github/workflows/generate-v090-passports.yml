@@ -1,0 +1,49 @@
+name: Generate CS Connect 0.9 Passports
+
+on:
+  push:
+    branches:
+      - feature/v0.9-first-party
+    paths:
+      - 'scripts/generate-v090-first-party-passports.mjs'
+      - 'release/candidates/cs-connect-v0.9.0-r2.json'
+      - '.github/workflows/generate-v090-passports.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v090-passports-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Generate exact-package passports
+        run: node scripts/generate-v090-first-party-passports.mjs
+      - name: Validate generated passport count and package binding
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(find trust/passports/v090 -maxdepth 1 -name '*.json' | wc -l)" -eq 16
+          grep -R '"package_sha256": "3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce"' trust/passports/v090/*.json >/dev/null
+      - name: Commit passports when changed
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- trust/passports/v090; then
+            echo 'Passports already current.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add trust/passports/v090
+          git commit -m 'Generate CS Connect 0.9 exact-package passports'
+          git push origin HEAD:feature/v0.9-first-party
