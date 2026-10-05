@@ -1,6 +1,6 @@
 # Manutenção do Plugin CS Navigator
 
-> Linha pública atual: **CS Navigator 0.9.0**. ZIP R2 qualificado SHA-256: `3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`. Publicação no diretório ainda exige revisão, aprovação e publicação explícita pela OpenAI.
+> Candidato atual: **CS Navigator 0.9.2 R3-final**. ZIP SHA-256: `890b4a7f8257021e2dedce10bce0abfa415ca4ebbed44de7966d5b90ca38117b`. A requalificação nativa ainda está pendente; publicação pública exige revisão, aprovação e publicação explícita pela OpenAI.
 
 [English](PLUGIN_MAINTENANCE.md)
 
@@ -60,7 +60,7 @@ Prefira tag de release qualificada ou commit SHA imutável.
 Exemplo:
 
 ```text
-cs-navigator-v0.9.0
+cs-navigator-v0.9.2
 ```
 
 Uma tag/SHA fica fixada de propósito. Ela não avança para uma versão posterior só porque a `main` avançou. Mude o ref do marketplace apenas depois que a nova release passar por todos os gates.
