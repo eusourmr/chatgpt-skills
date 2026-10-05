@@ -1,106 +1,106 @@
-# Public OpenAI Plugin Directory — CS Navigator
+# Public OpenAI Plugin Directory — CS Connect
 
-This document governs the public-directory packaging and update path for CS Navigator.
+This document is the release checklist for publishing **CS Connect 0.9.0** to the universal OpenAI plugin directory shared by ChatGPT and Codex.
 
-For stable installation/use instructions, see [Getting Started](GETTING_STARTED.md). For the permanent update checklist, see [Plugin Maintenance](PLUGIN_MAINTENANCE.md).
+For end-user installation, see [Getting Started](GETTING_STARTED.md). For repository/workspace distribution, see [GitHub Plugin Distribution](GITHUB_PLUGIN_DISTRIBUTION.md).
 
-## Current project state
+## Qualified package
 
-Stable repository release:
+- public name: **CS Connect**
+- technical plugin slug: `cs-navigator`
+- version: `0.9.0`
+- package type: skills-only
+- qualified candidate: **R2**
+- exact ZIP SHA-256: `3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`
+- exact entries: 63
+- package evidence: `release/candidates/cs-connect-v0.9.0-r2.json`
+- native evidence: `trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json`
 
-- plugin: **CS Navigator 0.7.0 — Verifiable Trust I**
-- tag: `cs-navigator-v0.7.0`
-- production artifact: `cs-navigator-plugin-0.7.0.zip`
-- SHA-256: `a1ac38a482f6e3ad839eefc3ed555c2cc001e24cf28b1be2740024d963b6048d`
-- submission metadata: `submission/cs-navigator-0.7.0.json`
+The R2 package was reproduced by GitHub Actions with the same inner ZIP SHA-256.
 
-The repository does **not** treat GitHub release, workspace marketplace import, or native QA as proof that the plugin is publicly listed. Public availability must be verified in the OpenAI plugin submission portal/directory before making that claim.
+## Current public-directory state
 
-At the time this documentation was refreshed, a directory search from the available plugin discovery surface did not verify a public CS Navigator listing. Treat public-directory status as **not verified** until the portal/directory confirms it.
+A private 0.9.0 plugin draft has been created from the exact qualified R2 ZIP.
 
-## Intended public user experience
+**It is not yet a public listing.**
 
-Once a package version is approved and published:
+The OpenAI public flow is:
+
+1. choose the verified developer identity;
+2. upload/select the complete ZIP;
+3. wait for automated package/skill checks;
+4. resolve blocking findings;
+5. submit the package for OpenAI review;
+6. wait for approval;
+7. explicitly select **Publish plugin**;
+8. verify the directory shows **CS Connect 0.9.0**.
+
+Approval alone does not publish the plugin. A GitHub release or private plugin draft also does not prove public availability.
+
+## Submission metadata
+
+Use:
 
 ```text
-ChatGPT / Codex
-  -> Plugins
-  -> search "CS Navigator"
-  -> Install
-  -> @CS Navigator
+submission/cs-navigator-0.9.0.json
 ```
 
-Availability can still vary by plan, workspace, role, region, and supported surface.
+The public listing should present **CS Connect**. The technical slug remains `cs-navigator` so the product can evolve without breaking technical identity.
 
-## Submission type
+The plugin is skills-only:
 
-CS Navigator is currently **skills-only**.
+- no MCP server;
+- no external auth;
+- no API key;
+- no required external network;
+- no third-party gateway.
 
-Use the current versioned submission file as the source of truth for listing copy, capabilities, starter prompts, review cases, and release notes.
+## Review claim boundaries
 
-For 0.7.0:
+Allowed:
 
-```text
-submission/cs-navigator-0.7.0.json
-```
+- exact-byte R2 qualification passed for the recorded matrix and scoped regressions;
+- native-first behavior was explicitly tested;
+- Guardian STOP/no-bypass behavior was regression-tested;
+- Brazil jurisdiction/authority and project rollback defects were found, fixed, and requalified;
+- GitHub Actions reproduced the exact R2 inner ZIP hash.
 
-## Build the package
+Do **not** claim:
 
-```bash
-npm run validate
-npm run build:public-plugin
-```
+- zero hallucinations;
+- perfect safety;
+- that Container Guardian necessarily executed inside ChatGPT without an actual decision record;
+- that a Security Gate pass is a universal safety guarantee;
+- that OpenAI approved or verified the plugin before the portal says so.
 
-The production ZIP must be rebuilt from the exact qualified source and its SHA-256 must be verified before submission/publication.
+## After approval
 
-## Initial publication
+Only after approval:
 
-For an initial public listing:
+1. open the approved package version;
+2. select **Publish plugin**;
+3. search the public directory for **CS Connect**;
+4. confirm the displayed version is 0.9.0;
+5. install it from a normal eligible account;
+6. run a native-first smoke test;
+7. record the public listing evidence in issue #62;
+8. update README status from “review path” to “published”.
 
-1. use the verified OpenAI developer identity that will own the plugin;
-2. upload the complete plugin ZIP;
-3. resolve required automated findings;
-4. submit the selected package version for review;
-5. after approval, explicitly choose **Publish plugin**;
-6. verify the public directory entry.
+## Updates after 0.9.0
 
-Approval alone does not publish the plugin.
+For future bundled skill or metadata changes:
 
-## Updating an already-published CS Navigator
+- increment the plugin version;
+- create a complete new ZIP;
+- qualify the new bytes;
+- upload the new ZIP to the existing public plugin;
+- complete required checks/review;
+- publish the approved package.
 
-For CS Navigator skill/metadata/package changes, **GitHub changes do not automatically update the public Plugin Directory**.
+Do not create a duplicate public plugin for routine updates.
 
-Use the same existing public plugin:
+## GitHub marketplace is separate
 
-1. finish repository qualification;
-2. increment the plugin package version;
-3. build the complete new ZIP from the qualified source;
-4. open the existing CS Navigator plugin in the OpenAI submission portal;
-5. upload the new ZIP as a new package version;
-6. review automated findings;
-7. complete the required review flow;
-8. after approval, publish the approved package version;
-9. verify the directory shows the intended version;
-10. record publication evidence in the release issue.
-
-Do not create a duplicate public plugin for routine version updates.
-
-A published package update replaces the previously published package version.
-
-## Why GitHub sync is different
-
-A managed workspace that imported our GitHub marketplace can receive repository changes through daily sync / **Sync now**.
-
-That mechanism is separate from the universal public Plugin Directory review/publication flow.
-
-## 0.7.5 rule
-
-Do not upload or publish 0.7.5 publicly until:
-
-- force-fresh native qualification passes;
-- canonical plugin bytes are promoted deliberately;
-- evidence is rebound to the new bytes;
-- final production CI/release gate passes;
-- the exact production ZIP is frozen and hashed.
+Managed workspaces may import and sync the GitHub marketplace. That is a workspace distribution mechanism and does not publish to the universal public directory.
 
 Independent community project. Not affiliated with or endorsed by OpenAI.
