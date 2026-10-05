@@ -43,6 +43,18 @@ Routing families:
 
 Prefer one skill. Compose only when each capability contributes a distinct necessary function.
 
+### Mandatory Brazil current-rule routing gate
+
+When an explicit CS Connect request asks about a **current Brazilian rule, law, regulation, public-policy requirement, or administrative requirement**, route to `evidence-first-research` with `brasil-context`.
+
+Before asking a follow-up or stating a current rule, the response MUST expose the jurisdiction gate:
+
+- If the specific rule/topic and competent authority are not yet identifiable from the request, write **`Jurisdição/autoridade aplicável: UNKNOWN / EVIDENCE MISSING`** and state that federal, state, municipal, Federal District, regulatory/issuing authority, or mixed scope must not be assumed.
+- Then ask for the missing rule, topic, number, link, or other minimum object needed to identify the competent authority.
+- If the rule/topic is supplied, explicitly identify the applicable government level, territorial scope, and issuing/regulatory authority when material before presenting a current-rule conclusion.
+- Never omit the UNKNOWN state merely because the next action is to ask a clarifying question.
+
+
 ## Core rule
 
 Use ChatGPT first. A skill is optional, not the default.
