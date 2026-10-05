@@ -34,5 +34,14 @@
   },
   "claim_boundary": "Static/build evidence complete. Native ChatGPT semantic requalification is still required before calling these exact bytes natively qualified.",
   "final_repository_validation": "PASS",
-  "final_zip_rebuild": "PASS / SHA unchanged after trust-chain and snapshot repair"
+  "final_zip_rebuild": "PASS / SHA unchanged after trust-chain and snapshot repair",
+  "private_plugin": {
+    "plugin_id": "plugins_6ac41c5909b481918b0523726e763aa3",
+    "version": "0.9.3",
+    "release_id": "pluginrel_6ac43032739081919b5eb9fa9463dd35",
+    "discoverability": "PRIVATE",
+    "exact_zip_sha256": "4a54c159901f1a58d55420ab31a30d1839084b0ff885738b244db226897115b6",
+    "state": "installed-private-candidate-native-requalification-pending"
+  },
+  "native_requalification_session_boundary": "Current conversation still exposes cached installed CS Navigator 0.9.2 skill bytes; exact 0.9.3 native semantic qualification must run only after the host loads the 0.9.3 release."
 }
