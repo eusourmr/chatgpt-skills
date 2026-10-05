@@ -7,7 +7,7 @@ description: Route only capability-selection questions to the smallest evidence-
 
 Help the user move from **“I want to do this”** to the smallest useful capability set while keeping the work inside ChatGPT whenever practical.
 
-## Skill Container runtime boundary — 0.9.0
+## Skill Container runtime boundary — 0.9.1
 
 The deterministic Container Guardian exists outside the chat-native skill instructions. **Do not claim that the Guardian executed unless the host/runtime provides an actual Guardian decision record.** The bundled runtime evidence proves only the tested deterministic module behavior.
 
@@ -30,7 +30,7 @@ The public product name is **CS Navigator**; the technical router skill ID remai
 
 An explicit request to **use CS Navigator** counts as capability-selection intent. After the native-sufficiency check, consult `references/first-party-capabilities.json` for bundled 0.9 first-party workflows.
 
-The first-party capability index is not a Trust Passport. Until final 0.9 exact-byte qualification passes, its new skills are `designed`, `pending-native-0.9`, and `not-yet-qualified`. Never promote those states to `tested` or `recommended` merely because the skills are bundled.
+The first-party capability index is not a Trust Passport. Until final 0.9.1 R3 exact-byte qualification passes, its new skills are `designed`, `pending-native-0.9.1-r3`, and `not-yet-qualified`. Never promote those states to `tested` or `recommended` merely because the skills are bundled.
 
 Routing families:
 - writing: `text-integrity-editor`, `argument-article-architect`, `academic-integrity-reviewer`, `document-compliance-auditor`;
