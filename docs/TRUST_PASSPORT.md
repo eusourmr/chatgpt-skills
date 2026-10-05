@@ -117,9 +117,9 @@ When evidence is missing, the Passport must say that it is missing.
 **Unknown is a valid result. Fabricated confidence is not.**
 
 
-## CS Connect 0.9 exact-package passports
+## CS Navigator 0.9 exact-package passports
 
-CS Connect 0.9 adds a supplemental exact-package passport set for the 15 new first-party skills:
+CS Navigator 0.9 adds a supplemental exact-package passport set for the 15 new first-party skills:
 
 ```text
 trust/passports/v090/
@@ -127,7 +127,7 @@ trust/passports/v090/
 
 These records are generated from the **qualified plugin source commit**, not from the mutable branch head. For R2 they bind each first-party skill to:
 
-- CS Connect version and candidate;
+- CS Navigator version and candidate;
 - exact plugin ZIP SHA-256;
 - exact qualified plugin source commit;
 - per-file SHA-256 values inside that skill;
@@ -142,8 +142,8 @@ For the qualified 0.9.0 R2 package, see:
 
 ```text
 trust/passports/v090/index.json
-release/candidates/cs-connect-v0.9.0-r2.json
-trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json
+release/candidates/cs-navigator-v0.9.0-r2.json
+trust/evals/runs/cs-navigator-v0.9.0-r2-native-requalification.json
 ```
 
 A future plugin package with different bytes requires new binding evidence; the R2 passports must not silently migrate to it.
