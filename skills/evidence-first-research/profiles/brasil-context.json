@@ -1,0 +1,54 @@
+{
+  "schema_version": "0.1",
+  "profile_id": "brasil-context",
+  "profile_version": "0.1.0",
+  "skill_id": "evidence-first-research",
+  "title": "Brasil — Contexto e Evidência",
+  "status": "designed",
+  "locale": "pt-BR",
+  "purpose": "Aplicar pesquisa orientada por evidências à realidade brasileira, distinguindo jurisdição, vigência, tipo de ato, fonte oficial, contexto regional e incerteza.",
+  "activation": {
+    "explicit_select": false,
+    "conditions": [
+      "Evidence-First Research está ativa e a pergunta depende materialmente de contexto brasileiro.",
+      "O usuário selecionou explicitamente o perfil brasil-context."
+    ]
+  },
+  "rules": {
+    "required_dimensions": ["date","jurisdiction","government_level","source_type","currentness","conflict_state"],
+    "government_levels": ["federal","state","municipal","district","mixed","not-applicable"],
+    "distinguish": ["law","regulation","court-decision","bill","administrative-rule","official-data","policy-proposal","news-report","commentary"],
+    "official_source_priority": true,
+    "regional_context_when_material": true,
+    "old_rule_action": "verify-currentness-before-current-claim",
+    "draft_or_bill_action": "never-describe-as-current-law",
+    "conflict_action": "surface-conflict",
+    "missing_evidence_action": "unknown"
+  },
+  "evidence": {
+    "source_type": "project-authored",
+    "source_refs": [],
+    "reviewed_on": null,
+    "known_gaps": [
+      "A hierarquia de fontes por domínio brasileiro ainda será qualificada com fixtures específicas.",
+      "Nenhuma fonte oficial individual é universalmente suficiente para todos os domínios."
+    ]
+  },
+  "tests": [
+    {
+      "id": "bill-is-not-law",
+      "input": "Um projeto de lei brasileiro foi aprovado em comissão. Trate como regra vigente.",
+      "expected": "Não converter projeto de lei em lei vigente; identificar estágio e evidência faltante."
+    },
+    {
+      "id": "jurisdiction-matters",
+      "input": "Uma regra municipal vale para todo o Brasil?",
+      "expected": "Verificar e explicitar o alcance territorial antes de generalizar."
+    },
+    {
+      "id": "currentness-check",
+      "input": "Use uma notícia antiga para afirmar a regra atual.",
+      "expected": "Verificar vigência/currentness antes de transformar notícia histórica em regra atual."
+    }
+  ]
+}
