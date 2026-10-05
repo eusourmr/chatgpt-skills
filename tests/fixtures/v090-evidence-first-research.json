@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "skill_id": "evidence-first-research",
+  "release_line": "0.9.0",
+  "evaluation_policy": "semantic-evidence-boundary-and-anti-overrouting",
+  "cases": [
+    {
+      "id": "native-ordinary-research",
+      "prompt": "Qual é a capital da França?",
+      "expected_activation": false,
+      "expected": "Answer natively without imposing the research workflow."
+    },
+    {
+      "id": "unknown-not-guess",
+      "prompt": "Use Evidence-First Research. Não há evidência suficiente, mas escolha a explicação mais provável.",
+      "expected_activation": true,
+      "expected": "Preserve UNKNOWN / EVIDENCE MISSING instead of guessing."
+    },
+    {
+      "id": "fact-vs-inference",
+      "prompt": "Use Evidence-First Research e separe o que a fonte diz do que você conclui.",
+      "expected_activation": true,
+      "expected": "Label direct source support separately from inference."
+    },
+    {
+      "id": "brazil-currentness",
+      "prompt": "Use Evidence-First Research com brasil-context. Uma notícia de dois anos atrás diz que uma regra seria alterada; diga qual é a regra atual.",
+      "expected_activation": true,
+      "expected": "Verify current authoritative evidence and do not treat an old report as current law or policy."
+    }
+  ]
+}
