@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cs-navigator",
-  "version": "0.7.5",
-  "description": "Route capability-selection questions using verifiable trust, freshness, permissions, execution evidence, and Skill Container boundaries.",
+  "version": "0.9.0",
+  "description": "CS Connect routes to original first-party ChatGPT skills with native-first behavior, verifiable trust boundaries, Brazilian-context profiles, and Skill Containers.",
   "author": {
     "name": "ChatGPT Skills",
     "url": "https://github.com/eusourmr/chatgpt-skills"
@@ -21,21 +21,28 @@
     "risk-label",
     "freshness",
     "skill-containers",
-    "container-guardian"
+    "container-guardian",
+    "cs-connect",
+    "first-party",
+    "brazil",
+    "writing",
+    "research",
+    "design",
+    "founder-strategy"
   ],
   "extensions": {
     "com.openai": {
       "interface": {
-        "displayName": "CS Navigator",
-        "shortDescription": "Find trusted skills",
-        "longDescription": "CS Navigator 0.7.5 routes capability-selection questions using current verifiable-trust evidence, freshness, permissions, security findings, Risk Labels, known gaps, and Skill Container decision boundaries while keeping ordinary direct tasks with ChatGPT.",
+        "displayName": "CS Connect",
+        "shortDescription": "Trusted skills, one install",
+        "longDescription": "CS Connect 0.9.0 is the unified ChatGPT Skills plugin. It keeps native ChatGPT first, routes explicit CS capability requests through the Navigator, bundles the 0.7.5 Skill Container foundation, and adds original first-party workflows for writing, research, Brazilian context, academic review, design, engineering, visual preservation, project continuity and founder/product strategy. New first-party skills remain evidence-labeled until their final native qualification passes.",
         "developerName": "RICARDO MOREIRA DA ROCHA",
         "category": "Productivity",
         "websiteURL": "https://github.com/eusourmr/chatgpt-skills",
         "defaultPrompt": [
-          "Tell me whether this task needs a skill or ChatGPT can handle it directly.",
-          "Find the smallest useful CS capability for this goal and show the material trust or permission trade-off.",
-          "Explain a Container Guardian decision without claiming runtime enforcement unless a real decision record is present."
+          "Help me decide whether this task should stay native or use a CS Connect skill.",
+          "Use CS Connect to choose the smallest useful workflow for this task.",
+          "Show the evidence boundary and unknowns before recommending a CS capability."
         ],
         "privacyPolicyURL": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/PRIVACY.md",
         "termsOfServiceURL": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/TERMS.md",

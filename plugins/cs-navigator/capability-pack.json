@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "pack_version": "0.7.5",
+  "pack_version": "0.9.0",
   "router": "cs-navigator",
-  "policy": "Install once, route narrowly, and use current evidence. Bundled availability does not imply activation, safety, freshness, or stronger task-effectiveness evidence.",
+  "policy": "Install once, stay native when sufficient, and activate only the smallest materially useful CS workflow. Bundling never upgrades evidence.",
   "activation_contract": [
     "CS Navigator activates on capability-selection intent, not task subject matter alone.",
     "Bundled skills must not self-activate from subject matter alone; explicit skill invocation or capability-selection intent is required.",
@@ -13,32 +13,141 @@
   ],
   "included_skills": [
     {
-      "id": "regenerative-language-bridge",
-      "source": "skills/regenerative-language-bridge",
-      "mode": "chat-native",
-      "evidence_state": "designed"
-    },
-    {
       "id": "regenerative-impact-map",
       "source": "skills/regenerative-impact-map",
       "mode": "chat-native",
-      "evidence_state": "designed"
+      "evidence_state": "designed",
+      "qualification_state": "existing-evidence-preserved"
+    },
+    {
+      "id": "regenerative-language-bridge",
+      "source": "skills/regenerative-language-bridge",
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "existing-evidence-preserved"
     },
     {
       "id": "regenerative-resilience-plan",
       "source": "skills/regenerative-resilience-plan",
       "mode": "chat-native",
-      "evidence_state": "designed"
+      "evidence_state": "designed",
+      "qualification_state": "existing-evidence-preserved"
     },
     {
       "id": "regenerative-adaptive-experiment",
       "source": "skills/regenerative-adaptive-experiment",
       "mode": "chat-native",
-      "evidence_state": "designed"
+      "evidence_state": "designed",
+      "qualification_state": "existing-evidence-preserved"
+    },
+    {
+      "id": "text-integrity-editor",
+      "source": "skills/text-integrity-editor",
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.9"
+    },
+    {
+      "id": "evidence-first-research",
+      "source": "skills/evidence-first-research",
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.9"
+    },
+    {
+      "id": "argument-article-architect",
+      "source": "skills/argument-article-architect",
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.9"
+    },
+    {
+      "id": "founder-product-strategist",
+      "source": "skills/founder-product-strategist",
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.9"
+    },
+    {
+      "id": "academic-integrity-reviewer",
+      "source": "skills/academic-integrity-reviewer",
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.9"
+    },
+    {
+      "id": "document-compliance-auditor",
+      "source": "skills/document-compliance-auditor",
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.9"
+    },
+    {
+      "id": "visual-intent-guardian",
+      "source": "skills/visual-intent-guardian",
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.9"
+    },
+    {
+      "id": "photo-restoration-conservator",
+      "source": "skills/photo-restoration-conservator",
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.9"
+    },
+    {
+      "id": "art-critique-studio",
+      "source": "skills/art-critique-studio",
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.9"
+    },
+    {
+      "id": "design-system-studio",
+      "source": "skills/design-system-studio",
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.9"
+    },
+    {
+      "id": "interactive-creative-builder",
+      "source": "skills/interactive-creative-builder",
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.9"
+    },
+    {
+      "id": "engineering-investigator",
+      "source": "skills/engineering-investigator",
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.9"
+    },
+    {
+      "id": "context-continuity-manager",
+      "source": "skills/context-continuity-manager",
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.9"
+    },
+    {
+      "id": "project-execution-director",
+      "source": "skills/project-execution-director",
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.9"
+    },
+    {
+      "id": "skill-workbench",
+      "source": "skills/skill-workbench",
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.9"
     }
   ],
   "container_guardian": {
-    "release_line": "0.7.5",
+    "release_line": "0.9.0",
     "decision_contract": [
       "ALLOW",
       "CONFIRM",
@@ -49,6 +158,7 @@
     "navigator_adapter": "runtime/navigator-container-adapter.mjs",
     "policy_reference": "skills/cs-navigator/references/container-default-policy.json",
     "runtime_eval_reference": "skills/cs-navigator/references/container-guardian-runtime-eval.json",
-    "evidence_boundary": "Deterministic runtime evidence does not prove that the Guardian executed inside the ChatGPT native skill surface."
-  }
+    "evidence_boundary": "The 0.7.5 deterministic Guardian foundation is carried forward. Final 0.9 native qualification is required for claims about the released 0.9 package, and deterministic runtime evidence still does not prove Guardian execution inside ChatGPT."
+  },
+  "product_name": "CS Connect"
 }

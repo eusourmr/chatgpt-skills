@@ -1,0 +1,4 @@
+interface:
+  display_name: "Engineering Investigator"
+  short_description: "Investigate bugs and unfamiliar codebases through evidence, structural search,"
+  default_prompt: "Use $engineering-investigator. Follow its activation boundary, evidence limits, and smallest-useful-workflow contract."

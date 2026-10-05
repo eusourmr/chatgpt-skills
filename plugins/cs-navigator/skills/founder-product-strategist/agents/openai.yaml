@@ -1,0 +1,4 @@
+interface:
+  display_name: "Founder Product Strategist"
+  short_description: "Sharper product decisions with focus and evidence"
+  default_prompt: "Use $founder-product-strategist. Challenge my assumptions, force focus, test product coherence and economics, and separate behavioral-science evidence from hype or manipulation."

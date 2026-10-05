@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Workbench"
+  short_description: "Create and evolve skills with activation contracts, profiles, permissions, fix"
+  default_prompt: "Use $skill-workbench. Follow its activation boundary, evidence limits, and smallest-useful-workflow contract."

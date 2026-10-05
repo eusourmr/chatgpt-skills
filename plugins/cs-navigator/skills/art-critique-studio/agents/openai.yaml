@@ -1,0 +1,4 @@
+interface:
+  display_name: "Art Critique Studio"
+  short_description: "Critique art through intention, composition, values, color, edges, rhythm and "
+  default_prompt: "Use $art-critique-studio. Follow its activation boundary, evidence limits, and smallest-useful-workflow contract."

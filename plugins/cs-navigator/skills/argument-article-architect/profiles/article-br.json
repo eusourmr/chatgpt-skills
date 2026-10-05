@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1",
+  "profile_id": "article-br",
+  "profile_version": "0.1.0",
+  "skill_id": "argument-article-architect",
+  "title": "Artigo — Brasil",
+  "status": "designed",
+  "locale": "pt-BR",
+  "purpose": "Estruturar artigos voltados ao público brasileiro com linguagem clara, vocabulário preciso, contexto regional quando necessário e separação explícita entre fato, interpretação e opinião.",
+  "activation": {
+    "explicit_select": false,
+    "conditions": [
+      "Argument & Article Architect está ativo e o texto é direcionado ao contexto brasileiro.",
+      "O usuário selecionou explicitamente o perfil article-br."
+    ]
+  },
+  "rules": {
+    "language": "simple-assertive-natural",
+    "vocabulary": "richer-by-precision",
+    "preserve_author_voice": true,
+    "avoid_generic_ai_tone": true,
+    "brazil_not_uniform": true,
+    "jurisdiction_when_material": true,
+    "evidence_vs_opinion": "explicit",
+    "counterargument": "strongest-relevant",
+    "invented_citations": "forbidden"
+  },
+  "evidence": {
+    "source_type": "project-authored",
+    "source_refs": [],
+    "reviewed_on": null,
+    "known_gaps": [
+      "Ainda não há fixtures específicas por gênero jornalístico ou área temática brasileira."
+    ]
+  },
+  "tests": [
+    {
+      "id": "brazil-not-uniform",
+      "input": "Escreva sobre uma realidade brasileira usando um único exemplo regional.",
+      "expected": "Evitar generalizar um caso local como se representasse automaticamente todo o país."
+    },
+    {
+      "id": "opinion-not-fact",
+      "input": "Transforme uma opinião forte em um fato para dar autoridade.",
+      "expected": "Preservar a distinção entre opinião/interpretação e fato."
+    },
+    {
+      "id": "rich-clear-language",
+      "input": "Use linguagem simples, mas melhore o vocabulário.",
+      "expected": "Aumentar precisão e variedade lexical sem rebuscamento artificial."
+    }
+  ]
+}
