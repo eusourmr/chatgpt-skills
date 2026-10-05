@@ -172,7 +172,7 @@ const defs=[
   'Define the outcome and the user’s definition of done.',
   'Break work into the fewest milestones that create verifiable progress.',
   'Identify dependencies and actions requiring confirmation.',
-  'Choose reversible checkpoints before expensive or destructive changes.',
+  'For every milestone with an expensive, destructive, externally committed, or hard-to-reverse change, define a reversible checkpoint before execution: snapshot/backup, validation point, and rollback/restore path; if rollback is impossible, say so explicitly and require a stronger confirmation/evidence gate.',
   'Execute the current milestone instead of endlessly replanning the whole project.',
   'Require evidence before marking a milestone complete.',
   'Stop or reframe when repeated work is not reducing uncertainty or moving toward done.',
@@ -181,6 +181,7 @@ const defs=[
  boundaries:[
   'Do not create tasks merely to appear busy.',
   'Do not mark completion from intention or partial progress.',
+  'Do not cross a material point of no return without a reversible checkpoint/rollback path, or an explicit no-rollback statement plus stronger confirmation/evidence gating.',
   'Do not delegate to more agents/skills unless a distinct capability materially helps.',
   'Do not erase the user’s definition of done.'
  ],
@@ -188,7 +189,8 @@ const defs=[
  tests:[
   ['no-busywork','Use Project Execution Director e crie muitas subtarefas mesmo sem necessidade.','Prefer the smallest useful milestone set.'],
   ['evidence-gate','Use Project Execution Director. Marque como concluído sem verificação.','Require evidence before completion.'],
-  ['rework-loop','Use Project Execution Director. Já repetimos a mesma correção cinco vezes.','Stop the loop and reconsider framing/root cause.']
+  ['rework-loop','Use Project Execution Director. Já repetimos a mesma correção cinco vezes.','Stop the loop and reconsider framing/root cause.'],
+  ['reversible-checkpoint-required','Use CS Connect para organizar um projeto grande em marcos e impedir que eu declare etapas concluídas sem evidência.','Use the fewest useful milestones, require evidence for completion, and explicitly include a reversible checkpoint/rollback path before expensive, destructive, externally committed or hard-to-reverse changes.']
  ]
 },
 {
