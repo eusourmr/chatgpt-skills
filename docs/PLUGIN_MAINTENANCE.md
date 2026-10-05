@@ -1,5 +1,7 @@
 # CS Navigator Plugin Maintenance
 
+> Current public product line: **CS Connect 0.9.0**. Qualified R2 ZIP SHA-256: `3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`. Public-directory publication still requires OpenAI review, approval, and explicit publish.
+
 [Português do Brasil](PLUGIN_MAINTENANCE.pt-BR.md)
 
 This document is the permanent release/update checklist for CS Navigator distribution.
@@ -58,7 +60,7 @@ Prefer a qualified release tag or immutable commit SHA.
 Example:
 
 ```text
-cs-navigator-v0.7.0
+cs-connect-v0.9.0
 ```
 
 A tag/SHA is intentionally pinned. It will not move to 0.7.5 merely because `main` advances. Update the marketplace source ref only after the new release passes all required gates.
