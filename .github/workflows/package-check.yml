@@ -244,11 +244,11 @@ jobs:
               names = z.namelist()
               assert z.testzip() is None
               snapshot = z.read('cs-navigator/references/catalog-snapshot.json')
-              import json
+              import json, os
               parsed = json.loads(snapshot)
               assert all(entry.get('id') != 'cs-navigator' for entry in parsed['entries'])
               assert b'"not-evaluated"' in snapshot
-          manifest = json.loads(Path('$GITHUB_WORKSPACE/installer/manifest.json').read_text())
+          manifest = json.loads((Path(os.environ['GITHUB_WORKSPACE']) / 'installer/manifest.json').read_text())
           expected = [
               'cs-navigator/' + rel
               for rel in manifest['skills']['cs-navigator']['files']
