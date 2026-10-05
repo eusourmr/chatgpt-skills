@@ -116,7 +116,7 @@ export async function buildSnapshot(){
       'sources/external/*.json'
     ],
     container_guardian:{
-      release_line:'0.7.5',
+      release_line:'0.9.0',
       decision_contract:['ALLOW','CONFIRM','DEGRADE','STOP'],
       runtime_evidence:'container-guardian-runtime-eval.json',
       default_policy:'container-default-policy.json',
