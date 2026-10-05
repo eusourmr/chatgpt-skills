@@ -7,32 +7,31 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 VALIDATOR = ROOT / "scripts" / "validate-in-product-evidence.mjs"
-CASE_IDS = [
-    "route-impact-map-r6",
-    "route-language-bridge-r6",
-    "route-resilience-plan-r6",
-    "route-adaptive-experiment-r6",
-    "native-only-pdf-r6",
-    "external-trust-data-storyteller-r6",
-    "direct-language-explanation-r6",
-]
+def latest_navigator_plan():
+    data = json.loads((ROOT / "trust" / "in-product-tests.json").read_text(encoding="utf-8"))
+    plans = [plan for plan in data["tests"] if plan["skill_id"] == "cs-navigator"]
+    if not plans:
+        raise AssertionError("cs-navigator must have at least one in-product test plan")
+    return plans[-1]
 
 
 def valid_run():
+    plan = latest_navigator_plan()
+    case_ids = [case["id"] for case in plan["cases"]]
     return {
-        "test_id": "cs-navigator-chatgpt-v9-capability-pack-r6",
+        "test_id": plan["id"],
         "skill_id": "cs-navigator",
         "result": "pass",
-        "executed_at": "2026-09-29T15:55:00-03:00",
-        "product_surface": "chatgpt-skills",
-        "package_version": "0.6.0",
-        "distribution": "local",
-        "source_revision": "80669fc10b6e963dd1f17fec52c00186fd40ba8e",
-        "artifact_sha256": "ddc80278253af21534ef1a62dc3f760034b1bf8036cd2886883485892be865f1",
-        "case_ids": CASE_IDS,
+        "executed_at": "2026-10-05T17:23:00-03:00",
+        "product_surface": plan["surface"],
+        "package_version": "0.9.0-test-fixture",
+        "distribution": plan["required_distribution"],
+        "source_revision": plan["required_source_revision"],
+        "artifact_sha256": plan["required_artifact_sha256"],
+        "case_ids": case_ids,
         "assertions": [
             {"case_id": case_id, "pass": True, "observed": f"Observed expected behavior for {case_id}."}
-            for case_id in CASE_IDS
+            for case_id in case_ids
         ],
     }
 
