@@ -53,7 +53,7 @@ jobs:
           if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             AS_OF="$(date -u +%F)"
           else
-            AS_OF="2026-09-30"
+            AS_OF="2026-10-05"
           fi
           node scripts/update-drift-status.mjs --write --as-of "$AS_OF"
           python -m unittest tests.test_drift_watch
