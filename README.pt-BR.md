@@ -21,6 +21,8 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 A 0.7.5 **ainda não é o plugin estável**. A qualificação nativa no ChatGPT continua sendo gate de release. Skill Containers são defesa em profundidade, não promessa de segurança perfeita ou zero alucinação.
 
+**Próxima versão pública de produto:** **CS 0.9.0 — First-Party Skills Platform**. Ela absorve o antigo plano 0.8 e adiciona workflows autorais do CS para criação/engenharia, pesquisa e escrita, perfis de realidade brasileira, preservação visual e estratégia para fundadores/produto. A 0.9 herda a fundação 0.7.5 e suas evidências semânticas/estáticas já registradas, mas a 0.7.5 não será lançada separadamente. Por isso, a qualificação nativa dos bytes exatos será feita uma única vez no pacote final 0.9, evitando repetir o mesmo gate em um pacote intermediário que não será publicado. Acompanhe o escopo na [Issue #62](https://github.com/eusourmr/chatgpt-skills/issues/62).
+
 Leia: [Primeiros Passos](docs/GETTING_STARTED.pt-BR.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Plano 0.7.5](docs/V075_VERIFIABLE_TRUST_II_CONTAINERS.md) · [Manutenção do plugin](docs/PLUGIN_MAINTENANCE.pt-BR.md)
 
 ## 🚀 Comece em 1 minuto
@@ -34,7 +36,8 @@ Para instalação e primeiro uso — importação por marketplace GitHub, artefa
 As linhas de versão são independentes:
 
 - plugin CS Navigator: **0.7.0 estável**
-- CS Navigator 0.7.5: **em qualificação**
+- CS Navigator 0.7.5: **fundação técnica em qualificação**
+- CS 0.9.0: **próxima versão pública de produto planejada**
 - CLI/npm `chatgpt-skills`: **0.4.0**
 
 Para uso controlado, prefira a tag de release `cs-navigator-v0.7.0` em vez de acompanhar a `main`.

@@ -8,7 +8,7 @@ See [`docs/ECOSYSTEM_GROWTH_STRATEGY.md`](docs/ECOSYSTEM_GROWTH_STRATEGY.md) for
 
 The project has completed the first distribution milestone and the **CS Navigator 0.7.0 — Verifiable Trust I** release. The current engineering line is **0.7.5 — Verifiable Trust II & Containers**, whose Container Guardian foundation is merged while native release qualification remains open.
 
-The next goal is **not catalog size alone**. CS should differentiate through verifiable trust, native-first routing, runtime containment, and first-party workflows that solve recurring user problems with clear evidence and permission boundaries.
+The next public product target is **CS 0.9.0 — First-Party Skills Platform**. The 0.7.5 line remains its mandatory trust/runtime engineering foundation; exact-byte native qualification moves to the final 0.9 package because 0.7.5 will not ship separately. CS should differentiate through verifiable trust, native-first routing, runtime containment, original first-party workflows, Brazilian-context excellence, and clear evidence/permission boundaries.
 
 The project may scale discovery broadly while keeping trust claims narrow: `indexed`, `source-checked`, `tested`, and `recommended` must remain distinct states.
 
@@ -140,77 +140,116 @@ Core rule:
 
 The 0.7.5 line is not qualified until deterministic fixtures prove that missing evidence does not become invented data; denied permissions cannot self-expand; unauthorized acquisition is blocked; child workflows cannot widen the parent envelope; retry exhaustion cannot unlock more privilege; stop/degrade decisions are auditable; and the user can understand why execution stopped.
 
-## v0.8 — First-Party Skills I: Everyday Trust & Community Profiles
+## v0.8 — ABSORBED INTO v0.9
 
-Turn the trust/runtime foundation into practical first-party workflows for ordinary users, researchers, writers, designers and visual creators.
+The planned **First-Party Skills I** release will not ship as a separate 0.8.0 line.
 
-Track the product definition in Issue #60.
+Its scope has been absorbed into **v0.9.0 — First-Party Skills Platform** so the first broad first-party release can combine:
 
-### Product objective
+- the 0.7.5 Verifiable Trust II / Skill Containers foundation;
+- practical creation and engineering workflows;
+- research and writing workflows;
+- Brazilian-context profiles;
+- visual preservation/critique workflows;
+- founder/product strategy.
 
-Build a small set of **first-party CS skills** that add a repeatable method, safeguard, or verifiable ruleset beyond what plain ChatGPT already does natively.
+Issue #60 is superseded by Issue #62.
 
-Use a **Core Skill + Community Profile** architecture where possible.
+## v0.9 — First-Party Skills Platform: Creation, Writing, Brazil & Founder Strategy
 
-Example:
+Make 0.9 the first broad first-party product release after the 0.7.x trust foundation.
 
-```text
-document-compliance-auditor
-  + abnt-br
-  + university profile
-  + journal profile
-  + edital profile
-```
+Track the full product definition and release gates in **Issue #62**.
 
-A profile should be versioned, source-bound, testable, and able to return states such as `COMPLIANT`, `NONCOMPLIANT`, `UNKNOWN / EVIDENCE MISSING`, or `CONFLICTING RULES`.
+### Mandatory foundation
 
-### Initial first-party candidates
+0.9 must inherit the qualified 0.7.5 behavior:
 
-- `document-compliance-auditor`
-- `academic-integrity-reviewer`
-- `evidence-first-research`
-- `text-integrity-editor`
-- `visual-intent-guardian`
-- `photo-restoration-conservator`
-- `art-critique-studio`
+- Skill Containers;
+- Container Guardian decisions `ALLOW / CONFIRM / DEGRADE / STOP`;
+- no bypass after `STOP`;
+- no permission self-escalation;
+- child containers cannot widen parent permissions;
+- no fabricated facts, citations, observations, or tool results;
+- bounded retries and explicit evidence gaps;
+- exact-byte trust renewal;
+- native-first anti-overrouting.
 
-### First implementation wedge
+The 0.7.5 production candidate becomes an **internal foundation artifact**, not a standalone release. Preserve its 12/12 RC native semantic evidence and production structural/security checks, but do not renew trust or claim exact-byte native qualification for the unreleased 0.7.5 package. The next exact-byte native qualification is performed once against the final 0.9 production package.
 
-Prioritize:
+### Product architecture
 
-1. document compliance + ABNT-BR profile;
-2. academic integrity;
-3. evidence-first research;
-4. visual-intent preservation;
-5. restoration conservation.
+Prefer **Core Skill + Profile** over duplicated giant prompts. Profiles must be versioned, source-bound, testable, and independently reviewable.
 
-### 0.8 gates
+Writing defaults for PT-BR should use simple, assertive, natural language while gradually enriching vocabulary without artificial complexity or generic AI tone.
 
-- choose a narrow first bundle instead of shipping every candidate;
-- define activation contracts so ordinary tasks remain native;
-- add deterministic fixtures where possible;
-- add native behavior qualification;
-- bind evidence to exact bytes;
-- add Skill Container profiles/permissions;
-- test anti-overrouting;
-- define a community profile contribution format;
-- qualify at least one contributed/external profile path;
-- never mark a first-party skill `tested` before its own behavior evidence passes.
+Brazil-specific profiles must distinguish current official rules/data, jurisdiction, date, source conflicts, and unknowns.
 
-### Global & regional excellence continues
+### First-party families
 
-The earlier global/regional program remains part of the roadmap, especially:
+**Creation & engineering**
+- `design-system-studio` with `web-interface`, `canvas-social`, and `theme-system` profiles;
+- `interactive-creative-builder` with `generative-art` and `interactive-web-artifact` profiles;
+- `engineering-investigator` with `root-cause-debugging` and `codebase-search` profiles;
+- `context-continuity-manager`;
+- `project-execution-director`;
+- `skill-workbench`.
 
-- Portuguese and Spanish as first-class user-facing languages;
-- jurisdiction-aware profiles and warnings;
-- Brazilian academic/institutional workflows;
-- Latin America collections and examples;
-- accessibility and low-resource suitability;
-- regional privacy/data-residency metadata.
+**Research & writing**
+- `evidence-first-research` with `general` and `brasil-context` profiles;
+- `text-integrity-editor` with `pt-br-clareza-rica`;
+- `argument-article-architect` with Brazilian article/opinion/institutional and academic profiles;
+- `academic-integrity-reviewer`;
+- `document-compliance-auditor` with `abnt-br`, university, journal, and edital profiles.
 
-Regional relevance never bypasses provenance, security, licensing, privacy or behavioral evidence.
+**Visual preservation & critique**
+- `visual-intent-guardian`;
+- `photo-restoration-conservator`;
+- `art-critique-studio`.
 
-## v0.9 — Ecosystem Intelligence & Community Scale
+**Entrepreneurship & product**
+- `founder-product-strategist` with product-focus, launch-story, business-model, Brazil-founder-context, and behavioral-science profiles.
+
+The founder skill may use documented product principles often associated with Steve Jobs as one influence, but it must not impersonate him, invent quotes, or turn taste into evidence. Behavioral/neuro claims must be evidence-aware, avoid pseudo-neuroscience and dark patterns, and be testable against real customer behavior.
+
+### Reuse instead of duplication
+
+The existing Regenerative Impact Map, Language Bridge, Resilience Plan, and Adaptive Experiment remain independent capabilities. Navigator should compose them only when they add material value.
+
+External skills can inspire problem selection and benchmarking, but CS implementations must be original and license-aware.
+
+### Initial implementation order
+
+1. `text-integrity-editor` + `pt-br-clareza-rica`;
+2. `evidence-first-research` + `brasil-context`;
+3. `argument-article-architect`;
+4. `document-compliance-auditor` + `abnt-br`;
+5. `founder-product-strategist`;
+6. `engineering-investigator`;
+7. `design-system-studio`;
+8. `skill-workbench`;
+9. remaining specialist skills after their contracts and tests are ready.
+
+### 0.9 release gates
+
+- 0.7.5 RC semantic evidence and production structural/security checks preserved as foundation evidence, without falsely calling the unreleased 0.7.5 production bytes natively qualified;
+- narrow activation contract for every skill;
+- anti-overrouting regressions;
+- deterministic fixtures where meaningful;
+- native semantic qualification;
+- Skill Container profile/permissions;
+- exact-byte trust binding;
+- profile provenance/versioning;
+- EN + PT-BR documentation;
+- PT-BR simple-language/richer-vocabulary behavior tests;
+- current-source checks for Brazil/ABNT profiles;
+- accessibility checks for design workflows;
+- evidence labels for behavioral-science claims;
+- license/source provenance for external inspiration;
+- no first-party skill called `tested` until its own evidence passes;
+- final production package qualification.
+
+## v0.10 — Ecosystem Intelligence & Community Scale
 
 Turn the verified trust foundation into a collaborative intelligence layer for the wider ChatGPT skill ecosystem.
 
