@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interactive Creative Builder"
+  short_description: "Design interactive art and richer web artifacts with parameters, state, naviga"
+  default_prompt: "Use $interactive-creative-builder. Follow its activation boundary, evidence limits, and smallest-useful-workflow contract."

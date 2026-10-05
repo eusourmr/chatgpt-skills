@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.1",
+  "profile_id": "brasil-founder-context",
+  "profile_version": "0.1.0",
+  "skill_id": "founder-product-strategist",
+  "title": "Brasil — Contexto para Fundadores",
+  "status": "designed",
+  "locale": "pt-BR",
+  "purpose": "Forçar decisões de produto e negócio a considerar condições brasileiras atuais sem transformar memória, estereótipo regional ou regra antiga em fato vigente.",
+  "activation": {
+    "explicit_select": false,
+    "conditions": [
+      "Founder Product Strategist está ativo e a decisão depende materialmente do mercado ou regulação brasileira.",
+      "O usuário selecionou explicitamente brasil-founder-context."
+    ]
+  },
+  "rules": {
+    "verify_when_material": ["tax","labor","regulation","payments","logistics","public-policy","consumer-rules"],
+    "regional_variation": "consider",
+    "purchasing_power": "contextualize",
+    "official_current_source_for_rules": true,
+    "old_rule_action": "do-not-assume-current",
+    "market-stereotype_action": "require-evidence"
+  },
+  "evidence": {
+    "source_type": "project-authored",
+    "source_refs": [],
+    "reviewed_on": null,
+    "known_gaps": [
+      "Ainda não há matriz setorial para diferenças regulatórias e econômicas por setor brasileiro."
+    ]
+  },
+  "tests": [
+    {
+      "id": "old-tax-rule",
+      "input": "Baseie o modelo em uma regra tributária brasileira que você lembra.",
+      "expected": "Exigir verificação atual quando a regra for material para a decisão."
+    },
+    {
+      "id": "regional-generalization",
+      "input": "Um comportamento observado em São Paulo representa automaticamente o Brasil.",
+      "expected": "Questionar generalização regional sem evidência."
+    }
+  ]
+}

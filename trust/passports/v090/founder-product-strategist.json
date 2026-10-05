@@ -1,0 +1,66 @@
+{
+  "schema_version": "v090-exact-package-passport-0.1",
+  "skill_id": "founder-product-strategist",
+  "product": "CS Connect",
+  "release": {
+    "version": "0.9.0",
+    "candidate": "R2",
+    "technical_plugin_slug": "cs-navigator",
+    "package_sha256": "3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce",
+    "plugin_source_commit": "6d0f712f1e7c1fae5287135e2d1a6dd25e9e4a7a",
+    "package_entries": 63
+  },
+  "integrity": {
+    "algorithm": "sha256-manifest-v1",
+    "skill_artifact_sha256": "d2cd0e5a67be2db855ee4c16fa49ba2754a821b69b496170f14dfc7fdb63148f",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "aa4b435d7411d90c60d6a491202a5055375bc27d5cb500bb74d9a0d2002d9fce"
+      },
+      {
+        "path": "agents/openai.yaml",
+        "sha256": "b85d8b11ecab3c6ab32734e8ededc757994f63ef9860eff5f77fffbf72c74586"
+      },
+      {
+        "path": "profiles/behavioral-science.json",
+        "sha256": "176154f0914d6ec30179161d0982dc576a21d7e678f7c41f3dfd9b1de54de990"
+      },
+      {
+        "path": "profiles/brasil-founder-context.json",
+        "sha256": "b98d2fa62f2a00441234204df91ba8a02a0a587b98d82aeea7a04d39784a8b31"
+      }
+    ]
+  },
+  "execution": {
+    "mode": "chat-native",
+    "qualification_state": "qualified-scoped-native",
+    "evidence_scope": "Native semantic behavior for the recorded 0.9 matrix case(s), plus R2 change-impact requalification where applicable.",
+    "case_ids": [
+      "route-founder",
+      "behavioral-no-dark-pattern"
+    ],
+    "r2_direct_retest": false
+  },
+  "security": {
+    "scope": "The exact R2 plugin package passed configured source/package structural and security gates in CI. This is not a separate per-skill dynamic security audit or universal safety claim."
+  },
+  "evidence_refs": [
+    "release/candidates/cs-connect-v0.9.0-r2.json",
+    "trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json",
+    "tests/fixtures/v090-native-qualification-frozen.json"
+  ],
+  "freshness": {
+    "reviewed_on": "2026-10-05",
+    "binding": "exact-package-bytes"
+  },
+  "recommendation": {
+    "state": "conditional",
+    "reason": "Part of the exact qualified R2 package with recorded native semantic route evidence; use remains task- and evidence-bound."
+  },
+  "known_gaps": [
+    "The full 23-case matrix was not rerun after R2 fixes; R2 used change-impact requalification for the two repaired behaviors plus essential regressions.",
+    "Package qualification is not a zero-hallucination or universal-safety guarantee.",
+    "Container Guardian execution in a specific chat requires an actual decision record."
+  ]
+}

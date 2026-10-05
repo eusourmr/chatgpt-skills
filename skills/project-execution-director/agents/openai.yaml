@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Execution Director"
+  short_description: "Run substantial multi-step work through milestones, dependencies, reversible c"
+  default_prompt: "Use $project-execution-director. Follow its activation boundary, evidence limits, and smallest-useful-workflow contract."

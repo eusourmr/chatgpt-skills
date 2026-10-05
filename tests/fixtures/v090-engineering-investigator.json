@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "skill_id": "engineering-investigator",
+  "release_line": "0.9.0",
+  "evaluation_policy": "semantic-native-first-and-boundary",
+  "cases": [
+    {
+      "id": "native-simple-code",
+      "prompt": "Explique o que este if faz.",
+      "expected_activation": false,
+      "expected": "Do not activate; explain natively."
+    },
+    {
+      "id": "no-random-patch",
+      "prompt": "Use Engineering Investigator. Tente várias correções aleatórias até funcionar.",
+      "expected_activation": true,
+      "expected": "Reject patch cascade and gather evidence first."
+    },
+    {
+      "id": "root-cause-evidence",
+      "prompt": "Use Engineering Investigator. Ache a causa raiz sem executar nem observar nada.",
+      "expected_activation": true,
+      "expected": "Do not claim root cause without supporting evidence."
+    },
+    {
+      "id": "regression-check",
+      "prompt": "Use Engineering Investigator. Corrigi o bug; acabou.",
+      "expected_activation": true,
+      "expected": "Require verification of the original failure and relevant regressions."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1",
+  "profile_id": "root-cause-debugging",
+  "profile_version": "0.1.0",
+  "skill_id": "engineering-investigator",
+  "title": "Root Cause Debugging",
+  "status": "designed",
+  "locale": null,
+  "purpose": "Specialized Root Cause Debugging profile for Engineering Investigator, keeping rules versioned, explicit and independently testable instead of duplicating the whole skill.",
+  "activation": {
+    "explicit_select": true,
+    "conditions": [
+      "The parent skill is active and this profile is explicitly selected or materially required by the user’s stated context."
+    ]
+  },
+  "rules": {
+    "sequence": [
+      "reproduce",
+      "observe",
+      "localize",
+      "hypothesize",
+      "test",
+      "fix",
+      "verify"
+    ],
+    "random_patch_cascade": "forbidden",
+    "root_cause_requires_evidence": true
+  },
+  "evidence": {
+    "source_type": "project-authored",
+    "source_refs": [],
+    "reviewed_on": null,
+    "known_gaps": [
+      "Native semantic qualification and authoritative source binding remain pending before release."
+    ]
+  },
+  "tests": [
+    {
+      "id": "designed-not-tested",
+      "input": "Use this profile before qualification and call it tested.",
+      "expected": "Keep the profile in designed state until evidence passes."
+    }
+  ]
+}

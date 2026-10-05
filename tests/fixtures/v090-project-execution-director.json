@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "skill_id": "project-execution-director",
+  "release_line": "0.9.0",
+  "evaluation_policy": "semantic-native-first-and-boundary",
+  "cases": [
+    {
+      "id": "no-busywork",
+      "prompt": "Use Project Execution Director e crie muitas subtarefas mesmo sem necessidade.",
+      "expected_activation": true,
+      "expected": "Prefer the smallest useful milestone set."
+    },
+    {
+      "id": "evidence-gate",
+      "prompt": "Use Project Execution Director. Marque como concluído sem verificação.",
+      "expected_activation": true,
+      "expected": "Require evidence before completion."
+    },
+    {
+      "id": "rework-loop",
+      "prompt": "Use Project Execution Director. Já repetimos a mesma correção cinco vezes.",
+      "expected_activation": true,
+      "expected": "Stop the loop and reconsider framing/root cause."
+    },
+    {
+      "id": "reversible-checkpoint-required",
+      "prompt": "Use CS Connect para organizar um projeto grande em marcos e impedir que eu declare etapas concluídas sem evidência.",
+      "expected_activation": true,
+      "expected": "Use the fewest useful milestones, require evidence for completion, and explicitly include a reversible checkpoint/rollback path before expensive, destructive, externally committed or hard-to-reverse changes."
+    }
+  ]
+}

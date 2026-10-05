@@ -103,7 +103,7 @@ export async function buildSnapshot(){
     schema_version:2,
     generated_for_plugin:plugin.version,
     current_evidence_required_fields:['execution_evidence','recommendation','execution_mode','freshness_state','review_due_at','known_gaps'],
-    policy:'Use the smallest useful set. Native sufficiency comes first. For skills, freshness, permissions, execution evidence, security evidence, and known gaps remain separate. External indexed sources are discovery-only until separately evidenced.',
+    policy:"Use the smallest useful set. Native sufficiency comes first. For skills, freshness, permissions, execution evidence, security evidence, and known gaps remain separate. External indexed sources are discovery-only until separately evidenced. Container decisions do not prove native runtime enforcement unless an actual Guardian decision record is available.",
     source_contract:[
       'installer/manifest.json',
       'trust/skills.json',
@@ -115,6 +115,13 @@ export async function buildSnapshot(){
       'trust/upstream/*.json',
       'sources/external/*.json'
     ],
+    container_guardian:{
+      release_line:'0.9.0',
+      decision_contract:['ALLOW','CONFIRM','DEGRADE','STOP'],
+      runtime_evidence:'container-guardian-runtime-eval.json',
+      default_policy:'container-default-policy.json',
+      native_surface_boundary:'A native ChatGPT response must not claim deterministic Guardian execution unless a host/runtime decision record is actually supplied.'
+    },
     entries,
     external_sources
   };

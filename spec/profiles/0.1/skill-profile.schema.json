@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/eusourmr/chatgpt-skills/spec/profiles/0.1/skill-profile.schema.json",
+  "title": "CS Skill Profile 0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "profile_id",
+    "profile_version",
+    "skill_id",
+    "title",
+    "status",
+    "purpose",
+    "activation",
+    "rules",
+    "evidence",
+    "tests"
+  ],
+  "properties": {
+    "schema_version": { "const": "0.1" },
+    "profile_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "profile_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+][0-9A-Za-z.-]+)?$" },
+    "skill_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "title": { "type": "string", "minLength": 3 },
+    "status": { "enum": ["designed", "tested", "deprecated"] },
+    "locale": { "type": ["string", "null"] },
+    "purpose": { "type": "string", "minLength": 20 },
+    "activation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["explicit_select", "conditions"],
+      "properties": {
+        "explicit_select": { "type": "boolean" },
+        "conditions": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 3 }
+        }
+      }
+    },
+    "rules": { "type": "object", "minProperties": 1 },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_type", "source_refs", "reviewed_on", "known_gaps"],
+      "properties": {
+        "source_type": {
+          "enum": ["project-authored", "official-source", "user-supplied", "licensed-source", "community"]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "reviewed_on": { "type": ["string", "null"] },
+        "known_gaps": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "tests": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "input", "expected"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "input": { "type": "string", "minLength": 1 },
+          "expected": { "type": "string", "minLength": 3 }
+        }
+      }
+    }
+  }
+}

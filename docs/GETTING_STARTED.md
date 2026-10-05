@@ -1,216 +1,119 @@
-# Getting Started
+# Getting Started — CS Connect
 
-This is the canonical installation and first-use guide for ChatGPT Skills / CS Navigator.
+This is the canonical installation and first-use guide for **CS Connect 0.9.0**.
 
 [Português do Brasil](GETTING_STARTED.pt-BR.md)
 
-## Current versions
+## If you only want to install and use it
 
-The project has independent release lines:
+You do **not** need GitHub, a terminal, an API key, or programming knowledge.
 
-| Component | Current status |
-|---|---|
-| CS Navigator plugin | **0.7.0 stable** — Verifiable Trust I |
-| CS Navigator 0.7.5 | **In qualification** — Container Guardian / Skill Containers foundation is merged, but 0.7.5 is not released yet |
-| `chatgpt-skills` CLI on npm | **0.4.0** |
+Once CS Connect is published in OpenAI's public plugin directory:
 
-Do not treat 0.7.5 as the stable plugin until its native ChatGPT qualification and release gate are complete.
-
-Stable release: [CS Navigator 0.7.0 — Verifiable Trust I](https://github.com/eusourmr/chatgpt-skills/releases/tag/cs-navigator-v0.7.0)
-
-## Public Plugin Directory
-
-When CS Navigator has a verified published package in the public OpenAI Plugin Directory, the simplest end-user path is:
+1. Open **ChatGPT** or **Codex**.
+2. Open **Plugins**.
+3. Search for **CS Connect**.
+4. Open the plugin card.
+5. Select **Install plugin**.
+6. Start a chat and write, for example:
 
 ```text
-ChatGPT / Codex → Plugins → search "CS Navigator" → Install
+Use CS Connect to review this text without changing dates, numbers, or my meaning.
 ```
 
-The repository does **not** claim public-directory availability solely from a GitHub release or workspace marketplace import. Verify the published listing/version before directing users to this path.
+CS Connect 0.9.0 is skills-only and does not require an MCP server, external authentication, or an API key for its core package.
 
-Public plugin package updates are not pulled automatically from GitHub for bundled skill/metadata changes; maintainers must upload and publish the approved package update to the existing public plugin. See [Plugin Maintenance](PLUGIN_MAINTENANCE.md).
+> If CS Connect is not visible in public search yet, the public package is still under review or has not been published. A GitHub release alone is not proof of public-directory availability.
 
-## Option A — Install CS Navigator in a compatible ChatGPT workspace
+## Current version
 
-Where GitHub-managed plugin marketplaces are supported:
+| Component | Status |
+|---|---|
+| CS Connect | **0.9.0 R2 — qualified production candidate** |
+| Qualified ZIP | SHA-256 `3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce` |
+| 0.7.5 | absorbed as the internal Skill Containers / Container Guardian foundation |
+| 0.8 | absorbed into 0.9 |
+| `chatgpt-skills` CLI | independent version line, currently `0.4.0` |
+| Next line | 0.10 — Ecosystem Intelligence & Community Scale |
 
-1. Open your ChatGPT workspace/plugin settings.
-2. Add or import a GitHub plugin marketplace.
-3. Use this repository as the source:
+R2 qualification is exact-byte and case-bound. It is not a universal safety guarantee or zero-hallucination claim.
+
+## How CS Connect behaves
+
+Simple tasks should stay native:
+
+```text
+What is 17 × 4?
+Fix this sentence.
+Summarize this paragraph.
+```
+
+Invoke CS Connect explicitly when you want one of its workflows:
+
+```text
+Use CS Connect to research this Brazilian rule and distinguish current law, a bill, and old reporting.
+```
+
+```text
+Use CS Connect to organize this project into a few verifiable milestones.
+```
+
+## While public review is pending
+
+### A. Qualified ZIP
+
+Use the GitHub 0.9.0 release ZIP on a surface that supports plugin upload and verify:
+
+```text
+3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce
+```
+
+### B. Managed GitHub marketplace
+
+Workspace administrators can import:
 
 ```text
 Repository: https://github.com/eusourmr/chatgpt-skills
-Path:       (leave empty)
-Ref:        cs-navigator-v0.7.0
+Path:       leave empty
+Ref:        use the stable 0.9.0 release tag once published
 ```
 
-4. Install **CS Navigator** from the imported marketplace.
-5. For controlled production use, prefer the release tag above instead of tracking `main`.
+See [GitHub distribution](GITHUB_PLUGIN_DISTRIBUTION.md).
 
-The stable CS Navigator plugin is skills-only. Its core pack does not require an MCP server, API key, external auth, or third-party gateway.
-
-See [GitHub-native distribution](GITHUB_PLUGIN_DISTRIBUTION.md) for administrator and local-development details.
-
-## Option B — Use the stable release artifact
-
-The 0.7.0 GitHub release contains:
-
-```text
-cs-navigator-plugin-0.7.0.zip
-cs-navigator-plugin-0.7.0.zip.sha256
-```
-
-Published plugin SHA-256:
-
-```text
-a1ac38a482f6e3ad839eefc3ed555c2cc001e24cf28b1be2740024d963b6048d
-```
-
-The release ZIP is the exact qualified production payload. Whether a product surface accepts direct ZIP installation depends on that surface. Do not treat a local ZIP merely existing on disk as proof that it is installed or active in ChatGPT.
-
-## Option C — Use the CLI
-
-The npm CLI follows its own version line.
-
-Interactive start:
+### C. CLI for technical users
 
 ```bash
 npx chatgpt-skills install
-```
-
-Inspect a skill before adopting it:
-
-```bash
 npx chatgpt-skills inspect cs-navigator
-npx chatgpt-skills inspect openai-agents-sdk-builder
-```
-
-Verify an installation or export:
-
-```bash
 npx chatgpt-skills doctor
 ```
 
-Install/export for supported targets:
-
-```bash
-npx chatgpt-skills install --bundle openai-ecosystem --tool codex-cli --scope project --yes
-npx chatgpt-skills install --bundle education --tool cursor --scope project --yes
-npx chatgpt-skills install --bundle data-analyst --tool agents-portable --scope project --yes
-```
-
-Prepare ChatGPT upload/export artifacts when direct GitHub marketplace import is unavailable:
-
-```bash
-npx chatgpt-skills install --skill cs-navigator --tool chatgpt-web --yes
-```
-
-Repository fallback:
-
-```bash
-npx --allow-git=root github:eusourmr/chatgpt-skills install
-```
-
-## How to use CS Navigator
-
-CS Navigator is a **capability router**, not a requirement for every task.
-
-Use it when you are deciding things such as:
-
-- whether a task needs a skill at all;
-- which CS capability is the smallest useful fit;
-- whether an external skill has enough evidence to trust;
-- whether a candidate is current, tested, stale, changed-unreviewed, or not evaluated;
-- which materially equivalent option uses fewer permissions.
-
-Example prompts:
+## Quick verification
 
 ```text
-@CS Navigator
-Do I need a skill for this, or can ChatGPT handle it directly?
+Use CS Connect. What is 17 × 4?
 ```
+
+Expected: **68**, with no unnecessary routing workflow.
+
+For a specialist behavior check:
 
 ```text
-@CS Navigator
-Which CS capability fits this goal with the smallest permission footprint?
+Use CS Connect to organize a large project into milestones and prevent me from marking stages complete without evidence.
 ```
 
-```text
-@CS Navigator
-Is this skill current, tested, and sufficiently evidenced for this use?
-```
+The result should use a small milestone set, evidence gates, and reversible checkpoints where material.
 
-If the task is ordinary and ChatGPT can do it directly, the correct route may be **native-only**.
+## Technical identity
 
-Examples that should normally stay native:
+- public name: **CS Connect**
+- technical slug: `cs-navigator`
+- version: `0.9.0`
+- package type: skills-only
+- qualified candidate: R2
+- package evidence: `release/candidates/cs-connect-v0.9.0-r2.json`
+- native requalification: `trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json`
 
-```text
-Summarize this PDF.
-Correct this sentence.
-What is 17 × 4?
-Explain exponential backoff simply.
-```
-
-## Bundled Capability Pack I
-
-One CS Navigator plugin install includes these chat-native capabilities:
-
-- Regenerative Language Bridge
-- Regenerative Impact Map
-- Regenerative Resilience Plan
-- Regenerative Adaptive Experiment
-
-Bundled availability does **not** mean automatic activation, and bundling does not promote a skill from `designed` to `tested`.
-
-## What 0.7.0 adds
-
-CS Navigator 0.7.0 adds Verifiable Trust I:
-
-- Trust Passports;
-- Security Gate v2 evidence;
-- Risk Labels;
-- freshness and drift state;
-- version-bound evidence;
-- normalized behavior evals;
-- trust-aware routing;
-- governance and multilingual trust vocabulary foundations;
-- OSTS 0.1.
-
-A Security Gate `pass` is not a safety guarantee. A changed skill does not automatically inherit evidence from older bytes.
-
-## What is happening in 0.7.5
-
-0.7.5 extends trust from “what was reviewed” to “what may happen next.”
-
-The Container Guardian foundation is already merged into `main` and has deterministic runtime tests for:
-
-- no permission self-escalation;
-- no fabricated citations, observations, or tool results;
-- no unauthorized acquisition/external transfer;
-- bounded retries/tool attempts;
-- child workflow permissions no wider than the parent;
-- auditable `ALLOW / CONFIRM / DEGRADE / STOP` decisions.
-
-However, **0.7.5 is not the stable plugin yet**. Native ChatGPT qualification of the force-fresh RC remains a release gate.
-
-See [Skill Containers](SKILL_CONTAINERS.md) and [0.7.5 plan](V075_VERIFIABLE_TRUST_II_CONTAINERS.md).
-
-## 0.8 direction
-
-The next product line is being designed around first-party **Everyday Trust Skills** and reusable **Community Profiles**: research, document-rule validation, academic integrity, text integrity, visual-intent preservation, and restoration workflows.
-
-Track the planning issue: [#60 — v0.8.0 First-Party Skills I](https://github.com/eusourmr/chatgpt-skills/issues/60).
-
-## Troubleshooting
-
-If a route or result looks stale:
-
-1. confirm which plugin/version is installed;
-2. prefer the stable release tag for controlled use;
-3. sync/reload the marketplace/plugin where the surface supports it;
-4. do not assume an older test result applies after skill bytes change;
-5. run `chatgpt-skills doctor` for CLI-managed installations/exports.
-
-For bugs and documentation issues, open a GitHub issue.
+For release engineering, see [Public Plugin Submission](PUBLIC_PLUGIN_SUBMISSION.md) and [Plugin Maintenance](PLUGIN_MAINTENANCE.md).
 
 Independent community project. Not affiliated with or endorsed by OpenAI.

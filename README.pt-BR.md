@@ -11,36 +11,48 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 > Projeto comunitário independente. Não possui afiliação nem endosso da OpenAI. ChatGPT e Codex são marcas da OpenAI.
 
-## 🛡️ Release atual e próxima camada de confiança
+## 🛡️ Release atual
 
-**Plugin estável:** o CS Navigator `0.7.0 — Verifiable Trust I` está publicado e qualificado nativamente. Ele adiciona Trust Passports, evidência do Security Gate v2, Risk Labels públicos, freshness/drift, evidência vinculada aos bytes/versão, behavior evals normalizados e roteamento trust-aware, preservando Chat-Native First.
+**Release atual do produto:** **CS Connect 0.9.0 — First-Party Skills Platform**.
 
-**Próxima versão:** a CS `0.7.5 — Verifiable Trust II & Containers` está em qualificação. A fundação determinística do **Container Guardian** já foi integrada à `main`, com fixtures adversariais, behavior eval de runtime, limites de retries/tool attempts, contenção de permissões pai/filho e decisões auditáveis `ALLOW / CONFIRM / DEGRADE / STOP`.
+O CS Connect mantém tarefas simples no próprio ChatGPT, incorpora a fundação Verifiable Trust II / Skill Containers e reúne 15 workflows first-party próprios para escrita, pesquisa, contexto brasileiro, revisão acadêmica/documental, design, engenharia, preservação visual, continuidade de projetos e estratégia de produto.
 
-> **Sem evidência → não inventar. Sem permissão → não ampliar acesso. Sem caminho autorizado → parar.**
+O candidato de produção qualificado é o **R2**, ligado ao ZIP exato com SHA-256:
 
-A 0.7.5 **ainda não é o plugin estável**. A qualificação nativa no ChatGPT continua sendo gate de release. Skill Containers são defesa em profundidade, não promessa de segurança perfeita ou zero alucinação.
+`3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`
 
-**Próxima versão pública de produto:** **CS 0.9.0 — First-Party Skills Platform**. Ela absorve o antigo plano 0.8 e adiciona workflows autorais do CS para criação/engenharia, pesquisa e escrita, perfis de realidade brasileira, preservação visual e estratégia para fundadores/produto. A 0.9 herda a fundação 0.7.5 e suas evidências semânticas/estáticas já registradas, mas a 0.7.5 não será lançada separadamente. Por isso, a qualificação nativa dos bytes exatos será feita uma única vez no pacote final 0.9, evitando repetir o mesmo gate em um pacote intermediário que não será publicado. Acompanhe o escopo na [Issue #62](https://github.com/eusourmr/chatgpt-skills/issues/62).
+A qualificação nativa foi concluída com a matriz congelada e as regressões específicas do R2. Isso comprova os cenários registrados nesses bytes exatos; não é promessa de segurança absoluta nem de “zero alucinação”.
 
-Leia: [Primeiros Passos](docs/GETTING_STARTED.pt-BR.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Plano 0.7.5](docs/V075_VERIFIABLE_TRUST_II_CONTAINERS.md) · [Manutenção do plugin](docs/PLUGIN_MAINTENANCE.pt-BR.md)
+A antiga linha 0.7.5 virou **fundação interna** da 0.9 e não será lançada separadamente. O escopo que antes seria 0.8 foi absorvido pela 0.9.
+
+> **Sem evidência → não inventar. Sem permissão → não se autorizar sozinho. Sem caminho autorizado → parar.**
+
+Estado do diretório público: o draft 0.9.0 já foi criado e está preparado para o fluxo de revisão da OpenAI. Só chamaremos de “publicado no diretório” depois da aprovação e do clique explícito em **Publish plugin**.
+
+Leia: [Primeiros Passos](docs/GETTING_STARTED.pt-BR.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Publicação pública](docs/PUBLIC_PLUGIN_SUBMISSION.md) · [Manutenção](docs/PLUGIN_MAINTENANCE.pt-BR.md)
 
 ## 🚀 Comece em 1 minuto
 
-O plugin estável **CS Navigator 0.7.0** disponibiliza o Navigator e o Capability Pack I em uma única instalação. Tarefas diretas continuam nativas quando nenhuma skill acrescenta valor material.
+Para a maioria das pessoas, o caminho pretendido é:
 
-Para instalação e primeiro uso — importação por marketplace GitHub, artefato estável, CLI, verificação de integridade e exemplos de prompts — use o guia canônico:
+1. Abra **Plugins** no ChatGPT ou no Codex.
+2. Procure por **CS Connect**.
+3. Clique em **Instalar plugin**.
+4. Em uma conversa, escreva: `Use CS Connect para...`
+
+Esse caminho ficará disponível assim que a OpenAI aprovar e o plugin for publicado. Enquanto estiver em revisão, continuam disponíveis os caminhos por GitHub/workspace e ZIP para testes e administração.
+
+O guia começa pela instalação mais simples e só depois mostra opções técnicas:
 
 **[Primeiros Passos →](docs/GETTING_STARTED.pt-BR.md)**
 
-As linhas de versão são independentes:
+Linhas de versão independentes:
 
-- plugin CS Navigator: **0.7.0 estável**
-- CS Navigator 0.7.5: **fundação técnica em qualificação**
-- CS 0.9.0: **próxima versão pública de produto planejada**
+- plugin CS Connect: **0.9.0 candidato de produção qualificado / caminho de revisão pública**
+- 0.7.5: **fundação interna de confiança/runtime absorvida**
+- 0.8: **absorvida pela 0.9**
 - CLI/npm `chatgpt-skills`: **0.4.0**
-
-Para uso controlado, prefira a tag de release `cs-navigator-v0.7.0` em vez de acompanhar a `main`.
+- próxima linha: **0.10 — Ecosystem Intelligence & Community Scale**
 
 ## Por que esta lista existe
 
@@ -89,6 +101,18 @@ Os selos de superfície são classificações conservadoras, não garantias de d
 
 ### Núcleo regenerativo
 
+- [**Academic Integrity Reviewer**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/academic-integrity-reviewer) — Revisa trabalhos acadêmicos por consistência interna, suporte de fontes, alinhamento citação/referência, figuras/tabelas, desvio de escopo e conclusões sem suporte, sem fabricar fontes. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-10-05
+- [**Argument & Article Architect**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/argument-article-architect) — Estrutura artigos com tese clara, evidência real, contra-argumentos sérios e linguagem precisa, sem inventar citações nem alterar a posição do autor. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-10-05
+- [**Art Critique Studio**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/art-critique-studio) — Critica arte por intenção, composição, valores, cor, bordas, ritmo e hierarquia focal, preservando o estilo do artista e separando observação de interpretação. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-10-05
+- [**Context Continuity Manager**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/context-continuity-manager) — Cria pacotes duráveis de continuidade para projetos longos, preservando decisões, invariantes, bloqueios, evidências e próximos passos sem fingir controlar contexto ou memória ocultos. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-10-05
+- [**Design System Studio**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/design-system-studio) — Cria sistemas visuais intencionais para interfaces, peças sociais/canvas e temas, com hierarquia, tokens, acessibilidade, invariantes de marca e controles contra design genérico de IA. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-10-05
+- [**Document Compliance Auditor**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/document-compliance-auditor) — Audita documentos contra perfis de regras versionados e retorna estados explícitos de conformidade sem transformar regras não verificadas ou indisponíveis em PASS. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-10-05
+- [**Engineering Investigator**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/engineering-investigator) — Investiga bugs e bases de código desconhecidas com evidências, busca estrutural, hipóteses falsificáveis, testes mínimos, correção da causa raiz e regressões. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-10-05
+- [**Evidence-First Research**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/evidence-first-research) — Pesquisa com fatos de fonte, inferências, contradições, desconhecidos, vigência e perfil opcional de contexto brasileiro, sem preencher lacunas com palpites plausíveis. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-10-05
+- [**Founder Product Strategist**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/founder-product-strategist) — Desafia decisões de fundadores e produto com foco, coerência, valor ao cliente, economia, experimentos reversíveis e ciência comportamental ética orientada por evidências. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-10-05
+- [**Interactive Creative Builder**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/interactive-creative-builder) — Projeta arte interativa e artefatos web mais completos com parâmetros, estado, navegação, variantes determinísticas, acessibilidade, desempenho e limites de exportação. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-10-05
+- [**Photo Restoration Conservator**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/photo-restoration-conservator) — Restaura fotos familiares e históricas de forma conservadora, separando recuperação visível de reconstrução, preservando identidade e registrando áreas incertas. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-10-05
+- [**Project Execution Director**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/project-execution-director) — Conduz trabalhos complexos em etapas com marcos, dependências, checkpoints reversíveis, gates de evidência e definição clara de pronto, evitando ciclos de retrabalho. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-10-05
 - [**Regenerative Adaptive Experiment**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/regenerative-adaptive-experiment) — Converte incerteza em teste pequeno e reversível, com previsão causal, medidas sistêmicas, detecção precoce de danos, reversão e aprendizado reutilizável. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-09-08
 - [**Regenerative Capability Exchange**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/regenerative-capability-exchange) — Cria trocas recíprocas que partem de capacidades existentes e distribuem habilidade prática em vez de dependência de um especialista. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-09-08
 - [**Regenerative Conflict Repair**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/regenerative-conflict-repair) — Avalia a segurança antes de estruturar reparação voluntária de conflitos nos danos imediatos, relações, procedimentos e causas sistêmicas. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-09-08
@@ -99,6 +123,9 @@ Os selos de superfície são classificações conservadoras, não garantias de d
 - [**Regenerative Participatory Decision**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/regenerative-participatory-decision) — Projeta uma decisão justa e rastreável na qual pessoas afetadas têm influência clara, divergências são preservadas e todos recebem retorno. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-09-08
 - [**Regenerative Resilience Plan**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/regenerative-resilience-plan) — Prepara funções essenciais para prevenir, absorver, adaptar-se, recuperar-se e aprender com rupturas sem transferir riscos a pessoas vulneráveis. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `5/5 áreas: humana, social, conhecimento, recursos, ecologia` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-09-08
 - [**Regenerative Resource Cycle**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/regenerative-resource-cycle) — Redesenha um ciclo de vida começando por evitar demanda, circular recursos com segurança, verificar o efeito rebote e restaurar de forma mensurável. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `5/5 áreas: humana, social, conhecimento, recursos, ecologia` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-09-08
+- [**Skill Workbench**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/skill-workbench) — Cria e evolui skills com contratos de ativação, perfis, permissões, fixtures, testes adversariais, qualificação nativa, evidência por bytes e gates de release. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-10-05
+- [**Text Integrity Editor**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/text-integrity-editor) — Revisa textos importantes com mais clareza e vocabulário rico, preservando fatos, compromissos, incertezas, significado técnico e a voz do autor. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-10-05
+- [**Visual Intent Guardian**](https://github.com/eusourmr/chatgpt-skills/tree/main/skills/visual-intent-guardian) — Protege identidade, arquitetura, texto, logotipos, composição e outros invariantes visuais por contratos explícitos de DEVE MANTER / PODE MUDAR / NÃO PODE MUDAR. `Skill` · `Núcleo regenerativo` · `Projeto revisado` · `4/5 áreas: humana, social, conhecimento, recursos` · `Chat` · `Codex` · `Licença: MIT` · eusourmr · 2026-10-05
 
 ### Desenvolvimento
 
@@ -140,7 +167,7 @@ Cada pasta `skills/<nome>/` segue a estrutura de uma skill independente. Skills 
 Use $regenerative-impact-map para comparar esta decisão nas cinco áreas.
 ```
 
-Na v0.7.0 estável, o CS Navigator distribui o Capability Pack I como plugin e adiciona Verifiable Trust I. A linha 0.7.5 permanece em qualificação até concluir seus gates nativos.
+Historicamente, a v0.7.0 introduziu o Capability Pack I com Verifiable Trust I. A linha 0.7.5 foi posteriormente absorvida como fundação interna da 0.9.0, em vez de ser lançada separadamente.
 
 ## O que pode entrar
 

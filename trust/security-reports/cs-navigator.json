@@ -3,15 +3,15 @@
   "gate_version": "v2",
   "skill_id": "cs-navigator",
   "scanned_at": "2026-10-01",
-  "source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
-  "artifact_sha256": "cbdcee8f84481ea5daa2e6f73fd1bef128df004b3918be624ead62fe8091641c",
+  "source_revision": "6d0f712f1e7c1fae5287135e2d1a6dd25e9e4a7a",
+  "artifact_sha256": "5108e780a1852186358ed903feb4d6d423c82978a8ea01eae4639b479045e2be",
   "result": "pass",
   "summary": {
     "critical": 0,
     "high": 0,
     "medium": 2,
     "low": 0,
-    "info": 3,
+    "info": 6,
     "blocking": 0
   },
   "observed_capabilities": {
@@ -52,7 +52,7 @@
       "severity": "info",
       "blocking": false,
       "path": "references/catalog-snapshot.json",
-      "line": 154,
+      "line": 166,
       "evidence_sha256": "be262a109369ff4174b4b7a7aa917a83ca99dc94093be7d497384bb8c0f9cee6",
       "message": "Potentially destructive operation reference observed.",
       "disposition": "review"
@@ -63,7 +63,7 @@
       "severity": "info",
       "blocking": false,
       "path": "references/catalog-snapshot.json",
-      "line": 53,
+      "line": 65,
       "evidence_sha256": "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b",
       "message": "Secret or credential terminology observed.",
       "disposition": "review"
@@ -73,9 +73,42 @@
       "family": "secrets",
       "severity": "info",
       "blocking": false,
-      "path": "SKILL.md",
-      "line": 99,
+      "path": "references/container-default-policy.json",
+      "line": 30,
+      "evidence_sha256": "e265b6f564601a1fe8dc42785cd18a868bd8013eb5899560e79248767a683e6b",
+      "message": "Secret or credential terminology observed.",
+      "disposition": "review"
+    },
+    {
+      "rule_id": "secret-reference",
+      "family": "secrets",
+      "severity": "info",
+      "blocking": false,
+      "path": "references/container-guardian-runtime-eval.json",
+      "line": 44,
       "evidence_sha256": "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b",
+      "message": "Secret or credential terminology observed.",
+      "disposition": "review"
+    },
+    {
+      "rule_id": "secret-reference",
+      "family": "secrets",
+      "severity": "info",
+      "blocking": false,
+      "path": "references/first-party-capabilities.json",
+      "line": 133,
+      "evidence_sha256": "3c469e9d6c5875d37a43f353d4f88e61fcf812c66eee3457465a40b0da4153e0",
+      "message": "Secret or credential terminology observed.",
+      "disposition": "review"
+    },
+    {
+      "rule_id": "secret-reference",
+      "family": "secrets",
+      "severity": "info",
+      "blocking": false,
+      "path": "SKILL.md",
+      "line": 16,
+      "evidence_sha256": "e265b6f564601a1fe8dc42785cd18a868bd8013eb5899560e79248767a683e6b",
       "message": "Secret or credential terminology observed.",
       "disposition": "review"
     }

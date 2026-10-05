@@ -57,9 +57,9 @@
     "cs-navigator": {
       "mode": "chat-native",
       "evidence_state": "tested",
-      "minimum_setup": "Install CS Navigator. It runs chat-native with no mandatory external app, local runtime, or added network dependency.",
+      "minimum_setup": "Install CS Connect. The technical plugin slug remains cs-navigator; the core routing workflow is chat-native with no mandatory external app or local runtime.",
       "required_capabilities": [],
-      "evidence": "CS Navigator 0.6.0 Capability Pack I passed the recorded R6 in-product routing, native-only, trust-boundary, anti-overrouting, and no-second-install qualification on ChatGPT. The exact qualified plugin source is 80669fc10b6e963dd1f17fec52c00186fd40ba8e; evidence is recorded in trust/in-product-tests.json and trust/in-product-runs.json."
+      "evidence": "CS Connect 0.9.0 R2 exact artifact 3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce, source 6d0f712f1e7c1fae5287135e2d1a6dd25e9e4a7a, passed recorded scoped native requalification on ChatGPT. Evidence is recorded in trust/in-product-tests.json, trust/in-product-runs.json, release/candidates/cs-connect-v0.9.0-r2.json, and trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json."
     },
     "regenerative-adaptive-experiment": {
       "mode": "chat-native",
@@ -116,6 +116,111 @@
       "minimum_setup": "Install/load the skill, then continue in the same chat.",
       "required_capabilities": [],
       "evidence": "Instruction-only packaged workflow requires no local files, network, secrets, processes, or external apps."
+    },
+    "text-integrity-editor": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Install/load CS Connect, then explicitly select this workflow or route to it through capability-selection intent.",
+      "required_capabilities": [],
+      "evidence": "Instruction-only first-party workflow bundled in CS Connect 0.9.0. Package-level R2 qualification does not by itself promote this individual skill to tested; individual exact-R2 task evidence remains pending."
+    },
+    "evidence-first-research": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Install/load CS Connect, then explicitly select this workflow or route to it through capability-selection intent.",
+      "required_capabilities": [],
+      "evidence": "Instruction-only first-party workflow bundled in CS Connect 0.9.0. Package-level R2 qualification does not by itself promote this individual skill to tested; individual exact-R2 task evidence remains pending."
+    },
+    "argument-article-architect": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Install/load CS Connect, then explicitly select this workflow or route to it through capability-selection intent.",
+      "required_capabilities": [],
+      "evidence": "Instruction-only first-party workflow bundled in CS Connect 0.9.0. Package-level R2 qualification does not by itself promote this individual skill to tested; individual exact-R2 task evidence remains pending."
+    },
+    "founder-product-strategist": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Install/load CS Connect, then explicitly select this workflow or route to it through capability-selection intent.",
+      "required_capabilities": [],
+      "evidence": "Instruction-only first-party workflow bundled in CS Connect 0.9.0. Package-level R2 qualification does not by itself promote this individual skill to tested; individual exact-R2 task evidence remains pending."
+    },
+    "academic-integrity-reviewer": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Install/load CS Connect, then explicitly select this workflow or route to it through capability-selection intent.",
+      "required_capabilities": [],
+      "evidence": "Instruction-only first-party workflow bundled in CS Connect 0.9.0. Package-level R2 qualification does not by itself promote this individual skill to tested; individual exact-R2 task evidence remains pending."
+    },
+    "document-compliance-auditor": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Install/load CS Connect, then explicitly select this workflow or route to it through capability-selection intent.",
+      "required_capabilities": [],
+      "evidence": "Instruction-only first-party workflow bundled in CS Connect 0.9.0. Package-level R2 qualification does not by itself promote this individual skill to tested; individual exact-R2 task evidence remains pending."
+    },
+    "visual-intent-guardian": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Install/load CS Connect, then explicitly select this workflow or route to it through capability-selection intent.",
+      "required_capabilities": [],
+      "evidence": "Instruction-only first-party workflow bundled in CS Connect 0.9.0. Package-level R2 qualification does not by itself promote this individual skill to tested; individual exact-R2 task evidence remains pending."
+    },
+    "photo-restoration-conservator": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Install/load CS Connect, then explicitly select this workflow or route to it through capability-selection intent.",
+      "required_capabilities": [],
+      "evidence": "Instruction-only first-party workflow bundled in CS Connect 0.9.0. Package-level R2 qualification does not by itself promote this individual skill to tested; individual exact-R2 task evidence remains pending."
+    },
+    "art-critique-studio": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Install/load CS Connect, then explicitly select this workflow or route to it through capability-selection intent.",
+      "required_capabilities": [],
+      "evidence": "Instruction-only first-party workflow bundled in CS Connect 0.9.0. Package-level R2 qualification does not by itself promote this individual skill to tested; individual exact-R2 task evidence remains pending."
+    },
+    "design-system-studio": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Install/load CS Connect, then explicitly select this workflow or route to it through capability-selection intent.",
+      "required_capabilities": [],
+      "evidence": "Instruction-only first-party workflow bundled in CS Connect 0.9.0. Package-level R2 qualification does not by itself promote this individual skill to tested; individual exact-R2 task evidence remains pending."
+    },
+    "interactive-creative-builder": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Install/load CS Connect, then explicitly select this workflow or route to it through capability-selection intent.",
+      "required_capabilities": [],
+      "evidence": "Instruction-only first-party workflow bundled in CS Connect 0.9.0. Package-level R2 qualification does not by itself promote this individual skill to tested; individual exact-R2 task evidence remains pending."
+    },
+    "engineering-investigator": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Install/load CS Connect, then explicitly select this workflow or route to it through capability-selection intent.",
+      "required_capabilities": [],
+      "evidence": "Instruction-only first-party workflow bundled in CS Connect 0.9.0. Package-level R2 qualification does not by itself promote this individual skill to tested; individual exact-R2 task evidence remains pending."
+    },
+    "context-continuity-manager": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Install/load CS Connect, then explicitly select this workflow or route to it through capability-selection intent.",
+      "required_capabilities": [],
+      "evidence": "Instruction-only first-party workflow bundled in CS Connect 0.9.0. Package-level R2 qualification does not by itself promote this individual skill to tested; individual exact-R2 task evidence remains pending."
+    },
+    "project-execution-director": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Install/load CS Connect, then explicitly select this workflow or route to it through capability-selection intent.",
+      "required_capabilities": [],
+      "evidence": "Instruction-only first-party workflow bundled in CS Connect 0.9.0. Package-level R2 qualification does not by itself promote this individual skill to tested; individual exact-R2 task evidence remains pending."
+    },
+    "skill-workbench": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Install/load CS Connect, then explicitly select this workflow or route to it through capability-selection intent.",
+      "required_capabilities": [],
+      "evidence": "Instruction-only first-party workflow bundled in CS Connect 0.9.0. Package-level R2 qualification does not by itself promote this individual skill to tested; individual exact-R2 task evidence remains pending."
     }
   }
 }

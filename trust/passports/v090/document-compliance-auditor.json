@@ -1,0 +1,73 @@
+{
+  "schema_version": "v090-exact-package-passport-0.1",
+  "skill_id": "document-compliance-auditor",
+  "product": "CS Connect",
+  "release": {
+    "version": "0.9.0",
+    "candidate": "R2",
+    "technical_plugin_slug": "cs-navigator",
+    "package_sha256": "3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce",
+    "plugin_source_commit": "6d0f712f1e7c1fae5287135e2d1a6dd25e9e4a7a",
+    "package_entries": 63
+  },
+  "integrity": {
+    "algorithm": "sha256-manifest-v1",
+    "skill_artifact_sha256": "313cff93ba351690b15dff455d77b00b9c4c503e41c27083813289c1bff5dac4",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "6aa44d433648102c0893804357be80717be058e0f105a9a22afb36931ef489ab"
+      },
+      {
+        "path": "agents/openai.yaml",
+        "sha256": "30cf67fa4862f380dd0c9b1b3dde7ab6c43ef6db234e129ff0d6183b57ca9a4e"
+      },
+      {
+        "path": "profiles/abnt-br.json",
+        "sha256": "142f1117ec867fd71366bd35bae97e040e10f68923a3b18ab74a9590c2f5b0e0"
+      },
+      {
+        "path": "profiles/edital.json",
+        "sha256": "c952cf3fdc5a4fc6b8fa56f32cffb35436dbc8523649f9616b3a7937aef857cf"
+      },
+      {
+        "path": "profiles/journal-guidelines.json",
+        "sha256": "5497198a93cde47eb41d2e77b8fe0155779682d511b7359bb82a7161729060c6"
+      },
+      {
+        "path": "profiles/university-manual.json",
+        "sha256": "df42d3a274bf958b5435be1b31485828489f31504bc06417b1e2836019f019fb"
+      }
+    ]
+  },
+  "execution": {
+    "mode": "chat-native",
+    "qualification_state": "qualified-scoped-native",
+    "evidence_scope": "Native semantic behavior for the recorded 0.9 matrix case(s), plus R2 change-impact requalification where applicable.",
+    "case_ids": [
+      "route-compliance"
+    ],
+    "r2_direct_retest": false
+  },
+  "security": {
+    "scope": "The exact R2 plugin package passed configured source/package structural and security gates in CI. This is not a separate per-skill dynamic security audit or universal safety claim."
+  },
+  "evidence_refs": [
+    "release/candidates/cs-connect-v0.9.0-r2.json",
+    "trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json",
+    "tests/fixtures/v090-native-qualification-frozen.json"
+  ],
+  "freshness": {
+    "reviewed_on": "2026-10-05",
+    "binding": "exact-package-bytes"
+  },
+  "recommendation": {
+    "state": "conditional",
+    "reason": "Part of the exact qualified R2 package with recorded native semantic route evidence; use remains task- and evidence-bound."
+  },
+  "known_gaps": [
+    "The full 23-case matrix was not rerun after R2 fixes; R2 used change-impact requalification for the two repaired behaviors plus essential regressions.",
+    "Package qualification is not a zero-hallucination or universal-safety guarantee.",
+    "Container Guardian execution in a specific chat requires an actual decision record."
+  ]
+}

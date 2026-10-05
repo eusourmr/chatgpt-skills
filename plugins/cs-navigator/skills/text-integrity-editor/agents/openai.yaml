@@ -1,0 +1,4 @@
+interface:
+  display_name: "Text Integrity Editor"
+  short_description: "Improve writing without changing its meaning"
+  default_prompt: "Use $text-integrity-editor to revise this text with high fidelity. Preserve facts, commitments, uncertainty and voice; improve clarity first and enrich vocabulary only when precision improves."

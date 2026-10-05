@@ -13,11 +13,62 @@
   },
   "review_stats": {
     "reviewed": 31,
-    "accepted": 31,
+    "accepted": 46,
     "rejected_recorded": 0,
-    "last_review_cycle": "2026-09-08"
+    "last_review_cycle": "2026-10-05"
   },
   "entries": [
+    {
+      "id": "academic-integrity-reviewer",
+      "name": "Academic Integrity Reviewer",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-05",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/academic-integrity-reviewer",
+      "path": "skills/academic-integrity-reviewer"
+    },
+    {
+      "id": "argument-article-architect",
+      "name": "Argument & Article Architect",
+      "category": "Writing & Research",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-05",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/argument-article-architect",
+      "path": "skills/argument-article-architect"
+    },
+    {
+      "id": "art-critique-studio",
+      "name": "Art Critique Studio",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-05",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/art-critique-studio",
+      "path": "skills/art-critique-studio"
+    },
     {
       "id": "build-ios-apps",
       "name": "Build iOS Apps",
@@ -65,37 +116,6 @@
       "source": "https://github.com/openai/plugins/tree/main/plugins/build-web-apps"
     },
     {
-      "id": "openai-developers",
-      "name": "OpenAI Developers",
-      "category": "Development",
-      "status": "official",
-      "rating": 0,
-      "rating_state": "unrated",
-      "reviews": 0,
-      "last_verified": "2026-09-08",
-      "compatibility": [
-        "Codex",
-        "Agents SDK"
-      ],
-      "publisher": "OpenAI",
-      "source": "https://github.com/openai/plugins/tree/main/plugins/openai-developers"
-    },
-    {
-      "id": "plugin-eval",
-      "name": "Plugin Eval",
-      "category": "Development",
-      "status": "official",
-      "rating": 0,
-      "rating_state": "unrated",
-      "reviews": 0,
-      "last_verified": "2026-09-08",
-      "compatibility": [
-        "Codex"
-      ],
-      "publisher": "OpenAI",
-      "source": "https://github.com/openai/plugins/tree/main/plugins/plugin-eval"
-    },
-    {
       "id": "build-web-data-visualization",
       "name": "Build Web Data Visualization",
       "category": "Data & Research",
@@ -112,10 +132,10 @@
       "source": "https://github.com/openai/plugins/tree/main/plugins/build-web-data-visualization"
     },
     {
-      "id": "data-analytics",
-      "name": "Data Analytics",
-      "category": "Data & Research",
-      "status": "official",
+      "id": "chatgpt-apps-deployer",
+      "name": "ChatGPT Apps Deployer",
+      "category": "Development",
+      "status": "verified",
       "rating": 0,
       "rating_state": "unrated",
       "reviews": 0,
@@ -124,24 +144,57 @@
         "ChatGPT",
         "Codex"
       ],
-      "publisher": "OpenAI",
-      "source": "https://github.com/openai/plugins/tree/main/plugins/data-analytics"
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/chatgpt-apps-deployer",
+      "path": "skills/featured/chatgpt-apps-deployer"
     },
     {
-      "id": "life-science-research",
-      "name": "Life Science Research",
-      "category": "Data & Research",
+      "id": "codex-pr-reviewer",
+      "name": "Codex PR Reviewer",
+      "category": "Security & Quality",
+      "status": "verified",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-09-08",
+      "compatibility": [
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/codex-pr-reviewer",
+      "path": "skills/featured/codex-pr-reviewer"
+    },
+    {
+      "id": "codex-security",
+      "name": "Codex Security",
+      "category": "Security & Quality",
       "status": "official",
       "rating": 0,
       "rating_state": "unrated",
       "reviews": 0,
       "last_verified": "2026-09-08",
       "compatibility": [
-        "ChatGPT",
         "Codex"
       ],
       "publisher": "OpenAI",
-      "source": "https://github.com/openai/plugins/tree/main/plugins/life-science-research"
+      "source": "https://github.com/openai/plugins/tree/main/plugins/codex-security"
+    },
+    {
+      "id": "context-continuity-manager",
+      "name": "Context Continuity Manager",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-05",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/context-continuity-manager",
+      "path": "skills/context-continuity-manager"
     },
     {
       "id": "creative-production",
@@ -160,25 +213,26 @@
       "source": "https://github.com/openai/plugins/tree/main/plugins/creative-production"
     },
     {
-      "id": "product-design",
-      "name": "Product Design",
-      "category": "Design",
-      "status": "official",
-      "rating": 0,
-      "rating_state": "unrated",
-      "reviews": 0,
-      "last_verified": "2026-09-08",
-      "compatibility": [
-        "ChatGPT",
-        "Codex"
-      ],
-      "publisher": "OpenAI",
-      "source": "https://github.com/openai/plugins/tree/main/plugins/product-design"
-    },
-    {
-      "id": "google-drive",
-      "name": "Google Drive",
+      "id": "cs-navigator",
+      "name": "CS Navigator",
       "category": "Productivity",
+      "status": "verified",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-09-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/cs-navigator",
+      "path": "skills/featured/cs-navigator"
+    },
+    {
+      "id": "data-analytics",
+      "name": "Data Analytics",
+      "category": "Data & Research",
       "status": "official",
       "rating": 0,
       "rating_state": "unrated",
@@ -189,37 +243,75 @@
         "Codex"
       ],
       "publisher": "OpenAI",
-      "source": "https://github.com/openai/plugins/tree/main/plugins/google-drive"
+      "source": "https://github.com/openai/plugins/tree/main/plugins/data-analytics"
     },
     {
-      "id": "codex-security",
-      "name": "Codex Security",
-      "category": "Security & Quality",
-      "status": "official",
+      "id": "design-system-studio",
+      "name": "Design System Studio",
+      "category": "First-Party CS",
+      "status": "draft",
       "rating": 0,
       "rating_state": "unrated",
       "reviews": 0,
-      "last_verified": "2026-09-08",
+      "last_verified": "2026-10-05",
       "compatibility": [
+        "ChatGPT",
         "Codex"
       ],
-      "publisher": "OpenAI",
-      "source": "https://github.com/openai/plugins/tree/main/plugins/codex-security"
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/design-system-studio",
+      "path": "skills/design-system-studio"
     },
     {
-      "id": "superpowers",
-      "name": "Superpowers",
-      "category": "Development",
-      "status": "community",
+      "id": "document-compliance-auditor",
+      "name": "Document Compliance Auditor",
+      "category": "First-Party CS",
+      "status": "draft",
       "rating": 0,
       "rating_state": "unrated",
       "reviews": 0,
-      "last_verified": "2026-09-08",
+      "last_verified": "2026-10-05",
       "compatibility": [
+        "ChatGPT",
         "Codex"
       ],
-      "publisher": "Jesse Vincent",
-      "source": "https://github.com/openai/plugins/tree/main/plugins/superpowers"
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/document-compliance-auditor",
+      "path": "skills/document-compliance-auditor"
+    },
+    {
+      "id": "engineering-investigator",
+      "name": "Engineering Investigator",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-05",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/engineering-investigator",
+      "path": "skills/engineering-investigator"
+    },
+    {
+      "id": "evidence-first-research",
+      "name": "Evidence-First Research",
+      "category": "Writing & Research",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-05",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/evidence-first-research",
+      "path": "skills/evidence-first-research"
     },
     {
       "id": "figma",
@@ -238,19 +330,70 @@
       "source": "https://github.com/openai/plugins/tree/main/plugins/figma"
     },
     {
-      "id": "remotion",
-      "name": "Remotion",
-      "category": "Design",
-      "status": "community",
+      "id": "founder-product-strategist",
+      "name": "Founder Product Strategist",
+      "category": "Business & Product",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-05",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/founder-product-strategist",
+      "path": "skills/founder-product-strategist"
+    },
+    {
+      "id": "google-drive",
+      "name": "Google Drive",
+      "category": "Productivity",
+      "status": "official",
       "rating": 0,
       "rating_state": "unrated",
       "reviews": 0,
       "last_verified": "2026-09-08",
       "compatibility": [
+        "ChatGPT",
         "Codex"
       ],
-      "publisher": "Remotion",
-      "source": "https://github.com/openai/plugins/tree/main/plugins/remotion"
+      "publisher": "OpenAI",
+      "source": "https://github.com/openai/plugins/tree/main/plugins/google-drive"
+    },
+    {
+      "id": "interactive-creative-builder",
+      "name": "Interactive Creative Builder",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-05",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/interactive-creative-builder",
+      "path": "skills/interactive-creative-builder"
+    },
+    {
+      "id": "life-science-research",
+      "name": "Life Science Research",
+      "category": "Data & Research",
+      "status": "official",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-09-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "OpenAI",
+      "source": "https://github.com/openai/plugins/tree/main/plugins/life-science-research"
     },
     {
       "id": "notion",
@@ -267,6 +410,123 @@
       ],
       "publisher": "Notion",
       "source": "https://github.com/openai/plugins/tree/main/plugins/notion"
+    },
+    {
+      "id": "openai-agents-sdk-builder",
+      "name": "OpenAI Agents SDK Builder",
+      "category": "Development",
+      "status": "verified",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-09-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex",
+        "Agents SDK"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/openai-agents-sdk-builder",
+      "path": "skills/featured/openai-agents-sdk-builder"
+    },
+    {
+      "id": "openai-developers",
+      "name": "OpenAI Developers",
+      "category": "Development",
+      "status": "official",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-09-08",
+      "compatibility": [
+        "Codex",
+        "Agents SDK"
+      ],
+      "publisher": "OpenAI",
+      "source": "https://github.com/openai/plugins/tree/main/plugins/openai-developers"
+    },
+    {
+      "id": "photo-restoration-conservator",
+      "name": "Photo Restoration Conservator",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-05",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/photo-restoration-conservator",
+      "path": "skills/photo-restoration-conservator"
+    },
+    {
+      "id": "plugin-eval",
+      "name": "Plugin Eval",
+      "category": "Development",
+      "status": "official",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-09-08",
+      "compatibility": [
+        "Codex"
+      ],
+      "publisher": "OpenAI",
+      "source": "https://github.com/openai/plugins/tree/main/plugins/plugin-eval"
+    },
+    {
+      "id": "product-design",
+      "name": "Product Design",
+      "category": "Design",
+      "status": "official",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-09-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "OpenAI",
+      "source": "https://github.com/openai/plugins/tree/main/plugins/product-design"
+    },
+    {
+      "id": "project-execution-director",
+      "name": "Project Execution Director",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-05",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/project-execution-director",
+      "path": "skills/project-execution-director"
+    },
+    {
+      "id": "realtime-api-integration",
+      "name": "Realtime API Integration",
+      "category": "Development",
+      "status": "verified",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-09-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex",
+        "Agents SDK"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/realtime-api-integration",
+      "path": "skills/featured/realtime-api-integration"
     },
     {
       "id": "regenerative-adaptive-experiment",
@@ -439,63 +699,10 @@
       "path": "skills/regenerative-resource-cycle"
     },
     {
-      "id": "openai-agents-sdk-builder",
-      "name": "OpenAI Agents SDK Builder",
-      "category": "Development",
-      "status": "verified",
-      "rating": 0,
-      "rating_state": "unrated",
-      "reviews": 0,
-      "last_verified": "2026-09-08",
-      "compatibility": [
-        "ChatGPT",
-        "Codex",
-        "Agents SDK"
-      ],
-      "publisher": "eusourmr",
-      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/openai-agents-sdk-builder",
-      "path": "skills/featured/openai-agents-sdk-builder"
-    },
-    {
-      "id": "realtime-api-integration",
-      "name": "Realtime API Integration",
-      "category": "Development",
-      "status": "verified",
-      "rating": 0,
-      "rating_state": "unrated",
-      "reviews": 0,
-      "last_verified": "2026-09-08",
-      "compatibility": [
-        "ChatGPT",
-        "Codex",
-        "Agents SDK"
-      ],
-      "publisher": "eusourmr",
-      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/realtime-api-integration",
-      "path": "skills/featured/realtime-api-integration"
-    },
-    {
-      "id": "chatgpt-apps-deployer",
-      "name": "ChatGPT Apps Deployer",
-      "category": "Development",
-      "status": "verified",
-      "rating": 0,
-      "rating_state": "unrated",
-      "reviews": 0,
-      "last_verified": "2026-09-08",
-      "compatibility": [
-        "ChatGPT",
-        "Codex"
-      ],
-      "publisher": "eusourmr",
-      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/chatgpt-apps-deployer",
-      "path": "skills/featured/chatgpt-apps-deployer"
-    },
-    {
-      "id": "codex-pr-reviewer",
-      "name": "Codex PR Reviewer",
-      "category": "Security & Quality",
-      "status": "verified",
+      "id": "remotion",
+      "name": "Remotion",
+      "category": "Design",
+      "status": "community",
       "rating": 0,
       "rating_state": "unrated",
       "reviews": 0,
@@ -503,26 +710,74 @@
       "compatibility": [
         "Codex"
       ],
-      "publisher": "eusourmr",
-      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/codex-pr-reviewer",
-      "path": "skills/featured/codex-pr-reviewer"
+      "publisher": "Remotion",
+      "source": "https://github.com/openai/plugins/tree/main/plugins/remotion"
     },
     {
-      "id": "cs-navigator",
-      "name": "CS Navigator",
-      "category": "Productivity",
-      "status": "verified",
+      "id": "skill-workbench",
+      "name": "Skill Workbench",
+      "category": "First-Party CS",
+      "status": "draft",
       "rating": 0,
       "rating_state": "unrated",
       "reviews": 0,
-      "last_verified": "2026-09-08",
+      "last_verified": "2026-10-05",
       "compatibility": [
         "ChatGPT",
         "Codex"
       ],
       "publisher": "eusourmr",
-      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/cs-navigator",
-      "path": "skills/featured/cs-navigator"
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/skill-workbench",
+      "path": "skills/skill-workbench"
+    },
+    {
+      "id": "superpowers",
+      "name": "Superpowers",
+      "category": "Development",
+      "status": "community",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-09-08",
+      "compatibility": [
+        "Codex"
+      ],
+      "publisher": "Jesse Vincent",
+      "source": "https://github.com/openai/plugins/tree/main/plugins/superpowers"
+    },
+    {
+      "id": "text-integrity-editor",
+      "name": "Text Integrity Editor",
+      "category": "Writing & Research",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-05",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/text-integrity-editor",
+      "path": "skills/text-integrity-editor"
+    },
+    {
+      "id": "visual-intent-guardian",
+      "name": "Visual Intent Guardian",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-05",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/visual-intent-guardian",
+      "path": "skills/visual-intent-guardian"
     }
   ],
   "evidence_model": {

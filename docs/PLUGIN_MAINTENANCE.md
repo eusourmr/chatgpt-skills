@@ -1,24 +1,26 @@
-# CS Navigator Plugin Maintenance
+# CS Connect Plugin Maintenance
+
+> Current public product line: **CS Connect 0.9.0**. Qualified R2 ZIP SHA-256: `3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`. Public-directory publication still requires OpenAI review, approval, and explicit publish.
 
 [Português do Brasil](PLUGIN_MAINTENANCE.pt-BR.md)
 
-This document is the permanent release/update checklist for CS Navigator distribution.
+This document is the permanent release/update checklist for CS Connect distribution. The technical plugin slug remains `cs-navigator`.
 
 ## Never confuse these distribution paths
 
-| Path | Does a GitHub change update installed users automatically? | What we must do for a new CS Navigator version |
+| Path | Does a GitHub change update installed users automatically? | What we must do for a new CS Connect version |
 |---|---|---|
 | GitHub marketplace imported into a managed workspace and tracking `main` | **Yes, after marketplace sync** | Merge valid changes, then wait for daily sync or use **Sync now** |
 | GitHub marketplace pinned to a release tag/SHA | **No version jump** | Move/update the marketplace source ref deliberately to the new qualified tag/SHA |
 | Manually uploaded plugin ZIP in a workspace | **No** | Open the plugin and upload the new version |
 | Public OpenAI Plugin Directory | **No for metadata/bundled skill changes** | Upload a new ZIP to the **existing plugin**, pass checks/review, then publish the approved package version |
-| Hosted MCP implementation behind an already-published plugin | Eligible server/tool changes may be picked up through OpenAI's MCP scanning flow | Deploy server changes and review/rescan as required; this does not apply to CS Navigator's skills-only package updates |
+| Hosted MCP implementation behind an already-published plugin | Eligible server/tool changes may be picked up through OpenAI's MCP scanning flow | Deploy server changes and review/rescan as required; this does not apply to CS Connect's skills-only package updates |
 
-## Current CS Navigator rule
+## Current CS Connect rule
 
-CS Navigator is a **skills-only** plugin.
+CS Connect is a **skills-only** plugin.
 
-Therefore, a new CS Navigator release such as 0.7.5 **must not be considered updated in the public OpenAI Plugin Directory merely because GitHub changed**.
+Therefore, a new CS Connect release **must not be considered updated in the public OpenAI Plugin Directory merely because GitHub changed**.
 
 For every public plugin release that changes skills, metadata, assets, or package contents:
 
@@ -29,7 +31,7 @@ For every public plugin release that changes skills, metadata, assets, or packag
 5. update `plugins/cs-navigator/plugin.json` version;
 6. update the matching `submission/cs-navigator-<version>.json`;
 7. create the GitHub release/tag;
-8. open the **existing CS Navigator plugin** in the OpenAI plugin submission portal;
+8. open the **existing CS Connect plugin** in the OpenAI plugin submission portal;
 9. upload the new ZIP as a new package version — do **not** create a duplicate plugin;
 10. resolve automated findings;
 11. complete the required review flow;
@@ -58,21 +60,21 @@ Prefer a qualified release tag or immutable commit SHA.
 Example:
 
 ```text
-cs-navigator-v0.7.0
+cs-connect-v0.9.0
 ```
 
-A tag/SHA is intentionally pinned. It will not move to 0.7.5 merely because `main` advances. Update the marketplace source ref only after the new release passes all required gates.
+A tag/SHA is intentionally pinned. It will not move to a later release merely because `main` advances. Update the marketplace source ref only after the new release passes all required gates.
 
 ## Release reminder — mandatory
 
-Every CS Navigator release PR must answer all of these before closure:
+Every CS Connect release PR must answer all of these before closure:
 
 - [ ] Has the plugin version been updated?
 - [ ] Has the exact production ZIP been rebuilt from the qualified source?
 - [ ] Does its SHA-256 match the qualified artifact?
 - [ ] Has the GitHub release/tag been created?
 - [ ] Has the workspace GitHub marketplace source/sync been updated or intentionally left pinned?
-- [ ] If CS Navigator is publicly listed, has the **existing public plugin** received the new ZIP?
+- [ ] If CS Connect is publicly listed, has the **existing public plugin** received the new ZIP?
 - [ ] Have OpenAI automated checks/review completed for the public package update?
 - [ ] Has the approved package version been published?
 - [ ] Has the public directory version been verified after publication?

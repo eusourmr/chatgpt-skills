@@ -1,0 +1,4 @@
+interface:
+  display_name: "Academic Integrity Reviewer"
+  short_description: "Review academic work for internal consistency, claim-source support, citation/"
+  default_prompt: "Use $academic-integrity-reviewer. Follow its activation boundary, evidence limits, and smallest-useful-workflow contract."

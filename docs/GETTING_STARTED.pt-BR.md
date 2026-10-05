@@ -1,216 +1,163 @@
-# Primeiros Passos
+# Primeiros Passos — CS Connect
 
-Este é o guia canônico de instalação e primeiro uso do ChatGPT Skills / CS Navigator.
+Este é o guia principal de instalação e primeiro uso do **CS Connect 0.9.0**.
 
 [English](GETTING_STARTED.md)
 
-## Versões atuais
+## Se você só quer instalar e usar
 
-O projeto possui linhas de versão independentes:
+Você **não precisa saber programar**, usar terminal, GitHub ou API.
 
-| Componente | Estado atual |
-|---|---|
-| Plugin CS Navigator | **0.7.0 estável** — Verifiable Trust I |
-| CS Navigator 0.7.5 | **Em qualificação** — a fundação do Container Guardian / Skill Containers já foi integrada, mas a 0.7.5 ainda não foi lançada |
-| CLI `chatgpt-skills` no npm | **0.4.0** |
+Quando o CS Connect estiver publicado no diretório público da OpenAI:
 
-Não trate a 0.7.5 como plugin estável antes de concluir a qualificação nativa no ChatGPT e o release gate.
-
-Release estável: [CS Navigator 0.7.0 — Verifiable Trust I](https://github.com/eusourmr/chatgpt-skills/releases/tag/cs-navigator-v0.7.0)
-
-## Plugin Directory público
-
-Quando o CS Navigator tiver uma versão publicada e verificada no Plugin Directory público da OpenAI, o caminho mais simples para o usuário é:
+1. Abra o **ChatGPT** ou o **Codex**.
+2. Abra **Plugins**.
+3. Pesquise por **CS Connect**.
+4. Abra o cartão do plugin.
+5. Clique em **Instalar plugin**.
+6. Volte para uma conversa e escreva, por exemplo:
 
 ```text
-ChatGPT / Codex → Plugins → buscar "CS Navigator" → Instalar
+Use CS Connect para revisar este texto sem mudar datas, valores ou meu sentido.
 ```
 
-O repositório **não** afirma disponibilidade pública apenas porque existe uma release no GitHub ou uma importação de marketplace em workspace. A listing/versão publicada precisa ser verificada antes de orientar usuários por esse caminho.
+Pronto. O CS Connect é composto por skills e, no núcleo 0.9.0, **não exige chave de API, servidor MCP, login em serviço externo nem configuração técnica adicional**.
 
-Atualizações públicas de skills/metadata empacotadas não são puxadas automaticamente do GitHub; os mantenedores precisam enviar e publicar a atualização aprovada no plugin público existente. Veja [Manutenção do Plugin](PLUGIN_MAINTENANCE.pt-BR.md).
+> Se “CS Connect” ainda não aparecer na busca pública, isso significa que a versão pública ainda está em revisão ou ainda não foi publicada. Uma release no GitHub, sozinha, não prova que o plugin já esteja disponível no diretório da OpenAI.
 
-## Opção A — Instalar o CS Navigator em um workspace ChatGPT compatível
+## O que o CS Connect faz
 
-Onde houver suporte a marketplaces de plugins gerenciados pelo GitHub:
+O CS Connect funciona como um conjunto de capacidades especializadas. Ele foi desenhado para **não atrapalhar tarefas simples**.
 
-1. Abra as configurações de workspace/plugins do ChatGPT.
-2. Adicione ou importe um marketplace de plugins do GitHub.
-3. Use este repositório como origem:
+Exemplos simples continuam no próprio ChatGPT:
+
+```text
+Quanto é 17 × 4?
+Corrija esta frase.
+Resuma este parágrafo.
+```
+
+Quando você quiser usar o CS Connect, basta dizer isso claramente:
+
+```text
+Use CS Connect para pesquisar esta regra brasileira e separar lei, projeto de lei e notícia antiga.
+```
+
+```text
+Use CS Connect para organizar este projeto em poucos marcos verificáveis.
+```
+
+```text
+Use CS Connect com behavioral-science para melhorar retenção sem dark patterns.
+```
+
+## Versão atual
+
+| Componente | Estado |
+|---|---|
+| CS Connect | **0.9.0 R2 — candidato de produção qualificado** |
+| ZIP qualificado | SHA-256 `3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce` |
+| 0.7.5 | absorvida como fundação interna de Skill Containers / Container Guardian |
+| 0.8 | absorvida pela 0.9 |
+| CLI `chatgpt-skills` | linha independente, atualmente `0.4.0` |
+| Próxima linha | 0.10 — Ecosystem Intelligence & Community Scale |
+
+A qualificação do R2 é vinculada aos bytes exatos e aos casos registrados. Ela não significa segurança absoluta nem garantia de zero alucinação.
+
+## Enquanto a versão pública estiver em revisão
+
+Usuários comuns podem aguardar a listagem pública. Testadores e administradores têm caminhos alternativos:
+
+### A. ZIP qualificado
+
+Use o ZIP da release GitHub 0.9.0 e confira o SHA-256 antes de instalar em uma superfície que aceite upload de plugin.
+
+Esperado:
+
+```text
+3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce
+```
+
+A existência do ZIP no computador não significa que ele esteja instalado. A superfície precisa aceitar upload/instalação e mostrar o plugin ativo.
+
+### B. Marketplace GitHub para workspace administrado
+
+Para administradores de workspace com importação de marketplace GitHub:
 
 ```text
 Repositório: https://github.com/eusourmr/chatgpt-skills
-Caminho:     (deixe vazio)
-Ref:         cs-navigator-v0.7.0
+Caminho:     deixe vazio
+Ref:         use a tag estável da 0.9.0 quando publicada
 ```
 
-4. Instale **CS Navigator** no marketplace importado.
-5. Para uso controlado em produção, prefira a tag de release acima em vez de acompanhar a `main`.
-
-O plugin estável do CS Navigator é composto por skills. O núcleo não exige servidor MCP, chave de API, autenticação externa ou gateway de terceiros.
-
-Veja [Distribuição via GitHub](GITHUB_PLUGIN_DISTRIBUTION.md) para detalhes de administrador e desenvolvimento local.
-
-## Opção B — Usar o artefato do release estável
-
-O release 0.7.0 no GitHub contém:
+Depois:
 
 ```text
-cs-navigator-plugin-0.7.0.zip
-cs-navigator-plugin-0.7.0.zip.sha256
+Configurações do workspace → Plugins → Marketplaces → importar/sincronizar
 ```
 
-SHA-256 publicado do plugin:
+Veja [Distribuição via GitHub](GITHUB_PLUGIN_DISTRIBUTION.md).
 
-```text
-a1ac38a482f6e3ad839eefc3ed555c2cc001e24cf28b1be2740024d963b6048d
-```
+### C. CLI para usuários técnicos
 
-O ZIP do release é o payload de produção qualificado. A aceitação de instalação direta por ZIP depende da superfície. A simples existência do ZIP no computador não prova que ele esteja instalado ou ativo no ChatGPT.
-
-## Opção C — Usar o CLI
-
-O CLI no npm possui sua própria linha de versão.
-
-Início interativo:
+O CLI possui linha de versão independente:
 
 ```bash
 npx chatgpt-skills install
 ```
 
-Inspecione uma skill antes de adotá-la:
+Inspecionar antes de adotar:
 
 ```bash
 npx chatgpt-skills inspect cs-navigator
-npx chatgpt-skills inspect openai-agents-sdk-builder
 ```
 
-Verifique uma instalação ou exportação:
+Diagnosticar instalação/exportação:
 
 ```bash
 npx chatgpt-skills doctor
 ```
 
-Instale/exporte para destinos suportados:
+## Como saber se está funcionando
 
-```bash
-npx chatgpt-skills install --bundle openai-ecosystem --tool codex-cli --scope project --yes
-npx chatgpt-skills install --bundle education --tool cursor --scope project --yes
-npx chatgpt-skills install --bundle data-analyst --tool agents-portable --scope project --yes
-```
-
-Prepare artefatos para upload/exportação no ChatGPT quando a importação por marketplace GitHub não estiver disponível:
-
-```bash
-npx chatgpt-skills install --skill cs-navigator --tool chatgpt-web --yes
-```
-
-Alternativa direta pelo repositório:
-
-```bash
-npx --allow-git=root github:eusourmr/chatgpt-skills install
-```
-
-## Como usar o CS Navigator
-
-O CS Navigator é um **roteador de capacidades**, não uma exigência para toda tarefa.
-
-Use quando você estiver decidindo, por exemplo:
-
-- se a tarefa precisa de uma skill;
-- qual capacidade do CS é a menor opção útil;
-- se uma skill externa possui evidência suficiente;
-- se uma candidata está current, tested, stale, changed-unreviewed ou not-evaluated;
-- qual opção equivalente exige menos permissões.
-
-Exemplos:
+Faça um teste simples:
 
 ```text
-@CS Navigator
-Preciso de uma skill para isso ou o próprio ChatGPT resolve diretamente?
+Use CS Connect. Quanto é 17 × 4?
 ```
+
+A resposta esperada é apenas **68**. Uma conta simples não precisa virar um workflow.
+
+Depois teste uma capacidade:
 
 ```text
-@CS Navigator
-Qual capacidade do CS atende este objetivo com o menor conjunto de permissões?
+Use CS Connect para organizar um projeto grande em marcos e impedir que eu declare etapas concluídas sem evidência.
 ```
 
-```text
-@CS Navigator
-Esta skill está atual, testada e suficientemente evidenciada para este uso?
-```
+A resposta deve usar poucos marcos, exigir evidência antes de concluir e prever checkpoint/recuperação quando houver mudança difícil de desfazer.
 
-Se a tarefa for comum e o ChatGPT puder resolvê-la diretamente, a resposta correta pode ser **native-only**.
+## Se algo der errado
 
-Exemplos que normalmente devem permanecer nativos:
+1. confirme se o nome exibido é **CS Connect**;
+2. confirme a versão instalada;
+3. se usa marketplace GitHub, execute **Sync now** quando disponível;
+4. se usa ZIP, confira o SHA-256;
+5. não presuma que uma evidência antiga vale para bytes novos;
+6. se usa CLI, execute `npx chatgpt-skills doctor`;
+7. abra uma issue no GitHub se o problema persistir.
 
-```text
-Resuma este PDF.
-Corrija esta frase.
-Quanto é 17 × 4?
-Explique exponential backoff de forma simples.
-```
+## Para especialistas
 
-## Capability Pack I incluído
+- nome público: **CS Connect**
+- slug técnico preservado: `cs-navigator`
+- versão: `0.9.0`
+- tipo: skills-only
+- MCP: não obrigatório
+- autenticação externa: não
+- pacote qualificado: R2
+- evidência: `release/candidates/cs-connect-v0.9.0-r2.json`
+- requalificação nativa: `trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json`
 
-Uma instalação do CS Navigator inclui estas capacidades chat-native:
-
-- Regenerative Language Bridge
-- Regenerative Impact Map
-- Regenerative Resilience Plan
-- Regenerative Adaptive Experiment
-
-Estar incluída não significa ativação automática, e o bundle não transforma uma skill `designed` em `tested`.
-
-## O que a 0.7.0 adiciona
-
-A CS Navigator 0.7.0 adiciona Verifiable Trust I:
-
-- Trust Passports;
-- evidência do Security Gate v2;
-- Risk Labels;
-- freshness e drift;
-- evidência vinculada à versão/bytes;
-- behavior evals normalizados;
-- roteamento trust-aware;
-- fundações de governança e vocabulário multilíngue;
-- OSTS 0.1.
-
-Um `pass` no Security Gate não é garantia de segurança. Uma skill modificada não herda automaticamente a evidência dos bytes anteriores.
-
-## O que está acontecendo na 0.7.5
-
-A 0.7.5 estende confiança de “o que foi revisado” para “o que pode acontecer a seguir”.
-
-A fundação do Container Guardian já foi integrada na `main` e possui testes determinísticos para:
-
-- nenhuma autoelevação de permissão;
-- nenhuma citação, observação ou tool result fabricado;
-- nenhuma aquisição/transferência externa não autorizada;
-- retries/tool attempts limitados;
-- permissões do workflow filho nunca maiores que as do pai;
-- decisões auditáveis `ALLOW / CONFIRM / DEGRADE / STOP`.
-
-Porém, **a 0.7.5 ainda não é o plugin estável**. A qualificação nativa no ChatGPT do RC force-fresh continua sendo um release gate.
-
-Veja [Skill Containers](SKILL_CONTAINERS.md) e [Plano 0.7.5](V075_VERIFIABLE_TRUST_II_CONTAINERS.md).
-
-## Direção da 0.8
-
-A próxima linha de produto está sendo desenhada em torno de **Everyday Trust Skills** próprias e **Community Profiles** reutilizáveis: pesquisa, validação de regras de documentos, integridade acadêmica, integridade textual, preservação de intenção visual e restauração.
-
-Acompanhe: [#60 — v0.8.0 First-Party Skills I](https://github.com/eusourmr/chatgpt-skills/issues/60).
-
-## Solução de problemas
-
-Se um roteamento ou resultado parecer desatualizado:
-
-1. confirme qual plugin/versão está instalado;
-2. prefira a tag estável para uso controlado;
-3. sincronize/recarregue o marketplace/plugin quando a superfície permitir;
-4. não presuma que testes antigos continuam válidos depois que os bytes mudam;
-5. use `chatgpt-skills doctor` em instalações/exportações gerenciadas pelo CLI.
-
-Para bugs ou problemas de documentação, abra uma issue no GitHub.
+Leia também [Publicação Pública](PUBLIC_PLUGIN_SUBMISSION.md), [Trust Passport](TRUST_PASSPORT.md) e [Skill Containers](SKILL_CONTAINERS.md).
 
 Projeto comunitário independente. Não afiliado nem endossado pela OpenAI.

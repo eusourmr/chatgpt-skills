@@ -1,0 +1,116 @@
+name: Validate v0.9 draft skills
+
+on:
+  push:
+    branches:
+      - feature/v0.9-first-party
+  workflow_dispatch:
+
+concurrency:
+  group: v090-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  draft-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Validate source catalog without requiring generated README sync
+        shell: bash
+        run: |
+          python - <<'PY'
+          import importlib.util, pathlib
+          p=pathlib.Path('scripts/catalog.py')
+          spec=importlib.util.spec_from_file_location('catalog_script',p)
+          m=importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(m)
+          data=m.load_catalog()
+          errors=m.validate_catalog(data)+m.validate_repo_skills()
+          if errors:
+              raise SystemExit('\n'.join(errors))
+          print(f"Draft source catalog valid: {len(data['entries'])} entries")
+          PY
+      - name: Validate legacy catalog shape
+        run: python scripts/validate_catalog.py
+      - name: Validate skill profiles
+        run: node scripts/validate-skill-profiles.mjs
+      - name: Validate draft admission boundary
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFile } from 'node:fs/promises';
+          const release=JSON.parse(await readFile('release/v090-first-party-skills.json','utf8'));
+          const foundation=new Set(['cs-navigator','regenerative-impact-map','regenerative-language-bridge','regenerative-resilience-plan','regenerative-adaptive-experiment']);
+          const ids=release.skills.filter(id=>!foundation.has(id));
+          const catalog=JSON.parse(await readFile('catalog.json','utf8'));
+          const manifest=JSON.parse(await readFile('installer/manifest.json','utf8'));
+          const trust=JSON.parse(await readFile('trust/skills.json','utf8'));
+          const execution=JSON.parse(await readFile('trust/execution.json','utf8'));
+          const packageQualified=Boolean(release.qualified_candidate?.zip_sha256);
+          for(const id of ids){
+            const entry=catalog.entries.find(x=>x.id===id);
+            if(!entry) throw new Error(id+': missing draft catalog entry');
+            if(entry.status!=='draft') throw new Error(id+': must remain draft before qualification');
+            if(manifest.skills?.[id]) throw new Error(id+': draft must not enter installer manifest yet');
+            if(trust.skills?.[id]) throw new Error(id+': draft must not receive individual trust evidence yet');
+            const exec=execution.skills?.[id];
+            if(packageQualified){
+              if(!exec) throw new Error(id+': package-qualified bundled workflow must declare execution surface');
+              if(exec.mode!=='chat-native') throw new Error(id+': first-party draft execution mode must remain chat-native');
+              if(exec.evidence_state!=='designed') throw new Error(id+': package qualification must not promote individual draft beyond designed');
+            } else if(exec){
+              throw new Error(id+': pre-qualification draft must not receive execution evidence yet');
+            }
+          }
+          console.log(packageQualified
+            ? 'Draft admission boundary OK: package-qualified workflows remain draft/designed with execution surface only; no individual trust or installer admission.'
+            : 'Draft admission boundary OK: no premature trust/bundling.');
+          NODE
+      - name: Parse semantic fixtures
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, glob
+          paths=sorted(glob.glob('tests/fixtures/v090-*.json'))
+          assert paths, 'no v0.9 fixtures found'
+          skill_paths=[p for p in paths if not p.endswith('v090-native-qualification-frozen.json')]
+          for p in skill_paths:
+              d=json.load(open(p,encoding='utf-8'))
+              assert d.get('release_line')=='0.9.0', p
+              assert d.get('skill_id'), p
+              assert d.get('cases'), p
+              ids=[case['id'] for case in d['cases']]
+              assert len(ids)==len(set(ids)), p
+          q='tests/fixtures/v090-native-qualification-frozen.json'
+          matrix=json.load(open(q,encoding='utf-8'))
+          assert matrix.get('release_line')=='0.9.0', q
+          assert matrix.get('product')=='CS Connect', q
+          assert matrix.get('exact_candidate'), q
+          assert matrix.get('cases'), q
+          qids=[case['id'] for case in matrix['cases']]
+          assert len(qids)==len(set(qids)), q
+          print(f'v0.9 skill fixtures parsed: {len(skill_paths)}; frozen qualification matrix parsed separately: {len(qids)} cases')
+          PY
+      - name: Audit current CS Connect 0.9 documentation
+        run: node scripts/validate-v090-docs.mjs
+      - name: Security Gate v2 — draft skill sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE' > /tmp/v090-draft-ids.txt
+          import { readFile } from 'node:fs/promises';
+          const release=JSON.parse(await readFile('release/v090-first-party-skills.json','utf8'));
+          const foundation=new Set(['cs-navigator','regenerative-impact-map','regenerative-language-bridge','regenerative-resilience-plan','regenerative-adaptive-experiment']);
+          for(const id of release.skills) if(!foundation.has(id)) console.log(id);
+          NODE
+          while read -r id; do
+            node scripts/security-gate-v2.mjs --path "skills/$id" > "/tmp/$id-security.json"
+          done < /tmp/v090-draft-ids.txt
+          echo "Draft skill source scans completed for all v0.9 first-party skills with no blocking finding."

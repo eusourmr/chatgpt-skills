@@ -28,13 +28,12 @@ expect(!plugin.mcp, 'CS Navigator core plugin must not declare MCP');
 const pack = await readJson('plugins/cs-navigator/capability-pack.json');
 const packFixtures = await readJson('tests/fixtures/capability-pack.json');
 const execution = await readJson('trust/execution.json');
-const expectedIncluded = [
+const foundationIncluded = [
   'regenerative-language-bridge',
   'regenerative-impact-map',
   'regenerative-resilience-plan',
   'regenerative-adaptive-experiment'
 ];
-const expectedPluginSkills = ['cs-navigator', ...expectedIncluded].sort();
 
 expect(pack.schema_version === 1, 'Capability Pack manifest schema_version must be 1');
 expect(pack.pack_version === plugin.version, 'Capability Pack version must match plugin version');
@@ -60,13 +59,22 @@ expect(routingCases >= 4, 'Capability Pack fixtures need at least four capabilit
 expect(pack.router === 'cs-navigator', 'Capability Pack router must be cs-navigator');
 expect(Array.isArray(pack.included_skills), 'Capability Pack included_skills must be an array');
 
-const includedIds = (pack.included_skills || []).map((item) => item.id).sort();
-expect(JSON.stringify(includedIds) === JSON.stringify([...expectedIncluded].sort()), 'Capability Pack I must contain the four approved bundled skills');
+const packItems = pack.included_skills || [];
+const includedIds = packItems.map((item) => item.id).sort();
+const includedIdSet = new Set(includedIds);
+expect(includedIdSet.size === includedIds.length, 'Capability Pack skill ids must be unique');
+for (const id of foundationIncluded) {
+  expect(includedIdSet.has(id), `Capability Pack must preserve foundation skill: ${id}`);
+}
+const expectedPluginSkills = ['cs-navigator', ...includedIds].sort();
 
-for (const item of pack.included_skills || []) {
+for (const item of packItems) {
   const executionInfo = execution.skills?.[item.id];
+  expect(typeof item.id === 'string' && item.id.length > 0, 'Capability Pack skill missing id');
+  expect(item.source === `skills/${item.id}`, `${item.id}: source must be skills/${item.id}`);
+  expect(item.mode === 'chat-native', `${item.id}: CS Connect Capability Pack only accepts chat-native first-party workflows`);
+  expect(typeof item.qualification_state === 'string' && item.qualification_state.length > 0, `${item.id}: qualification_state is required`);
   expect(Boolean(executionInfo), `${item.id}: missing execution evidence`);
-  expect(item.mode === 'chat-native', `${item.id}: Capability Pack I only accepts chat-native skills`);
   expect(executionInfo?.mode === 'chat-native', `${item.id}: authoritative execution mode must be chat-native`);
   expect(item.evidence_state === executionInfo?.evidence_state, `${item.id}: pack evidence state must match trust/execution.json`);
 }
@@ -86,11 +94,11 @@ const actualPluginSkillDirs = (await readdir(pluginSkillsRoot, { withFileTypes: 
   .filter((item) => item.isDirectory())
   .map((item) => item.name)
   .sort();
-expect(JSON.stringify(actualPluginSkillDirs) === JSON.stringify(expectedPluginSkills), 'Plugin skill directories must exactly match the Capability Pack I contract');
+expect(JSON.stringify(actualPluginSkillDirs) === JSON.stringify(expectedPluginSkills), 'Plugin skill directories must exactly match the declared Capability Pack contract');
 
 const canonicalRoots = new Map([
   ['cs-navigator', path.join(root, 'skills', 'featured', 'cs-navigator')],
-  ...expectedIncluded.map((id) => [id, path.join(root, 'skills', id)])
+  ...includedIds.map((id) => [id, path.join(root, 'skills', id)])
 ]);
 
 for (const id of expectedPluginSkills) {
@@ -113,4 +121,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`GitHub marketplace OK: cs-navigator ${plugin.version}, ${expectedPluginSkills.length} mirrored skills, Capability Pack I evidence-aligned, no MCP dependency.`);
+console.log(`GitHub marketplace OK: cs-navigator ${plugin.version}, ${expectedPluginSkills.length} mirrored skills, Capability Pack evidence-aligned, no MCP dependency.`);

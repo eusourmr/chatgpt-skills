@@ -1,0 +1,4 @@
+interface:
+  display_name: "Document Compliance Auditor"
+  short_description: "Audit documents against versioned rule profiles and return explicit compliance"
+  default_prompt: "Use $document-compliance-auditor. Follow its activation boundary, evidence limits, and smallest-useful-workflow contract."

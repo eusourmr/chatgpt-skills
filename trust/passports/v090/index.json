@@ -1,0 +1,85 @@
+{
+  "schema_version": "v090-exact-package-passport-index-0.1",
+  "product": "CS Connect",
+  "version": "0.9.0",
+  "candidate": "R2",
+  "package_sha256": "3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce",
+  "policy": "Each record binds one first-party skill to exact qualified R2 source/package evidence. These records supplement legacy installer Trust Passports and do not invent per-skill dynamic security evidence.",
+  "skills": [
+    {
+      "skill_id": "text-integrity-editor",
+      "passport": "trust/passports/v090/text-integrity-editor.json",
+      "skill_artifact_sha256": "fc21b5b7c70623b9c83d2397e30c61abe82a4f3898c61bf9f1ca57adb090ba25"
+    },
+    {
+      "skill_id": "evidence-first-research",
+      "passport": "trust/passports/v090/evidence-first-research.json",
+      "skill_artifact_sha256": "917d59d341a1abcec4adb5896b1b1bd502e0a17cb8d80eaf26476c71dc9bf68f"
+    },
+    {
+      "skill_id": "argument-article-architect",
+      "passport": "trust/passports/v090/argument-article-architect.json",
+      "skill_artifact_sha256": "90ecba4fb31607c119c4ac21150fd2dd75e664e1bcaf8dc6899a9f2bbd6a952e"
+    },
+    {
+      "skill_id": "founder-product-strategist",
+      "passport": "trust/passports/v090/founder-product-strategist.json",
+      "skill_artifact_sha256": "d2cd0e5a67be2db855ee4c16fa49ba2754a821b69b496170f14dfc7fdb63148f"
+    },
+    {
+      "skill_id": "academic-integrity-reviewer",
+      "passport": "trust/passports/v090/academic-integrity-reviewer.json",
+      "skill_artifact_sha256": "44c84bb5c54e77539fbd45fcbeb0fdb5646f4ba8415740d5ca40592f76b19e15"
+    },
+    {
+      "skill_id": "document-compliance-auditor",
+      "passport": "trust/passports/v090/document-compliance-auditor.json",
+      "skill_artifact_sha256": "313cff93ba351690b15dff455d77b00b9c4c503e41c27083813289c1bff5dac4"
+    },
+    {
+      "skill_id": "design-system-studio",
+      "passport": "trust/passports/v090/design-system-studio.json",
+      "skill_artifact_sha256": "9f68a689f04a410d9cba72ce40396654cf9fb7c4830470e9aed6fce6d8ce9ac8"
+    },
+    {
+      "skill_id": "interactive-creative-builder",
+      "passport": "trust/passports/v090/interactive-creative-builder.json",
+      "skill_artifact_sha256": "710e8e30c091bd1894d1f895bd0e673bcdc2ef13d4fd1eb691bf689fcaae8cf1"
+    },
+    {
+      "skill_id": "engineering-investigator",
+      "passport": "trust/passports/v090/engineering-investigator.json",
+      "skill_artifact_sha256": "4261fd1f4977ed041514e027c1aa5515e405d37a0a7cf1d817932879e6f51bd5"
+    },
+    {
+      "skill_id": "skill-workbench",
+      "passport": "trust/passports/v090/skill-workbench.json",
+      "skill_artifact_sha256": "8d364c1f7f67e78165c5af205168b2deae9004f0212c087bb9c9d29add14f043"
+    },
+    {
+      "skill_id": "context-continuity-manager",
+      "passport": "trust/passports/v090/context-continuity-manager.json",
+      "skill_artifact_sha256": "64248e14e8a89231695dc6512163b0460ad3d079bc618f0bf248f7ce4ca12464"
+    },
+    {
+      "skill_id": "project-execution-director",
+      "passport": "trust/passports/v090/project-execution-director.json",
+      "skill_artifact_sha256": "573852f5402c6fa39216144390b84388c553a833947687790a7359712acdaa01"
+    },
+    {
+      "skill_id": "visual-intent-guardian",
+      "passport": "trust/passports/v090/visual-intent-guardian.json",
+      "skill_artifact_sha256": "571b7a745f67a391430b50fce9dc69fd3c4d888615e2372437a683e9e42ee0d5"
+    },
+    {
+      "skill_id": "photo-restoration-conservator",
+      "passport": "trust/passports/v090/photo-restoration-conservator.json",
+      "skill_artifact_sha256": "cea935c1eec59ce5b7175a63917fdcd977dbcbb4625a2debaa6ae6ead381c88d"
+    },
+    {
+      "skill_id": "art-critique-studio",
+      "passport": "trust/passports/v090/art-critique-studio.json",
+      "skill_artifact_sha256": "6fe4bd574d5920101601060ad1c16c8eae7dcf647524da064fae13b60c8d58c4"
+    }
+  ]
+}

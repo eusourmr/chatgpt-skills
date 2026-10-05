@@ -51,6 +51,10 @@ export async function loadPassportInputs(root) {
 
 export async function buildPassport(root, inputs, skillId) {
   const { manifest, trust, execution, tests, runs, policy } = inputs;
+  const skillPolicy = policy.skill_overrides?.[skillId] ?? {};
+  const reviewedSourceRevision = skillPolicy.reviewed_source_revision ?? policy.reviewed_source_revision;
+  const reviewedAt = skillPolicy.reviewed_at ?? policy.reviewed_at;
+  const staleAfterDays = skillPolicy.stale_after_days ?? policy.stale_after_days;
   const skill = manifest.skills?.[skillId];
   const evidence = trust.skills?.[skillId];
   const exec = execution.skills?.[skillId];
@@ -77,7 +81,7 @@ export async function buildPassport(root, inputs, skillId) {
     provenance: {
       source_repository: policy.source_repository,
       canonical_path: skill.path,
-      reviewed_source_revision: policy.reviewed_source_revision,
+      reviewed_source_revision: reviewedSourceRevision,
       license: policy.license
     },
     integrity,
@@ -114,9 +118,9 @@ export async function buildPassport(root, inputs, skillId) {
     },
     freshness: {
       status: 'current',
-      reviewed_at: policy.reviewed_at,
-      stale_after_days: policy.stale_after_days,
-      review_due_at: addDays(policy.reviewed_at, policy.stale_after_days)
+      reviewed_at: reviewedAt,
+      stale_after_days: staleAfterDays,
+      review_due_at: addDays(reviewedAt, staleAfterDays)
     },
     governance: policy.governance,
     recommendation: {

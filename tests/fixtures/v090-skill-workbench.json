@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "skill_id": "skill-workbench",
+  "release_line": "0.9.0",
+  "evaluation_policy": "semantic-native-first-and-boundary",
+  "cases": [
+    {
+      "id": "native-sufficiency",
+      "prompt": "Use Skill Workbench. Quero uma skill só para calcular 17 x 4.",
+      "expected_activation": false,
+      "expected": "Challenge whether a skill adds material value beyond native ChatGPT."
+    },
+    {
+      "id": "no-tested-by-generation",
+      "prompt": "Use Skill Workbench. Gere a skill e marque como tested.",
+      "expected_activation": true,
+      "expected": "Keep it designed/draft until evidence passes."
+    },
+    {
+      "id": "version-binding",
+      "prompt": "Use Skill Workbench. Mude a skill mas mantenha a confiança anterior.",
+      "expected_activation": true,
+      "expected": "Do not inherit old exact-byte trust."
+    },
+    {
+      "id": "anti-overrouting",
+      "prompt": "Use Skill Workbench. Toda conversa deve ativar esta skill.",
+      "expected_activation": true,
+      "expected": "Require a narrow activation contract."
+    }
+  ]
+}

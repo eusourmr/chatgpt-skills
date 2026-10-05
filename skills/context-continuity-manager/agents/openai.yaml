@@ -1,0 +1,4 @@
+interface:
+  display_name: "Context Continuity Manager"
+  short_description: "Create durable continuation packets for long projects by preserving decisions,"
+  default_prompt: "Use $context-continuity-manager. Follow its activation boundary, evidence limits, and smallest-useful-workflow contract."

@@ -1,0 +1,57 @@
+{
+  "schema_version": "v090-exact-package-passport-0.1",
+  "skill_id": "skill-workbench",
+  "product": "CS Connect",
+  "release": {
+    "version": "0.9.0",
+    "candidate": "R2",
+    "technical_plugin_slug": "cs-navigator",
+    "package_sha256": "3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce",
+    "plugin_source_commit": "6d0f712f1e7c1fae5287135e2d1a6dd25e9e4a7a",
+    "package_entries": 63
+  },
+  "integrity": {
+    "algorithm": "sha256-manifest-v1",
+    "skill_artifact_sha256": "8d364c1f7f67e78165c5af205168b2deae9004f0212c087bb9c9d29add14f043",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "f0a425017021ccbabdda36a86bb4cb0c591cc4ec0f6fee682ba01370b796ec1a"
+      },
+      {
+        "path": "agents/openai.yaml",
+        "sha256": "8d61988a93264f9ea3949904d4094b551f64382163f4fdb1a998a6a53a70837e"
+      }
+    ]
+  },
+  "execution": {
+    "mode": "chat-native",
+    "qualification_state": "qualified-scoped-native",
+    "evidence_scope": "Native semantic behavior for the recorded 0.9 matrix case(s), plus R2 change-impact requalification where applicable.",
+    "case_ids": [
+      "route-skill-workbench"
+    ],
+    "r2_direct_retest": false
+  },
+  "security": {
+    "scope": "The exact R2 plugin package passed configured source/package structural and security gates in CI. This is not a separate per-skill dynamic security audit or universal safety claim."
+  },
+  "evidence_refs": [
+    "release/candidates/cs-connect-v0.9.0-r2.json",
+    "trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json",
+    "tests/fixtures/v090-native-qualification-frozen.json"
+  ],
+  "freshness": {
+    "reviewed_on": "2026-10-05",
+    "binding": "exact-package-bytes"
+  },
+  "recommendation": {
+    "state": "conditional",
+    "reason": "Part of the exact qualified R2 package with recorded native semantic route evidence; use remains task- and evidence-bound."
+  },
+  "known_gaps": [
+    "The full 23-case matrix was not rerun after R2 fixes; R2 used change-impact requalification for the two repaired behaviors plus essential regressions.",
+    "Package qualification is not a zero-hallucination or universal-safety guarantee.",
+    "Container Guardian execution in a specific chat requires an actual decision record."
+  ]
+}

@@ -20,7 +20,7 @@ A `chat-native` skill may move from `designed` to `tested` only when all of the 
 
 The machine-readable run is stored in `trust/in-product-runs.json`.
 
-## First test: CS Navigator
+## Historical first test: CS Navigator
 
 Test plan: `cs-navigator-chatgpt-v1`.
 
@@ -30,9 +30,9 @@ The intended flow is deliberately simple:
 
 No server, API key, MCP gateway, external account, or local runtime is part of the Navigator's core test.
 
-### Prepare the pre-release artifact
+### Historical 0.7 preparation example
 
-The npm CLI remains on its independent `0.4.0` release line and is not the source of truth for current CS Navigator plugin qualification. Always test the exact versioned plugin artifact or force-fresh QA identity named by the qualification plan; do not substitute an unpinned CLI/export artifact.
+The npm CLI remains on its independent `0.4.0` line and is not the source of truth for CS Connect plugin qualification. For current release qualification, test the exact versioned plugin artifact named by the qualification plan; do not substitute an unpinned CLI/export artifact.
 
 Use the exact repository revision that introduced the evidence gate:
 
@@ -66,6 +66,20 @@ Run every prompt from `trust/in-product-tests.json` in the qualifying ChatGPT Sk
 Append one run object to `trust/in-product-runs.json` with the exact artifact hash, immutable source revision, product surface, and observed evidence. Do not edit `trust/execution.json` to `tested` before this run validates.
 
 After a passing run is committed, the execution evidence may be promoted in a separate reviewed change. CI enforces that a `chat-native/tested` claim cannot exist without a passing in-product run.
+
+## Current 0.9 evidence
+
+CS Connect 0.9.0 R2 was qualified from the exact plugin ZIP with SHA-256:
+
+```text
+3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce
+```
+
+The frozen matrix first exposed two defects. After the Brazil jurisdiction/authority and Project Execution Director rollback fixes, R2 passed a change-impact requalification of 5/5 cases. Do not describe this as a full 23/23 rerun on R2.
+
+Machine-readable evidence:
+- `release/candidates/cs-connect-v0.9.0-r2.json`
+- `trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json`
 
 ## Evidence is not endorsement
 

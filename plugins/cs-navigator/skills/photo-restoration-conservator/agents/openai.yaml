@@ -1,0 +1,4 @@
+interface:
+  display_name: "Photo Restoration Conservator"
+  short_description: "Restore family and historical photos conservatively by separating visible reco"
+  default_prompt: "Use $photo-restoration-conservator. Follow its activation boundary, evidence limits, and smallest-useful-workflow contract."

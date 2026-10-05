@@ -1,0 +1,85 @@
+name: Release CS Connect v0.9.0
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'release/candidates/cs-connect-v0.9.0-r2.json'
+      - '.github/workflows/release-cs-connect-v090.yml'
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: release-cs-connect-v090
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: cs-connect-v0.9.0
+      EXPECTED_SHA: 3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce
+      QUALIFIED_ARTIFACT_ID: '11368935114'
+      QUALIFIED_SOURCE_COMMIT: 6d0f712f1e7c1fae5287135e2d1a6dd25e9e4a7a
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Download the already-qualified R2 artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/r2
+          gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts/${QUALIFIED_ARTIFACT_ID}/zip" > /tmp/r2-artifact.zip
+          unzip -q /tmp/r2-artifact.zip -d /tmp/r2
+          INNER="$(find /tmp/r2 -type f -name 'cs-navigator-plugin-0.9.0.zip' -print -quit)"
+          test -n "$INNER"
+          ACTUAL="$(sha256sum "$INNER" | awk '{print $1}')"
+          test "$ACTUAL" = "$EXPECTED_SHA"
+          cp "$INNER" /tmp/CS-Connect-0.9.0.zip
+          printf '%s  %s\n' "$EXPECTED_SHA" "CS-Connect-0.9.0.zip" > /tmp/CS-Connect-0.9.0.zip.sha256
+
+      - name: Prepare release notes
+        shell: bash
+        run: |
+          cat > /tmp/release-notes.md <<'EOF'
+          # CS Connect 0.9.0 — First-Party Skills Platform
+
+          CS Connect 0.9.0 combines native-first routing, Verifiable Trust II / Skill Containers, the Regenerative Capability Pack, and 15 original first-party workflows for writing, research, Brazilian context, academic/document review, design, engineering, visual preservation, project continuity, and founder/product strategy.
+
+          ## Qualified plugin payload
+
+          - Candidate: R2
+          - Technical slug: `cs-navigator`
+          - Qualified plugin source commit: `6d0f712f1e7c1fae5287135e2d1a6dd25e9e4a7a`
+          - ZIP SHA-256: `3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`
+          - Entries: 63
+          - GitHub Actions reproduction: exact inner ZIP hash match
+
+          The initial frozen matrix exposed two real defects. After fixes to the Brazil jurisdiction/authority gate and Project Execution Director reversible checkpoint behavior, R2 completed a 5/5 change-impact requalification covering those repairs plus Guardian STOP/no-bypass, native-first, and evidence-state preservation.
+
+          This evidence is exact-byte and semantic for the recorded cases. It is not a universal safety guarantee, a zero-hallucination claim, or proof that Container Guardian executed inside a specific ChatGPT conversation without a decision record.
+
+          ## Installation
+
+          Ordinary users should prefer the OpenAI public Plugin Directory once CS Connect is approved and published. GitHub/ZIP/CLI paths are documented in `docs/GETTING_STARTED.md` and `docs/GETTING_STARTED.pt-BR.md`.
+
+          Independent community project. Not affiliated with or endorsed by OpenAI.
+          EOF
+
+      - name: Create or verify GitHub release
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG already exists; verifying asset."
+            gh release download "$TAG" -p 'CS-Connect-0.9.0.zip' -D /tmp/existing
+            ACTUAL="$(sha256sum /tmp/existing/CS-Connect-0.9.0.zip | awk '{print $1}')"
+            test "$ACTUAL" = "$EXPECTED_SHA"
+            exit 0
+          fi
+
+          gh release create "$TAG"             /tmp/CS-Connect-0.9.0.zip             /tmp/CS-Connect-0.9.0.zip.sha256             --target "$GITHUB_SHA"             --title "CS Connect 0.9.0 — First-Party Skills Platform"             --notes-file /tmp/release-notes.md

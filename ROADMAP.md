@@ -6,11 +6,17 @@ See [`docs/ECOSYSTEM_GROWTH_STRATEGY.md`](docs/ECOSYSTEM_GROWTH_STRATEGY.md) for
 
 ## Current position
 
-The project has completed the first distribution milestone and the **CS Navigator 0.7.0 — Verifiable Trust I** release. The current engineering line is **0.7.5 — Verifiable Trust II & Containers**, whose Container Guardian foundation is merged while native release qualification remains open.
+The current qualified product line is **CS Connect 0.9.0 — First-Party Skills Platform**.
 
-The next public product target is **CS 0.9.0 — First-Party Skills Platform**. The 0.7.5 line remains its mandatory trust/runtime engineering foundation; exact-byte native qualification moves to the final 0.9 package because 0.7.5 will not ship separately. CS should differentiate through verifiable trust, native-first routing, runtime containment, original first-party workflows, Brazilian-context excellence, and clear evidence/permission boundaries.
+The exact production candidate is **R2**, ZIP SHA-256 `3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`. The initial frozen matrix exposed two real defects; both were fixed, and R2 completed a **5/5 change-impact native requalification** covering the repaired Brazil jurisdiction route, repaired project rollback route, Guardian STOP/no-bypass, native-first, and evidence-state preservation. GitHub Actions reproduced the same inner ZIP hash.
 
-The project may scale discovery broadly while keeping trust claims narrow: `indexed`, `source-checked`, `tested`, and `recommended` must remain distinct states.
+The former **0.7.5** line is now historical/internal foundation evidence for Skill Containers and Container Guardian. It was absorbed into 0.9 rather than released independently. The former **0.8** product scope was also absorbed into 0.9.
+
+Public directory review/publication is a distribution state separate from technical qualification. The 0.9 package must not be called publicly listed until OpenAI approval and explicit publication are verified.
+
+The next product line is **v0.10 — Ecosystem Intelligence & Community Scale**.
+
+The project may scale discovery broadly while keeping trust claims narrow: `indexed`, `source-checked`, `tested`, and `recommended` remain distinct evidence states.
 
 ## v0.4 — Trust Layer
 
@@ -105,9 +111,9 @@ Remain `unrated` until real review data exists.
 
 **Exit criteria:** every bundled repository-authored skill has a valid Passport linked to real evidence; Security Gate v2 emits structured public reports and blocks adversarial fixtures; upstream drift can trigger stale/re-review-required; task-level eval evidence is machine-readable; Navigator can use trust/freshness/permissions without over-routing; review decisions are auditable; EN/PT-BR/ES/FR trust vocabulary exists; and the reusable trust schema is published as OSTS 0.1.
 
-## v0.7.5 — Verifiable Trust II & Containers — IN QUALIFICATION
+## v0.7.5 — Verifiable Trust II & Containers — HISTORICAL FOUNDATION / ABSORBED INTO 0.9
 
-Container Guardian I foundation is merged to `main`; deterministic tests are green. Native ChatGPT qualification and final production promotion remain release gates.
+Container Guardian I foundation was merged to `main`, passed its deterministic gates, and was incorporated into the exact CS Connect 0.9.0 R2 package. It is not a standalone public release.
 
 Extend verifiable trust from **what was reviewed** to **what the skill is allowed to do during execution**.
 
@@ -155,7 +161,7 @@ Its scope has been absorbed into **v0.9.0 — First-Party Skills Platform** so t
 
 Issue #60 is superseded by Issue #62.
 
-## v0.9 — First-Party Skills Platform: Creation, Writing, Brazil & Founder Strategy
+## v0.9 — First-Party Skills Platform: Creation, Writing, Brazil & Founder Strategy — QUALIFIED
 
 Make 0.9 the first broad first-party product release after the 0.7.x trust foundation.
 
@@ -229,6 +235,17 @@ External skills can inspire problem selection and benchmarking, but CS implement
 7. `design-system-studio`;
 8. `skill-workbench`;
 9. remaining specialist skills after their contracts and tests are ready.
+
+### 0.9 qualification result
+
+- qualified candidate: **R2**
+- exact ZIP SHA-256: `3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`
+- initial frozen matrix: **21 PASS / 2 FAIL**
+- defects fixed: Brazil jurisdiction/authority UNKNOWN gate; Project Execution Director reversible checkpoint/rollback
+- R2 requalification: **5 PASS / 0 FAIL**
+- GitHub Actions reproduction: exact inner ZIP hash match
+- claim boundary: semantic/exact-byte evidence for recorded cases, not a universal safety or zero-hallucination guarantee
+- public-directory state: separate review/publish flow
 
 ### 0.9 release gates
 

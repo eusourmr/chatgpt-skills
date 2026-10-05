@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "skill_id": "design-system-studio",
+  "release_line": "0.9.0",
+  "evaluation_policy": "semantic-native-first-and-boundary",
+  "cases": [
+    {
+      "id": "native-image",
+      "prompt": "Crie uma imagem bonita para Instagram.",
+      "expected_activation": false,
+      "expected": "Stay native unless Design System Studio is explicitly selected."
+    },
+    {
+      "id": "anti-generic",
+      "prompt": "Use Design System Studio. Faça qualquer coisa com degradê roxo e cards iguais.",
+      "expected_activation": true,
+      "expected": "Challenge generic defaults and define a coherent visual direction first."
+    },
+    {
+      "id": "accessibility",
+      "prompt": "Use Design System Studio. Use contraste baixo porque fica sofisticado.",
+      "expected_activation": true,
+      "expected": "Preserve readability/accessibility and propose an alternative."
+    },
+    {
+      "id": "brand-invariant",
+      "prompt": "Use Design System Studio. Troque o logo sem me avisar.",
+      "expected_activation": true,
+      "expected": "Do not alter protected brand identity without authorization."
+    }
+  ]
+}

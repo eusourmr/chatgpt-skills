@@ -3,9 +3,57 @@ name: cs-navigator
 description: Route only capability-selection questions to the smallest evidence-backed ChatGPT Skill set. Use when the user is deciding which skill, plugin, workflow, or capability to use; whether any skill is needed; whether CS covers a job; or whether an external skill has enough evidence to trust. Do not activate from task subject matter alone. Direct requests to write, explain, summarize, translate, calculate, analyze, research, or create should stay with ChatGPT unless the user is explicitly asking about capability selection.
 ---
 
-# CS Navigator
+# CS Connect — Navigator
 
 Help the user move from **“I want to do this”** to the smallest useful capability set while keeping the work inside ChatGPT whenever practical.
+
+## Skill Container runtime boundary — 0.9.0
+
+The deterministic Container Guardian exists outside the chat-native skill instructions. **Do not claim that the Guardian executed unless the host/runtime provides an actual Guardian decision record.** The bundled runtime evidence proves only the tested deterministic module behavior.
+
+When a Guardian decision record is present:
+
+- **STOP** — stop the proposed path. Do not silently choose another tool, skill, credential, destination, retry strategy, or permission path to bypass the stop. Explain the material reason in plain language. Any materially different alternative requires a new Guardian decision.
+- **DEGRADE** — return only the bounded partial result that remains supported. Mark missing or conflicting evidence explicitly and do not invent the missing portion.
+- **CONFIRM** — ask for explicit confirmation for the exact proposed action. Do not describe it as executed before confirmation is granted.
+- **ALLOW** — the proposed action is inside the active container for that decision. This is not a claim that the action, skill, or system is universally safe.
+
+If no Guardian decision record is available, distinguish **container policy/instructions** from **deterministic runtime enforcement**. Never fabricate a decision, reason code, tool result, citation, observation, or audit record.
+
+Keep the existing native-first routing rule. Container logic must not become a reason to activate a skill for an ordinary task that ChatGPT can handle directly.
+
+The runtime eval reference is evidence for the Guardian module only. It must not be promoted to native ChatGPT qualification, zero-hallucination proof, or an absolute safety guarantee.
+
+## CS Connect 0.9 first-party routing
+
+The public product name is **CS Connect**; the technical router skill ID remains `cs-navigator` to preserve update compatibility.
+
+An explicit request to **use CS Connect** counts as capability-selection intent. After the native-sufficiency check, consult `references/first-party-capabilities.json` for bundled 0.9 first-party workflows.
+
+The first-party capability index is not a Trust Passport. Until final 0.9 exact-byte qualification passes, its new skills are `designed`, `pending-native-0.9`, and `not-yet-qualified`. Never promote those states to `tested` or `recommended` merely because the skills are bundled.
+
+Routing families:
+- writing: `text-integrity-editor`, `argument-article-architect`, `academic-integrity-reviewer`, `document-compliance-auditor`;
+- research/Brazil: `evidence-first-research` plus versioned profiles;
+- entrepreneurship/product: `founder-product-strategist`;
+- engineering: `engineering-investigator`, `skill-workbench`;
+- design/creative: `design-system-studio`, `interactive-creative-builder`;
+- project continuity: `context-continuity-manager`, `project-execution-director`;
+- visual preservation/critique: `visual-intent-guardian`, `photo-restoration-conservator`, `art-critique-studio`.
+
+Prefer one skill. Compose only when each capability contributes a distinct necessary function.
+
+### Mandatory Brazil current-rule routing gate
+
+When an explicit CS Connect request asks about a **current Brazilian rule, law, regulation, public-policy requirement, or administrative requirement**, route to `evidence-first-research` with `brasil-context`.
+
+Before asking a follow-up or stating a current rule, the response MUST expose the jurisdiction gate:
+
+- If the specific rule/topic and competent authority are not yet identifiable from the request, write **`Jurisdição/autoridade aplicável: UNKNOWN / EVIDENCE MISSING`** and state that federal, state, municipal, Federal District, regulatory/issuing authority, or mixed scope must not be assumed.
+- Then ask for the missing rule, topic, number, link, or other minimum object needed to identify the competent authority.
+- If the rule/topic is supplied, explicitly identify the applicable government level, territorial scope, and issuing/regulatory authority when material before presenting a current-rule conclusion.
+- Never omit the UNKNOWN state merely because the next action is to ask a clarifying question.
+
 
 ## Core rule
 

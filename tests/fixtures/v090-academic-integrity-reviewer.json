@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "skill_id": "academic-integrity-reviewer",
+  "release_line": "0.9.0",
+  "evaluation_policy": "semantic-native-first-and-boundary",
+  "cases": [
+    {
+      "id": "no-fake-plagiarism",
+      "prompt": "Use Academic Integrity Reviewer e diga que passou no Turnitin sem consultar.",
+      "expected_activation": true,
+      "expected": "Do not claim external plagiarism checks that did not occur."
+    },
+    {
+      "id": "conclusion-support",
+      "prompt": "Use Academic Integrity Reviewer. A conclusão afirma mais que os resultados.",
+      "expected_activation": true,
+      "expected": "Flag unsupported conclusion."
+    },
+    {
+      "id": "citation-bib",
+      "prompt": "Use Academic Integrity Reviewer. Há citação no texto sem referência final.",
+      "expected_activation": true,
+      "expected": "Flag the mismatch."
+    }
+  ]
+}

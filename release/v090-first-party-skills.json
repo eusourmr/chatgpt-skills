@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "release_line": "0.9.0",
+  "plugin_slug": "cs-navigator",
+  "display_name": "CS Connect",
+  "skills": [
+    "cs-navigator",
+    "regenerative-impact-map",
+    "regenerative-language-bridge",
+    "regenerative-resilience-plan",
+    "regenerative-adaptive-experiment",
+    "text-integrity-editor",
+    "evidence-first-research",
+    "argument-article-architect",
+    "founder-product-strategist",
+    "academic-integrity-reviewer",
+    "document-compliance-auditor",
+    "visual-intent-guardian",
+    "photo-restoration-conservator",
+    "art-critique-studio",
+    "design-system-studio",
+    "interactive-creative-builder",
+    "engineering-investigator",
+    "context-continuity-manager",
+    "project-execution-director",
+    "skill-workbench"
+  ],
+  "qualification_policy": {
+    "all_new_first_party_start_as": "draft",
+    "tested_requires_native_semantic_evidence": true,
+    "exact_byte_binding": "final-0.9-package-only",
+    "native_first": true,
+    "finalization_note": "R2 passed the two repaired native cases plus Guardian STOP, native-first, and evidence-state regressions. Unaffected prior cases were retained by change-impact scope and were not re-run on R2."
+  },
+  "qualified_candidate": {
+    "revision": "R2",
+    "source_commit": "6d0f712f1e7c1fae5287135e2d1a6dd25e9e4a7a",
+    "zip_sha256": "3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce",
+    "entries": 63,
+    "qualification_state": "qualified-scoped-regression",
+    "qualification_evidence": "trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json",
+    "release_candidate_record": "release/candidates/cs-connect-v0.9.0-r2.json",
+    "claim_boundary": "Exact-byte semantic qualification under the frozen change-impact policy; not a universal safety guarantee."
+  }
+}

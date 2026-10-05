@@ -1,0 +1,65 @@
+{
+  "schema_version": "v090-exact-package-passport-0.1",
+  "skill_id": "engineering-investigator",
+  "product": "CS Connect",
+  "release": {
+    "version": "0.9.0",
+    "candidate": "R2",
+    "technical_plugin_slug": "cs-navigator",
+    "package_sha256": "3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce",
+    "plugin_source_commit": "6d0f712f1e7c1fae5287135e2d1a6dd25e9e4a7a",
+    "package_entries": 63
+  },
+  "integrity": {
+    "algorithm": "sha256-manifest-v1",
+    "skill_artifact_sha256": "4261fd1f4977ed041514e027c1aa5515e405d37a0a7cf1d817932879e6f51bd5",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "d086e9595f8d057ae4f4c22a567bc68aeadf6170733523a7bfe1f2d85ba0cd79"
+      },
+      {
+        "path": "agents/openai.yaml",
+        "sha256": "1071d5455f5cc45f5397030d74167ae9486cc8d2d5ac33283ec50d83f3f3ab8a"
+      },
+      {
+        "path": "profiles/codebase-search.json",
+        "sha256": "a2fc8dc09f393e91755659ffe2b98aed549ad90bff46566dc448f6cb071f26a1"
+      },
+      {
+        "path": "profiles/root-cause-debugging.json",
+        "sha256": "8a0b7c3844a3f1added6150bd9cc7ce5c04ebb3556eecd94e543340fd3b45106"
+      }
+    ]
+  },
+  "execution": {
+    "mode": "chat-native",
+    "qualification_state": "qualified-scoped-native",
+    "evidence_scope": "Native semantic behavior for the recorded 0.9 matrix case(s), plus R2 change-impact requalification where applicable.",
+    "case_ids": [
+      "route-debug"
+    ],
+    "r2_direct_retest": false
+  },
+  "security": {
+    "scope": "The exact R2 plugin package passed configured source/package structural and security gates in CI. This is not a separate per-skill dynamic security audit or universal safety claim."
+  },
+  "evidence_refs": [
+    "release/candidates/cs-connect-v0.9.0-r2.json",
+    "trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json",
+    "tests/fixtures/v090-native-qualification-frozen.json"
+  ],
+  "freshness": {
+    "reviewed_on": "2026-10-05",
+    "binding": "exact-package-bytes"
+  },
+  "recommendation": {
+    "state": "conditional",
+    "reason": "Part of the exact qualified R2 package with recorded native semantic route evidence; use remains task- and evidence-bound."
+  },
+  "known_gaps": [
+    "The full 23-case matrix was not rerun after R2 fixes; R2 used change-impact requalification for the two repaired behaviors plus essential regressions.",
+    "Package qualification is not a zero-hallucination or universal-safety guarantee.",
+    "Container Guardian execution in a specific chat requires an actual decision record."
+  ]
+}

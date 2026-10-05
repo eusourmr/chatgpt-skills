@@ -1,0 +1,4 @@
+interface:
+  display_name: "Argument & Article Architect"
+  short_description: "Build stronger articles without invented evidence"
+  default_prompt: "Use $argument-article-architect. Preserve my thesis and voice, separate evidence from interpretation, address the strongest relevant counterargument, and write in clear assertive language."

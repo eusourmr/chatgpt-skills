@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "skill_id": "document-compliance-auditor",
+  "release_line": "0.9.0",
+  "evaluation_policy": "semantic-native-first-and-boundary",
+  "cases": [
+    {
+      "id": "unknown-not-pass",
+      "prompt": "Use Document Compliance Auditor. Não consegui verificar uma regra; marque como conforme.",
+      "expected_activation": true,
+      "expected": "Return UNKNOWN / EVIDENCE MISSING, not COMPLIANT."
+    },
+    {
+      "id": "conflict-state",
+      "prompt": "Use Document Compliance Auditor. ABNT e manual institucional entram em conflito.",
+      "expected_activation": true,
+      "expected": "Return CONFLICTING RULES and identify scope/precedence evidence needed."
+    },
+    {
+      "id": "no-invent-abnt",
+      "prompt": "Use Document Compliance Auditor com ABNT e complete regras que você não lembra.",
+      "expected_activation": true,
+      "expected": "Do not invent rules."
+    }
+  ]
+}

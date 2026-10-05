@@ -1,15 +1,19 @@
-# GitHub-native CS Navigator distribution
+# GitHub distribution — CS Connect
 
-GitHub marketplace import is the managed-workspace distribution path for CS Navigator.
+GitHub marketplace import is the managed-workspace distribution path for **CS Connect**. It is separate from OpenAI's universal public plugin directory.
 
-For the canonical user guide, see [Getting Started](GETTING_STARTED.md). For release/update responsibilities, see [Plugin Maintenance](PLUGIN_MAINTENANCE.md).
+For ordinary users, see [Getting Started](GETTING_STARTED.md).
 
-## Current status
+## Current release
 
-- Stable CS Navigator plugin: **0.7.0 — Verifiable Trust I**
-- Stable release tag: `cs-navigator-v0.7.0`
-- 0.7.5: **in qualification**, not yet the stable plugin
-- CLI/npm release line: independent, currently `0.4.0`
+- public name: **CS Connect**
+- technical slug: `cs-navigator`
+- version: **0.9.0**
+- qualified package: **R2**
+- exact ZIP SHA-256: `3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`
+- 0.7.5: absorbed internal foundation
+- 0.8: absorbed into 0.9
+- CLI/npm: independent line, currently 0.4.0
 
 ## Architecture
 
@@ -21,67 +25,52 @@ GitHub repository
   -> managed ChatGPT workspace marketplace
 ```
 
-The stable plugin is skills-only and does not require MCP, an API key, an external server, or a third-party gateway for its core pack.
+The core package is skills-only. It does not require an MCP server, API key, external authentication, or third-party gateway.
 
-GitHub is the managed source for this path. ChatGPT imports and synchronizes a copy of the marketplace/plugin; it does not fetch mutable skill instructions on every user message.
-
-## Import in a compatible managed ChatGPT workspace
+## Import in a managed ChatGPT workspace
 
 For a workspace administrator:
 
 1. Open **Workspace settings → Plugins**.
-2. Select **Add → Import marketplace**.
-3. Source: `https://github.com/eusourmr/chatgpt-skills`
-4. Path: leave empty; the marketplace is at `.agents/plugins/marketplace.json`.
-5. Choose a ref deliberately:
-   - `main` for controlled development/testing;
-   - a qualified release tag such as `cs-navigator-v0.7.0` for stable use;
-   - a full commit SHA when exact immutability is required.
-6. Import the marketplace and authorize GitHub when prompted.
-7. Open **CS Navigator** and set the workspace installation policy.
+2. Open **Marketplaces** or **Import marketplace**.
+3. Use:
+   - Repository: `https://github.com/eusourmr/chatgpt-skills`
+   - Path: leave empty
+4. Choose the source ref deliberately:
+   - a stable 0.9 release tag for production;
+   - a full commit SHA for exact immutability;
+   - `main` only when you intentionally want current development.
+5. Import the marketplace.
+6. Open **CS Connect** and choose the installation policy for the workspace.
 
-## How updates work
+## Updates
 
-A GitHub marketplace imported by a workspace checks for updates **daily**.
-
-To request an immediate refresh:
+A GitHub marketplace can be synchronized by the workspace. When available:
 
 ```text
 Workspace settings → Plugins → Marketplaces → <marketplace> → Sync now
 ```
 
-A sync can update existing plugins and add new marketplace entries.
+A workspace pinned to a tag or SHA does not move automatically to a later release.
 
-If an update to an existing plugin is invalid, ChatGPT retains the last working imported version while reporting the failed update.
+## Important: GitHub is not the public directory
 
-### Important: `main` versus tag/SHA
+GitHub distribution is for repository/managed-workspace use.
 
-If the marketplace tracks `main`, valid merged plugin changes can arrive on the next daily sync or after **Sync now**.
+Publishing publicly requires the OpenAI submission portal, review, approval, and an explicit **Publish plugin** action. See [Public Plugin Submission](PUBLIC_PLUGIN_SUBMISSION.md).
 
-If the marketplace is pinned to a release tag or SHA, it intentionally stays on that revision. A later 0.7.5 release will **not** replace a pinned 0.7.0 deployment until the workspace source ref is deliberately advanced.
+## Local and Codex use
 
-## This is not the public Plugin Directory
-
-GitHub marketplace sync is a workspace-managed distribution path.
-
-It is **not** the same as publishing CS Navigator to the public OpenAI Plugin Directory. Public-directory updates to bundled skills/metadata require a new ZIP package version to the existing public plugin, checks/review, and publication.
-
-See [Public Plugin Submission](PUBLIC_PLUGIN_SUBMISSION.md) and [Plugin Maintenance](PLUGIN_MAINTENANCE.md).
-
-## Local / Codex development
-
-For supported local clients:
+Technical users can also work from the repository/CLI. Prefer immutable release refs for controlled deployments.
 
 ```bash
-codex plugin marketplace add eusourmr/chatgpt-skills --ref main
+npx chatgpt-skills install
+npx chatgpt-skills inspect cs-navigator
+npx chatgpt-skills doctor
 ```
-
-Use a release tag instead of `main` when you need a stable, controlled version.
 
 ## Trust boundary
 
-The canonical plugin bytes, release artifact, evidence, and version must stay aligned. A changed skill does not inherit old trust merely because its name is unchanged.
-
-The ZIP/export path remains available for surfaces that do not use GitHub marketplace import.
+Trust is tied to exact bytes. If plugin or skill bytes change, older qualification evidence must not be silently inherited.
 
 Independent community project. Not affiliated with or endorsed by OpenAI.

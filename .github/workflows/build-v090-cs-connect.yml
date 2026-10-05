@@ -1,0 +1,139 @@
+name: Build CS Connect v0.9.0 candidate
+
+on:
+  push:
+    branches:
+      - feature/v0.9-first-party
+    paths:
+      - '.github/workflows/build-v090-cs-connect.yml'
+      - 'scripts/build-v090-cs-connect.mjs'
+      - 'skills/**'
+      - 'tests/fixtures/v090-*.json'
+      - 'release/v090-first-party-skills.json'
+  workflow_dispatch:
+
+concurrency:
+  group: v090-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feature/v0.9-first-party
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Assemble CS Connect
+        run: node scripts/build-v090-cs-connect.mjs
+
+      - name: Validate candidate source
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check scripts/build-v090-cs-connect.mjs
+          node scripts/validate-skill-profiles.mjs
+          node scripts/validate-skill-containers.mjs
+          node scripts/eval-container-guardian.mjs --check
+          node scripts/validate-public-plugin-submission.mjs
+          node scripts/security-gate-v2.mjs --path plugins/cs-navigator > /tmp/cs-connect-v090-security.json
+          python - <<'PY'
+          import json, pathlib
+          release=json.load(open('release/v090-first-party-skills.json',encoding='utf-8'))
+          plugin=json.load(open('plugins/cs-navigator/plugin.json',encoding='utf-8'))
+          pack=json.load(open('plugins/cs-navigator/capability-pack.json',encoding='utf-8'))
+          fp=json.load(open('plugins/cs-navigator/skills/cs-navigator/references/first-party-capabilities.json',encoding='utf-8'))
+          assert plugin['name']=='cs-navigator'
+          assert plugin['version']=='0.9.0'
+          assert plugin['extensions']['com.openai']['interface']['displayName']=='CS Connect'
+          assert pack['pack_version']=='0.9.0'
+          assert len(pack['included_skills'])==len(release['skills'])-1
+          assert len(fp['entries'])==15
+          for sid in release['skills']:
+              assert pathlib.Path('plugins/cs-navigator/skills',sid,'SKILL.md').is_file(), sid
+          for e in fp['entries']:
+              assert e['evidence_state']=='designed'
+              assert e['qualification_state']=='pending-native-0.9'
+              assert e['recommendation_state']=='not-yet-qualified'
+          print('CS Connect assembly boundary OK.')
+          PY
+
+      - name: Commit exact candidate source
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add plugins/cs-navigator skills/featured/cs-navigator submission/cs-navigator-0.9.0.json
+          if git diff --cached --quiet; then
+            echo "No candidate source changes."
+          else
+            git commit -m "v0.9: assemble CS Connect production candidate"
+            git push origin HEAD:feature/v0.9-first-party
+          fi
+
+      - name: Build exact plugin ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build-public-plugin-submission.mjs
+          ZIP='dist/plugin-submission/cs-navigator-plugin-0.9.0.zip'
+          test -f "$ZIP"
+          test -f "$ZIP.sha256"
+          unzip -t "$ZIP"
+          SHA=$(sha256sum "$ZIP" | awk '{print $1}')
+          COUNT=$(unzip -Z1 "$ZIP" | wc -l | tr -d ' ')
+          SOURCE=$(git rev-parse HEAD)
+          python - <<'PY'
+          import json, zipfile
+          p='dist/plugin-submission/cs-navigator-plugin-0.9.0.zip'
+          release=json.load(open('release/v090-first-party-skills.json',encoding='utf-8'))
+          with zipfile.ZipFile(p) as z:
+              names=set(z.namelist())
+              plugin=json.loads(z.read('cs-navigator/plugin.json'))
+              assert plugin['name']=='cs-navigator'
+              assert plugin['version']=='0.9.0'
+              assert plugin['extensions']['com.openai']['interface']['displayName']=='CS Connect'
+              for sid in release['skills']:
+                  assert f'cs-navigator/skills/{sid}/SKILL.md' in names, sid
+              fp=json.loads(z.read('cs-navigator/skills/cs-navigator/references/first-party-capabilities.json'))
+              assert len(fp['entries'])==15
+              assert all(x['qualification_state']=='pending-native-0.9' for x in fp['entries'])
+          print('Exact CS Connect 0.9.0 ZIP verified.')
+          PY
+          cat > dist/plugin-submission/cs-connect-v090-candidate.json <<EOF
+          {
+            "product": "CS Connect",
+            "technical_plugin_slug": "cs-navigator",
+            "version": "0.9.0",
+            "source_commit": "$SOURCE",
+            "zip_sha256": "$SHA",
+            "entries": $COUNT,
+            "new_first_party_skills": 15,
+            "final_native_qualification": "pending",
+            "trust_renewal": "pending"
+          }
+          EOF
+          echo "SOURCE=$SOURCE"
+          echo "SHA256=$SHA"
+          echo "ENTRIES=$COUNT"
+
+      - name: Upload exact candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: cs-connect-v090-production-candidate
+          path: |
+            dist/plugin-submission/cs-navigator-plugin-0.9.0.zip
+            dist/plugin-submission/cs-navigator-plugin-0.9.0.zip.sha256
+            dist/plugin-submission/cs-connect-v090-candidate.json
+          if-no-files-found: error
+          retention-days: 30

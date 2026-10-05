@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evidence-First Research"
+  short_description: "Research with explicit evidence and unknowns"
+  default_prompt: "Use $evidence-first-research. Separate source facts, inference, contradiction and unknowns; prefer current primary evidence when material and do not fill gaps by guessing."

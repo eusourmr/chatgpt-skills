@@ -2,15 +2,15 @@
 
 ## Current implementation status
 
-**IN QUALIFICATION — not released.**
+**HISTORICAL FOUNDATION — absorbed into CS Connect 0.9.0; not released as a standalone plugin.**
 
-Container Guardian I foundation was merged to `main` through PR #59. Deterministic repository gates cover the Guardian runtime, adversarial fixtures, runtime behavior evals, and the Navigator adapter. The stable production plugin remains **CS Navigator 0.7.0**.
+Container Guardian I was merged to `main` through PR #59 and later incorporated into the qualified CS Connect 0.9.0 R2 package. This document remains the design/history record for that foundation.
 
 The remaining release path is:
 
-`native 0.7.5 QA → promote exact qualified canonical bytes → renew byte-bound evidence → final production qualification → GitHub release → update any public Plugin Directory package version`
+`0.7.5 semantic QA → preserve foundation evidence → integrate into 0.9 exact package → qualify R2 → release CS Connect 0.9.0`
 
-Do not claim 0.7.5 as stable until all of those gates are complete.
+Do not present 0.7.5 as a standalone stable release; its role is historical/internal foundation evidence for 0.9.
 
 
 ## Product center

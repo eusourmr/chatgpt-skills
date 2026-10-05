@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design System Studio"
+  short_description: "Create intentional visual systems for interfaces, social/canvas pieces and the"
+  default_prompt: "Use $design-system-studio. Follow its activation boundary, evidence limits, and smallest-useful-workflow contract."

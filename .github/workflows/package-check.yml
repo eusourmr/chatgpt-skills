@@ -105,26 +105,23 @@ jobs:
           version = json.loads(Path('plugins/cs-navigator/plugin.json').read_text())['version']
           p = Path(f'dist/plugin-submission/cs-navigator-plugin-{version}.zip')
           assert p.is_file(), p
+          candidate = json.loads(Path('release/candidates/cs-connect-v0.9.0-r2.json').read_text())
+          payload = p.read_bytes()
+          import hashlib
+          assert hashlib.sha256(payload).hexdigest() == candidate['zip_sha256']
           with ZipFile(p) as z:
               names = z.namelist()
               assert z.testzip() is None
-          expected = [
-              'cs-navigator/assets/cs-icon.png',
-              'cs-navigator/capability-pack.json',
+          assert len(names) == candidate['entries'], (len(names), candidate['entries'])
+          required = {
               'cs-navigator/plugin.json',
-              'cs-navigator/skills/cs-navigator/agents/openai.yaml',
-              'cs-navigator/skills/cs-navigator/references/catalog-snapshot.json',
+              'cs-navigator/capability-pack.json',
               'cs-navigator/skills/cs-navigator/SKILL.md',
-              'cs-navigator/skills/regenerative-adaptive-experiment/agents/openai.yaml',
-              'cs-navigator/skills/regenerative-adaptive-experiment/SKILL.md',
-              'cs-navigator/skills/regenerative-impact-map/agents/openai.yaml',
-              'cs-navigator/skills/regenerative-impact-map/SKILL.md',
-              'cs-navigator/skills/regenerative-language-bridge/agents/openai.yaml',
-              'cs-navigator/skills/regenerative-language-bridge/SKILL.md',
-              'cs-navigator/skills/regenerative-resilience-plan/agents/openai.yaml',
-              'cs-navigator/skills/regenerative-resilience-plan/SKILL.md',
-          ]
-          assert names == expected, (names, expected)
+              'cs-navigator/skills/cs-navigator/references/first-party-capabilities.json',
+              'cs-navigator/skills/evidence-first-research/SKILL.md',
+              'cs-navigator/skills/project-execution-director/SKILL.md',
+          }
+          assert required.issubset(set(names)), sorted(required - set(names))
           PY
 
       - name: Upload public plugin submission artifact
@@ -247,14 +244,14 @@ jobs:
               names = z.namelist()
               assert z.testzip() is None
               snapshot = z.read('cs-navigator/references/catalog-snapshot.json')
-              import json
+              import json, os
               parsed = json.loads(snapshot)
               assert all(entry.get('id') != 'cs-navigator' for entry in parsed['entries'])
               assert b'"not-evaluated"' in snapshot
+          manifest = json.loads((Path(os.environ['GITHUB_WORKSPACE']) / 'installer/manifest.json').read_text())
           expected = [
-              'cs-navigator/SKILL.md',
-              'cs-navigator/agents/openai.yaml',
-              'cs-navigator/references/catalog-snapshot.json',
+              'cs-navigator/' + rel
+              for rel in manifest['skills']['cs-navigator']['files']
           ]
           assert names == expected, (names, expected)
           PY
