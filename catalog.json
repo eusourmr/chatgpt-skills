@@ -13,11 +13,28 @@
   },
   "review_stats": {
     "reviewed": 31,
-    "accepted": 32,
+    "accepted": 35,
     "rejected_recorded": 0,
     "last_review_cycle": "2026-10-05"
   },
   "entries": [
+    {
+      "id": "argument-article-architect",
+      "name": "Argument & Article Architect",
+      "category": "Writing & Research",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-05",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/argument-article-architect",
+      "path": "skills/argument-article-architect"
+    },
     {
       "id": "build-ios-apps",
       "name": "Build iOS Apps",
@@ -178,6 +195,23 @@
       "source": "https://github.com/openai/plugins/tree/main/plugins/data-analytics"
     },
     {
+      "id": "evidence-first-research",
+      "name": "Evidence-First Research",
+      "category": "Writing & Research",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-05",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/evidence-first-research",
+      "path": "skills/evidence-first-research"
+    },
+    {
       "id": "figma",
       "name": "Figma",
       "category": "Design",
@@ -192,6 +226,23 @@
       ],
       "publisher": "Figma",
       "source": "https://github.com/openai/plugins/tree/main/plugins/figma"
+    },
+    {
+      "id": "founder-product-strategist",
+      "name": "Founder Product Strategist",
+      "category": "Business & Product",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-05",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/founder-product-strategist",
+      "path": "skills/founder-product-strategist"
     },
     {
       "id": "google-drive",
