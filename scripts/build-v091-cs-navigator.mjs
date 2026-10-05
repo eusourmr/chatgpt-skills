@@ -22,7 +22,7 @@ const pluginPath = 'plugins/cs-navigator/plugin.json';
 const plugin = await readJson(pluginPath);
 plugin.version = '0.9.1';
 plugin.description = 'CS Navigator routes to original first-party ChatGPT skills with native-first behavior, verifiable trust boundaries, Brazilian-context profiles, and Skill Containers.';
-plugin.keywords = [...new Set([...(plugin.keywords || []), 'cs-navigator', 'first-party', 'brazil', 'writing', 'research', 'design', 'founder-strategy'])];
+plugin.keywords = [...new Set([...(plugin.keywords || []).filter((x) => x !== 'cs-connect'), 'cs-navigator', 'first-party', 'brazil', 'writing', 'research', 'design', 'founder-strategy'])];
 
 const ui = plugin.extensions?.['com.openai']?.interface;
 if (!ui) throw new Error('OpenAI interface metadata missing');
