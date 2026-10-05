@@ -52,7 +52,7 @@ The quality catalog currently tracks **31 skills**: **12 OpenAI-published**, **1
 
 0.7.5 is **not** the stable plugin yet. Native ChatGPT qualification remains a release gate. Skill Containers are defense in depth, not a claim of perfect safety or zero hallucination.
 
-**Next public product release:** **CS 0.9.0 — First-Party Skills Platform**. It absorbs the former 0.8 plan and adds original CS workflows for creation/engineering, research and writing, Brazilian-context profiles, visual preservation, and founder/product strategy. 0.9 implementation must inherit the exact-byte-qualified 0.7.5 container foundation; it does not bypass that gate. Track the scope in [Issue #62](https://github.com/eusourmr/chatgpt-skills/issues/62).
+**Next public product release:** **CS 0.9.0 — First-Party Skills Platform**. It absorbs the former 0.8 plan and adds original CS workflows for creation/engineering, research and writing, Brazilian-context profiles, visual preservation, and founder/product strategy. 0.9 inherits the 0.7.5 container foundation and its recorded RC semantic/static evidence, but 0.7.5 will not ship separately. Exact-byte native qualification is therefore performed once on the final 0.9 production package rather than duplicated on an unreleased intermediate package. Track the scope in [Issue #62](https://github.com/eusourmr/chatgpt-skills/issues/62).
 
 Read: [Getting Started](docs/GETTING_STARTED.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [0.7.5 plan](docs/V075_VERIFIABLE_TRUST_II_CONTAINERS.md) · [Plugin maintenance](docs/PLUGIN_MAINTENANCE.md)
 
