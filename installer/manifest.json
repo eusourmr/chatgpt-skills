@@ -65,7 +65,8 @@
         "agents/openai.yaml",
         "references/catalog-snapshot.json",
         "references/container-default-policy.json",
-        "references/container-guardian-runtime-eval.json"
+        "references/container-guardian-runtime-eval.json",
+        "references/first-party-capabilities.json"
       ]
     },
     "regenerative-adaptive-experiment": {
