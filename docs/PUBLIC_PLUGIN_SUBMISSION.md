@@ -1,106 +1,73 @@
-# Public OpenAI Plugin Directory — CS Connect
+# Public OpenAI Plugin Directory — CS Navigator
 
-This document is the release checklist for publishing **CS Connect 0.9.0** to the universal OpenAI plugin directory shared by ChatGPT and Codex.
+This is the release checklist for publishing **CS Navigator 0.9.2** to OpenAI's public plugin directory.
 
-For end-user installation, see [Getting Started](GETTING_STARTED.md). For repository/workspace distribution, see [GitHub Plugin Distribution](GITHUB_PLUGIN_DISTRIBUTION.md).
+For end-user installation, see [Getting Started](GETTING_STARTED.md). For managed repository distribution, see [GitHub Plugin Distribution](GITHUB_PLUGIN_DISTRIBUTION.md).
 
-## Qualified package
+## Current candidate
 
-- public name: **CS Connect**
-- technical plugin slug: `cs-navigator`
-- version: `0.9.0`
+- public name: **CS Navigator**
+- technical slug: `cs-navigator`
+- version: `0.9.2`
+- candidate: **R3-final**
 - package type: skills-only
-- qualified candidate: **R2**
-- exact ZIP SHA-256: `3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`
+- exact ZIP SHA-256: `890b4a7f8257021e2dedce10bce0abfa415ca4ebbed44de7966d5b90ca38117b`
 - exact entries: 63
-- package evidence: `release/candidates/cs-connect-v0.9.0-r2.json`
-- native evidence: `trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json`
+- source commit: `6cccec6525501637900a7d2d845b5daac870bf7d`
+- package record: `release/candidates/cs-navigator-v0.9.2-r3.json`
+- native qualification matrix: `tests/fixtures/v092-native-qualification-r3.json`
 
-The R2 package was reproduced by GitHub Actions with the same inner ZIP SHA-256.
+Static/package validation has passed. Native ChatGPT semantic requalification of the exact R3 bytes is still required before public submission.
 
-## Current public-directory state
+## Private-plugin state
 
-A private 0.9.0 plugin draft has been created from the exact qualified R2 ZIP.
-
-**It is not yet a public listing.**
-
-The OpenAI public flow is:
-
-1. choose the verified developer identity;
-2. upload/select the complete ZIP;
-3. wait for automated package/skill checks;
-4. resolve blocking findings;
-5. submit the package for OpenAI review;
-6. wait for approval;
-7. explicitly select **Publish plugin**;
-8. verify the directory shows **CS Connect 0.9.0**.
-
-Approval alone does not publish the plugin. A GitHub release or private plugin draft also does not prove public availability.
-
-## Submission metadata
-
-Use:
+The editable private plugin is:
 
 ```text
-submission/cs-navigator-0.9.0.json
+plugins_6ac41c5909b481918b0523726e763aa3
 ```
 
-The public listing should present **CS Connect**. The technical slug remains `cs-navigator` so the product can evolve without breaking technical identity.
+Its current private release is **CS Navigator 0.9.2**. It is not a public listing.
 
-The plugin is skills-only:
+## Submission order
 
-- no MCP server;
-- no external auth;
-- no API key;
-- no required external network;
-- no third-party gateway.
+1. complete exact-byte native R3 requalification;
+2. record the passing run and update R3 evidence metadata;
+3. merge the final release branch;
+4. create the GitHub tag/release for `cs-navigator-v0.9.2` using the already-qualified ZIP;
+5. open the existing private CS Navigator plugin;
+6. choose the verified developer identity;
+7. submit the exact qualified package for OpenAI review;
+8. resolve any blocking review findings without silently changing qualified bytes;
+9. after approval, explicitly publish;
+10. verify public search shows **CS Navigator** and the intended version.
 
-## Review claim boundaries
+A GitHub release, private draft, successful static build, or OpenAI approval alone does not prove public publication.
 
-Allowed:
+## Listing identity
 
-- exact-byte R2 qualification passed for the recorded matrix and scoped regressions;
-- native-first behavior was explicitly tested;
-- Guardian STOP/no-bypass behavior was regression-tested;
-- Brazil jurisdiction/authority and project rollback defects were found, fixed, and requalified;
-- GitHub Actions reproduced the exact R2 inner ZIP hash.
+The user-facing identity must be consistent:
 
-Do **not** claim:
+```text
+Display name: CS Navigator
+Technical slug: cs-navigator
+Developer: RICARDO MOREIRA DA ROCHA
+Category: Productivity
+```
 
+The core package remains skills-only: no required MCP server, external authentication, API key, developer-controlled server, or third-party gateway.
+
+## Claim boundaries
+
+Allowed after native R3 passes:
+- exact-byte semantic qualification for the recorded R3 cases;
+- preserved predecessor evidence where the change-impact policy explicitly permits it;
+- static/package/security gates for the exact package.
+
+Never claim:
 - zero hallucinations;
-- perfect safety;
-- that Container Guardian necessarily executed inside ChatGPT without an actual decision record;
-- that a Security Gate pass is a universal safety guarantee;
-- that OpenAI approved or verified the plugin before the portal says so.
-
-## After approval
-
-Only after approval:
-
-1. open the approved package version;
-2. select **Publish plugin**;
-3. search the public directory for **CS Connect**;
-4. confirm the displayed version is 0.9.0;
-5. install it from a normal eligible account;
-6. run a native-first smoke test;
-7. record the public listing evidence in issue #62;
-8. update README status from “review path” to “published”.
-
-## Updates after 0.9.0
-
-For future bundled skill or metadata changes:
-
-- increment the plugin version;
-- create a complete new ZIP;
-- qualify the new bytes;
-- upload the new ZIP to the existing public plugin;
-- complete required checks/review;
-- publish the approved package.
-
-Do not create a duplicate public plugin for routine updates.
-
-## GitHub marketplace is separate
-
-Managed workspaces may import and sync the GitHub marketplace. That is a workspace distribution mechanism and does not publish to the universal public directory.
+- universal safety;
+- deterministic Guardian execution inside a specific chat without a real decision record;
+- OpenAI approval/publication before the product UI confirms it.
 
 Independent community project. Not affiliated with or endorsed by OpenAI.
