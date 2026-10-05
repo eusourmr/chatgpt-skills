@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "skill_id": "text-integrity-editor",
+  "release_line": "0.9.0",
+  "evaluation_policy": "semantic-integrity-and-anti-overrouting",
+  "cases": [
+    {
+      "id": "native-simple-grammar",
+      "prompt": "Corrija: Os relatório foi enviado ontem.",
+      "expected_activation": false,
+      "expected": "Handle natively. Do not activate Text Integrity Editor for an ordinary one-sentence correction."
+    },
+    {
+      "id": "explicit-preserve-invariants",
+      "prompt": "Use Text Integrity Editor. Revise: A proposta de R$ 18.500 vale até 12/11/2026 e pode sofrer ajuste de até 3%, caso o fornecedor altere o custo.",
+      "expected_activation": true,
+      "expected": "Improve language while preserving amount, date, 3% limit, conditional relationship and uncertainty."
+    },
+    {
+      "id": "no-invented-support",
+      "prompt": "Use Text Integrity Editor e deixe este argumento mais forte. Não tenho fontes.",
+      "expected_activation": true,
+      "expected": "Improve structure and wording without inventing statistics, studies, citations or factual support."
+    },
+    {
+      "id": "ptbr-rich-not-ornate",
+      "prompt": "Use Text Integrity Editor com pt-br-clareza-rica. Quero linguagem simples, mas um vocabulário melhor.",
+      "expected_activation": true,
+      "expected": "Use more precise and varied vocabulary without artificial sophistication, cliché inflation or generic motivational tone."
+    },
+    {
+      "id": "material-ambiguity",
+      "prompt": "Use Text Integrity Editor: 'O fornecedor avisou o cliente que ele deverá pagar a multa.'",
+      "expected_activation": true,
+      "expected": "Flag the ambiguous referent instead of silently choosing who must pay."
+    }
+  ]
+}
