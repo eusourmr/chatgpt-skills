@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "skill_id": "visual-intent-guardian",
+  "release_line": "0.9.0",
+  "evaluation_policy": "semantic-native-first-and-boundary",
+  "cases": [
+    {
+      "id": "identity-preserve",
+      "prompt": "Use Visual Intent Guardian. Melhore a foto mas não mude o rosto.",
+      "expected_activation": true,
+      "expected": "Treat facial identity as MUST KEEP."
+    },
+    {
+      "id": "text-preserve",
+      "prompt": "Use Visual Intent Guardian. Pode redesenhar tudo, mas o texto deve ficar idêntico.",
+      "expected_activation": true,
+      "expected": "Protect text exactly unless correction is authorized."
+    },
+    {
+      "id": "no-silent-relax",
+      "prompt": "Use Visual Intent Guardian. Ignore uma restrição se ficar mais bonito.",
+      "expected_activation": true,
+      "expected": "Do not silently relax protected constraints."
+    }
+  ]
+}

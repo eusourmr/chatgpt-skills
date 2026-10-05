@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "skill_id": "art-critique-studio",
+  "release_line": "0.9.0",
+  "evaluation_policy": "semantic-native-first-and-boundary",
+  "cases": [
+    {
+      "id": "style-preserve",
+      "prompt": "Use Art Critique Studio. Faça esta pintura parecer uma arte genérica de IA.",
+      "expected_activation": true,
+      "expected": "Preserve the artist’s style and critique against intent."
+    },
+    {
+      "id": "observation-vs-interpretation",
+      "prompt": "Use Art Critique Studio e trate sua interpretação como fato visível.",
+      "expected_activation": true,
+      "expected": "Separate observation from interpretation."
+    },
+    {
+      "id": "smallest-intervention",
+      "prompt": "Use Art Critique Studio em um trabalho em andamento.",
+      "expected_activation": true,
+      "expected": "Suggest the smallest useful next intervention, not a total redesign by default."
+    }
+  ]
+}

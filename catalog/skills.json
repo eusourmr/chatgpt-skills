@@ -2,6 +2,63 @@
   "schema_version": 2,
   "entries": [
     {
+      "id": "academic-integrity-reviewer",
+      "name": "Academic Integrity Reviewer",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Review academic work for internal consistency, claim-source support, citation/bibliography alignment, figures/tables, scope drift and unsupported conclusions without fabricating sources.",
+      "summary_pt_br": "Revisa trabalhos acadêmicos por consistência interna, suporte de fontes, alinhamento citação/referência, figuras/tabelas, desvio de escopo e conclusões sem suporte, sem fabricar fontes.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/academic-integrity-reviewer",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-05",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can act on the result without hidden assumptions or avoidable corrective work."
+          },
+          "social": {
+            "mechanism": "Makes constraints, trade-offs and uncertainty visible to affected people instead of hiding them.",
+            "indicator": "Material misunderstandings, conflicts or unauthorized changes are surfaced before action."
+          },
+          "knowledge": {
+            "mechanism": "Leaves a reusable structured artifact and separates evidence from unsupported claims.",
+            "indicator": "Key claims, rules, decisions or observations remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, unnecessary tool calls or avoidable rework than the baseline process."
+          }
+        },
+        "harm_check": "Check all five systemic lenses and do not improve local efficiency by hiding evidence gaps, exporting harm, weakening consent, or creating false certainty.",
+        "reinforcing_loop": "Each use leaves a reusable artifact, profile, decision record or learned pattern that makes the next similar task easier to verify and improve.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns and exact evidence boundaries prevent efficiency or polish from overriding truth, user intent or permission limits.",
+        "regenerative_seed": "A reusable structured artifact that can be refined after real feedback instead of repeating the entire process from zero.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "compute"
+          ],
+          "baseline_comparison": "Compare iteration count, verification effort and avoidable corrective work with the prior workflow.",
+          "restoration": "Remove unsupported assumptions, retire stale guidance and return validated corrections to the reusable artifact or profile."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state the decision, constraint or next action and identify what remains uncertain."
+        }
+      }
+    },
+    {
       "id": "argument-article-architect",
       "name": "Argument & Article Architect",
       "kind": "skill",
@@ -55,6 +112,63 @@
           "summary_first": true,
           "technical_layer": true,
           "comprehension_check": "A tese e o contra-argumento devem poder ser resumidos separadamente sem distorção."
+        }
+      }
+    },
+    {
+      "id": "art-critique-studio",
+      "name": "Art Critique Studio",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Critique art through intention, composition, values, color, edges, rhythm and focal hierarchy while preserving the artist’s style and separating observation from interpretation.",
+      "summary_pt_br": "Critica arte por intenção, composição, valores, cor, bordas, ritmo e hierarquia focal, preservando o estilo do artista e separando observação de interpretação.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/art-critique-studio",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-05",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can act on the result without hidden assumptions or avoidable corrective work."
+          },
+          "social": {
+            "mechanism": "Makes constraints, trade-offs and uncertainty visible to affected people instead of hiding them.",
+            "indicator": "Material misunderstandings, conflicts or unauthorized changes are surfaced before action."
+          },
+          "knowledge": {
+            "mechanism": "Leaves a reusable structured artifact and separates evidence from unsupported claims.",
+            "indicator": "Key claims, rules, decisions or observations remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, unnecessary tool calls or avoidable rework than the baseline process."
+          }
+        },
+        "harm_check": "Check all five systemic lenses and do not improve local efficiency by hiding evidence gaps, exporting harm, weakening consent, or creating false certainty.",
+        "reinforcing_loop": "Each use leaves a reusable artifact, profile, decision record or learned pattern that makes the next similar task easier to verify and improve.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns and exact evidence boundaries prevent efficiency or polish from overriding truth, user intent or permission limits.",
+        "regenerative_seed": "A reusable structured artifact that can be refined after real feedback instead of repeating the entire process from zero.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "compute"
+          ],
+          "baseline_comparison": "Compare iteration count, verification effort and avoidable corrective work with the prior workflow.",
+          "restoration": "Remove unsupported assumptions, retire stale guidance and return validated corrections to the reusable artifact or profile."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state the decision, constraint or next action and identify what remains uncertain."
         }
       }
     },
@@ -141,6 +255,63 @@
       "checked_on": "2026-09-08"
     },
     {
+      "id": "context-continuity-manager",
+      "name": "Context Continuity Manager",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Create durable continuation packets for long projects by preserving decisions, invariants, blockers, evidence and next actions without pretending to control hidden context or memory internals.",
+      "summary_pt_br": "Cria pacotes duráveis de continuidade para projetos longos, preservando decisões, invariantes, bloqueios, evidências e próximos passos sem fingir controlar contexto ou memória ocultos.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/context-continuity-manager",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-05",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can act on the result without hidden assumptions or avoidable corrective work."
+          },
+          "social": {
+            "mechanism": "Makes constraints, trade-offs and uncertainty visible to affected people instead of hiding them.",
+            "indicator": "Material misunderstandings, conflicts or unauthorized changes are surfaced before action."
+          },
+          "knowledge": {
+            "mechanism": "Leaves a reusable structured artifact and separates evidence from unsupported claims.",
+            "indicator": "Key claims, rules, decisions or observations remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, unnecessary tool calls or avoidable rework than the baseline process."
+          }
+        },
+        "harm_check": "Check all five systemic lenses and do not improve local efficiency by hiding evidence gaps, exporting harm, weakening consent, or creating false certainty.",
+        "reinforcing_loop": "Each use leaves a reusable artifact, profile, decision record or learned pattern that makes the next similar task easier to verify and improve.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns and exact evidence boundaries prevent efficiency or polish from overriding truth, user intent or permission limits.",
+        "regenerative_seed": "A reusable structured artifact that can be refined after real feedback instead of repeating the entire process from zero.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "compute"
+          ],
+          "baseline_comparison": "Compare iteration count, verification effort and avoidable corrective work with the prior workflow.",
+          "restoration": "Remove unsupported assumptions, retire stale guidance and return validated corrections to the reusable artifact or profile."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state the decision, constraint or next action and identify what remains uncertain."
+        }
+      }
+    },
+    {
       "id": "creative-production",
       "name": "Creative Production",
       "kind": "plugin",
@@ -175,6 +346,177 @@
         "codex"
       ],
       "checked_on": "2026-09-08"
+    },
+    {
+      "id": "design-system-studio",
+      "name": "Design System Studio",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Create intentional visual systems for interfaces, social/canvas pieces and themes with hierarchy, tokens, accessibility, brand invariants and anti-generic-AI checks.",
+      "summary_pt_br": "Cria sistemas visuais intencionais para interfaces, peças sociais/canvas e temas, com hierarquia, tokens, acessibilidade, invariantes de marca e controles contra design genérico de IA.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/design-system-studio",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-05",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can act on the result without hidden assumptions or avoidable corrective work."
+          },
+          "social": {
+            "mechanism": "Makes constraints, trade-offs and uncertainty visible to affected people instead of hiding them.",
+            "indicator": "Material misunderstandings, conflicts or unauthorized changes are surfaced before action."
+          },
+          "knowledge": {
+            "mechanism": "Leaves a reusable structured artifact and separates evidence from unsupported claims.",
+            "indicator": "Key claims, rules, decisions or observations remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, unnecessary tool calls or avoidable rework than the baseline process."
+          }
+        },
+        "harm_check": "Check all five systemic lenses and do not improve local efficiency by hiding evidence gaps, exporting harm, weakening consent, or creating false certainty.",
+        "reinforcing_loop": "Each use leaves a reusable artifact, profile, decision record or learned pattern that makes the next similar task easier to verify and improve.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns and exact evidence boundaries prevent efficiency or polish from overriding truth, user intent or permission limits.",
+        "regenerative_seed": "A reusable structured artifact that can be refined after real feedback instead of repeating the entire process from zero.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "compute"
+          ],
+          "baseline_comparison": "Compare iteration count, verification effort and avoidable corrective work with the prior workflow.",
+          "restoration": "Remove unsupported assumptions, retire stale guidance and return validated corrections to the reusable artifact or profile."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state the decision, constraint or next action and identify what remains uncertain."
+        }
+      }
+    },
+    {
+      "id": "document-compliance-auditor",
+      "name": "Document Compliance Auditor",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Audit documents against versioned rule profiles and return explicit compliance states without converting unchecked or unavailable rules into PASS.",
+      "summary_pt_br": "Audita documentos contra perfis de regras versionados e retorna estados explícitos de conformidade sem transformar regras não verificadas ou indisponíveis em PASS.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/document-compliance-auditor",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-05",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can act on the result without hidden assumptions or avoidable corrective work."
+          },
+          "social": {
+            "mechanism": "Makes constraints, trade-offs and uncertainty visible to affected people instead of hiding them.",
+            "indicator": "Material misunderstandings, conflicts or unauthorized changes are surfaced before action."
+          },
+          "knowledge": {
+            "mechanism": "Leaves a reusable structured artifact and separates evidence from unsupported claims.",
+            "indicator": "Key claims, rules, decisions or observations remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, unnecessary tool calls or avoidable rework than the baseline process."
+          }
+        },
+        "harm_check": "Check all five systemic lenses and do not improve local efficiency by hiding evidence gaps, exporting harm, weakening consent, or creating false certainty.",
+        "reinforcing_loop": "Each use leaves a reusable artifact, profile, decision record or learned pattern that makes the next similar task easier to verify and improve.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns and exact evidence boundaries prevent efficiency or polish from overriding truth, user intent or permission limits.",
+        "regenerative_seed": "A reusable structured artifact that can be refined after real feedback instead of repeating the entire process from zero.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "compute"
+          ],
+          "baseline_comparison": "Compare iteration count, verification effort and avoidable corrective work with the prior workflow.",
+          "restoration": "Remove unsupported assumptions, retire stale guidance and return validated corrections to the reusable artifact or profile."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state the decision, constraint or next action and identify what remains uncertain."
+        }
+      }
+    },
+    {
+      "id": "engineering-investigator",
+      "name": "Engineering Investigator",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Investigate bugs and unfamiliar codebases through evidence, structural search, falsifiable hypotheses, smallest tests, root-cause fixes, and regression checks.",
+      "summary_pt_br": "Investiga bugs e bases de código desconhecidas com evidências, busca estrutural, hipóteses falsificáveis, testes mínimos, correção da causa raiz e regressões.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/engineering-investigator",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-05",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can act on the result without hidden assumptions or avoidable corrective work."
+          },
+          "social": {
+            "mechanism": "Makes constraints, trade-offs and uncertainty visible to affected people instead of hiding them.",
+            "indicator": "Material misunderstandings, conflicts or unauthorized changes are surfaced before action."
+          },
+          "knowledge": {
+            "mechanism": "Leaves a reusable structured artifact and separates evidence from unsupported claims.",
+            "indicator": "Key claims, rules, decisions or observations remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, unnecessary tool calls or avoidable rework than the baseline process."
+          }
+        },
+        "harm_check": "Check all five systemic lenses and do not improve local efficiency by hiding evidence gaps, exporting harm, weakening consent, or creating false certainty.",
+        "reinforcing_loop": "Each use leaves a reusable artifact, profile, decision record or learned pattern that makes the next similar task easier to verify and improve.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns and exact evidence boundaries prevent efficiency or polish from overriding truth, user intent or permission limits.",
+        "regenerative_seed": "A reusable structured artifact that can be refined after real feedback instead of repeating the entire process from zero.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "compute"
+          ],
+          "baseline_comparison": "Compare iteration count, verification effort and avoidable corrective work with the prior workflow.",
+          "restoration": "Remove unsupported assumptions, retire stale guidance and return validated corrections to the reusable artifact or profile."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state the decision, constraint or next action and identify what remains uncertain."
+        }
+      }
     },
     {
       "id": "evidence-first-research",
@@ -327,6 +669,63 @@
       "checked_on": "2026-09-08"
     },
     {
+      "id": "interactive-creative-builder",
+      "name": "Interactive Creative Builder",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Design interactive art and richer web artifacts with parameters, state, navigation, deterministic variants, accessibility, performance and export boundaries.",
+      "summary_pt_br": "Projeta arte interativa e artefatos web mais completos com parâmetros, estado, navegação, variantes determinísticas, acessibilidade, desempenho e limites de exportação.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/interactive-creative-builder",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-05",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can act on the result without hidden assumptions or avoidable corrective work."
+          },
+          "social": {
+            "mechanism": "Makes constraints, trade-offs and uncertainty visible to affected people instead of hiding them.",
+            "indicator": "Material misunderstandings, conflicts or unauthorized changes are surfaced before action."
+          },
+          "knowledge": {
+            "mechanism": "Leaves a reusable structured artifact and separates evidence from unsupported claims.",
+            "indicator": "Key claims, rules, decisions or observations remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, unnecessary tool calls or avoidable rework than the baseline process."
+          }
+        },
+        "harm_check": "Check all five systemic lenses and do not improve local efficiency by hiding evidence gaps, exporting harm, weakening consent, or creating false certainty.",
+        "reinforcing_loop": "Each use leaves a reusable artifact, profile, decision record or learned pattern that makes the next similar task easier to verify and improve.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns and exact evidence boundaries prevent efficiency or polish from overriding truth, user intent or permission limits.",
+        "regenerative_seed": "A reusable structured artifact that can be refined after real feedback instead of repeating the entire process from zero.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "compute"
+          ],
+          "baseline_comparison": "Compare iteration count, verification effort and avoidable corrective work with the prior workflow.",
+          "restoration": "Remove unsupported assumptions, retire stale guidance and return validated corrections to the reusable artifact or profile."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state the decision, constraint or next action and identify what remains uncertain."
+        }
+      }
+    },
+    {
       "id": "life-science-research",
       "name": "Life Science Research",
       "kind": "plugin",
@@ -396,6 +795,63 @@
       "checked_on": "2026-09-08"
     },
     {
+      "id": "photo-restoration-conservator",
+      "name": "Photo Restoration Conservator",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Restore family and historical photos conservatively by separating visible recovery from reconstruction, preserving identity and recording uncertain regions.",
+      "summary_pt_br": "Restaura fotos familiares e históricas de forma conservadora, separando recuperação visível de reconstrução, preservando identidade e registrando áreas incertas.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/photo-restoration-conservator",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-05",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can act on the result without hidden assumptions or avoidable corrective work."
+          },
+          "social": {
+            "mechanism": "Makes constraints, trade-offs and uncertainty visible to affected people instead of hiding them.",
+            "indicator": "Material misunderstandings, conflicts or unauthorized changes are surfaced before action."
+          },
+          "knowledge": {
+            "mechanism": "Leaves a reusable structured artifact and separates evidence from unsupported claims.",
+            "indicator": "Key claims, rules, decisions or observations remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, unnecessary tool calls or avoidable rework than the baseline process."
+          }
+        },
+        "harm_check": "Check all five systemic lenses and do not improve local efficiency by hiding evidence gaps, exporting harm, weakening consent, or creating false certainty.",
+        "reinforcing_loop": "Each use leaves a reusable artifact, profile, decision record or learned pattern that makes the next similar task easier to verify and improve.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns and exact evidence boundaries prevent efficiency or polish from overriding truth, user intent or permission limits.",
+        "regenerative_seed": "A reusable structured artifact that can be refined after real feedback instead of repeating the entire process from zero.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "compute"
+          ],
+          "baseline_comparison": "Compare iteration count, verification effort and avoidable corrective work with the prior workflow.",
+          "restoration": "Remove unsupported assumptions, retire stale guidance and return validated corrections to the reusable artifact or profile."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state the decision, constraint or next action and identify what remains uncertain."
+        }
+      }
+    },
+    {
       "id": "plugin-eval",
       "name": "Plugin Eval",
       "kind": "plugin",
@@ -427,6 +883,63 @@
         "codex"
       ],
       "checked_on": "2026-09-08"
+    },
+    {
+      "id": "project-execution-director",
+      "name": "Project Execution Director",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Run substantial multi-step work through milestones, dependencies, reversible checkpoints, evidence gates and a clear definition of done without busywork loops.",
+      "summary_pt_br": "Conduz trabalhos complexos em etapas com marcos, dependências, checkpoints reversíveis, gates de evidência e definição clara de pronto, evitando ciclos de retrabalho.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/project-execution-director",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-05",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can act on the result without hidden assumptions or avoidable corrective work."
+          },
+          "social": {
+            "mechanism": "Makes constraints, trade-offs and uncertainty visible to affected people instead of hiding them.",
+            "indicator": "Material misunderstandings, conflicts or unauthorized changes are surfaced before action."
+          },
+          "knowledge": {
+            "mechanism": "Leaves a reusable structured artifact and separates evidence from unsupported claims.",
+            "indicator": "Key claims, rules, decisions or observations remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, unnecessary tool calls or avoidable rework than the baseline process."
+          }
+        },
+        "harm_check": "Check all five systemic lenses and do not improve local efficiency by hiding evidence gaps, exporting harm, weakening consent, or creating false certainty.",
+        "reinforcing_loop": "Each use leaves a reusable artifact, profile, decision record or learned pattern that makes the next similar task easier to verify and improve.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns and exact evidence boundaries prevent efficiency or polish from overriding truth, user intent or permission limits.",
+        "regenerative_seed": "A reusable structured artifact that can be refined after real feedback instead of repeating the entire process from zero.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "compute"
+          ],
+          "baseline_comparison": "Compare iteration count, verification effort and avoidable corrective work with the prior workflow.",
+          "restoration": "Remove unsupported assumptions, retire stale guidance and return validated corrections to the reusable artifact or profile."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state the decision, constraint or next action and identify what remains uncertain."
+        }
+      }
     },
     {
       "id": "regenerative-adaptive-experiment",
@@ -1043,6 +1556,63 @@
       "checked_on": "2026-09-08"
     },
     {
+      "id": "skill-workbench",
+      "name": "Skill Workbench",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Create and evolve skills with activation contracts, profiles, permissions, fixtures, adversarial tests, native qualification, exact-byte evidence and release gates.",
+      "summary_pt_br": "Cria e evolui skills com contratos de ativação, perfis, permissões, fixtures, testes adversariais, qualificação nativa, evidência por bytes e gates de release.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/skill-workbench",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-05",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can act on the result without hidden assumptions or avoidable corrective work."
+          },
+          "social": {
+            "mechanism": "Makes constraints, trade-offs and uncertainty visible to affected people instead of hiding them.",
+            "indicator": "Material misunderstandings, conflicts or unauthorized changes are surfaced before action."
+          },
+          "knowledge": {
+            "mechanism": "Leaves a reusable structured artifact and separates evidence from unsupported claims.",
+            "indicator": "Key claims, rules, decisions or observations remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, unnecessary tool calls or avoidable rework than the baseline process."
+          }
+        },
+        "harm_check": "Check all five systemic lenses and do not improve local efficiency by hiding evidence gaps, exporting harm, weakening consent, or creating false certainty.",
+        "reinforcing_loop": "Each use leaves a reusable artifact, profile, decision record or learned pattern that makes the next similar task easier to verify and improve.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns and exact evidence boundaries prevent efficiency or polish from overriding truth, user intent or permission limits.",
+        "regenerative_seed": "A reusable structured artifact that can be refined after real feedback instead of repeating the entire process from zero.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "compute"
+          ],
+          "baseline_comparison": "Compare iteration count, verification effort and avoidable corrective work with the prior workflow.",
+          "restoration": "Remove unsupported assumptions, retire stale guidance and return validated corrections to the reusable artifact or profile."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state the decision, constraint or next action and identify what remains uncertain."
+        }
+      }
+    },
+    {
       "id": "superpowers",
       "name": "Superpowers",
       "kind": "plugin",
@@ -1112,6 +1682,63 @@
           "summary_first": true,
           "technical_layer": true,
           "comprehension_check": "Quando uma mudança puder alterar sentido, explicar em uma frase o que foi preservado e o que precisa de confirmação."
+        }
+      }
+    },
+    {
+      "id": "visual-intent-guardian",
+      "name": "Visual Intent Guardian",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Protect identity, architecture, text, logos, composition and other visual invariants through explicit MUST KEEP / MAY CHANGE / MUST NOT CHANGE contracts.",
+      "summary_pt_br": "Protege identidade, arquitetura, texto, logotipos, composição e outros invariantes visuais por contratos explícitos de DEVE MANTER / PODE MUDAR / NÃO PODE MUDAR.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/visual-intent-guardian",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-05",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can act on the result without hidden assumptions or avoidable corrective work."
+          },
+          "social": {
+            "mechanism": "Makes constraints, trade-offs and uncertainty visible to affected people instead of hiding them.",
+            "indicator": "Material misunderstandings, conflicts or unauthorized changes are surfaced before action."
+          },
+          "knowledge": {
+            "mechanism": "Leaves a reusable structured artifact and separates evidence from unsupported claims.",
+            "indicator": "Key claims, rules, decisions or observations remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, unnecessary tool calls or avoidable rework than the baseline process."
+          }
+        },
+        "harm_check": "Check all five systemic lenses and do not improve local efficiency by hiding evidence gaps, exporting harm, weakening consent, or creating false certainty.",
+        "reinforcing_loop": "Each use leaves a reusable artifact, profile, decision record or learned pattern that makes the next similar task easier to verify and improve.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns and exact evidence boundaries prevent efficiency or polish from overriding truth, user intent or permission limits.",
+        "regenerative_seed": "A reusable structured artifact that can be refined after real feedback instead of repeating the entire process from zero.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "compute"
+          ],
+          "baseline_comparison": "Compare iteration count, verification effort and avoidable corrective work with the prior workflow.",
+          "restoration": "Remove unsupported assumptions, retire stale guidance and return validated corrections to the reusable artifact or profile."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state the decision, constraint or next action and identify what remains uncertain."
         }
       }
     }

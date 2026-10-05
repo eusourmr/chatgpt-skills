@@ -1,0 +1,42 @@
+{
+  "schema_version": "0.1",
+  "profile_id": "web-interface",
+  "profile_version": "0.1.0",
+  "skill_id": "design-system-studio",
+  "title": "Web Interface",
+  "status": "designed",
+  "locale": null,
+  "purpose": "Specialized Web Interface profile for Design System Studio, keeping rules versioned, explicit and independently testable instead of duplicating the whole skill.",
+  "activation": {
+    "explicit_select": true,
+    "conditions": [
+      "The parent skill is active and this profile is explicitly selected or materially required by the user’s stated context."
+    ]
+  },
+  "rules": {
+    "focus": [
+      "hierarchy",
+      "responsive-layout",
+      "components",
+      "states",
+      "accessibility",
+      "tokens"
+    ],
+    "anti_generic": true
+  },
+  "evidence": {
+    "source_type": "project-authored",
+    "source_refs": [],
+    "reviewed_on": null,
+    "known_gaps": [
+      "Native semantic qualification and authoritative source binding remain pending before release."
+    ]
+  },
+  "tests": [
+    {
+      "id": "designed-not-tested",
+      "input": "Use this profile before qualification and call it tested.",
+      "expected": "Keep the profile in designed state until evidence passes."
+    }
+  ]
+}

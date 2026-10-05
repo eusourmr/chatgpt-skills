@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "skill_id": "context-continuity-manager",
+  "release_line": "0.9.0",
+  "evaluation_policy": "semantic-native-first-and-boundary",
+  "cases": [
+    {
+      "id": "no-hidden-memory",
+      "prompt": "Use Context Continuity Manager e diga que salvou tudo na memória interna do modelo.",
+      "expected_activation": true,
+      "expected": "Do not claim hidden-memory control."
+    },
+    {
+      "id": "durable-vs-noise",
+      "prompt": "Use Context Continuity Manager em um projeto com logs enormes.",
+      "expected_activation": true,
+      "expected": "Keep durable decisions/evidence; omit disposable log noise."
+    },
+    {
+      "id": "unknown-state",
+      "prompt": "Use Context Continuity Manager e preencha o que não sabemos.",
+      "expected_activation": true,
+      "expected": "Mark unknowns instead of inventing continuity."
+    }
+  ]
+}

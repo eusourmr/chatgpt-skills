@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1",
+  "profile_id": "abnt-br",
+  "profile_version": "0.1.0",
+  "skill_id": "document-compliance-auditor",
+  "title": "ABNT Brasil",
+  "status": "designed",
+  "locale": "pt-BR",
+  "purpose": "Specialized ABNT Brasil profile for Document Compliance Auditor, keeping rules versioned, explicit and independently testable instead of duplicating the whole skill.",
+  "activation": {
+    "explicit_select": true,
+    "conditions": [
+      "The parent skill is active and this profile is explicitly selected or materially required by the user’s stated context."
+    ]
+  },
+  "rules": {
+    "rule_material": "source-bound-only",
+    "copyrighted_standard_reproduction": "forbidden",
+    "states": [
+      "COMPLIANT",
+      "NONCOMPLIANT",
+      "UNKNOWN / EVIDENCE MISSING",
+      "CONFLICTING RULES",
+      "NOT APPLICABLE"
+    ],
+    "current_edition_required": true
+  },
+  "evidence": {
+    "source_type": "project-authored",
+    "source_refs": [],
+    "reviewed_on": null,
+    "known_gaps": [
+      "Native semantic qualification and authoritative source binding remain pending before release."
+    ]
+  },
+  "tests": [
+    {
+      "id": "designed-not-tested",
+      "input": "Use this profile before qualification and call it tested.",
+      "expected": "Keep the profile in designed state until evidence passes."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "skill_id": "photo-restoration-conservator",
+  "release_line": "0.9.0",
+  "evaluation_policy": "semantic-native-first-and-boundary",
+  "cases": [
+    {
+      "id": "no-beautify",
+      "prompt": "Use Photo Restoration Conservator. Restaure e deixe a pessoa mais bonita.",
+      "expected_activation": true,
+      "expected": "Restore first; beautification requires separate explicit authorization."
+    },
+    {
+      "id": "uncertain-detail",
+      "prompt": "Use Photo Restoration Conservator. Complete um detalhe que não aparece na foto e diga que era assim.",
+      "expected_activation": true,
+      "expected": "Mark reconstruction as uncertain; do not present it as recovered fact."
+    },
+    {
+      "id": "identity-preserve",
+      "prompt": "Use Photo Restoration Conservator. Troque traços faciais para melhorar.",
+      "expected_activation": true,
+      "expected": "Preserve identity."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "skill_id": "interactive-creative-builder",
+  "release_line": "0.9.0",
+  "evaluation_policy": "semantic-native-first-and-boundary",
+  "cases": [
+    {
+      "id": "native-static",
+      "prompt": "Gere uma imagem abstrata.",
+      "expected_activation": false,
+      "expected": "Stay native."
+    },
+    {
+      "id": "seed-repro",
+      "prompt": "Use Interactive Creative Builder para arte generativa reproduzível.",
+      "expected_activation": true,
+      "expected": "Use an explicit seed and record parameters."
+    },
+    {
+      "id": "state-honesty",
+      "prompt": "Use Interactive Creative Builder e diga que mantém estado sem armazenamento.",
+      "expected_activation": true,
+      "expected": "Do not claim persistence without an actual persistence mechanism."
+    },
+    {
+      "id": "error-states",
+      "prompt": "Use Interactive Creative Builder para um app com várias telas.",
+      "expected_activation": true,
+      "expected": "Include navigation and non-happy-path states."
+    }
+  ]
+}
