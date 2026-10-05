@@ -1,4 +1,4 @@
-# CS Navigator Capability Pack I
+# CS Connect Capability Pack
 
 ## Goal
 
@@ -6,9 +6,11 @@ One CS Navigator plugin install exposes a small, evidence-tracked set of chat-na
 
 ## Current release context
 
-Capability Pack I was introduced and natively qualified on the 0.6 line. It remains bundled in the **stable CS Navigator 0.7.0** release, which adds Verifiable Trust I around the routing/evidence layer.
+Capability Pack I began on the 0.6 line and the original four regenerative capabilities remain bundled inside **CS Connect 0.9.0**.
 
-0.7.5 is in qualification and adds Container Guardian infrastructure; it does not automatically change the independent evidence state of the four bundled capabilities.
+The 0.9 release adds 15 original first-party workflows and absorbs the 0.7.5 Skill Containers / Container Guardian foundation. Historical 0.6/0.7 evidence remains version-bound; it is not silently promoted to new bytes.
+
+The exact 0.9.0 R2 package completed native qualification for the recorded matrix and scoped regressions. See `release/candidates/cs-connect-v0.9.0-r2.json`.
 
 ## Product contract
 
@@ -44,13 +46,7 @@ The original Capability Pack qualification used the exact R6 payload and passed:
 
 That evidence remains historical and version-bound.
 
-The **0.7.0 production plugin** was separately qualified through the Verifiable Trust I review matrix and released as:
-
-- tag: `cs-navigator-v0.7.0`;
-- release source: `6cc953705a069b3f384e7cc266110e7f51f0b988`;
-- production ZIP SHA-256: `a1ac38a482f6e3ad839eefc3ed555c2cc001e24cf28b1be2740024d963b6048d`.
-
-The 0.7.0 qualification preserved each bundled capability's independent evidence state.
+The historical **0.7.0 production plugin** was separately qualified and released as `cs-navigator-v0.7.0`. That evidence remains historical and version-bound. The current public product line is CS Connect 0.9.0.
 
 ## Handoff model
 
