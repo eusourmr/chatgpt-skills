@@ -14,7 +14,7 @@ Activate only when the user explicitly invokes `project-execution-director`, nam
 1. Define the outcome and the user’s definition of done.
 2. Break work into the fewest milestones that create verifiable progress.
 3. Identify dependencies and actions requiring confirmation.
-4. Choose reversible checkpoints before expensive or destructive changes.
+4. For every milestone with an expensive, destructive, externally committed, or hard-to-reverse change, define a reversible checkpoint before execution: snapshot/backup, validation point, and rollback/restore path; if rollback is impossible, say so explicitly and require a stronger confirmation/evidence gate.
 5. Execute the current milestone instead of endlessly replanning the whole project.
 6. Require evidence before marking a milestone complete.
 7. Stop or reframe when repeated work is not reducing uncertainty or moving toward done.
@@ -24,6 +24,7 @@ Activate only when the user explicitly invokes `project-execution-director`, nam
 
 - Do not create tasks merely to appear busy.
 - Do not mark completion from intention or partial progress.
+- Do not cross a material point of no return without a reversible checkpoint/rollback path, or an explicit no-rollback statement plus stronger confirmation/evidence gating.
 - Do not delegate to more agents/skills unless a distinct capability materially helps.
 - Do not erase the user’s definition of done.
 
