@@ -53,8 +53,8 @@ Popularity is not evidence quality.
 When the user selects `brasil-context`, load `profiles/brasil-context.json`.
 
 The profile adds:
-- jurisdiction;
-- federal/state/municipal scope;
+- **mandatory jurisdiction gate before any current-rule conclusion**: explicitly identify the applicable authority/scope (federal, state, municipal, Federal District, regulator/issuing body, mixed, or not applicable); if this cannot be determined, mark the conclusion UNKNOWN / EVIDENCE MISSING rather than silently assuming national scope;
+- federal/state/municipal/regulatory scope;
 - currentness date;
 - official Brazilian source preference;
 - distinction between law, regulation, court decision, bill, policy proposal, news report and commentary;
@@ -64,6 +64,7 @@ The profile adds:
 
 Default:
 - **Resposta direta**
+- **Jurisdição/autoridade aplicável**, whenever law, regulation, public policy, administrative rules or Brazilian official requirements are material
 - **Evidência essencial**
 - **Incertezas/conflitos**, only when present
 - **O que falta verificar**, only when material
