@@ -147,7 +147,7 @@ Do not reward raw submission count. That would create the same catalog inflation
 
 Stars are useful reach indicators, not product-quality evidence.
 
-Before broad promotion of a new release line, complete its current evidence gates and publish reproducible examples. The stable reference is CS Navigator 0.7.0; 0.7.5 remains qualification-gated, and 0.8 first-party skills should launch only after their own behavior evidence passes.
+Before broad promotion of a new release line, complete its evidence gates and publish reproducible examples. The current qualified product line is **CS Connect 0.9.0 R2**; 0.7.5 is an absorbed internal foundation, and 0.10 is the next ecosystem-intelligence line.
 
 Recommended launch assets:
 
