@@ -8,7 +8,7 @@
   "listing": {
     "display_name": "CS Connect",
     "short_description": "Trusted skills, one install",
-    "long_description": "CS Connect 0.9.0 unifies CS Navigator, Verifiable Trust II / Skill Containers, the Regenerative Capability Pack, and a new original first-party family for writing, research, Brazilian context, academic integrity, document compliance, design, interactive artifacts, engineering, visual preservation, project continuity and founder/product strategy. Native ChatGPT remains the default for ordinary tasks. New first-party skills remain explicitly designed and not-yet-qualified until final exact-byte native qualification passes.",
+    "long_description": "CS Connect 0.9.0 combines native-first routing, Verifiable Trust II / Skill Containers, the Regenerative Capability Pack, and 15 original first-party workflows for writing, evidence-first research, Brazilian context, academic/document review, design, engineering, visual preservation, project continuity, and founder/product strategy. The R2 package completed exact-byte native qualification for the recorded matrix and scoped regressions. Qualification is evidence-bound, not a universal safety or zero-hallucination guarantee.",
     "developer_name": "RICARDO MOREIRA DA ROCHA",
     "category": "Productivity",
     "capabilities": [
@@ -92,8 +92,8 @@
     },
     "first_party_090": {
       "count": 15,
-      "evidence_state": "designed",
-      "exact_byte_native_qualification": "pending",
+      "evidence_state": "qualified-scoped-native",
+      "exact_byte_native_qualification": "passed-r2",
       "profile_schema": "spec/profiles/0.1/skill-profile.schema.json"
     }
   },
@@ -270,11 +270,14 @@
     "availability_regions": "select-in-portal",
     "openai_review_required": true
   },
-  "submission_state": "development-candidate-native-qualification-pending",
+  "submission_state": "qualified-private-draft-created-awaiting-public-review",
   "native_qualification": {
     "foundation_rc_075": "12/12 semantic PASS preserved as foundation evidence",
-    "final_090_exact_byte_status": "pending",
-    "trust_binding": "pending final 0.9 exact-byte native qualification",
-    "note": "Bundling does not promote new first-party skills from designed to tested."
+    "final_090_exact_byte_status": "qualified-r2",
+    "exact_zip_sha256": "3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce",
+    "initial_matrix": "21/23 PASS before two defects were fixed",
+    "r2_requalification": "5/5 PASS change-impact scoped",
+    "evidence_ref": "trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json",
+    "claim_boundary": "Qualification is exact-byte and semantic for recorded cases; not a universal safety guarantee or proof of deterministic Guardian execution without a real decision record."
   }
 }
