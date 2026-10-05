@@ -167,7 +167,7 @@ Cada pasta `skills/<nome>/` segue a estrutura de uma skill independente. Skills 
 Use $regenerative-impact-map para comparar esta decisão nas cinco áreas.
 ```
 
-Na v0.7.0 estável, o CS Navigator distribui o Capability Pack I como plugin e adiciona Verifiable Trust I. A linha 0.7.5 permanece em qualificação até concluir seus gates nativos.
+Historicamente, a v0.7.0 introduziu o Capability Pack I com Verifiable Trust I. A linha 0.7.5 foi posteriormente absorvida como fundação interna da 0.9.0, em vez de ser lançada separadamente.
 
 ## O que pode entrar
 
