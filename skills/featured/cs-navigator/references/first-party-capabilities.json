@@ -20,7 +20,7 @@
     {
       "id": "evidence-first-research",
       "name": "Evidence-First Research",
-      "summary": "Research with explicit source facts, inference, contradictions, unknowns, freshness, and an optional Brazil-context profile instead of filling gaps with plausible guesses.",
+      "summary": "Research with explicit source facts, inference, contradictions, unknowns and freshness. For Brazilian current-rule requests, brasil-context requires an explicit jurisdiction/authority gate; if the rule or competent authority is not yet identifiable, output Jurisdição/autoridade aplicável: UNKNOWN / EVIDENCE MISSING before asking for clarification.",
       "evidence_state": "designed",
       "qualification_state": "pending-native-0.9",
       "recommendation_state": "not-yet-qualified",
@@ -28,7 +28,17 @@
       "profiles": [
         "brasil-context"
       ],
-      "trust_boundary": "No Trust Passport or tested claim is inherited before exact-byte 0.9 qualification."
+      "trust_boundary": "No Trust Passport or tested claim is inherited before exact-byte 0.9 qualification.",
+      "routing_contract": {
+        "brazil_current_rule": true,
+        "required_profile": "brasil-context",
+        "missing_object_behavior": "Before clarification, output 'Jurisdição/autoridade aplicável: UNKNOWN / EVIDENCE MISSING'; do not assume federal/nationwide scope.",
+        "authority_dimensions": [
+          "government_level",
+          "territorial_scope",
+          "issuing_or_regulatory_authority_when_material"
+        ]
+      }
     },
     {
       "id": "argument-article-architect",
