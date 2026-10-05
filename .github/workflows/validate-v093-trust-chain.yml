@@ -54,6 +54,7 @@ jobs:
           node scripts/generate-risk-labels.mjs --write
           node scripts/generate-trust-passports.mjs --write
           node scripts/update-drift-status.mjs --write --as-of 2026-10-05
+          node scripts/generate-navigator-snapshot.mjs
 
       - name: Verify deterministic trust chain
         shell: bash
@@ -64,6 +65,8 @@ jobs:
           node scripts/security-gate-v2.mjs --check
           node scripts/generate-risk-labels.mjs --check
           node scripts/update-drift-status.mjs --check --as-of 2026-10-05
+          node scripts/generate-navigator-snapshot.mjs --check
+          node scripts/validate-navigator.mjs
           python -m unittest tests.test_drift_watch
 
       - name: Commit refreshed trust evidence
@@ -72,7 +75,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add trust/passports trust/security-reports trust/risk-labels trust/upstream
+          git add trust/passports trust/security-reports trust/risk-labels trust/upstream skills/featured/cs-navigator/references/catalog-snapshot.json plugins/cs-navigator/skills/cs-navigator/references/catalog-snapshot.json
           if git diff --cached --quiet; then
             echo "Trust chain already current."
           else
