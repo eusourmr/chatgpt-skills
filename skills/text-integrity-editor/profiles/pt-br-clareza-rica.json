@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1",
+  "profile_id": "pt-br-clareza-rica",
+  "profile_version": "0.1.0",
+  "skill_id": "text-integrity-editor",
+  "title": "Português do Brasil — Clareza Rica",
+  "status": "designed",
+  "locale": "pt-BR",
+  "purpose": "Editar textos em português brasileiro com linguagem simples, assertiva e natural, enriquecendo o vocabulário por precisão sem rebuscamento artificial nem perda da voz do autor.",
+  "activation": {
+    "explicit_select": false,
+    "conditions": [
+      "O Text Integrity Editor foi ativado e o texto principal está em português brasileiro.",
+      "O usuário selecionou explicitamente o perfil pt-br-clareza-rica."
+    ]
+  },
+  "rules": {
+    "priorities": [
+      "preservar significado",
+      "corrigir",
+      "clarear",
+      "melhorar ritmo",
+      "enriquecer vocabulário"
+    ],
+    "clarity": {
+      "simple_language": true,
+      "assertive": true,
+      "natural": true,
+      "prefer_concrete_words": true,
+      "avoid_unnecessary_nominalization": true
+    },
+    "vocabulary": {
+      "enabled": true,
+      "method": "precision-not-ornament",
+      "replace_vague_repetition_when_useful": true,
+      "preserve_useful_technical_terms": true,
+      "explain_technical_terms_when_audience_needs_it": true,
+      "avoid_rare_synonyms_without_semantic_gain": true
+    },
+    "rhythm": {
+      "vary_sentence_length": true,
+      "avoid_fragment_stacking": true,
+      "avoid_uniform_short_sentences": true,
+      "avoid_artificial_effect_phrases": true
+    },
+    "voice": {
+      "preserve_author_position": true,
+      "preserve_natural_register": true,
+      "avoid_generic_motivational_tone": true,
+      "avoid_cliche_inflation": true,
+      "avoid_unrequested_dramatization": true
+    },
+    "integrity": {
+      "preserve": [
+        "names",
+        "dates",
+        "numbers",
+        "units",
+        "commitments",
+        "uncertainty",
+        "negation",
+        "causal_direction",
+        "source_meaning",
+        "technical_terms"
+      ],
+      "ambiguity_action": "flag-not-resolve-silently",
+      "unsupported_fact_action": "do-not-add",
+      "citation_action": "never-invent"
+    },
+    "output": {
+      "default": "revised-text-first",
+      "change_notes": "only-when-material-or-requested",
+      "unresolved_ambiguity": "show-concisely"
+    }
+  },
+  "evidence": {
+    "source_type": "project-authored",
+    "source_refs": [],
+    "reviewed_on": null,
+    "known_gaps": [
+      "Ainda não possui qualificação nativa de comportamento.",
+      "Enriquecimento de vocabulário depende do contexto, público e voz do autor."
+    ]
+  },
+  "tests": [
+    {
+      "id": "preserve-numbers-and-certainty",
+      "input": "Revise um texto com datas, valores e linguagem de incerteza.",
+      "expected": "Datas, valores e grau de certeza permanecem semanticamente equivalentes."
+    },
+    {
+      "id": "enrich-without-rebuscamento",
+      "input": "Melhore o vocabulário de um texto simples e repetitivo.",
+      "expected": "Reduz repetição usando palavras mais precisas sem inserir sinônimos raros sem ganho real."
+    },
+    {
+      "id": "preserve-author-voice",
+      "input": "Revise um texto pessoal e assertivo.",
+      "expected": "Mantém posição, registro e ritmo natural do autor; não converte para tom motivacional genérico."
+    },
+    {
+      "id": "flag-material-ambiguity",
+      "input": "Revise uma frase ambígua cujo sentido altera uma obrigação.",
+      "expected": "Sinaliza a ambiguidade em vez de escolher silenciosamente uma interpretação."
+    }
+  ]
+}
