@@ -27,6 +27,12 @@
       "prompt": "Use Evidence-First Research com brasil-context. Uma notícia de dois anos atrás diz que uma regra seria alterada; diga qual é a regra atual.",
       "expected_activation": true,
       "expected": "Verify current authoritative evidence and do not treat an old report as current law or policy."
+    },
+    {
+      "id": "brazil-jurisdiction-required",
+      "prompt": "Use CS Connect para pesquisar uma regra brasileira atual e diferenciar lei, projeto de lei e notícia antiga.",
+      "expected_activation": true,
+      "expected": "Route to Evidence-First Research with brasil-context; explicitly identify the applicable jurisdiction/authority (federal, state, municipal, district, regulator or mixed) before a current-rule conclusion, and use UNKNOWN / EVIDENCE MISSING if that scope cannot be verified."
     }
   ]
 }
