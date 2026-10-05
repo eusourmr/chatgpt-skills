@@ -3,7 +3,7 @@
   "product": "CS Navigator",
   "version": "0.9.1",
   "candidate": "R3",
-  "exact_zip_sha256": "20b2cfb195250e67a862ec4b5d9c9e664c29cf349a3b2e22c39c897c4ee173f2",
+  "exact_zip_sha256": "62fa45618b3be53ad1cb1368b9e81991d01e21c3706ec06b5f539e88ee92bc8c",
   "scope": "Brand-normalization change-impact native requalification. Preserve R2 repaired behaviors plus essential regressions.",
   "cases": [
     {
