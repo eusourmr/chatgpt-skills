@@ -45,7 +45,8 @@
   "candidate": {
     "revision": "R3-final",
     "qualification_state": "pending-native-requalification",
-    "reason": "Final brand-normalized package with corrected internal version/evidence labels."
+    "reason": "Final brand-normalized package with corrected internal version/evidence labels.",
+    "branch": "release/v0.9.2-r3-cs-navigator"
   },
   "previous_internal_candidate": {
     "version": "0.9.1",
