@@ -12,6 +12,10 @@ on:
       - 'release/v090-first-party-skills.json'
   workflow_dispatch:
 
+concurrency:
+  group: v090-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
