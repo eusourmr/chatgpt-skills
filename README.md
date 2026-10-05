@@ -7,7 +7,7 @@
 [![Validate catalog](https://github.com/eusourmr/chatgpt-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/eusourmr/chatgpt-skills/actions/workflows/validate.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Curation](https://img.shields.io/badge/curation-human--governed-2f6f4e.svg)](CONTRIBUTING.md)
-[![Catalog](https://img.shields.io/badge/catalog-31%20skills-4c1.svg)](PROGRESS.md)
+[![Catalog](https://img.shields.io/badge/catalog-46%20skills-4c1.svg)](PROGRESS.md)
 [![npm](https://img.shields.io/npm/v/chatgpt-skills.svg)](https://www.npmjs.com/package/chatgpt-skills)
 [![Standard](https://img.shields.io/badge/Agent%20Skills-agentskills.io-6f42c1.svg)](https://agentskills.io/)
 
@@ -25,7 +25,7 @@ This section is a **source-verified window into OpenAI-published skills/plugins*
 [![OpenAI Build Web Apps](https://img.shields.io/badge/OpenAI-Build%20Web%20Apps-000000?logo=openai&logoColor=white)](https://github.com/openai/plugins/tree/main/plugins/build-web-apps)
 [![OpenAI Developers](https://img.shields.io/badge/OpenAI-Developers-000000?logo=openai&logoColor=white)](https://github.com/openai/plugins/tree/main/plugins/openai-developers)
 
-The quality catalog currently tracks **31 skills**: **12 OpenAI-published**, **15 project-verified**, and **4 community-authored**. Rejections are reported only when there is an auditable record; the current recorded rejection count is **0**, not an invented confidence statistic. See [`PROGRESS.md`](PROGRESS.md) and [`catalog.json`](catalog.json).
+The quality catalog currently tracks **46 skills**: **12 OpenAI-published**, **15 project-verified**, **4 community-authored**, and **15 first-party drafts/qualified-release candidates**. Evidence states remain separate from catalog presence. Rejections are reported only when there is an auditable record; the current recorded rejection count is **0**, not an invented confidence statistic. See [`PROGRESS.md`](PROGRESS.md) and [`catalog.json`](catalog.json).
 
 ## Why this catalog is different
 
@@ -40,38 +40,50 @@ The quality catalog currently tracks **31 skills**: **12 OpenAI-published**, **1
 | Interactive installer | ✅ | ❌ |
 | Public health/progress report | ✅ | ❌ |
 | Regenerative/systemic design standard | ✅ | ❌ |
-| Skill Containers: fail-closed evidence/permission containment | 🚧 0.7.5 | ❌ |
+| Skill Containers: fail-closed evidence/permission containment | ✅ CS Connect 0.9.0 | ❌ |
 
-## 🛡️ Current release and next trust layer
+## 🛡️ Current release
 
-**Stable plugin:** CS Navigator `0.7.0 — Verifiable Trust I` is released and natively qualified. It adds Trust Passports, Security Gate v2 evidence, public Risk Labels, freshness/drift state, version-bound evidence, normalized behavior evals, and trust-aware routing while preserving Chat-Native First.
+**Current product release:** **CS Connect 0.9.0 — First-Party Skills Platform**.
 
-**Next:** CS `0.7.5 — Verifiable Trust II & Containers` is in qualification. The deterministic **Container Guardian** foundation is already merged into `main`, including adversarial fixtures, runtime behavior evals, bounded retry/tool attempts, parent/child permission containment, and auditable `ALLOW / CONFIRM / DEGRADE / STOP` decisions.
+CS Connect keeps ordinary tasks native, adds the Verifiable Trust II / Skill Containers foundation, and bundles 15 original first-party workflows for writing, research, Brazilian context, academic/document review, design, engineering, visual preservation, project continuity, and founder/product strategy.
+
+The qualified production candidate is **R2**, bound to exact ZIP SHA-256:
+
+`3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`
+
+Native qualification closed with the frozen matrix plus scoped R2 regressions. This is evidence for the recorded cases on exact bytes; it is not a universal safety guarantee or proof of zero hallucinations.
+
+The former 0.7.5 line is now an **internal foundation** of 0.9 rather than a standalone public release. The former 0.8 scope was absorbed into 0.9.
 
 > **No evidence → no invented fact. No permission → no self-escalation. No authorized path → stop.**
 
-0.7.5 is **not** the stable plugin yet. Native ChatGPT qualification remains a release gate. Skill Containers are defense in depth, not a claim of perfect safety or zero hallucination.
+Public directory status: the 0.9.0 plugin draft exists and is prepared for OpenAI review. Public availability is claimed only after the OpenAI submission portal shows the package approved **and** the owner explicitly publishes it.
 
-**Next public product release:** **CS 0.9.0 — First-Party Skills Platform**. It absorbs the former 0.8 plan and adds original CS workflows for creation/engineering, research and writing, Brazilian-context profiles, visual preservation, and founder/product strategy. 0.9 inherits the 0.7.5 container foundation and its recorded RC semantic/static evidence, but 0.7.5 will not ship separately. Exact-byte native qualification is therefore performed once on the final 0.9 production package rather than duplicated on an unreleased intermediate package. Track the scope in [Issue #62](https://github.com/eusourmr/chatgpt-skills/issues/62).
-
-Read: [Getting Started](docs/GETTING_STARTED.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [0.7.5 plan](docs/V075_VERIFIABLE_TRUST_II_CONTAINERS.md) · [Plugin maintenance](docs/PLUGIN_MAINTENANCE.md)
+Read: [Getting Started](docs/GETTING_STARTED.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Public plugin submission](docs/PUBLIC_PLUGIN_SUBMISSION.md) · [Plugin maintenance](docs/PLUGIN_MAINTENANCE.md)
 
 ## 🚀 Start in 1 Minute
 
-The stable **CS Navigator 0.7.0** plugin exposes Navigator plus Capability Pack I in one install. Direct tasks stay native unless the user is selecting or explicitly invoking a capability.
+For most people, the intended installation is simple:
 
-For canonical installation and first-use instructions — GitHub marketplace import, stable release artifact, CLI paths, integrity checks, and example prompts — use:
+1. Open **Plugins** in ChatGPT or Codex.
+2. Search **CS Connect**.
+3. Select **Install plugin**.
+4. Start a chat and write: `Use CS Connect para...`
 
-**[Getting Started →](docs/GETTING_STARTED.md)**
+That path becomes available after OpenAI review and publication. Until then, GitHub/workspace and ZIP paths remain available for testers and administrators.
 
-Version lines are intentionally independent:
+For a beginner-friendly guide first, and technical alternatives second, use:
 
-- CS Navigator plugin: **0.7.0 stable**
-- CS Navigator 0.7.5: **technical foundation in qualification**
-- CS 0.9.0: **planned next public product release**
+**[Getting Started →](docs/GETTING_STARTED.md)** · **[Português →](docs/GETTING_STARTED.pt-BR.md)**
+
+Version lines are independent:
+
+- CS Connect plugin: **0.9.0 qualified production candidate / public review path**
+- 0.7.5: **absorbed internal trust/runtime foundation**
+- 0.8: **absorbed into 0.9**
 - `chatgpt-skills` CLI/npm: **0.4.0**
-
-Controlled plugin deployments should prefer the release tag `cs-navigator-v0.7.0` instead of tracking mutable `main`.
+- next product line: **0.10 — Ecosystem Intelligence & Community Scale**
 
 ## Featured OpenAI-native production skills
 
