@@ -1,6 +1,6 @@
 # CS Navigator Plugin Maintenance
 
-> Current public product line: **CS Navigator 0.9.0**. Qualified R2 ZIP SHA-256: `3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`. Public-directory publication still requires OpenAI review, approval, and explicit publish.
+> Current candidate: **CS Navigator 0.9.2 R3-final**. ZIP SHA-256: `890b4a7f8257021e2dedce10bce0abfa415ca4ebbed44de7966d5b90ca38117b`. Native requalification is still pending; public-directory publication requires OpenAI review, approval, and explicit publication.
 
 [Português do Brasil](PLUGIN_MAINTENANCE.pt-BR.md)
 
@@ -60,7 +60,7 @@ Prefer a qualified release tag or immutable commit SHA.
 Example:
 
 ```text
-cs-navigator-v0.9.0
+cs-navigator-v0.9.2
 ```
 
 A tag/SHA is intentionally pinned. It will not move to a later release merely because `main` advances. Update the marketplace source ref only after the new release passes all required gates.
