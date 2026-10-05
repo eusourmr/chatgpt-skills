@@ -1,6 +1,6 @@
 # ChatGPT ZIP Upload / Export Path
 
-The preferred CS Navigator distribution paths are now:
+The preferred CS Connect distribution paths are:
 
 1. **public OpenAI Plugin Directory**, when the plugin is publicly published;
 2. **GitHub-managed plugin marketplace** for compatible managed workspaces;
@@ -8,23 +8,17 @@ The preferred CS Navigator distribution paths are now:
 
 See [Getting Started](GETTING_STARTED.md) for the canonical user guide.
 
-## Current stable plugin
+## Current qualified plugin
 
-CS Navigator **0.7.0 — Verifiable Trust I** is the current stable plugin release.
+**CS Connect 0.9.0 R2** is the qualified production package.
 
-Official GitHub release artifact:
-
-```text
-cs-navigator-plugin-0.7.0.zip
-```
-
-SHA-256:
+Exact ZIP SHA-256:
 
 ```text
-a1ac38a482f6e3ad839eefc3ed555c2cc001e24cf28b1be2740024d963b6048d
+3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce
 ```
 
-A ZIP existing locally is not proof that the plugin is installed, active, approved, or publicly published.
+Public-directory availability is separate: the package must still pass OpenAI review and be explicitly published before users can find it in public search.
 
 ## CLI export path
 
@@ -55,7 +49,7 @@ A manually uploaded workspace plugin does not update merely because GitHub chang
 
 ## Public Plugin Directory is different
 
-For a public CS Navigator plugin, bundled skill/metadata changes require a **new ZIP package version** in the existing public plugin, applicable checks/review, and publication of the approved update.
+For a public CS Connect plugin, bundled skill/metadata changes require a **new ZIP package version** in the existing public plugin, applicable checks/review, and publication of the approved update.
 
 GitHub repository changes alone do not update the public directory package.
 
@@ -65,7 +59,7 @@ See [Plugin Maintenance](PLUGIN_MAINTENANCE.md).
 
 Qualification identities such as `cs-navigator-v075-qa` are test-only identities. They exist to avoid stale package/cache reuse during native qualification.
 
-Do not present a qualification artifact as the production CS Navigator plugin.
+Do not present a qualification artifact as the production CS Connect plugin.
 
 ## Integrity boundary
 
