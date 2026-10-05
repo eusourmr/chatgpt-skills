@@ -1,6 +1,6 @@
-# Primeiros Passos — CS Connect
+# Primeiros Passos — CS Navigator
 
-Este é o guia principal de instalação e primeiro uso do **CS Connect 0.9.0**.
+Este é o guia principal de instalação e primeiro uso do **CS Navigator 0.9.0**.
 
 [English](GETTING_STARTED.md)
 
@@ -8,26 +8,26 @@ Este é o guia principal de instalação e primeiro uso do **CS Connect 0.9.0**.
 
 Você **não precisa saber programar**, usar terminal, GitHub ou API.
 
-Quando o CS Connect estiver publicado no diretório público da OpenAI:
+Quando o CS Navigator estiver publicado no diretório público da OpenAI:
 
 1. Abra o **ChatGPT** ou o **Codex**.
 2. Abra **Plugins**.
-3. Pesquise por **CS Connect**.
+3. Pesquise por **CS Navigator**.
 4. Abra o cartão do plugin.
 5. Clique em **Instalar plugin**.
 6. Volte para uma conversa e escreva, por exemplo:
 
 ```text
-Use CS Connect para revisar este texto sem mudar datas, valores ou meu sentido.
+Use CS Navigator para revisar este texto sem mudar datas, valores ou meu sentido.
 ```
 
-Pronto. O CS Connect é composto por skills e, no núcleo 0.9.0, **não exige chave de API, servidor MCP, login em serviço externo nem configuração técnica adicional**.
+Pronto. O CS Navigator é composto por skills e, no núcleo 0.9.0, **não exige chave de API, servidor MCP, login em serviço externo nem configuração técnica adicional**.
 
-> Se “CS Connect” ainda não aparecer na busca pública, isso significa que a versão pública ainda está em revisão ou ainda não foi publicada. Uma release no GitHub, sozinha, não prova que o plugin já esteja disponível no diretório da OpenAI.
+> Se “CS Navigator” ainda não aparecer na busca pública, isso significa que a versão pública ainda está em revisão ou ainda não foi publicada. Uma release no GitHub, sozinha, não prova que o plugin já esteja disponível no diretório da OpenAI.
 
-## O que o CS Connect faz
+## O que o CS Navigator faz
 
-O CS Connect funciona como um conjunto de capacidades especializadas. Ele foi desenhado para **não atrapalhar tarefas simples**.
+O CS Navigator funciona como um conjunto de capacidades especializadas. Ele foi desenhado para **não atrapalhar tarefas simples**.
 
 Exemplos simples continuam no próprio ChatGPT:
 
@@ -37,26 +37,26 @@ Corrija esta frase.
 Resuma este parágrafo.
 ```
 
-Quando você quiser usar o CS Connect, basta dizer isso claramente:
+Quando você quiser usar o CS Navigator, basta dizer isso claramente:
 
 ```text
-Use CS Connect para pesquisar esta regra brasileira e separar lei, projeto de lei e notícia antiga.
+Use CS Navigator para pesquisar esta regra brasileira e separar lei, projeto de lei e notícia antiga.
 ```
 
 ```text
-Use CS Connect para organizar este projeto em poucos marcos verificáveis.
+Use CS Navigator para organizar este projeto em poucos marcos verificáveis.
 ```
 
 ```text
-Use CS Connect com behavioral-science para melhorar retenção sem dark patterns.
+Use CS Navigator com behavioral-science para melhorar retenção sem dark patterns.
 ```
 
 ## Versão atual
 
 | Componente | Estado |
 |---|---|
-| CS Connect | **0.9.0 R2 — candidato de produção qualificado** |
-| ZIP qualificado | SHA-256 `3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce` |
+| CS Navigator | **0.9.0 R2 — candidato de produção qualificado** |
+| ZIP qualificado | SHA-256 `890b4a7f8257021e2dedce10bce0abfa415ca4ebbed44de7966d5b90ca38117b` |
 | 0.7.5 | absorvida como fundação interna de Skill Containers / Container Guardian |
 | 0.8 | absorvida pela 0.9 |
 | CLI `chatgpt-skills` | linha independente, atualmente `0.4.0` |
@@ -75,7 +75,7 @@ Use o ZIP da release GitHub 0.9.0 e confira o SHA-256 antes de instalar em uma s
 Esperado:
 
 ```text
-3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce
+890b4a7f8257021e2dedce10bce0abfa415ca4ebbed44de7966d5b90ca38117b
 ```
 
 A existência do ZIP no computador não significa que ele esteja instalado. A superfície precisa aceitar upload/instalação e mostrar o plugin ativo.
@@ -123,7 +123,7 @@ npx chatgpt-skills doctor
 Faça um teste simples:
 
 ```text
-Use CS Connect. Quanto é 17 × 4?
+Use CS Navigator. Quanto é 17 × 4?
 ```
 
 A resposta esperada é apenas **68**. Uma conta simples não precisa virar um workflow.
@@ -131,14 +131,14 @@ A resposta esperada é apenas **68**. Uma conta simples não precisa virar um wo
 Depois teste uma capacidade:
 
 ```text
-Use CS Connect para organizar um projeto grande em marcos e impedir que eu declare etapas concluídas sem evidência.
+Use CS Navigator para organizar um projeto grande em marcos e impedir que eu declare etapas concluídas sem evidência.
 ```
 
 A resposta deve usar poucos marcos, exigir evidência antes de concluir e prever checkpoint/recuperação quando houver mudança difícil de desfazer.
 
 ## Se algo der errado
 
-1. confirme se o nome exibido é **CS Connect**;
+1. confirme se o nome exibido é **CS Navigator**;
 2. confirme a versão instalada;
 3. se usa marketplace GitHub, execute **Sync now** quando disponível;
 4. se usa ZIP, confira o SHA-256;
@@ -148,13 +148,13 @@ A resposta deve usar poucos marcos, exigir evidência antes de concluir e prever
 
 ## Para especialistas
 
-- nome público: **CS Connect**
+- nome público: **CS Navigator**
 - slug técnico preservado: `cs-navigator`
 - versão: `0.9.0`
 - tipo: skills-only
 - MCP: não obrigatório
 - autenticação externa: não
-- pacote qualificado: R2
+- candidato: R3-final
 - evidência: `release/candidates/cs-connect-v0.9.0-r2.json`
 - requalificação nativa: `trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json`
 
