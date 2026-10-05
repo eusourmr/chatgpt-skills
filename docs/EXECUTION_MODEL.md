@@ -74,7 +74,7 @@ The first baseline classifies the 12 skills bundled in the npm package.
 - The four featured developer skills are currently `local-agent` because their deterministic workflows include local scaffolding or file-processing helpers.
 - No bundled skill is currently labeled `native-tools` or `connected`; those classes are reserved for workflows whose required capabilities are explicitly modeled and tested.
 
-These are conservative classifications, not claims that every skill has been executed on every qualifying surface. **CS Connect 0.9.0 R2** completed package-level native qualification for the recorded matrix and scoped regressions; each capability still keeps its own evidence scope, and changed bytes never inherit `tested` automatically.
+These are conservative classifications, not claims that every skill has been executed on every qualifying surface. **CS Navigator 0.9.0 R2** completed package-level native qualification for the recorded matrix and scoped regressions; each capability still keeps its own evidence scope, and changed bytes never inherit `tested` automatically.
 
 ## Product metric
 
