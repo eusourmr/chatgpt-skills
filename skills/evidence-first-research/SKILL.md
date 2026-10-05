@@ -60,6 +60,18 @@ The profile adds:
 - distinction between law, regulation, court decision, bill, policy proposal, news report and commentary;
 - regional context when material.
 
+## Missing-object rule for Brazilian current-rule requests
+
+When `brasil-context` is active and the user asks generically about a current Brazilian rule but has not yet supplied enough information to identify the rule/topic and competent authority, do **not** jump directly to a clarifying question.
+
+First state:
+
+**Jurisdição/autoridade aplicável: UNKNOWN / EVIDENCE MISSING**
+
+Explain briefly that federal, state, municipal, Federal District, regulatory/issuing authority, or mixed scope cannot be assumed from “regra brasileira” alone. Then ask for the minimum missing object needed to identify the authority and current rule.
+
+This UNKNOWN line is mandatory even when no substantive current-rule conclusion is attempted yet.
+
 ## Output contract
 
 Default:
