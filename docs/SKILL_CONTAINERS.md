@@ -2,7 +2,7 @@
 
 ## Implementation status
 
-The deterministic Container Guardian foundation is implemented and incorporated into **CS Connect 0.9.0**. Repository/runtime tests are green, and the 0.9.0 R2 package completed scoped native qualification. This remains defense in depth, not proof that Guardian executed in a chat without a real decision record.
+The deterministic Container Guardian foundation is implemented and incorporated into **CS Navigator 0.9.0**. Repository/runtime tests are green, and the 0.9.0 R2 package completed scoped native qualification. This remains defense in depth, not proof that Guardian executed in a chat without a real decision record.
 
 **Skill Containers** are a defense-in-depth containment layer for AI skills and agentic workflows.
 
@@ -12,7 +12,7 @@ The core idea is simple:
 
 A Skill Container places an explicit boundary around what a skill may **know, claim, access, attempt, send, execute, and persist**. When evidence or permission ends, the task must degrade or stop instead of fabricating an answer, silently escalating capability, repeatedly searching for a way around a boundary, or acquiring data through an unauthorized path.
 
-Skill Containers originated in **CS 0.7.5 — Verifiable Trust II & Containers** and now ship as an internal foundation of **CS Connect 0.9.0**.
+Skill Containers originated in **CS 0.7.5 — Verifiable Trust II & Containers** and now ship as an internal foundation of **CS Navigator 0.9.0**.
 
 ## Why this exists
 
