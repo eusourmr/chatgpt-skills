@@ -53,15 +53,25 @@ jobs:
           const manifest=JSON.parse(await readFile('installer/manifest.json','utf8'));
           const trust=JSON.parse(await readFile('trust/skills.json','utf8'));
           const execution=JSON.parse(await readFile('trust/execution.json','utf8'));
+          const packageQualified=Boolean(release.qualified_candidate?.zip_sha256);
           for(const id of ids){
             const entry=catalog.entries.find(x=>x.id===id);
             if(!entry) throw new Error(id+': missing draft catalog entry');
             if(entry.status!=='draft') throw new Error(id+': must remain draft before qualification');
             if(manifest.skills?.[id]) throw new Error(id+': draft must not enter installer manifest yet');
-            if(trust.skills?.[id]) throw new Error(id+': draft must not receive trust evidence yet');
-            if(execution.skills?.[id]) throw new Error(id+': draft must not receive execution evidence yet');
+            if(trust.skills?.[id]) throw new Error(id+': draft must not receive individual trust evidence yet');
+            const exec=execution.skills?.[id];
+            if(packageQualified){
+              if(!exec) throw new Error(id+': package-qualified bundled workflow must declare execution surface');
+              if(exec.mode!=='chat-native') throw new Error(id+': first-party draft execution mode must remain chat-native');
+              if(exec.evidence_state!=='designed') throw new Error(id+': package qualification must not promote individual draft beyond designed');
+            } else if(exec){
+              throw new Error(id+': pre-qualification draft must not receive execution evidence yet');
+            }
           }
-          console.log('Draft admission boundary OK: no premature trust/bundling.');
+          console.log(packageQualified
+            ? 'Draft admission boundary OK: package-qualified workflows remain draft/designed with execution surface only; no individual trust or installer admission.'
+            : 'Draft admission boundary OK: no premature trust/bundling.');
           NODE
       - name: Parse semantic fixtures
         shell: bash
