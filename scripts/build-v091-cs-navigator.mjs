@@ -88,7 +88,9 @@ const navPath = 'plugins/cs-navigator/skills/cs-navigator/SKILL.md';
 let nav = await readFile(navPath, 'utf8');
 nav = nav.replaceAll('CS Connect', 'CS Navigator');
 nav = nav.replace('# CS Navigator — Navigator', '# CS Navigator');
-nav = nav.replace('## Skill Container runtime boundary — 0.7.5', '## Skill Container runtime boundary — 0.9.1');
+nav = nav.replace(/## Skill Container runtime boundary — (?:0\.7\.5|0\.9\.0|0\.9\.1)/, '## Skill Container runtime boundary — 0.9.1');
+nav = nav.replaceAll('pending-native-0.9', 'pending-native-0.9.1-r3');
+nav = nav.replaceAll('Until final 0.9 exact-byte qualification passes', 'Until final 0.9.1 R3 exact-byte qualification passes');
 if (!nav.includes('## CS Navigator 0.9 first-party routing')) {
   const anchor = '## Core rule\n';
   const section = [
