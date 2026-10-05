@@ -1,0 +1,84 @@
+name: Validate v0.9 draft skills
+
+on:
+  push:
+    branches:
+      - feature/v0.9-first-party
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  draft-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Validate source catalog without requiring generated README sync
+        shell: bash
+        run: |
+          python - <<'PY'
+          import importlib.util, pathlib
+          p=pathlib.Path('scripts/catalog.py')
+          spec=importlib.util.spec_from_file_location('catalog_script',p)
+          m=importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(m)
+          data=m.load_catalog()
+          errors=m.validate_catalog(data)+m.validate_repo_skills()
+          if errors:
+              raise SystemExit('\n'.join(errors))
+          print(f"Draft source catalog valid: {len(data['entries'])} entries")
+          PY
+      - name: Validate legacy catalog shape
+        run: python scripts/validate_catalog.py
+      - name: Validate skill profiles
+        run: node scripts/validate-skill-profiles.mjs
+      - name: Validate draft admission boundary
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFile } from 'node:fs/promises';
+          const ids=['text-integrity-editor','evidence-first-research','argument-article-architect','founder-product-strategist'];
+          const catalog=JSON.parse(await readFile('catalog.json','utf8'));
+          const manifest=JSON.parse(await readFile('installer/manifest.json','utf8'));
+          const trust=JSON.parse(await readFile('trust/skills.json','utf8'));
+          const execution=JSON.parse(await readFile('trust/execution.json','utf8'));
+          for(const id of ids){
+            const entry=catalog.entries.find(x=>x.id===id);
+            if(!entry) throw new Error(id+': missing draft catalog entry');
+            if(entry.status!=='draft') throw new Error(id+': must remain draft before qualification');
+            if(manifest.skills?.[id]) throw new Error(id+': draft must not enter installer manifest yet');
+            if(trust.skills?.[id]) throw new Error(id+': draft must not receive trust evidence yet');
+            if(execution.skills?.[id]) throw new Error(id+': draft must not receive execution evidence yet');
+          }
+          console.log('Draft admission boundary OK: no premature trust/bundling.');
+          NODE
+      - name: Parse semantic fixtures
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, glob
+          paths=sorted(glob.glob('tests/fixtures/v090-*.json'))
+          assert paths, 'no v0.9 fixtures found'
+          for p in paths:
+              d=json.load(open(p,encoding='utf-8'))
+              assert d.get('release_line')=='0.9.0', p
+              assert d.get('skill_id'), p
+              assert d.get('cases'), p
+              ids=[c['id'] for c in d['cases']]
+              assert len(ids)==len(set(ids)), p
+          print(f'v0.9 semantic fixtures parsed: {len(paths)} file(s)')
+          PY
+      - name: Security Gate v2 — draft skill sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          for d in             skills/text-integrity-editor             skills/evidence-first-research             skills/argument-article-architect             skills/founder-product-strategist
+          do
+            node scripts/security-gate-v2.mjs --path "$d" >/tmp/"$(basename "$d")"-security.json
+          done
+          echo "Draft skill source scans completed with no blocking finding."
