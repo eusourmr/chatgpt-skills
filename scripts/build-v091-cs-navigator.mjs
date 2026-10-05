@@ -86,6 +86,7 @@ await writeJson('skills/featured/cs-navigator/references/first-party-capabilitie
 
 const navPath = 'plugins/cs-navigator/skills/cs-navigator/SKILL.md';
 let nav = await readFile(navPath, 'utf8');
+nav = nav.replaceAll('CS Connect', 'CS Navigator');
 nav = nav.replace('# CS Navigator — Navigator', '# CS Navigator');
 nav = nav.replace('## Skill Container runtime boundary — 0.7.5', '## Skill Container runtime boundary — 0.9.1');
 if (!nav.includes('## CS Navigator 0.9 first-party routing')) {
