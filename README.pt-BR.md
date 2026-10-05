@@ -11,36 +11,48 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 > Projeto comunitário independente. Não possui afiliação nem endosso da OpenAI. ChatGPT e Codex são marcas da OpenAI.
 
-## 🛡️ Release atual e próxima camada de confiança
+## 🛡️ Release atual
 
-**Plugin estável:** o CS Navigator `0.7.0 — Verifiable Trust I` está publicado e qualificado nativamente. Ele adiciona Trust Passports, evidência do Security Gate v2, Risk Labels públicos, freshness/drift, evidência vinculada aos bytes/versão, behavior evals normalizados e roteamento trust-aware, preservando Chat-Native First.
+**Release atual do produto:** **CS Connect 0.9.0 — First-Party Skills Platform**.
 
-**Próxima versão:** a CS `0.7.5 — Verifiable Trust II & Containers` está em qualificação. A fundação determinística do **Container Guardian** já foi integrada à `main`, com fixtures adversariais, behavior eval de runtime, limites de retries/tool attempts, contenção de permissões pai/filho e decisões auditáveis `ALLOW / CONFIRM / DEGRADE / STOP`.
+O CS Connect mantém tarefas simples no próprio ChatGPT, incorpora a fundação Verifiable Trust II / Skill Containers e reúne 15 workflows first-party próprios para escrita, pesquisa, contexto brasileiro, revisão acadêmica/documental, design, engenharia, preservação visual, continuidade de projetos e estratégia de produto.
 
-> **Sem evidência → não inventar. Sem permissão → não ampliar acesso. Sem caminho autorizado → parar.**
+O candidato de produção qualificado é o **R2**, ligado ao ZIP exato com SHA-256:
 
-A 0.7.5 **ainda não é o plugin estável**. A qualificação nativa no ChatGPT continua sendo gate de release. Skill Containers são defesa em profundidade, não promessa de segurança perfeita ou zero alucinação.
+`3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`
 
-**Próxima versão pública de produto:** **CS 0.9.0 — First-Party Skills Platform**. Ela absorve o antigo plano 0.8 e adiciona workflows autorais do CS para criação/engenharia, pesquisa e escrita, perfis de realidade brasileira, preservação visual e estratégia para fundadores/produto. A 0.9 herda a fundação 0.7.5 e suas evidências semânticas/estáticas já registradas, mas a 0.7.5 não será lançada separadamente. Por isso, a qualificação nativa dos bytes exatos será feita uma única vez no pacote final 0.9, evitando repetir o mesmo gate em um pacote intermediário que não será publicado. Acompanhe o escopo na [Issue #62](https://github.com/eusourmr/chatgpt-skills/issues/62).
+A qualificação nativa foi concluída com a matriz congelada e as regressões específicas do R2. Isso comprova os cenários registrados nesses bytes exatos; não é promessa de segurança absoluta nem de “zero alucinação”.
 
-Leia: [Primeiros Passos](docs/GETTING_STARTED.pt-BR.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Plano 0.7.5](docs/V075_VERIFIABLE_TRUST_II_CONTAINERS.md) · [Manutenção do plugin](docs/PLUGIN_MAINTENANCE.pt-BR.md)
+A antiga linha 0.7.5 virou **fundação interna** da 0.9 e não será lançada separadamente. O escopo que antes seria 0.8 foi absorvido pela 0.9.
+
+> **Sem evidência → não inventar. Sem permissão → não se autorizar sozinho. Sem caminho autorizado → parar.**
+
+Estado do diretório público: o draft 0.9.0 já foi criado e está preparado para o fluxo de revisão da OpenAI. Só chamaremos de “publicado no diretório” depois da aprovação e do clique explícito em **Publish plugin**.
+
+Leia: [Primeiros Passos](docs/GETTING_STARTED.pt-BR.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Publicação pública](docs/PUBLIC_PLUGIN_SUBMISSION.md) · [Manutenção](docs/PLUGIN_MAINTENANCE.pt-BR.md)
 
 ## 🚀 Comece em 1 minuto
 
-O plugin estável **CS Navigator 0.7.0** disponibiliza o Navigator e o Capability Pack I em uma única instalação. Tarefas diretas continuam nativas quando nenhuma skill acrescenta valor material.
+Para a maioria das pessoas, o caminho pretendido é:
 
-Para instalação e primeiro uso — importação por marketplace GitHub, artefato estável, CLI, verificação de integridade e exemplos de prompts — use o guia canônico:
+1. Abra **Plugins** no ChatGPT ou no Codex.
+2. Procure por **CS Connect**.
+3. Clique em **Instalar plugin**.
+4. Em uma conversa, escreva: `Use CS Connect para...`
+
+Esse caminho ficará disponível assim que a OpenAI aprovar e o plugin for publicado. Enquanto estiver em revisão, continuam disponíveis os caminhos por GitHub/workspace e ZIP para testes e administração.
+
+O guia começa pela instalação mais simples e só depois mostra opções técnicas:
 
 **[Primeiros Passos →](docs/GETTING_STARTED.pt-BR.md)**
 
-As linhas de versão são independentes:
+Linhas de versão independentes:
 
-- plugin CS Navigator: **0.7.0 estável**
-- CS Navigator 0.7.5: **fundação técnica em qualificação**
-- CS 0.9.0: **próxima versão pública de produto planejada**
+- plugin CS Connect: **0.9.0 candidato de produção qualificado / caminho de revisão pública**
+- 0.7.5: **fundação interna de confiança/runtime absorvida**
+- 0.8: **absorvida pela 0.9**
 - CLI/npm `chatgpt-skills`: **0.4.0**
-
-Para uso controlado, prefira a tag de release `cs-navigator-v0.7.0` em vez de acompanhar a `main`.
+- próxima linha: **0.10 — Ecosystem Intelligence & Community Scale**
 
 ## Por que esta lista existe
 
