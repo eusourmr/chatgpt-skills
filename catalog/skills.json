@@ -2,6 +2,63 @@
   "schema_version": 2,
   "entries": [
     {
+      "id": "argument-article-architect",
+      "name": "Argument & Article Architect",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Structure articles around a clear thesis, real evidence, serious counterarguments, and precise language without inventing citations or changing the author's position.",
+      "summary_pt_br": "Estrutura artigos com tese clara, evidência real, contra-argumentos sérios e linguagem precisa, sem inventar citações nem alterar a posição do autor.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/argument-article-architect",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-05",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Torna o raciocínio do texto mais compreensível sem apagar a voz ou a posição do autor.",
+            "indicator": "Compreensão da tese e redução de revisões motivadas por argumento confuso."
+          },
+          "social": {
+            "mechanism": "Inclui o contra-argumento mais forte e reduz polarização produzida por espantalhos retóricos.",
+            "indicator": "Qualidade do contra-argumento tratado e distinção explícita entre fato, interpretação e opinião."
+          },
+          "knowledge": {
+            "mechanism": "Separa tese, evidência, inferência e lacunas de fonte.",
+            "indicator": "Proporção de afirmações materiais com suporte real ou marcação explícita de evidência ausente."
+          },
+          "resources": {
+            "mechanism": "Usa um mapa de argumento reutilizável para reduzir reescrita circular.",
+            "indicator": "Número de ciclos de revisão e tempo até uma estrutura estável."
+          }
+        },
+        "harm_check": "Verifica se maior força retórica está criando certeza falsa, citação inventada, generalização regional ou simplificação indevida.",
+        "reinforcing_loop": "O mapa de tese, evidência e contra-argumento pode ser reutilizado e refinado em artigos futuros.",
+        "balancing_safeguard": "Nenhuma melhoria de persuasão pode converter opinião em fato ou ultrapassar a evidência disponível.",
+        "regenerative_seed": "Um mapa de argumento reutilizável com tese, evidências necessárias, objeções e lacunas.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "compute"
+          ],
+          "baseline_comparison": "Comparar ciclos de reestruturação, leitura e verificação com a redação sem mapa de argumento.",
+          "restoration": "Remover afirmações que excedam evidência e incorporar lacunas descobertas ao mapa reutilizável."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "A tese e o contra-argumento devem poder ser resumidos separadamente sem distorção."
+        }
+      }
+    },
+    {
       "id": "build-ios-apps",
       "name": "Build iOS Apps",
       "kind": "plugin",
@@ -120,6 +177,63 @@
       "checked_on": "2026-09-08"
     },
     {
+      "id": "evidence-first-research",
+      "name": "Evidence-First Research",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Research with explicit source facts, inference, contradictions, unknowns, freshness, and an optional Brazil-context profile instead of filling gaps with plausible guesses.",
+      "summary_pt_br": "Pesquisa com fatos de fonte, inferências, contradições, desconhecidos, vigência e perfil opcional de contexto brasileiro, sem preencher lacunas com palpites plausíveis.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/evidence-first-research",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-05",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduz falsa certeza e permite ao usuário distinguir o que é sabido do que ainda precisa ser verificado.",
+            "indicator": "Taxa de afirmações materiais corretamente classificadas como fato, inferência, conflito ou desconhecido."
+          },
+          "social": {
+            "mechanism": "Torna divergências entre fontes visíveis em vez de ocultá-las.",
+            "indicator": "Conflitos de fonte explicitados e resolvidos ou mantidos como incerteza."
+          },
+          "knowledge": {
+            "mechanism": "Mantém um mapa de alegação-evidência atualizável e preserva vigência/jurisdição.",
+            "indicator": "Rastreabilidade entre alegações e fontes e incidência de evidência desatualizada detectada."
+          },
+          "resources": {
+            "mechanism": "Prioriza fontes materiais e evita pesquisa excessiva quando a resposta já está suficientemente sustentada.",
+            "indicator": "Quantidade de fontes úteis por afirmação material e buscas evitáveis."
+          }
+        },
+        "harm_check": "Verifica se rapidez, quantidade de fontes ou desejo de conclusão está convertendo lacunas em fatos inventados ou ampliando uma fonte além do que ela sustenta.",
+        "reinforcing_loop": "O mapa de alegação-evidência pode ser atualizado quando novas fontes surgem, reduzindo custo de pesquisa futura.",
+        "balancing_safeguard": "UNKNOWN, CONTRADICTION e STALE são resultados válidos e impedem conclusão forçada.",
+        "regenerative_seed": "Um mapa compacto de alegações, fontes, inferências, conflitos e pontos de atualização futura.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "compute"
+          ],
+          "baseline_comparison": "Comparar buscas, fontes lidas e tempo de verificação com pesquisa não estruturada.",
+          "restoration": "Retirar alegações que perderam suporte e atualizar o mapa quando a vigência mudar."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "O usuário deve conseguir identificar quais partes são fato de fonte, inferência e desconhecido."
+        }
+      }
+    },
+    {
       "id": "figma",
       "name": "Figma",
       "kind": "plugin",
@@ -135,6 +249,64 @@
         "codex"
       ],
       "checked_on": "2026-09-08"
+    },
+    {
+      "id": "founder-product-strategist",
+      "name": "Founder Product Strategist",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Challenge founder and product decisions through focus, product coherence, customer value, economics, reversible experiments, and evidence-aware ethical behavioral science.",
+      "summary_pt_br": "Desafia decisões de fundadores e produto com foco, coerência, valor ao cliente, economia, experimentos reversíveis e ciência comportamental ética orientada por evidências.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/founder-product-strategist",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-05",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Prioriza valor real para o usuário e preserva escolha informada em produto e comunicação.",
+            "indicator": "Problema do usuário explicitado, redução de fricção legítima e ausência de dark patterns."
+          },
+          "social": {
+            "mechanism": "Examina externalidades sobre clientes, equipe e mercado em vez de otimizar apenas conversão.",
+            "indicator": "Decisões que registram impactos e trade-offs sobre partes afetadas."
+          },
+          "knowledge": {
+            "mechanism": "Converte visão em hipóteses falsificáveis, experimentos e registros de decisão.",
+            "indicator": "Hipóteses testáveis, critérios de reversão e aprendizado documentado."
+          },
+          "resources": {
+            "mechanism": "Força foco, rejeita iniciativas de baixo valor e testa pequeno antes de escalar.",
+            "indicator": "Número de prioridades ativas, custo de experimentos e recursos evitados por decisões de não fazer."
+          }
+        },
+        "harm_check": "Verifica manipulação, pseudo-neurociência, crescimento que destrói economia, foco que vira visão de túnel e externalidades sociais/ecológicas materiais.",
+        "reinforcing_loop": "Cada decisão registra hipótese, evidência, teste e resultado para melhorar decisões futuras.",
+        "balancing_safeguard": "Pre-mortem, critério de reversão e contrato de desafio impedem que gosto ou convicção virem prova.",
+        "regenerative_seed": "Um decision record reutilizável que mostra o que foi escolhido, recusado, testado e aprendido.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "money",
+            "data",
+            "compute"
+          ],
+          "baseline_comparison": "Comparar custo, tempo e número de iniciativas com a estratégia anterior sem foco explícito.",
+          "restoration": "Encerrar testes sem sinal suficiente, retirar dark patterns e realocar recursos de iniciativas de baixo valor."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "O fundador deve conseguir explicar a decisão, a maior incerteza e o sinal objetivo que faria mudar de direção."
+        }
+      }
     },
     {
       "id": "google-drive",
