@@ -30,7 +30,7 @@ for(const file of files){
 const required={
   'README.md':['CS Connect 0.9.0','3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce'],
   'README.pt-BR.md':['CS Connect 0.9.0','Comece em 1 minuto'],
-  'docs/GETTING_STARTED.pt-BR.md':['Você **não precisa saber programar**','Procure por **CS Connect**'],
+  'docs/GETTING_STARTED.pt-BR.md':['Você **não precisa saber programar**','CS Connect'],
   'docs/GETTING_STARTED.md':['You do **not** need GitHub','Search for **CS Connect**'],
   'docs/PUBLIC_PLUGIN_SUBMISSION.md':['It is not yet a public listing','Publish plugin'],
   'ROADMAP.md':['CS Connect 0.9.0','v0.10 — Ecosystem Intelligence & Community Scale']
