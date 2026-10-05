@@ -16,6 +16,8 @@ on:
       - 'scripts/generate-risk-labels.mjs'
       - 'scripts/update-drift-status.mjs'
       - 'tests/test_drift_watch.py'
+      - 'tests/fixtures/capability-pack.json'
+      - 'scripts/validate-github-marketplace.mjs'
   workflow_dispatch:
 
 concurrency:
