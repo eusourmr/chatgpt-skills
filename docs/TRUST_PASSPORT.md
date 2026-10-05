@@ -115,3 +115,35 @@ node scripts/validate-trust-passports.mjs --verify-git-source
 When evidence is missing, the Passport must say that it is missing.
 
 **Unknown is a valid result. Fabricated confidence is not.**
+
+
+## CS Connect 0.9 exact-package passports
+
+CS Connect 0.9 adds a supplemental exact-package passport set for the 15 new first-party skills:
+
+```text
+trust/passports/v090/
+```
+
+These records are generated from the **qualified plugin source commit**, not from the mutable branch head. For R2 they bind each first-party skill to:
+
+- CS Connect version and candidate;
+- exact plugin ZIP SHA-256;
+- exact qualified plugin source commit;
+- per-file SHA-256 values inside that skill;
+- a deterministic skill-artifact hash;
+- the native semantic case IDs that provide behavior evidence;
+- whether the skill was directly retested in the R2 change-impact regression;
+- explicit security and qualification claim boundaries.
+
+The v0.9 records supplement the legacy installer Trust Passports. They deliberately do **not** invent a per-skill dynamic security audit when only package/source security gates exist.
+
+For the qualified 0.9.0 R2 package, see:
+
+```text
+trust/passports/v090/index.json
+release/candidates/cs-connect-v0.9.0-r2.json
+trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json
+```
+
+A future plugin package with different bytes requires new binding evidence; the R2 passports must not silently migrate to it.
