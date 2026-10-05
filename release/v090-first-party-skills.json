@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "release_line": "0.9.0",
+  "plugin_slug": "cs-navigator",
+  "display_name": "CS Connect",
+  "skills": [
+    "cs-navigator",
+    "regenerative-impact-map",
+    "regenerative-language-bridge",
+    "regenerative-resilience-plan",
+    "regenerative-adaptive-experiment",
+    "text-integrity-editor",
+    "evidence-first-research",
+    "argument-article-architect",
+    "founder-product-strategist",
+    "academic-integrity-reviewer",
+    "document-compliance-auditor",
+    "visual-intent-guardian",
+    "photo-restoration-conservator",
+    "art-critique-studio",
+    "design-system-studio",
+    "interactive-creative-builder",
+    "engineering-investigator",
+    "context-continuity-manager",
+    "project-execution-director",
+    "skill-workbench"
+  ],
+  "qualification_policy": {
+    "all_new_first_party_start_as": "draft",
+    "tested_requires_native_semantic_evidence": true,
+    "exact_byte_binding": "final-0.9-package-only",
+    "native_first": true
+  }
+}
