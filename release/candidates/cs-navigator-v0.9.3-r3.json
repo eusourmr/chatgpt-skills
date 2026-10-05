@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "product": "CS Navigator",
+  "technical_plugin_slug": "cs-navigator",
+  "version": "0.9.3",
+  "candidate": "R3-final",
+  "source_commit": "8329d547b663806bb96c8530908631067d066684",
+  "zip_sha256": "4a54c159901f1a58d55420ab31a30d1839084b0ff885738b244db226897115b6",
+  "entries": 63,
+  "workflow_run_id": 37387051681,
+  "workflow_artifact_id": 11380081659,
+  "workflow_artifact_digest": "sha256:79304d85a7f4d955e81e89f6a45c14e122eca9075629a3a29cea9ce0d5d18e49",
+  "qualification_state": "pending-native-requalification",
+  "change_scope": [
+    "correct defective private 0.9.2 internal qualification markers",
+    "make version/evidence normalization idempotent",
+    "advance private plugin candidate to 0.9.3",
+    "no intended functional architecture change"
+  ],
+  "static_gates": {
+    "builder_idempotency": "PASS",
+    "skill_profiles": "PASS",
+    "skill_containers": "PASS",
+    "container_guardian": "9/9 PASS",
+    "public_submission_validation": "PASS",
+    "security_gate_v2": "PASS",
+    "legacy_brand_inside_plugin_payload": "0 occurrences / PASS"
+  },
+  "predecessor": {
+    "version": "0.9.2",
+    "state": "superseded-before-native-qualification",
+    "zip_sha256": "890b4a7f8257021e2dedce10bce0abfa415ca4ebbed44de7966d5b90ca38117b",
+    "reason": "Internal SKILL.md retained stale 0.9.1 wording and a corrupted pending-native state."
+  },
+  "claim_boundary": "Static/build evidence complete. Native ChatGPT semantic requalification is still required before calling these exact bytes natively qualified."
+}
