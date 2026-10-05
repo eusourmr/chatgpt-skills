@@ -51,7 +51,7 @@ for (const id of release.skills.filter((x) => !foundation.has(x))) {
   } catch (error) {
     if (error.code !== 'ENOENT') throw error;
   }
-  firstParty.push({
+  const capability = {
     id,
     name: entry.name,
     summary: entry.summary_en,
@@ -61,7 +61,17 @@ for (const id of release.skills.filter((x) => !foundation.has(x))) {
     execution_mode: 'chat-native',
     profiles,
     trust_boundary: 'No Trust Passport or tested claim is inherited before exact-byte 0.9 qualification.'
-  });
+  };
+  if (id === 'evidence-first-research') {
+    capability.summary = "Research with explicit source facts, inference, contradictions, unknowns and freshness. For Brazilian current-rule requests, brasil-context requires an explicit jurisdiction/authority gate; if the rule or competent authority is not yet identifiable, output Jurisdição/autoridade aplicável: UNKNOWN / EVIDENCE MISSING before asking for clarification.";
+    capability.routing_contract = {
+      brazil_current_rule: true,
+      required_profile: 'brasil-context',
+      missing_object_behavior: "Before clarification, output 'Jurisdição/autoridade aplicável: UNKNOWN / EVIDENCE MISSING'; do not assume federal/nationwide scope.",
+      authority_dimensions: ['government_level','territorial_scope','issuing_or_regulatory_authority_when_material']
+    };
+  }
+  firstParty.push(capability);
 }
 
 const firstPartyIndex = {
