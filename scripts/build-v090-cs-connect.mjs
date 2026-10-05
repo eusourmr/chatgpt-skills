@@ -64,13 +64,15 @@ for (const id of release.skills.filter((x) => !foundation.has(x))) {
   });
 }
 
-await writeJson('plugins/cs-navigator/skills/cs-navigator/references/first-party-capabilities.json', {
+const firstPartyIndex = {
   schema_version: 1,
   generated_for_plugin: '0.9.0',
   product_name: 'CS Connect',
   policy: 'Native first. These first-party capabilities are bundled for 0.9 qualification but remain designed / not-yet-qualified until exact-byte native evidence passes.',
   entries: firstParty
-});
+};
+await writeJson('plugins/cs-navigator/skills/cs-navigator/references/first-party-capabilities.json', firstPartyIndex);
+await writeJson('skills/featured/cs-navigator/references/first-party-capabilities.json', firstPartyIndex);
 
 const navPath = 'plugins/cs-navigator/skills/cs-navigator/SKILL.md';
 let nav = await readFile(navPath, 'utf8');
