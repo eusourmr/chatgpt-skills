@@ -8,7 +8,7 @@ const writeJson = async (p, v) => {
   await writeFile(p, JSON.stringify(v, null, 2) + '\n');
 };
 
-const release = await readJson('release/v090-first-party-skills.json');
+const release = await readJson('release/v091-first-party-skills.json');
 const sourceCatalog = await readJson('catalog/skills.json');
 const foundation = new Set([
   'cs-navigator',
@@ -157,7 +157,7 @@ const sub = structuredClone(old);
 sub.plugin.version = '0.9.1';
 sub.listing.display_name = 'CS Navigator';
 sub.listing.short_description = 'Trusted skills, one install';
-sub.listing.long_description = 'CS Navigator 0.9.1 unifies CS Navigator, Verifiable Trust II / Skill Containers, the Regenerative Capability Pack, and a new original first-party family for writing, research, Brazilian context, academic integrity, document compliance, design, interactive artifacts, engineering, visual preservation, project continuity and founder/product strategy. Native ChatGPT remains the default for ordinary tasks. New first-party skills remain explicitly designed and not-yet-qualified until final exact-byte native qualification passes.';
+sub.listing.long_description = 'CS Navigator 0.9.1 unifies the CS routing layer, Verifiable Trust II / Skill Containers, the Regenerative Capability Pack, and a new original first-party family for writing, research, Brazilian context, academic integrity, document compliance, design, interactive artifacts, engineering, visual preservation, project continuity and founder/product strategy. Native ChatGPT remains the default for ordinary tasks. New first-party skills remain explicitly designed and not-yet-qualified until final exact-byte native qualification passes.';
 sub.listing.capabilities = [
   'Keep ordinary tasks native when an extra skill adds no material value',
   'Route explicit CS Navigator requests to the smallest useful capability',
