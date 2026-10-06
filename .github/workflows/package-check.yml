@@ -105,7 +105,9 @@ jobs:
           version = json.loads(Path('plugins/cs-navigator/plugin.json').read_text())['version']
           p = Path(f'dist/plugin-submission/cs-navigator-plugin-{version}.zip')
           assert p.is_file(), p
-          candidate = json.loads(Path('release/candidates/cs-connect-v0.9.0-r2.json').read_text())
+          candidate_path = Path(f'release/candidates/cs-navigator-v{version}-r3.json')
+          assert candidate_path.is_file(), candidate_path
+          candidate = json.loads(candidate_path.read_text())
           payload = p.read_bytes()
           import hashlib
           assert hashlib.sha256(payload).hexdigest() == candidate['zip_sha256']
