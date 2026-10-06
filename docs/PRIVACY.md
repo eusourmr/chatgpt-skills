@@ -7,7 +7,7 @@ CS Navigator is a skills-only plugin. Its core workflow consists of instructions
 
 ## Data collected by the developer
 
-CS Navigator does **not** collect or transmit ChatGPT conversation content. The plugin does not operate a developer-controlled server.
+CS Navigator does not collect or transmit ChatGPT conversation content. The plugin does not operate a developer-controlled server.
 
 The current plugin does not require:
 - a CS Navigator account;
