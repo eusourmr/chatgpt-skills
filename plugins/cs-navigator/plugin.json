@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cs-navigator",
-  "version": "0.9.3",
-  "description": "CS Navigator routes to original first-party ChatGPT skills with native-first behavior, verifiable trust boundaries, Brazilian-context profiles, and Skill Containers.",
+  "version": "0.9.4",
+  "description": "CS Navigator routes explicit capability-selection requests to bundled first-party skills while keeping ordinary tasks native and preserving evidence boundaries.",
   "author": {
     "name": "ChatGPT Skills",
     "url": "https://github.com/eusourmr/chatgpt-skills"
@@ -34,8 +34,8 @@
     "com.openai": {
       "interface": {
         "displayName": "CS Navigator",
-        "shortDescription": "Trusted skills, one install",
-        "longDescription": "CS Navigator 0.9.3 is the unified ChatGPT Skills plugin. It keeps native ChatGPT first, routes explicit CS capability requests through the Navigator, bundles the 0.7.5 Skill Container foundation, and adds original first-party workflows for writing, research, Brazilian context, academic review, design, engineering, visual preservation, project continuity and founder/product strategy. New first-party skills remain evidence-labeled until their final native qualification passes.",
+        "shortDescription": "Evidence-aware skill routing",
+        "longDescription": "CS Navigator 0.9.4 helps users decide when to stay with native ChatGPT and when to use a bundled CS workflow. It routes explicit capability-selection requests across writing, research, Brazilian context, academic review, design, engineering, visual preservation, project continuity and founder/product strategy. Evidence states and limitations remain explicit, and ordinary tasks stay native when an additional workflow adds no material value.",
         "developerName": "RICARDO MOREIRA DA ROCHA",
         "category": "Productivity",
         "websiteURL": "https://github.com/eusourmr/chatgpt-skills",
