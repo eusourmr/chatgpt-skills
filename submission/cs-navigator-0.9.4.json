@@ -274,9 +274,10 @@
     "Privacy policy now explicitly covers developer-side collection, processing purpose, recipients, retention, user controls and contact."
   ],
   "trust_chain": {
-    "state": "refreshed-and-validated",
-    "workflow_run_id": 37473292731,
+    "state": "PASS",
+    "workflow_run_id": 37473658437,
     "reviewed_source_revision": "a66fd4b12cf4e659697307f96f1517103bcbdb8f",
+    "committed_trust_head": "e64a25915a8dae0404aaba42a5491880ef7315c5",
     "refreshed_on": "2026-10-06"
   }
 }
