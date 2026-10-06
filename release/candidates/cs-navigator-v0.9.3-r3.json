@@ -43,5 +43,5 @@
     "exact_zip_sha256": "4a54c159901f1a58d55420ab31a30d1839084b0ff885738b244db226897115b6",
     "state": "installed-private-candidate-native-requalification-pending"
   },
-  "native_requalification_session_boundary": "Current conversation still exposes cached installed CS Navigator 0.9.2 skill bytes; exact 0.9.3 native semantic qualification must run only after the host loads the 0.9.3 release."
+  "native_requalification_session_boundary": "This conversation has now loaded the installed CS Navigator 0.9.3 skill bytes. Exact-byte native semantic requalification may proceed against the recorded 0.9.3 R3 matrix; qualification remains pending until the run is recorded."
 }
