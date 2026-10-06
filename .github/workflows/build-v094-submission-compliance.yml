@@ -1,0 +1,147 @@
+name: Build CS Navigator v0.9.4 submission compliance
+
+on:
+  push:
+    branches:
+      - release/v0.9.4-submission-compliance
+    paths:
+      - '.github/workflows/build-v094-submission-compliance.yml'
+      - 'plugins/cs-navigator/plugin.json'
+      - 'submission/cs-navigator-0.9.4.json'
+      - 'docs/PRIVACY.md'
+      - 'docs/PUBLIC_PLUGIN_SUBMISSION.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Verify compliance-only change scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --tags --force
+          changed=$(git diff --name-only cs-navigator-v0.9.3...HEAD -- plugins/cs-navigator)
+          printf '%s\n' "$changed"
+          test "$changed" = "plugins/cs-navigator/plugin.json"
+
+          git diff --exit-code cs-navigator-v0.9.3...HEAD --             plugins/cs-navigator/skills             plugins/cs-navigator/capability-pack.json             plugins/cs-navigator/assets
+
+          echo 'Behavior payload inheritance boundary PASS.'
+
+      - name: Validate listing claims
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          p=json.load(open('plugins/cs-navigator/plugin.json',encoding='utf-8'))
+          ui=p['extensions']['com.openai']['interface']
+          assert p['version']=='0.9.4'
+          assert ui['displayName']=='CS Navigator'
+          assert ui['shortDescription']=='Evidence-aware skill routing'
+          banned=['Trusted skills','guaranteed','guarantee','universally safe','zero hallucinations']
+          haystack=' '.join([p['description'],ui['shortDescription'],ui['longDescription']]).lower()
+          for term in banned:
+              assert term.lower() not in haystack, term
+          assert 'evidence' in haystack
+          print('Submission claim language PASS.')
+          PY
+
+      - name: Validate privacy policy requirements
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          t=Path('docs/PRIVACY.md').read_text(encoding='utf-8').lower()
+          required=[
+            'data collected by the developer',
+            'purpose of processing',
+            'recipients and data sharing',
+            'retention',
+            'user controls',
+            'contact'
+          ]
+          missing=[x for x in required if x not in t]
+          assert not missing, missing
+          assert 'does not collect or transmit chatgpt conversation content' in t
+          print('Privacy policy structure PASS.')
+          PY
+
+      - name: Run package gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/validate-skill-profiles.mjs
+          node scripts/validate-skill-containers.mjs
+          node scripts/eval-container-guardian.mjs --check
+          node scripts/validate-public-plugin-submission.mjs
+          node scripts/security-gate-v2.mjs --path plugins/cs-navigator >/tmp/security-v094.json
+          if grep -RIn --exclude='*.png' -F 'CS Connect' plugins/cs-navigator; then
+            echo 'Legacy public brand found inside 0.9.4 payload.'
+            exit 1
+          fi
+
+      - name: Build exact 0.9.4 ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build-public-plugin-submission.mjs
+          ZIP='dist/plugin-submission/cs-navigator-plugin-0.9.4.zip'
+          test -f "$ZIP"
+          unzip -t "$ZIP"
+          SHA=$(sha256sum "$ZIP" | awk '{print $1}')
+          COUNT=$(unzip -Z1 "$ZIP" | wc -l | tr -d ' ')
+          test "$COUNT" = "63"
+
+          python - <<'PY'
+          import json, zipfile
+          p='dist/plugin-submission/cs-navigator-plugin-0.9.4.zip'
+          with zipfile.ZipFile(p) as z:
+              assert z.testzip() is None
+              names=z.namelist()
+              assert len(names)==63, len(names)
+              plugin=json.loads(z.read('cs-navigator/plugin.json'))
+              assert plugin['version']=='0.9.4'
+              ui=plugin['extensions']['com.openai']['interface']
+              assert ui['shortDescription']=='Evidence-aware skill routing'
+          print('Exact 0.9.4 ZIP structure PASS.')
+          PY
+
+          cat > dist/plugin-submission/cs-navigator-v094-compliance-candidate.json <<EOF
+          {
+            "product": "CS Navigator",
+            "technical_plugin_slug": "cs-navigator",
+            "version": "0.9.4",
+            "candidate": "submission-compliance",
+            "source_commit": "${GITHUB_SHA}",
+            "zip_sha256": "$SHA",
+            "entries": $COUNT,
+            "behavior_payload_inherited_from": "cs-navigator-v0.9.3",
+            "behavior_change": false,
+            "qualification_state": "compliance-qualified"
+          }
+          EOF
+          cat dist/plugin-submission/cs-navigator-v094-compliance-candidate.json
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: cs-navigator-v0.9.4-submission-compliance
+          path: |
+            dist/plugin-submission/cs-navigator-plugin-0.9.4.zip
+            dist/plugin-submission/cs-navigator-plugin-0.9.4.zip.sha256
+            dist/plugin-submission/cs-navigator-v094-compliance-candidate.json
+          if-no-files-found: error
