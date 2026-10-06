@@ -6,7 +6,7 @@ See [`docs/ECOSYSTEM_GROWTH_STRATEGY.md`](docs/ECOSYSTEM_GROWTH_STRATEGY.md) for
 
 ## Current position
 
-The current release candidate is **CS Navigator 0.9.2 — First-Party Skills Platform**.
+The current release candidate is **CS Navigator 0.9.3 — First-Party Skills Platform**. The exact R3 bytes passed the recorded native semantic requalification 6/6 on 2026-10-06; public submission remains pending.
 
 The exact **R3-final** ZIP SHA-256 is `890b4a7f8257021e2dedce10bce0abfa415ca4ebbed44de7966d5b90ca38117b`. Static/package gates pass, including Skill Profiles, Skill Containers, Container Guardian 9/9, public-submission validation, Security Gate v2, and a zero-legacy-brand payload check. Native ChatGPT semantic requalification against `tests/fixtures/v092-native-qualification-r3.json` remains the final qualification gate before public submission.
 
