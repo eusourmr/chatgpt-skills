@@ -21,13 +21,13 @@ O ZIP exato do candidato R3 está ligado ao SHA-256:
 
 `4a54c159901f1a58d55420ab31a30d1839084b0ff885738b244db226897115b6`
 
-Os gates estáticos e de pacote passaram: Skill Profiles, Skill Containers, Container Guardian 9/9, validação de submissão pública, Security Gate v2 e verificação de **zero referências à marca antiga dentro do pacote**. A **requalificação semântica nativa no ChatGPT desses bytes exatos ainda está pendente**.
+Os gates estáticos e de pacote passaram: Skill Profiles, Skill Containers, Container Guardian 9/9, validação de submissão pública, Security Gate v2 e verificação de **zero referências à marca antiga dentro do pacote**. A **requalificação semântica nativa no ChatGPT desses bytes exatos passou 6/6 em 06/10/2026**. Isso qualifica o comportamento registrado da release; não transforma automaticamente todos os workflows incluídos de `designed` em `tested`.
 
 A evidência 0.9.0/R2 permanece preservada como histórico. A tentativa privada 0.9.1 foi substituída antes da qualificação nativa.
 
 > **Sem evidência → não inventar. Sem permissão → não se autorizar sozinho. Sem caminho autorizado → parar.**
 
-Estado do diretório público: existe um **draft privado 0.9.3**, ainda não listado publicamente. Só chamaremos de publicado depois da qualificação nativa R3, revisão da OpenAI, aprovação e publicação explícita.
+Estado do diretório público: existe um **candidato privado 0.9.3 nativamente qualificado**, ainda não listado publicamente. Só chamaremos de publicado depois da revisão da OpenAI, aprovação e publicação explícita.
 
 Leia: [Primeiros Passos](docs/GETTING_STARTED.pt-BR.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Publicação pública](docs/PUBLIC_PLUGIN_SUBMISSION.md)
 
@@ -40,10 +40,10 @@ Depois da aprovação e publicação pública:
 3. Clique em **Instalar plugin**.
 4. Em uma conversa, escreva: `Use CS Navigator para...`
 
-Até lá, a 0.9.3 permanece um candidato privado de qualificação.
+Até lá, a 0.9.3 permanece um candidato privado, nativamente qualificado, aguardando submissão pública.
 
 Linhas de versão:
-- plugin CS Navigator: **0.9.3 R3 / requalificação nativa pendente**
+- plugin CS Navigator: **0.9.3 R3 / requalificação nativa PASS 6/6 / submissão pública pendente**
 - slug técnico: `cs-navigator`
 - 0.7.5: fundação interna absorvida
 - 0.8: absorvida pela 0.9
