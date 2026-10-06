@@ -17,7 +17,7 @@ For end-user installation, see [Getting Started](GETTING_STARTED.md). For manage
 - package record: `release/candidates/cs-navigator-v0.9.3-r3.json`
 - native qualification matrix: `tests/fixtures/v093-native-qualification-r3.json`
 
-Static/package validation has passed. Native ChatGPT semantic requalification of the exact R3 bytes is still required before public submission.
+Static/package validation has passed. Native ChatGPT semantic requalification of the exact R3 bytes passed 6/6 on 2026-10-06. Public submission is now the next release gate.
 
 ## Private-plugin state
 
@@ -27,14 +27,13 @@ The editable private plugin is:
 plugins_6ac41c5909b481918b0523726e763aa3
 ```
 
-Its current private release is **CS Navigator 0.9.3**. It is not a public listing.
+Its current private release is **CS Navigator 0.9.3**, and the exact recorded R3 bytes have passed native semantic requalification 6/6. It is not a public listing.
 
 ## Submission order
 
-1. complete exact-byte native R3 requalification;
-2. record the passing run and update R3 evidence metadata;
-3. merge the final release branch;
-4. create the GitHub tag/release for `cs-navigator-v0.9.3` using the already-qualified ZIP;
+1. verify final repository checks remain green after recording native qualification;
+2. merge the final release branch;
+3. create the GitHub tag/release for `cs-navigator-v0.9.3` using the already-qualified ZIP;
 5. open the existing private CS Navigator plugin;
 6. choose the verified developer identity;
 7. submit the exact qualified package for OpenAI review;
