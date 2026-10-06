@@ -7,6 +7,10 @@ on:
     paths:
       - '.github/workflows/build-v094-submission-compliance.yml'
       - 'plugins/cs-navigator/plugin.json'
+      - 'plugins/cs-navigator/capability-pack.json'
+      - 'plugins/cs-navigator/skills/cs-navigator/references/catalog-snapshot.json'
+      - 'skills/featured/cs-navigator/references/catalog-snapshot.json'
+      - 'tests/fixtures/capability-pack.json'
       - 'submission/cs-navigator-0.9.4.json'
       - 'docs/PRIVACY.md'
       - 'docs/PUBLIC_PLUGIN_SUBMISSION.md'
@@ -35,22 +39,40 @@ jobs:
           git fetch --tags --force
           changed=$(git diff --name-only cs-navigator-v0.9.3...HEAD -- plugins/cs-navigator)
           printf '%s\n' "$changed"
-          printf '%s\n' "$changed" | grep -qx 'plugins/cs-navigator/capability-pack.json'
-          printf '%s\n' "$changed" | grep -qx 'plugins/cs-navigator/plugin.json'
-          test "$(printf '%s\n' "$changed" | wc -l | tr -d ' ')" = "2"
-
-          git diff --exit-code cs-navigator-v0.9.3...HEAD --             plugins/cs-navigator/skills             plugins/cs-navigator/assets
+          expected=$(printf '%s\n' \
+            'plugins/cs-navigator/capability-pack.json' \
+            'plugins/cs-navigator/plugin.json' \
+            'plugins/cs-navigator/skills/cs-navigator/references/catalog-snapshot.json')
+          test "$changed" = "$expected"
 
           python - <<'PY'
           import json, subprocess
-          old=json.loads(subprocess.check_output(['git','show','cs-navigator-v0.9.3:plugins/cs-navigator/capability-pack.json']))
-          new=json.load(open('plugins/cs-navigator/capability-pack.json',encoding='utf-8'))
+
+          def old_json(path):
+              return json.loads(subprocess.check_output(['git','show',f'cs-navigator-v0.9.3:{path}']))
+
+          pack_path='plugins/cs-navigator/capability-pack.json'
+          old=old_json(pack_path)
+          new=json.load(open(pack_path,encoding='utf-8'))
           old['pack_version']=new['pack_version']
           old['container_guardian']['release_line']=new['container_guardian']['release_line']
           assert old==new
           assert new['pack_version']=='0.9.4'
           assert new['container_guardian']['release_line']=='0.9.4'
+
+          snap_path='plugins/cs-navigator/skills/cs-navigator/references/catalog-snapshot.json'
+          old=old_json(snap_path)
+          new=json.load(open(snap_path,encoding='utf-8'))
+          old['generated_for_plugin']=new['generated_for_plugin']
+          old['container_guardian']['release_line']=new['container_guardian']['release_line']
+          assert old==new
+          assert new['generated_for_plugin']=='0.9.4'
+          assert new['container_guardian']['release_line']=='0.9.4'
           PY
+
+          other_skill_changes=$(git diff --name-only cs-navigator-v0.9.3...HEAD -- plugins/cs-navigator/skills | grep -v '^plugins/cs-navigator/skills/cs-navigator/references/catalog-snapshot.json$' || true)
+          test -z "$other_skill_changes"
+          git diff --exit-code cs-navigator-v0.9.3...HEAD -- plugins/cs-navigator/assets
 
           echo 'Behavior payload inheritance boundary PASS.'
 
