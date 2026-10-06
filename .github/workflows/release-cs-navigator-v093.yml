@@ -1,0 +1,130 @@
+name: Release CS Navigator v0.9.3
+# One-shot release workflow for the exact-byte-qualified R3 plugin payload.
+
+on:
+  push:
+    branches:
+      - ops/release-cs-navigator-v0.9.3
+    paths:
+      - '.github/workflows/release-cs-navigator-v093.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out exact merged release source
+        uses: actions/checkout@v6
+        with:
+          ref: a330cf0f5cec0ff6f8559f40cb63ca863722447d
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Build and verify qualified plugin archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build-public-plugin-submission.mjs
+          ZIP='dist/plugin-submission/cs-navigator-plugin-0.9.3.zip'
+          SHA_FILE="${ZIP}.sha256"
+          EXPECTED='4a54c159901f1a58d55420ab31a30d1839084b0ff885738b244db226897115b6'
+
+          test -f "$ZIP"
+          test -f "$SHA_FILE"
+          unzip -t "$ZIP"
+
+          actual=$(sha256sum "$ZIP" | awk '{print $1}')
+          test "$actual" = "$EXPECTED"
+          grep -q "$EXPECTED" "$SHA_FILE"
+
+          python - <<'PY'
+          import json, zipfile
+          p='dist/plugin-submission/cs-navigator-plugin-0.9.3.zip'
+          with zipfile.ZipFile(p) as z:
+              names=z.namelist()
+              assert z.testzip() is None
+              assert len(names)==63, len(names)
+              plugin=json.loads(z.read('cs-navigator/plugin.json'))
+              assert plugin['name']=='cs-navigator'
+              assert plugin['version']=='0.9.3'
+              assert plugin['extensions']['com.openai']['interface']['displayName']=='CS Navigator'
+              assert b'CS Connect' not in b''.join(
+                  z.read(name) for name in names
+                  if name.endswith(('.md','.json','.yaml','.yml','.txt'))
+              )
+          print('Release payload verified: CS Navigator 0.9.3, 63 entries, exact qualified SHA.')
+          PY
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: cs-navigator-v0.9.3
+          RELEASE_SHA: a330cf0f5cec0ff6f8559f40cb63ca863722447d
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if gh release view "$TAG" --repo eusourmr/chatgpt-skills >/dev/null 2>&1; then
+            echo "Release $TAG already exists."
+            exit 0
+          fi
+
+          if gh api "repos/eusourmr/chatgpt-skills/git/ref/tags/$TAG" >/tmp/tag.json 2>/dev/null; then
+            current=$(jq -r '.object.sha' /tmp/tag.json)
+            test "$current" = "$RELEASE_SHA"
+          else
+            gh api --method POST repos/eusourmr/chatgpt-skills/git/refs \
+              -f ref="refs/tags/$TAG" \
+              -f sha="$RELEASE_SHA"
+          fi
+
+          cat > /tmp/release-notes.md <<'EOF'
+          ## CS Navigator 0.9.3 — First-Party Skills Platform
+
+          This release finalizes the CS Navigator R3 line under the single public product name **CS Navigator**, while preserving the technical slug `cs-navigator`.
+
+          ### Qualification
+          - Native semantic requalification: **6/6 PASS**
+          - Validate CS Navigator v0.9.3 R3: **PASS**
+          - Validate npm package: **PASS**
+          - Validate catalog: **PASS**
+          - Drift Watch: **PASS**
+          - Generate v0.7 Trust Passports: **PASS**
+          - Security Gate v2: **PASS**
+          - Container Guardian deterministic module: **9/9 PASS**
+          - Builder idempotency: **PASS**
+          - Legacy `CS Connect` text inside plugin payload: **0 occurrences**
+
+          ### Evidence boundaries
+          - This qualification is bound to the exact 0.9.3 R3 artifact.
+          - It does not make every bundled first-party workflow automatically `tested`.
+          - Security Gate PASS is not a universal safety guarantee.
+          - Container Guardian deterministic evidence does not prove Guardian execution inside a chat without a real decision record.
+          - Changed bytes require new evidence.
+
+          ### Integrity
+          - Release source commit: `a330cf0f5cec0ff6f8559f40cb63ca863722447d`
+          - Plugin ZIP SHA-256: `4a54c159901f1a58d55420ab31a30d1839084b0ff885738b244db226897115b6`
+          - Plugin entries: **63**
+          - Native qualification evidence: `trust/evals/runs/cs-navigator-v0.9.3-r3-native-requalification.json`
+
+          ### Distribution
+          This GitHub release is the current downloadable CS Navigator release. Older releases remain historical evidence, while the latest valid release is the primary download target.
+
+          The ChatGPT/OpenAI public directory submission is a separate step and has not been performed by this release workflow.
+          EOF
+
+          gh release create "$TAG" \
+            'dist/plugin-submission/cs-navigator-plugin-0.9.3.zip#CS Navigator 0.9.3 plugin' \
+            'dist/plugin-submission/cs-navigator-plugin-0.9.3.zip.sha256#SHA-256 checksum' \
+            --repo eusourmr/chatgpt-skills \
+            --target "$RELEASE_SHA" \
+            --title 'CS Navigator 0.9.3 — First-Party Skills Platform' \
+            --notes-file /tmp/release-notes.md
