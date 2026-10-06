@@ -90,7 +90,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add trust/passports trust/security-reports trust/risk-labels trust/upstream             skills/featured/cs-navigator/references/catalog-snapshot.json             plugins/cs-navigator/skills/cs-navigator/references/catalog-snapshot.json
+          git add trust/passport-policy.json trust/passports trust/security-reports trust/risk-labels trust/upstream skills/featured/cs-navigator/references/catalog-snapshot.json plugins/cs-navigator/skills/cs-navigator/references/catalog-snapshot.json
           if git diff --cached --quiet; then
             echo "Trust chain already current."
           else
