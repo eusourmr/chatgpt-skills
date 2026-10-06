@@ -1,6 +1,6 @@
 # Primeiros Passos — CS Navigator
 
-Este é o guia principal de instalação e primeiro uso do **CS Navigator 0.9.2**.
+Este é o guia principal de instalação e primeiro uso do **CS Navigator 0.9.3**.
 
 [English](GETTING_STARTED.md)
 
@@ -29,14 +29,14 @@ Pronto. O pacote principal é skills-only e não exige servidor MCP, autenticaç
 
 | Componente | Estado |
 |---|---|
-| CS Navigator | **0.9.2 R3-final — candidato privado; requalificação nativa pendente** |
+| CS Navigator | **0.9.3 R3-final — candidato privado nativamente qualificado; submissão pública pendente** |
 | ZIP exato | SHA-256 `890b4a7f8257021e2dedce10bce0abfa415ca4ebbed44de7966d5b90ca38117b` |
-| Plugin privado | versão 0.9.2, ainda não listado publicamente |
+| Plugin privado | versão 0.9.3, ainda não listado publicamente |
 | 0.7.5 | fundação de Skill Containers / Container Guardian absorvida |
 | 0.8 | absorvida pela 0.9 |
 | Próxima linha | 0.10 — Ecosystem Intelligence & Community Scale |
 
-Os gates estáticos e de pacote passaram. A requalificação semântica nativa no ChatGPT dos bytes exatos 0.9.2 ainda está pendente.
+Os gates estáticos e de pacote passaram. A requalificação semântica nativa no ChatGPT dos bytes exatos 0.9.3 passou 6/6 em 06/10/2026. A submissão pública continua pendente.
 
 ## Como o CS Navigator deve se comportar
 
@@ -86,10 +86,10 @@ tests/fixtures/v092-native-qualification-r3.json
 
 - nome público: **CS Navigator**
 - slug técnico: `cs-navigator`
-- versão candidata: `0.9.2`
+- versão candidata: `0.9.3`
 - tipo: skills-only
 - candidato: R3-final
-- evidência do pacote: `release/candidates/cs-navigator-v0.9.2-r3.json`
+- evidência do pacote: `release/candidates/cs-navigator-v0.9.3-r3.json`
 - requalificação nativa: pendente
 
 Projeto comunitário independente. Não afiliado nem endossado pela OpenAI.
