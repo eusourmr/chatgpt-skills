@@ -1,6 +1,6 @@
 # ChatGPT ZIP Upload / Export Path
 
-The preferred CS Connect distribution paths are:
+The preferred CS Navigator distribution paths are:
 
 1. **public OpenAI Plugin Directory**, when the plugin is publicly published;
 2. **GitHub-managed plugin marketplace** for compatible managed workspaces;
@@ -10,7 +10,7 @@ See [Getting Started](GETTING_STARTED.md) for the canonical user guide.
 
 ## Current qualified plugin
 
-**CS Connect 0.9.0 R2** is the qualified production package.
+**CS Navigator 0.9.0 R2** is the qualified production package.
 
 Exact ZIP SHA-256:
 
@@ -49,7 +49,7 @@ A manually uploaded workspace plugin does not update merely because GitHub chang
 
 ## Public Plugin Directory is different
 
-For a public CS Connect plugin, bundled skill/metadata changes require a **new ZIP package version** in the existing public plugin, applicable checks/review, and publication of the approved update.
+For a public CS Navigator plugin, bundled skill/metadata changes require a **new ZIP package version** in the existing public plugin, applicable checks/review, and publication of the approved update.
 
 GitHub repository changes alone do not update the public directory package.
 
@@ -59,7 +59,7 @@ See [Plugin Maintenance](PLUGIN_MAINTENANCE.md).
 
 Qualification identities such as `cs-navigator-v075-qa` are test-only identities. They exist to avoid stale package/cache reuse during native qualification.
 
-Do not present a qualification artifact as the production CS Connect plugin.
+Do not present a qualification artifact as the production CS Navigator plugin.
 
 ## Integrity boundary
 

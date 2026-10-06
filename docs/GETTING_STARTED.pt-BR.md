@@ -1,6 +1,6 @@
-# Primeiros Passos — CS Connect
+# Primeiros Passos — CS Navigator
 
-Este é o guia principal de instalação e primeiro uso do **CS Connect 0.9.0**.
+Este é o guia principal de instalação e primeiro uso do **CS Navigator 0.9.3**.
 
 [English](GETTING_STARTED.md)
 
@@ -8,28 +8,39 @@ Este é o guia principal de instalação e primeiro uso do **CS Connect 0.9.0**.
 
 Você **não precisa saber programar**, usar terminal, GitHub ou API.
 
-Quando o CS Connect estiver publicado no diretório público da OpenAI:
+Quando o CS Navigator estiver aprovado e publicado no diretório público:
 
 1. Abra o **ChatGPT** ou o **Codex**.
 2. Abra **Plugins**.
-3. Pesquise por **CS Connect**.
+3. Pesquise por **CS Navigator**.
 4. Abra o cartão do plugin.
 5. Clique em **Instalar plugin**.
 6. Volte para uma conversa e escreva, por exemplo:
 
 ```text
-Use CS Connect para revisar este texto sem mudar datas, valores ou meu sentido.
+Use CS Navigator para revisar este texto sem mudar datas, valores ou meu sentido.
 ```
 
-Pronto. O CS Connect é composto por skills e, no núcleo 0.9.0, **não exige chave de API, servidor MCP, login em serviço externo nem configuração técnica adicional**.
+Pronto. O pacote principal é skills-only e não exige servidor MCP, autenticação externa ou chave de API.
 
-> Se “CS Connect” ainda não aparecer na busca pública, isso significa que a versão pública ainda está em revisão ou ainda não foi publicada. Uma release no GitHub, sozinha, não prova que o plugin já esteja disponível no diretório da OpenAI.
+> Se o CS Navigator ainda não aparecer na busca pública, ele ainda não foi publicado publicamente. Release no GitHub ou draft privado não provam publicação no diretório.
 
-## O que o CS Connect faz
+## Versão atual
 
-O CS Connect funciona como um conjunto de capacidades especializadas. Ele foi desenhado para **não atrapalhar tarefas simples**.
+| Componente | Estado |
+|---|---|
+| CS Navigator | **0.9.3 R3-final — candidato privado nativamente qualificado; submissão pública pendente** |
+| ZIP exato | SHA-256 `890b4a7f8257021e2dedce10bce0abfa415ca4ebbed44de7966d5b90ca38117b` |
+| Plugin privado | versão 0.9.3, ainda não listado publicamente |
+| 0.7.5 | fundação de Skill Containers / Container Guardian absorvida |
+| 0.8 | absorvida pela 0.9 |
+| Próxima linha | 0.10 — Ecosystem Intelligence & Community Scale |
 
-Exemplos simples continuam no próprio ChatGPT:
+Os gates estáticos e de pacote passaram. A requalificação semântica nativa no ChatGPT dos bytes exatos 0.9.3 passou 6/6 em 06/10/2026. A submissão pública continua pendente.
+
+## Como o CS Navigator deve se comportar
+
+Tarefas simples continuam nativas:
 
 ```text
 Quanto é 17 × 4?
@@ -37,127 +48,48 @@ Corrija esta frase.
 Resuma este parágrafo.
 ```
 
-Quando você quiser usar o CS Connect, basta dizer isso claramente:
+Quando quiser uma capacidade especializada:
 
 ```text
-Use CS Connect para pesquisar esta regra brasileira e separar lei, projeto de lei e notícia antiga.
-```
-
-```text
-Use CS Connect para organizar este projeto em poucos marcos verificáveis.
+Use CS Navigator para pesquisar esta regra brasileira e separar lei vigente, projeto de lei e notícia antiga.
 ```
 
 ```text
-Use CS Connect com behavioral-science para melhorar retenção sem dark patterns.
+Use CS Navigator para organizar este projeto em poucos marcos verificáveis.
 ```
 
-## Versão atual
+## Enquanto a publicação pública não terminar
 
-| Componente | Estado |
-|---|---|
-| CS Connect | **0.9.0 R2 — candidato de produção qualificado** |
-| ZIP qualificado | SHA-256 `3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce` |
-| 0.7.5 | absorvida como fundação interna de Skill Containers / Container Guardian |
-| 0.8 | absorvida pela 0.9 |
-| CLI `chatgpt-skills` | linha independente, atualmente `0.4.0` |
-| Próxima linha | 0.10 — Ecosystem Intelligence & Community Scale |
+Para usuários comuns, o melhor é aguardar a listagem pública.
 
-A qualificação do R2 é vinculada aos bytes exatos e aos casos registrados. Ela não significa segurança absoluta nem garantia de zero alucinação.
-
-## Enquanto a versão pública estiver em revisão
-
-Usuários comuns podem aguardar a listagem pública. Testadores e administradores têm caminhos alternativos:
-
-### A. ZIP qualificado
-
-Use o ZIP da release GitHub 0.9.0 e confira o SHA-256 antes de instalar em uma superfície que aceite upload de plugin.
-
-Esperado:
+Testadores técnicos podem usar o pacote exato apenas em uma superfície que aceite upload de plugin. Confira:
 
 ```text
-3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce
-```
-
-A existência do ZIP no computador não significa que ele esteja instalado. A superfície precisa aceitar upload/instalação e mostrar o plugin ativo.
-
-### B. Marketplace GitHub para workspace administrado
-
-Para administradores de workspace com importação de marketplace GitHub:
-
-```text
-Repositório: https://github.com/eusourmr/chatgpt-skills
-Caminho:     deixe vazio
-Ref:         use a tag estável da 0.9.0 quando publicada
-```
-
-Depois:
-
-```text
-Configurações do workspace → Plugins → Marketplaces → importar/sincronizar
-```
-
-Veja [Distribuição via GitHub](GITHUB_PLUGIN_DISTRIBUTION.md).
-
-### C. CLI para usuários técnicos
-
-O CLI possui linha de versão independente:
-
-```bash
-npx chatgpt-skills install
-```
-
-Inspecionar antes de adotar:
-
-```bash
-npx chatgpt-skills inspect cs-navigator
-```
-
-Diagnosticar instalação/exportação:
-
-```bash
-npx chatgpt-skills doctor
+890b4a7f8257021e2dedce10bce0abfa415ca4ebbed44de7966d5b90ca38117b
 ```
 
 ## Como saber se está funcionando
 
-Faça um teste simples:
-
 ```text
-Use CS Connect. Quanto é 17 × 4?
+Use CS Navigator. Quanto é 17 × 4?
 ```
 
-A resposta esperada é apenas **68**. Uma conta simples não precisa virar um workflow.
+Esperado: **68**, sem workflow desnecessário.
 
-Depois teste uma capacidade:
+A matriz de qualificação está em:
 
 ```text
-Use CS Connect para organizar um projeto grande em marcos e impedir que eu declare etapas concluídas sem evidência.
+tests/fixtures/v092-native-qualification-r3.json
 ```
-
-A resposta deve usar poucos marcos, exigir evidência antes de concluir e prever checkpoint/recuperação quando houver mudança difícil de desfazer.
-
-## Se algo der errado
-
-1. confirme se o nome exibido é **CS Connect**;
-2. confirme a versão instalada;
-3. se usa marketplace GitHub, execute **Sync now** quando disponível;
-4. se usa ZIP, confira o SHA-256;
-5. não presuma que uma evidência antiga vale para bytes novos;
-6. se usa CLI, execute `npx chatgpt-skills doctor`;
-7. abra uma issue no GitHub se o problema persistir.
 
 ## Para especialistas
 
-- nome público: **CS Connect**
-- slug técnico preservado: `cs-navigator`
-- versão: `0.9.0`
+- nome público: **CS Navigator**
+- slug técnico: `cs-navigator`
+- versão candidata: `0.9.3`
 - tipo: skills-only
-- MCP: não obrigatório
-- autenticação externa: não
-- pacote qualificado: R2
-- evidência: `release/candidates/cs-connect-v0.9.0-r2.json`
-- requalificação nativa: `trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json`
-
-Leia também [Publicação Pública](PUBLIC_PLUGIN_SUBMISSION.md), [Trust Passport](TRUST_PASSPORT.md) e [Skill Containers](SKILL_CONTAINERS.md).
+- candidato: R3-final
+- evidência do pacote: `release/candidates/cs-navigator-v0.9.3-r3.json`
+- requalificação nativa: pendente
 
 Projeto comunitário independente. Não afiliado nem endossado pela OpenAI.

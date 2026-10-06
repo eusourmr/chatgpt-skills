@@ -147,7 +147,7 @@ Do not reward raw submission count. That would create the same catalog inflation
 
 Stars are useful reach indicators, not product-quality evidence.
 
-Before broad promotion of a new release line, complete its evidence gates and publish reproducible examples. The current qualified product line is **CS Connect 0.9.0 R2**; 0.7.5 is an absorbed internal foundation, and 0.10 is the next ecosystem-intelligence line.
+Before broad promotion of a new release line, complete its evidence gates and publish reproducible examples. The current qualified product line is **CS Navigator 0.9.0 R2**; 0.7.5 is an absorbed internal foundation, and 0.10 is the next ecosystem-intelligence line.
 
 Recommended launch assets:
 

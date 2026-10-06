@@ -1,4 +1,4 @@
 interface:
-  display_name: "CS Connect"
+  display_name: "CS Navigator"
   short_description: "Route to the smallest useful CS capability"
-  default_prompt: "Use $cs-navigator as the CS Connect router. Keep native ChatGPT first, select the smallest useful capability, preserve evidence states, and never claim Guardian execution without a real decision record."
+  default_prompt: "Use $cs-navigator as the CS Navigator router. Keep native ChatGPT first, select the smallest useful capability, preserve evidence states, and never claim Guardian execution without a real decision record."

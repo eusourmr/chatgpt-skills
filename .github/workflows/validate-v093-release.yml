@@ -1,0 +1,75 @@
+name: Validate CS Navigator v0.9.3 R3
+
+on:
+  push:
+    branches:
+      - release/v0.9.3-r3-cs-navigator
+    paths:
+      - 'plugins/cs-navigator/**'
+      - 'submission/cs-navigator-0.9.3.json'
+      - 'release/v093-first-party-skills.json'
+      - 'release/candidates/cs-navigator-v0.9.3-r3.json'
+      - 'tests/fixtures/v093-native-qualification-r3.json'
+      - 'trust/evals/runs/cs-navigator-v0.9.3-r3-native-requalification.json'
+      - 'README*'
+      - 'ROADMAP.md'
+      - 'BUNDLES.md'
+      - 'docs/**'
+      - 'scripts/audit-cs-navigator-v093.mjs'
+      - '.github/workflows/validate-v093-release.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'plugins/cs-navigator/**'
+      - 'submission/cs-navigator-0.9.3.json'
+      - 'release/v093-first-party-skills.json'
+      - 'release/candidates/cs-navigator-v0.9.3-r3.json'
+      - 'tests/fixtures/v093-native-qualification-r3.json'
+      - 'trust/evals/runs/cs-navigator-v0.9.3-r3-native-requalification.json'
+      - 'README*'
+      - 'ROADMAP.md'
+      - 'BUNDLES.md'
+      - 'docs/**'
+      - 'scripts/audit-cs-navigator-v093.mjs'
+      - '.github/workflows/validate-v093-release.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: node scripts/audit-cs-navigator-v093.mjs
+      - run: node scripts/validate-skill-profiles.mjs
+      - run: node scripts/validate-skill-containers.mjs
+      - run: node scripts/eval-container-guardian.mjs --check
+      - run: node scripts/validate-public-plugin-submission.mjs
+      - name: Verify exact 0.9.3 candidate evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          c=json.load(open('release/candidates/cs-navigator-v0.9.3-r3.json',encoding='utf-8'))
+          assert c['version']=='0.9.3'
+          assert c['zip_sha256']=='4a54c159901f1a58d55420ab31a30d1839084b0ff885738b244db226897115b6'
+          assert c['entries']==63
+          assert c['qualification_state']=='native-qualified'
+          q=c['native_requalification']
+          assert (q['pass'],q['fail'],q['total'])==(6,0,6)
+          assert q['result']=='PASS'
+          print('CS Navigator 0.9.3 exact-byte evidence boundary OK.')
+          PY
+      - name: Enforce final public brand in plugin payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RIn --exclude='*.png' -F 'CS Connect' plugins/cs-navigator; then exit 1; fi
+          node scripts/security-gate-v2.mjs --path plugins/cs-navigator >/tmp/security-v093.json

@@ -1,0 +1,30 @@
+name: Validate CS Navigator v0.9.2 R3 (historical)
+
+on:
+  push:
+    branches:
+      - release/v0.9.2-r3-cs-navigator
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: node scripts/audit-cs-navigator-v092.mjs
+      - run: node scripts/validate-skill-profiles.mjs
+      - run: node scripts/validate-skill-containers.mjs
+      - run: node scripts/eval-container-guardian.mjs --check
+      - run: node scripts/validate-public-plugin-submission.mjs
+      - name: Enforce final public brand in plugin payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RIn --exclude='*.png' -F 'CS Connect' plugins/cs-navigator; then exit 1; fi
+          node scripts/security-gate-v2.mjs --path plugins/cs-navigator >/tmp/security-v092.json

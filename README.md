@@ -40,49 +40,45 @@ The quality catalog currently tracks **46 skills**: **12 OpenAI-published**, **1
 | Interactive installer | ✅ | ❌ |
 | Public health/progress report | ✅ | ❌ |
 | Regenerative/systemic design standard | ✅ | ❌ |
-| Skill Containers: fail-closed evidence/permission containment | ✅ CS Connect 0.9.0 | ❌ |
+| Skill Containers: fail-closed evidence/permission containment | ✅ CS Navigator 0.9.0 | ❌ |
 
 ## 🛡️ Current release
 
-**Current product release:** **CS Connect 0.9.0 — First-Party Skills Platform**.
+**Current product candidate:** **CS Navigator 0.9.3 — First-Party Skills Platform**.
 
-CS Connect keeps ordinary tasks native, adds the Verifiable Trust II / Skill Containers foundation, and bundles 15 original first-party workflows for writing, research, Brazilian context, academic/document review, design, engineering, visual preservation, project continuity, and founder/product strategy.
+CS Navigator keeps ordinary tasks native, includes the Verifiable Trust II / Skill Containers foundation, and bundles 15 original first-party workflows for writing, research, Brazilian context, academic/document review, design, engineering, visual preservation, project continuity, and founder/product strategy.
 
-The qualified production candidate is **R2**, bound to exact ZIP SHA-256:
+The exact R3 candidate ZIP is bound to SHA-256:
 
-`3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`
+`4a54c159901f1a58d55420ab31a30d1839084b0ff885738b244db226897115b6`
 
-Native qualification closed with the frozen matrix plus scoped R2 regressions. This is evidence for the recorded cases on exact bytes; it is not a universal safety guarantee or proof of zero hallucinations.
+Static/package gates pass: Skill Profiles, Skill Containers, Container Guardian 9/9, public-submission validation, Security Gate v2, and a zero-legacy-brand payload check. **Native ChatGPT semantic requalification of these exact 0.9.3 bytes passed 6/6 on 2026-10-06.** This qualifies the recorded release behavior; it does not turn every bundled workflow from `designed` into `tested`.
 
-The former 0.7.5 line is now an **internal foundation** of 0.9 rather than a standalone public release. The former 0.8 scope was absorbed into 0.9.
+The historical 0.9.0/R2 evidence remains preserved as predecessor evidence. The 0.9.1 private attempt was superseded before native qualification.
 
 > **No evidence → no invented fact. No permission → no self-escalation. No authorized path → stop.**
 
-Public directory status: the 0.9.0 plugin draft exists and is prepared for OpenAI review. Public availability is claimed only after the OpenAI submission portal shows the package approved **and** the owner explicitly publishes it.
+Public directory status: **private native-qualified 0.9.3 candidate exists, not publicly listed**. Public availability will be claimed only after OpenAI review, approval, and explicit publication.
 
-Read: [Getting Started](docs/GETTING_STARTED.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Public plugin submission](docs/PUBLIC_PLUGIN_SUBMISSION.md) · [Plugin maintenance](docs/PLUGIN_MAINTENANCE.md)
+Read: [Getting Started](docs/GETTING_STARTED.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Public plugin submission](docs/PUBLIC_PLUGIN_SUBMISSION.md)
 
 ## 🚀 Start in 1 Minute
 
-For most people, the intended installation is simple:
+Once public review and publication are complete:
 
 1. Open **Plugins** in ChatGPT or Codex.
-2. Search **CS Connect**.
+2. Search **CS Navigator**.
 3. Select **Install plugin**.
-4. Start a chat and write: `Use CS Connect para...`
+4. Start a chat and write: `Use CS Navigator para...`
 
-That path becomes available after OpenAI review and publication. Until then, GitHub/workspace and ZIP paths remain available for testers and administrators.
+Until then, the 0.9.3 package remains a private, native-qualified publication candidate.
 
-For a beginner-friendly guide first, and technical alternatives second, use:
-
-**[Getting Started →](docs/GETTING_STARTED.md)** · **[Português →](docs/GETTING_STARTED.pt-BR.md)**
-
-Version lines are independent:
-
-- CS Connect plugin: **0.9.0 qualified production candidate / public review path**
-- 0.7.5: **absorbed internal trust/runtime foundation**
-- 0.8: **absorbed into 0.9**
-- `chatgpt-skills` CLI/npm: **0.4.0**
+Version lines:
+- CS Navigator plugin: **0.9.3 R3 / native requalification PASS 6/6 / public submission pending**
+- technical slug: `cs-navigator`
+- 0.7.5: absorbed internal trust/runtime foundation
+- 0.8: absorbed into 0.9
+- `chatgpt-skills` CLI/npm: independent line
 - next product line: **0.10 — Ecosystem Intelligence & Community Scale**
 
 ## Featured OpenAI-native production skills

@@ -6,7 +6,7 @@ The `chatgpt-skills` CLI is published on npm. Plugin and CLI version lines are i
 
 ## 🧭 CS Core Bundle
 
-The smallest CLI entry point to the CS Connect Navigator:
+The smallest CLI entry point to the CS Navigator Navigator:
 
 - `cs-navigator`
 
@@ -20,7 +20,7 @@ For ChatGPT-oriented ZIP export:
 npx chatgpt-skills install --skill cs-navigator --tool chatgpt-web --yes
 ```
 
-For the current plugin path, use **CS Connect 0.9.0** and the qualified R2 evidence described in [Getting Started](docs/GETTING_STARTED.md). Public-directory availability is a separate OpenAI review/publication state.
+For the current plugin path, use **CS Navigator 0.9.0** and the qualified R2 evidence described in [Getting Started](docs/GETTING_STARTED.md). Public-directory availability is a separate OpenAI review/publication state.
 
 ## 🧑‍💻 Developer Bundle
 

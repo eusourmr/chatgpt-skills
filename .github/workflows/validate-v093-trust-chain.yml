@@ -1,0 +1,92 @@
+name: Repair and validate CS Navigator v0.9.3 trust chain
+
+on:
+  push:
+    branches:
+      - release/v0.9.3-r3-cs-navigator
+    paths:
+      - '.github/workflows/validate-v093-trust-chain.yml'
+      - 'skills/featured/cs-navigator/**'
+      - 'installer/manifest.json'
+      - 'trust/**'
+      - 'scripts/passport-lib.mjs'
+      - 'scripts/generate-trust-passports.mjs'
+      - 'scripts/validate-trust-passports.mjs'
+      - 'scripts/security-gate-v2.mjs'
+      - 'scripts/generate-risk-labels.mjs'
+      - 'scripts/update-drift-status.mjs'
+      - 'tests/test_drift_watch.py'
+      - 'tests/fixtures/capability-pack.json'
+      - 'scripts/validate-github-marketplace.mjs'
+  workflow_dispatch:
+
+concurrency:
+  group: v093-trust-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  repair-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: release/v0.9.3-r3-cs-navigator
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Refresh deterministic trust chain in dependency order
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/generate-trust-passports.mjs --write
+          node scripts/security-gate-v2.mjs --write
+          node scripts/generate-risk-labels.mjs --write
+          node scripts/generate-trust-passports.mjs --write
+          node scripts/update-drift-status.mjs --write --as-of 2026-10-05
+          node scripts/generate-navigator-snapshot.mjs
+
+      - name: Verify deterministic trust chain
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/generate-trust-passports.mjs --check
+          node scripts/validate-trust-passports.mjs --verify-git-source
+          node scripts/security-gate-v2.mjs --check
+          node scripts/generate-risk-labels.mjs --check
+          node scripts/update-drift-status.mjs --check --as-of 2026-10-05
+          node scripts/generate-navigator-snapshot.mjs --check
+          node scripts/validate-navigator.mjs
+          python -m unittest tests.test_drift_watch
+
+      - name: Commit refreshed trust evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add trust/passports trust/security-reports trust/risk-labels trust/upstream skills/featured/cs-navigator/references/catalog-snapshot.json plugins/cs-navigator/skills/cs-navigator/references/catalog-snapshot.json
+          if git diff --cached --quiet; then
+            echo "Trust chain already current."
+          else
+            git commit -m "v0.9.3: refresh CS Navigator trust chain"
+            git push origin HEAD:release/v0.9.3-r3-cs-navigator
+          fi
+
+      - name: Full repository validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run validate
+          npm run prepublish:check
+          npm run pack:check

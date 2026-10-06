@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "pack_version": "0.9.0",
+  "pack_version": "0.9.3",
   "router": "cs-navigator",
   "policy": "Install once, stay native when sufficient, and activate only the smallest materially useful CS workflow. Bundling never upgrades evidence.",
   "activation_contract": [
@@ -45,109 +45,109 @@
       "source": "skills/text-integrity-editor",
       "mode": "chat-native",
       "evidence_state": "designed",
-      "qualification_state": "pending-native-0.9"
+      "qualification_state": "pending-native-0.9.3-r3"
     },
     {
       "id": "evidence-first-research",
       "source": "skills/evidence-first-research",
       "mode": "chat-native",
       "evidence_state": "designed",
-      "qualification_state": "pending-native-0.9"
+      "qualification_state": "pending-native-0.9.3-r3"
     },
     {
       "id": "argument-article-architect",
       "source": "skills/argument-article-architect",
       "mode": "chat-native",
       "evidence_state": "designed",
-      "qualification_state": "pending-native-0.9"
+      "qualification_state": "pending-native-0.9.3-r3"
     },
     {
       "id": "founder-product-strategist",
       "source": "skills/founder-product-strategist",
       "mode": "chat-native",
       "evidence_state": "designed",
-      "qualification_state": "pending-native-0.9"
+      "qualification_state": "pending-native-0.9.3-r3"
     },
     {
       "id": "academic-integrity-reviewer",
       "source": "skills/academic-integrity-reviewer",
       "mode": "chat-native",
       "evidence_state": "designed",
-      "qualification_state": "pending-native-0.9"
+      "qualification_state": "pending-native-0.9.3-r3"
     },
     {
       "id": "document-compliance-auditor",
       "source": "skills/document-compliance-auditor",
       "mode": "chat-native",
       "evidence_state": "designed",
-      "qualification_state": "pending-native-0.9"
+      "qualification_state": "pending-native-0.9.3-r3"
     },
     {
       "id": "visual-intent-guardian",
       "source": "skills/visual-intent-guardian",
       "mode": "chat-native",
       "evidence_state": "designed",
-      "qualification_state": "pending-native-0.9"
+      "qualification_state": "pending-native-0.9.3-r3"
     },
     {
       "id": "photo-restoration-conservator",
       "source": "skills/photo-restoration-conservator",
       "mode": "chat-native",
       "evidence_state": "designed",
-      "qualification_state": "pending-native-0.9"
+      "qualification_state": "pending-native-0.9.3-r3"
     },
     {
       "id": "art-critique-studio",
       "source": "skills/art-critique-studio",
       "mode": "chat-native",
       "evidence_state": "designed",
-      "qualification_state": "pending-native-0.9"
+      "qualification_state": "pending-native-0.9.3-r3"
     },
     {
       "id": "design-system-studio",
       "source": "skills/design-system-studio",
       "mode": "chat-native",
       "evidence_state": "designed",
-      "qualification_state": "pending-native-0.9"
+      "qualification_state": "pending-native-0.9.3-r3"
     },
     {
       "id": "interactive-creative-builder",
       "source": "skills/interactive-creative-builder",
       "mode": "chat-native",
       "evidence_state": "designed",
-      "qualification_state": "pending-native-0.9"
+      "qualification_state": "pending-native-0.9.3-r3"
     },
     {
       "id": "engineering-investigator",
       "source": "skills/engineering-investigator",
       "mode": "chat-native",
       "evidence_state": "designed",
-      "qualification_state": "pending-native-0.9"
+      "qualification_state": "pending-native-0.9.3-r3"
     },
     {
       "id": "context-continuity-manager",
       "source": "skills/context-continuity-manager",
       "mode": "chat-native",
       "evidence_state": "designed",
-      "qualification_state": "pending-native-0.9"
+      "qualification_state": "pending-native-0.9.3-r3"
     },
     {
       "id": "project-execution-director",
       "source": "skills/project-execution-director",
       "mode": "chat-native",
       "evidence_state": "designed",
-      "qualification_state": "pending-native-0.9"
+      "qualification_state": "pending-native-0.9.3-r3"
     },
     {
       "id": "skill-workbench",
       "source": "skills/skill-workbench",
       "mode": "chat-native",
       "evidence_state": "designed",
-      "qualification_state": "pending-native-0.9"
+      "qualification_state": "pending-native-0.9.3-r3"
     }
   ],
   "container_guardian": {
-    "release_line": "0.9.0",
+    "release_line": "0.9.3",
     "decision_contract": [
       "ALLOW",
       "CONFIRM",
@@ -160,5 +160,5 @@
     "runtime_eval_reference": "skills/cs-navigator/references/container-guardian-runtime-eval.json",
     "evidence_boundary": "The 0.7.5 deterministic Guardian foundation is carried forward. Final 0.9 native qualification is required for claims about the released 0.9 package, and deterministic runtime evidence still does not prove Guardian execution inside ChatGPT."
   },
-  "product_name": "CS Connect"
+  "product_name": "CS Navigator"
 }

@@ -6,17 +6,15 @@ See [`docs/ECOSYSTEM_GROWTH_STRATEGY.md`](docs/ECOSYSTEM_GROWTH_STRATEGY.md) for
 
 ## Current position
 
-The current qualified product line is **CS Connect 0.9.0 — First-Party Skills Platform**.
+The current release candidate is **CS Navigator 0.9.3 — First-Party Skills Platform**. The exact R3 bytes passed the recorded native semantic requalification 6/6 on 2026-10-06; public submission remains pending.
 
-The exact production candidate is **R2**, ZIP SHA-256 `3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`. The initial frozen matrix exposed two real defects; both were fixed, and R2 completed a **5/5 change-impact native requalification** covering the repaired Brazil jurisdiction route, repaired project rollback route, Guardian STOP/no-bypass, native-first, and evidence-state preservation. GitHub Actions reproduced the same inner ZIP hash.
+The exact **R3-final** ZIP SHA-256 is `890b4a7f8257021e2dedce10bce0abfa415ca4ebbed44de7966d5b90ca38117b`. Static/package gates pass, including Skill Profiles, Skill Containers, Container Guardian 9/9, public-submission validation, Security Gate v2, and a zero-legacy-brand payload check. Native ChatGPT semantic requalification against `tests/fixtures/v092-native-qualification-r3.json` remains the final qualification gate before public submission.
 
-The former **0.7.5** line is now historical/internal foundation evidence for Skill Containers and Container Guardian. It was absorbed into 0.9 rather than released independently. The former **0.8** product scope was also absorbed into 0.9.
+The 0.9.0/R2 evidence remains immutable predecessor evidence. The private 0.9.1 attempt was superseded before native qualification because the Plugin Creator requires a version bump for a corrected package.
 
-Public directory review/publication is a distribution state separate from technical qualification. The 0.9 package must not be called publicly listed until OpenAI approval and explicit publication are verified.
+The public product name, documentation name, and plugin display name are now **CS Navigator**. The technical slug remains `cs-navigator`.
 
-The next product line is **v0.10 — Ecosystem Intelligence & Community Scale**.
-
-The project may scale discovery broadly while keeping trust claims narrow: `indexed`, `source-checked`, `tested`, and `recommended` remain distinct evidence states.
+The former 0.7.5 line remains historical/internal foundation evidence. The former 0.8 scope remains absorbed into 0.9. The next product line is **v0.10 — Ecosystem Intelligence & Community Scale**.
 
 ## v0.4 — Trust Layer
 
@@ -113,7 +111,7 @@ Remain `unrated` until real review data exists.
 
 ## v0.7.5 — Verifiable Trust II & Containers — HISTORICAL FOUNDATION / ABSORBED INTO 0.9
 
-Container Guardian I foundation was merged to `main`, passed its deterministic gates, and was incorporated into the exact CS Connect 0.9.0 R2 package. It is not a standalone public release.
+Container Guardian I foundation was merged to `main`, passed its deterministic gates, and was incorporated into the exact CS Navigator 0.9.0 R2 package. It is not a standalone public release.
 
 Extend verifiable trust from **what was reviewed** to **what the skill is allowed to do during execution**.
 

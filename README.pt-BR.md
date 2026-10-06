@@ -13,45 +13,41 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 ## 🛡️ Release atual
 
-**Release atual do produto:** **CS Connect 0.9.0 — First-Party Skills Platform**.
+**Candidato atual do produto:** **CS Navigator 0.9.3 — First-Party Skills Platform**.
 
-O CS Connect mantém tarefas simples no próprio ChatGPT, incorpora a fundação Verifiable Trust II / Skill Containers e reúne 15 workflows first-party próprios para escrita, pesquisa, contexto brasileiro, revisão acadêmica/documental, design, engenharia, preservação visual, continuidade de projetos e estratégia de produto.
+O CS Navigator mantém tarefas simples no próprio ChatGPT, incorpora Verifiable Trust II / Skill Containers e reúne 15 workflows first-party próprios para escrita, pesquisa, contexto brasileiro, revisão acadêmica/documental, design, engenharia, preservação visual, continuidade de projetos e estratégia de produto.
 
-O candidato de produção qualificado é o **R2**, ligado ao ZIP exato com SHA-256:
+O ZIP exato do candidato R3 está ligado ao SHA-256:
 
-`3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce`
+`4a54c159901f1a58d55420ab31a30d1839084b0ff885738b244db226897115b6`
 
-A qualificação nativa foi concluída com a matriz congelada e as regressões específicas do R2. Isso comprova os cenários registrados nesses bytes exatos; não é promessa de segurança absoluta nem de “zero alucinação”.
+Os gates estáticos e de pacote passaram: Skill Profiles, Skill Containers, Container Guardian 9/9, validação de submissão pública, Security Gate v2 e verificação de **zero referências à marca antiga dentro do pacote**. A **requalificação semântica nativa no ChatGPT desses bytes exatos passou 6/6 em 06/10/2026**. Isso qualifica o comportamento registrado da release; não transforma automaticamente todos os workflows incluídos de `designed` em `tested`.
 
-A antiga linha 0.7.5 virou **fundação interna** da 0.9 e não será lançada separadamente. O escopo que antes seria 0.8 foi absorvido pela 0.9.
+A evidência 0.9.0/R2 permanece preservada como histórico. A tentativa privada 0.9.1 foi substituída antes da qualificação nativa.
 
 > **Sem evidência → não inventar. Sem permissão → não se autorizar sozinho. Sem caminho autorizado → parar.**
 
-Estado do diretório público: o draft 0.9.0 já foi criado e está preparado para o fluxo de revisão da OpenAI. Só chamaremos de “publicado no diretório” depois da aprovação e do clique explícito em **Publish plugin**.
+Estado do diretório público: existe um **candidato privado 0.9.3 nativamente qualificado**, ainda não listado publicamente. Só chamaremos de publicado depois da revisão da OpenAI, aprovação e publicação explícita.
 
-Leia: [Primeiros Passos](docs/GETTING_STARTED.pt-BR.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Publicação pública](docs/PUBLIC_PLUGIN_SUBMISSION.md) · [Manutenção](docs/PLUGIN_MAINTENANCE.pt-BR.md)
+Leia: [Primeiros Passos](docs/GETTING_STARTED.pt-BR.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Publicação pública](docs/PUBLIC_PLUGIN_SUBMISSION.md)
 
 ## 🚀 Comece em 1 minuto
 
-Para a maioria das pessoas, o caminho pretendido é:
+Depois da aprovação e publicação pública:
 
-1. Abra **Plugins** no ChatGPT ou no Codex.
-2. Procure por **CS Connect**.
+1. Abra **Plugins** no ChatGPT ou Codex.
+2. Pesquise por **CS Navigator**.
 3. Clique em **Instalar plugin**.
-4. Em uma conversa, escreva: `Use CS Connect para...`
+4. Em uma conversa, escreva: `Use CS Navigator para...`
 
-Esse caminho ficará disponível assim que a OpenAI aprovar e o plugin for publicado. Enquanto estiver em revisão, continuam disponíveis os caminhos por GitHub/workspace e ZIP para testes e administração.
+Até lá, a 0.9.3 permanece um candidato privado, nativamente qualificado, aguardando submissão pública.
 
-O guia começa pela instalação mais simples e só depois mostra opções técnicas:
-
-**[Primeiros Passos →](docs/GETTING_STARTED.pt-BR.md)**
-
-Linhas de versão independentes:
-
-- plugin CS Connect: **0.9.0 candidato de produção qualificado / caminho de revisão pública**
-- 0.7.5: **fundação interna de confiança/runtime absorvida**
-- 0.8: **absorvida pela 0.9**
-- CLI/npm `chatgpt-skills`: **0.4.0**
+Linhas de versão:
+- plugin CS Navigator: **0.9.3 R3 / requalificação nativa PASS 6/6 / submissão pública pendente**
+- slug técnico: `cs-navigator`
+- 0.7.5: fundação interna absorvida
+- 0.8: absorvida pela 0.9
+- CLI/npm: linha independente
 - próxima linha: **0.10 — Ecosystem Intelligence & Community Scale**
 
 ## Por que esta lista existe

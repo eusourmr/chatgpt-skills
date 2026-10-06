@@ -3,11 +3,11 @@ name: cs-navigator
 description: Route only capability-selection questions to the smallest evidence-backed ChatGPT Skill set. Use when the user is deciding which skill, plugin, workflow, or capability to use; whether any skill is needed; whether CS covers a job; or whether an external skill has enough evidence to trust. Do not activate from task subject matter alone. Direct requests to write, explain, summarize, translate, calculate, analyze, research, or create should stay with ChatGPT unless the user is explicitly asking about capability selection.
 ---
 
-# CS Connect — Navigator
+# CS Navigator
 
 Help the user move from **“I want to do this”** to the smallest useful capability set while keeping the work inside ChatGPT whenever practical.
 
-## Skill Container runtime boundary — 0.9.0
+## Skill Container runtime boundary — 0.9.3
 
 The deterministic Container Guardian exists outside the chat-native skill instructions. **Do not claim that the Guardian executed unless the host/runtime provides an actual Guardian decision record.** The bundled runtime evidence proves only the tested deterministic module behavior.
 
@@ -24,13 +24,13 @@ Keep the existing native-first routing rule. Container logic must not become a r
 
 The runtime eval reference is evidence for the Guardian module only. It must not be promoted to native ChatGPT qualification, zero-hallucination proof, or an absolute safety guarantee.
 
-## CS Connect 0.9 first-party routing
+## CS Navigator 0.9 first-party routing
 
-The public product name is **CS Connect**; the technical router skill ID remains `cs-navigator` to preserve update compatibility.
+The public product name is **CS Navigator**; the technical router skill ID remains `cs-navigator` to preserve update compatibility.
 
-An explicit request to **use CS Connect** counts as capability-selection intent. After the native-sufficiency check, consult `references/first-party-capabilities.json` for bundled 0.9 first-party workflows.
+An explicit request to **use CS Navigator** counts as capability-selection intent. After the native-sufficiency check, consult `references/first-party-capabilities.json` for bundled 0.9 first-party workflows.
 
-The first-party capability index is not a Trust Passport. Until final 0.9 exact-byte qualification passes, its new skills are `designed`, `pending-native-0.9`, and `not-yet-qualified`. Never promote those states to `tested` or `recommended` merely because the skills are bundled.
+The first-party capability index is not a Trust Passport. Until final 0.9.3 R3 exact-byte qualification passes, its new skills are `designed`, `pending-native-0.9.3-r3`, and `not-yet-qualified`. Never promote those states to `tested` or `recommended` merely because the skills are bundled.
 
 Routing families:
 - writing: `text-integrity-editor`, `argument-article-architect`, `academic-integrity-reviewer`, `document-compliance-auditor`;
@@ -45,7 +45,7 @@ Prefer one skill. Compose only when each capability contributes a distinct neces
 
 ### Mandatory Brazil current-rule routing gate
 
-When an explicit CS Connect request asks about a **current Brazilian rule, law, regulation, public-policy requirement, or administrative requirement**, route to `evidence-first-research` with `brasil-context`.
+When an explicit CS Navigator request asks about a **current Brazilian rule, law, regulation, public-policy requirement, or administrative requirement**, route to `evidence-first-research` with `brasil-context`.
 
 Before asking a follow-up or stating a current rule, the response MUST expose the jurisdiction gate:
 

@@ -22,10 +22,10 @@
     ],
     "independent_review": false
   },
-  "policy": "A Trust Passport records evidence for an exact reviewed skill artifact. It is not a safety guarantee, popularity score, or permanent recommendation. CS Connect 0.9 renews the cs-navigator/Navigator source binding through a per-skill override; changing reviewed skill bytes requires renewed artifact evidence.",
+  "policy": "A Trust Passport records evidence for an exact reviewed skill artifact. It is not a safety guarantee, popularity score, or permanent recommendation. CS Navigator renews the cs-navigator source binding through a per-skill override; changing reviewed skill bytes requires renewed artifact evidence.",
   "skill_overrides": {
     "cs-navigator": {
-      "reviewed_source_revision": "6d0f712f1e7c1fae5287135e2d1a6dd25e9e4a7a",
+      "reviewed_source_revision": "8329d547b663806bb96c8530908631067d066684",
       "reviewed_at": "2026-10-05",
       "stale_after_days": 90
     }
