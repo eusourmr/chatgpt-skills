@@ -1,0 +1,58 @@
+name: Export exact CS Navigator v0.9.4 package
+
+on:
+  push:
+    branches:
+      - ops/export-cs-navigator-v0.9.4
+    paths:
+      - '.github/workflows/export-cs-navigator-v094.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Build and verify exact package
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build-public-plugin-submission.mjs
+          ZIP='dist/plugin-submission/cs-navigator-plugin-0.9.4.zip'
+          EXPECTED='09006530db5c40b332f717d75584d3e06ebe265aac610a1b42f6a1544a988494'
+          test -f "$ZIP"
+          unzip -t "$ZIP"
+          actual=$(sha256sum "$ZIP" | awk '{print $1}')
+          test "$actual" = "$EXPECTED"
+          grep -q "$EXPECTED" "$ZIP.sha256"
+          python - <<'PY'
+          import json,zipfile
+          p='dist/plugin-submission/cs-navigator-plugin-0.9.4.zip'
+          with zipfile.ZipFile(p) as z:
+              assert z.testzip() is None
+              names=z.namelist()
+              assert len(names)==63, len(names)
+              plugin=json.loads(z.read('cs-navigator/plugin.json'))
+              assert plugin['version']=='0.9.4'
+              ui=plugin['extensions']['com.openai']['interface']
+              assert ui['shortDescription']=='Evidence-aware skill routing'
+          print('Exact CS Navigator 0.9.4 export verified.')
+          PY
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: cs-navigator-v0.9.4-final-exact
+          path: |
+            dist/plugin-submission/cs-navigator-plugin-0.9.4.zip
+            dist/plugin-submission/cs-navigator-plugin-0.9.4.zip.sha256
+          if-no-files-found: error
