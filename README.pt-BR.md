@@ -13,13 +13,13 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 ## 🛡️ Release atual
 
-**Candidato atual do produto:** **CS Navigator 0.9.2 — First-Party Skills Platform**.
+**Candidato atual do produto:** **CS Navigator 0.9.3 — First-Party Skills Platform**.
 
 O CS Navigator mantém tarefas simples no próprio ChatGPT, incorpora Verifiable Trust II / Skill Containers e reúne 15 workflows first-party próprios para escrita, pesquisa, contexto brasileiro, revisão acadêmica/documental, design, engenharia, preservação visual, continuidade de projetos e estratégia de produto.
 
 O ZIP exato do candidato R3 está ligado ao SHA-256:
 
-`890b4a7f8257021e2dedce10bce0abfa415ca4ebbed44de7966d5b90ca38117b`
+`4a54c159901f1a58d55420ab31a30d1839084b0ff885738b244db226897115b6`
 
 Os gates estáticos e de pacote passaram: Skill Profiles, Skill Containers, Container Guardian 9/9, validação de submissão pública, Security Gate v2 e verificação de **zero referências à marca antiga dentro do pacote**. A **requalificação semântica nativa no ChatGPT desses bytes exatos ainda está pendente**.
 
@@ -27,7 +27,7 @@ A evidência 0.9.0/R2 permanece preservada como histórico. A tentativa privada 
 
 > **Sem evidência → não inventar. Sem permissão → não se autorizar sozinho. Sem caminho autorizado → parar.**
 
-Estado do diretório público: existe um **draft privado 0.9.2**, ainda não listado publicamente. Só chamaremos de publicado depois da qualificação nativa R3, revisão da OpenAI, aprovação e publicação explícita.
+Estado do diretório público: existe um **draft privado 0.9.3**, ainda não listado publicamente. Só chamaremos de publicado depois da qualificação nativa R3, revisão da OpenAI, aprovação e publicação explícita.
 
 Leia: [Primeiros Passos](docs/GETTING_STARTED.pt-BR.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Publicação pública](docs/PUBLIC_PLUGIN_SUBMISSION.md)
 
@@ -40,10 +40,10 @@ Depois da aprovação e publicação pública:
 3. Clique em **Instalar plugin**.
 4. Em uma conversa, escreva: `Use CS Navigator para...`
 
-Até lá, a 0.9.2 permanece um candidato privado de qualificação.
+Até lá, a 0.9.3 permanece um candidato privado de qualificação.
 
 Linhas de versão:
-- plugin CS Navigator: **0.9.2 R3 / requalificação nativa pendente**
+- plugin CS Navigator: **0.9.3 R3 / requalificação nativa pendente**
 - slug técnico: `cs-navigator`
 - 0.7.5: fundação interna absorvida
 - 0.8: absorvida pela 0.9
