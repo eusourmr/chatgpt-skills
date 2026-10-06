@@ -44,21 +44,21 @@ The quality catalog currently tracks **46 skills**: **12 OpenAI-published**, **1
 
 ## 🛡️ Current release
 
-**Current product candidate:** **CS Navigator 0.9.2 — First-Party Skills Platform**.
+**Current product candidate:** **CS Navigator 0.9.3 — First-Party Skills Platform**.
 
 CS Navigator keeps ordinary tasks native, includes the Verifiable Trust II / Skill Containers foundation, and bundles 15 original first-party workflows for writing, research, Brazilian context, academic/document review, design, engineering, visual preservation, project continuity, and founder/product strategy.
 
 The exact R3 candidate ZIP is bound to SHA-256:
 
-`890b4a7f8257021e2dedce10bce0abfa415ca4ebbed44de7966d5b90ca38117b`
+`4a54c159901f1a58d55420ab31a30d1839084b0ff885738b244db226897115b6`
 
-Static/package gates pass: Skill Profiles, Skill Containers, Container Guardian 9/9, public-submission validation, Security Gate v2, and a zero-legacy-brand payload check. **Native ChatGPT semantic requalification of these exact 0.9.2 bytes is still pending**, so do not call R3 natively qualified yet.
+Static/package gates pass: Skill Profiles, Skill Containers, Container Guardian 9/9, public-submission validation, Security Gate v2, and a zero-legacy-brand payload check. **Native ChatGPT semantic requalification of these exact 0.9.3 bytes is still pending**, so do not call R3 natively qualified yet.
 
 The historical 0.9.0/R2 evidence remains preserved as predecessor evidence. The 0.9.1 private attempt was superseded before native qualification.
 
 > **No evidence → no invented fact. No permission → no self-escalation. No authorized path → stop.**
 
-Public directory status: **private draft 0.9.2 exists, not publicly listed**. Public availability will be claimed only after native R3 qualification, OpenAI review, approval, and explicit publication.
+Public directory status: **private draft 0.9.3 exists, not publicly listed**. Public availability will be claimed only after native R3 qualification, OpenAI review, approval, and explicit publication.
 
 Read: [Getting Started](docs/GETTING_STARTED.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Public plugin submission](docs/PUBLIC_PLUGIN_SUBMISSION.md)
 
@@ -71,10 +71,10 @@ Once public review and publication are complete:
 3. Select **Install plugin**.
 4. Start a chat and write: `Use CS Navigator para...`
 
-Until then, the 0.9.2 package remains a private qualification candidate.
+Until then, the 0.9.3 package remains a private qualification candidate.
 
 Version lines:
-- CS Navigator plugin: **0.9.2 R3 candidate / native requalification pending**
+- CS Navigator plugin: **0.9.3 R3 candidate / native requalification pending**
 - technical slug: `cs-navigator`
 - 0.7.5: absorbed internal trust/runtime foundation
 - 0.8: absorbed into 0.9
