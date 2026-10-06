@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "pack_version": "0.9.3",
+  "pack_version": "0.9.4",
   "router": "cs-navigator",
   "policy": "Install once, stay native when sufficient, and activate only the smallest materially useful CS workflow. Bundling never upgrades evidence.",
   "activation_contract": [
@@ -147,7 +147,7 @@
     }
   ],
   "container_guardian": {
-    "release_line": "0.9.3",
+    "release_line": "0.9.4",
     "decision_contract": [
       "ALLOW",
       "CONFIRM",
