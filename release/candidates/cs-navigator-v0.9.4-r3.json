@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "product": "CS Navigator",
+  "technical_plugin_slug": "cs-navigator",
+  "version": "0.9.4",
+  "candidate": "R3-final-submission-compliance",
+  "source_commit": "4c04f9c016bc7424e01b377bdf88577f3bc566fe",
+  "zip_sha256": "09006530db5c40b332f717d75584d3e06ebe265aac610a1b42f6a1544a988494",
+  "entries": 63,
+  "qualification_state": "compliance-qualified",
+  "behavior_payload_inherited_from": "cs-navigator-v0.9.3",
+  "behavior_change": false,
+  "trust_chain_run_id": 37473658437,
+  "build_run_id": 37473843070,
+  "gates": {
+    "submission_claim_language": "PASS",
+    "privacy_policy_structure": "PASS",
+    "trust_chain": "PASS",
+    "drift_watch": "PASS",
+    "trust_passports": "PASS",
+    "catalog": "PASS",
+    "security_gate_v2": "PASS",
+    "container_guardian": "9/9 PASS",
+    "public_submission_validation": "PASS"
+  }
+}

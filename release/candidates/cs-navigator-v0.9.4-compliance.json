@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "product": "CS Navigator",
+  "version": "0.9.4",
+  "candidate": "submission-compliance",
+  "source_commit": "4c04f9c016bc7424e01b377bdf88577f3bc566fe",
+  "zip_sha256": "09006530db5c40b332f717d75584d3e06ebe265aac610a1b42f6a1544a988494",
+  "entries": 63,
+  "workflow_run_id": 37473843070,
+  "workflow_artifact_id": 11417262508,
+  "behavior_payload_inherited_from": "cs-navigator-v0.9.3",
+  "behavior_change": false,
+  "qualification_state": "compliance-qualified-final",
+  "gates": {
+    "behavior_payload_inheritance": "PASS",
+    "listing_claim_language": "PASS",
+    "privacy_policy_structure": "PASS",
+    "skill_profiles": "PASS",
+    "skill_containers": "PASS",
+    "container_guardian": "9/9 PASS",
+    "public_submission_validation": "PASS",
+    "security_gate_v2": "PASS",
+    "legacy_brand_inside_plugin_payload": "PASS",
+    "zip_structure": "PASS"
+  },
+  "supersedes_intermediate_sha": "b94bac7e77390c9c23705907a7d0038013d37af0acfc89b38daaa6897e034906"
+}
