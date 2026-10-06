@@ -1,6 +1,6 @@
 # Public OpenAI Plugin Directory — CS Navigator
 
-This is the release checklist for publishing **CS Navigator 0.9.2** to OpenAI's public plugin directory.
+This is the release checklist for publishing **CS Navigator 0.9.3** to OpenAI's public plugin directory.
 
 For end-user installation, see [Getting Started](GETTING_STARTED.md). For managed repository distribution, see [GitHub Plugin Distribution](GITHUB_PLUGIN_DISTRIBUTION.md).
 
@@ -8,14 +8,14 @@ For end-user installation, see [Getting Started](GETTING_STARTED.md). For manage
 
 - public name: **CS Navigator**
 - technical slug: `cs-navigator`
-- version: `0.9.2`
+- version: `0.9.3`
 - candidate: **R3-final**
 - package type: skills-only
-- exact ZIP SHA-256: `890b4a7f8257021e2dedce10bce0abfa415ca4ebbed44de7966d5b90ca38117b`
+- exact ZIP SHA-256: `4a54c159901f1a58d55420ab31a30d1839084b0ff885738b244db226897115b6`
 - exact entries: 63
-- source commit: `6cccec6525501637900a7d2d845b5daac870bf7d`
-- package record: `release/candidates/cs-navigator-v0.9.2-r3.json`
-- native qualification matrix: `tests/fixtures/v092-native-qualification-r3.json`
+- source commit: `b5886d8c981423d6704d527495f710a73a4e9f9d`
+- package record: `release/candidates/cs-navigator-v0.9.3-r3.json`
+- native qualification matrix: `tests/fixtures/v093-native-qualification-r3.json`
 
 Static/package validation has passed. Native ChatGPT semantic requalification of the exact R3 bytes is still required before public submission.
 
@@ -27,14 +27,14 @@ The editable private plugin is:
 plugins_6ac41c5909b481918b0523726e763aa3
 ```
 
-Its current private release is **CS Navigator 0.9.2**. It is not a public listing.
+Its current private release is **CS Navigator 0.9.3**. It is not a public listing.
 
 ## Submission order
 
 1. complete exact-byte native R3 requalification;
 2. record the passing run and update R3 evidence metadata;
 3. merge the final release branch;
-4. create the GitHub tag/release for `cs-navigator-v0.9.2` using the already-qualified ZIP;
+4. create the GitHub tag/release for `cs-navigator-v0.9.3` using the already-qualified ZIP;
 5. open the existing private CS Navigator plugin;
 6. choose the verified developer identity;
 7. submit the exact qualified package for OpenAI review;
