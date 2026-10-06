@@ -35,9 +35,22 @@ jobs:
           git fetch --tags --force
           changed=$(git diff --name-only cs-navigator-v0.9.3...HEAD -- plugins/cs-navigator)
           printf '%s\n' "$changed"
-          test "$changed" = "plugins/cs-navigator/plugin.json"
+          printf '%s\n' "$changed" | grep -qx 'plugins/cs-navigator/capability-pack.json'
+          printf '%s\n' "$changed" | grep -qx 'plugins/cs-navigator/plugin.json'
+          test "$(printf '%s\n' "$changed" | wc -l | tr -d ' ')" = "2"
 
-          git diff --exit-code cs-navigator-v0.9.3...HEAD --             plugins/cs-navigator/skills             plugins/cs-navigator/capability-pack.json             plugins/cs-navigator/assets
+          git diff --exit-code cs-navigator-v0.9.3...HEAD --             plugins/cs-navigator/skills             plugins/cs-navigator/assets
+
+          python - <<'PY'
+          import json, subprocess
+          old=json.loads(subprocess.check_output(['git','show','cs-navigator-v0.9.3:plugins/cs-navigator/capability-pack.json']))
+          new=json.load(open('plugins/cs-navigator/capability-pack.json',encoding='utf-8'))
+          old['pack_version']=new['pack_version']
+          old['container_guardian']['release_line']=new['container_guardian']['release_line']
+          assert old==new
+          assert new['pack_version']=='0.9.4'
+          assert new['container_guardian']['release_line']=='0.9.4'
+          PY
 
           echo 'Behavior payload inheritance boundary PASS.'
 
