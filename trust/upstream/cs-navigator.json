@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "skill_id": "cs-navigator",
-  "reviewed_source_revision": "8329d547b663806bb96c8530908631067d066684",
-  "reviewed_artifact_sha256": "2a3ce11b1208c79a5d21aaec06f276b6f6b99462d4a4c3fc64051c2e0317c21c",
-  "current_artifact_sha256": "2a3ce11b1208c79a5d21aaec06f276b6f6b99462d4a4c3fc64051c2e0317c21c",
-  "review_due_at": "2027-01-03",
+  "reviewed_source_revision": "a66fd4b12cf4e659697307f96f1517103bcbdb8f",
+  "reviewed_artifact_sha256": "7abb48e09b6dbdf284d934c5cb0a5bb70c61e70941a3769116c22e964a550a55",
+  "current_artifact_sha256": "7abb48e09b6dbdf284d934c5cb0a5bb70c61e70941a3769116c22e964a550a55",
+  "review_due_at": "2027-01-04",
   "state": "current",
   "action": "none",
   "policy": "A reviewed artifact cannot inherit trust after byte drift or evidence expiry without re-review."
