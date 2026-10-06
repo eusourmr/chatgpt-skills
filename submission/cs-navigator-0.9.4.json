@@ -268,5 +268,9 @@
     "change_scope": "plugin listing metadata, plugin version, submission metadata and external privacy policy only",
     "behavior_change": "none intended",
     "required_requalification": "change-impact validation plus exact-byte package checks; rerun semantic cases only if skill bytes differ"
-  }
+  },
+  "compliance_notes": [
+    "Public listing language revised to avoid unsupported trust or safety guarantees.",
+    "Privacy policy now explicitly covers developer-side collection, processing purpose, recipients, retention, user controls and contact."
+  ]
 }
