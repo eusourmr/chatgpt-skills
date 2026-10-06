@@ -1,0 +1,130 @@
+name: Release CS Navigator v0.9.4
+# One-shot release workflow for the submission-compliance payload.
+
+on:
+  push:
+    branches:
+      - ops/release-cs-navigator-v0.9.4
+    paths:
+      - '.github/workflows/release-cs-navigator-v094.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out exact merged release source
+        uses: actions/checkout@v6
+        with:
+          ref: 086433ba58eb6b82748a0d24914e6414c82e7245
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Build and verify qualified plugin archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build-public-plugin-submission.mjs
+          ZIP='dist/plugin-submission/cs-navigator-plugin-0.9.4.zip'
+          SHA_FILE="${ZIP}.sha256"
+          EXPECTED='09006530db5c40b332f717d75584d3e06ebe265aac610a1b42f6a1544a988494'
+
+          test -f "$ZIP"
+          test -f "$SHA_FILE"
+          unzip -t "$ZIP"
+
+          actual=$(sha256sum "$ZIP" | awk '{print $1}')
+          test "$actual" = "$EXPECTED"
+          grep -q "$EXPECTED" "$SHA_FILE"
+
+          python - <<'PY'
+          import json, zipfile
+          p='dist/plugin-submission/cs-navigator-plugin-0.9.4.zip'
+          with zipfile.ZipFile(p) as z:
+              names=z.namelist()
+              assert z.testzip() is None
+              assert len(names)==63, len(names)
+              plugin=json.loads(z.read('cs-navigator/plugin.json'))
+              assert plugin['name']=='cs-navigator'
+              assert plugin['version']=='0.9.4'
+              ui=plugin['extensions']['com.openai']['interface']
+              assert ui['displayName']=='CS Navigator'
+              assert ui['shortDescription']=='Evidence-aware skill routing'
+              assert 'Trusted skills' not in ui['shortDescription']
+          print('Release payload verified: CS Navigator 0.9.4, 63 entries, exact SHA.')
+          PY
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: cs-navigator-v0.9.4
+          RELEASE_SHA: 086433ba58eb6b82748a0d24914e6414c82e7245
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if gh release view "$TAG" --repo eusourmr/chatgpt-skills >/dev/null 2>&1; then
+            echo "Release $TAG already exists."
+            exit 0
+          fi
+
+          if gh api "repos/eusourmr/chatgpt-skills/git/ref/tags/$TAG" >/tmp/tag.json 2>/dev/null; then
+            current=$(jq -r '.object.sha' /tmp/tag.json)
+            test "$current" = "$RELEASE_SHA"
+          else
+            gh api --method POST repos/eusourmr/chatgpt-skills/git/refs \
+              -f ref="refs/tags/$TAG" \
+              -f sha="$RELEASE_SHA"
+          fi
+
+          cat > /tmp/release-notes.md <<'EOF'
+          ## CS Navigator 0.9.4 — Submission Compliance
+
+          This release is a focused public-submission compliance update.
+
+          ### What changed
+          - Public listing copy is factual and avoids broad trust or safety guarantees.
+          - Short description changed to **Evidence-aware skill routing**.
+          - Privacy policy now explicitly covers developer-side data collection, processing purpose, recipients, retention, user controls and contact.
+          - Capability-pack and Navigator snapshot version metadata are aligned to 0.9.4.
+          - Trust Passport, Security Gate v2, Risk Label and freshness records were refreshed against the reviewed 0.9.4 canonical bytes.
+
+          ### What did not change
+          - No CS workflow instructions, profiles or behavioral routing contracts were changed for this compliance release.
+          - The semantic behavior evidence from 0.9.3 remains the behavior baseline, with 0.9.4 separately bound to its exact package bytes and refreshed trust chain.
+
+          ### Validation
+          - Public submission validation: **PASS**
+          - Listing-claim compliance gate: **PASS**
+          - Privacy policy structure gate: **PASS**
+          - Trust chain: **PASS**
+          - Trust Passports: **PASS**
+          - Drift Watch: **PASS**
+          - Security Gate v2: **PASS**
+          - Validate catalog: **PASS**
+          - Validate npm package: **PASS**
+          - Container Guardian deterministic module: **9/9 PASS**
+
+          ### Integrity
+          - Release source commit: `086433ba58eb6b82748a0d24914e6414c82e7245`
+          - Plugin ZIP SHA-256: `09006530db5c40b332f717d75584d3e06ebe265aac610a1b42f6a1544a988494`
+          - Plugin entries: **63**
+
+          ### Evidence boundary
+          These checks support the recorded 0.9.4 submission-compliance artifact. They are not a universal safety guarantee, a zero-hallucination claim, or proof that Container Guardian executed in a chat without an actual runtime decision record.
+          EOF
+
+          gh release create "$TAG" \
+            'dist/plugin-submission/cs-navigator-plugin-0.9.4.zip#CS Navigator 0.9.4 plugin' \
+            'dist/plugin-submission/cs-navigator-plugin-0.9.4.zip.sha256#SHA-256 checksum' \
+            --repo eusourmr/chatgpt-skills \
+            --target "$RELEASE_SHA" \
+            --title 'CS Navigator 0.9.4 — Submission Compliance' \
+            --notes-file /tmp/release-notes.md
