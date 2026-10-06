@@ -3,14 +3,14 @@
   "product": "CS Navigator",
   "version": "0.9.4",
   "candidate": "submission-compliance",
-  "source_commit": "701c8a7fc2305c27b951469dcaec48f1019b987f",
-  "zip_sha256": "b94bac7e77390c9c23705907a7d0038013d37af0acfc89b38daaa6897e034906",
+  "source_commit": "4c04f9c016bc7424e01b377bdf88577f3bc566fe",
+  "zip_sha256": "09006530db5c40b332f717d75584d3e06ebe265aac610a1b42f6a1544a988494",
   "entries": 63,
-  "workflow_run_id": 37471724315,
+  "workflow_run_id": 37473843070,
   "workflow_artifact_id": 11417262508,
   "behavior_payload_inherited_from": "cs-navigator-v0.9.3",
   "behavior_change": false,
-  "qualification_state": "compliance-qualified",
+  "qualification_state": "compliance-qualified-final",
   "gates": {
     "behavior_payload_inheritance": "PASS",
     "listing_claim_language": "PASS",
@@ -22,5 +22,6 @@
     "security_gate_v2": "PASS",
     "legacy_brand_inside_plugin_payload": "PASS",
     "zip_structure": "PASS"
-  }
+  },
+  "supersedes_intermediate_sha": "b94bac7e77390c9c23705907a7d0038013d37af0acfc89b38daaa6897e034906"
 }
