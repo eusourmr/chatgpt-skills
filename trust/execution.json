@@ -56,10 +56,10 @@
     },
     "cs-navigator": {
       "mode": "chat-native",
-      "evidence_state": "tested",
-      "minimum_setup": "Install CS Connect. The technical plugin slug remains cs-navigator; the core routing workflow is chat-native with no mandatory external app or local runtime.",
+      "evidence_state": "designed",
+      "minimum_setup": "Install CS Navigator. The technical plugin slug remains cs-navigator. The core routing workflow is chat-native; connected actions are optional and retain normal platform permission and confirmation requirements.",
       "required_capabilities": [],
-      "evidence": "CS Connect 0.9.0 R2 exact artifact 3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce, source 6d0f712f1e7c1fae5287135e2d1a6dd25e9e4a7a, passed recorded scoped native requalification on ChatGPT. Evidence is recorded in trust/in-product-tests.json, trust/in-product-runs.json, release/candidates/cs-connect-v0.9.0-r2.json, and trust/evals/runs/cs-connect-v0.9.0-r2-native-requalification.json."
+      "evidence": "0.15.0 static/package gates exist, but the changed Personal Curator / Human Capability routing contract requires new native semantic qualification before tested or qualified claims. Prior 0.9 evidence remains historical baseline evidence only."
     },
     "regenerative-adaptive-experiment": {
       "mode": "chat-native",
