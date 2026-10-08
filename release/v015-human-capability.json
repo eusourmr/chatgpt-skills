@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "release_line": "0.15.0",
+  "product": "CS Navigator",
+  "theme": "Everyday Life & Human Capability",
+  "architecture": {
+    "routing_levels": [
+      "native",
+      "skill",
+      "life-journey",
+      "connected-action"
+    ],
+    "curator_modes": [
+      "explicit",
+      "personal-curator"
+    ],
+    "explanation_modes": [
+      "simple",
+      "standard",
+      "expert"
+    ],
+    "connected_action_default": "confirm-before-material-access-or-write",
+    "registry_state": "local-signed-registry-foundation",
+    "live_mcp_state": "planned-not-runtime-active"
+  },
+  "contracts": [
+    "Life Resolution Contract",
+    "Human Escalation Contract",
+    "Proof of Progress"
+  ],
+  "personalization": [
+    "personal-curator",
+    "simple-mode",
+    "capability-preferences"
+  ],
+  "new_skills": [
+    "personal-curator",
+    "simple-mode",
+    "capability-preferences",
+    "everyday-problem-solver",
+    "life-admin-organizer",
+    "overwhelm-to-next-action",
+    "personal-decision-record",
+    "decision-stop-rule",
+    "purchase-decision-helper",
+    "subscription-cleanup",
+    "household-finance-planner",
+    "home-maintenance-planner",
+    "repair-decision-helper",
+    "consumer-rights-navigator",
+    "bureaucracy-br-navigator",
+    "public-service-br-navigator",
+    "family-digital-safety",
+    "school-family-organizer",
+    "caregiver-coordinator",
+    "medical-appointment-prep",
+    "difficult-conversation-prep",
+    "scam-checker",
+    "digital-helper-simple",
+    "travel-readiness",
+    "moving-life-journey",
+    "major-life-change-planner",
+    "human-handoff-preparer",
+    "proof-of-progress",
+    "life-state-map",
+    "information-expiry-guard",
+    "real-world-evidence-kit"
+  ],
+  "evidence_policy": {
+    "initial_state": "designed",
+    "tested_requires_native_semantic_evidence": true,
+    "generated_or_bundled_is_not_tested": true,
+    "changed_bytes_do_not_inherit_exact_byte_qualification": true
+  },
+  "product_promise": "Install once. Talk normally. CS Navigator helps choose the smallest useful way to help, while keeping native ChatGPT first and making important limits visible."
+}
