@@ -1,0 +1,4 @@
+interface:
+  display_name: "Proof of Progress"
+  short_description: "Close a task or life workflow with explicit resolved, pending, blocked, waiting, next action, owner, and evidence so conversation does not masquerade as progress."
+  default_prompt: "Use $proof-of-progress only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."
