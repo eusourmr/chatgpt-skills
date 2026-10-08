@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "policy": "Bundling a skill makes it available, not automatically necessary. Direct tasks should remain native unless the user requests capability selection or explicitly invokes a bundled skill. Trust-aware routing must keep freshness, permissions, security evidence, execution evidence, and known gaps separate.",
-  "pack_version": "0.9.4",
+  "policy": "Bundling makes a workflow available; it does not make it tested or automatically necessary. Native ChatGPT remains first, curator mode does not waive permission boundaries, and Life Journeys or connected actions are used only when they materially improve the outcome.",
+  "pack_version": "0.15.0",
   "router": "cs-navigator",
   "cases": [
     {
