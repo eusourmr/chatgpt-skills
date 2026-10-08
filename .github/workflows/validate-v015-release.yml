@@ -1,0 +1,115 @@
+name: Validate CS Navigator v0.15.0 Human Capability
+
+on:
+  push:
+    branches:
+      - release/v0.15.0-human-capability
+    paths:
+      - 'plugins/cs-navigator/**'
+      - 'skills/featured/cs-navigator/**'
+      - 'skills/**'
+      - 'registry/**'
+      - 'release/v015-human-capability.json'
+      - 'submission/cs-navigator-0.15.0.json'
+      - 'tests/fixtures/v015-native-qualification-r1.json'
+      - 'README*'
+      - 'ROADMAP.md'
+      - 'BUNDLES.md'
+      - 'docs/**'
+      - 'trust/**'
+      - 'installer/manifest.json'
+      - 'scripts/build-v015-cs-navigator.mjs'
+      - 'scripts/audit-current-state-v015.mjs'
+      - '.github/workflows/validate-v015-release.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'plugins/cs-navigator/**'
+      - 'skills/featured/cs-navigator/**'
+      - 'skills/**'
+      - 'registry/**'
+      - 'release/v015-human-capability.json'
+      - 'submission/cs-navigator-0.15.0.json'
+      - 'tests/fixtures/v015-native-qualification-r1.json'
+      - 'README*'
+      - 'ROADMAP.md'
+      - 'BUNDLES.md'
+      - 'docs/**'
+      - 'trust/**'
+      - 'installer/manifest.json'
+      - 'scripts/build-v015-cs-navigator.mjs'
+      - 'scripts/audit-current-state-v015.mjs'
+      - '.github/workflows/validate-v015-release.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Validate current 0.15 architecture
+        run: |
+          node scripts/audit-current-state-v015.mjs
+          node scripts/validate-skill-profiles.mjs
+          node scripts/validate-skill-containers.mjs
+          node scripts/eval-container-guardian.mjs --check
+          node scripts/validate-public-plugin-submission.mjs
+          python scripts/catalog.py --check
+          python scripts/validate_catalog.py
+
+      - name: Verify static trust chain without promoting behavior
+        run: |
+          node scripts/generate-trust-passports.mjs --check
+          node scripts/validate-trust-passports.mjs --verify-git-source
+          node scripts/security-gate-v2.mjs --check
+          node scripts/generate-risk-labels.mjs --check
+          node scripts/update-drift-status.mjs --check --as-of 2026-10-08
+          node scripts/generate-navigator-snapshot.mjs --check
+          node scripts/validate-navigator.mjs
+          python -m unittest tests.test_drift_watch
+
+      - name: Rebuild exact static candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build-public-plugin-submission.mjs
+          ZIP='dist/plugin-submission/cs-navigator-plugin-0.15.0.zip'
+          EXPECTED='b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2'
+          test -f "$ZIP"
+          unzip -t "$ZIP"
+          actual=$(sha256sum "$ZIP" | awk '{print $1}')
+          count=$(unzip -Z1 "$ZIP" | wc -l | tr -d ' ')
+          test "$actual" = "$EXPECTED"
+          test "$count" = "126"
+          echo "0.15.0 static candidate exact bytes PASS: $actual / $count entries"
+
+      - name: Enforce evidence boundary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          r=json.load(open('registry/capabilities-v1.json',encoding='utf-8'))
+          assert r['generated_for_plugin']=='0.15.0'
+          assert r['live_registry_mcp']=='planned-not-active'
+          assert len(r['entries'])==31
+          assert all(x['evidence_state']=='designed' for x in r['entries'])
+          p=json.load(open('trust/passports/cs-navigator.json',encoding='utf-8'))
+          assert p['identity']['name']=='CS Navigator'
+          assert p['execution']['evidence_state']=='designed'
+          assert p['behavior_evidence']['state']=='designed'
+          print('0.15 evidence boundary PASS: static trust current, native behavior still designed.')
+          PY
