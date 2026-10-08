@@ -1,0 +1,4 @@
+interface:
+  display_name: "Capability Preferences"
+  short_description: "Define how CS Navigator should curate: automatic vs ask-first, simple/standard/expert depth, connected-action confirmation, and visibility of skill mechanics."
+  default_prompt: "Use $capability-preferences only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries, user agency, and the smallest useful workflow."
