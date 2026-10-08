@@ -29,13 +29,13 @@ Static candidate ZIP SHA-256:
 
 Static candidate entries: **126**.
 
-The new 0.15 skills remain **designed**. Native semantic qualification of the new curator behavior and exact candidate bytes is still required before release qualification or public-plugin update.
+The exact private 0.15.0 candidate passed the recorded **12/12 native semantic Navigator matrix** on 2026-10-08. The Navigator behavior covered by that matrix is qualified; the 31 new workflows remain individually **designed**. Public-directory update/review remains a separate gate.
 
 The public product name remains **CS Navigator**. The technical slug remains `cs-navigator`.
 
 Historical evidence for 0.6, 0.7, 0.7.5, 0.9.3 and 0.9.4 remains preserved. Historical releases and evidence are not rewritten to look current.
 
-## v0.15 — Everyday Life & Human Capability — IN DEVELOPMENT
+## v0.15 — Everyday Life & Human Capability — NATIVE-QUALIFIED CANDIDATE
 
 ### Product goal
 
