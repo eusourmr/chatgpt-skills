@@ -26,6 +26,9 @@ jobs:
       - name: Assemble 0.15.0
         run: node scripts/build-v015-cs-navigator.mjs
 
+      - name: Regenerate Navigator evidence snapshot
+        run: node scripts/generate-navigator-snapshot.mjs
+
       - name: Regenerate public catalog surfaces
         run: python scripts/catalog.py --write
 
