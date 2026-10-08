@@ -91,7 +91,7 @@ for(const id of newSkills){
   const text=await readFile('skills/'+id+'/SKILL.md','utf8');
   const fm=frontmatter(text);
   const entry={
-    id,name:fm.name,kind:'skill',publisher:'eusourmr',category:categories[id]||'everyday-life',
+    id,name:fm.name,kind:'skill',publisher:'eusourmr',category:'regenerative-core',
     summary_en:fm.description,summary_pt_br:pt[id]||fm.description,
     url:'https://github.com/eusourmr/chatgpt-skills/tree/main/skills/'+id,
     provenance:'regenerative-core',license:'MIT',surfaces:['chat','codex'],checked_on:'2026-10-08',
@@ -99,7 +99,7 @@ for(const id of newSkills){
   };
   byId.set(id,entry);
   registryEntries.push({
-    id,name:fm.name,category:entry.category,summary:fm.description,
+    id,name:fm.name,category:categories[id]||'everyday-life',summary:fm.description,
     execution_mode:'chat-native',evidence_state:'designed',
     qualification_state:'pending-native-0.15.0-r1',freshness_state:'current',
     permission_profile:'chat-native/no-external-access-by-default',
