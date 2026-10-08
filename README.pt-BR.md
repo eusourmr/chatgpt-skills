@@ -23,7 +23,7 @@ O ZIP estático atual tem **126 entradas** e SHA-256:
 
 Os gates estáticos do candidato passaram: Skill Profiles, Skill Containers, Container Guardian 9/9, validação de submissão pública, estrutura do plugin, inventário das 31 novas skills, ausência da marca antiga no payload e ausência de marcadores obsoletos de qualificação 0.9.
 
-**Limite de evidência:** as 31 novas skills continuam como `designed`. O novo comportamento de curadoria e os bytes exatos da 0.15.0 ainda precisam de qualificação semântica nativa antes de serem chamados de `tested`, `qualified` ou publicados como nova versão do plugin.
+**Limite de evidência:** as 31 novas skills continuam individualmente como `designed`. O candidato privado exato 0.15.0 passou a matriz semântica nativa do Navigator com **12/12 PASS em 08/10/2026**. Isso qualifica o comportamento de roteamento e limites coberto pela matriz; não promove em bloco as 31 skills.
 
 A versão atualmente submetida ao diretório da OpenAI continua sendo **CS Navigator 0.9.4 — Submission Compliance**, com status **em revisão / ainda não publicada** em 08/10/2026. A 0.15.0 não deve substituir silenciosamente essa revisão antes de passar seus próprios gates.
 
@@ -44,7 +44,7 @@ A experiência pretendida é simples:
 
 Linhas de versão:
 - submissão ao diretório OpenAI: **0.9.4 / em revisão / não publicada**
-- candidato de desenvolvimento: **0.15.0 / candidato estático PASS / qualificação semântica nativa pendente**
+- candidato de desenvolvimento: **0.15.0 / qualificação semântica nativa PASS 12/12 / release privada instalada**
 - slug técnico: `cs-navigator`
 - 0.7.5: fundação histórica de confiança/runtime
 - 0.9.x: fundação da plataforma first-party e conformidade de submissão
