@@ -71,21 +71,46 @@
         "engineering-investigator",
         "context-continuity-manager",
         "project-execution-director",
-        "skill-workbench"
+        "skill-workbench",
+        "personal-curator",
+        "simple-mode",
+        "capability-preferences",
+        "everyday-problem-solver",
+        "life-admin-organizer",
+        "overwhelm-to-next-action",
+        "personal-decision-record",
+        "decision-stop-rule",
+        "purchase-decision-helper",
+        "subscription-cleanup",
+        "household-finance-planner",
+        "home-maintenance-planner",
+        "repair-decision-helper",
+        "consumer-rights-navigator",
+        "bureaucracy-br-navigator",
+        "public-service-br-navigator",
+        "family-digital-safety",
+        "school-family-organizer",
+        "caregiver-coordinator",
+        "medical-appointment-prep",
+        "difficult-conversation-prep",
+        "scam-checker",
+        "digital-helper-simple",
+        "travel-readiness",
+        "moving-life-journey",
+        "major-life-change-planner",
+        "human-handoff-preparer",
+        "proof-of-progress",
+        "life-state-map",
+        "information-expiry-guard",
+        "real-world-evidence-kit"
       ],
-      "handoff": "Explicit CS Navigator selection or explicit skill invocation; ordinary task subject matter alone does not force activation."
+      "handoff": "Curator intent may route silently in the current conversation; ordinary tasks remain native when sufficient and connected actions retain normal permission/confirmation boundaries."
     },
     "container_guardian": {
       "deterministic_runtime_in_repository": true,
       "bundled_native_policy_references": true,
       "native_runtime_enforcement_claimed": false,
       "decision_record_required_to_claim_execution": true
-    },
-    "first_party_090": {
-      "count": 15,
-      "evidence_state": "designed",
-      "exact_byte_native_qualification": "pending",
-      "profile_schema": "spec/profiles/0.1/skill-profile.schema.json"
     },
     "routing_levels": [
       "native",
@@ -97,6 +122,16 @@
       "curator": "personal-curator",
       "simple_mode": "simple-mode",
       "preferences": "capability-preferences"
+    },
+    "human_capability_015": {
+      "new_skill_count": 31,
+      "evidence_state": "designed",
+      "native_semantic_qualification": "pending",
+      "contracts": [
+        "Life Resolution Contract",
+        "Human Escalation Contract",
+        "Proof of Progress"
+      ]
     },
     "registry": {
       "state": "bundled-foundation",
@@ -287,10 +322,9 @@
     "Privacy policy now explicitly covers developer-side collection, processing purpose, recipients, retention, user controls and contact."
   ],
   "trust_chain": {
-    "state": "PASS",
-    "workflow_run_id": 37473658437,
-    "reviewed_source_revision": "a66fd4b12cf4e659697307f96f1517103bcbdb8f",
-    "committed_trust_head": "e64a25915a8dae0404aaba42a5491880ef7315c5",
-    "refreshed_on": "2026-10-06"
+    "state": "static-PASS-native-behavior-pending",
+    "reviewed_source_revision": "71639a4a72f4724a92db81534808446ec14b950b",
+    "refreshed_on": "2026-10-08",
+    "behavior_evidence": "designed"
   }
 }
