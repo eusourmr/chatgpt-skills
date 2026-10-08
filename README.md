@@ -7,7 +7,7 @@
 [![Validate catalog](https://github.com/eusourmr/chatgpt-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/eusourmr/chatgpt-skills/actions/workflows/validate.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Curation](https://img.shields.io/badge/curation-human--governed-2f6f4e.svg)](CONTRIBUTING.md)
-[![Catalog](https://img.shields.io/badge/catalog-73%20entries-4c1.svg)](PROGRESS.md)
+[![Catalog](https://img.shields.io/badge/catalog-78%20entries-4c1.svg)](PROGRESS.md)
 [![npm](https://img.shields.io/npm/v/chatgpt-skills.svg)](https://www.npmjs.com/package/chatgpt-skills)
 [![Standard](https://img.shields.io/badge/Agent%20Skills-agentskills.io-6f42c1.svg)](https://agentskills.io/)
 
@@ -25,7 +25,7 @@ This section is a **source-verified window into OpenAI-published skills/plugins*
 [![OpenAI Build Web Apps](https://img.shields.io/badge/OpenAI-Build%20Web%20Apps-000000?logo=openai&logoColor=white)](https://github.com/openai/plugins/tree/main/plugins/build-web-apps)
 [![OpenAI Developers](https://img.shields.io/badge/OpenAI-Developers-000000?logo=openai&logoColor=white)](https://github.com/openai/plugins/tree/main/plugins/openai-developers)
 
-The quality catalog currently tracks **73 entries**: **56 regenerative-core** and **17 OpenAI-catalog** entries. Catalog presence is not execution evidence; `designed`, `tested`, freshness, security findings, and recommendation state remain separate. See [`PROGRESS.md`](PROGRESS.md) and [`catalog.json`](catalog.json).
+The quality catalog currently tracks **78 entries**: **77 skills + 1 source collection**, comprising **61 regenerative-core** and **17 OpenAI-catalog** entries. Catalog presence is not execution evidence; `designed`, `tested`, freshness, security findings, and recommendation state remain separate. See [`PROGRESS.md`](PROGRESS.md) and [`catalog.json`](catalog.json).
 
 ## Why this catalog is different
 
