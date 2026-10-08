@@ -56,10 +56,10 @@
     },
     "cs-navigator": {
       "mode": "chat-native",
-      "evidence_state": "designed",
+      "evidence_state": "tested",
       "minimum_setup": "Install CS Navigator. The technical plugin slug remains cs-navigator. The core routing workflow is chat-native; connected actions are optional and retain normal platform permission and confirmation requirements.",
       "required_capabilities": [],
-      "evidence": "0.15.0 static/package gates exist, but the changed Personal Curator / Human Capability routing contract requires new native semantic qualification before tested or qualified claims. Prior 0.9 evidence remains historical baseline evidence only."
+      "evidence": "CS Navigator 0.15.0 exact private candidate b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2 passed the recorded 12/12 native semantic Human Capability matrix on 2026-10-08. This qualifies the Navigator behavior covered by that matrix; bundled 0.15 workflows remain individually designed unless separately tested."
     },
     "regenerative-adaptive-experiment": {
       "mode": "chat-native",
