@@ -100,3 +100,5 @@ jobs:
             git commit -m "trust(0.15): refresh static Navigator evidence"
             git push origin HEAD:release/v0.15.0-human-capability
           fi
+
+# post-native-qualification refresh
