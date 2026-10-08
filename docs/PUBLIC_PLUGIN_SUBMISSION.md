@@ -41,7 +41,7 @@ The editable personal plugin remains:
 
 `plugins_6ac41c5909b481918b0523726e763aa3`
 
-The exact 0.15.0 candidate has now been uploaded to that private plugin as release `pluginrel_6ac7925aa40481919ababb85f9ef299e`. The updating conversation did not hot-reload the new skill inventory, so native semantic qualification must run from a newly loaded conversation. This private release is not a public-directory publication.
+The exact 0.15.0 candidate is installed privately as release `pluginrel_6ac7925aa40481919ababb85f9ef299e`. A newly loaded conversation exposed the 0.15.0 runtime and the recorded 12-case native semantic matrix passed 12/12. This private release is still not a public-directory publication.
 
 ## 0.15.0 qualification order
 
@@ -52,7 +52,7 @@ The exact 0.15.0 candidate has now been uploaded to that private plugin as relea
 5. **DONE:** upload the frozen candidate to the editable private plugin for native product qualification;
 6. **DONE:** native 0.15 runtime loaded and the recorded matrix passed 12/12;
 7. if bytes change, invalidate exact-byte qualification and repeat the affected gates;
-8. merge the final release candidate after evidence is complete;
+8. merge the final release candidate after evidence is complete — next gate;
 9. create the GitHub tag/release from the exact qualified bytes;
 10. decide whether to replace/update the OpenAI directory submission, depending on the state of the existing 0.9.4 review;
 11. claim public availability only after OpenAI approval **and** explicit publication are visible.
