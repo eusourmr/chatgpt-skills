@@ -1,0 +1,4 @@
+interface:
+  display_name: "Travel Readiness"
+  short_description: "Prepare a practical trip-readiness checklist covering documents, timing, transport, money, connectivity, health needs, baggage, reservations, and current entry requirements."
+  default_prompt: "Use $travel-readiness only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."
