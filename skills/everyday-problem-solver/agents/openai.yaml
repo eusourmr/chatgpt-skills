@@ -1,0 +1,4 @@
+interface:
+  display_name: "Everyday Problem Solver"
+  short_description: "Turn an ordinary life problem into a clear path: facts, unknowns, safe immediate actions, dependencies, evidence to keep, escalation, and definition of resolved."
+  default_prompt: "Use $everyday-problem-solver only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries, user agency, and the smallest useful workflow."
