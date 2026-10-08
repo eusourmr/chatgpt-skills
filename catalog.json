@@ -13,9 +13,9 @@
   },
   "review_stats": {
     "reviewed": 31,
-    "accepted": 46,
+    "accepted": 77,
     "rejected_recorded": 0,
-    "last_review_cycle": "2026-10-05"
+    "last_review_cycle": "2026-10-08"
   },
   "entries": [
     {
@@ -132,6 +132,57 @@
       "source": "https://github.com/openai/plugins/tree/main/plugins/build-web-data-visualization"
     },
     {
+      "id": "bureaucracy-br-navigator",
+      "name": "bureaucracy-br-navigator",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/bureaucracy-br-navigator",
+      "path": "skills/bureaucracy-br-navigator"
+    },
+    {
+      "id": "capability-preferences",
+      "name": "capability-preferences",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/capability-preferences",
+      "path": "skills/capability-preferences"
+    },
+    {
+      "id": "caregiver-coordinator",
+      "name": "caregiver-coordinator",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/caregiver-coordinator",
+      "path": "skills/caregiver-coordinator"
+    },
+    {
       "id": "chatgpt-apps-deployer",
       "name": "ChatGPT Apps Deployer",
       "category": "Development",
@@ -178,6 +229,23 @@
       ],
       "publisher": "OpenAI",
       "source": "https://github.com/openai/plugins/tree/main/plugins/codex-security"
+    },
+    {
+      "id": "consumer-rights-navigator",
+      "name": "consumer-rights-navigator",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/consumer-rights-navigator",
+      "path": "skills/consumer-rights-navigator"
     },
     {
       "id": "context-continuity-manager",
@@ -246,6 +314,23 @@
       "source": "https://github.com/openai/plugins/tree/main/plugins/data-analytics"
     },
     {
+      "id": "decision-stop-rule",
+      "name": "decision-stop-rule",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/decision-stop-rule",
+      "path": "skills/decision-stop-rule"
+    },
+    {
       "id": "design-system-studio",
       "name": "Design System Studio",
       "category": "First-Party CS",
@@ -261,6 +346,40 @@
       "publisher": "eusourmr",
       "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/design-system-studio",
       "path": "skills/design-system-studio"
+    },
+    {
+      "id": "difficult-conversation-prep",
+      "name": "difficult-conversation-prep",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/difficult-conversation-prep",
+      "path": "skills/difficult-conversation-prep"
+    },
+    {
+      "id": "digital-helper-simple",
+      "name": "digital-helper-simple",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/digital-helper-simple",
+      "path": "skills/digital-helper-simple"
     },
     {
       "id": "document-compliance-auditor",
@@ -297,6 +416,23 @@
       "path": "skills/engineering-investigator"
     },
     {
+      "id": "everyday-problem-solver",
+      "name": "everyday-problem-solver",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/everyday-problem-solver",
+      "path": "skills/everyday-problem-solver"
+    },
+    {
       "id": "evidence-first-research",
       "name": "Evidence-First Research",
       "category": "Writing & Research",
@@ -312,6 +448,23 @@
       "publisher": "eusourmr",
       "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/evidence-first-research",
       "path": "skills/evidence-first-research"
+    },
+    {
+      "id": "family-digital-safety",
+      "name": "family-digital-safety",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/family-digital-safety",
+      "path": "skills/family-digital-safety"
     },
     {
       "id": "figma",
@@ -363,6 +516,74 @@
       "source": "https://github.com/openai/plugins/tree/main/plugins/google-drive"
     },
     {
+      "id": "home-maintenance-planner",
+      "name": "home-maintenance-planner",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/home-maintenance-planner",
+      "path": "skills/home-maintenance-planner"
+    },
+    {
+      "id": "household-finance-planner",
+      "name": "household-finance-planner",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/household-finance-planner",
+      "path": "skills/household-finance-planner"
+    },
+    {
+      "id": "human-handoff-preparer",
+      "name": "human-handoff-preparer",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/human-handoff-preparer",
+      "path": "skills/human-handoff-preparer"
+    },
+    {
+      "id": "information-expiry-guard",
+      "name": "information-expiry-guard",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/information-expiry-guard",
+      "path": "skills/information-expiry-guard"
+    },
+    {
       "id": "interactive-creative-builder",
       "name": "Interactive Creative Builder",
       "category": "First-Party CS",
@@ -380,6 +601,23 @@
       "path": "skills/interactive-creative-builder"
     },
     {
+      "id": "life-admin-organizer",
+      "name": "life-admin-organizer",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/life-admin-organizer",
+      "path": "skills/life-admin-organizer"
+    },
+    {
       "id": "life-science-research",
       "name": "Life Science Research",
       "category": "Data & Research",
@@ -394,6 +632,74 @@
       ],
       "publisher": "OpenAI",
       "source": "https://github.com/openai/plugins/tree/main/plugins/life-science-research"
+    },
+    {
+      "id": "life-state-map",
+      "name": "life-state-map",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/life-state-map",
+      "path": "skills/life-state-map"
+    },
+    {
+      "id": "major-life-change-planner",
+      "name": "major-life-change-planner",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/major-life-change-planner",
+      "path": "skills/major-life-change-planner"
+    },
+    {
+      "id": "medical-appointment-prep",
+      "name": "medical-appointment-prep",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/medical-appointment-prep",
+      "path": "skills/medical-appointment-prep"
+    },
+    {
+      "id": "moving-life-journey",
+      "name": "moving-life-journey",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/moving-life-journey",
+      "path": "skills/moving-life-journey"
     },
     {
       "id": "notion",
@@ -444,6 +750,57 @@
       ],
       "publisher": "OpenAI",
       "source": "https://github.com/openai/plugins/tree/main/plugins/openai-developers"
+    },
+    {
+      "id": "overwhelm-to-next-action",
+      "name": "overwhelm-to-next-action",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/overwhelm-to-next-action",
+      "path": "skills/overwhelm-to-next-action"
+    },
+    {
+      "id": "personal-curator",
+      "name": "personal-curator",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/personal-curator",
+      "path": "skills/personal-curator"
+    },
+    {
+      "id": "personal-decision-record",
+      "name": "personal-decision-record",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/personal-decision-record",
+      "path": "skills/personal-decision-record"
     },
     {
       "id": "photo-restoration-conservator",
@@ -509,6 +866,74 @@
       "publisher": "eusourmr",
       "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/project-execution-director",
       "path": "skills/project-execution-director"
+    },
+    {
+      "id": "proof-of-progress",
+      "name": "proof-of-progress",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/proof-of-progress",
+      "path": "skills/proof-of-progress"
+    },
+    {
+      "id": "public-service-br-navigator",
+      "name": "public-service-br-navigator",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/public-service-br-navigator",
+      "path": "skills/public-service-br-navigator"
+    },
+    {
+      "id": "purchase-decision-helper",
+      "name": "purchase-decision-helper",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/purchase-decision-helper",
+      "path": "skills/purchase-decision-helper"
+    },
+    {
+      "id": "real-world-evidence-kit",
+      "name": "real-world-evidence-kit",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/real-world-evidence-kit",
+      "path": "skills/real-world-evidence-kit"
     },
     {
       "id": "realtime-api-integration",
@@ -714,6 +1139,74 @@
       "source": "https://github.com/openai/plugins/tree/main/plugins/remotion"
     },
     {
+      "id": "repair-decision-helper",
+      "name": "repair-decision-helper",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/repair-decision-helper",
+      "path": "skills/repair-decision-helper"
+    },
+    {
+      "id": "scam-checker",
+      "name": "scam-checker",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/scam-checker",
+      "path": "skills/scam-checker"
+    },
+    {
+      "id": "school-family-organizer",
+      "name": "school-family-organizer",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/school-family-organizer",
+      "path": "skills/school-family-organizer"
+    },
+    {
+      "id": "simple-mode",
+      "name": "simple-mode",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/simple-mode",
+      "path": "skills/simple-mode"
+    },
+    {
       "id": "skill-workbench",
       "name": "Skill Workbench",
       "category": "First-Party CS",
@@ -729,6 +1222,23 @@
       "publisher": "eusourmr",
       "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/skill-workbench",
       "path": "skills/skill-workbench"
+    },
+    {
+      "id": "subscription-cleanup",
+      "name": "subscription-cleanup",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/subscription-cleanup",
+      "path": "skills/subscription-cleanup"
     },
     {
       "id": "superpowers",
@@ -761,6 +1271,23 @@
       "publisher": "eusourmr",
       "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/text-integrity-editor",
       "path": "skills/text-integrity-editor"
+    },
+    {
+      "id": "travel-readiness",
+      "name": "travel-readiness",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-08",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/travel-readiness",
+      "path": "skills/travel-readiness"
     },
     {
       "id": "visual-intent-guardian",
