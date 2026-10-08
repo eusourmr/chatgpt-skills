@@ -1,0 +1,4 @@
+interface:
+  display_name: "Human Handoff Preparer"
+  short_description: "When AI has reached its useful limit, prepare a concise handoff to a doctor, lawyer, accountant, school, bank, insurer, technician, or other human professional."
+  default_prompt: "Use $human-handoff-preparer only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."
