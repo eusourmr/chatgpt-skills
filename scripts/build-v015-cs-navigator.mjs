@@ -121,6 +121,37 @@ const registry={
 };
 await writeJson('registry/capabilities-v1.json',registry);
 
+// Synchronize the legacy health catalog used by PROGRESS.md.
+const legacyCatalog = await readJson('catalog.json');
+const legacyById = new Map((legacyCatalog.entries||[]).map(x=>[x.id,x]));
+for(const id of newSkills){
+  const text=await readFile('skills/'+id+'/SKILL.md','utf8');
+  const fm=frontmatter(text);
+  legacyById.set(id,{
+    id,
+    name:fm.name,
+    category:'First-Party CS',
+    status:'draft',
+    rating:0,
+    rating_state:'unrated',
+    reviews:0,
+    last_verified:'2026-10-08',
+    compatibility:['ChatGPT','Codex'],
+    publisher:'eusourmr',
+    source:'https://github.com/eusourmr/chatgpt-skills/tree/main/skills/'+id,
+    path:'skills/'+id
+  });
+}
+legacyCatalog.entries=[...legacyById.values()].sort((a,b)=>a.id.localeCompare(b.id));
+const legacyStatus=legacyCatalog.entries.reduce((acc,e)=>{acc[e.status]=(acc[e.status]||0)+1;return acc;},{});
+legacyCatalog.review_stats={
+  ...(legacyCatalog.review_stats||{}),
+  accepted:legacyCatalog.entries.length,
+  rejected_recorded:legacyCatalog.review_stats?.rejected_recorded||0,
+  last_review_cycle:'2026-10-08'
+};
+await writeJson('catalog.json',legacyCatalog);
+
 // Update plugin identity and interface.
 const pluginPath='plugins/cs-navigator/plugin.json';
 const plugin=await readJson(pluginPath);
