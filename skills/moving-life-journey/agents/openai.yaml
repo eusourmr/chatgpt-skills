@@ -1,0 +1,4 @@
+interface:
+  display_name: "Moving Life Journey"
+  short_description: "Coordinate a move across contract, utilities, address changes, packing, inventory, transport, handover evidence, budget, and post-move tasks."
+  default_prompt: "Use $moving-life-journey only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."
