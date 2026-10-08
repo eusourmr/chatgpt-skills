@@ -260,7 +260,25 @@ sub.architecture={
   ...(sub.architecture||{}),
   routing_levels:manifest.architecture.routing_levels,
   personal_capability_layer:{curator:'personal-curator',simple_mode:'simple-mode',preferences:'capability-preferences'},
+  capability_pack:{
+    router:'cs-navigator',
+    included_skills:allIds,
+    handoff:'Curator intent may route silently in the current conversation; ordinary tasks remain native when sufficient and connected actions retain normal permission/confirmation boundaries.'
+  },
+  human_capability_015:{
+    new_skill_count:newSkills.length,
+    evidence_state:'designed',
+    native_semantic_qualification:'pending',
+    contracts:manifest.contracts
+  },
   registry:{state:'bundled-foundation',live_mcp:'planned-not-active'}
+};
+delete sub.architecture.first_party_090;
+sub.trust_chain={
+  state:'static-PASS-native-behavior-pending',
+  reviewed_source_revision:'71639a4a72f4724a92db81534808446ec14b950b',
+  refreshed_on:'2026-10-08',
+  behavior_evidence:'designed'
 };
 sub.release_notes='0.15.0 adds the Everyday Life & Human Capability layer, optional Personal Curator and Simple Mode behavior, Life Journeys, human handoff, progress/evidence contracts, and a registry-ready capability data contract. All new skills start as designed and require native semantic qualification before tested/qualified claims.';
 sub.submission_state='development-candidate-native-qualification-pending';
