@@ -4,13 +4,14 @@
   "technical_plugin_slug": "cs-navigator",
   "version": "0.15.0",
   "candidate": "R3-static-human-capability",
-  "source_commit": "71639a4a72f4724a92db81534808446ec14b950b",
+  "source_commit": "ad4dd7fb1cb6265377f5fba6c06037717d1642b9",
   "zip_sha256": "b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2",
   "entries": 126,
   "qualification_state": "static-qualified-native-pending",
   "native_qualification": {
     "matrix": "tests/fixtures/v015-native-qualification-r1.json",
-    "state": "planned-not-executed"
+    "state": "pending-new-conversation-runtime-reload",
+    "runtime_observation": "Plugin metadata reports 0.15.0, but skills__list in the updating conversation still returned the previous CS Navigator skill inventory."
   },
   "static_gates": {
     "build": "PASS",
@@ -27,5 +28,19 @@
     "evidence_state": "designed"
   },
   "live_registry_mcp": "planned-not-active",
-  "claim_boundary": "This record supports the static 0.15.0 candidate only. It does not make the changed Navigator behavior or the 31 new workflows tested/qualified, does not prove cross-chat curator persistence, and does not prove Guardian execution inside a chat."
+  "claim_boundary": "This record supports the static 0.15.0 candidate only. It does not make the changed Navigator behavior or the 31 new workflows tested/qualified, does not prove cross-chat curator persistence, and does not prove Guardian execution inside a chat.",
+  "build_evidence": {
+    "workflow_run_id": 37778899044,
+    "workflow_artifact_id": 11550419277,
+    "artifact_digest": "sha256:71886201da42680cdfaec2502775d335ac65309ba0125bd59c23bb78a9591d81",
+    "zip_sha256": "b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2",
+    "entries": 126
+  },
+  "private_plugin": {
+    "plugin_id": "plugins_6ac41c5909b481918b0523726e763aa3",
+    "version": "0.15.0",
+    "release_id": "pluginrel_6ac7925aa40481919ababb85f9ef299e",
+    "state": "installed-private-runtime-reload-required",
+    "note": "Exact candidate bytes uploaded successfully. The updating conversation still exposes the previous skill index, so native semantic qualification must run in a newly loaded conversation."
+  }
 }
