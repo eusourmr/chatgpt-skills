@@ -55,7 +55,7 @@ O Simple Mode deve usar linguagem simples, passos curtos e uma ação por vez qu
 | Componente | Estado |
 |---|---|
 | Submissão ao diretório OpenAI | **0.9.4 — em revisão / não publicada** |
-| Candidato de desenvolvimento | **0.15.0 — build estático pronto; qualificação semântica nativa pendente** |
+| Candidato de desenvolvimento | **0.15.0 — candidato privado native-qualified; matriz do Navigator 12/12 PASS** |
 | Entradas no ZIP candidato | **126** |
 | SHA-256 do ZIP candidato | `b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2` |
 | Novas skills da 0.15 | **31, todas inicialmente designed** |
@@ -83,7 +83,7 @@ Também adiciona:
 
 As 31 novas skills são **designed**. Não viram `tested` ou `qualified` só porque foram criadas, empacotadas ou validadas estaticamente.
 
-O candidato exato 0.15.0 ainda precisa de qualificação semântica nativa.
+O candidato privado exato 0.15.0 passou a matriz semântica nativa registrada do Navigator em 12/12 casos. As 31 novas workflows continuam individualmente `designed` até terem testes próprios.
 
 ## Identidade técnica
 
