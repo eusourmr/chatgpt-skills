@@ -7,7 +7,7 @@
 [![Validate catalog](https://github.com/eusourmr/chatgpt-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/eusourmr/chatgpt-skills/actions/workflows/validate.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Curation](https://img.shields.io/badge/curation-human--governed-2f6f4e.svg)](CONTRIBUTING.md)
-[![Catalog](https://img.shields.io/badge/catalog-46%20skills-4c1.svg)](PROGRESS.md)
+[![Catalog](https://img.shields.io/badge/catalog-73%20entries-4c1.svg)](PROGRESS.md)
 [![npm](https://img.shields.io/npm/v/chatgpt-skills.svg)](https://www.npmjs.com/package/chatgpt-skills)
 [![Standard](https://img.shields.io/badge/Agent%20Skills-agentskills.io-6f42c1.svg)](https://agentskills.io/)
 
@@ -25,7 +25,7 @@ This section is a **source-verified window into OpenAI-published skills/plugins*
 [![OpenAI Build Web Apps](https://img.shields.io/badge/OpenAI-Build%20Web%20Apps-000000?logo=openai&logoColor=white)](https://github.com/openai/plugins/tree/main/plugins/build-web-apps)
 [![OpenAI Developers](https://img.shields.io/badge/OpenAI-Developers-000000?logo=openai&logoColor=white)](https://github.com/openai/plugins/tree/main/plugins/openai-developers)
 
-The quality catalog currently tracks **46 skills**: **12 OpenAI-published**, **15 project-verified**, **4 community-authored**, and **15 first-party drafts/qualified-release candidates**. Evidence states remain separate from catalog presence. Rejections are reported only when there is an auditable record; the current recorded rejection count is **0**, not an invented confidence statistic. See [`PROGRESS.md`](PROGRESS.md) and [`catalog.json`](catalog.json).
+The quality catalog currently tracks **73 entries**: **56 regenerative-core** and **17 OpenAI-catalog** entries. Catalog presence is not execution evidence; `designed`, `tested`, freshness, security findings, and recommendation state remain separate. See [`PROGRESS.md`](PROGRESS.md) and [`catalog.json`](catalog.json).
 
 ## Why this catalog is different
 
@@ -42,44 +42,45 @@ The quality catalog currently tracks **46 skills**: **12 OpenAI-published**, **1
 | Regenerative/systemic design standard | ✅ | ❌ |
 | Skill Containers: fail-closed evidence/permission containment | ✅ CS Navigator 0.9.0 | ❌ |
 
-## 🛡️ Current release
+## 🛡️ Current development line
 
-**Current product candidate:** **CS Navigator 0.9.3 — First-Party Skills Platform**.
+**Current development candidate:** **CS Navigator 0.15.0 — Everyday Life & Human Capability**.
 
-CS Navigator keeps ordinary tasks native, includes the Verifiable Trust II / Skill Containers foundation, and bundles 15 original first-party workflows for writing, research, Brazilian context, academic/document review, design, engineering, visual preservation, project continuity, and founder/product strategy.
+0.15.0 changes the product from a skill selector into a human-centered capability curator. It can route among **Native → Skill → Life Journey → Connected Action**, adds optional **Personal Curator**, **Simple Mode**, and **Capability Preferences**, and introduces 31 everyday-life skills spanning personal administration, household decisions, home, family, caregiving, Brazilian public services, digital safety, travel, major life transitions, human handoff, progress tracking, freshness, and real-world evidence.
 
-The exact R3 candidate ZIP is bound to SHA-256:
+The current static candidate ZIP contains **126 entries** and is bound to SHA-256:
 
-`4a54c159901f1a58d55420ab31a30d1839084b0ff885738b244db226897115b6`
+`b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2`
 
-Static/package gates pass: Skill Profiles, Skill Containers, Container Guardian 9/9, public-submission validation, Security Gate v2, and a zero-legacy-brand payload check. **Native ChatGPT semantic requalification of these exact 0.9.3 bytes passed 6/6 on 2026-10-06.** This qualifies the recorded release behavior; it does not turn every bundled workflow from `designed` into `tested`.
+Static build gates pass for the generated candidate: Skill Profiles, Skill Containers, Container Guardian 9/9, public-submission validation, plugin structure, 31-skill registry inventory, legacy-brand exclusion, and stale 0.9 pending-marker exclusion.
 
-The historical 0.9.0/R2 evidence remains preserved as predecessor evidence. The 0.9.1 private attempt was superseded before native qualification.
+**Evidence boundary:** the 31 new skills are still `designed`. The new curator behavior and exact 0.15.0 bytes still require native semantic qualification before this candidate can be called `tested`, `qualified`, or published as the new plugin release.
+
+The currently submitted OpenAI directory version remains **CS Navigator 0.9.4 — Submission Compliance**, with status **in review / not published** as of 2026-10-08. The 0.15.0 candidate must not silently replace that review until its own release gates pass.
 
 > **No evidence → no invented fact. No permission → no self-escalation. No authorized path → stop.**
 
-Public directory status: **private native-qualified 0.9.3 candidate exists, not publicly listed**. Public availability will be claimed only after OpenAI review, approval, and explicit publication.
-
-Read: [Getting Started](docs/GETTING_STARTED.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Public plugin submission](docs/PUBLIC_PLUGIN_SUBMISSION.md)
+Read: [0.15.0 Human Capability](docs/CS_NAVIGATOR_0.15.0_HUMAN_CAPABILITY.md) · [Getting Started](docs/GETTING_STARTED.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Public plugin submission](docs/PUBLIC_PLUGIN_SUBMISSION.md)
 
 ## 🚀 Start in 1 Minute
 
-Once public review and publication are complete:
+The intended end-user experience is deliberately simple:
 
-1. Open **Plugins** in ChatGPT or Codex.
-2. Search **CS Navigator**.
-3. Select **Install plugin**.
-4. Start a chat and write: `Use CS Navigator para...`
+1. Install **CS Navigator** once.
+2. Start a normal ChatGPT conversation.
+3. If you want silent capability curation in that conversation, write: `Use CS Navigator as my curator.`
+4. Then talk normally. Navigator should keep work native when sufficient and only add a skill, Life Journey, or connected action when it materially helps.
 
-Until then, the 0.9.3 package remains a private, native-qualified publication candidate.
+**Persistence boundary:** one chat instruction does not prove that curator mode is active in every future conversation. Cross-chat persistence may only be claimed when the host product explicitly supports and confirms it.
 
 Version lines:
-- CS Navigator plugin: **0.9.3 R3 / native requalification PASS 6/6 / public submission pending**
+- OpenAI directory submission: **0.9.4 / in review / not published**
+- development candidate: **0.15.0 / static candidate PASS / native semantic qualification pending**
 - technical slug: `cs-navigator`
-- 0.7.5: absorbed internal trust/runtime foundation
-- 0.8: absorbed into 0.9
-- `chatgpt-skills` CLI/npm: independent line
-- next product line: **0.10 — Ecosystem Intelligence & Community Scale**
+- 0.7.5: historical trust/runtime foundation
+- 0.9.x: first-party platform and submission-compliance foundation
+- `chatgpt-skills` CLI/npm: independent version line
+- next architectural step after 0.15 qualification: live read-only capability registry and stronger personal continuity, without making arbitrary GitHub content executable
 
 ## Featured OpenAI-native production skills
 
