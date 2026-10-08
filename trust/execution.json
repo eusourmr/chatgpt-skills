@@ -221,6 +221,223 @@
       "minimum_setup": "Install/load CS Connect, then explicitly select this workflow or route to it through capability-selection intent.",
       "required_capabilities": [],
       "evidence": "Instruction-only first-party workflow bundled in CS Connect 0.9.0. Package-level R2 qualification does not by itself promote this individual skill to tested; individual exact-R2 task evidence remains pending."
+    },
+    "personal-curator": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "simple-mode": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "capability-preferences": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "everyday-problem-solver": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "life-admin-organizer": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "overwhelm-to-next-action": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "personal-decision-record": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "decision-stop-rule": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "purchase-decision-helper": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "subscription-cleanup": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "household-finance-planner": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "home-maintenance-planner": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "repair-decision-helper": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "consumer-rights-navigator": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "bureaucracy-br-navigator": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "public-service-br-navigator": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "family-digital-safety": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "school-family-organizer": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "caregiver-coordinator": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "medical-appointment-prep": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "difficult-conversation-prep": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "scam-checker": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "digital-helper-simple": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "travel-readiness": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "moving-life-journey": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "major-life-change-planner": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "human-handoff-preparer": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "proof-of-progress": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "life-state-map": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "information-expiry-guard": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "real-world-evidence-kit": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
     }
   }
 }
