@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "product": "CS Navigator",
+  "technical_plugin_slug": "cs-navigator",
+  "version": "0.15.0",
+  "candidate": "R3-static-human-capability",
+  "source_commit": "71639a4a72f4724a92db81534808446ec14b950b",
+  "zip_sha256": "b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2",
+  "entries": 126,
+  "qualification_state": "static-qualified-native-pending",
+  "native_qualification": {
+    "matrix": "tests/fixtures/v015-native-qualification-r1.json",
+    "state": "planned-not-executed"
+  },
+  "static_gates": {
+    "build": "PASS",
+    "skill_profiles": "PASS",
+    "skill_containers": "PASS",
+    "container_guardian": "9/9 PASS",
+    "public_submission_validation": "PASS",
+    "current_state_audit": "PASS",
+    "catalog_reconciliation": "PASS",
+    "trust_chain": "PASS"
+  },
+  "new_skills": {
+    "count": 31,
+    "evidence_state": "designed"
+  },
+  "live_registry_mcp": "planned-not-active",
+  "claim_boundary": "This record supports the static 0.15.0 candidate only. It does not make the changed Navigator behavior or the 31 new workflows tested/qualified, does not prove cross-chat curator persistence, and does not prove Guardian execution inside a chat."
+}
