@@ -256,6 +256,10 @@ sub.listing={
   long_description:ui.longDescription,
   starter_prompts:ui.defaultPrompt
 };
+let candidate={};
+try{candidate=await readJson('release/candidates/cs-navigator-v0.15.0-r3.json');}catch{}
+const nativeQualified=candidate.qualification_state==='native-qualified' && candidate.native_qualification?.result==='PASS';
+
 sub.architecture={
   ...(sub.architecture||{}),
   routing_levels:manifest.architecture.routing_levels,
@@ -268,24 +272,38 @@ sub.architecture={
   human_capability_015:{
     new_skill_count:newSkills.length,
     evidence_state:'designed',
-    native_semantic_qualification:'pending',
+    native_semantic_qualification:nativeQualified?'PASS':'pending',
     contracts:manifest.contracts
   },
   registry:{state:'bundled-foundation',live_mcp:'planned-not-active'}
 };
 delete sub.architecture.first_party_090;
 sub.trust_chain={
-  state:'static-PASS-native-behavior-pending',
+  state:nativeQualified?'PASS':'static-PASS-native-behavior-pending',
   reviewed_source_revision:'71639a4a72f4724a92db81534808446ec14b950b',
   refreshed_on:'2026-10-08',
-  behavior_evidence:'designed'
+  behavior_evidence:nativeQualified?'tested':'designed'
 };
-sub.release_notes='0.15.0 adds the Everyday Life & Human Capability layer, optional Personal Curator and Simple Mode behavior, Life Journeys, human handoff, progress/evidence contracts, and a registry-ready capability data contract. All new skills start as designed and require native semantic qualification before tested/qualified claims.';
-sub.submission_state='development-candidate-native-qualification-pending';
-sub.native_qualification={
-  required:true,status:'pending-0.15.0-r1',
-  note:'New curator behavior and new 0.15 skills require native semantic qualification. Static build success is not sufficient.'
-};
+sub.release_notes=nativeQualified
+  ? '0.15.0 adds the Everyday Life & Human Capability layer, Personal Curator and Simple Mode behavior, Life Journeys, human handoff, progress/evidence contracts, and a registry-ready capability data contract. The exact private candidate passed the recorded 12/12 native semantic Navigator matrix; the 31 new workflows remain individually designed unless separately tested.'
+  : '0.15.0 adds the Everyday Life & Human Capability layer, optional Personal Curator and Simple Mode behavior, Life Journeys, human handoff, progress/evidence contracts, and a registry-ready capability data contract. All new skills start as designed and require native semantic qualification before tested/qualified claims.';
+sub.submission_state=nativeQualified?'private-native-qualified-public-update-pending':'development-candidate-native-qualification-pending';
+sub.native_qualification=nativeQualified
+  ? {
+      required:true,
+      status:'PASS',
+      result:'PASS',
+      pass:candidate.native_qualification.pass,
+      fail:candidate.native_qualification.fail,
+      total:candidate.native_qualification.total,
+      executed_on:candidate.native_qualification.executed_on,
+      evidence_ref:candidate.native_qualification.evidence_ref,
+      note:'Qualification applies to the recorded Navigator behavior. The 31 new workflows remain individually designed unless separately tested.'
+    }
+  : {
+      required:true,status:'pending-0.15.0-r1',
+      note:'New curator behavior and new 0.15 skills require native semantic qualification. Static build success is not sufficient.'
+    };
 await writeJson('submission/cs-navigator-0.15.0.json',sub);
 
 console.log(JSON.stringify({version,new_skills:newSkills.length,total_plugin_skills:allIds.length,catalog_entries:catalog.entries.length,registry_entries:registry.entries.length},null,2));
