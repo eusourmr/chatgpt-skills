@@ -48,7 +48,7 @@
   },
   "execution": {
     "mode": "chat-native",
-    "evidence_state": "designed",
+    "evidence_state": "tested",
     "minimum_setup": "Install CS Navigator. The technical plugin slug remains cs-navigator. The core routing workflow is chat-native; connected actions are optional and retain normal platform permission and confirmation requirements.",
     "required_capabilities": []
   },
@@ -72,7 +72,7 @@
     "risk_label_ref": "trust/risk-labels/cs-navigator.json"
   },
   "behavior_evidence": {
-    "state": "designed",
+    "state": "tested",
     "latest_plan_id": "cs-navigator-chatgpt-v10-cs-connect-v090-r2",
     "latest_run_id": "cs-navigator-chatgpt-v10-cs-connect-v090-r2",
     "evidence_refs": [
@@ -109,7 +109,7 @@
     "reason": "Bundled, source-reviewed and integrity-checked; dedicated task-level end-to-end evidence is still incomplete."
   },
   "known_gaps": [
-    "The 0.15.0 Personal Curator and Human Capability routing behavior is pending native semantic qualification.",
+    "The 31 new 0.15 workflows remain individually designed unless separately supported by native execution evidence.",
     "A chat instruction does not prove cross-chat/global curator persistence; that depends on explicit host support.",
     "The live capability-registry MCP is planned-not-active; the bundled registry is finite and versioned.",
     "Container Guardian deterministic evidence does not prove Guardian executed in a chat without an actual runtime decision record."
