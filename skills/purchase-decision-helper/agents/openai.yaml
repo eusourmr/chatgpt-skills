@@ -1,0 +1,4 @@
+interface:
+  display_name: "Purchase Decision Helper"
+  short_description: "Compare an important purchase by need, total cost, maintenance, reliability, lock-in, alternatives, and exit cost rather than headline price alone."
+  default_prompt: "Use $purchase-decision-helper only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries, user agency, and the smallest useful workflow."
