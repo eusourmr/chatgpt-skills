@@ -72,19 +72,21 @@ jobs:
           node scripts/validate-navigator.mjs
           python -m unittest tests.test_drift_watch
 
-      - name: Assert changed behavior is not promoted
+      - name: Assert evidence state matches native qualification
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
           import json
           p=json.load(open('trust/passports/cs-navigator.json',encoding='utf-8'))
+          c=json.load(open('release/candidates/cs-navigator-v0.15.0-r3.json',encoding='utf-8'))
+          expected='tested' if c.get('qualification_state')=='native-qualified' and c.get('native_qualification',{}).get('state')=='PASS' else 'designed'
           assert p['identity']['name']=='CS Navigator'
-          assert p['execution']['evidence_state']=='designed'
-          assert p['behavior_evidence']['state']=='designed'
+          assert p['execution']['evidence_state']==expected
+          assert p['behavior_evidence']['state']==expected
           assert p['freshness']['status']=='current'
           assert any(x['path']=='references/human-capability-registry.json' for x in p['integrity']['files'])
-          print('0.15.0 static trust refreshed without promoting behavior evidence.')
+          print(f'0.15.0 trust state matches candidate qualification: {expected}.')
           PY
 
       - name: Commit refreshed static trust evidence
