@@ -87,6 +87,19 @@ const systemicReview = {
   plain_language:{summary_first:true,technical_layer:true,comprehension_check:'The user should be able to state what happens next and what remains uncertain.'}
 };
 
+const featuredSync=['cs-navigator','openai-agents-sdk-builder','realtime-api-integration','chatgpt-apps-deployer','codex-pr-reviewer'];
+for(const id of featuredSync){
+  const text=await readFile('skills/featured/'+id+'/SKILL.md','utf8');
+  const fm=frontmatter(text);
+  byId.set(id,{
+    id,name:fm.name,kind:'skill',publisher:'eusourmr',category:'regenerative-core',
+    summary_en:fm.description,summary_pt_br:fm.description,
+    url:'https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/'+id,
+    provenance:'regenerative-core',license:'MIT',surfaces:['chat','codex'],checked_on:'2026-10-08',
+    systemic_review:systemicReview
+  });
+}
+
 for(const id of newSkills){
   const text=await readFile('skills/'+id+'/SKILL.md','utf8');
   const fm=frontmatter(text);
