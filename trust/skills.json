@@ -135,11 +135,11 @@
         "destructive_actions": "none required"
       },
       "usefulness": {
-        "state": "designed",
-        "evidence": "CS Navigator 0.15.0 materially changes the routing contract by adding Personal Curator behavior, Life Journeys, Connected Action gating, and Everyday Life capabilities. Prior 0.9 native evidence remains historical baseline evidence and is not automatically inherited by the changed 0.15 behavior."
+        "state": "tested",
+        "evidence": "CS Navigator 0.15.0 exact private candidate passed the 12/12 native semantic Human Capability matrix on 2026-10-08. The result covers the recorded Navigator routing and boundary behavior; it does not bulk-promote the 31 new workflows."
       },
       "known_gaps": [
-        "The 0.15.0 Personal Curator and Human Capability routing behavior is pending native semantic qualification.",
+        "The 31 new 0.15 workflows remain individually designed unless separately supported by native execution evidence.",
         "A chat instruction does not prove cross-chat/global curator persistence; that depends on explicit host support.",
         "The live capability-registry MCP is planned-not-active; the bundled registry is finite and versioned.",
         "Container Guardian deterministic evidence does not prove Guardian executed in a chat without an actual runtime decision record."
