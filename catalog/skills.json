@@ -413,6 +413,122 @@
       }
     },
     {
+      "id": "chatgpt-apps-deployer",
+      "name": "chatgpt-apps-deployer",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Prepare, validate, package, and release ChatGPT Apps SDK projects with MCP-compatible tools, UI assets, privacy metadata, deployment checks, submission evidence, and rollback-ready release artifacts.",
+      "summary_pt_br": "Prepare, validate, package, and release ChatGPT Apps SDK projects with MCP-compatible tools, UI assets, privacy metadata, deployment checks, submission evidence, and rollback-ready release artifacts.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/chatgpt-apps-deployer",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-08",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can identify the next action and material uncertainty without unnecessary complexity."
+          },
+          "social": {
+            "mechanism": "Makes dependencies, consent, roles and escalation visible to affected people.",
+            "indicator": "Material handoffs and responsibilities are explicit rather than assumed."
+          },
+          "knowledge": {
+            "mechanism": "Separates evidence, unknowns and decisions into reusable artifacts.",
+            "indicator": "Key facts, unknowns and decisions remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, tool calls or avoidable corrective cycles."
+          }
+        },
+        "harm_check": "Do not gain convenience by hiding uncertainty, weakening consent, bypassing safeguards, or exporting risk to another person.",
+        "reinforcing_loop": "Each use leaves a reusable record, checklist, state map, evidence packet or learned pattern.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns, least privilege and human escalation prevent automation from overriding agency or evidence.",
+        "regenerative_seed": "A user-owned reusable artifact that can be updated after real-world feedback.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "money",
+            "compute"
+          ],
+          "baseline_comparison": "Compare avoidable steps, repeated searching and corrective work with the prior process.",
+          "restoration": "Retire stale assumptions and return verified corrections to the reusable artifact."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state what happens next and what remains uncertain."
+        }
+      }
+    },
+    {
+      "id": "codex-pr-reviewer",
+      "name": "codex-pr-reviewer",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Review pull requests with Codex using repository-specific business rules, risk-ranked findings, evidence from changed lines, regression checks, and a machine-readable policy that teams can version with the code.",
+      "summary_pt_br": "Review pull requests with Codex using repository-specific business rules, risk-ranked findings, evidence from changed lines, regression checks, and a machine-readable policy that teams can version with the code.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/codex-pr-reviewer",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-08",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can identify the next action and material uncertainty without unnecessary complexity."
+          },
+          "social": {
+            "mechanism": "Makes dependencies, consent, roles and escalation visible to affected people.",
+            "indicator": "Material handoffs and responsibilities are explicit rather than assumed."
+          },
+          "knowledge": {
+            "mechanism": "Separates evidence, unknowns and decisions into reusable artifacts.",
+            "indicator": "Key facts, unknowns and decisions remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, tool calls or avoidable corrective cycles."
+          }
+        },
+        "harm_check": "Do not gain convenience by hiding uncertainty, weakening consent, bypassing safeguards, or exporting risk to another person.",
+        "reinforcing_loop": "Each use leaves a reusable record, checklist, state map, evidence packet or learned pattern.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns, least privilege and human escalation prevent automation from overriding agency or evidence.",
+        "regenerative_seed": "A user-owned reusable artifact that can be updated after real-world feedback.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "money",
+            "compute"
+          ],
+          "baseline_comparison": "Compare avoidable steps, repeated searching and corrective work with the prior process.",
+          "restoration": "Retire stale assumptions and return verified corrections to the reusable artifact."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state what happens next and what remains uncertain."
+        }
+      }
+    },
+    {
       "id": "codex-security",
       "name": "Codex Security",
       "kind": "plugin",
@@ -560,6 +676,64 @@
         "codex"
       ],
       "checked_on": "2026-09-08"
+    },
+    {
+      "id": "cs-navigator",
+      "name": "cs-navigator",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Curate the smallest useful capability path for explicit capability-selection requests or after the user explicitly enables CS Navigator as their curator in the current conversation. Route among native ChatGPT, a skill, a Life Journey, or a connected action. Never claim cross-chat persistence unless the host explicitly provides it.",
+      "summary_pt_br": "Curate the smallest useful capability path for explicit capability-selection requests or after the user explicitly enables CS Navigator as their curator in the current conversation. Route among native ChatGPT, a skill, a Life Journey, or a connected action. Never claim cross-chat persistence unless the host explicitly provides it.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/cs-navigator",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-08",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can identify the next action and material uncertainty without unnecessary complexity."
+          },
+          "social": {
+            "mechanism": "Makes dependencies, consent, roles and escalation visible to affected people.",
+            "indicator": "Material handoffs and responsibilities are explicit rather than assumed."
+          },
+          "knowledge": {
+            "mechanism": "Separates evidence, unknowns and decisions into reusable artifacts.",
+            "indicator": "Key facts, unknowns and decisions remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, tool calls or avoidable corrective cycles."
+          }
+        },
+        "harm_check": "Do not gain convenience by hiding uncertainty, weakening consent, bypassing safeguards, or exporting risk to another person.",
+        "reinforcing_loop": "Each use leaves a reusable record, checklist, state map, evidence packet or learned pattern.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns, least privilege and human escalation prevent automation from overriding agency or evidence.",
+        "regenerative_seed": "A user-owned reusable artifact that can be updated after real-world feedback.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "money",
+            "compute"
+          ],
+          "baseline_comparison": "Compare avoidable steps, repeated searching and corrective work with the prior process.",
+          "restoration": "Retire stale assumptions and return verified corrections to the reusable artifact."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state what happens next and what remains uncertain."
+        }
+      }
     },
     {
       "id": "data-analytics",
@@ -1805,6 +1979,64 @@
       "checked_on": "2026-09-08"
     },
     {
+      "id": "openai-agents-sdk-builder",
+      "name": "openai-agents-sdk-builder",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Scaffold and review production-oriented OpenAI Agents SDK projects with explicit tools, guardrails, handoffs, tracing, state, sandbox boundaries, and testable acceptance criteria.",
+      "summary_pt_br": "Scaffold and review production-oriented OpenAI Agents SDK projects with explicit tools, guardrails, handoffs, tracing, state, sandbox boundaries, and testable acceptance criteria.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/openai-agents-sdk-builder",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-08",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can identify the next action and material uncertainty without unnecessary complexity."
+          },
+          "social": {
+            "mechanism": "Makes dependencies, consent, roles and escalation visible to affected people.",
+            "indicator": "Material handoffs and responsibilities are explicit rather than assumed."
+          },
+          "knowledge": {
+            "mechanism": "Separates evidence, unknowns and decisions into reusable artifacts.",
+            "indicator": "Key facts, unknowns and decisions remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, tool calls or avoidable corrective cycles."
+          }
+        },
+        "harm_check": "Do not gain convenience by hiding uncertainty, weakening consent, bypassing safeguards, or exporting risk to another person.",
+        "reinforcing_loop": "Each use leaves a reusable record, checklist, state map, evidence packet or learned pattern.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns, least privilege and human escalation prevent automation from overriding agency or evidence.",
+        "regenerative_seed": "A user-owned reusable artifact that can be updated after real-world feedback.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "money",
+            "compute"
+          ],
+          "baseline_comparison": "Compare avoidable steps, repeated searching and corrective work with the prior process.",
+          "restoration": "Retire stale assumptions and return verified corrections to the reusable artifact."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state what happens next and what remains uncertain."
+        }
+      }
+    },
+    {
       "id": "openai-developers",
       "name": "OpenAI Developers",
       "kind": "plugin",
@@ -2342,6 +2574,64 @@
       "summary_en": "Help users preserve truthful evidence for disputes, services, insurance, purchases, property, school, work, or public administration without fabricating or altering records.",
       "summary_pt_br": "Ajuda usuários a preservar evidências verdadeiras para disputas, serviços, seguros, compras, imóveis, escola, trabalho ou administração pública.",
       "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/real-world-evidence-kit",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-08",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can identify the next action and material uncertainty without unnecessary complexity."
+          },
+          "social": {
+            "mechanism": "Makes dependencies, consent, roles and escalation visible to affected people.",
+            "indicator": "Material handoffs and responsibilities are explicit rather than assumed."
+          },
+          "knowledge": {
+            "mechanism": "Separates evidence, unknowns and decisions into reusable artifacts.",
+            "indicator": "Key facts, unknowns and decisions remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, tool calls or avoidable corrective cycles."
+          }
+        },
+        "harm_check": "Do not gain convenience by hiding uncertainty, weakening consent, bypassing safeguards, or exporting risk to another person.",
+        "reinforcing_loop": "Each use leaves a reusable record, checklist, state map, evidence packet or learned pattern.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns, least privilege and human escalation prevent automation from overriding agency or evidence.",
+        "regenerative_seed": "A user-owned reusable artifact that can be updated after real-world feedback.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "money",
+            "compute"
+          ],
+          "baseline_comparison": "Compare avoidable steps, repeated searching and corrective work with the prior process.",
+          "restoration": "Retire stale assumptions and return verified corrections to the reusable artifact."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state what happens next and what remains uncertain."
+        }
+      }
+    },
+    {
+      "id": "realtime-api-integration",
+      "name": "realtime-api-integration",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Design and scaffold OpenAI Realtime API integrations with server-side WebSocket control, browser WebRTC transport, explicit fallback policy, session configuration, observability, and secret isolation.",
+      "summary_pt_br": "Design and scaffold OpenAI Realtime API integrations with server-side WebSocket control, browser WebRTC transport, explicit fallback policy, session configuration, observability, and secret isolation.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/realtime-api-integration",
       "provenance": "regenerative-core",
       "license": "MIT",
       "surfaces": [
