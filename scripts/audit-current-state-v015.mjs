@@ -42,6 +42,13 @@ for(const p of await walk('plugins/cs-navigator')){
   if(/pending-native-0\.9\.[0-9]/.test(t)) errors.push(p+': obsolete 0.9 pending-native marker');
   if(/Until final 0\.9\.[0-9]/.test(t)) errors.push(p+': obsolete 0.9 qualification marker');
 }
+const sourceCatalog=JSON.parse(await readFile('catalog/skills.json','utf8'));
+const healthCatalog=JSON.parse(await readFile('catalog.json','utf8'));
+if(sourceCatalog.entries?.length!==78) errors.push('catalog/skills.json: expected 78 entries for 0.15.0');
+if(healthCatalog.entries?.length!==77) errors.push('catalog.json: expected 77 skill entries for 0.15.0');
+const collections=(sourceCatalog.entries||[]).filter(e=>e.kind==='collection');
+if(collections.length!==1 || collections[0].id!=='openai-plugins') errors.push('catalog/skills.json: expected exactly one source collection: openai-plugins');
+
 const plugin=JSON.parse(await readFile('plugins/cs-navigator/plugin.json','utf8'));
 if(plugin.version!=='0.15.0') errors.push('plugins/cs-navigator/plugin.json: version must be 0.15.0');
 const ui=plugin.extensions?.['com.openai']?.interface;
