@@ -1,4 +1,4 @@
-name: Validate CS Navigator v0.9.3 R3
+name: Validate CS Navigator v0.9.3 R3 (historical)
 
 on:
   push:
@@ -17,23 +17,6 @@ on:
       - 'docs/**'
       - 'scripts/audit-cs-navigator-v093.mjs'
       - '.github/workflows/validate-v093-release.yml'
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'plugins/cs-navigator/**'
-      - 'submission/cs-navigator-0.9.3.json'
-      - 'release/v093-first-party-skills.json'
-      - 'release/candidates/cs-navigator-v0.9.3-r3.json'
-      - 'tests/fixtures/v093-native-qualification-r3.json'
-      - 'trust/evals/runs/cs-navigator-v0.9.3-r3-native-requalification.json'
-      - 'README*'
-      - 'ROADMAP.md'
-      - 'BUNDLES.md'
-      - 'docs/**'
-      - 'scripts/audit-cs-navigator-v093.mjs'
-      - '.github/workflows/validate-v093-release.yml'
-
 permissions:
   contents: read
 
