@@ -1,0 +1,4 @@
+interface:
+  display_name: "Personal Decision Record"
+  short_description: "Create a durable record of a personal decision: objective, criteria, options, evidence, trade-offs, chosen path, rejected alternatives, and review trigger."
+  default_prompt: "Use $personal-decision-record only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries, user agency, and the smallest useful workflow."
