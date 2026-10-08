@@ -7,11 +7,17 @@
   "source_commit": "ad4dd7fb1cb6265377f5fba6c06037717d1642b9",
   "zip_sha256": "b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2",
   "entries": 126,
-  "qualification_state": "static-qualified-native-pending",
+  "qualification_state": "native-qualified",
   "native_qualification": {
     "matrix": "tests/fixtures/v015-native-qualification-r1.json",
-    "state": "pending-new-conversation-runtime-reload",
-    "runtime_observation": "Plugin metadata reports 0.15.0, but skills__list in the updating conversation still returned the previous CS Navigator skill inventory."
+    "state": "PASS",
+    "result": "PASS",
+    "pass": 12,
+    "fail": 0,
+    "total": 12,
+    "executed_on": "2026-10-08",
+    "evidence_ref": "trust/evals/runs/cs-navigator-v0.15.0-r1-native-requalification.json",
+    "runtime_observation": "The installed private plugin runtime in this conversation exposed the 0.15.0 Navigator contract and supporting Human Capability skills."
   },
   "static_gates": {
     "build": "PASS",
@@ -28,7 +34,7 @@
     "evidence_state": "designed"
   },
   "live_registry_mcp": "planned-not-active",
-  "claim_boundary": "This record supports the static 0.15.0 candidate only. It does not make the changed Navigator behavior or the 31 new workflows tested/qualified, does not prove cross-chat curator persistence, and does not prove Guardian execution inside a chat.",
+  "claim_boundary": "Native qualification applies to the recorded 12-case CS Navigator 0.15.0 behavior on the exact private candidate. The 31 new workflows remain individually designed unless separately supported by their own native execution evidence; this is not universal safety, zero-hallucination, cross-chat persistence, or Guardian-runtime proof.",
   "build_evidence": {
     "workflow_run_id": 37778899044,
     "workflow_artifact_id": 11550419277,
@@ -40,7 +46,7 @@
     "plugin_id": "plugins_6ac41c5909b481918b0523726e763aa3",
     "version": "0.15.0",
     "release_id": "pluginrel_6ac7925aa40481919ababb85f9ef299e",
-    "state": "installed-private-runtime-reload-required",
-    "note": "Exact candidate bytes uploaded successfully. The updating conversation still exposes the previous skill index, so native semantic qualification must run in a newly loaded conversation."
+    "state": "installed-private-native-qualified-candidate",
+    "note": "Exact candidate bytes are installed privately and the 12-case native semantic matrix passed in a conversation that loaded the 0.15.0 runtime."
   }
 }
