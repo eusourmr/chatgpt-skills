@@ -172,6 +172,23 @@ pack.container_guardian.release_line='0.15.0';
 pack.container_guardian.evidence_boundary='Deterministic Guardian evidence remains module-scoped. No chat-level Guardian execution may be claimed without an actual decision record.';
 await writeJson('plugins/cs-navigator/capability-pack.json',pack);
 
+// Normalize the legacy 0.9 first-party capability index without inventing individual test evidence.
+for(const p of ['plugins/cs-navigator/skills/cs-navigator/references/first-party-capabilities.json','skills/featured/cs-navigator/references/first-party-capabilities.json']){
+  try{
+    const idx=await readJson(p);
+    idx.generated_for_plugin='0.15.0';
+    idx.policy='Existing first-party workflows remain independently evidenced. Prior release-level qualification does not convert individual designed workflows into tested skills.';
+    for(const e of (idx.entries||[])){
+      if(e.evidence_state==='designed'){
+        e.qualification_state='designed-existing-no-individual-native-test';
+        e.recommendation_state='evidence-bounded';
+        e.trust_boundary='Release-level routing or package qualification does not equal individual workflow efficacy testing.';
+      }
+    }
+    await writeJson(p,idx);
+  }catch{}
+}
+
 // Copy registry into Navigator references.
 await writeJson('plugins/cs-navigator/skills/cs-navigator/references/human-capability-registry.json',registry);
 await writeJson('skills/featured/cs-navigator/references/human-capability-registry.json',registry);
