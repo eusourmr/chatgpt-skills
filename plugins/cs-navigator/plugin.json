@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cs-navigator",
-  "version": "0.9.4",
-  "description": "CS Navigator routes explicit capability-selection requests to bundled first-party skills while keeping ordinary tasks native and preserving evidence boundaries.",
+  "version": "0.15.0",
+  "description": "CS Navigator curates the smallest useful path for everyday life: native ChatGPT, a focused skill, a multi-step Life Journey, or a connected action when needed.",
   "author": {
     "name": "ChatGPT Skills",
     "url": "https://github.com/eusourmr/chatgpt-skills"
@@ -34,15 +34,15 @@
     "com.openai": {
       "interface": {
         "displayName": "CS Navigator",
-        "shortDescription": "Evidence-aware skill routing",
-        "longDescription": "CS Navigator 0.9.4 helps users decide when to stay with native ChatGPT and when to use a bundled CS workflow. It routes explicit capability-selection requests across writing, research, Brazilian context, academic review, design, engineering, visual preservation, project continuity and founder/product strategy. Evidence states and limitations remain explicit, and ordinary tasks stay native when an additional workflow adds no material value.",
+        "shortDescription": "Everyday capability routing",
+        "longDescription": "CS Navigator 0.15.0 helps people use specialized ChatGPT workflows without learning skill names. It keeps ordinary tasks native when sufficient, can select focused workflows for everyday administration, family, home, Brazilian public services, travel and digital safety, and can organize multi-step Life Journeys. Optional curator and Simple Mode preferences apply only where the host supports them; connected actions still follow normal permission and confirmation boundaries.",
         "developerName": "RICARDO MOREIRA DA ROCHA",
         "category": "Productivity",
         "websiteURL": "https://github.com/eusourmr/chatgpt-skills",
         "defaultPrompt": [
-          "Help me decide whether this task should stay native or use a CS Navigator skill.",
-          "Use CS Navigator to choose the smallest useful workflow for this task.",
-          "Show the evidence boundary and unknowns before recommending a CS capability."
+          "Use CS Navigator as my curator in this conversation.",
+          "Help me with this in the simplest useful way.",
+          "Show me what is resolved, pending, blocked, and next."
         ],
         "privacyPolicyURL": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/PRIVACY.md",
         "termsOfServiceURL": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/TERMS.md",

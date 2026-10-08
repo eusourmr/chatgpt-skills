@@ -1,0 +1,4 @@
+interface:
+  display_name: "Public Service BR Navigator"
+  short_description: "Find and explain the correct Brazilian public-service path across federal, state, municipal, district, and regulatory bodies with official-source preference."
+  default_prompt: "Use $public-service-br-navigator only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."

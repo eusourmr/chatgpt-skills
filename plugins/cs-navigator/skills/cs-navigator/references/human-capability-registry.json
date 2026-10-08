@@ -1,0 +1,512 @@
+{
+  "schema_version": 1,
+  "generated_for_plugin": "0.15.0",
+  "product": "CS Navigator",
+  "runtime_state": "bundled-registry-foundation",
+  "live_registry_mcp": "planned-not-active",
+  "evidence_boundary": "Registry presence is not execution evidence. New 0.15 skills remain designed until native semantic qualification.",
+  "routing_levels": [
+    "native",
+    "skill",
+    "life-journey",
+    "connected-action"
+  ],
+  "entries": [
+    {
+      "id": "bureaucracy-br-navigator",
+      "name": "bureaucracy-br-navigator",
+      "category": "citizen-brazil",
+      "summary": "Navigate Brazilian administrative procedures by identifying competent authority, territorial scope, required object, documents, official channel, and currentness.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/bureaucracy-br-navigator",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "capability-preferences",
+      "name": "capability-preferences",
+      "category": "personalization",
+      "summary": "Define how CS Navigator should curate: automatic vs ask-first, simple/standard/expert depth, connected-action confirmation, and visibility of skill mechanics.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/capability-preferences",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "caregiver-coordinator",
+      "name": "caregiver-coordinator",
+      "category": "family-care",
+      "summary": "Coordinate non-clinical family caregiving tasks, contacts, appointments, documents, responsibilities, handoffs, and emergency information without replacing medical judgment.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/caregiver-coordinator",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "consumer-rights-navigator",
+      "name": "consumer-rights-navigator",
+      "category": "citizen-brazil",
+      "summary": "Help users structure a consumer dispute, evidence, desired remedy, complaint path, and current-rule verification without inventing legal rights.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/consumer-rights-navigator",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "decision-stop-rule",
+      "name": "decision-stop-rule",
+      "category": "decision-support",
+      "summary": "Detect when more comparison or research is no longer likely to change a decision and define a rational stopping rule without forcing the choice.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/decision-stop-rule",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "difficult-conversation-prep",
+      "name": "difficult-conversation-prep",
+      "category": "communication",
+      "summary": "Prepare a difficult conversation using objective facts, needs, boundaries, requests, likely misunderstandings, and non-manipulative language.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/difficult-conversation-prep",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "digital-helper-simple",
+      "name": "digital-helper-simple",
+      "category": "digital-literacy",
+      "summary": "Give plain-language, step-by-step help for common phone, computer, app, account, and internet tasks, especially for people with low digital familiarity.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/digital-helper-simple",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "everyday-problem-solver",
+      "name": "everyday-problem-solver",
+      "category": "everyday-life",
+      "summary": "Turn an ordinary life problem into a clear path: facts, unknowns, safe immediate actions, dependencies, evidence to keep, escalation, and definition of resolved.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/everyday-problem-solver",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "family-digital-safety",
+      "name": "family-digital-safety",
+      "category": "family-care",
+      "summary": "Help families manage online safety, privacy, scams, account security, age-appropriate boundaries, and digital habits without covert surveillance or manipulative control.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/family-digital-safety",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "home-maintenance-planner",
+      "name": "home-maintenance-planner",
+      "category": "home",
+      "summary": "Create a preventive maintenance plan for a home and common equipment with priorities, intervals, evidence, and escalation to qualified help when needed.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/home-maintenance-planner",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "household-finance-planner",
+      "name": "household-finance-planner",
+      "category": "everyday-life",
+      "summary": "Organize household cash flow, recurring bills, priorities, buffers, scenarios, and trade-offs without acting as an investment adviser.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/household-finance-planner",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "human-handoff-preparer",
+      "name": "human-handoff-preparer",
+      "category": "human-handoff",
+      "summary": "When AI has reached its useful limit, prepare a concise handoff to a doctor, lawyer, accountant, school, bank, insurer, technician, or other human professional.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/human-handoff-preparer",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "information-expiry-guard",
+      "name": "information-expiry-guard",
+      "category": "evidence",
+      "summary": "Mark date-sensitive life information with when it was verified, what could make it stale, and when it must be checked again before action.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/information-expiry-guard",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "life-admin-organizer",
+      "name": "life-admin-organizer",
+      "category": "everyday-life",
+      "summary": "Organize personal bureaucracy, documents, renewals, appointments, bills, pending requests, deadlines, and next actions into a manageable life-admin system.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/life-admin-organizer",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "life-state-map",
+      "name": "life-state-map",
+      "category": "continuity",
+      "summary": "Maintain an explicit state map for a real-world situation: resolved, active, blocked, waiting on others, next, and dropped, with dependencies.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/life-state-map",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "major-life-change-planner",
+      "name": "major-life-change-planner",
+      "category": "life-journey",
+      "summary": "Plan major transitions such as job loss, retirement, marriage, separation, birth, relocation, or caregiving across practical domains without pretending one template fits all.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/major-life-change-planner",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "medical-appointment-prep",
+      "name": "medical-appointment-prep",
+      "category": "family-care",
+      "summary": "Prepare a concise health-appointment brief from user-provided information: main concern, timeline, medications, records, questions, and urgent-care red flags.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/medical-appointment-prep",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "moving-life-journey",
+      "name": "moving-life-journey",
+      "category": "life-journey",
+      "summary": "Coordinate a move across contract, utilities, address changes, packing, inventory, transport, handover evidence, budget, and post-move tasks.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/moving-life-journey",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "overwhelm-to-next-action",
+      "name": "overwhelm-to-next-action",
+      "category": "everyday-life",
+      "summary": "Reduce a pile of obligations into one next action, a small today list, a later list, and explicit dependencies without pretending to provide therapy.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/overwhelm-to-next-action",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "personal-curator",
+      "name": "personal-curator",
+      "category": "personalization",
+      "summary": "Curate capabilities silently after the user explicitly asks CS Navigator to act as their curator. Keep ordinary work native, surface mechanics only when useful, and never claim persistent cross-chat activation unless the host provides it.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/personal-curator",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "personal-decision-record",
+      "name": "personal-decision-record",
+      "category": "decision-support",
+      "summary": "Create a durable record of a personal decision: objective, criteria, options, evidence, trade-offs, chosen path, rejected alternatives, and review trigger.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/personal-decision-record",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "proof-of-progress",
+      "name": "proof-of-progress",
+      "category": "continuity",
+      "summary": "Close a task or life workflow with explicit resolved, pending, blocked, waiting, next action, owner, and evidence so conversation does not masquerade as progress.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/proof-of-progress",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "public-service-br-navigator",
+      "name": "public-service-br-navigator",
+      "category": "citizen-brazil",
+      "summary": "Find and explain the correct Brazilian public-service path across federal, state, municipal, district, and regulatory bodies with official-source preference.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/public-service-br-navigator",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "purchase-decision-helper",
+      "name": "purchase-decision-helper",
+      "category": "everyday-life",
+      "summary": "Compare an important purchase by need, total cost, maintenance, reliability, lock-in, alternatives, and exit cost rather than headline price alone.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/purchase-decision-helper",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "real-world-evidence-kit",
+      "name": "real-world-evidence-kit",
+      "category": "evidence",
+      "summary": "Help users preserve truthful evidence for disputes, services, insurance, purchases, property, school, work, or public administration without fabricating or altering records.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/real-world-evidence-kit",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "repair-decision-helper",
+      "name": "repair-decision-helper",
+      "category": "home",
+      "summary": "Decide whether to inspect, repair, replace, or seek a professional using symptoms, age, cost, safety, recurrence, warranty, and evidence.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/repair-decision-helper",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "scam-checker",
+      "name": "scam-checker",
+      "category": "digital-safety",
+      "summary": "Assess suspicious messages, calls, links, invoices, payment requests, and offers using observable warning signs and safe verification steps without declaring fraud without enough evidence.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/scam-checker",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "school-family-organizer",
+      "name": "school-family-organizer",
+      "category": "family-care",
+      "summary": "Organize school calendars, documents, meetings, assignments, communications, activities, and unresolved issues into one family-facing plan.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/school-family-organizer",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "simple-mode",
+      "name": "simple-mode",
+      "category": "personalization",
+      "summary": "Adapt explanations for people who want the simplest usable path: plain language, short steps, one action at a time, and technical terms only when they help.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/simple-mode",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "subscription-cleanup",
+      "name": "subscription-cleanup",
+      "category": "everyday-life",
+      "summary": "Identify recurring services, duplicates, low-use subscriptions, renewal traps, and a safe cancellation/review plan without accessing accounts unless explicitly connected.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/subscription-cleanup",
+      "reviewed_for_plugin": "0.15.0"
+    },
+    {
+      "id": "travel-readiness",
+      "name": "travel-readiness",
+      "category": "life-journey",
+      "summary": "Prepare a practical trip-readiness checklist covering documents, timing, transport, money, connectivity, health needs, baggage, reservations, and current entry requirements.",
+      "execution_mode": "chat-native",
+      "evidence_state": "designed",
+      "qualification_state": "pending-native-0.15.0-r1",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "known_gaps": [
+        "No individual native semantic qualification yet for 0.15.0."
+      ],
+      "source_path": "skills/travel-readiness",
+      "reviewed_for_plugin": "0.15.0"
+    }
+  ]
+}

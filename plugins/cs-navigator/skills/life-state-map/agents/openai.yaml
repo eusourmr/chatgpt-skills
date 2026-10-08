@@ -1,0 +1,4 @@
+interface:
+  display_name: "Life State Map"
+  short_description: "Maintain an explicit state map for a real-world situation: resolved, active, blocked, waiting on others, next, and dropped, with dependencies."
+  default_prompt: "Use $life-state-map only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."

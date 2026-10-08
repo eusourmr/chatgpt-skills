@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bureaucracy BR Navigator"
+  short_description: "Navigate Brazilian administrative procedures by identifying competent authority, territorial scope, required object, documents, official channel, and currentness."
+  default_prompt: "Use $bureaucracy-br-navigator only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Life Admin Organizer"
+  short_description: "Organize personal bureaucracy, documents, renewals, appointments, bills, pending requests, deadlines, and next actions into a manageable life-admin system."
+  default_prompt: "Use $life-admin-organizer only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries, user agency, and the smallest useful workflow."

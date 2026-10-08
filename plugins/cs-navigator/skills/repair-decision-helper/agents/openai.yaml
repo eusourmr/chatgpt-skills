@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repair Decision Helper"
+  short_description: "Decide whether to inspect, repair, replace, or seek a professional using symptoms, age, cost, safety, recurrence, warranty, and evidence."
+  default_prompt: "Use $repair-decision-helper only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."

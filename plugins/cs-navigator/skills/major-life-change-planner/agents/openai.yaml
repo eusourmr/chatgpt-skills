@@ -1,0 +1,4 @@
+interface:
+  display_name: "Major Life Change Planner"
+  short_description: "Plan major transitions such as job loss, retirement, marriage, separation, birth, relocation, or caregiving across practical domains without pretending one template fits all."
+  default_prompt: "Use $major-life-change-planner only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."
