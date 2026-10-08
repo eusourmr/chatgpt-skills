@@ -1,0 +1,4 @@
+interface:
+  display_name: "Personal Curator"
+  short_description: "Curate capabilities silently after the user explicitly asks CS Navigator to act as their curator. Keep ordinary work native, surface mechanics only when useful, and never claim per"
+  default_prompt: "Use $personal-curator only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries, user agency, and the smallest useful workflow."

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "product": "CS Navigator",
+  "technical_plugin_slug": "cs-navigator",
+  "version": "0.15.0",
+  "candidate": "R3-static-human-capability",
+  "source_commit": "ad4dd7fb1cb6265377f5fba6c06037717d1642b9",
+  "zip_sha256": "b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2",
+  "entries": 126,
+  "qualification_state": "native-qualified",
+  "native_qualification": {
+    "matrix": "tests/fixtures/v015-native-qualification-r1.json",
+    "state": "PASS",
+    "result": "PASS",
+    "pass": 12,
+    "fail": 0,
+    "total": 12,
+    "executed_on": "2026-10-08",
+    "evidence_ref": "trust/evals/runs/cs-navigator-v0.15.0-r1-native-requalification.json",
+    "runtime_observation": "The installed private plugin runtime in this conversation exposed the 0.15.0 Navigator contract and supporting Human Capability skills."
+  },
+  "static_gates": {
+    "build": "PASS",
+    "skill_profiles": "PASS",
+    "skill_containers": "PASS",
+    "container_guardian": "9/9 PASS",
+    "public_submission_validation": "PASS",
+    "current_state_audit": "PASS",
+    "catalog_reconciliation": "PASS",
+    "trust_chain": "PASS"
+  },
+  "new_skills": {
+    "count": 31,
+    "evidence_state": "designed"
+  },
+  "live_registry_mcp": "planned-not-active",
+  "claim_boundary": "Native qualification applies to the recorded 12-case CS Navigator 0.15.0 behavior on the exact private candidate. The 31 new workflows remain individually designed unless separately supported by their own native execution evidence; this is not universal safety, zero-hallucination, cross-chat persistence, or Guardian-runtime proof.",
+  "build_evidence": {
+    "workflow_run_id": 37778899044,
+    "workflow_artifact_id": 11550419277,
+    "artifact_digest": "sha256:71886201da42680cdfaec2502775d335ac65309ba0125bd59c23bb78a9591d81",
+    "zip_sha256": "b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2",
+    "entries": 126
+  },
+  "private_plugin": {
+    "plugin_id": "plugins_6ac41c5909b481918b0523726e763aa3",
+    "version": "0.15.0",
+    "release_id": "pluginrel_6ac7925aa40481919ababb85f9ef299e",
+    "state": "installed-private-native-qualified-candidate",
+    "note": "Exact candidate bytes are installed privately and the 12-case native semantic matrix passed in a conversation that loaded the 0.15.0 runtime."
+  }
+}

@@ -1,0 +1,109 @@
+name: Build CS Navigator v0.15.0 Human Capability
+
+on:
+  push:
+    branches:
+      - release/v0.15.0-human-capability
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Assemble 0.15.0
+        run: node scripts/build-v015-cs-navigator.mjs
+
+      - name: Regenerate Navigator evidence snapshot
+        run: node scripts/generate-navigator-snapshot.mjs
+
+      - name: Regenerate public catalog surfaces
+        run: python scripts/catalog.py --write
+
+      - name: Regenerate progress metrics
+        run: python scripts/validate_catalog.py --write-progress
+
+      - name: Validate new skill set
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/validate-skill-profiles.mjs
+          node scripts/validate-skill-containers.mjs
+          node scripts/eval-container-guardian.mjs --check
+          node scripts/validate-public-plugin-submission.mjs
+          node scripts/audit-current-state-v015.mjs
+
+          test "$(node -p "require('./plugins/cs-navigator/plugin.json').version")" = "0.15.0"
+
+          if grep -RIn --exclude='*.png' -F 'CS Connect' plugins/cs-navigator; then
+            echo 'Legacy CS Connect brand found inside current plugin payload.'
+            exit 1
+          fi
+
+          if grep -RIn --exclude='*.png' -E 'pending-native-0\.9\.[0-9]|Until final 0\.9\.[0-9]' plugins/cs-navigator; then
+            echo 'Obsolete 0.9 pending qualification marker found in current plugin payload.'
+            exit 1
+          fi
+
+          python - <<'PY'
+          import json, pathlib
+          m=json.load(open('release/v015-human-capability.json',encoding='utf-8'))
+          for sid in m['new_skills']:
+              p=pathlib.Path('skills')/sid/'SKILL.md'
+              assert p.exists(), p
+          reg=json.load(open('registry/capabilities-v1.json',encoding='utf-8'))
+          assert reg['generated_for_plugin']=='0.15.0'
+          assert reg['live_registry_mcp']=='planned-not-active'
+          assert len(reg['entries'])==len(m['new_skills'])
+          assert all(e['evidence_state']=='designed' for e in reg['entries'])
+          print('0.15.0 skill inventory and evidence boundary PASS.')
+          PY
+
+      - name: Build plugin ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build-public-plugin-submission.mjs
+          ZIP='dist/plugin-submission/cs-navigator-plugin-0.15.0.zip'
+          test -f "$ZIP"
+          unzip -t "$ZIP"
+          sha256sum "$ZIP"
+          unzip -Z1 "$ZIP" | wc -l
+
+      - name: Persist deterministic generated state
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add catalog/skills.json catalog.json README.md README.pt-BR.md PROGRESS.md registry/capabilities-v1.json plugins/cs-navigator skills/featured/cs-navigator submission/cs-navigator-0.15.0.json
+          if git diff --cached --quiet; then
+            echo 'No generated repository changes to commit.'
+          else
+            git commit -m 'build(0.15): materialize Human Capability plugin [skip v015-build]'
+            git push origin HEAD:release/v0.15.0-human-capability
+          fi
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: cs-navigator-v0.15.0-human-capability
+          path: |
+            dist/plugin-submission/cs-navigator-plugin-0.15.0.zip
+            dist/plugin-submission/cs-navigator-plugin-0.15.0.zip.sha256
+            registry/capabilities-v1.json
+            submission/cs-navigator-0.15.0.json
+          if-no-files-found: error

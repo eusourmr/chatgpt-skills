@@ -1,0 +1,4 @@
+interface:
+  display_name: "Overwhelm to Next Action"
+  short_description: "Reduce a pile of obligations into one next action, a small today list, a later list, and explicit dependencies without pretending to provide therapy."
+  default_prompt: "Use $overwhelm-to-next-action only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries, user agency, and the smallest useful workflow."

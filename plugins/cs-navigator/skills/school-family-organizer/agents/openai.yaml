@@ -1,0 +1,4 @@
+interface:
+  display_name: "School Family Organizer"
+  short_description: "Organize school calendars, documents, meetings, assignments, communications, activities, and unresolved issues into one family-facing plan."
+  default_prompt: "Use $school-family-organizer only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."

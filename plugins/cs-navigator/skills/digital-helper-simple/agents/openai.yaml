@@ -1,0 +1,4 @@
+interface:
+  display_name: "Digital Helper Simple"
+  short_description: "Give plain-language, step-by-step help for common phone, computer, app, account, and internet tasks, especially for people with low digital familiarity."
+  default_prompt: "Use $digital-helper-simple only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."

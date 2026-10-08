@@ -1,0 +1,4 @@
+interface:
+  display_name: "Household Finance Planner"
+  short_description: "Organize household cash flow, recurring bills, priorities, buffers, scenarios, and trade-offs without acting as an investment adviser."
+  default_prompt: "Use $household-finance-planner only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."

@@ -3,15 +3,15 @@
   "gate_version": "v2",
   "skill_id": "cs-navigator",
   "scanned_at": "2026-10-01",
-  "source_revision": "a66fd4b12cf4e659697307f96f1517103bcbdb8f",
-  "artifact_sha256": "7abb48e09b6dbdf284d934c5cb0a5bb70c61e70941a3769116c22e964a550a55",
+  "source_revision": "71639a4a72f4724a92db81534808446ec14b950b",
+  "artifact_sha256": "b7700af3b887166020c171a61342f838d1006be4dd47cbbd062b5c2aac3448a0",
   "result": "pass",
   "summary": {
     "critical": 0,
     "high": 0,
     "medium": 2,
     "low": 0,
-    "info": 6,
+    "info": 5,
     "blocking": 0
   },
   "observed_capabilities": {
@@ -98,17 +98,6 @@
       "path": "references/first-party-capabilities.json",
       "line": 133,
       "evidence_sha256": "3c469e9d6c5875d37a43f353d4f88e61fcf812c66eee3457465a40b0da4153e0",
-      "message": "Secret or credential terminology observed.",
-      "disposition": "review"
-    },
-    {
-      "rule_id": "secret-reference",
-      "family": "secrets",
-      "severity": "info",
-      "blocking": false,
-      "path": "SKILL.md",
-      "line": 16,
-      "evidence_sha256": "e265b6f564601a1fe8dc42785cd18a868bd8013eb5899560e79248767a683e6b",
       "message": "Secret or credential terminology observed.",
       "disposition": "review"
     }

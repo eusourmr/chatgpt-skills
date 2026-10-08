@@ -1,0 +1,4 @@
+interface:
+  display_name: "Difficult Conversation Prep"
+  short_description: "Prepare a difficult conversation using objective facts, needs, boundaries, requests, likely misunderstandings, and non-manipulative language."
+  default_prompt: "Use $difficult-conversation-prep only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."

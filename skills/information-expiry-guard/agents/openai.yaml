@@ -1,0 +1,4 @@
+interface:
+  display_name: "Information Expiry Guard"
+  short_description: "Mark date-sensitive life information with when it was verified, what could make it stale, and when it must be checked again before action."
+  default_prompt: "Use $information-expiry-guard only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."

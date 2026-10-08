@@ -1,0 +1,4 @@
+interface:
+  display_name: "Caregiver Coordinator"
+  short_description: "Coordinate non-clinical family caregiving tasks, contacts, appointments, documents, responsibilities, handoffs, and emergency information without replacing medical judgment."
+  default_prompt: "Use $caregiver-coordinator only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Simple Mode"
+  short_description: "Adapt explanations for people who want the simplest usable path: plain language, short steps, one action at a time, and technical terms only when they help."
+  default_prompt: "Use $simple-mode only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries, user agency, and the smallest useful workflow."

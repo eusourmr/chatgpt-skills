@@ -240,13 +240,18 @@ def validate_catalog(data: dict) -> list[str]:
                 core_lenses.update(lens_names)
                 ecology_entries += int("ecology" in lens_names)
             if isinstance(entry_id, str):
-                skill_file = ROOT / "skills" / entry_id / "SKILL.md"
-                if not skill_file.is_file():
-                    errors.append(f"{where} has no bundled skills/{entry_id}/SKILL.md")
+                canonical = ROOT / "skills" / entry_id / "SKILL.md"
+                featured = ROOT / "skills" / "featured" / entry_id / "SKILL.md"
+                if not canonical.is_file() and not featured.is_file():
+                    errors.append(
+                        f"{where} has no bundled skills/{entry_id}/SKILL.md "
+                        f"or skills/featured/{entry_id}/SKILL.md"
+                    )
         elif review is not None:
             errors.append(f"{where}.systemic_review is reserved for regenerative-core entries")
 
     bundled_core_ids = {path.parent.name for path in ROOT.glob("skills/*/SKILL.md")}
+    bundled_core_ids |= {path.parent.name for path in ROOT.glob("skills/featured/*/SKILL.md")}
     if core_ids != bundled_core_ids:
         missing_catalog = bundled_core_ids - core_ids
         missing_source = core_ids - bundled_core_ids
@@ -263,7 +268,11 @@ def validate_catalog(data: dict) -> list[str]:
 
 def validate_repo_skills() -> list[str]:
     errors: list[str] = []
-    paths = sorted(ROOT.glob(".agents/skills/*/SKILL.md")) + sorted(ROOT.glob("skills/*/SKILL.md"))
+    paths = (
+        sorted(ROOT.glob(".agents/skills/*/SKILL.md"))
+        + sorted(ROOT.glob("skills/*/SKILL.md"))
+        + sorted(ROOT.glob("skills/featured/*/SKILL.md"))
+    )
     for path in paths:
         text = path.read_text(encoding="utf-8")
         if "TODO" in text or not text.startswith("---\n"):

@@ -59,5 +59,5 @@ if (errors.length) {
 
 const counts = {};
 for (const card of Object.values(execution.skills ?? {})) counts[card.mode] = (counts[card.mode] || 0) + 1;
-console.log(`Execution model OK: ${executionCards.size} classified workflows (${bundled.size} installer-bundled, ${pluginWorkflows.size} CS Connect pack workflows); ` +
+console.log(`Execution model OK: ${executionCards.size} classified workflows (${bundled.size} installer-bundled, ${pluginWorkflows.size} CS Navigator pack workflows); ` +
   [...modes].map((mode) => `${mode}=${counts[mode] || 0}`).join(', '));

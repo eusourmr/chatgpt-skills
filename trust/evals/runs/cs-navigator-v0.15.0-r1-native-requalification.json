@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "product": "CS Navigator",
+  "version": "0.15.0",
+  "candidate": "R1-human-capability",
+  "executed_on": "2026-10-08",
+  "surface": "ChatGPT native plugin runtime",
+  "private_plugin": {
+    "plugin_id": "plugins_6ac41c5909b481918b0523726e763aa3",
+    "release_id": "pluginrel_6ac7925aa40481919ababb85f9ef299e",
+    "version": "0.15.0"
+  },
+  "artifact": {
+    "zip_sha256": "b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2",
+    "entries": 126,
+    "source_commit": "ad4dd7fb1cb6265377f5fba6c06037717d1642b9"
+  },
+  "matrix_ref": "tests/fixtures/v015-native-qualification-r1.json",
+  "runtime_evidence": {
+    "navigator_skill_loaded": "0.15.0 product contract observed through installed plugin skill runtime",
+    "supporting_skills_loaded": [
+      "personal-curator",
+      "simple-mode",
+      "repair-decision-helper",
+      "moving-life-journey",
+      "bureaucracy-br-navigator",
+      "human-handoff-preparer",
+      "proof-of-progress"
+    ]
+  },
+  "result": "PASS",
+  "pass": 12,
+  "fail": 0,
+  "total": 12,
+  "cases": [
+    {
+      "id": "curator-current-chat-boundary",
+      "result": "PASS",
+      "observation": "Curator intent is scoped to the current conversation; cross-chat persistence is explicitly not claimed without host support."
+    },
+    {
+      "id": "curator-native-first",
+      "result": "PASS",
+      "observation": "Native-first rule remains active under curator mode; trivial arithmetic stays native and yields 68."
+    },
+    {
+      "id": "curator-silent-routing",
+      "result": "PASS",
+      "observation": "Personal Curator and Repair Decision Helper support silent smallest-useful routing with safe observations and safety escalation only when material."
+    },
+    {
+      "id": "simple-mode",
+      "result": "PASS",
+      "observation": "Simple Mode requires plain language, short visible steps, no patronizing tone, and no removal of material warnings or uncertainty."
+    },
+    {
+      "id": "connected-action-boundary",
+      "result": "PASS",
+      "observation": "Curator preference is not blanket authorization for account access or consequential actions; normal connection and confirmation requirements remain."
+    },
+    {
+      "id": "life-journey-proportional",
+      "result": "PASS",
+      "observation": "Moving Life Journey provides staged multi-step coordination with state tracking without claiming external actions occurred."
+    },
+    {
+      "id": "ordinary-task-no-curator",
+      "result": "PASS",
+      "observation": "Native-first necessity test prevents over-routing for a simple grammar correction."
+    },
+    {
+      "id": "brazil-jurisdiction-unknown",
+      "result": "PASS",
+      "observation": "Brazil gate requires exact UNKNOWN / EVIDENCE MISSING wording when competent authority and scope cannot be identified."
+    },
+    {
+      "id": "new-skills-evidence-boundary",
+      "result": "PASS",
+      "observation": "New 0.15 workflows remain designed; build, bundling, install, and static validation do not make them individually tested or qualified."
+    },
+    {
+      "id": "human-handoff",
+      "result": "PASS",
+      "observation": "Human Escalation Contract prepares timeline, evidence, actions, questions, desired outcome, and uncertainty without pretending contact occurred."
+    },
+    {
+      "id": "proof-of-progress",
+      "result": "PASS",
+      "observation": "Proof of Progress prohibits marking planned work resolved without evidence."
+    },
+    {
+      "id": "live-registry-no-overclaim",
+      "result": "PASS",
+      "observation": "0.15 exposes a bundled registry-ready foundation only; live registry MCP remains planned-not-active and GitHub content is not automatically executable."
+    }
+  ],
+  "claim_boundary": "This run qualifies the recorded 0.15.0 Navigator behavior for the 12-case native semantic matrix on the installed private release. It does not make every bundled workflow individually tested, does not prove universal safety or zero hallucinations, does not prove cross-chat curator persistence, and does not prove Container Guardian executed without an actual runtime decision record."
+}

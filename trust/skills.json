@@ -125,8 +125,8 @@
       ]
     },
     "cs-navigator": {
-      "name": "CS Connect Navigator",
-      "summary": "Routes explicit CS Connect capability-selection requests to the smallest first-party or evidence-backed workflow while preserving native-first behavior, Guardian boundaries, and evidence-state honesty.",
+      "name": "CS Navigator",
+      "summary": "Curates the smallest useful path across native ChatGPT, focused skills, Life Journeys, and connected actions, with optional current-chat curator preferences and explicit evidence/permission boundaries.",
       "permissions": {
         "local_files": "none required by the chat-native workflow; it reads only its bundled reference snapshot through the skill runtime",
         "network": "none required",
@@ -136,12 +136,13 @@
       },
       "usefulness": {
         "state": "tested",
-        "evidence": "CS Connect 0.9.0 R2 exact artifact 3379f932301b707fcf935f8f4f6f45bdea10d3e7277daced2849f93c3f824cce passed the scoped native requalification for the two repaired routes plus Guardian STOP/no-bypass, native-first, and evidence-state preservation. The initial frozen matrix had 21/23 PASS before the two repaired cases; unaffected cases were retained by the frozen change-impact policy rather than re-run on R2."
+        "evidence": "CS Navigator 0.15.0 exact private candidate passed the 12/12 native semantic Human Capability matrix on 2026-10-08. The result covers the recorded Navigator routing and boundary behavior; it does not bulk-promote the 31 new workflows."
       },
       "known_gaps": [
-        "The R2 qualification is semantic and change-impact scoped; the 21 previously passing cases were not all re-run on R2.",
-        "Qualification is not a zero-hallucination or universal-safety guarantee and does not prove Container Guardian executed without a real decision record.",
-        "The bundled first-party skill index remains finite and may report coverage gaps."
+        "The 31 new 0.15 workflows remain individually designed unless separately supported by native execution evidence.",
+        "A chat instruction does not prove cross-chat/global curator persistence; that depends on explicit host support.",
+        "The live capability-registry MCP is planned-not-active; the bundled registry is finite and versioned.",
+        "Container Guardian deterministic evidence does not prove Guardian executed in a chat without an actual runtime decision record."
       ]
     },
     "regenerative-adaptive-experiment": {

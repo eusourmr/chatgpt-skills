@@ -1,0 +1,4 @@
+interface:
+  display_name: "Real-World Evidence Kit"
+  short_description: "Help users preserve truthful evidence for disputes, services, insurance, purchases, property, school, work, or public administration without fabricating or altering records."
+  default_prompt: "Use $real-world-evidence-kit only when explicitly selected by CS Navigator or the user. Preserve evidence integrity and user agency."

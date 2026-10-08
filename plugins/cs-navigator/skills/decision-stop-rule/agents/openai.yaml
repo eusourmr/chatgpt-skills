@@ -1,0 +1,4 @@
+interface:
+  display_name: "Decision Stop Rule"
+  short_description: "Detect when more comparison or research is no longer likely to change a decision and define a rational stopping rule without forcing the choice."
+  default_prompt: "Use $decision-stop-rule only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries, user agency, and the smallest useful workflow."

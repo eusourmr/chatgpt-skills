@@ -6,15 +6,115 @@ See [`docs/ECOSYSTEM_GROWTH_STRATEGY.md`](docs/ECOSYSTEM_GROWTH_STRATEGY.md) for
 
 ## Current position
 
-The current release candidate is **CS Navigator 0.9.3 — First-Party Skills Platform**. The exact R3 bytes passed the recorded native semantic requalification 6/6 on 2026-10-06; public submission remains pending.
+The OpenAI directory submission currently under review is **CS Navigator 0.9.4 — Submission Compliance**. It remains **not published** as of 2026-10-08.
 
-The exact **R3-final** ZIP SHA-256 is `890b4a7f8257021e2dedce10bce0abfa415ca4ebbed44de7966d5b90ca38117b`. Static/package gates pass, including Skill Profiles, Skill Containers, Container Guardian 9/9, public-submission validation, Security Gate v2, and a zero-legacy-brand payload check. Native ChatGPT semantic requalification against `tests/fixtures/v092-native-qualification-r3.json` remains the final qualification gate before public submission.
+The active development line is **CS Navigator 0.15.0 — Everyday Life & Human Capability**.
 
-The 0.9.0/R2 evidence remains immutable predecessor evidence. The private 0.9.1 attempt was superseded before native qualification because the Plugin Creator requires a version bump for a corrected package.
+0.15.0 intentionally absorbs the previously planned 0.10–0.14 sequence into one coherent product step rather than publishing several small intermediate versions. The objective is not “more skills”; it is a human-centered capability layer that ordinary users can benefit from without learning skill names or architecture.
 
-The public product name, documentation name, and plugin display name are now **CS Navigator**. The technical slug remains `cs-navigator`.
+The current static 0.15.0 candidate:
 
-The former 0.7.5 line remains historical/internal foundation evidence. The former 0.8 scope remains absorbed into 0.9. The next product line is **v0.10 — Ecosystem Intelligence & Community Scale**.
+- adds 31 new Everyday Life / Human Capability skills;
+- bundles 50 skills total in the plugin candidate;
+- adds routing levels **Native → Skill → Life Journey → Connected Action**;
+- introduces **Personal Curator**, **Simple Mode**, and **Capability Preferences**;
+- adds Life Resolution, Human Escalation, and Proof of Progress contracts;
+- establishes a bundled registry-ready capability data contract;
+- explicitly keeps the future live registry MCP as **planned-not-active**;
+- preserves least privilege and current evidence boundaries.
+
+Static candidate ZIP SHA-256:
+
+`b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2`
+
+Static candidate entries: **126**.
+
+The exact private 0.15.0 candidate passed the recorded **12/12 native semantic Navigator matrix** on 2026-10-08. The Navigator behavior covered by that matrix is qualified; the 31 new workflows remain individually **designed**. Public-directory update/review remains a separate gate.
+
+The public product name remains **CS Navigator**. The technical slug remains `cs-navigator`.
+
+Historical evidence for 0.6, 0.7, 0.7.5, 0.9.3 and 0.9.4 remains preserved. Historical releases and evidence are not rewritten to look current.
+
+## v0.15 — Everyday Life & Human Capability — NATIVE-QUALIFIED CANDIDATE
+
+### Product goal
+
+Make CS Navigator useful even for people who never learn what a skill, plugin, router, MCP server, or evidence state is.
+
+Target experience:
+
+> Install once. Talk normally. CS Navigator helps choose the smallest useful way to help.
+
+A user may explicitly say:
+
+> Use CS Navigator as my curator.
+
+That enables curator behavior for the current conversation. The product must **not** claim global or cross-chat persistence unless the host product explicitly supports and confirms it.
+
+### Absorbed roadmap lines
+
+The former planned 0.10–0.14 sequence is absorbed here:
+
+- Everyday Life;
+- Family & Care;
+- Citizen Brazil;
+- Life Journeys;
+- Connected Life foundations.
+
+This avoids artificial version churn and lets the capability model be validated as one coherent system.
+
+### Core architecture
+
+- Native first.
+- Skill only when a reusable workflow materially helps.
+- Life Journey when a situation spans multiple dependent stages.
+- Connected Action only when external access materially changes the outcome.
+- Least privilege remains mandatory.
+- Connected access is not authorized merely because curator mode is active.
+
+### Personal capability layer
+
+- `personal-curator`
+- `simple-mode`
+- `capability-preferences`
+
+### Everyday Life families
+
+- administration and personal decisions;
+- household finances and subscriptions;
+- home maintenance and repair decisions;
+- consumer problems and Brazilian bureaucracy/public services;
+- family digital safety, school and caregiving;
+- medical-appointment preparation without diagnosis;
+- difficult-conversation preparation;
+- scam checking and simple digital help;
+- travel readiness;
+- moving and major-life-change journeys;
+- human handoff;
+- proof of progress;
+- life-state mapping;
+- information expiry;
+- real-world evidence preservation.
+
+### Registry direction
+
+0.15 establishes a bundled, versioned capability registry foundation. A future live registry may expose read-only capability/evidence lookup through an MCP surface, but arbitrary GitHub content must never become executable merely because it was committed.
+
+### Exit criteria
+
+0.15 is not release-qualified until:
+
+- static repository/package gates pass;
+- all new skills remain correctly evidence-labeled;
+- stale current-facing 0.9 markers are removed without destroying historical records;
+- curator persistence boundaries pass adversarial tests;
+- native-first behavior remains intact;
+- connected-action least-privilege behavior passes;
+- Brazil jurisdiction UNKNOWN behavior passes;
+- Life Journey escalation is proportional;
+- Simple Mode preserves material warnings and uncertainty;
+- exact-byte native semantic qualification passes against the final candidate;
+- the resulting candidate is bound to exact source and SHA-256.
 
 ## v0.4 — Trust Layer
 

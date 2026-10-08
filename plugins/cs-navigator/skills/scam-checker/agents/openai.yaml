@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scam Checker"
+  short_description: "Assess suspicious messages, calls, links, invoices, payment requests, and offers using observable warning signs and safe verification steps without declaring fraud without enough e"
+  default_prompt: "Use $scam-checker only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."

@@ -1,0 +1,106 @@
+name: Repair and validate CS Navigator v0.15.0 trust chain
+
+on:
+  push:
+    branches:
+      - release/v0.15.0-human-capability
+    paths:
+      - '.github/workflows/validate-v015-trust-chain.yml'
+      - 'trust/skills.json'
+      - 'trust/execution.json'
+      - 'installer/manifest.json'
+      - 'skills/featured/cs-navigator/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: release/v0.15.0-human-capability
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Bind static review to exact 0.15.0 canonical bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('trust/passport-policy.json')
+          data=json.loads(p.read_text(encoding='utf-8'))
+          override=data['skill_overrides']['cs-navigator']
+          override['reviewed_source_revision']='71639a4a72f4724a92db81534808446ec14b950b'
+          override['reviewed_at']='2026-10-08'
+          override['stale_after_days']=90
+          p.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
+          PY
+
+      - name: Refresh deterministic static trust chain
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/generate-trust-passports.mjs --write
+          node scripts/security-gate-v2.mjs --write
+          node scripts/generate-risk-labels.mjs --write
+          node scripts/generate-trust-passports.mjs --write
+          node scripts/update-drift-status.mjs --write --as-of 2026-10-08
+
+      - name: Verify trust chain and exact git source
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/generate-trust-passports.mjs --check
+          node scripts/validate-trust-passports.mjs --verify-git-source
+          node scripts/security-gate-v2.mjs --check
+          node scripts/generate-risk-labels.mjs --check
+          node scripts/update-drift-status.mjs --check --as-of 2026-10-08
+          node scripts/generate-navigator-snapshot.mjs --check
+          node scripts/validate-navigator.mjs
+          python -m unittest tests.test_drift_watch
+
+      - name: Assert evidence state matches native qualification
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          p=json.load(open('trust/passports/cs-navigator.json',encoding='utf-8'))
+          c=json.load(open('release/candidates/cs-navigator-v0.15.0-r3.json',encoding='utf-8'))
+          expected='tested' if c.get('qualification_state')=='native-qualified' and c.get('native_qualification',{}).get('state')=='PASS' else 'designed'
+          assert p['identity']['name']=='CS Navigator'
+          assert p['execution']['evidence_state']==expected
+          assert p['behavior_evidence']['state']==expected
+          assert p['freshness']['status']=='current'
+          assert any(x['path']=='references/human-capability-registry.json' for x in p['integrity']['files'])
+          print(f'0.15.0 trust state matches candidate qualification: {expected}.')
+          PY
+
+      - name: Commit refreshed static trust evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add trust/passport-policy.json trust/passports trust/security-reports trust/risk-labels trust/upstream
+          if git diff --cached --quiet; then
+            echo "Trust chain already current."
+          else
+            git commit -m "trust(0.15): refresh static Navigator evidence"
+            git push origin HEAD:release/v0.15.0-human-capability
+          fi
+
+# post-native-qualification refresh

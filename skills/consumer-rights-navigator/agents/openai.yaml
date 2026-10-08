@@ -1,0 +1,4 @@
+interface:
+  display_name: "Consumer Rights Navigator"
+  short_description: "Help users structure a consumer dispute, evidence, desired remedy, complaint path, and current-rule verification without inventing legal rights."
+  default_prompt: "Use $consumer-rights-navigator only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."

@@ -20,7 +20,17 @@ For ChatGPT-oriented ZIP export:
 npx chatgpt-skills install --skill cs-navigator --tool chatgpt-web --yes
 ```
 
-For the current plugin path, use **CS Navigator 0.9.0** and the qualified R2 evidence described in [Getting Started](docs/GETTING_STARTED.md). Public-directory availability is a separate OpenAI review/publication state.
+For the current plugin path, the OpenAI directory submission is **CS Navigator 0.9.4** (in review / not published as of 2026-10-08), while **0.15.0** is the active Human Capability development candidate. See [Getting Started](docs/GETTING_STARTED.md). Public-directory availability remains a separate OpenAI review/publication state.
+
+## 🧭 Human Capability layer (plugin candidate 0.15.0)
+
+The 0.15.0 plugin candidate adds an Everyday Life & Human Capability layer directly to CS Navigator. It is not presented as a separate CLI bundle yet.
+
+It includes personalization/curation, everyday administration, household decisions, home, Citizen Brazil, family/care, digital safety, Life Journeys, human handoff, progress tracking, freshness, and evidence-preservation workflows.
+
+All 31 new workflows start as `designed`; inclusion in the plugin candidate does not promote them to `tested`.
+
+See [CS Navigator 0.15.0 Human Capability](docs/CS_NAVIGATOR_0.15.0_HUMAN_CAPABILITY.md).
 
 ## 🧑‍💻 Developer Bundle
 

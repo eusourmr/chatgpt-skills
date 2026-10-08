@@ -1,0 +1,4 @@
+interface:
+  display_name: "Home Maintenance Planner"
+  short_description: "Create a preventive maintenance plan for a home and common equipment with priorities, intervals, evidence, and escalation to qualified help when needed."
+  default_prompt: "Use $home-maintenance-planner only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."

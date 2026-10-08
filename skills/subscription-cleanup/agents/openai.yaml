@@ -1,0 +1,4 @@
+interface:
+  display_name: "Subscription Cleanup"
+  short_description: "Identify recurring services, duplicates, low-use subscriptions, renewal traps, and a safe cancellation/review plan without accessing accounts unless explicitly connected."
+  default_prompt: "Use $subscription-cleanup only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries, user agency, and the smallest useful workflow."

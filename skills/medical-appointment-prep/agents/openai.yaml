@@ -1,0 +1,4 @@
+interface:
+  display_name: "Medical Appointment Prep"
+  short_description: "Prepare a concise health-appointment brief from user-provided information: main concern, timeline, medications, records, questions, and urgent-care red flags."
+  default_prompt: "Use $medical-appointment-prep only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."
