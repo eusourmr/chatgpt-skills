@@ -108,8 +108,10 @@ jobs:
           assert len(r['entries'])==31
           assert all(x['evidence_state']=='designed' for x in r['entries'])
           p=json.load(open('trust/passports/cs-navigator.json',encoding='utf-8'))
+          c=json.load(open('release/candidates/cs-navigator-v0.15.0-r3.json',encoding='utf-8'))
+          expected='tested' if c.get('qualification_state')=='native-qualified' and c.get('native_qualification',{}).get('state')=='PASS' else 'designed'
           assert p['identity']['name']=='CS Navigator'
-          assert p['execution']['evidence_state']=='designed'
-          assert p['behavior_evidence']['state']=='designed'
-          print('0.15 evidence boundary PASS: static trust current, native behavior still designed.')
+          assert p['execution']['evidence_state']==expected
+          assert p['behavior_evidence']['state']==expected
+          print(f'0.15 evidence boundary PASS: Navigator={expected}; 31 new workflows remain designed.')
           PY
