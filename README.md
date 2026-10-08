@@ -54,7 +54,7 @@ The current static candidate ZIP contains **126 entries** and is bound to SHA-25
 
 Static build gates pass for the generated candidate: Skill Profiles, Skill Containers, Container Guardian 9/9, public-submission validation, plugin structure, 31-skill registry inventory, legacy-brand exclusion, and stale 0.9 pending-marker exclusion.
 
-**Evidence boundary:** the 31 new skills are still `designed`. The new curator behavior and exact 0.15.0 bytes still require native semantic qualification before this candidate can be called `tested`, `qualified`, or published as the new plugin release.
+**Evidence boundary:** the 31 new skills are still individually `designed`. The exact 0.15.0 private candidate passed the recorded **12/12 native semantic Navigator matrix on 2026-10-08**. This qualifies the tested Navigator routing/boundary behavior; it does not bulk-promote the 31 workflows.
 
 The currently submitted OpenAI directory version remains **CS Navigator 0.9.4 — Submission Compliance**, with status **in review / not published** as of 2026-10-08. The 0.15.0 candidate must not silently replace that review until its own release gates pass.
 
@@ -75,7 +75,7 @@ The intended end-user experience is deliberately simple:
 
 Version lines:
 - OpenAI directory submission: **0.9.4 / in review / not published**
-- development candidate: **0.15.0 / static candidate PASS / native semantic qualification pending**
+- development candidate: **0.15.0 / native semantic qualification PASS 12/12 / private release installed**
 - technical slug: `cs-navigator`
 - 0.7.5: historical trust/runtime foundation
 - 0.9.x: first-party platform and submission-compliance foundation
