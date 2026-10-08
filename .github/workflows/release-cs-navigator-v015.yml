@@ -1,0 +1,166 @@
+name: Release CS Navigator v0.15.0
+# One-shot release workflow for the native-qualified Everyday Life & Human Capability payload.
+
+on:
+  push:
+    branches:
+      - ops/release-cs-navigator-v0.15.0
+    paths:
+      - '.github/workflows/release-cs-navigator-v015.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out exact merged release source
+        uses: actions/checkout@v6
+        with:
+          ref: c1dcda09cd744b14cb3e285e3f9a064594f705a7
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Build and verify qualified plugin archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build-public-plugin-submission.mjs
+          ZIP='dist/plugin-submission/cs-navigator-plugin-0.15.0.zip'
+          SHA_FILE="${ZIP}.sha256"
+          EXPECTED='b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2'
+
+          test -f "$ZIP"
+          test -f "$SHA_FILE"
+          unzip -t "$ZIP"
+
+          actual=$(sha256sum "$ZIP" | awk '{print $1}')
+          count=$(unzip -Z1 "$ZIP" | wc -l | tr -d ' ')
+          test "$actual" = "$EXPECTED"
+          test "$count" = "126"
+          grep -q "$EXPECTED" "$SHA_FILE"
+
+          python - <<'PY'
+          import json, zipfile
+          candidate=json.load(open('release/candidates/cs-navigator-v0.15.0-r3.json',encoding='utf-8'))
+          assert candidate['qualification_state']=='native-qualified'
+          q=candidate['native_qualification']
+          assert q['result']=='PASS'
+          assert (q['pass'],q['fail'],q['total'])==(12,0,12)
+          assert candidate['zip_sha256']=='b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2'
+          assert candidate['entries']==126
+
+          registry=json.load(open('registry/capabilities-v1.json',encoding='utf-8'))
+          assert len(registry['entries'])==31
+          assert all(x['evidence_state']=='designed' for x in registry['entries'])
+          assert registry['live_registry_mcp']=='planned-not-active'
+
+          p='dist/plugin-submission/cs-navigator-plugin-0.15.0.zip'
+          with zipfile.ZipFile(p) as z:
+              names=z.namelist()
+              assert z.testzip() is None
+              assert len(names)==126
+              plugin=json.loads(z.read('cs-navigator/plugin.json'))
+              assert plugin['name']=='cs-navigator'
+              assert plugin['version']=='0.15.0'
+              pack=json.loads(z.read('cs-navigator/capability-pack.json'))
+              assert len(pack['included_skills'])==50
+          print('Release payload verified: exact SHA, 126 entries, Navigator 12/12, 31 new workflows remain designed.')
+          PY
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: cs-navigator-v0.15.0
+          RELEASE_SHA: c1dcda09cd744b14cb3e285e3f9a064594f705a7
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if gh release view "$TAG" --repo eusourmr/chatgpt-skills >/dev/null 2>&1; then
+            echo "Release $TAG already exists."
+            exit 0
+          fi
+
+          if gh api "repos/eusourmr/chatgpt-skills/git/ref/tags/$TAG" >/tmp/tag.json 2>/dev/null; then
+            current=$(jq -r '.object.sha' /tmp/tag.json)
+            test "$current" = "$RELEASE_SHA"
+          else
+            gh api --method POST repos/eusourmr/chatgpt-skills/git/refs \
+              -f ref="refs/tags/$TAG" \
+              -f sha="$RELEASE_SHA"
+          fi
+
+          cat > /tmp/release-notes.md <<'EOF'
+          ## CS Navigator 0.15.0 — Everyday Life & Human Capability
+
+          CS Navigator 0.15.0 moves from capability selection toward a human-centered capability curator for everyday life.
+
+          ### Product model
+          - **Native → Skill → Life Journey → Connected Action**
+          - optional **Personal Curator**
+          - **Simple Mode**
+          - **Capability Preferences**
+          - Life Resolution Contract
+          - Human Escalation Contract
+          - Proof of Progress
+
+          ### New Human Capability layer
+          31 new first-party workflows cover everyday administration and decisions, household finances, subscriptions, home maintenance and repair decisions, consumer rights and Brazilian bureaucracy/public services, family digital safety, school and caregiving, medical-appointment preparation, difficult conversations, scam checking, simple digital help, travel readiness, moving, major life changes, human handoff, progress tracking, state mapping, information expiry, and real-world evidence preservation.
+
+          The plugin candidate bundles **50 skills total**.
+
+          ### Native qualification
+          - Exact private plugin candidate: **PASS**
+          - Native semantic Navigator matrix: **12/12 PASS**
+          - Personal Curator current-chat persistence boundary: **PASS**
+          - Native-first under curator mode: **PASS**
+          - silent smallest-useful routing: **PASS**
+          - Simple Mode boundary: **PASS**
+          - connected-action authorization boundary: **PASS**
+          - proportional Life Journey escalation: **PASS**
+          - Brazil jurisdiction UNKNOWN/EVIDENCE MISSING gate: **PASS**
+          - Human Handoff contract: **PASS**
+          - Proof of Progress boundary: **PASS**
+          - live-registry no-overclaim boundary: **PASS**
+
+          ### Evidence boundary
+          The native qualification applies to the recorded **CS Navigator routing and boundary behavior**. The 31 new workflows remain individually **designed** unless separately supported by their own native execution evidence.
+
+          It does not prove:
+          - universal safety;
+          - zero hallucinations;
+          - cross-chat/global curator persistence;
+          - live registry MCP execution;
+          - Container Guardian execution in a chat without a real runtime decision record.
+
+          ### Registry direction
+          0.15.0 includes a bundled registry-ready capability data contract. The live registry MCP remains **planned-not-active**. Arbitrary GitHub content is not automatically executable.
+
+          ### Integrity
+          - Main release commit: `c1dcda09cd744b14cb3e285e3f9a064594f705a7`
+          - Qualified plugin source: `ad4dd7fb1cb6265377f5fba6c06037717d1642b9`
+          - Native qualification evidence: `trust/evals/runs/cs-navigator-v0.15.0-r1-native-requalification.json`
+          - Private plugin release: `pluginrel_6ac7925aa40481919ababb85f9ef299e`
+          - Plugin ZIP SHA-256: `b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2`
+          - Plugin entries: **126**
+
+          The release workflow rebuilds from the exact merged source and refuses publication unless the archive matches the qualified SHA-256 and evidence boundary.
+
+          ### OpenAI directory note
+          GitHub release status is independent of OpenAI Plugin Directory publication. The existing directory submission was previously on the 0.9.4 line; 0.15.0 public-directory update/review is a separate step.
+          EOF
+
+          gh release create "$TAG" \
+            'dist/plugin-submission/cs-navigator-plugin-0.15.0.zip#CS Navigator 0.15.0 plugin' \
+            'dist/plugin-submission/cs-navigator-plugin-0.15.0.zip.sha256#SHA-256 checksum' \
+            --repo eusourmr/chatgpt-skills \
+            --target "$RELEASE_SHA" \
+            --title 'CS Navigator 0.15.0 — Everyday Life & Human Capability' \
+            --notes-file /tmp/release-notes.md
