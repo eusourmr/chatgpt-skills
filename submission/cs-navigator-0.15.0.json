@@ -126,7 +126,7 @@
     "human_capability_015": {
       "new_skill_count": 31,
       "evidence_state": "designed",
-      "native_semantic_qualification": "pending",
+      "native_semantic_qualification": "PASS",
       "contracts": [
         "Life Resolution Contract",
         "Human Escalation Contract",
@@ -304,27 +304,33 @@
       }
     ]
   },
-  "release_notes": "0.15.0 adds the Everyday Life & Human Capability layer, optional Personal Curator and Simple Mode behavior, Life Journeys, human handoff, progress/evidence contracts, and a registry-ready capability data contract. All new skills start as designed and require native semantic qualification before tested/qualified claims.",
+  "release_notes": "0.15.0 adds the Everyday Life & Human Capability layer, Personal Curator and Simple Mode behavior, Life Journeys, human handoff, progress/evidence contracts, and a registry-ready capability data contract. The exact private candidate passed the recorded 12/12 native semantic Navigator matrix; the 31 new workflows remain individually designed unless separately tested.",
   "submission_requirements": {
     "verified_developer_identity": "reuse-verified-identity",
     "logo_asset": "reuse-existing-asset",
     "availability_regions": "select-in-portal",
     "openai_review_required": true
   },
-  "submission_state": "development-candidate-native-qualification-pending",
+  "submission_state": "private-native-qualified-public-update-pending",
   "native_qualification": {
     "required": true,
-    "status": "pending-0.15.0-r1",
-    "note": "New curator behavior and new 0.15 skills require native semantic qualification. Static build success is not sufficient."
+    "status": "PASS",
+    "result": "PASS",
+    "pass": 12,
+    "fail": 0,
+    "total": 12,
+    "executed_on": "2026-10-08",
+    "evidence_ref": "trust/evals/runs/cs-navigator-v0.15.0-r1-native-requalification.json",
+    "note": "Qualification applies to the recorded Navigator behavior. The 31 new workflows remain individually designed unless separately tested."
   },
   "compliance_notes": [
     "Public listing language revised to avoid unsupported trust or safety guarantees.",
     "Privacy policy now explicitly covers developer-side collection, processing purpose, recipients, retention, user controls and contact."
   ],
   "trust_chain": {
-    "state": "static-PASS-native-behavior-pending",
+    "state": "PASS",
     "reviewed_source_revision": "71639a4a72f4724a92db81534808446ec14b950b",
     "refreshed_on": "2026-10-08",
-    "behavior_evidence": "designed"
+    "behavior_evidence": "tested"
   }
 }
