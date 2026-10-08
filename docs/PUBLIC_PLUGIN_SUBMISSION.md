@@ -28,7 +28,9 @@ Current static candidate:
 - Personal Curator / Simple Mode / Capability Preferences;
 - bundled registry foundation;
 - live registry MCP: **planned-not-active**;
-- native semantic qualification: **pending**.
+- private plugin: **0.15.0 installed**;
+- private plugin release: `pluginrel_6ac7925aa40481919ababb85f9ef299e`;
+- native semantic qualification: **pending new-conversation runtime reload**.
 
 Static build success is not enough to replace the 0.9.4 submission.
 
@@ -38,7 +40,7 @@ The editable personal plugin remains:
 
 `plugins_6ac41c5909b481918b0523726e763aa3`
 
-Before uploading 0.15.0 to that plugin, the exact candidate must pass the intended native qualification sequence. Updating the private plugin creates a new release and must not be confused with publication in the public directory.
+The exact 0.15.0 candidate has now been uploaded to that private plugin as release `pluginrel_6ac7925aa40481919ababb85f9ef299e`. The updating conversation did not hot-reload the new skill inventory, so native semantic qualification must run from a newly loaded conversation. This private release is not a public-directory publication.
 
 ## 0.15.0 qualification order
 
@@ -46,8 +48,8 @@ Before uploading 0.15.0 to that plugin, the exact candidate must pass the intend
 2. validate deterministic/static repository gates;
 3. freeze the exact 0.15.0 candidate bytes;
 4. record a native semantic qualification matrix for curator behavior and new routing boundaries;
-5. upload the frozen candidate to the editable private plugin only when needed for native product qualification;
-6. execute and record the native matrix;
+5. **DONE:** upload the frozen candidate to the editable private plugin for native product qualification;
+6. open a newly loaded ChatGPT conversation, confirm the 0.15 skill inventory is visible, then execute and record the native matrix;
 7. if bytes change, invalidate exact-byte qualification and repeat the affected gates;
 8. merge the final release candidate after evidence is complete;
 9. create the GitHub tag/release from the exact qualified bytes;
