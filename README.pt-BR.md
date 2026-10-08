@@ -11,44 +11,45 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 > Projeto comunitário independente. Não possui afiliação nem endosso da OpenAI. ChatGPT e Codex são marcas da OpenAI.
 
-## 🛡️ Release atual
+## 🛡️ Linha atual de desenvolvimento
 
-**Candidato atual do produto:** **CS Navigator 0.9.3 — First-Party Skills Platform**.
+**Candidato atual de desenvolvimento:** **CS Navigator 0.15.0 — Everyday Life & Human Capability**.
 
-O CS Navigator mantém tarefas simples no próprio ChatGPT, incorpora Verifiable Trust II / Skill Containers e reúne 15 workflows first-party próprios para escrita, pesquisa, contexto brasileiro, revisão acadêmica/documental, design, engenharia, preservação visual, continuidade de projetos e estratégia de produto.
+A 0.15.0 transforma o produto de um seletor de skills em uma camada humana de curadoria de capacidades. O Navigator passa a escolher entre **Nativo → Skill → Jornada de Vida → Ação Conectada**, adiciona **Personal Curator**, **Simple Mode** e **Capability Preferences** opcionais e inclui 31 novas skills para administração pessoal, decisões domésticas, casa, família, cuidado, serviços públicos brasileiros, segurança digital, viagens, grandes mudanças de vida, passagem para profissionais humanos, acompanhamento de progresso, validade de informação e preservação de evidências.
 
-O ZIP exato do candidato R3 está ligado ao SHA-256:
+O ZIP estático atual tem **126 entradas** e SHA-256:
 
-`4a54c159901f1a58d55420ab31a30d1839084b0ff885738b244db226897115b6`
+`b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2`
 
-Os gates estáticos e de pacote passaram: Skill Profiles, Skill Containers, Container Guardian 9/9, validação de submissão pública, Security Gate v2 e verificação de **zero referências à marca antiga dentro do pacote**. A **requalificação semântica nativa no ChatGPT desses bytes exatos passou 6/6 em 06/10/2026**. Isso qualifica o comportamento registrado da release; não transforma automaticamente todos os workflows incluídos de `designed` em `tested`.
+Os gates estáticos do candidato passaram: Skill Profiles, Skill Containers, Container Guardian 9/9, validação de submissão pública, estrutura do plugin, inventário das 31 novas skills, ausência da marca antiga no payload e ausência de marcadores obsoletos de qualificação 0.9.
 
-A evidência 0.9.0/R2 permanece preservada como histórico. A tentativa privada 0.9.1 foi substituída antes da qualificação nativa.
+**Limite de evidência:** as 31 novas skills continuam como `designed`. O novo comportamento de curadoria e os bytes exatos da 0.15.0 ainda precisam de qualificação semântica nativa antes de serem chamados de `tested`, `qualified` ou publicados como nova versão do plugin.
 
-> **Sem evidência → não inventar. Sem permissão → não se autorizar sozinho. Sem caminho autorizado → parar.**
+A versão atualmente submetida ao diretório da OpenAI continua sendo **CS Navigator 0.9.4 — Submission Compliance**, com status **em revisão / ainda não publicada** em 08/10/2026. A 0.15.0 não deve substituir silenciosamente essa revisão antes de passar seus próprios gates.
 
-Estado do diretório público: existe um **candidato privado 0.9.3 nativamente qualificado**, ainda não listado publicamente. Só chamaremos de publicado depois da revisão da OpenAI, aprovação e publicação explícita.
+> **Sem evidência → não invente. Sem permissão → não escale. Sem caminho autorizado → pare.**
 
-Leia: [Primeiros Passos](docs/GETTING_STARTED.pt-BR.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Publicação pública](docs/PUBLIC_PLUGIN_SUBMISSION.md)
+Leia: [0.15.0 Human Capability](docs/CS_NAVIGATOR_0.15.0_HUMAN_CAPABILITY.md) · [Primeiros passos](docs/GETTING_STARTED.pt-BR.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Submissão pública](docs/PUBLIC_PLUGIN_SUBMISSION.md)
 
 ## 🚀 Comece em 1 minuto
 
-Depois da aprovação e publicação pública:
+A experiência pretendida é simples:
 
-1. Abra **Plugins** no ChatGPT ou Codex.
-2. Pesquise por **CS Navigator**.
-3. Clique em **Instalar plugin**.
-4. Em uma conversa, escreva: `Use CS Navigator para...`
+1. Instale **CS Navigator** uma vez.
+2. Abra uma conversa normal no ChatGPT.
+3. Se quiser curadoria silenciosa naquela conversa, escreva: `Use o CS Navigator como meu curador.`
+4. Depois converse normalmente. O Navigator deve manter a tarefa nativa quando isso bastar e só acrescentar skill, Jornada de Vida ou ação conectada quando houver ganho material.
 
-Até lá, a 0.9.3 permanece um candidato privado, nativamente qualificado, aguardando submissão pública.
+**Limite de persistência:** uma frase em uma conversa não prova ativação em todas as conversas futuras. Só podemos afirmar persistência entre chats quando o produto hospedeiro oferecer e confirmar esse mecanismo.
 
 Linhas de versão:
-- plugin CS Navigator: **0.9.3 R3 / requalificação nativa PASS 6/6 / submissão pública pendente**
+- submissão ao diretório OpenAI: **0.9.4 / em revisão / não publicada**
+- candidato de desenvolvimento: **0.15.0 / candidato estático PASS / qualificação semântica nativa pendente**
 - slug técnico: `cs-navigator`
-- 0.7.5: fundação interna absorvida
-- 0.8: absorvida pela 0.9
-- CLI/npm: linha independente
-- próxima linha: **0.10 — Ecosystem Intelligence & Community Scale**
+- 0.7.5: fundação histórica de confiança/runtime
+- 0.9.x: fundação da plataforma first-party e conformidade de submissão
+- `chatgpt-skills` CLI/npm: linha independente
+- próximo passo arquitetural após qualificar a 0.15: registry vivo somente leitura e continuidade pessoal mais forte, sem tornar conteúdo arbitrário do GitHub executável
 
 ## Por que esta lista existe
 
