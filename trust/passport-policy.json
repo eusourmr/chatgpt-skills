@@ -25,8 +25,8 @@
   "policy": "A Trust Passport records evidence for an exact reviewed skill artifact. It is not a safety guarantee, popularity score, or permanent recommendation. CS Navigator renews the cs-navigator source binding through a per-skill override; changing reviewed skill bytes requires renewed artifact evidence.",
   "skill_overrides": {
     "cs-navigator": {
-      "reviewed_source_revision": "a66fd4b12cf4e659697307f96f1517103bcbdb8f",
-      "reviewed_at": "2026-10-06",
+      "reviewed_source_revision": "71639a4a72f4724a92db81534808446ec14b950b",
+      "reviewed_at": "2026-10-08",
       "stale_after_days": 90
     }
   }

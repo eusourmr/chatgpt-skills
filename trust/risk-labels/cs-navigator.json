@@ -1,8 +1,8 @@
 {
   "schema_version": "0.1",
   "skill_id": "cs-navigator",
-  "source_revision": "a66fd4b12cf4e659697307f96f1517103bcbdb8f",
-  "artifact_sha256": "7abb48e09b6dbdf284d934c5cb0a5bb70c61e70941a3769116c22e964a550a55",
+  "source_revision": "71639a4a72f4724a92db81534808446ec14b950b",
+  "artifact_sha256": "b7700af3b887166020c171a61342f838d1006be4dd47cbbd062b5c2aac3448a0",
   "security_gate": {
     "version": "v2",
     "result": "pass",

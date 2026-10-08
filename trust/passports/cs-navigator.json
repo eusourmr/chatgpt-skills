@@ -2,23 +2,23 @@
   "schema_version": "0.1",
   "skill_id": "cs-navigator",
   "identity": {
-    "name": "CS Connect Navigator",
-    "summary": "Routes explicit CS Connect capability-selection requests to the smallest first-party or evidence-backed workflow while preserving native-first behavior, Guardian boundaries, and evidence-state honesty.",
+    "name": "CS Navigator",
+    "summary": "Curates the smallest useful path across native ChatGPT, focused skills, Life Journeys, and connected actions, with optional current-chat curator preferences and explicit evidence/permission boundaries.",
     "publisher": "ChatGPT Skills project"
   },
   "provenance": {
     "source_repository": "https://github.com/eusourmr/chatgpt-skills",
     "canonical_path": "skills/featured/cs-navigator",
-    "reviewed_source_revision": "a66fd4b12cf4e659697307f96f1517103bcbdb8f",
+    "reviewed_source_revision": "71639a4a72f4724a92db81534808446ec14b950b",
     "license": "MIT"
   },
   "integrity": {
     "algorithm": "sha256-manifest-v1",
-    "artifact_sha256": "7abb48e09b6dbdf284d934c5cb0a5bb70c61e70941a3769116c22e964a550a55",
+    "artifact_sha256": "b7700af3b887166020c171a61342f838d1006be4dd47cbbd062b5c2aac3448a0",
     "files": [
       {
         "path": "SKILL.md",
-        "sha256": "2c8c4b251b7028893aee41f20711f299ac3edbd8bf11a9acd0ade41154e343ad"
+        "sha256": "18173291bce6842291e0175283d31958840e2756a9b13c78a57fad205944c788"
       },
       {
         "path": "agents/openai.yaml",
@@ -26,7 +26,7 @@
       },
       {
         "path": "references/catalog-snapshot.json",
-        "sha256": "2d8d7415be5d10792fceff33bca8a6df68ead5ef180df445932dc6fc6617e60a"
+        "sha256": "fbdc1763543c703dd9fb945e3662e86df154bb46d85fa9f0045660ea1662002a"
       },
       {
         "path": "references/container-default-policy.json",
@@ -38,14 +38,18 @@
       },
       {
         "path": "references/first-party-capabilities.json",
-        "sha256": "f9d2c2a82e5a328171e116dd9c498c21fba9a8cbbcff294f73a5dc900ae2999f"
+        "sha256": "29f5715e0f6f042214c83d1534c59ce7e1194343538740eeadc5621f7529e2cb"
+      },
+      {
+        "path": "references/human-capability-registry.json",
+        "sha256": "c37dd028dd2c06cbfb970e0f222181e6131d551620b25dc8a800123c7d900a38"
       }
     ]
   },
   "execution": {
     "mode": "chat-native",
-    "evidence_state": "tested",
-    "minimum_setup": "Install CS Connect. The technical plugin slug remains cs-navigator; the core routing workflow is chat-native with no mandatory external app or local runtime.",
+    "evidence_state": "designed",
+    "minimum_setup": "Install CS Navigator. The technical plugin slug remains cs-navigator. The core routing workflow is chat-native; connected actions are optional and retain normal platform permission and confirmation requirements.",
     "required_capabilities": []
   },
   "permissions": {
@@ -68,7 +72,7 @@
     "risk_label_ref": "trust/risk-labels/cs-navigator.json"
   },
   "behavior_evidence": {
-    "state": "tested",
+    "state": "designed",
     "latest_plan_id": "cs-navigator-chatgpt-v10-cs-connect-v090-r2",
     "latest_run_id": "cs-navigator-chatgpt-v10-cs-connect-v090-r2",
     "evidence_refs": [
@@ -80,9 +84,9 @@
   },
   "freshness": {
     "status": "current",
-    "reviewed_at": "2026-10-06",
+    "reviewed_at": "2026-10-08",
     "stale_after_days": 90,
-    "review_due_at": "2027-01-04"
+    "review_due_at": "2027-01-06"
   },
   "governance": {
     "maintainers": [
@@ -105,8 +109,9 @@
     "reason": "Bundled, source-reviewed and integrity-checked; dedicated task-level end-to-end evidence is still incomplete."
   },
   "known_gaps": [
-    "The R2 qualification is semantic and change-impact scoped; the 21 previously passing cases were not all re-run on R2.",
-    "Qualification is not a zero-hallucination or universal-safety guarantee and does not prove Container Guardian executed without a real decision record.",
-    "The bundled first-party skill index remains finite and may report coverage gaps."
+    "The 0.15.0 Personal Curator and Human Capability routing behavior is pending native semantic qualification.",
+    "A chat instruction does not prove cross-chat/global curator persistence; that depends on explicit host support.",
+    "The live capability-registry MCP is planned-not-active; the bundled registry is finite and versioned.",
+    "Container Guardian deterministic evidence does not prove Guardian executed in a chat without an actual runtime decision record."
   ]
 }
