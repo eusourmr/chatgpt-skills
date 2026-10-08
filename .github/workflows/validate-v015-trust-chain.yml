@@ -6,6 +6,10 @@ on:
       - release/v0.15.0-human-capability
     paths:
       - '.github/workflows/validate-v015-trust-chain.yml'
+      - 'trust/skills.json'
+      - 'trust/execution.json'
+      - 'installer/manifest.json'
+      - 'skills/featured/cs-navigator/**'
   workflow_dispatch:
 
 permissions:
