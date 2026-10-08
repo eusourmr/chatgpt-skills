@@ -1,0 +1,4 @@
+interface:
+  display_name: "Family Digital Safety"
+  short_description: "Help families manage online safety, privacy, scams, account security, age-appropriate boundaries, and digital habits without covert surveillance or manipulative control."
+  default_prompt: "Use $family-digital-safety only when explicitly selected by CS Navigator or the user. Preserve evidence boundaries and user agency."
