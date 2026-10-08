@@ -128,7 +128,7 @@ plugin.version='0.15.0';
 plugin.description='CS Navigator curates the smallest useful path for everyday life: native ChatGPT, a focused skill, a multi-step Life Journey, or a connected action when needed.';
 const ui=plugin.extensions['com.openai'].interface;
 ui.displayName='CS Navigator';
-ui.shortDescription='Capability routing for everyday life';
+ui.shortDescription='Everyday capability routing';
 ui.longDescription='CS Navigator 0.15.0 helps people use specialized ChatGPT workflows without learning skill names. It keeps ordinary tasks native when sufficient, can select focused workflows for everyday administration, family, home, Brazilian public services, travel and digital safety, and can organize multi-step Life Journeys. Optional curator and Simple Mode preferences apply only where the host supports them; connected actions still follow normal permission and confirmation boundaries.';
 ui.defaultPrompt=[
   'Use CS Navigator as my curator in this conversation.',
@@ -208,7 +208,7 @@ sub.plugin={...(sub.plugin||{}),version:'0.15.0'};
 sub.listing={
   ...(sub.listing||{}),
   display_name:'CS Navigator',
-  short_description:'Capability routing for everyday life',
+  short_description:'Everyday capability routing',
   long_description:ui.longDescription,
   starter_prompts:ui.defaultPrompt
 };
