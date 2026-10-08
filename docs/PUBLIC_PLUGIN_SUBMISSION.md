@@ -30,7 +30,8 @@ Current static candidate:
 - live registry MCP: **planned-not-active**;
 - private plugin: **0.15.0 installed**;
 - private plugin release: `pluginrel_6ac7925aa40481919ababb85f9ef299e`;
-- native semantic qualification: **pending new-conversation runtime reload**.
+- native semantic qualification: **PASS 12/12**;
+- native evidence: `trust/evals/runs/cs-navigator-v0.15.0-r1-native-requalification.json`.
 
 Static build success is not enough to replace the 0.9.4 submission.
 
@@ -49,7 +50,7 @@ The exact 0.15.0 candidate has now been uploaded to that private plugin as relea
 3. freeze the exact 0.15.0 candidate bytes;
 4. record a native semantic qualification matrix for curator behavior and new routing boundaries;
 5. **DONE:** upload the frozen candidate to the editable private plugin for native product qualification;
-6. open a newly loaded ChatGPT conversation, confirm the 0.15 skill inventory is visible, then execute and record the native matrix;
+6. **DONE:** native 0.15 runtime loaded and the recorded matrix passed 12/12;
 7. if bytes change, invalidate exact-byte qualification and repeat the affected gates;
 8. merge the final release candidate after evidence is complete;
 9. create the GitHub tag/release from the exact qualified bytes;
