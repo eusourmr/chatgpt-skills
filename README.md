@@ -44,23 +44,26 @@ The quality catalog currently tracks **78 entries**: **77 skills + 1 source coll
 
 ## 🛡️ Current development line
 
-**Current development candidate:** **CS Navigator 0.15.0 — Everyday Life & Human Capability**.
+**Current development candidate:** **CS Navigator 0.16.0 — Evergreen Core & Live Registry**.
 
-0.15.0 changes the product from a skill selector into a human-centered capability curator. It can route among **Native → Skill → Life Journey → Connected Action**, adds optional **Personal Curator**, **Simple Mode**, and **Capability Preferences**, and introduces 31 everyday-life skills spanning personal administration, household decisions, home, family, caregiving, Brazilian public services, digital safety, travel, major life transitions, human handoff, progress tracking, freshness, and real-world evidence.
+0.16.0 responds directly to the current OpenAI plugin-review constraints:
 
-The current static candidate ZIP contains **126 entries** and is bound to SHA-256:
+- adds the required Support URL;
+- migrates away from a skills-only public submission toward **skills + remote MCP**;
+- excludes healthcare/medical workflows from the public distribution boundary;
+- reduces the distributed plugin to a stable six-skill Evergreen Core;
+- moves live capability discovery, evidence, freshness, and distribution availability into a read-only GitHub-backed registry;
+- never executes arbitrary GitHub files as remote instructions.
 
-`b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2`
+The repository implementation and MCP server code are already in place and pass the 0.16 static build/audit. The remaining release blocker is external: a stable public HTTPS MCP endpoint must be deployed and verified before the final ZIP can be built.
 
-Static build gates pass for the generated candidate: Skill Profiles, Skill Containers, Container Guardian 9/9, public-submission validation, plugin structure, 31-skill registry inventory, legacy-brand exclusion, and stale 0.9 pending-marker exclusion.
+The GitHub release **CS Navigator 0.15.0 — Everyday Life & Human Capability** remains the last fully qualified release. Its exact private candidate passed the recorded 12/12 native semantic Navigator matrix.
 
-**Evidence boundary:** the 31 new skills are still individually `designed`. The exact 0.15.0 private candidate passed the recorded **12/12 native semantic Navigator matrix on 2026-10-08**. This qualifies the tested Navigator routing/boundary behavior; it does not bulk-promote the 31 workflows.
-
-The currently submitted OpenAI directory version remains **CS Navigator 0.9.4 — Submission Compliance**, with status **in review / not published** as of 2026-10-08. The 0.15.0 candidate must not silently replace that review until its own release gates pass.
+The OpenAI Platform portal currently shows **0.15.0 Draft / Not published / Needs attention**. The portal findings are tracked in [Public plugin submission](docs/PUBLIC_PLUGIN_SUBMISSION.md).
 
 > **No evidence → no invented fact. No permission → no self-escalation. No authorized path → stop.**
 
-Read: [0.15.0 Human Capability](docs/CS_NAVIGATOR_0.15.0_HUMAN_CAPABILITY.md) · [Getting Started](docs/GETTING_STARTED.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Public plugin submission](docs/PUBLIC_PLUGIN_SUBMISSION.md)
+Read: [0.16.0 Evergreen Core](docs/CS_NAVIGATOR_0.16.0_EVERGREEN_CORE.md) · [Getting Started](docs/GETTING_STARTED.md) · [Public plugin submission](docs/PUBLIC_PLUGIN_SUBMISSION.md)
 
 ## 🚀 Start in 1 Minute
 
@@ -74,8 +77,8 @@ The intended end-user experience is deliberately simple:
 **Persistence boundary:** one chat instruction does not prove that curator mode is active in every future conversation. Cross-chat persistence may only be claimed when the host product explicitly supports and confirms it.
 
 Version lines:
-- OpenAI directory submission: **0.9.4 / in review / not published**
-- development candidate: **0.15.0 / native semantic qualification PASS 12/12 / private release installed**
+- OpenAI Platform portal: **0.15.0 Draft / Needs attention / Not published**
+- current development candidate: **0.16.0 Evergreen Core / static build PASS / production MCP endpoint required**
 - technical slug: `cs-navigator`
 - 0.7.5: historical trust/runtime foundation
 - 0.9.x: first-party platform and submission-compliance foundation
