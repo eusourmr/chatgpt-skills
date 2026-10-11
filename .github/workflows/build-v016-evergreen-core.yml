@@ -26,6 +26,9 @@ jobs:
       - name: Assemble evergreen core and public registry
         run: node scripts/build-v016-evergreen-core.mjs
 
+      - name: Regenerate public catalog surfaces
+        run: python scripts/catalog.py --write
+
       - name: Build registry MCP server
         working-directory: mcp/cs-registry-server
         run: |
