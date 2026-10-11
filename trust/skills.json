@@ -126,7 +126,7 @@
     },
     "cs-navigator": {
       "name": "CS Navigator",
-      "summary": "Evergreen capability curator that keeps ordinary work native and consults a read-only GitHub-backed registry for current capability/evidence metadata when useful.",
+      "summary": "Evergreen capability curator with relevance-gated Curator Offer, native-first routing, and read-only registry-backed capability/evidence discovery.",
       "permissions": {
         "local_files": "none required by the chat-native workflow; it reads only its bundled reference snapshot through the skill runtime",
         "network": "none required",
@@ -136,13 +136,13 @@
       },
       "usefulness": {
         "state": "designed",
-        "evidence": "The 0.16 Evergreen Core materially changes the 0.15 routing surface by adding a remote read-only registry MCP and reducing the bundled core. The 0.15 native 12/12 result remains historical and does not qualify the changed 0.16 behavior."
+        "evidence": "0.17.0 changes the Navigator behavior by adding the relevance-gated Curator Offer Rule. The 0.15 native 12/12 result and 0.16 static review remain historical baselines and do not qualify this changed 0.17 behavior."
       },
       "known_gaps": [
-        "Production HTTPS MCP endpoint is not deployed yet.",
-        "0.16 native semantic qualification is pending final MCP deployment and exact-byte package assembly.",
+        "0.17 Curator Offer behavior is pending native semantic qualification.",
+        "Production HTTPS MCP endpoint for the Evergreen architecture is still a 0.16 release dependency.",
         "Cross-chat curator persistence remains host-dependent and is not claimed.",
-        "Healthcare/medical workflows are excluded from public distribution under the current platform boundary.",
+        "New learning/academic registry capabilities remain individually designed.",
         "Container Guardian execution cannot be claimed without an actual runtime decision record."
       ]
     },
