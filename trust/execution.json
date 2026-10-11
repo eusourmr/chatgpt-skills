@@ -61,7 +61,7 @@
       "required_capabilities": [
         "remote-mcp-read-only"
       ],
-      "evidence": "0.16.0 changes the Navigator core and adds live registry MCP behavior. The 0.15.0 12/12 native qualification remains historical baseline evidence and is not automatically inherited. New 0.16 native qualification is required after the production MCP endpoint is bound to exact release bytes."
+      "evidence": "0.17.0 adds relevance-gated Curator Offer behavior to the Evergreen Navigator. This changed behavior requires new native semantic qualification; prior 0.15/0.16 evidence is historical baseline evidence only."
     },
     "regenerative-adaptive-experiment": {
       "mode": "chat-native",
