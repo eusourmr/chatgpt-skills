@@ -9,12 +9,12 @@
   "provenance": {
     "source_repository": "https://github.com/eusourmr/chatgpt-skills",
     "canonical_path": "skills/featured/cs-navigator",
-    "reviewed_source_revision": "ae180a7ad3ffc34191e7ff9e683ed27b9709fb93",
+    "reviewed_source_revision": "b26ab33c93dab1c7737f1b9ee4fbb36f5b1ed72d",
     "license": "MIT"
   },
   "integrity": {
     "algorithm": "sha256-manifest-v1",
-    "artifact_sha256": "cbf510a44c2051cde06d8d4b02ae7f3d4e3c5c8db33a3f22840b0873be4aae09",
+    "artifact_sha256": "122f7cb3a1fdb52138a9c4c08efbee020fa557afc9b8fce9f9984e7cc5517ffd",
     "files": [
       {
         "path": "SKILL.md",
@@ -26,7 +26,7 @@
       },
       {
         "path": "references/catalog-snapshot.json",
-        "sha256": "fbdc1763543c703dd9fb945e3662e86df154bb46d85fa9f0045660ea1662002a"
+        "sha256": "37ea00cd394195f319c03910784fb8481f550765854fc297ec640b9f40e361e1"
       },
       {
         "path": "references/container-default-policy.json",
