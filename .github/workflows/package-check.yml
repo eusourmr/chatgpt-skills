@@ -110,7 +110,7 @@ jobs:
             fi
             cat /tmp/public-plugin-build.log
             grep -q "mcp.json missing" /tmp/public-plugin-build.log
-            node scripts/audit-v016-evergreen-core.mjs
+            node scripts/audit-evergreen-core.mjs
             echo "packaged=false" >> "$GITHUB_OUTPUT"
             echo "Expected development blocker PASS: production MCP endpoint required."
           else
