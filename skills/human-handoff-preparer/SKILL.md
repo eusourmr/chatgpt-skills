@@ -1,6 +1,6 @@
 ---
 name: human-handoff-preparer
-description: When AI has reached its useful limit, prepare a concise handoff to a lawyer, accountant, school, bank, insurer, technician, public agency, or other non-health professional.
+description: When AI has reached its useful limit, prepare a concise handoff to a doctor, lawyer, accountant, school, bank, insurer, technician, or other human professional.
 ---
 
 # Human Handoff Preparer
@@ -17,9 +17,6 @@ description: When AI has reached its useful limit, prepare a concise handoff to 
 - desired outcome;
 - urgency/deadline;
 - remaining uncertainty.
-
-## Public-distribution boundary
-This distributed workflow is intentionally non-healthcare. Do not use it to coordinate medical care, prepare clinical records, match providers, triage symptoms, or process health information. Route those requests to ordinary ChatGPT/Health capabilities available to the user rather than this CS capability.
 
 ## Boundary
 Do not impersonate the professional or claim the handoff was sent unless it actually was.
