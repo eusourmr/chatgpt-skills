@@ -54,5 +54,30 @@
     "Harvard-institution-specific",
     "AMA"
   ],
-  "evidence_policy": "All new 0.17 capabilities start designed. Registry publication, generation, or static validation does not make them tested."
+  "evidence_policy": "All new 0.17 capabilities start designed. Registry publication, generation, or static validation does not make them tested.",
+  "release_state": "github-release-ready",
+  "public_plugin_state": "blocked-pending-production-https-mcp-and-native-semantic-qualification",
+  "architecture": {
+    "name": "Evergreen Core & Live Registry",
+    "inherited_from": "0.16.0 development line",
+    "release_policy": "0.16.0 is treated as an unreleased architecture milestone incorporated into 0.17.0.",
+    "bundled_core_skills": [
+      "personal-curator",
+      "simple-mode",
+      "capability-preferences",
+      "proof-of-progress",
+      "information-expiry-guard"
+    ],
+    "registry_mode": "read-only-live-registry",
+    "public_mcp_required": true,
+    "arbitrary_github_execution": false
+  },
+  "public_listing": {
+    "short_description": "Evergreen capability curator",
+    "website_url": "https://github.com/eusourmr/chatgpt-skills",
+    "support_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/SUPPORT.md",
+    "privacy_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/PRIVACY.md",
+    "terms_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/TERMS.md"
+  },
+  "release_boundary": "GitHub release 0.17.0 may be published as the current project version. Public ChatGPT Plugin Directory submission remains blocked until the production HTTPS MCP endpoint is deployed, inspected, bound into exact release bytes, and the changed 0.17 behavior is natively requalified."
 }

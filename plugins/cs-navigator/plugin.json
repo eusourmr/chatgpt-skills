@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cs-navigator",
-  "version": "0.16.0",
-  "description": "CS Navigator is an evergreen capability curator: it keeps simple tasks native and uses a live read-only registry when current capability or evidence metadata materially helps.",
+  "version": "0.17.0",
+  "description": "CS Navigator is an evergreen capability curator with relevance-gated curation, live read-only capability discovery, and learning/academic capability guidance when useful.",
   "author": {
     "name": "ChatGPT Skills",
     "url": "https://github.com/eusourmr/chatgpt-skills"
@@ -27,7 +27,7 @@
       "interface": {
         "displayName": "CS Navigator",
         "shortDescription": "Evergreen capability curator",
-        "longDescription": "CS Navigator is a small, stable curator layer for ChatGPT. It keeps ordinary tasks native, can use a read-only live capability registry for current discovery and evidence metadata, and escalates to multi-step or connected workflows only when they materially help. Registry data is metadata, not executable remote instructions.",
+        "longDescription": "CS Navigator is a small, stable curator layer for ChatGPT. It keeps ordinary tasks native, can offer a specialized capability path when that materially improves the result, and uses a read-only live capability registry for current discovery and evidence metadata. The 0.17 line adds Learning Mastery and international academic-writing capabilities while keeping them registry-only by default.",
         "developerName": "RICARDO MOREIRA DA ROCHA",
         "category": "Productivity",
         "websiteURL": "https://github.com/eusourmr/chatgpt-skills",

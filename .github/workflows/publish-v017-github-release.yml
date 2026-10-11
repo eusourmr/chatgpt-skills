@@ -1,0 +1,54 @@
+name: Publish CS Navigator v0.17.0 GitHub release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'plugins/cs-navigator/plugin.json'
+      - 'release/v017-learning-academic.json'
+      - 'docs/RELEASE_NOTES_0.17.0.md'
+      - '.github/workflows/publish-v017-github-release.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Verify release boundary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          plugin=json.load(open('plugins/cs-navigator/plugin.json',encoding='utf-8'))
+          release=json.load(open('release/v017-learning-academic.json',encoding='utf-8'))
+          assert plugin['version']=='0.17.0'
+          assert release['version']=='0.17.0'
+          assert release['release_state']=='github-release-ready'
+          assert release['public_plugin_state']=='blocked-pending-production-https-mcp-and-native-semantic-qualification'
+          print('0.17.0 GitHub release boundary PASS')
+          PY
+
+      - name: Publish latest GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG='cs-navigator-v0.17.0'
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "$TAG already exists; leaving it unchanged."
+            exit 0
+          fi
+          gh release create "$TAG" \
+            --target "$GITHUB_SHA" \
+            --title "CS Navigator 0.17.0 — Learning & Academic Mastery" \
+            --notes-file docs/RELEASE_NOTES_0.17.0.md \
+            --latest
