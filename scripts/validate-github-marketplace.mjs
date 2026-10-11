@@ -35,27 +35,35 @@ const foundationIncluded = [
   'regenerative-adaptive-experiment'
 ];
 
-expect(pack.schema_version === 1, 'Capability Pack manifest schema_version must be 1');
+expect([1,2].includes(pack.schema_version), 'Capability Pack manifest schema_version must be 1 or 2');
 expect(pack.pack_version === plugin.version, 'Capability Pack version must match plugin version');
-expect(packFixtures.schema_version === 1, 'Capability Pack fixtures schema_version must be 1');
-expect(packFixtures.pack_version === plugin.version, 'Capability Pack fixture version must match plugin version');
-expect(packFixtures.router === 'cs-navigator', 'Capability Pack fixtures router must be cs-navigator');
-expect(Array.isArray(packFixtures.cases) && packFixtures.cases.length >= 8, 'Capability Pack needs at least eight collision/handoff fixtures');
-const packFixtureIds = new Set();
-let directCases = 0;
-let routingCases = 0;
-for (const item of packFixtures.cases || []) {
-  expect(typeof item.id === 'string' && item.id.length > 0, 'Capability Pack fixture missing id');
-  expect(!packFixtureIds.has(item.id), `Duplicate Capability Pack fixture id: ${item.id}`);
-  packFixtureIds.add(item.id);
-  expect(typeof item.prompt === 'string' && item.prompt.length > 0, `${item.id}: missing prompt`);
-  expect(['native-only','router','explicit-skill','pack-handoff'].includes(item.expected_activation), `${item.id}: invalid expected_activation`);
-  expect(typeof item.reason === 'string' && item.reason.length > 0, `${item.id}: missing reason`);
-  if (item.expected_activation === 'native-only') directCases += 1;
-  if (item.expected_activation === 'router') routingCases += 1;
+
+const evergreen = pack.schema_version === 2;
+if (!evergreen) {
+  expect(packFixtures.schema_version === 1, 'Capability Pack fixtures schema_version must be 1');
+  expect(packFixtures.pack_version === plugin.version, 'Capability Pack fixture version must match plugin version');
+  expect(packFixtures.router === 'cs-navigator', 'Capability Pack fixtures router must be cs-navigator');
+  expect(Array.isArray(packFixtures.cases) && packFixtures.cases.length >= 8, 'Capability Pack needs at least eight collision/handoff fixtures');
+  const packFixtureIds = new Set();
+  let directCases = 0;
+  let routingCases = 0;
+  for (const item of packFixtures.cases || []) {
+    expect(typeof item.id === 'string' && item.id.length > 0, 'Capability Pack fixture missing id');
+    expect(!packFixtureIds.has(item.id), `Duplicate Capability Pack fixture id: ${item.id}`);
+    packFixtureIds.add(item.id);
+    expect(typeof item.prompt === 'string' && item.prompt.length > 0, `${item.id}: missing prompt`);
+    expect(['native-only','router','explicit-skill','pack-handoff'].includes(item.expected_activation), `${item.id}: invalid expected_activation`);
+    expect(typeof item.reason === 'string' && item.reason.length > 0, `${item.id}: missing reason`);
+    if (item.expected_activation === 'native-only') directCases += 1;
+    if (item.expected_activation === 'router') routingCases += 1;
+  }
+  expect(directCases >= 4, 'Capability Pack fixtures need at least four anti-overrouting cases');
+  expect(routingCases >= 4, 'Capability Pack fixtures need at least four capability-routing cases');
+} else {
+  expect(pack.live_registry?.required_for_public_submission === true, 'Evergreen Pack must require a live registry for public submission');
+  expect(Array.isArray(pack.live_registry?.mcp_tools) && pack.live_registry.mcp_tools.length >= 4, 'Evergreen Pack must declare read-only registry MCP tools');
+  expect(pack.live_registry?.arbitrary_github_execution === false, 'Evergreen Pack must forbid arbitrary GitHub execution');
 }
-expect(directCases >= 4, 'Capability Pack fixtures need at least four anti-overrouting cases');
-expect(routingCases >= 4, 'Capability Pack fixtures need at least four capability-routing cases');
 expect(pack.router === 'cs-navigator', 'Capability Pack router must be cs-navigator');
 expect(Array.isArray(pack.included_skills), 'Capability Pack included_skills must be an array');
 
@@ -63,8 +71,12 @@ const packItems = pack.included_skills || [];
 const includedIds = packItems.map((item) => item.id).sort();
 const includedIdSet = new Set(includedIds);
 expect(includedIdSet.size === includedIds.length, 'Capability Pack skill ids must be unique');
-for (const id of foundationIncluded) {
-  expect(includedIdSet.has(id), `Capability Pack must preserve foundation skill: ${id}`);
+if (!evergreen) {
+  for (const id of foundationIncluded) {
+    expect(includedIdSet.has(id), `Capability Pack must preserve foundation skill: ${id}`);
+  }
+} else {
+  expect(includedIds.length <= 8, 'Evergreen Core must stay intentionally small (max 8 bundled skills)');
 }
 const expectedPluginSkills = ['cs-navigator', ...includedIds].sort();
 
@@ -72,8 +84,10 @@ for (const item of packItems) {
   const executionInfo = execution.skills?.[item.id];
   expect(typeof item.id === 'string' && item.id.length > 0, 'Capability Pack skill missing id');
   expect(item.source === `skills/${item.id}`, `${item.id}: source must be skills/${item.id}`);
-  expect(item.mode === 'chat-native', `${item.id}: CS Connect Capability Pack only accepts chat-native first-party workflows`);
-  expect(typeof item.qualification_state === 'string' && item.qualification_state.length > 0, `${item.id}: qualification_state is required`);
+  expect(item.mode === 'chat-native', `${item.id}: bundled CS Navigator core only accepts chat-native first-party workflows`);
+  if (!evergreen) {
+    expect(typeof item.qualification_state === 'string' && item.qualification_state.length > 0, `${item.id}: qualification_state is required`);
+  }
   expect(Boolean(executionInfo), `${item.id}: missing execution evidence`);
   expect(executionInfo?.mode === 'chat-native', `${item.id}: authoritative execution mode must be chat-native`);
   expect(item.evidence_state === executionInfo?.evidence_state, `${item.id}: pack evidence state must match trust/execution.json`);
@@ -121,4 +135,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`GitHub marketplace OK: cs-navigator ${plugin.version}, ${expectedPluginSkills.length} mirrored skills, Capability Pack evidence-aligned, no MCP dependency.`);
+console.log(`GitHub marketplace OK: cs-navigator ${plugin.version}, ${expectedPluginSkills.length} mirrored skills, Capability Pack v${pack.schema_version} evidence-aligned, ${evergreen ? 'Evergreen registry-aware' : 'legacy no-MCP'} mode.`);
