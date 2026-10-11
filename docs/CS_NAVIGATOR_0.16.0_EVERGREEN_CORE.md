@@ -95,3 +95,18 @@ The user should continue to experience:
 > Install once. Talk normally.
 
 while the underlying curation metadata remains current.
+
+
+## Current verification state
+
+As of 2026-10-11:
+
+- Evergreen Core static build: PASS
+- Registry MCP TypeScript build: PASS
+- Public submission metadata validation for skills + remote MCP: PASS
+- Marketplace validation for Capability Pack v2: PASS
+- Navigator static trust chain refreshed against the final snapshot source bytes
+- Navigator 0.16 behavior evidence: `designed` pending production MCP deployment and native requalification
+- Public release package: intentionally blocked until the HTTPS production MCP endpoint exists
+
+This is a release gate, not a build failure.
