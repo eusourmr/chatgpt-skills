@@ -1,6 +1,6 @@
 ---
 name: human-handoff-preparer
-description: When AI has reached its useful limit, prepare a concise handoff to a doctor, lawyer, accountant, school, bank, insurer, technician, or other human professional.
+description: When AI has reached its useful limit, prepare a concise handoff to a lawyer, accountant, school, bank, insurer, technician, public agency, or other qualified human professional.
 ---
 
 # Human Handoff Preparer
@@ -19,7 +19,7 @@ description: When AI has reached its useful limit, prepare a concise handoff to 
 - remaining uncertainty.
 
 ## Boundary
-Do not impersonate the professional or claim the handoff was sent unless it actually was.
+Do not impersonate the professional or claim the handoff was sent unless it actually was. Healthcare or medical handoff workflows are outside this distributed skill's scope.
 
 ## Systemic contract
 Prefer the smallest useful intervention, preserve user agency and explicit uncertainty, and leave a reusable artifact when that reduces future effort.
