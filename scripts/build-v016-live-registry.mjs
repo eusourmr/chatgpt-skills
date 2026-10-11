@@ -96,6 +96,7 @@ const registry={
   policy_ref:'registry/public-capabilities-policy.json',
   public_entry_count:entries.length,
   excluded_entry_count:Object.keys(policy.exclusions||{}).length,
+  held_entry_count:Object.keys(policy.held||{}).length,
   evidence_boundary:'A registry entry is curated metadata plus a reviewed playbook, not a universal safety or efficacy guarantee. Evidence state remains version-bound.',
   update_contract:'Only policy-filtered registry artifacts merged to main are served. Repository files not present in this generated registry are not executable through the public MCP.',
   entries:entries.sort((a,b)=>a.id.localeCompare(b.id))
@@ -108,5 +109,6 @@ await writeFile('registry/public-capabilities-v1.json.sha256',sha256(out)+'  pub
 console.log(JSON.stringify({
   public_entries:registry.public_entry_count,
   excluded_entries:registry.excluded_entry_count,
+  held_entries:registry.held_entry_count,
   sha256:sha256(out)
 },null,2));
