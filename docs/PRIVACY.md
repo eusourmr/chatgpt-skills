@@ -1,72 +1,88 @@
 # CS Navigator Privacy Policy
 
-**Effective date:** 2026-10-06  
-**Applies to:** CS Navigator 0.9.4 and later versions until this policy is updated.
+**Effective date:** 2026-10-11  
+**Applies to:** CS Navigator 0.16.0 and later versions until this policy is updated.
 
-CS Navigator is a skills-only plugin. Its core workflow consists of instructions, bundled skill files, and local package metadata used inside the OpenAI product surface.
+CS Navigator 0.16.0 uses a lightweight plugin kernel plus a developer-operated, read-only MCP service that serves a policy-filtered public capability registry generated from the project's GitHub repository.
 
-## Data collected by the developer
+## Data processed by the CS Navigator MCP service
 
-CS Navigator does not collect or transmit ChatGPT conversation content. The plugin does not operate a developer-controlled server.
+The MCP service may receive:
+- the capability search terms sent to the `search_capabilities` tool;
+- the public capability ID sent to `get_capability` or `get_evidence`;
+- ordinary network/request metadata handled by the hosting provider, such as timestamps, IP/network metadata, HTTP headers, and operational error information.
 
-The current plugin does not require:
+The service does **not** require:
 - a CS Navigator account;
-- external authentication;
-- an API key supplied to the developer;
-- a developer-controlled MCP server;
-- a developer-controlled external API;
-- a third-party gateway operated by the developer.
+- user authentication;
+- passwords or API keys supplied by the user;
+- access to the user's email, calendar, cloud drive, bank, health records, or other private account data.
 
-Because the plugin has no developer-operated backend, the developer does not receive names, email addresses, conversation content, uploaded files, prompts, responses, or other personal information through normal CS Navigator plugin execution.
-
-If a user voluntarily contacts the project through GitHub Issues or another public project channel, the information the user chooses to submit there may be visible to the developer and, depending on the channel, to the public.
+The public CS Navigator registry intentionally excludes healthcare workflows that are outside the current platform distribution scope. Users should not submit health information to the CS Navigator MCP tools.
 
 ## Purpose of processing
 
-The plugin itself performs no developer-side processing of ChatGPT conversation data.
+Tool inputs are processed only to:
+- search the public CS capability registry;
+- retrieve one requested public capability card/playbook;
+- return evidence, freshness, permission, source-hash, and provenance metadata;
+- operate, secure, debug, and maintain the public MCP service.
 
-Information voluntarily submitted through the public project support channels is used only for purposes such as:
-- responding to support requests;
-- reproducing reported defects;
-- reviewing feature requests;
-- maintaining project documentation and releases.
+The CS Navigator application code does not intentionally persist capability search terms or capability IDs as a user profile.
 
-Users should avoid posting secrets, private conversation content, credentials, or other sensitive personal information in public GitHub issues.
+## GitHub as the registry source
 
-## Recipients and data sharing
+The MCP server retrieves the generated public registry from:
 
-CS Navigator does not send normal ChatGPT conversation content to the developer or to developer-selected third parties.
+https://github.com/eusourmr/chatgpt-skills
 
-Use of ChatGPT and the OpenAI product surface is processed by OpenAI under OpenAI's applicable privacy terms, workspace policies, data controls, and product settings.
+The server fetches the policy-filtered registry artifact itself. User search terms are not sent to GitHub as GitHub search queries.
 
-If a user voluntarily submits information through GitHub, that information is processed by GitHub under GitHub's own terms and privacy practices.
+Only entries included in the generated public registry are served. Arbitrary GitHub files are not automatically executed through the public MCP service.
+
+## Hosting provider
+
+The MCP service is hosted by a third-party infrastructure provider. That provider may process ordinary request and operational metadata under its own terms, privacy policy, security controls, and retention practices.
+
+The project aims to minimize application-level logging and does not intentionally use the MCP service for advertising profiles or behavioral tracking.
+
+## Support channels
+
+If a user voluntarily contacts the project through GitHub Issues or another public project channel, the information the user chooses to submit may be visible to the developer and, depending on the channel, to the public.
+
+Do not post passwords, authentication tokens, private keys, health information, financial account credentials, or other sensitive personal data in a public support issue.
+
+## Data sharing
 
 The developer does not sell personal data obtained through CS Navigator.
 
+Use of ChatGPT and the OpenAI product surface is processed by OpenAI under OpenAI's applicable privacy terms, workspace policies, data controls, and product settings.
+
+GitHub processes repository and support activity under GitHub's own terms and privacy practices. The hosting provider processes service request/operational metadata under its own applicable terms.
+
 ## Retention
 
-The developer retains no ChatGPT conversation data through the CS Navigator plugin itself.
+CS Navigator application code does not intentionally create a persistent store of capability search queries or capability IDs.
 
-Information voluntarily submitted to GitHub or another support channel is retained according to that platform's systems, project-maintenance needs, and the controls available to the user on that platform. Public issue history may remain visible according to GitHub's product behavior and policies.
+Operational logs, network metadata, or security telemetry may be retained by the hosting provider according to that provider's settings and policies.
+
+Information voluntarily submitted to GitHub or another support channel is retained according to that platform's systems and the user's available controls.
 
 ## User controls
 
 Users may:
-- uninstall CS Navigator at any time;
-- use the privacy, data, and workspace controls provided by ChatGPT/OpenAI;
-- choose not to submit information through public support channels;
-- edit or remove information they voluntarily submit where the relevant platform provides those controls.
-
-## External-source metadata
-
-CS Navigator may include bundled metadata about externally published skills for discovery or evidence labeling. Normal chat execution of the skills-only plugin does not contact those external repositories on behalf of the developer.
+- uninstall CS Navigator;
+- choose not to invoke the Live Registry tools;
+- use ChatGPT/OpenAI privacy and workspace controls;
+- avoid submitting information through public support channels;
+- edit or remove voluntarily submitted information where the relevant platform provides those controls.
 
 ## Future changes
 
-If a future release introduces a developer-controlled server, MCP service, external API, authentication flow, telemetry, analytics, or additional data transfer, this policy must be updated before that release is published.
+If a future release adds authentication, account-specific data access, write actions, analytics, commerce, or additional data destinations, this policy must be reviewed and updated before that change is publicly distributed.
 
 ## Contact
 
-For privacy questions or project support, use the project's public support tracker:
+Support and privacy questions:
 
-https://github.com/eusourmr/chatgpt-skills/issues
+https://github.com/eusourmr/chatgpt-skills/blob/main/docs/SUPPORT.md
