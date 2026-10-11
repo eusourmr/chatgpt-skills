@@ -21,6 +21,22 @@
       "known_gaps": []
     },
     {
+      "id": "academic-writing-navigator",
+      "name": "academic-writing-navigator",
+      "category": "academic-writing",
+      "summary": "Orchestrate academic writing for Portuguese-language students and researchers across international citation/formatting systems, institution and journal instructions, evidence quality, argument structure and academic integrity. Resolve the applicable style/profile before asserting formatting rules.",
+      "evidence_state": "designed",
+      "qualification_state": "designed",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "source_url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/academic-writing-navigator",
+      "distribution_state": "available",
+      "known_gaps": [
+        "No dedicated 0.17 native semantic qualification run yet.",
+        "Exact academic rules remain source/version/institution dependent and must not be invented."
+      ]
+    },
+    {
       "id": "argument-article-architect",
       "name": "argument-article-architect",
       "category": "regenerative-core",
@@ -355,6 +371,22 @@
       "source_url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/interactive-creative-builder",
       "distribution_state": "available",
       "known_gaps": []
+    },
+    {
+      "id": "learning-mastery-coach",
+      "name": "learning-mastery-coach",
+      "category": "learning",
+      "summary": "Build an adaptive learning loop from user-provided study material using understanding, active recall, Feynman explanation, quizzes, flashcards, application, error correction and spaced review. Do not confuse generated study material with evidence that the learner has mastered the topic.",
+      "evidence_state": "designed",
+      "qualification_state": "designed",
+      "freshness_state": "current",
+      "permission_profile": "chat-native/no-external-access-by-default",
+      "source_url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/learning-mastery-coach",
+      "distribution_state": "available",
+      "known_gaps": [
+        "No dedicated 0.17 native semantic qualification run yet.",
+        "Learning outcomes require observed retrieval/application; generated study material alone is not mastery evidence."
+      ]
     },
     {
       "id": "life-admin-organizer",

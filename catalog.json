@@ -13,9 +13,9 @@
   },
   "review_stats": {
     "reviewed": 31,
-    "accepted": 77,
+    "accepted": 79,
     "rejected_recorded": 0,
-    "last_review_cycle": "2026-10-08"
+    "last_review_cycle": "2026-10-11"
   },
   "entries": [
     {
@@ -34,6 +34,23 @@
       "publisher": "eusourmr",
       "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/academic-integrity-reviewer",
       "path": "skills/academic-integrity-reviewer"
+    },
+    {
+      "id": "academic-writing-navigator",
+      "name": "academic-writing-navigator",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-11",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/academic-writing-navigator",
+      "path": "skills/academic-writing-navigator"
     },
     {
       "id": "argument-article-architect",
@@ -599,6 +616,23 @@
       "publisher": "eusourmr",
       "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/interactive-creative-builder",
       "path": "skills/interactive-creative-builder"
+    },
+    {
+      "id": "learning-mastery-coach",
+      "name": "learning-mastery-coach",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-11",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/learning-mastery-coach",
+      "path": "skills/learning-mastery-coach"
     },
     {
       "id": "life-admin-organizer",

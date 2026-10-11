@@ -440,6 +440,20 @@
       "minimum_setup": "Included in CS Navigator 0.15.0. No mandatory external app, MCP server, API key, or local runtime is required for the base workflow.",
       "required_capabilities": [],
       "evidence": "Designed first-party workflow included in the 0.15.0 Human Capability candidate. Static validation and bundling do not constitute native semantic execution evidence."
+    },
+    "learning-mastery-coach": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Registry-only CS Navigator capability. No mandatory external account, MCP write access, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed in CS Navigator 0.17.0. Source review and static validation do not constitute native semantic task evidence."
+    },
+    "academic-writing-navigator": {
+      "mode": "chat-native",
+      "evidence_state": "designed",
+      "minimum_setup": "Registry-only CS Navigator capability. No mandatory external account, MCP write access, API key, or local runtime is required for the base workflow.",
+      "required_capabilities": [],
+      "evidence": "Designed in CS Navigator 0.17.0. Source review and static validation do not constitute native semantic task evidence."
     }
   }
 }

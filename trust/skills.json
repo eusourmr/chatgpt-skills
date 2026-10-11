@@ -289,6 +289,44 @@
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
       ]
+    },
+    "learning-mastery-coach": {
+      "name": "learning-mastery-coach",
+      "summary": "Build an adaptive learning loop from user-provided study material using understanding, active recall, Feynman explanation, quizzes, flashcards, application, error correction and spaced review. Do not confuse generated study material with evidence that the learner has mastered the topic.",
+      "permissions": {
+        "local_files": "none required by the base chat-native workflow",
+        "network": "none required by the base workflow; current-source research may use host-provided web/research tools when actually available",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
+      "usefulness": {
+        "state": "designed",
+        "evidence": "Human-curated 0.17 design with explicit activation, integrity and evidence boundaries. Native semantic task qualification is pending."
+      },
+      "known_gaps": [
+        "No dedicated 0.17 native semantic qualification run yet.",
+        "Learning outcomes require observed retrieval/application; generated study material alone is not mastery evidence."
+      ]
+    },
+    "academic-writing-navigator": {
+      "name": "academic-writing-navigator",
+      "summary": "Orchestrate academic writing for Portuguese-language students and researchers across international citation/formatting systems, institution and journal instructions, evidence quality, argument structure and academic integrity. Resolve the applicable style/profile before asserting formatting rules.",
+      "permissions": {
+        "local_files": "none required by the base chat-native workflow",
+        "network": "none required by the base workflow; current-source research may use host-provided web/research tools when actually available",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
+      "usefulness": {
+        "state": "designed",
+        "evidence": "Human-curated 0.17 design with explicit activation, integrity and evidence boundaries. Native semantic task qualification is pending."
+      },
+      "known_gaps": [
+        "No dedicated 0.17 native semantic qualification run yet.",
+        "Exact academic rules remain source/version/institution dependent and must not be invented."
+      ]
     }
   }
 }

@@ -59,6 +59,63 @@
       }
     },
     {
+      "id": "academic-writing-navigator",
+      "name": "academic-writing-navigator",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Orchestrate academic writing for Portuguese-language students and researchers across international citation/formatting systems, institution and journal instructions, evidence quality, argument structure and academic integrity. Resolve the applicable style/profile before asserting formatting rules.",
+      "summary_pt_br": "Orquestra escrita acadêmica para estudantes e pesquisadores de língua portuguesa entre normas internacionais, regras institucionais, evidência, integridade, estrutura e preparação para submissão.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/academic-writing-navigator",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-11",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Builds learner/writer agency instead of replacing the person.",
+            "indicator": "The user can explain the next step and what they must still understand or verify."
+          },
+          "social": {
+            "mechanism": "Keeps institutional, journal, authorship and integrity expectations visible.",
+            "indicator": "Applicable authority and disclosure boundaries are explicit."
+          },
+          "knowledge": {
+            "mechanism": "Separates evidence, retrieval, rules, uncertainty and unsupported claims.",
+            "indicator": "Claims/rules are traceable or explicitly UNKNOWN."
+          },
+          "resources": {
+            "mechanism": "Targets effort at errors, evidence gaps and applicable rules rather than repeating generic work.",
+            "indicator": "Less low-value rereading/reformatting and fewer avoidable correction loops."
+          }
+        },
+        "harm_check": "Do not improve academic output by fabricating research, hiding prohibited AI use, inventing rules, or replacing independent learning.",
+        "reinforcing_loop": "Each use leaves a reusable error ledger, study plan, evidence map, rule profile or revision record.",
+        "balancing_safeguard": "Retrieval-before-reveal, applicable-profile resolution, explicit UNKNOWN states and integrity checks.",
+        "regenerative_seed": "A learner/researcher-owned record that improves the next study or writing cycle.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "compute"
+          ],
+          "baseline_comparison": "Compare repeated reading/reformatting/revision with targeted retrieval, evidence and profile checks.",
+          "restoration": "Correct misconceptions, stale rules and unsupported claims in the reusable artifact."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should understand why a correction or study step exists, not merely receive the output."
+        }
+      }
+    },
+    {
       "id": "argument-article-architect",
       "name": "Argument & Article Architect",
       "kind": "skill",
@@ -1650,6 +1707,63 @@
           "summary_first": true,
           "technical_layer": true,
           "comprehension_check": "The user should be able to state the decision, constraint or next action and identify what remains uncertain."
+        }
+      }
+    },
+    {
+      "id": "learning-mastery-coach",
+      "name": "learning-mastery-coach",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Build an adaptive learning loop from user-provided study material using understanding, active recall, Feynman explanation, quizzes, flashcards, application, error correction and spaced review. Do not confuse generated study material with evidence that the learner has mastered the topic.",
+      "summary_pt_br": "Cria um ciclo adaptativo de aprendizagem com compreensão, recuperação ativa, explicação, aplicação, correção de erros e revisão espaçada, sem confundir material gerado com domínio real.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/learning-mastery-coach",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-11",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Builds learner/writer agency instead of replacing the person.",
+            "indicator": "The user can explain the next step and what they must still understand or verify."
+          },
+          "social": {
+            "mechanism": "Keeps institutional, journal, authorship and integrity expectations visible.",
+            "indicator": "Applicable authority and disclosure boundaries are explicit."
+          },
+          "knowledge": {
+            "mechanism": "Separates evidence, retrieval, rules, uncertainty and unsupported claims.",
+            "indicator": "Claims/rules are traceable or explicitly UNKNOWN."
+          },
+          "resources": {
+            "mechanism": "Targets effort at errors, evidence gaps and applicable rules rather than repeating generic work.",
+            "indicator": "Less low-value rereading/reformatting and fewer avoidable correction loops."
+          }
+        },
+        "harm_check": "Do not improve academic output by fabricating research, hiding prohibited AI use, inventing rules, or replacing independent learning.",
+        "reinforcing_loop": "Each use leaves a reusable error ledger, study plan, evidence map, rule profile or revision record.",
+        "balancing_safeguard": "Retrieval-before-reveal, applicable-profile resolution, explicit UNKNOWN states and integrity checks.",
+        "regenerative_seed": "A learner/researcher-owned record that improves the next study or writing cycle.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "compute"
+          ],
+          "baseline_comparison": "Compare repeated reading/reformatting/revision with targeted retrieval, evidence and profile checks.",
+          "restoration": "Correct misconceptions, stale rules and unsupported claims in the reusable artifact."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should understand why a correction or study step exists, not merely receive the output."
         }
       }
     },
