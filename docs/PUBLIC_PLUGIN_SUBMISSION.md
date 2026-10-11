@@ -1,102 +1,121 @@
 # Public OpenAI Plugin Directory — CS Navigator
 
-This document separates the **currently submitted public-directory version** from the **next development candidate**.
+## Current platform state
 
-## Current OpenAI directory state
+The 0.15.0 skills-only draft is **not published** and currently requires attention.
 
-- public name: **CS Navigator**
-- technical slug: `cs-navigator`
-- submitted version: **0.9.4 — Submission Compliance**
-- review status: **in review**
-- publication status: **not published**
-- observed status date: **2026-10-08**
-- package type: skills-only
+Observed findings on 2026-10-11:
 
-The current review must not be described as approved or published before the OpenAI product UI confirms that state.
+- **Support URL is required.**
+- **New skills-only submissions are not being accepted at this time.**
+- `medical-appointment-prep` was classified as a healthcare/medical workflow that is currently out of scope for distribution in the skill ecosystem.
 
-## Next development candidate
+The 0.15.0 GitHub release and native 12/12 Navigator qualification remain valid historical evidence. They do not override the current directory-submission findings.
 
-**CS Navigator 0.15.0 — Everyday Life & Human Capability**
+## Architectural consequence
 
-Current static candidate:
+Current OpenAI documentation states that adding an MCP server to an existing skills-only plugin is not currently supported.
 
-- 31 new Human Capability skills;
-- 50 bundled skills total;
-- ZIP entries: **126**;
-- ZIP SHA-256: `b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2`;
-- routing: Native → Skill → Life Journey → Connected Action;
-- Personal Curator / Simple Mode / Capability Preferences;
-- bundled registry foundation;
-- live registry MCP: **planned-not-active**;
-- private plugin: **0.15.0 installed**;
-- private plugin release: `pluginrel_6ac7925aa40481919ababb85f9ef299e`;
-- native semantic qualification: **PASS 12/12**;
-- native evidence: `trust/evals/runs/cs-navigator-v0.15.0-r1-native-requalification.json`.
+Therefore the public future line uses a **new hybrid plugin identity**:
 
-Static build success is not enough to replace the 0.9.4 submission.
+- display name: **CS Navigator**
+- technical package name: `cs-navigator-live`
+- development version: **0.16.0**
+- architecture: **stable kernel + read-only MCP + GitHub Live Registry**
 
-## Private-plugin identity
+Do not attempt to convert the existing `cs-navigator` skills-only draft into the hybrid plugin by silently adding MCP.
 
-The editable personal plugin remains:
+## Required listing URLs
 
-`plugins_6ac41c5909b481918b0523726e763aa3`
+0.16 defines all required public MCP listing URLs:
 
-The exact 0.15.0 candidate is installed privately as release `pluginrel_6ac7925aa40481919ababb85f9ef299e`. A newly loaded conversation exposed the 0.15.0 runtime and the recorded 12-case native semantic matrix passed 12/12. This private release is still not a public-directory publication.
+- Website: https://github.com/eusourmr/chatgpt-skills
+- Support: https://github.com/eusourmr/chatgpt-skills/blob/main/docs/SUPPORT.md
+- Privacy: https://github.com/eusourmr/chatgpt-skills/blob/main/docs/PRIVACY.md
+- Terms: https://github.com/eusourmr/chatgpt-skills/blob/main/docs/TERMS.md
 
-## 0.15.0 qualification order
+## Public MCP
 
-1. finish repository documentation and stale-current-state cleanup;
-2. validate deterministic/static repository gates;
-3. freeze the exact 0.15.0 candidate bytes;
-4. record a native semantic qualification matrix for curator behavior and new routing boundaries;
-5. **DONE:** upload the frozen candidate to the editable private plugin for native product qualification;
-6. **DONE:** native 0.15 runtime loaded and the recorded matrix passed 12/12;
-7. if bytes change, invalidate exact-byte qualification and repeat the affected gates;
-8. merge the final release candidate after evidence is complete — next gate;
-9. create the GitHub tag/release from the exact qualified bytes;
-10. decide whether to replace/update the OpenAI directory submission, depending on the state of the existing 0.9.4 review;
-11. claim public availability only after OpenAI approval **and** explicit publication are visible.
+Repository implementation:
 
-## 0.15.0 native matrix must cover
+`mcp/cs-navigator/`
 
-At minimum:
+Required endpoints:
 
-- explicit “Use CS Navigator as my curator” activates curator behavior without claiming cross-chat persistence;
-- ordinary direct tasks remain native when curator mode is not active;
-- curator mode does not force visible skill names;
-- curator mode still chooses native when sufficient;
-- Simple Mode preserves warnings and uncertainty;
-- connected actions retain normal confirmation and least-privilege boundaries;
-- a multi-stage situation can escalate to a Life Journey without turning every task into one;
-- Brazilian current-rule ambiguity emits `Jurisdição/autoridade aplicável: UNKNOWN / EVIDENCE MISSING`;
-- new 0.15 skills remain `designed` unless separately supported by native execution evidence;
-- Human Handoff prepares context without pretending the professional was contacted;
-- Proof of Progress does not mark planned work as resolved.
+- `/mcp`
+- `/health`
+- `/.well-known/openai-apps-challenge`
 
-## Listing identity
+The public endpoint must use stable HTTPS and Streamable HTTP.
 
-```text
-Display name: CS Navigator
-Technical slug: cs-navigator
-Developer: RICARDO MOREIRA DA ROCHA
-Category: Productivity
-Short description: Everyday capability routing
-```
+The final plugin ZIP builder refuses to build while the MCP URL is a placeholder.
 
-## Claim boundaries
+## MCP tools
 
-Never claim without the corresponding evidence:
+### search_capabilities
+Read-only search of the policy-filtered public registry.
 
-- cross-chat/global curator persistence;
-- automatic plugin execution in every conversation;
-- live GitHub-fed runtime skill execution;
-- live registry MCP before a reviewed MCP surface exists;
-- every bundled skill is tested;
-- zero hallucinations;
-- universal safety;
-- deterministic Guardian execution inside a chat without an actual decision record;
-- public OpenAI approval/publication before the UI confirms it.
+### get_capability
+Read one selected public capability card/playbook.
 
-The 0.15 architecture may be described as **registry-ready**, not as a live self-updating plugin.
+### get_evidence
+Read evidence, freshness, permission, source-hash, and provenance metadata.
+
+The tool contract intentionally contains no write, send, delete, purchase, account, or authentication action.
+
+## Public distribution policy
+
+The MCP serves only:
+
+`registry/public-capabilities-v1.json`
+
+generated under:
+
+`registry/public-capabilities-policy.json`
+
+The initial policy exposes 48 public capability entries and excludes at least:
+
+- `medical-appointment-prep` — platform-out-of-scope;
+- `caregiver-coordinator` — conservatively excluded because its existing workflow coordinates medication/clinician/care information.
+
+The server must not load excluded capabilities directly from GitHub.
+
+## Review cases
+
+The 0.16 manifest defines exactly:
+
+- **5 positive cases**
+- **3 negative cases**
+
+Positive cases cover search, capability retrieval, evidence retrieval, search→retrieve composition, and healthcare exclusion.
+
+Negative cases cover arbitrary GitHub execution, registry writes/evidence promotion, and bypass of excluded healthcare workflows.
+
+A real demo-recording URL remains required before final MCP review submission.
+
+## New-plugin submission order
+
+1. finish 0.16 repository build/static validation;
+2. deploy `mcp/cs-navigator` to a stable public HTTPS host;
+3. configure the exact OpenAI domain-verification challenge token;
+4. verify `/health`, `/mcp`, and the challenge endpoint;
+5. rebuild `plugins/cs-navigator-live` with the real MCP URL;
+6. build/freeze the exact 0.16 ZIP and SHA-256;
+7. create a **new** plugin draft from that ZIP;
+8. connect the MCP in the dashboard;
+9. complete domain verification;
+10. select **Scan Tools** and resolve tool findings;
+11. provide the demo-recording URL;
+12. run native qualification against the connected 0.16 plugin;
+13. submit for review;
+14. claim public availability only after OpenAI approval **and** explicit publication.
+
+## Long-term update model
+
+After initial publication, compatible MCP server and live-data changes may be picked up through OpenAI's MCP scan process without uploading a new plugin ZIP for every registry update.
+
+Changes to packaged skills, plugin metadata, or incompatible MCP contracts still require a new plugin version.
+
+This is the foundation for keeping CS Navigator stable for ordinary users while its governed capability layer continues to improve through GitHub.
 
 Independent community project. Not affiliated with or endorsed by OpenAI.
