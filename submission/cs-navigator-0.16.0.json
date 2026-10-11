@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "product": "CS Navigator",
+  "version": "0.16.0",
+  "release_name": "Evergreen Core & Live Registry",
+  "submission_state": "development-blocked-on-production-mcp-endpoint",
+  "listing": {
+    "display_name": "CS Navigator",
+    "short_description": "Evergreen capability curator",
+    "long_description": "CS Navigator is a small, stable curator layer for ChatGPT. It keeps ordinary tasks native, can use a read-only live capability registry for current discovery and evidence metadata, and escalates to multi-step or connected workflows only when they materially help. Registry data is metadata, not executable remote instructions.",
+    "developer_name": "RICARDO MOREIRA DA ROCHA",
+    "category": "Productivity",
+    "website_url": "https://github.com/eusourmr/chatgpt-skills",
+    "support_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/SUPPORT.md",
+    "privacy_policy_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/PRIVACY.md",
+    "terms_of_service_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/TERMS.md"
+  },
+  "architecture": {
+    "type": "skills-plus-remote-mcp",
+    "evergreen_core_skills": [
+      "cs-navigator",
+      "personal-curator",
+      "simple-mode",
+      "capability-preferences",
+      "proof-of-progress",
+      "information-expiry-guard"
+    ],
+    "registry_source": "https://raw.githubusercontent.com/eusourmr/chatgpt-skills/main/registry/public-capabilities-v1.json",
+    "mcp_server_path": "mcp/cs-registry-server",
+    "mcp_endpoint": null,
+    "tools": [
+      "search_capabilities",
+      "get_capability",
+      "get_evidence",
+      "registry_status"
+    ],
+    "write_tools": [],
+    "arbitrary_github_execution": false
+  },
+  "review_corrections": {
+    "support_url": "addressed-in-source",
+    "skills_only_submission": "architecture-migrated-to-skills-plus-mcp",
+    "medical_appointment_prep": "excluded-from-public-distribution",
+    "caregiver_coordinator": "excluded-conservatively-due-health-information-risk"
+  },
+  "blockers": [
+    "Deploy the read-only MCP server to a stable public HTTPS endpoint ending in /mcp.",
+    "Run MCP Inspector against the production endpoint.",
+    "Insert the verified endpoint into mcp.json and rebuild exact release bytes.",
+    "Complete remote MCP submission requirements including domain verification, demo URL and review test cases."
+  ]
+}
