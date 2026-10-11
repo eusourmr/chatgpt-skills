@@ -6,34 +6,93 @@ See [`docs/ECOSYSTEM_GROWTH_STRATEGY.md`](docs/ECOSYSTEM_GROWTH_STRATEGY.md) for
 
 ## Current position
 
-The OpenAI directory submission currently under review is **CS Navigator 0.9.4 — Submission Compliance**. It remains **not published** as of 2026-10-08.
+The stable qualified release is **CS Navigator 0.15.0 — Everyday Life & Human Capability**, published on GitHub with a 12/12 native Navigator qualification matrix.
 
-The active development line is **CS Navigator 0.15.0 — Everyday Life & Human Capability**.
+The active development line is now **CS Navigator 0.16.0 — Live Registry Foundation**.
 
-0.15.0 intentionally absorbs the previously planned 0.10–0.14 sequence into one coherent product step rather than publishing several small intermediate versions. The objective is not “more skills”; it is a human-centered capability layer that ordinary users can benefit from without learning skill names or architecture.
+The 0.16 change is driven by current OpenAI submission constraints and review findings:
 
-The current static 0.15.0 candidate:
+- new skills-only submissions are currently not accepted in the submission portal;
+- an MCP server must be present in the initial plugin ZIP and cannot currently be added later to an existing skills-only plugin identity;
+- public MCP review requires website, support, privacy, and terms URLs;
+- the 0.15 review classified `medical-appointment-prep` as a healthcare workflow outside current platform distribution scope.
 
-- adds 31 new Everyday Life / Human Capability skills;
-- bundles 50 skills total in the plugin candidate;
-- adds routing levels **Native → Skill → Life Journey → Connected Action**;
-- introduces **Personal Curator**, **Simple Mode**, and **Capability Preferences**;
-- adds Life Resolution, Human Escalation, and Proof of Progress contracts;
-- establishes a bundled registry-ready capability data contract;
-- explicitly keeps the future live registry MCP as **planned-not-active**;
-- preserves least privilege and current evidence boundaries.
+Therefore 0.16 creates a new hybrid package identity, `cs-navigator-live`, while preserving **CS Navigator** as the display name.
 
-Static candidate ZIP SHA-256:
+The target architecture is:
 
-`b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2`
+```text
+stable curator kernel
+        ↓
+read-only Live Registry MCP
+        ↓
+policy-filtered GitHub registry
+        ↓
+capability card + evidence + playbook
+```
 
-Static candidate entries: **126**.
+GitHub remains the source of truth, but arbitrary repository content does not become executable. Only entries explicitly promoted through `registry/public-capabilities-policy.json` and materialized in `registry/public-capabilities-v1.json` are eligible for the public MCP.
 
-The exact private 0.15.0 candidate passed the recorded **12/12 native semantic Navigator matrix** on 2026-10-08. The Navigator behavior covered by that matrix is qualified; the 31 new workflows remain individually **designed**. Public-directory update/review remains a separate gate.
+The first MCP contract is intentionally limited to three read-only tools:
 
-The public product name remains **CS Navigator**. The technical slug remains `cs-navigator`.
+- `search_capabilities`;
+- `get_capability`;
+- `get_evidence`.
 
-Historical evidence for 0.6, 0.7, 0.7.5, 0.9.3 and 0.9.4 remains preserved. Historical releases and evidence are not rewritten to look current.
+Current platform-out-of-scope exclusions include:
+
+- `medical-appointment-prep`;
+- `caregiver-coordinator`.
+
+The public MCP deployment, domain verification, OpenAI tool scan, review, and publication remain pending gates.
+
+## v0.16 — Live Registry Foundation — IN DEVELOPMENT
+
+### Product goal
+
+Make CS Navigator durable enough that ordinary capability growth happens through the governed GitHub registry instead of requiring a new plugin ZIP for every added or refined workflow.
+
+### Deliverables
+
+- new hybrid package identity `cs-navigator-live`;
+- stable CS Navigator curator kernel;
+- lightweight onboarding skill;
+- public Support URL;
+- updated Privacy and Terms for the MCP architecture;
+- read-only Streamable HTTP MCP service;
+- GitHub-backed policy-filtered public registry;
+- source SHA-256 for each public capability;
+- evidence/freshness/permission metadata returned separately from playbook content;
+- Vercel-ready deployment package;
+- OpenAI domain-verification endpoint;
+- healthcare public-distribution gate;
+- fail-closed handling for unknown/unapproved capabilities;
+- final ZIP build blocked until a real public HTTPS MCP endpoint exists.
+
+### Live Registry contract
+
+The MCP server reads only the generated public registry from GitHub `main`.
+
+Repository commits do not automatically become runtime capabilities.
+
+New capabilities require an explicit public-distribution state and repository gates before they can appear in the public registry.
+
+### Exit criteria
+
+0.16 is not release-qualified until:
+
+- policy-filtered public registry generation passes;
+- excluded healthcare workflows cannot leak into the registry or ZIP;
+- MCP unit/static tests pass;
+- a stable public HTTPS MCP endpoint is deployed;
+- OpenAI domain verification succeeds;
+- the plugin package points to the real MCP endpoint;
+- exactly five positive and three negative MCP review cases are present;
+- tool annotations accurately describe read-only behavior;
+- the OpenAI MCP scan passes;
+- a native plugin test confirms search → retrieve → evidence behavior;
+- the final package is bound to exact source and SHA-256;
+- the public directory status is only called published after OpenAI confirms approval and publication.
 
 ## v0.15 — Everyday Life & Human Capability — NATIVE-QUALIFIED CANDIDATE
 
