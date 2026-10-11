@@ -43,7 +43,7 @@ jobs:
           p=Path('trust/passport-policy.json')
           data=json.loads(p.read_text(encoding='utf-8'))
           o=data['skill_overrides']['cs-navigator']
-          o['reviewed_source_revision']='ae180a7ad3ffc34191e7ff9e683ed27b9709fb93'
+          o['reviewed_source_revision']='b26ab33c93dab1c7737f1b9ee4fbb36f5b1ed72d'
           o['reviewed_at']='2026-10-11'
           o['stale_after_days']=90
           p.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
@@ -88,3 +88,5 @@ jobs:
             git pull --rebase origin release/v0.16.0-evergreen-core
             git push origin HEAD:release/v0.16.0-evergreen-core
           fi
+
+# snapshot-final review refresh
