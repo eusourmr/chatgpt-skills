@@ -42,28 +42,17 @@ The quality catalog currently tracks **78 entries**: **77 skills + 1 source coll
 | Regenerative/systemic design standard | ✅ | ❌ |
 | Skill Containers: fail-closed evidence/permission containment | ✅ CS Navigator 0.9.0 | ❌ |
 
-## 🛡️ Current development line
+## 🛡️ Current CS Navigator release
 
-**Current development candidate:** **CS Navigator 0.16.0 — Evergreen Core & Live Registry**.
+**Current GitHub release: CS Navigator 0.17.0 — Learning & Academic Mastery.** The 0.16.0 Evergreen Core & Live Registry architecture is incorporated into 0.17.0; 0.16.0 is not a separate public release.
 
-0.16.0 responds directly to the current OpenAI plugin-review constraints:
+The GitHub release is **not** an OpenAI Plugin Directory publication. The existing private ChatGPT plugin is still 0.15.0 until an exact 0.17.0 package is qualified and installed. The portal's last observed draft was 0.15.0 / Not published / Needs attention. Public submission requires a real HTTPS read-only MCP endpoint, MCP Inspector verification, exact-byte packaging, review evidence and portal approval.
 
-- adds the required Support URL;
-- migrates away from a skills-only public submission toward **skills + remote MCP**;
-- excludes healthcare/medical workflows from the public distribution boundary;
-- reduces the distributed plugin to a stable six-skill Evergreen Core;
-- moves live capability discovery, evidence, freshness, and distribution availability into a read-only GitHub-backed registry;
-- never executes arbitrary GitHub files as remote instructions.
-
-The repository implementation and MCP server code are already in place and pass the 0.16 static build/audit. The remaining release blocker is external: a stable public HTTPS MCP endpoint must be deployed and verified before the final ZIP can be built.
-
-The GitHub release **CS Navigator 0.15.0 — Everyday Life & Human Capability** remains the last fully qualified release. Its exact private candidate passed the recorded 12/12 native semantic Navigator matrix.
-
-The OpenAI Platform portal currently shows **0.15.0 Draft / Not published / Needs attention**. The portal findings are tracked in [Public plugin submission](docs/PUBLIC_PLUGIN_SUBMISSION.md).
+0.17.0 adds `learning-mastery-coach` and `academic-writing-navigator` as registry-discoverable capabilities; both remain **designed**, not **tested**. The Evergreen Core contains six distributed skills; GitHub registry entries are bounded metadata, not remotely executable instructions. Healthcare workflows excluded by review remain outside public distribution.
 
 > **No evidence → no invented fact. No permission → no self-escalation. No authorized path → stop.**
 
-Read: [0.16.0 Evergreen Core](docs/CS_NAVIGATOR_0.16.0_EVERGREEN_CORE.md) · [Getting Started](docs/GETTING_STARTED.md) · [Public plugin submission](docs/PUBLIC_PLUGIN_SUBMISSION.md)
+Read: [Public plugin submission](docs/PUBLIC_PLUGIN_SUBMISSION.md) · [Getting Started](docs/GETTING_STARTED.md) · [0.16 architectural history](docs/CS_NAVIGATOR_0.16.0_EVERGREEN_CORE.md)
 
 ## 🚀 Start in 1 Minute
 
@@ -77,13 +66,13 @@ The intended end-user experience is deliberately simple:
 **Persistence boundary:** one chat instruction does not prove that curator mode is active in every future conversation. Cross-chat persistence may only be claimed when the host product explicitly supports and confirms it.
 
 Version lines:
-- OpenAI Platform portal: **0.15.0 Draft / Needs attention / Not published**
-- current development candidate: **0.16.0 Evergreen Core / static build PASS / production MCP endpoint required**
-- technical slug: `cs-navigator`
-- 0.7.5: historical trust/runtime foundation
-- 0.9.x: first-party platform and submission-compliance foundation
-- `chatgpt-skills` CLI/npm: independent version line
-- next architectural step after 0.15 qualification: live read-only capability registry and stronger personal continuity, without making arbitrary GitHub content executable
+- GitHub CS Navigator release: **0.17.0**
+- ChatGPT private plugin installed: **0.15.0** (pending 0.17.0 qualification and replacement)
+- OpenAI Platform portal (last observed): **0.15.0 Draft / Needs attention / Not published**
+- 0.16.0: historical Evergreen Core architecture, incorporated into 0.17.0
+- 0.9.x and earlier: historical foundation
+- `chatgpt-skills` CLI/npm: independently versioned (see `package.json`)
+
 
 ## Featured OpenAI-native production skills
 
