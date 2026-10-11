@@ -85,5 +85,6 @@ jobs:
             echo "Trust chain already current."
           else
             git commit -m "trust(0.16): refresh static Evergreen Core evidence"
+            git pull --rebase origin release/v0.16.0-evergreen-core
             git push origin HEAD:release/v0.16.0-evergreen-core
           fi
