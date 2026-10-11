@@ -1,4 +1,4 @@
-name: Validate CS Navigator v0.16.0 Evergreen Core
+name: Validate CS Navigator v0.16.0 Evergreen Core (historical)
 
 on:
   push:
@@ -22,10 +22,6 @@ on:
       - 'scripts/build-v016-evergreen-core.mjs'
       - 'scripts/audit-v016-evergreen-core.mjs'
       - '.github/workflows/validate-v016-release.yml'
-  pull_request:
-    branches:
-      - main
-
 permissions:
   contents: read
 
