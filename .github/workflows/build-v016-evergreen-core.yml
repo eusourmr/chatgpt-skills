@@ -55,25 +55,8 @@ jobs:
           grep -q "mcp.json missing" /tmp/v016-package.log
           echo "Expected release blocker PASS: production MCP endpoint still required."
 
-      - name: Persist generated 0.16 state
+      - name: Ensure generated state is deterministic
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add \
-            plugins/cs-navigator \
-            registry/public-capabilities-v1.json \
-            catalog/skills.json \
-            catalog.json \
-            README.md \
-            README.pt-BR.md \
-            mcp/cs-registry-server/package-lock.json
-          git status --short
-          if git diff --cached --quiet; then
-            echo "Generated state already current."
-          else
-            git commit -m "build(0.16): materialize Evergreen Core [skip v016-build]"
-            git pull --rebase origin release/v0.16.0-evergreen-core
-            git push origin HEAD:release/v0.16.0-evergreen-core
-          fi
+          git diff --exit-code --             plugins/cs-navigator             registry/public-capabilities-v1.json             catalog/skills.json             catalog.json             README.md             README.pt-BR.md             mcp/cs-registry-server/package-lock.json
