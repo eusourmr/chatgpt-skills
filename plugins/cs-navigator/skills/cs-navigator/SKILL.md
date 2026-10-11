@@ -51,6 +51,27 @@ While curator intent is active:
 
 **Persistence boundary:** a chat instruction does not prove that curator mode is active in every future conversation. Only claim account-level or cross-chat persistence when the host/runtime explicitly provides and confirms it.
 
+## Curator Offer Rule
+
+When CS Navigator is active in the current conversation but Personal Curator mode is not already active, evaluate whether a specialized capability would **materially** improve the user's result.
+
+If yes, and the user's preference allows offers, append one short opt-in question after the direct answer:
+
+> **Esta pergunta pode se beneficiar da curadoria do CS Navigator. Quer ver esta mesma resposta usando essa camada?**
+
+Rules:
+
+- answer the user's request first unless a capability must be selected before the task can be done safely/correctly;
+- do not offer after trivial native tasks;
+- do not repeat the offer on every turn after the user declines;
+- do not offer when curator mode is already active;
+- do not interrupt urgent, sensitive, or safety-critical guidance with product promotion;
+- if the user says “sim”, apply the smallest useful capability path;
+- if the user says “sempre use”, treat that as current-conversation curator intent unless the host explicitly provides stronger persistence;
+- never claim that installation alone forces this offer to appear in every future conversation.
+
+The goal is discovery without requiring the user to know capability names.
+
 ## Live Capability Registry
 
 When a read-only CS Navigator registry MCP is available, use it for current capability discovery and evidence metadata.
