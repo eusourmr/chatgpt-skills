@@ -3,8 +3,8 @@
   "gate_version": "v2",
   "skill_id": "cs-navigator",
   "scanned_at": "2026-10-01",
-  "source_revision": "71639a4a72f4724a92db81534808446ec14b950b",
-  "artifact_sha256": "b7700af3b887166020c171a61342f838d1006be4dd47cbbd062b5c2aac3448a0",
+  "source_revision": "ae180a7ad3ffc34191e7ff9e683ed27b9709fb93",
+  "artifact_sha256": "cbf510a44c2051cde06d8d4b02ae7f3d4e3c5c8db33a3f22840b0873be4aae09",
   "result": "pass",
   "summary": {
     "critical": 0,
