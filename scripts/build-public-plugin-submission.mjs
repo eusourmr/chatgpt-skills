@@ -24,8 +24,14 @@ const files = await walk(pluginRoot);
 if (!files.includes('plugin.json')) throw new Error('plugin.json missing from plugin root');
 if (!files.includes('skills/cs-navigator/SKILL.md')) throw new Error('skills/cs-navigator/SKILL.md missing from plugin root');
 if (!files.includes('capability-pack.json')) throw new Error('capability-pack.json missing from plugin root');
-for (const id of ['regenerative-language-bridge','regenerative-impact-map','regenerative-resilience-plan','regenerative-adaptive-experiment']) {
-  if (!files.includes(`skills/${id}/SKILL.md`)) throw new Error(`skills/${id}/SKILL.md missing from Capability Pack I`);
+const pack = JSON.parse(await readFile(path.join(pluginRoot, 'capability-pack.json'), 'utf8'));
+for (const entry of pack.included_skills || []) {
+  if (!files.includes(`skills/${entry.id}/SKILL.md`)) {
+    throw new Error(`skills/${entry.id}/SKILL.md missing from declared capability pack`);
+  }
+}
+if (pack.live_registry?.required_for_public_submission && !files.includes('mcp.json')) {
+  throw new Error('mcp.json missing: this plugin line requires a deployed HTTPS MCP endpoint before public packaging');
 }
 
 const entries = [];
