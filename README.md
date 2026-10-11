@@ -44,43 +44,54 @@ The quality catalog currently tracks **78 entries**: **77 skills + 1 source coll
 
 ## 🛡️ Current development line
 
-**Current development candidate:** **CS Navigator 0.15.0 — Everyday Life & Human Capability**.
+**Current development candidate:** **CS Navigator 0.16.0 — Live Registry Foundation**.
 
-0.15.0 changes the product from a skill selector into a human-centered capability curator. It can route among **Native → Skill → Life Journey → Connected Action**, adds optional **Personal Curator**, **Simple Mode**, and **Capability Preferences**, and introduces 31 everyday-life skills spanning personal administration, household decisions, home, family, caregiving, Brazilian public services, digital safety, travel, major life transitions, human handoff, progress tracking, freshness, and real-world evidence.
+0.16.0 changes the distribution architecture from a large skills-only package to a **small stable curator kernel + read-only MCP + policy-filtered live registry generated from GitHub**.
 
-The current static candidate ZIP contains **126 entries** and is bound to SHA-256:
+Why the change:
+- the current OpenAI submission portal reports that new skills-only submissions are not being accepted;
+- MCP servers must be present in the initial plugin package, so the old skills-only identity cannot simply gain MCP later;
+- the 0.15 review flagged `medical-appointment-prep` as an unsupported healthcare workflow;
+- public MCP submissions require an explicit Support URL.
 
-`b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2`
+The new public package identity is `cs-navigator-live`, while the user-facing display name remains **CS Navigator**.
 
-Static build gates pass for the generated candidate: Skill Profiles, Skill Containers, Container Guardian 9/9, public-submission validation, plugin structure, 31-skill registry inventory, legacy-brand exclusion, and stale 0.9 pending-marker exclusion.
+The Live Registry exposes only three read-only tools:
+- `search_capabilities`
+- `get_capability`
+- `get_evidence`
 
-**Evidence boundary:** the 31 new skills are still individually `designed`. The exact 0.15.0 private candidate passed the recorded **12/12 native semantic Navigator matrix on 2026-10-08**. This qualifies the tested Navigator routing/boundary behavior; it does not bulk-promote the 31 workflows.
+GitHub remains the source of truth, but arbitrary GitHub files are **not** executable. Only the generated, policy-filtered `registry/public-capabilities-v1.json` may be served by the public MCP.
 
-The currently submitted OpenAI directory version remains **CS Navigator 0.9.4 — Submission Compliance**, with status **in review / not published** as of 2026-10-08. The 0.15.0 candidate must not silently replace that review until its own release gates pass.
+Healthcare-distribution exclusions currently include:
+- `medical-appointment-prep`
+- `caregiver-coordinator`
 
-> **No evidence → no invented fact. No permission → no self-escalation. No authorized path → stop.**
+The 0.15.0 release remains preserved as historical/native-qualified evidence. The 0.16.0 public submission is a new hybrid line and must not claim deployment, MCP scan approval, or directory publication until those gates actually pass.
 
-Read: [0.15.0 Human Capability](docs/CS_NAVIGATOR_0.15.0_HUMAN_CAPABILITY.md) · [Getting Started](docs/GETTING_STARTED.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Public plugin submission](docs/PUBLIC_PLUGIN_SUBMISSION.md)
+> **No evidence → no invented fact. No permission → no self-escalation. No public distribution state → do not serve it.**
+
+Read: [0.16.0 Live Registry Foundation](docs/CS_NAVIGATOR_0.16.0_LIVE_REGISTRY.md) · [Public Distribution Policy](docs/PUBLIC_DISTRIBUTION_POLICY.md) · [Support](docs/SUPPORT.md) · [Getting Started](docs/GETTING_STARTED.md)
 
 ## 🚀 Start in 1 Minute
 
-The intended end-user experience is deliberately simple:
+The target end-user experience stays deliberately simple:
 
 1. Install **CS Navigator** once.
-2. Start a normal ChatGPT conversation.
-3. If you want silent capability curation in that conversation, write: `Use CS Navigator as my curator.`
-4. Then talk normally. Navigator should keep work native when sufficient and only add a skill, Life Journey, or connected action when it materially helps.
+2. Talk normally.
+3. If you want quiet curation in that conversation, say: `Use CS Navigator as my curator.`
+4. Navigator keeps ordinary tasks native and consults the live public registry only when specialized guidance may materially help.
 
 **Persistence boundary:** one chat instruction does not prove that curator mode is active in every future conversation. Cross-chat persistence may only be claimed when the host product explicitly supports and confirms it.
 
 Version lines:
-- OpenAI directory submission: **0.9.4 / in review / not published**
-- development candidate: **0.15.0 / native semantic qualification PASS 12/12 / private release installed**
-- technical slug: `cs-navigator`
-- 0.7.5: historical trust/runtime foundation
-- 0.9.x: first-party platform and submission-compliance foundation
+- stable historical release: **0.15.0 / GitHub release / native Navigator matrix PASS 12/12**
+- active development: **0.16.0 / hybrid Live Registry architecture**
+- old skills-only plugin identity: `cs-navigator`
+- new hybrid package identity: `cs-navigator-live`
+- public MCP deployment: **pending**
+- OpenAI MCP scan/review/publication: **pending**
 - `chatgpt-skills` CLI/npm: independent version line
-- next architectural step after 0.15 qualification: live read-only capability registry and stronger personal continuity, without making arbitrary GitHub content executable
 
 ## Featured OpenAI-native production skills
 
