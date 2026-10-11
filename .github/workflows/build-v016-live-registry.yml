@@ -100,6 +100,12 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          remote_head=$(git ls-remote origin refs/heads/release/v0.16.0-live-registry | awk '{print $1}')
+          local_head=$(git rev-parse HEAD)
+          if [ "$remote_head" != "$local_head" ]; then
+            echo "Branch advanced during this run ($local_head -> $remote_head). A newer run will materialize generated state."
+            exit 0
+          fi
           git add README.md README.pt-BR.md PROGRESS.md catalog.json catalog/skills.json registry/public-capabilities-v1.json registry/public-capabilities-v1.json.sha256 plugins/cs-navigator-live mcp/cs-navigator/package-lock.json
           if git diff --cached --quiet; then
             echo 'Generated 0.16 state already current.'
