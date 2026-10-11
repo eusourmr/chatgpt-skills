@@ -1,0 +1,4 @@
+interface:
+  display_name: "Travel Logistics Readiness"
+  short_description: "Prepare a practical travel-logistics checklist covering documents, timing, transport, money, connectivity, baggage, reservations, accessibility logistics, and current border or car"
+  default_prompt: "Use $travel-logistics-readiness only when explicitly selected by CS Navigator or the user. Keep the workflow non-healthcare and preserve evidence boundaries."
