@@ -31,6 +31,11 @@ jobs:
           node-version: '24'
           package-manager-cache: false
 
+      - name: Regenerate public catalog surfaces
+        run: |
+          python scripts/catalog.py --write
+          python scripts/validate_catalog.py --write-progress
+
       - name: Generate policy-filtered public registry
         run: node scripts/build-v016-live-registry.mjs
 
@@ -95,7 +100,7 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add registry/public-capabilities-v1.json registry/public-capabilities-v1.json.sha256 plugins/cs-navigator-live mcp/cs-navigator/package-lock.json
+          git add README.md README.pt-BR.md PROGRESS.md catalog.json catalog/skills.json registry/public-capabilities-v1.json registry/public-capabilities-v1.json.sha256 plugins/cs-navigator-live mcp/cs-navigator/package-lock.json
           if git diff --cached --quiet; then
             echo 'Generated 0.16 state already current.'
           else
