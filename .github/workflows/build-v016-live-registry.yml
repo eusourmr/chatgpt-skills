@@ -55,6 +55,7 @@ jobs:
           assert registry['schema_version']==2
           assert registry['public_entry_count']==48
           assert registry['excluded_entry_count']==2
+          assert registry['held_entry_count']==3
           ids={x['id'] for x in registry['entries']}
           assert 'medical-appointment-prep' not in ids
           assert 'caregiver-coordinator' not in ids
