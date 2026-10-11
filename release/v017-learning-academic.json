@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "product": "CS Navigator",
+  "version": "0.17.0",
+  "release_name": "Learning & Academic Mastery",
+  "parent_architecture": "0.16.0 Evergreen Core & Live Registry",
+  "goals": [
+    "Turn study support into a reusable learning loop rather than a collection of prompts.",
+    "Provide Portuguese-language students with international academic-writing and formatting guidance without assuming ABNT is universal.",
+    "Add a Curator Offer rule so CS Navigator can offer a better capability path when relevant without forcing it.",
+    "Run a Human Reality Review across the catalog using KEEP, REFINE, MERGE, RETIRE, or REGISTRY-ONLY decisions."
+  ],
+  "new_capabilities": [
+    "learning-mastery-coach",
+    "academic-writing-navigator"
+  ],
+  "curator_offer": {
+    "default": "offer-when-materially-useful",
+    "wording_pt_br": "Esta pergunta pode se beneficiar da curadoria do CS Navigator. Quer ver esta mesma resposta usando essa camada?",
+    "skip_for": [
+      "trivial native tasks",
+      "sensitive moments where an extra prompt would distract",
+      "already-active curator mode"
+    ],
+    "persistence_boundary": "Offer behavior only applies where CS Navigator is actually active/selected by the host; installation alone does not prove execution in every future conversation."
+  },
+  "learning_cycle": [
+    "understand",
+    "retrieve",
+    "explain",
+    "apply",
+    "correct",
+    "space",
+    "consolidate"
+  ],
+  "article_inspiration": {
+    "url": "https://fastcompanybrasil.com/ia/5-prompts-chatgpt-estudar-melhor-memorizar-conteudo/",
+    "ideas": [
+      "structured summary",
+      "quiz",
+      "Feynman explanation",
+      "flashcards",
+      "spaced review"
+    ],
+    "role": "inspiration-not-authority"
+  },
+  "academic_profiles": [
+    "ABNT-BR",
+    "APA-7",
+    "Vancouver",
+    "IEEE",
+    "Chicago",
+    "MLA-9",
+    "Harvard-institution-specific",
+    "AMA"
+  ],
+  "evidence_policy": "All new 0.17 capabilities start designed. Registry publication, generation, or static validation does not make them tested."
+}
