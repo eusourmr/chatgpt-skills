@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cs-navigator",
-  "version": "0.15.0",
-  "description": "CS Navigator curates the smallest useful path for everyday life: native ChatGPT, a focused skill, a multi-step Life Journey, or a connected action when needed.",
+  "version": "0.16.0",
+  "description": "CS Navigator is an evergreen capability curator: it keeps simple tasks native and uses a live read-only registry when current capability or evidence metadata materially helps.",
   "author": {
     "name": "ChatGPT Skills",
     "url": "https://github.com/eusourmr/chatgpt-skills"
@@ -12,42 +12,35 @@
   "license": "MIT",
   "keywords": [
     "chatgpt",
+    "capability-curation",
     "skills",
+    "mcp",
+    "registry",
     "trust",
-    "discovery",
-    "capability-pack",
-    "regenerative",
-    "trust-passport",
-    "risk-label",
+    "evidence",
     "freshness",
-    "skill-containers",
-    "container-guardian",
-    "first-party",
-    "brazil",
-    "writing",
-    "research",
-    "design",
-    "founder-strategy",
+    "native-first",
     "cs-navigator"
   ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "CS Navigator",
-        "shortDescription": "Everyday capability routing",
-        "longDescription": "CS Navigator 0.15.0 helps people use specialized ChatGPT workflows without learning skill names. It keeps ordinary tasks native when sufficient, can select focused workflows for everyday administration, family, home, Brazilian public services, travel and digital safety, and can organize multi-step Life Journeys. Optional curator and Simple Mode preferences apply only where the host supports them; connected actions still follow normal permission and confirmation boundaries.",
+        "shortDescription": "Evergreen capability curator",
+        "longDescription": "CS Navigator is a small, stable curator layer for ChatGPT. It keeps ordinary tasks native, can use a read-only live capability registry for current discovery and evidence metadata, and escalates to multi-step or connected workflows only when they materially help. Registry data is metadata, not executable remote instructions.",
         "developerName": "RICARDO MOREIRA DA ROCHA",
         "category": "Productivity",
         "websiteURL": "https://github.com/eusourmr/chatgpt-skills",
         "defaultPrompt": [
           "Use CS Navigator as my curator in this conversation.",
-          "Help me with this in the simplest useful way.",
-          "Show me what is resolved, pending, blocked, and next."
+          "Find the simplest useful capability path for this.",
+          "Check current capability evidence before recommending a workflow."
         ],
         "privacyPolicyURL": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/PRIVACY.md",
         "termsOfServiceURL": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/TERMS.md",
         "composerIcon": "./assets/cs-icon.png",
-        "logo": "./assets/cs-icon.png"
+        "logo": "./assets/cs-icon.png",
+        "supportURL": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/SUPPORT.md"
       }
     }
   }
