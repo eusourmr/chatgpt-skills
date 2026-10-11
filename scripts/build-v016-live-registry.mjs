@@ -25,7 +25,6 @@ const restrictedDescriptionPatterns=[
   /medication/i,
   /clinician/i,
   /patient/i,
-  /symptom/i,
   /diagnos/i,
   /hospital/i,
   /treatment management/i
