@@ -2,13 +2,20 @@
 
 The purpose of this review is not to ask whether a skill is technically valid. It asks whether the capability is still useful, comprehensible, proportionate, and honest for a real person.
 
-## Decision states
+## Curation decisions
 
 - **KEEP** — useful and clearly differentiated.
 - **REFINE** — useful, but scope, language, activation, evidence, or handoff needs improvement.
 - **MERGE** — overlapping capabilities should become one clearer capability.
-- **RETIRE** — no longer worth maintaining or creates more confusion than value.
-- **REGISTRY-ONLY** — useful for discovery/evidence, but should not be bundled in the stable plugin core.
+- **RETIRE** — do not present as an active distributable capability; source/history may remain for audit.
+
+## Delivery states
+
+- **CORE** — stable plugin core; should change rarely.
+- **REGISTRY-ONLY** — discoverable through the live registry, not bundled in the stable plugin.
+- **SOURCE-ONLY** — preserved in source/history but excluded from public discovery/distribution.
+
+A capability can be KEEP + REGISTRY-ONLY. Delivery location is not a quality score.
 
 ## Human Reality questions
 
@@ -41,3 +48,16 @@ For every capability ask:
 ## Principle
 
 Human curation must be allowed to delete, merge or simplify capabilities. Catalog growth is not a success metric.
+
+
+## First-pass catalog result
+
+The 2026-10-11 first pass is recorded in `governance/human-reality-review-v017.json`.
+
+- 63 first-party capabilities reviewed at product-fit/catalog level
+- KEEP: 48
+- REFINE: 9
+- MERGE: 4
+- RETIRE: 2
+
+This pass does not count as native semantic execution evidence.
