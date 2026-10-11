@@ -1,6 +1,6 @@
 ---
 name: document-compliance-auditor
-description: Generic rule-compliance engine for documents using versioned profiles such as ABNT-BR, university manuals, journal guidelines and editais. Returns COMPLIANT, NONCOMPLIANT, UNKNOWN/EVIDENCE MISSING, CONFLICTING RULES or NOT APPLICABLE without inventing rules. Activate only when explicitly invoked or selected.
+description: Generic rule-compliance engine for documents using versioned profiles such as ABNT-BR, APA, Vancouver, IEEE, Chicago, MLA, AMA, institution-specific Harvard variants, university manuals, journal guidelines and editais. Returns COMPLIANT, NONCOMPLIANT, UNKNOWN/EVIDENCE MISSING, CONFLICTING RULES or NOT APPLICABLE without inventing rules.
 ---
 
 # Document Compliance Auditor
@@ -11,7 +11,7 @@ Activate only when the user explicitly invokes `document-compliance-auditor`, na
 
 ## Core workflow
 
-1. Identify the exact rule profile, version, institution/jurisdiction and document scope.
+1. Identify the exact rule profile, version, institution/journal/authority and document scope. For academic work, resolve specific journal/conference instructions first, then institution/program manuals, assignment/editais, and only then generic named style systems.
 2. Map each applicable rule to observable evidence in the document.
 3. Return one state per rule: COMPLIANT, NONCOMPLIANT, UNKNOWN / EVIDENCE MISSING, CONFLICTING RULES or NOT APPLICABLE.
 4. Never turn “not checked” into COMPLIANT.
@@ -22,7 +22,9 @@ Activate only when the user explicitly invokes `document-compliance-auditor`, na
 ## Boundaries
 
 - Do not reproduce restricted standards wholesale.
-- Do not invent an ABNT rule, institutional manual requirement or edital clause from memory.
+- Do not invent an ABNT, APA, Vancouver, IEEE, Chicago, MLA, AMA, Harvard-variant, institutional manual, journal or edital rule from memory.
+- “Harvard” is not one universal single standard; require the applicable institution/publisher variant before asserting exact formatting.
+- A journal or institution may override a generic style family for its own submission.
 - A profile marked designed is not authoritative until its source/version evidence is qualified.
 
 ## Output behavior

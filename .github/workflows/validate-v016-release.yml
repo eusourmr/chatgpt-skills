@@ -1,0 +1,103 @@
+name: Validate CS Navigator v0.16.0 Evergreen Core
+
+on:
+  push:
+    branches:
+      - release/v0.16.0-evergreen-core
+    paths:
+      - 'plugins/cs-navigator/**'
+      - 'skills/featured/cs-navigator/**'
+      - 'skills/personal-curator/**'
+      - 'skills/simple-mode/**'
+      - 'skills/capability-preferences/**'
+      - 'skills/proof-of-progress/**'
+      - 'skills/information-expiry-guard/**'
+      - 'registry/**'
+      - 'mcp/cs-registry-server/**'
+      - 'release/v016-evergreen-core.json'
+      - 'submission/cs-navigator-0.16.0.json'
+      - 'docs/SUPPORT.md'
+      - 'docs/PRIVACY.md'
+      - 'docs/PUBLIC_PLUGIN_SUBMISSION.md'
+      - 'scripts/build-v016-evergreen-core.mjs'
+      - 'scripts/audit-v016-evergreen-core.mjs'
+      - '.github/workflows/validate-v016-release.yml'
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Validate repository and Evergreen Core
+        run: |
+          node scripts/audit-v016-evergreen-core.mjs
+          node scripts/validate-skill-profiles.mjs
+          node scripts/validate-skill-containers.mjs
+          node scripts/eval-container-guardian.mjs --check
+          python scripts/catalog.py --check
+          python scripts/validate_catalog.py
+
+      - name: Build read-only Registry MCP
+        working-directory: mcp/cs-registry-server
+        run: |
+          npm ci
+          npm run build
+
+      - name: Verify current static trust state
+        run: |
+          node scripts/generate-trust-passports.mjs --check
+          node scripts/validate-trust-passports.mjs --verify-git-source
+          node scripts/security-gate-v2.mjs --check
+          node scripts/generate-risk-labels.mjs --check
+          node scripts/update-drift-status.mjs --check --as-of 2026-10-11
+          python - <<'PY'
+          import json
+          p=json.load(open('trust/passports/cs-navigator.json',encoding='utf-8'))
+          assert p['execution']['evidence_state']=='designed'
+          assert p['behavior_evidence']['state']=='designed'
+          print('0.16 trust boundary PASS: changed behavior remains designed.')
+          PY
+
+      - name: Enforce expected production-MCP release blocker
+        shell: bash
+        run: |
+          set -euo pipefail
+          STATE=$(node -e "console.log(require('./submission/cs-navigator-0.16.0.json').submission_state)")
+          test "$STATE" = "development-blocked-on-production-mcp-endpoint"
+          if node scripts/build-public-plugin-submission.mjs > /tmp/v016-package.log 2>&1; then
+            echo "ERROR: 0.16 public package built without production MCP"
+            cat /tmp/v016-package.log
+            exit 1
+          fi
+          grep -q "mcp.json missing" /tmp/v016-package.log
+          echo "0.16 release blocker PASS: production HTTPS MCP endpoint still required."
+
+      - name: Enforce healthcare distribution exclusions
+        run: |
+          test ! -d plugins/cs-navigator/skills/medical-appointment-prep
+          test ! -d plugins/cs-navigator/skills/caregiver-coordinator
+          node - <<'NODE'
+          const r=require('./registry/public-capabilities-v1.json');
+          for(const id of ['medical-appointment-prep','caregiver-coordinator']){
+            const x=r.entries.find(e=>e.id===id);
+            if(!x || x.distribution_state!=='excluded') process.exit(1);
+          }
+          NODE

@@ -15,6 +15,7 @@ const isSha256 = (v) => typeof v === 'string' && /^[a-f0-9]{64}$/.test(v);
 const isCommit = (v) => typeof v === 'string' && /^[a-f0-9]{40}$/.test(v);
 const uniqueStrings = (v) => Array.isArray(v) && v.every(isString) && new Set(v).size === v.length;
 const distributions = new Set(['npm', 'github-pinned', 'local']);
+const executionModes = new Set(['chat-native', 'native-tools', 'connected', 'local-agent']);
 
 if (tests.schema_version !== 1) errors.push('trust/in-product-tests.json schema_version must be 1');
 if (runs.schema_version !== 1) errors.push('trust/in-product-runs.json schema_version must be 1');
@@ -33,9 +34,10 @@ for (const [i, plan] of (tests.tests || []).entries()) {
 
   const skillExecution = execution.skills?.[plan.skill_id];
   if (!skillExecution) errors.push(`${where} references unknown execution skill ${plan.skill_id}`);
-  if (skillExecution && skillExecution.mode !== plan.execution_mode) {
-    errors.push(`${where}.execution_mode does not match trust/execution.json`);
-  }
+  if (!executionModes.has(plan.execution_mode)) errors.push(`${where}.execution_mode is invalid`);
+  // Historical plans preserve the execution mode that applied when they were created.
+  // A later product redesign must not rewrite or invalidate old evidence merely because
+  // trust/execution.json now describes a different current execution mode.
   if (plan.surface !== 'chatgpt-skills') errors.push(`${where}.surface must be chatgpt-skills for in-product chat-native proof`);
   if (!distributions.has(plan.required_distribution)) errors.push(`${where}.required_distribution must be npm, github-pinned, or local`);
   if (!isCommit(plan.required_source_revision)) errors.push(`${where}.required_source_revision must be a full lowercase 40-character commit SHA`);

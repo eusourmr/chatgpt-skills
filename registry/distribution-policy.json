@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "policy_id": "cs-navigator-public-distribution-v1",
+  "effective_for": "0.16.0",
+  "platform_context": "OpenAI plugin ecosystem public distribution",
+  "principles": [
+    "Repository preservation and public distribution are separate.",
+    "A capability may remain in source history while being excluded from the public plugin payload.",
+    "Do not rename or disguise an out-of-scope healthcare workflow to bypass review.",
+    "Distribution eligibility must be machine-checked before packaging."
+  ],
+  "excluded_capabilities": [
+    {
+      "id": "medical-appointment-prep",
+      "reason": "Healthcare/medical workflow; current platform review finding says healthcare workflows or activities involving health information are out of scope for skill ecosystem distribution.",
+      "source_action": "preserve-in-repository",
+      "plugin_action": "exclude"
+    },
+    {
+      "id": "caregiver-coordinator",
+      "reason": "May involve appointments, medication lists, emergency information, or other health information; excluded conservatively under the current healthcare distribution boundary.",
+      "source_action": "preserve-in-repository",
+      "plugin_action": "exclude"
+    }
+  ],
+  "required_review_patterns": [
+    "medical",
+    "health",
+    "healthcare",
+    "medication",
+    "medications",
+    "symptom",
+    "symptoms",
+    "diagnos",
+    "treatment",
+    "clinician",
+    "doctor",
+    "patient",
+    "urgent care",
+    "emergency care"
+  ],
+  "review_rule": "A pattern match is not automatic rejection, but any matched public-bundle skill requires an explicit distribution decision before packaging.",
+  "support_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/SUPPORT.md"
+}

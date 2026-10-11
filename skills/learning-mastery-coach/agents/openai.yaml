@@ -1,0 +1,4 @@
+interface:
+  display_name: "Learning Mastery Coach"
+  short_description: "Adaptive learning and retention loop"
+  default_prompt: "Use $learning-mastery-coach to help me learn this through retrieval, explanation, application, correction and spaced review."

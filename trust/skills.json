@@ -126,7 +126,7 @@
     },
     "cs-navigator": {
       "name": "CS Navigator",
-      "summary": "Curates the smallest useful path across native ChatGPT, focused skills, Life Journeys, and connected actions, with optional current-chat curator preferences and explicit evidence/permission boundaries.",
+      "summary": "Evergreen capability curator with relevance-gated Curator Offer, native-first routing, and read-only registry-backed capability/evidence discovery.",
       "permissions": {
         "local_files": "none required by the chat-native workflow; it reads only its bundled reference snapshot through the skill runtime",
         "network": "none required",
@@ -135,14 +135,15 @@
         "destructive_actions": "none required"
       },
       "usefulness": {
-        "state": "tested",
-        "evidence": "CS Navigator 0.15.0 exact private candidate passed the 12/12 native semantic Human Capability matrix on 2026-10-08. The result covers the recorded Navigator routing and boundary behavior; it does not bulk-promote the 31 new workflows."
+        "state": "designed",
+        "evidence": "0.17.0 changes the Navigator behavior by adding the relevance-gated Curator Offer Rule. The 0.15 native 12/12 result and 0.16 static review remain historical baselines and do not qualify this changed 0.17 behavior."
       },
       "known_gaps": [
-        "The 31 new 0.15 workflows remain individually designed unless separately supported by native execution evidence.",
-        "A chat instruction does not prove cross-chat/global curator persistence; that depends on explicit host support.",
-        "The live capability-registry MCP is planned-not-active; the bundled registry is finite and versioned.",
-        "Container Guardian deterministic evidence does not prove Guardian executed in a chat without an actual runtime decision record."
+        "0.17 Curator Offer behavior is pending native semantic qualification.",
+        "Production HTTPS MCP endpoint for the Evergreen architecture is still a 0.16 release dependency.",
+        "Cross-chat curator persistence remains host-dependent and is not claimed.",
+        "New learning/academic registry capabilities remain individually designed.",
+        "Container Guardian execution cannot be claimed without an actual runtime decision record."
       ]
     },
     "regenerative-adaptive-experiment": {
@@ -287,6 +288,44 @@
       },
       "known_gaps": [
         "No dedicated outcome fixture measuring task-level effectiveness yet."
+      ]
+    },
+    "learning-mastery-coach": {
+      "name": "learning-mastery-coach",
+      "summary": "Build an adaptive learning loop from user-provided study material using understanding, active recall, Feynman explanation, quizzes, flashcards, application, error correction and spaced review. Do not confuse generated study material with evidence that the learner has mastered the topic.",
+      "permissions": {
+        "local_files": "none required by the base chat-native workflow",
+        "network": "none required by the base workflow; current-source research may use host-provided web/research tools when actually available",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
+      "usefulness": {
+        "state": "designed",
+        "evidence": "Human-curated 0.17 design with explicit activation, integrity and evidence boundaries. Native semantic task qualification is pending."
+      },
+      "known_gaps": [
+        "No dedicated 0.17 native semantic qualification run yet.",
+        "Learning outcomes require observed retrieval/application; generated study material alone is not mastery evidence."
+      ]
+    },
+    "academic-writing-navigator": {
+      "name": "academic-writing-navigator",
+      "summary": "Orchestrate academic writing for Portuguese-language students and researchers across international citation/formatting systems, institution and journal instructions, evidence quality, argument structure and academic integrity. Resolve the applicable style/profile before asserting formatting rules.",
+      "permissions": {
+        "local_files": "none required by the base chat-native workflow",
+        "network": "none required by the base workflow; current-source research may use host-provided web/research tools when actually available",
+        "secrets": "none required",
+        "process_execution": "none required",
+        "destructive_actions": "none required"
+      },
+      "usefulness": {
+        "state": "designed",
+        "evidence": "Human-curated 0.17 design with explicit activation, integrity and evidence boundaries. Native semantic task qualification is pending."
+      },
+      "known_gaps": [
+        "No dedicated 0.17 native semantic qualification run yet.",
+        "Exact academic rules remain source/version/institution dependent and must not be invented."
       ]
     }
   }

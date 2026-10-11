@@ -1,0 +1,62 @@
+name: Build CS Navigator v0.16.0 Evergreen Core
+
+on:
+  push:
+    branches:
+      - release/v0.16.0-evergreen-core
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Assemble evergreen core and public registry
+        run: node scripts/build-v016-evergreen-core.mjs
+
+      - name: Regenerate public catalog surfaces
+        run: python scripts/catalog.py --write
+
+      - name: Build registry MCP server
+        working-directory: mcp/cs-registry-server
+        run: |
+          npm install
+          npm run build
+
+      - name: Validate Evergreen Core
+        run: |
+          node scripts/audit-v016-evergreen-core.mjs
+          node scripts/validate-skill-profiles.mjs
+          node scripts/validate-skill-containers.mjs
+          node scripts/eval-container-guardian.mjs --check
+
+      - name: Confirm public package remains blocked until production MCP exists
+        shell: bash
+        run: |
+          set -euo pipefail
+          if node scripts/build-public-plugin-submission.mjs > /tmp/v016-package.log 2>&1; then
+            echo "ERROR: public package unexpectedly built without production MCP endpoint"
+            cat /tmp/v016-package.log
+            exit 1
+          fi
+          cat /tmp/v016-package.log
+          grep -q "mcp.json missing" /tmp/v016-package.log
+          echo "Expected release blocker PASS: production MCP endpoint still required."
+
+      - name: Ensure generated state is deterministic
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --exit-code --             plugins/cs-navigator             registry/public-capabilities-v1.json             catalog/skills.json             catalog.json             README.md             README.pt-BR.md             mcp/cs-registry-server/package-lock.json

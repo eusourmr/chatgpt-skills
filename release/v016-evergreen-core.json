@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "product": "CS Navigator",
+  "version": "0.16.0",
+  "release_name": "Evergreen Core & Live Registry",
+  "objective": "Keep the distributed plugin core stable while capability discovery, evidence, freshness, and distribution availability evolve from a read-only GitHub-backed MCP registry.",
+  "evergreen_core": {
+    "router": "cs-navigator",
+    "bundled_skills": [
+      "personal-curator",
+      "simple-mode",
+      "capability-preferences",
+      "proof-of-progress",
+      "information-expiry-guard"
+    ],
+    "routing_levels": [
+      "native",
+      "capability-guided",
+      "life-journey",
+      "connected-action"
+    ],
+    "live_registry_source": "https://raw.githubusercontent.com/eusourmr/chatgpt-skills/main/registry/public-capabilities-v1.json",
+    "live_registry_mcp": "required-before-public-submission",
+    "arbitrary_github_execution": false
+  },
+  "distribution_corrections": {
+    "support_url_required": true,
+    "skills_only_submission": "not-accepted-at-current-review-state",
+    "healthcare_workflows": "excluded-from-public-distribution",
+    "excluded_skill_ids": [
+      "medical-appointment-prep",
+      "caregiver-coordinator"
+    ]
+  },
+  "public_listing": {
+    "short_description": "Evergreen capability curator",
+    "support_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/SUPPORT.md",
+    "website_url": "https://github.com/eusourmr/chatgpt-skills",
+    "privacy_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/PRIVACY.md",
+    "terms_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/TERMS.md"
+  },
+  "release_gate": {
+    "requires_https_mcp_endpoint": true,
+    "requires_mcp_inspector_pass": true,
+    "requires_public_registry_generation": true,
+    "requires_healthcare_distribution_gate": true,
+    "requires_native_semantic_requalification": true,
+    "requires_exact_byte_release": true
+  },
+  "evidence_boundary": "The MCP registry provides read-only metadata/evidence and does not make GitHub content executable or automatically tested."
+}

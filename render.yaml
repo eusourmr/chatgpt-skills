@@ -1,0 +1,15 @@
+services:
+  - type: web
+    runtime: docker
+    name: cs-navigator-registry
+    repo: https://github.com/eusourmr/chatgpt-skills
+    branch: release/v0.16.0-evergreen-core
+    dockerfilePath: ./mcp/cs-registry-server/Dockerfile
+    dockerContext: ./mcp/cs-registry-server
+    healthCheckPath: /
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: CS_REGISTRY_URL
+        value: https://raw.githubusercontent.com/eusourmr/chatgpt-skills/release/v0.16.0-evergreen-core/registry/public-capabilities-v1.json
+      - key: CS_REGISTRY_CACHE_MS
+        value: "60000"

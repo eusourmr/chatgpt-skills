@@ -1,0 +1,92 @@
+name: Refresh CS Navigator v0.16.0 trust chain
+
+on:
+  push:
+    branches:
+      - release/v0.16.0-evergreen-core
+    paths:
+      - '.github/workflows/validate-v016-trust-chain.yml'
+      - 'trust/skills.json'
+      - 'trust/execution.json'
+      - 'skills/featured/cs-navigator/**'
+      - 'installer/manifest.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: release/v0.16.0-evergreen-core
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Bind static review to changed 0.16 Navigator source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('trust/passport-policy.json')
+          data=json.loads(p.read_text(encoding='utf-8'))
+          o=data['skill_overrides']['cs-navigator']
+          o['reviewed_source_revision']='b26ab33c93dab1c7737f1b9ee4fbb36f5b1ed72d'
+          o['reviewed_at']='2026-10-11'
+          o['stale_after_days']=90
+          p.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
+          PY
+
+      - name: Refresh static trust artifacts
+        run: |
+          node scripts/generate-trust-passports.mjs --write
+          node scripts/security-gate-v2.mjs --write
+          node scripts/generate-risk-labels.mjs --write
+          node scripts/generate-trust-passports.mjs --write
+          node scripts/update-drift-status.mjs --write --as-of 2026-10-11
+
+      - name: Verify changed behavior remains designed
+        run: |
+          node scripts/generate-trust-passports.mjs --check
+          node scripts/validate-trust-passports.mjs --verify-git-source
+          node scripts/security-gate-v2.mjs --check
+          node scripts/generate-risk-labels.mjs --check
+          node scripts/update-drift-status.mjs --check --as-of 2026-10-11
+          python - <<'PY'
+          import json
+          p=json.load(open('trust/passports/cs-navigator.json',encoding='utf-8'))
+          assert p['identity']['name']=='CS Navigator'
+          assert p['execution']['evidence_state']=='designed'
+          assert p['behavior_evidence']['state']=='designed'
+          assert p['freshness']['status']=='current'
+          print('0.16 static trust PASS; behavior remains designed pending production MCP qualification.')
+          PY
+
+      - name: Commit refreshed evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add trust/passport-policy.json trust/passports trust/security-reports trust/risk-labels trust/upstream
+          if git diff --cached --quiet; then
+            echo "Trust chain already current."
+          else
+            git commit -m "trust(0.16): refresh static Evergreen Core evidence"
+            git pull --rebase origin release/v0.16.0-evergreen-core
+            git push origin HEAD:release/v0.16.0-evergreen-core
+          fi
+
+# snapshot-final review refresh

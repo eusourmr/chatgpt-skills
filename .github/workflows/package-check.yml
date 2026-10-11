@@ -94,14 +94,31 @@ jobs:
           cmp /tmp/external-source.json sources/external/dkyazzentwatwa-chatgpt-skills.json
 
       - name: Build and verify public Plugin Directory archive
+        id: plugin_package
         shell: bash
         run: |
           set -euo pipefail
-          npm run build:public-plugin
-          python - <<'PY'
+          VERSION=$(node -p "require('./plugins/cs-navigator/plugin.json').version")
+          SUBMISSION="submission/cs-navigator-$VERSION.json"
+          STATE=$(node -e "const x=require('./$SUBMISSION'); console.log(x.submission_state || '')")
+
+          if [ "$STATE" = "development-blocked-on-production-mcp-endpoint" ]; then
+            if npm run build:public-plugin > /tmp/public-plugin-build.log 2>&1; then
+              echo "Public plugin unexpectedly built while production MCP is missing"
+              cat /tmp/public-plugin-build.log
+              exit 1
+            fi
+            cat /tmp/public-plugin-build.log
+            grep -q "mcp.json missing" /tmp/public-plugin-build.log
+            node scripts/audit-v016-evergreen-core.mjs
+            echo "packaged=false" >> "$GITHUB_OUTPUT"
+            echo "Expected development blocker PASS: production MCP endpoint required."
+          else
+            npm run build:public-plugin
+            python - <<'PY'
           from pathlib import Path
           from zipfile import ZipFile
-          import json
+          import json, hashlib
           version = json.loads(Path('plugins/cs-navigator/plugin.json').read_text())['version']
           p = Path(f'dist/plugin-submission/cs-navigator-plugin-{version}.zip')
           assert p.is_file(), p
@@ -109,24 +126,30 @@ jobs:
           assert candidate_path.is_file(), candidate_path
           candidate = json.loads(candidate_path.read_text())
           payload = p.read_bytes()
-          import hashlib
           assert hashlib.sha256(payload).hexdigest() == candidate['zip_sha256']
           with ZipFile(p) as z:
               names = z.namelist()
               assert z.testzip() is None
           assert len(names) == candidate['entries'], (len(names), candidate['entries'])
+          pack = json.loads(Path('plugins/cs-navigator/capability-pack.json').read_text())
           required = {
               'cs-navigator/plugin.json',
               'cs-navigator/capability-pack.json',
               'cs-navigator/skills/cs-navigator/SKILL.md',
-              'cs-navigator/skills/cs-navigator/references/first-party-capabilities.json',
-              'cs-navigator/skills/evidence-first-research/SKILL.md',
-              'cs-navigator/skills/project-execution-director/SKILL.md',
           }
+          required |= {
+              f"cs-navigator/skills/{entry['id']}/SKILL.md"
+              for entry in pack.get('included_skills', [])
+          }
+          if pack.get('live_registry', {}).get('required_for_public_submission'):
+              required.add('cs-navigator/mcp.json')
           assert required.issubset(set(names)), sorted(required - set(names))
           PY
+            echo "packaged=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Upload public plugin submission artifact
+        if: steps.plugin_package.outputs.packaged == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: cs-navigator-plugin-submission
@@ -161,7 +184,8 @@ jobs:
           "$CLI" inspect openai-agents-sdk-builder | grep -q 'Execução: local-agent — evidência=tested'
           "$CLI" inspect regenerative-language-bridge | grep -q 'Execução: chat-native — evidência=designed'
           NAV_STATE=$(node -p "require(process.env.GITHUB_WORKSPACE + '/trust/execution.json').skills['cs-navigator'].evidence_state")
-          "$CLI" inspect cs-navigator | grep -q "Execução: chat-native — evidência=$NAV_STATE"
+          NAV_MODE=$(node -p "require(process.env.GITHUB_WORKSPACE + '/trust/execution.json').skills['cs-navigator'].mode")
+          "$CLI" inspect cs-navigator | grep -q "Execução: $NAV_MODE — evidência=$NAV_STATE"
           "$CLI" inspect chatgpt-apps-deployer | grep -q 'Integridade: tested'
           "$CLI" inspect dkyazzentwatwa/chatgpt-skills | grep -q 'Confiança: not-evaluated'
           "$CLI" inspect https://github.com/dkyazzentwatwa/chatgpt-skills | grep -q 'Licença: unresolved'

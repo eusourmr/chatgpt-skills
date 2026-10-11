@@ -1,0 +1,101 @@
+name: Validate CS Navigator v0.17.0 Learning & Academic
+
+on:
+  push:
+    branches:
+      - next/v0.17.0-learning-academic
+  pull_request:
+    branches:
+      - release/v0.16.0-evergreen-core
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Validate catalogs and skill structure
+        run: |
+          python scripts/catalog.py --check
+          python scripts/validate_catalog.py
+          node scripts/validate-execution-model.mjs
+          node scripts/validate-skill-profiles.mjs
+          node scripts/validate-skill-containers.mjs
+
+      - name: Validate 0.17 learning and academic contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          required=[
+            'skills/learning-mastery-coach/SKILL.md',
+            'skills/academic-writing-navigator/SKILL.md',
+            'skills/learning-mastery-coach/references/sources.json',
+            'skills/learning-mastery-coach/references/evidence.json',
+            'academic/styles/index.json',
+            'governance/human-reality-review-v017.json',
+            'docs/CS_NAVIGATOR_0.17.0_LEARNING_ACADEMIC.md'
+          ]
+          for p in required:
+              assert Path(p).is_file(), p
+
+          source=json.load(open('catalog/skills.json',encoding='utf-8'))
+          health=json.load(open('catalog.json',encoding='utf-8'))
+          registry=json.load(open('registry/public-capabilities-v1.json',encoding='utf-8'))
+          execution=json.load(open('trust/execution.json',encoding='utf-8'))
+          trust=json.load(open('trust/skills.json',encoding='utf-8'))
+          review=json.load(open('governance/human-reality-review-v017.json',encoding='utf-8'))
+          styles=json.load(open('academic/styles/index.json',encoding='utf-8'))
+          evidence=json.load(open('skills/learning-mastery-coach/references/evidence.json',encoding='utf-8'))
+
+          ids=['learning-mastery-coach','academic-writing-navigator']
+          assert len(source['entries'])==80
+          assert len(health['entries'])==79
+          assert len(registry['entries'])==63
+          for sid in ids:
+              row=next(x for x in registry['entries'] if x['id']==sid)
+              assert row['evidence_state']=='designed'
+              assert row['qualification_state']=='designed'
+              assert row['distribution_state']=='available'
+              assert execution['skills'][sid]['evidence_state']=='designed'
+              assert trust['skills'][sid]['usefulness']['state']=='designed'
+
+          expected_styles={'ABNT-BR','APA-7','Vancouver','IEEE','Chicago','MLA-9','AMA','Harvard-institution-specific'}
+          actual_styles={x['id'] for x in styles['profiles']}
+          assert expected_styles==actual_styles
+          assert all(x['exact_rules_source_required'] is True for x in styles['profiles'])
+
+          assert review['summary']['total']==63
+          assert review['summary']['by_decision']=={'KEEP':48,'REFINE':9,'RETIRE':2,'MERGE':4}
+          assert len(evidence['sources'])>=4
+
+          nav=Path('skills/featured/cs-navigator/SKILL.md').read_text(encoding='utf-8')
+          prefs=Path('skills/capability-preferences/SKILL.md').read_text(encoding='utf-8')
+          offer='Esta pergunta pode se beneficiar da curadoria do CS Navigator. Quer ver esta mesma resposta usando essa camada?'
+          assert offer in nav
+          assert offer in prefs
+          assert 'never claim that installation alone forces this offer' in nav
+          assert 'curator_offer: offer-when-relevant | always-offer | never-offer' in prefs
+
+          plugin=json.load(open('plugins/cs-navigator/plugin.json',encoding='utf-8'))
+          assert plugin['version']=='0.16.0', '0.17 has started but must not pretend a final plugin candidate exists before 0.16 closes'
+
+          print('0.17 development gate PASS: learning/academic registry capabilities are designed and the Curator Offer is source-defined.')
+          PY
