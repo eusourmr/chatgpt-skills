@@ -19,7 +19,7 @@ const a = s.architecture || {};
 
 expect(/^[A-Za-z0-9][A-Za-z0-9_-]*$/.test(p.name || '') && p.name.length <= 64, 'plugin name must meet public-directory format');
 expect(/^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/.test(p.version || '') && p.version.length <= 64, 'version must be semantic');
-expect(p.type === 'skills-only', 'public candidate must remain skills-only');
+expect(['skills-only','skills-plus-remote-mcp'].includes(p.type), 'public candidate type must be skills-only or skills-plus-remote-mcp');
 expect(oneLine(l.display_name) && l.display_name.length <= 30, 'display_name must be one line and <=30 chars');
 expect(oneLine(l.short_description) && l.short_description.length <= 30, 'short_description must be one line and <=30 chars');
 expect(typeof l.long_description === 'string' && l.long_description.length > 0 && l.long_description.length <= 4000, 'long_description must be <=4000 chars');
@@ -42,7 +42,15 @@ for (const key of ['website_url','support_url','privacy_url','terms_url']) {
   expect(typeof l[key] === 'string' && l[key].length <= 1024 && httpsUrl(l[key]), `${key} must be a valid HTTPS URL <=1024 chars`);
 }
 
-expect(a.skill_only === true && a.mcp === false && a.external_server === false && a.external_auth === false && a.external_network === false, 'core public plugin must remain skill-only with no external runtime dependencies');
+if (p.type === 'skills-only') {
+  expect(a.skill_only === true && a.mcp === false && a.external_server === false && a.external_auth === false && a.external_network === false, 'skills-only candidate must not declare external runtime dependencies');
+} else {
+  expect(a.skill_only === false && a.mcp === true && a.external_server === true && a.external_network === true, 'remote-MCP candidate must declare MCP/external-server/network architecture');
+  expect(a.external_auth === false, 'current public registry MCP must not require user authentication');
+  expect(Array.isArray(a.tools) && a.tools.length >= 1, 'remote-MCP candidate must declare MCP tools');
+  expect(Array.isArray(a.write_tools) && a.write_tools.length === 0, 'current registry MCP must remain read-only');
+  expect(a.arbitrary_github_execution === false, 'remote-MCP candidate must forbid arbitrary GitHub execution');
+}
 
 expect(Array.isArray(s.review_cases?.positive) && s.review_cases.positive.length >= 5, 'submission needs at least 5 positive review cases');
 expect(Array.isArray(s.review_cases?.negative) && s.review_cases.negative.length >= 3, 'submission needs at least 3 negative review cases');
@@ -60,6 +68,8 @@ expect(ui.displayName === l.display_name, 'plugin displayName must match submiss
 expect(ui.shortDescription === l.short_description, 'plugin shortDescription must match submission listing');
 expect(ui.composerIcon === './assets/cs-icon.png', 'plugin composerIcon must point to ./assets/cs-icon.png');
 expect(ui.logo === './assets/cs-icon.png', 'plugin logo must point to ./assets/cs-icon.png');
+expect(ui.supportURL === l.support_url, 'plugin supportURL must match submission listing');
+expect(ui.websiteURL === l.website_url, 'plugin websiteURL must match submission listing');
 expect(ui.privacyPolicyURL === l.privacy_url, 'plugin privacyPolicyURL must match submission listing');
 expect(ui.termsOfServiceURL === l.terms_url, 'plugin termsOfServiceURL must match submission listing');
 
@@ -72,11 +82,20 @@ if (icon.length >= 24) {
   expect(width === height, 'plugin icon must be square');
   expect(width >= 48 && width <= 4096, 'plugin icon dimensions must be between 48 and 4096 px');
 }
-expect(plugin.mcp === undefined && plugin.mcpServers === undefined, 'plugin.json must not introduce MCP');
+expect(plugin.mcp === undefined && plugin.mcpServers === undefined, 'plugin.json must not inline MCP configuration');
+if (p.type === 'skills-plus-remote-mcp') {
+  const blocked = s.submission_state === 'development-blocked-on-production-mcp-endpoint';
+  if (blocked) {
+    expect(a.mcp_endpoint === null, 'development-blocked MCP candidate should not pretend a production endpoint exists');
+    expect(Array.isArray(s.blockers) && s.blockers.some((x) => /HTTPS|endpoint/i.test(String(x))), 'blocked MCP candidate must record the production endpoint blocker');
+  } else {
+    expect(httpsUrl(a.mcp_endpoint), 'release-ready MCP candidate must declare a valid HTTPS MCP endpoint');
+  }
+}
 
 if (errors.length) {
   console.error('Public plugin submission validation failed:');
   for (const e of errors) console.error(`- ${e}`);
   process.exit(1);
 }
-console.log(`Public plugin submission OK: ${p.name} ${p.version}; ${s.review_cases.positive.length} positive + ${s.review_cases.negative.length} negative cases.`);
+console.log(`Public plugin submission OK: ${p.name} ${p.version} (${p.type}); ${s.review_cases.positive.length} positive + ${s.review_cases.negative.length} negative cases.`);
