@@ -1,6 +1,10 @@
 # Public OpenAI Plugin Directory — CS Navigator
 
-## Current portal state
+## GitHub release versus Plugin Directory
+
+The current GitHub release is **0.17.0 — Learning & Academic Mastery**. The installed private plugin was independently verified as **0.15.0 (PRIVATE)**. No 0.17.0 production MCP endpoint, private plugin update or public directory approval has been verified. Historical portal details below must not be mistaken for a new review of the 0.17.0 package.
+
+## Current portal state (last observation)
 
 Observed in the OpenAI Platform plugin portal on **2026-10-11**:
 
@@ -17,9 +21,9 @@ Current findings shown by the portal:
 
 These findings are treated as product constraints, not text to work around.
 
-## 0.16.0 response
+## 0.17.0 response (incorporating 0.16.0 architecture)
 
-**CS Navigator 0.16.0 — Evergreen Core & Live Registry** changes the architecture.
+**CS Navigator 0.17.0 — Learning & Academic Mastery** includes the Evergreen Core & Live Registry architecture designed in 0.16.0. The 0.16.0 line is historical, not an independently published public plugin.
 
 ### Addressed in source
 
@@ -34,13 +38,13 @@ These findings are treated as product constraints, not text to work around.
 
 ### Why MCP
 
-The public portal currently does not accept additional skills-only submissions. The 0.16 line therefore becomes a **skills + remote MCP** plugin rather than another larger skills-only ZIP.
+The public portal currently does not accept additional skills-only submissions. The 0.17.0 public distribution target is a **skills + remote MCP** plugin rather than another larger skills-only ZIP.
 
 After an MCP-backed plugin is published, compatible MCP-server/data updates can evolve independently, while bundled skill or metadata changes still require a new plugin ZIP.
 
 ## Stable public core
 
-The 0.16 distributed core contains:
+The 0.17.0 intended distributed core contains:
 
 - `cs-navigator`
 - `personal-curator`
@@ -68,16 +72,16 @@ The registry is treated as bounded metadata/evidence. Repository presence does n
 
 The repository implementation is not yet public-submission-ready because a remote MCP review requires a real production endpoint.
 
-Required before final 0.16 ZIP:
+Required before final 0.17.0 ZIP:
 
 1. deploy `mcp/cs-registry-server/` to a stable public HTTPS URL ending in `/mcp`;
 2. run MCP Inspector against that production endpoint;
 3. place the verified URL into `plugins/cs-navigator/mcp.json`;
 4. complete domain verification and remote-MCP review material;
 5. run exact-byte plugin qualification;
-6. upload the resulting 0.16 ZIP as a new portal version.
+6. upload the resulting 0.17.0 ZIP as a new portal version.
 
-The build intentionally refuses to produce a public 0.16 package until the production MCP endpoint exists.
+The build intentionally refuses to produce a public 0.17.0 package until the production MCP endpoint exists.
 
 ## Listing identity
 

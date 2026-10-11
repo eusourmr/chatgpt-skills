@@ -13,26 +13,17 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 ## 🛡️ Linha atual de desenvolvimento
 
-**Candidato atual de desenvolvimento:** **CS Navigator 0.16.0 — Evergreen Core & Live Registry**.
+**Release atual no GitHub:** **CS Navigator 0.17.0 — Learning & Academic Mastery**.
 
-A 0.16.0 responde diretamente aos apontamentos atuais do portal da OpenAI:
+A arquitetura **0.16 Evergreen Core & Live Registry** foi incorporada à 0.17, sem release pública independente da 0.16.
 
-- adiciona a URL de suporte obrigatória;
-- deixa de depender de uma submissão pública somente com skills e passa para **skills + MCP remoto**;
-- exclui workflows médicos/saúde da distribuição pública;
-- reduz o plugin distribuído a um Evergreen Core estável com seis skills;
-- move descoberta de capacidades, evidência, atualidade e disponibilidade para um registry somente leitura alimentado pelo GitHub;
-- não executa arquivos arbitrários do GitHub como instruções remotas.
+A release GitHub 0.17.0 **não equivale à publicação no Diretório de Plugins do ChatGPT**. O plugin privado instalado permanece em **0.15.0** até a geração, qualificação e atualização do pacote 0.17.0. O portal foi observado com rascunho 0.15.0 / não publicado / precisa de atenção. Falta implantar e testar o endpoint MCP HTTPS público, qualificar os bytes finais e submeter novamente.
 
-A implementação no repositório e o servidor MCP já existem e passam no build/auditoria estática da 0.16. O bloqueio restante é externo ao GitHub: precisamos de um endpoint MCP HTTPS público e estável antes de gerar o ZIP final.
+As novas capacidades `learning-mastery-coach` e `academic-writing-navigator` estão no registry em estado **designed**, não **tested**. O núcleo distribuído contém seis skills; o registry fornece metadados limitados, sem execução automática de arquivos arbitrários do GitHub. As exclusões de saúde continuam obrigatórias.
 
-A release GitHub **CS Navigator 0.15.0 — Everyday Life & Human Capability** continua sendo a última release totalmente qualificada, com 12/12 PASS na matriz nativa do Navigator.
+**Sem evidência, não inventar. Sem permissão, não escalar. Sem caminho autorizado, parar.**
 
-No portal da OpenAI, o estado atual é **0.15.0 Draft / Not published / Needs attention**. Os apontamentos estão registrados em [Submissão pública](docs/PUBLIC_PLUGIN_SUBMISSION.md).
-
-> **Sem evidência → não invente. Sem permissão → não escale. Sem caminho autorizado → pare.**
-
-Leia: [0.16.0 Evergreen Core](docs/CS_NAVIGATOR_0.16.0_EVERGREEN_CORE.md) · [Primeiros passos](docs/GETTING_STARTED.pt-BR.md) · [Submissão pública](docs/PUBLIC_PLUGIN_SUBMISSION.md)
+Leia: [Submissão pública](docs/PUBLIC_PLUGIN_SUBMISSION.md) · [Primeiros passos](docs/GETTING_STARTED.pt-BR.md) · [Histórico arquitetural 0.16](docs/CS_NAVIGATOR_0.16.0_EVERGREEN_CORE.md)
 
 ## 🚀 Comece em 1 minuto
 
@@ -46,8 +37,8 @@ A experiência pretendida é simples:
 **Limite de persistência:** uma frase em uma conversa não prova ativação em todas as conversas futuras. Só podemos afirmar persistência entre chats quando o produto hospedeiro oferecer e confirmar esse mecanismo.
 
 Linhas de versão:
-- portal OpenAI: **0.15.0 Draft / Needs attention / Not published**
-- candidato atual: **0.16.0 Evergreen Core / build estático PASS / endpoint MCP de produção obrigatório**
+- portal OpenAI (última observação): **0.15.0 Draft / Needs attention / Not published**
+- release GitHub atual: **0.17.0 / endpoint MCP de produção ainda necessário para plugin público**
 - slug técnico: `cs-navigator`
 - 0.7.5: fundação histórica de confiança/runtime
 - 0.9.x: fundação da plataforma first-party e conformidade de submissão
