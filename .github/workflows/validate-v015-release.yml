@@ -1,4 +1,4 @@
-name: Validate CS Navigator v0.15.0 Human Capability
+name: Validate CS Navigator v0.15.0 Human Capability (historical)
 
 on:
   push:
@@ -21,27 +21,6 @@ on:
       - 'scripts/build-v015-cs-navigator.mjs'
       - 'scripts/audit-current-state-v015.mjs'
       - '.github/workflows/validate-v015-release.yml'
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'plugins/cs-navigator/**'
-      - 'skills/featured/cs-navigator/**'
-      - 'skills/**'
-      - 'registry/**'
-      - 'release/v015-human-capability.json'
-      - 'submission/cs-navigator-0.15.0.json'
-      - 'tests/fixtures/v015-native-qualification-r1.json'
-      - 'README*'
-      - 'ROADMAP.md'
-      - 'BUNDLES.md'
-      - 'docs/**'
-      - 'trust/**'
-      - 'installer/manifest.json'
-      - 'scripts/build-v015-cs-navigator.mjs'
-      - 'scripts/audit-current-state-v015.mjs'
-      - '.github/workflows/validate-v015-release.yml'
-
 permissions:
   contents: read
 
