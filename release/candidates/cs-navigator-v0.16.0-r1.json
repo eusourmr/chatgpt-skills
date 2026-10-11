@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "product": "CS Navigator",
+  "version": "0.16.0",
+  "technical_plugin_slug": "cs-navigator-live",
+  "candidate": "R1-live-registry-foundation",
+  "qualification_state": "static-ready-deployment-pending",
+  "architecture": {
+    "kernel": "stable-curator",
+    "packaged_skills": 2,
+    "mcp_tools": 3,
+    "mcp_write_tools": 0,
+    "public_registry_entries": 48,
+    "platform_out_of_scope_entries": 2
+  },
+  "static_gates": {
+    "public_registry_generation": "PASS",
+    "healthcare_distribution_gate": "PASS",
+    "mcp_syntax": "PASS",
+    "mcp_unit_tests": "PASS",
+    "support_url": "PASS",
+    "final_zip_placeholder_refusal": "PASS"
+  },
+  "blocked_gates": [
+    "public HTTPS MCP deployment",
+    "OpenAI domain verification",
+    "final plugin ZIP with real MCP URL",
+    "OpenAI Scan Tools",
+    "demo recording URL",
+    "native connected qualification",
+    "OpenAI public review and publication"
+  ],
+  "final_zip_sha256": null,
+  "source_commit": null,
+  "mcp_endpoint": null,
+  "distribution_policy": "registry/public-capabilities-policy.json",
+  "public_registry": "registry/public-capabilities-v1.json",
+  "claim_boundary": "Static-ready means the architecture and local/CI checks pass. It is not release-qualified until the real public MCP endpoint, exact final ZIP, domain verification, tool scan and native connected qualification are evidenced."
+}
