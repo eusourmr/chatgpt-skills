@@ -1486,7 +1486,7 @@
       "kind": "skill",
       "publisher": "eusourmr",
       "category": "regenerative-core",
-      "summary_en": "When AI has reached its useful limit, prepare a concise handoff to a lawyer, accountant, school, bank, insurer, technician, public agency, or other non-health professional.",
+      "summary_en": "When AI has reached its useful limit, prepare a concise handoff to a doctor, lawyer, accountant, school, bank, insurer, technician, or other human professional.",
       "summary_pt_br": "Prepara uma passagem de contexto concisa e baseada em evidências quando é necessário um profissional humano.",
       "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/human-handoff-preparer",
       "provenance": "regenerative-core",
@@ -1495,7 +1495,7 @@
         "chat",
         "codex"
       ],
-      "checked_on": "2026-10-11",
+      "checked_on": "2026-10-08",
       "systemic_review": {
         "status": "design-reviewed",
         "lenses": {
@@ -1787,12 +1787,70 @@
       }
     },
     {
+      "id": "major-life-admin-planner",
+      "name": "Major Life Admin Planner",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Plan major non-health life transitions such as job loss, retirement, marriage, separation, relocation, or major household change across administration, money, logistics, work, school, documents, and communication.",
+      "summary_pt_br": "Planeja grandes transições não relacionadas à saúde, como perda de emprego, aposentadoria, casamento, separação, mudança ou alteração importante no domicílio, cobrindo administração, dinheiro, logística, trabalho, escola, documentos e comunicação.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/major-life-admin-planner",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-11",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can identify the next action and material uncertainty without unnecessary complexity."
+          },
+          "social": {
+            "mechanism": "Makes dependencies, consent, roles and escalation visible to affected people.",
+            "indicator": "Material handoffs and responsibilities are explicit rather than assumed."
+          },
+          "knowledge": {
+            "mechanism": "Separates evidence, unknowns and decisions into reusable artifacts.",
+            "indicator": "Key facts, unknowns and decisions remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, tool calls or avoidable corrective cycles."
+          }
+        },
+        "harm_check": "Do not gain convenience by hiding uncertainty, weakening consent, bypassing safeguards, or exporting risk to another person.",
+        "reinforcing_loop": "Each use leaves a reusable record, checklist, state map, evidence packet or learned pattern.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns, least privilege and human escalation prevent automation from overriding agency or evidence.",
+        "regenerative_seed": "A user-owned reusable artifact that can be updated after real-world feedback.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "money",
+            "compute"
+          ],
+          "baseline_comparison": "Compare avoidable steps, repeated searching and corrective work with the prior process.",
+          "restoration": "Retire stale assumptions and return verified corrections to the reusable artifact."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state what happens next and what remains uncertain."
+        }
+      }
+    },
+    {
       "id": "major-life-change-planner",
       "name": "major-life-change-planner",
       "kind": "skill",
       "publisher": "eusourmr",
       "category": "regenerative-core",
-      "summary_en": "Plan major transitions such as job loss, retirement, marriage, separation, relocation, or major household change across practical domains without pretending one template fits all.",
+      "summary_en": "Plan major transitions such as job loss, retirement, marriage, separation, birth, relocation, or caregiving across practical domains without pretending one template fits all.",
       "summary_pt_br": "Planeja grandes transições entre domínios administrativos, financeiros, logísticos, familiares, profissionais e de cuidado.",
       "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/major-life-change-planner",
       "provenance": "regenerative-core",
@@ -1801,7 +1859,7 @@
         "chat",
         "codex"
       ],
-      "checked_on": "2026-10-11",
+      "checked_on": "2026-10-08",
       "systemic_review": {
         "status": "design-reviewed",
         "lenses": {
@@ -2333,6 +2391,64 @@
         "codex"
       ],
       "checked_on": "2026-09-08"
+    },
+    {
+      "id": "professional-handoff-preparer",
+      "name": "Professional Handoff Preparer",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Prepare a concise non-health professional handoff for a lawyer, accountant, school, bank, insurer, technician, public agency, or other specialist using facts, evidence, prior actions, questions, and desired outcome.",
+      "summary_pt_br": "Prepara uma passagem de contexto concisa para advogado, contador, escola, banco, seguradora, técnico, órgão público ou outro profissional não ligado à saúde, usando fatos, evidências, ações anteriores, perguntas e resultado desejado.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/professional-handoff-preparer",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-11",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can identify the next action and material uncertainty without unnecessary complexity."
+          },
+          "social": {
+            "mechanism": "Makes dependencies, consent, roles and escalation visible to affected people.",
+            "indicator": "Material handoffs and responsibilities are explicit rather than assumed."
+          },
+          "knowledge": {
+            "mechanism": "Separates evidence, unknowns and decisions into reusable artifacts.",
+            "indicator": "Key facts, unknowns and decisions remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, tool calls or avoidable corrective cycles."
+          }
+        },
+        "harm_check": "Do not gain convenience by hiding uncertainty, weakening consent, bypassing safeguards, or exporting risk to another person.",
+        "reinforcing_loop": "Each use leaves a reusable record, checklist, state map, evidence packet or learned pattern.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns, least privilege and human escalation prevent automation from overriding agency or evidence.",
+        "regenerative_seed": "A user-owned reusable artifact that can be updated after real-world feedback.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "money",
+            "compute"
+          ],
+          "baseline_comparison": "Compare avoidable steps, repeated searching and corrective work with the prior process.",
+          "restoration": "Retire stale assumptions and return verified corrections to the reusable artifact."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state what happens next and what remains uncertain."
+        }
+      }
     },
     {
       "id": "project-execution-director",
@@ -3716,12 +3832,70 @@
       }
     },
     {
+      "id": "travel-logistics-readiness",
+      "name": "Travel Logistics Readiness",
+      "kind": "skill",
+      "publisher": "eusourmr",
+      "category": "regenerative-core",
+      "summary_en": "Prepare a practical travel-logistics checklist covering documents, timing, transport, money, connectivity, baggage, reservations, accessibility logistics, and current border or carrier requirements.",
+      "summary_pt_br": "Prepara um checklist de logística de viagem com documentos, horários, transporte, dinheiro, conectividade, bagagem, reservas, acessibilidade e requisitos atuais de fronteira ou transportadora.",
+      "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/travel-logistics-readiness",
+      "provenance": "regenerative-core",
+      "license": "MIT",
+      "surfaces": [
+        "chat",
+        "codex"
+      ],
+      "checked_on": "2026-10-11",
+      "systemic_review": {
+        "status": "design-reviewed",
+        "lenses": {
+          "human": {
+            "mechanism": "Reduces avoidable cognitive or operational friction while preserving user agency and intent.",
+            "indicator": "User can identify the next action and material uncertainty without unnecessary complexity."
+          },
+          "social": {
+            "mechanism": "Makes dependencies, consent, roles and escalation visible to affected people.",
+            "indicator": "Material handoffs and responsibilities are explicit rather than assumed."
+          },
+          "knowledge": {
+            "mechanism": "Separates evidence, unknowns and decisions into reusable artifacts.",
+            "indicator": "Key facts, unknowns and decisions remain traceable and reusable."
+          },
+          "resources": {
+            "mechanism": "Uses the smallest useful workflow and avoids repeated low-value work.",
+            "indicator": "Fewer redundant iterations, tool calls or avoidable corrective cycles."
+          }
+        },
+        "harm_check": "Do not gain convenience by hiding uncertainty, weakening consent, bypassing safeguards, or exporting risk to another person.",
+        "reinforcing_loop": "Each use leaves a reusable record, checklist, state map, evidence packet or learned pattern.",
+        "balancing_safeguard": "Native-first routing, explicit unknowns, least privilege and human escalation prevent automation from overriding agency or evidence.",
+        "regenerative_seed": "A user-owned reusable artifact that can be updated after real-world feedback.",
+        "resource_ledger": {
+          "tracked": [
+            "attention",
+            "time",
+            "data",
+            "money",
+            "compute"
+          ],
+          "baseline_comparison": "Compare avoidable steps, repeated searching and corrective work with the prior process.",
+          "restoration": "Retire stale assumptions and return verified corrections to the reusable artifact."
+        },
+        "plain_language": {
+          "summary_first": true,
+          "technical_layer": true,
+          "comprehension_check": "The user should be able to state what happens next and what remains uncertain."
+        }
+      }
+    },
+    {
       "id": "travel-readiness",
       "name": "travel-readiness",
       "kind": "skill",
       "publisher": "eusourmr",
       "category": "regenerative-core",
-      "summary_en": "Prepare a practical trip-readiness checklist covering documents, timing, transport, money, connectivity, baggage, reservations, accessibility logistics, and current entry requirements.",
+      "summary_en": "Prepare a practical trip-readiness checklist covering documents, timing, transport, money, connectivity, health needs, baggage, reservations, and current entry requirements.",
       "summary_pt_br": "Prepara um checklist prático de viagem cobrindo documentos, horários, transporte, dinheiro, conectividade, saúde e requisitos atuais de entrada.",
       "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/travel-readiness",
       "provenance": "regenerative-core",
@@ -3730,7 +3904,7 @@
         "chat",
         "codex"
       ],
-      "checked_on": "2026-10-11",
+      "checked_on": "2026-10-08",
       "systemic_review": {
         "status": "design-reviewed",
         "lenses": {
