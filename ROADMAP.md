@@ -6,115 +6,82 @@ See [`docs/ECOSYSTEM_GROWTH_STRATEGY.md`](docs/ECOSYSTEM_GROWTH_STRATEGY.md) for
 
 ## Current position
 
-The OpenAI directory submission currently under review is **CS Navigator 0.9.4 — Submission Compliance**. It remains **not published** as of 2026-10-08.
+The last fully qualified GitHub release is **CS Navigator 0.15.0 — Everyday Life & Human Capability**. Its exact private candidate passed the recorded **12/12 native semantic Navigator matrix**.
 
-The active development line is **CS Navigator 0.15.0 — Everyday Life & Human Capability**.
+The OpenAI Platform portal currently shows **0.15.0 Draft / Not published / Needs attention** (observed 2026-10-11). The current findings are:
 
-0.15.0 intentionally absorbs the previously planned 0.10–0.14 sequence into one coherent product step rather than publishing several small intermediate versions. The objective is not “more skills”; it is a human-centered capability layer that ordinary users can benefit from without learning skill names or architecture.
+- Support URL required;
+- no additional skills-only submissions accepted at this time;
+- `medical-appointment-prep` is outside the currently supported public skill ecosystem because it is a healthcare/medical workflow that may involve health information.
 
-The current static 0.15.0 candidate:
+The active development line is now **CS Navigator 0.16.0 — Evergreen Core & Live Registry**.
 
-- adds 31 new Everyday Life / Human Capability skills;
-- bundles 50 skills total in the plugin candidate;
-- adds routing levels **Native → Skill → Life Journey → Connected Action**;
-- introduces **Personal Curator**, **Simple Mode**, and **Capability Preferences**;
-- adds Life Resolution, Human Escalation, and Proof of Progress contracts;
-- establishes a bundled registry-ready capability data contract;
-- explicitly keeps the future live registry MCP as **planned-not-active**;
-- preserves least privilege and current evidence boundaries.
+0.16.0 intentionally changes the maintenance model:
 
-Static candidate ZIP SHA-256:
+- stable six-skill public core;
+- Native → capability-guided → Life Journey → Connected Action routing;
+- GitHub-backed live capability registry;
+- read-only remote MCP for capability discovery/evidence;
+- no arbitrary GitHub execution;
+- healthcare/medical workflows excluded from public distribution while they remain out of scope;
+- Support URL and privacy policy updated for MCP review;
+- public package generation blocked until a real HTTPS MCP endpoint exists.
 
-`b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2`
-
-Static candidate entries: **126**.
-
-The exact private 0.15.0 candidate passed the recorded **12/12 native semantic Navigator matrix** on 2026-10-08. The Navigator behavior covered by that matrix is qualified; the 31 new workflows remain individually **designed**. Public-directory update/review remains a separate gate.
+The repository implementation and MCP server compile successfully. The current external blocker is deployment of a stable public HTTPS Streamable HTTP endpoint ending in `/mcp`, followed by MCP Inspector, domain verification, remote-MCP review material, and exact-byte qualification of the final package.
 
 The public product name remains **CS Navigator**. The technical slug remains `cs-navigator`.
 
-Historical evidence for 0.6, 0.7, 0.7.5, 0.9.3 and 0.9.4 remains preserved. Historical releases and evidence are not rewritten to look current.
+Historical evidence for 0.6, 0.7, 0.7.5, 0.9.x, and 0.15 remains preserved. Historical releases are not rewritten to look current.
 
-## v0.15 — Everyday Life & Human Capability — NATIVE-QUALIFIED CANDIDATE
+## v0.16 — Evergreen Core & Live Registry — IN DEVELOPMENT
 
 ### Product goal
 
-Make CS Navigator useful even for people who never learn what a skill, plugin, router, MCP server, or evidence state is.
+Make the installed plugin stable enough that most future maintenance happens in the GitHub registry and MCP evidence layer rather than by repeatedly expanding the bundled ZIP.
 
 Target experience:
 
-> Install once. Talk normally. CS Navigator helps choose the smallest useful way to help.
+> Install once. Talk normally. Keep the curator current from GitHub-backed metadata.
 
-A user may explicitly say:
+### Stable bundled core
 
-> Use CS Navigator as my curator.
-
-That enables curator behavior for the current conversation. The product must **not** claim global or cross-chat persistence unless the host product explicitly supports and confirms it.
-
-### Absorbed roadmap lines
-
-The former planned 0.10–0.14 sequence is absorbed here:
-
-- Everyday Life;
-- Family & Care;
-- Citizen Brazil;
-- Life Journeys;
-- Connected Life foundations.
-
-This avoids artificial version churn and lets the capability model be validated as one coherent system.
-
-### Core architecture
-
-- Native first.
-- Skill only when a reusable workflow materially helps.
-- Life Journey when a situation spans multiple dependent stages.
-- Connected Action only when external access materially changes the outcome.
-- Least privilege remains mandatory.
-- Connected access is not authorized merely because curator mode is active.
-
-### Personal capability layer
-
+- `cs-navigator`
 - `personal-curator`
 - `simple-mode`
 - `capability-preferences`
+- `proof-of-progress`
+- `information-expiry-guard`
 
-### Everyday Life families
+### Live registry MCP
 
-- administration and personal decisions;
-- household finances and subscriptions;
-- home maintenance and repair decisions;
-- consumer problems and Brazilian bureaucracy/public services;
-- family digital safety, school and caregiving;
-- medical-appointment preparation without diagnosis;
-- difficult-conversation preparation;
-- scam checking and simple digital help;
-- travel readiness;
-- moving and major-life-change journeys;
-- human handoff;
-- proof of progress;
-- life-state mapping;
-- information expiry;
-- real-world evidence preservation.
+Read-only tools:
 
-### Registry direction
+- `search_capabilities`
+- `get_capability`
+- `get_evidence`
+- `registry_status`
 
-0.15 establishes a bundled, versioned capability registry foundation. A future live registry may expose read-only capability/evidence lookup through an MCP surface, but arbitrary GitHub content must never become executable merely because it was committed.
+The MCP returns bounded metadata/evidence only. It does not execute arbitrary repository content and exposes no write tools.
+
+### Public distribution gate
+
+The public plugin excludes healthcare/medical workflows that are outside the currently supported ecosystem. Source history may remain in GitHub for audit, but exclusion is explicit and machine-checked.
 
 ### Exit criteria
 
-0.15 is not release-qualified until:
+0.16 is not release-qualified until:
 
-- static repository/package gates pass;
-- all new skills remain correctly evidence-labeled;
-- stale current-facing 0.9 markers are removed without destroying historical records;
-- curator persistence boundaries pass adversarial tests;
-- native-first behavior remains intact;
-- connected-action least-privilege behavior passes;
-- Brazil jurisdiction UNKNOWN behavior passes;
-- Life Journey escalation is proportional;
-- Simple Mode preserves material warnings and uncertainty;
-- exact-byte native semantic qualification passes against the final candidate;
-- the resulting candidate is bound to exact source and SHA-256.
+- production HTTPS MCP endpoint is deployed;
+- MCP Inspector passes against production;
+- endpoint is inserted into `mcp.json`;
+- Support / Website / Privacy / Terms fields validate;
+- healthcare distribution gate passes;
+- domain verification succeeds;
+- remote MCP review test cases and demo material are prepared;
+- exact final ZIP passes static/security checks;
+- native semantic qualification passes against the installed final candidate;
+- GitHub tag/release is bound to exact bytes;
+- public OpenAI publication is claimed only after the portal confirms approval and publication.
 
 ## v0.4 — Trust Layer
 
