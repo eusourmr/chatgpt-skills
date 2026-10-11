@@ -13,43 +13,54 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 ## 🛡️ Linha atual de desenvolvimento
 
-**Candidato atual de desenvolvimento:** **CS Navigator 0.15.0 — Everyday Life & Human Capability**.
+**Candidato atual de desenvolvimento:** **CS Navigator 0.16.0 — Live Registry Foundation**.
 
-A 0.15.0 transforma o produto de um seletor de skills em uma camada humana de curadoria de capacidades. O Navigator passa a escolher entre **Nativo → Skill → Jornada de Vida → Ação Conectada**, adiciona **Personal Curator**, **Simple Mode** e **Capability Preferences** opcionais e inclui 31 novas skills para administração pessoal, decisões domésticas, casa, família, cuidado, serviços públicos brasileiros, segurança digital, viagens, grandes mudanças de vida, passagem para profissionais humanos, acompanhamento de progresso, validade de informação e preservação de evidências.
+A 0.16.0 muda a arquitetura de distribuição: sai o pacote grande somente de skills e entra um **kernel pequeno e estável de curadoria + MCP somente leitura + registry vivo gerado e filtrado pelo GitHub**.
 
-O ZIP estático atual tem **126 entradas** e SHA-256:
+Por que mudamos:
+- o painel atual da OpenAI informa que novas submissões skills-only não estão sendo aceitas;
+- um servidor MCP precisa existir desde o primeiro ZIP do plugin, portanto a identidade antiga skills-only não pode simplesmente receber MCP depois;
+- a revisão 0.15 marcou `medical-appointment-prep` como workflow de saúde fora do escopo atual;
+- submissões públicas com MCP exigem URL explícita de suporte.
 
-`b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2`
+A nova identidade técnica pública será `cs-navigator-live`, mantendo **CS Navigator** como nome mostrado ao usuário.
 
-Os gates estáticos do candidato passaram: Skill Profiles, Skill Containers, Container Guardian 9/9, validação de submissão pública, estrutura do plugin, inventário das 31 novas skills, ausência da marca antiga no payload e ausência de marcadores obsoletos de qualificação 0.9.
+O Live Registry começa com apenas três ferramentas somente leitura:
+- `search_capabilities`
+- `get_capability`
+- `get_evidence`
 
-**Limite de evidência:** as 31 novas skills continuam individualmente como `designed`. O candidato privado exato 0.15.0 passou a matriz semântica nativa do Navigator com **12/12 PASS em 08/10/2026**. Isso qualifica o comportamento de roteamento e limites coberto pela matriz; não promove em bloco as 31 skills.
+O GitHub continua sendo a fonte de verdade, mas arquivos arbitrários do GitHub **não são executáveis**. O MCP público só pode servir o artefato gerado e filtrado `registry/public-capabilities-v1.json`.
 
-A versão atualmente submetida ao diretório da OpenAI continua sendo **CS Navigator 0.9.4 — Submission Compliance**, com status **em revisão / ainda não publicada** em 08/10/2026. A 0.15.0 não deve substituir silenciosamente essa revisão antes de passar seus próprios gates.
+Exclusões atuais por política de distribuição de saúde:
+- `medical-appointment-prep`
+- `caregiver-coordinator`
 
-> **Sem evidência → não invente. Sem permissão → não escale. Sem caminho autorizado → pare.**
+A 0.15.0 permanece preservada como release histórica e evidência de qualificação nativa. A 0.16.0 é uma nova linha híbrida e não deve afirmar deploy, aprovação do scan MCP ou publicação pública antes desses gates passarem.
 
-Leia: [0.15.0 Human Capability](docs/CS_NAVIGATOR_0.15.0_HUMAN_CAPABILITY.md) · [Primeiros passos](docs/GETTING_STARTED.pt-BR.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Submissão pública](docs/PUBLIC_PLUGIN_SUBMISSION.md)
+> **Sem evidência → não invente. Sem permissão → não escale. Sem estado público de distribuição → não sirva a capacidade.**
+
+Leia: [0.16.0 Live Registry Foundation](docs/CS_NAVIGATOR_0.16.0_LIVE_REGISTRY.md) · [Política de Distribuição Pública](docs/PUBLIC_DISTRIBUTION_POLICY.md) · [Suporte](docs/SUPPORT.md) · [Primeiros passos](docs/GETTING_STARTED.pt-BR.md)
 
 ## 🚀 Comece em 1 minuto
 
-A experiência pretendida é simples:
+A experiência final continua simples:
 
 1. Instale **CS Navigator** uma vez.
-2. Abra uma conversa normal no ChatGPT.
-3. Se quiser curadoria silenciosa naquela conversa, escreva: `Use o CS Navigator como meu curador.`
-4. Depois converse normalmente. O Navigator deve manter a tarefa nativa quando isso bastar e só acrescentar skill, Jornada de Vida ou ação conectada quando houver ganho material.
+2. Converse normalmente.
+3. Se quiser curadoria silenciosa naquela conversa, diga: `Use o CS Navigator como meu curador.`
+4. O Navigator mantém tarefas simples no ChatGPT nativo e consulta o registry público vivo somente quando uma orientação especializada puder ajudar de forma material.
 
-**Limite de persistência:** uma frase em uma conversa não prova ativação em todas as conversas futuras. Só podemos afirmar persistência entre chats quando o produto hospedeiro oferecer e confirmar esse mecanismo.
+**Limite de persistência:** uma frase em uma conversa não prova que o modo curador está ativo em todas as conversas futuras. Só podemos afirmar persistência entre chats quando o produto hospedeiro oferecer e confirmar esse mecanismo.
 
 Linhas de versão:
-- submissão ao diretório OpenAI: **0.9.4 / em revisão / não publicada**
-- candidato de desenvolvimento: **0.15.0 / qualificação semântica nativa PASS 12/12 / release privada instalada**
-- slug técnico: `cs-navigator`
-- 0.7.5: fundação histórica de confiança/runtime
-- 0.9.x: fundação da plataforma first-party e conformidade de submissão
+- release histórica estável: **0.15.0 / GitHub release / matriz nativa do Navigator PASS 12/12**
+- desenvolvimento ativo: **0.16.0 / arquitetura híbrida Live Registry**
+- identidade antiga skills-only: `cs-navigator`
+- nova identidade híbrida: `cs-navigator-live`
+- deploy do MCP público: **pendente**
+- scan/revisão/publicação OpenAI: **pendente**
 - `chatgpt-skills` CLI/npm: linha independente
-- próximo passo arquitetural após qualificar a 0.15: registry vivo somente leitura e continuidade pessoal mais forte, sem tornar conteúdo arbitrário do GitHub executável
 
 ## Por que esta lista existe
 
