@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "capability": "learning-mastery-coach",
+  "checked_on": "2026-10-11",
+  "purpose": "Research anchors for learning mechanisms used by the capability. These sources support mechanisms, not a guarantee that every learner or schedule will produce the same result.",
+  "sources": [
+    {
+      "id": "roediger-karpicke-2006-testing-effect",
+      "title": "Test-enhanced learning: taking memory tests improves long-term retention",
+      "authors": [
+        "Henry L. Roediger III",
+        "Jeffrey D. Karpicke"
+      ],
+      "year": 2006,
+      "venue": "Psychological Science",
+      "doi": "10.1111/j.1467-9280.2006.01693.x",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16507066/",
+      "supports": [
+        "retrieval practice",
+        "testing effect",
+        "delayed retention"
+      ],
+      "product_implication": "Prefer learner retrieval attempts before merely restudying or revealing answers when appropriate."
+    },
+    {
+      "id": "cepeda-et-al-2006-spacing-meta",
+      "title": "Distributed practice in verbal recall tasks: A review and quantitative synthesis",
+      "authors": [
+        "Nicholas J. Cepeda",
+        "Harold Pashler",
+        "Edward Vul",
+        "John T. Wixted",
+        "Doug Rohrer"
+      ],
+      "year": 2006,
+      "venue": "Psychological Bulletin",
+      "doi": "10.1037/0033-2909.132.3.354",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16719566/",
+      "supports": [
+        "distributed practice",
+        "spacing",
+        "retention interval interaction"
+      ],
+      "product_implication": "Use spaced review, but do not present one fixed interval schedule as universally optimal."
+    },
+    {
+      "id": "kornell-bjork-2008-interleaving",
+      "title": "Learning concepts and categories: is spacing the enemy of induction?",
+      "authors": [
+        "Nate Kornell",
+        "Robert A. Bjork"
+      ],
+      "year": 2008,
+      "venue": "Psychological Science",
+      "doi": "10.1111/j.1467-9280.2008.02127.x",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18578849/",
+      "supports": [
+        "interleaving/spacing of exemplars",
+        "category learning"
+      ],
+      "product_implication": "Use interleaving selectively when learners must discriminate neighboring concepts; do not apply it mechanically to every task."
+    },
+    {
+      "id": "mawson-kang-2025-classroom-spacing",
+      "title": "The Distributed Practice Effect on Classroom Learning: A Meta-Analytic Review of Applied Research",
+      "authors": [
+        "Rhys D. Mawson",
+        "Sean H. K. Kang"
+      ],
+      "year": 2025,
+      "venue": "Behavioral Sciences",
+      "doi": "10.3390/bs15060771",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40564553/",
+      "supports": [
+        "distributed practice in classroom settings"
+      ],
+      "product_implication": "Spacing has applied classroom evidence, but implementation should still adapt to subject, learner and retention horizon."
+    }
+  ],
+  "unsupported_shortcuts": [
+    "Receiving a summary is not evidence of mastery.",
+    "Seeing an answer is not evidence of retrieval.",
+    "A fixed 1/7/30-day schedule is not universally optimal.",
+    "The Feynman label does not by itself prove learning; the useful mechanism is learner-generated explanation plus correction."
+  ]
+}
