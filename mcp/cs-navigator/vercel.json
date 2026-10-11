@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "functions": {
+    "api/mcp.mjs": {
+      "maxDuration": 15
+    },
+    "api/health.mjs": {
+      "maxDuration": 5
+    },
+    "api/challenge.mjs": {
+      "maxDuration": 5
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/mcp",
+      "destination": "/api/mcp"
+    },
+    {
+      "source": "/.well-known/openai-apps-challenge",
+      "destination": "/api/challenge"
+    },
+    {
+      "source": "/health",
+      "destination": "/api/health"
+    }
+  ]
+}
