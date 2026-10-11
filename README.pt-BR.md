@@ -13,23 +13,26 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 ## 🛡️ Linha atual de desenvolvimento
 
-**Candidato atual de desenvolvimento:** **CS Navigator 0.15.0 — Everyday Life & Human Capability**.
+**Candidato atual de desenvolvimento:** **CS Navigator 0.16.0 — Evergreen Core & Live Registry**.
 
-A 0.15.0 transforma o produto de um seletor de skills em uma camada humana de curadoria de capacidades. O Navigator passa a escolher entre **Nativo → Skill → Jornada de Vida → Ação Conectada**, adiciona **Personal Curator**, **Simple Mode** e **Capability Preferences** opcionais e inclui 31 novas skills para administração pessoal, decisões domésticas, casa, família, cuidado, serviços públicos brasileiros, segurança digital, viagens, grandes mudanças de vida, passagem para profissionais humanos, acompanhamento de progresso, validade de informação e preservação de evidências.
+A 0.16.0 responde diretamente aos apontamentos atuais do portal da OpenAI:
 
-O ZIP estático atual tem **126 entradas** e SHA-256:
+- adiciona a URL de suporte obrigatória;
+- deixa de depender de uma submissão pública somente com skills e passa para **skills + MCP remoto**;
+- exclui workflows médicos/saúde da distribuição pública;
+- reduz o plugin distribuído a um Evergreen Core estável com seis skills;
+- move descoberta de capacidades, evidência, atualidade e disponibilidade para um registry somente leitura alimentado pelo GitHub;
+- não executa arquivos arbitrários do GitHub como instruções remotas.
 
-`b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2`
+A implementação no repositório e o servidor MCP já existem e passam no build/auditoria estática da 0.16. O bloqueio restante é externo ao GitHub: precisamos de um endpoint MCP HTTPS público e estável antes de gerar o ZIP final.
 
-Os gates estáticos do candidato passaram: Skill Profiles, Skill Containers, Container Guardian 9/9, validação de submissão pública, estrutura do plugin, inventário das 31 novas skills, ausência da marca antiga no payload e ausência de marcadores obsoletos de qualificação 0.9.
+A release GitHub **CS Navigator 0.15.0 — Everyday Life & Human Capability** continua sendo a última release totalmente qualificada, com 12/12 PASS na matriz nativa do Navigator.
 
-**Limite de evidência:** as 31 novas skills continuam individualmente como `designed`. O candidato privado exato 0.15.0 passou a matriz semântica nativa do Navigator com **12/12 PASS em 08/10/2026**. Isso qualifica o comportamento de roteamento e limites coberto pela matriz; não promove em bloco as 31 skills.
-
-A versão atualmente submetida ao diretório da OpenAI continua sendo **CS Navigator 0.9.4 — Submission Compliance**, com status **em revisão / ainda não publicada** em 08/10/2026. A 0.15.0 não deve substituir silenciosamente essa revisão antes de passar seus próprios gates.
+No portal da OpenAI, o estado atual é **0.15.0 Draft / Not published / Needs attention**. Os apontamentos estão registrados em [Submissão pública](docs/PUBLIC_PLUGIN_SUBMISSION.md).
 
 > **Sem evidência → não invente. Sem permissão → não escale. Sem caminho autorizado → pare.**
 
-Leia: [0.15.0 Human Capability](docs/CS_NAVIGATOR_0.15.0_HUMAN_CAPABILITY.md) · [Primeiros passos](docs/GETTING_STARTED.pt-BR.md) · [Skill Containers](docs/SKILL_CONTAINERS.md) · [Submissão pública](docs/PUBLIC_PLUGIN_SUBMISSION.md)
+Leia: [0.16.0 Evergreen Core](docs/CS_NAVIGATOR_0.16.0_EVERGREEN_CORE.md) · [Primeiros passos](docs/GETTING_STARTED.pt-BR.md) · [Submissão pública](docs/PUBLIC_PLUGIN_SUBMISSION.md)
 
 ## 🚀 Comece em 1 minuto
 
@@ -43,8 +46,8 @@ A experiência pretendida é simples:
 **Limite de persistência:** uma frase em uma conversa não prova ativação em todas as conversas futuras. Só podemos afirmar persistência entre chats quando o produto hospedeiro oferecer e confirmar esse mecanismo.
 
 Linhas de versão:
-- submissão ao diretório OpenAI: **0.9.4 / em revisão / não publicada**
-- candidato de desenvolvimento: **0.15.0 / qualificação semântica nativa PASS 12/12 / release privada instalada**
+- portal OpenAI: **0.15.0 Draft / Needs attention / Not published**
+- candidato atual: **0.16.0 Evergreen Core / build estático PASS / endpoint MCP de produção obrigatório**
 - slug técnico: `cs-navigator`
 - 0.7.5: fundação histórica de confiança/runtime
 - 0.9.x: fundação da plataforma first-party e conformidade de submissão
