@@ -2,7 +2,7 @@
   "schema_version": 1,
   "product": "CS Navigator",
   "published_at": "2026-10-11",
-  "source_commit": "e95347ce3d90d81fbc57677f583c7015aaf3dfde",
+  "source_commit": "61c91c9678e6a1cd2cc2da5aa109b8c2792e458a",
   "source_repository": "https://github.com/eusourmr/chatgpt-skills",
   "policy_id": "cs-navigator-public-distribution-v1",
   "evidence_boundary": "Registry presence is discovery metadata, not execution evidence. Excluded capabilities remain visible only for audit/history and are not returned by the public MCP.",
