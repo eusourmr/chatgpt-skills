@@ -1,0 +1,83 @@
+name: Refresh CS Navigator v0.17.0 static trust
+
+on:
+  push:
+    branches:
+      - next/v0.17.0-learning-academic
+    paths:
+      - '.github/workflows/refresh-v017-trust.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: next/v0.17.0-learning-academic
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Bind static review to the 0.17 Curator Offer source bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('trust/passport-policy.json')
+          data=json.loads(p.read_text(encoding='utf-8'))
+          o=data['skill_overrides']['cs-navigator']
+          o['reviewed_source_revision']='c7e25f46ed76d7efc1863ec44d21662139fb9c64'
+          o['reviewed_at']='2026-10-11'
+          o['stale_after_days']=90
+          p.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
+          PY
+
+      - name: Refresh static evidence
+        run: |
+          node scripts/generate-trust-passports.mjs --write
+          node scripts/security-gate-v2.mjs --write
+          node scripts/generate-risk-labels.mjs --write
+          node scripts/generate-trust-passports.mjs --write
+          node scripts/update-drift-status.mjs --write --as-of 2026-10-11
+
+      - name: Verify no behavioral promotion
+        run: |
+          node scripts/generate-trust-passports.mjs --check
+          node scripts/validate-trust-passports.mjs --verify-git-source
+          node scripts/security-gate-v2.mjs --check
+          node scripts/generate-risk-labels.mjs --check
+          node scripts/update-drift-status.mjs --check --as-of 2026-10-11
+          python - <<'PY'
+          import json
+          p=json.load(open('trust/passports/cs-navigator.json',encoding='utf-8'))
+          assert p['execution']['evidence_state']=='designed'
+          assert p['behavior_evidence']['state']=='designed'
+          print('0.17 static trust PASS; Curator Offer remains designed pending native qualification.')
+          PY
+
+      - name: Commit refreshed static evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add trust/passport-policy.json trust/passports trust/security-reports trust/risk-labels trust/upstream
+          if git diff --cached --quiet; then
+            echo "Static trust already current."
+          else
+            git commit -m "trust(0.17): refresh static Curator Offer evidence"
+            git pull --rebase origin next/v0.17.0-learning-academic
+            git push origin HEAD:next/v0.17.0-learning-academic
+          fi
