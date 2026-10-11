@@ -1,0 +1,4 @@
+interface:
+  display_name: "Professional Handoff Preparer"
+  short_description: "Prepare a concise non-health professional handoff for a lawyer, accountant, school, bank, insurer, technician, public agency, or other specialist using facts, evidence, prior actio"
+  default_prompt: "Use $professional-handoff-preparer only when explicitly selected by CS Navigator or the user. Keep the workflow non-healthcare and preserve evidence boundaries."
