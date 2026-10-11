@@ -1,6 +1,6 @@
 ---
 name: major-life-admin-planner
-description: Plan major non-health life transitions such as job loss, retirement, marriage, separation, relocation, or major household change across administration, money, logistics, work, school, documents, and communication.
+description: Plan major administrative life transitions such as job loss, retirement, marriage, separation, relocation, or major household change across money, logistics, work, school, documents, responsibilities, and communication.
 ---
 
 # Major Life Admin Planner
@@ -22,8 +22,8 @@ Turn a large life-administration transition into manageable stages without prete
 
 Ask only for the minimum context needed and build a staged plan.
 
-## Public-distribution boundary
-This distributed workflow does not coordinate healthcare services, clinical care, medical records, or health information.
+## Scope boundary
+Keep this workflow within practical life administration. Requests outside that scope should stay native or use another eligible capability.
 
 ## Boundary
 Do not provide professional certainty in regulated domains.
