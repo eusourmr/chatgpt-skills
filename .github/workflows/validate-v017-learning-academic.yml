@@ -6,7 +6,7 @@ on:
       - next/v0.17.0-learning-academic
   pull_request:
     branches:
-      - release/v0.16.0-evergreen-core
+      - main
 
 permissions:
   contents: read
@@ -95,7 +95,7 @@ jobs:
           assert 'curator_offer: offer-when-relevant | always-offer | never-offer' in prefs
 
           plugin=json.load(open('plugins/cs-navigator/plugin.json',encoding='utf-8'))
-          assert plugin['version']=='0.16.0', '0.17 has started but must not pretend a final plugin candidate exists before 0.16 closes'
+          assert plugin['version']=='0.17.0', 'current project release must be 0.17.0'
 
-          print('0.17 development gate PASS: learning/academic registry capabilities are designed and the Curator Offer is source-defined.')
+          print('0.17 release gate PASS: current project version is 0.17.0; learning/academic capabilities remain designed and the public plugin remains separately gated.')
           PY
