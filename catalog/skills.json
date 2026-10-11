@@ -1486,7 +1486,7 @@
       "kind": "skill",
       "publisher": "eusourmr",
       "category": "regenerative-core",
-      "summary_en": "When AI has reached its useful limit, prepare a concise handoff to a doctor, lawyer, accountant, school, bank, insurer, technician, or other human professional.",
+      "summary_en": "When AI has reached its useful limit, prepare a concise handoff to a lawyer, accountant, school, bank, insurer, technician, public agency, or other non-health professional.",
       "summary_pt_br": "Prepara uma passagem de contexto concisa e baseada em evidências quando é necessário um profissional humano.",
       "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/human-handoff-preparer",
       "provenance": "regenerative-core",
@@ -1495,7 +1495,7 @@
         "chat",
         "codex"
       ],
-      "checked_on": "2026-10-08",
+      "checked_on": "2026-10-11",
       "systemic_review": {
         "status": "design-reviewed",
         "lenses": {
@@ -1792,7 +1792,7 @@
       "kind": "skill",
       "publisher": "eusourmr",
       "category": "regenerative-core",
-      "summary_en": "Plan major transitions such as job loss, retirement, marriage, separation, birth, relocation, or caregiving across practical domains without pretending one template fits all.",
+      "summary_en": "Plan major transitions such as job loss, retirement, marriage, separation, relocation, or major household change across practical domains without pretending one template fits all.",
       "summary_pt_br": "Planeja grandes transições entre domínios administrativos, financeiros, logísticos, familiares, profissionais e de cuidado.",
       "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/major-life-change-planner",
       "provenance": "regenerative-core",
@@ -1801,7 +1801,7 @@
         "chat",
         "codex"
       ],
-      "checked_on": "2026-10-08",
+      "checked_on": "2026-10-11",
       "systemic_review": {
         "status": "design-reviewed",
         "lenses": {
@@ -3721,7 +3721,7 @@
       "kind": "skill",
       "publisher": "eusourmr",
       "category": "regenerative-core",
-      "summary_en": "Prepare a practical trip-readiness checklist covering documents, timing, transport, money, connectivity, health needs, baggage, reservations, and current entry requirements.",
+      "summary_en": "Prepare a practical trip-readiness checklist covering documents, timing, transport, money, connectivity, baggage, reservations, accessibility logistics, and current entry requirements.",
       "summary_pt_br": "Prepara um checklist prático de viagem cobrindo documentos, horários, transporte, dinheiro, conectividade, saúde e requisitos atuais de entrada.",
       "url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/travel-readiness",
       "provenance": "regenerative-core",
@@ -3730,7 +3730,7 @@
         "chat",
         "codex"
       ],
-      "checked_on": "2026-10-08",
+      "checked_on": "2026-10-11",
       "systemic_review": {
         "status": "design-reviewed",
         "lenses": {
