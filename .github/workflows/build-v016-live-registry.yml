@@ -1,0 +1,104 @@
+name: Build CS Navigator v0.16.0 Live Registry
+
+on:
+  push:
+    branches:
+      - release/v0.16.0-live-registry
+    paths:
+      - 'skills/**'
+      - 'registry/**'
+      - 'trust/**'
+      - 'mcp/cs-navigator/**'
+      - 'scripts/build-v016-*.mjs'
+      - 'docs/**'
+      - '.github/workflows/build-v016-live-registry.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Generate policy-filtered public registry
+        run: node scripts/build-v016-live-registry.mjs
+
+      - name: Materialize hybrid plugin skeleton
+        env:
+          CS_NAVIGATOR_MCP_URL: https://pending.cs-navigator.invalid/mcp
+        run: node scripts/build-v016-hybrid-plugin.mjs
+
+      - name: Validate public distribution boundary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, hashlib, pathlib
+          policy=json.load(open('registry/public-capabilities-policy.json',encoding='utf-8'))
+          registry=json.load(open('registry/public-capabilities-v1.json',encoding='utf-8'))
+          assert registry['schema_version']==2
+          assert registry['public_entry_count']==48
+          assert registry['excluded_entry_count']==2
+          ids={x['id'] for x in registry['entries']}
+          assert 'medical-appointment-prep' not in ids
+          assert 'caregiver-coordinator' not in ids
+          assert ids==set(policy['public_ids'])
+          assert all(x['distribution_state']=='public' for x in registry['entries'])
+          assert all(len(x['source_sha256'])==64 for x in registry['entries'])
+          assert all(x['playbook'].strip() for x in registry['entries'])
+          plugin=json.load(open('plugins/cs-navigator-live/plugin.json',encoding='utf-8'))
+          assert plugin['name']=='cs-navigator-live'
+          assert plugin['version']=='0.16.0'
+          interface=plugin['extensions']['com.openai']['interface']
+          assert interface['supportURL'].startswith('https://')
+          mcp=json.load(open('plugins/cs-navigator-live/mcp.json',encoding='utf-8'))
+          assert list(mcp['mcpServers'])==['registry']
+          print('0.16 public distribution boundary PASS.')
+          PY
+
+      - name: Install MCP dependencies
+        working-directory: mcp/cs-navigator
+        run: npm install --no-audit --no-fund
+
+      - name: Validate MCP implementation
+        working-directory: mcp/cs-navigator
+        run: |
+          npm run check
+          npm test
+
+      - name: Prove final ZIP remains deployment-gated
+        shell: bash
+        run: |
+          set -euo pipefail
+          if node scripts/build-v016-hybrid-zip.mjs > /tmp/v016-zip.log 2>&1; then
+            cat /tmp/v016-zip.log
+            echo 'Expected ZIP build to refuse placeholder MCP endpoint.'
+            exit 1
+          fi
+          grep -q 'real public HTTPS MCP URL is required' /tmp/v016-zip.log
+          echo 'Submission ZIP correctly blocked until real MCP deployment exists.'
+
+      - name: Persist generated 0.16 state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add registry/public-capabilities-v1.json registry/public-capabilities-v1.json.sha256 plugins/cs-navigator-live mcp/cs-navigator/package-lock.json
+          if git diff --cached --quiet; then
+            echo 'Generated 0.16 state already current.'
+          else
+            git commit -m 'build(0.16): materialize Live Registry candidate'
+            git push origin HEAD:release/v0.16.0-live-registry
+          fi
