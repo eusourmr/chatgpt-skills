@@ -1,0 +1,4 @@
+interface:
+  display_name: "Major Life Admin Planner"
+  short_description: "Plan major non-health life transitions such as job loss, retirement, marriage, separation, relocation, or major household change across administration, money, logistics, work, scho"
+  default_prompt: "Use $major-life-admin-planner only when explicitly selected by CS Navigator or the user. Keep the workflow non-healthcare and preserve evidence boundaries."
