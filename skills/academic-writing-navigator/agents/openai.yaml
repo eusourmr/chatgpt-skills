@@ -1,0 +1,4 @@
+interface:
+  display_name: "Academic Writing Navigator"
+  short_description: "Academic writing across style systems"
+  default_prompt: "Use $academic-writing-navigator to resolve the applicable academic profile, evidence gaps, integrity issues and formatting requirements before revising my work."
