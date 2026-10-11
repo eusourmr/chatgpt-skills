@@ -6,7 +6,7 @@ description: Prepare a practical travel-logistics checklist covering documents, 
 # Travel Logistics Readiness
 
 ## Purpose
-Reduce avoidable travel failures without turning the workflow into a healthcare service.
+Reduce avoidable travel-logistics failures with a compact, reusable readiness plan.
 
 ## Workflow
 - traveler(s), destination, dates;
@@ -19,8 +19,8 @@ Reduce avoidable travel failures without turning the workflow into a healthcare 
 - accessibility and mobility logistics explicitly provided by the user;
 - emergency contacts and backup itinerary.
 
-## Public-distribution boundary
-Do not collect, organize, interpret, or route health information under this workflow.
+## Scope boundary
+Keep this workflow limited to travel administration and logistics. Requests outside that scope should stay native or use another eligible capability.
 
 ## Boundary
 Current immigration, visa, border-entry, carrier, and baggage rules must be verified from authoritative/current sources.
