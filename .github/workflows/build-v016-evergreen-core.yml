@@ -66,5 +66,6 @@ jobs:
             echo "Generated state already current."
           else
             git commit -m "build(0.16): materialize Evergreen Core [skip v016-build]"
+            git pull --rebase origin release/v0.16.0-evergreen-core
             git push origin HEAD:release/v0.16.0-evergreen-core
           fi
