@@ -2,7 +2,7 @@
   "schema_version": 1,
   "product": "CS Navigator",
   "published_at": "2026-10-11",
-  "source_commit": "cab284340d7799bcb5fb032f3e826d7e30d8f472",
+  "source_commit": "0379c26b209da4548ed425a78b9e4e03885c9034",
   "source_repository": "https://github.com/eusourmr/chatgpt-skills",
   "policy_id": "cs-navigator-public-distribution-v1",
   "evidence_boundary": "Registry presence is discovery metadata, not execution evidence. Excluded capabilities remain visible only for audit/history and are not returned by the public MCP.",
@@ -147,17 +147,18 @@
       "name": "cs-navigator",
       "category": "regenerative-core",
       "summary": "Curate the smallest useful capability path for explicit capability-selection requests or after the user explicitly enables CS Navigator as their curator in the current conversation. Prefer native ChatGPT when sufficient, consult the live read-only capability registry when useful, and escalate to connected actions only when they materially improve the outcome.",
-      "evidence_state": "tested",
-      "qualification_state": "tested",
+      "evidence_state": "designed",
+      "qualification_state": "designed",
       "freshness_state": "unknown",
-      "permission_profile": "chat-native/no-external-access-by-default",
+      "permission_profile": "connected",
       "source_url": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/featured/cs-navigator",
       "distribution_state": "available",
       "known_gaps": [
-        "The 31 new 0.15 workflows remain individually designed unless separately supported by native execution evidence.",
-        "A chat instruction does not prove cross-chat/global curator persistence; that depends on explicit host support.",
-        "The live capability-registry MCP is planned-not-active; the bundled registry is finite and versioned.",
-        "Container Guardian deterministic evidence does not prove Guardian executed in a chat without an actual runtime decision record."
+        "Production HTTPS MCP endpoint is not deployed yet.",
+        "0.16 native semantic qualification is pending final MCP deployment and exact-byte package assembly.",
+        "Cross-chat curator persistence remains host-dependent and is not claimed.",
+        "Healthcare/medical workflows are excluded from public distribution under the current platform boundary.",
+        "Container Guardian execution cannot be claimed without an actual runtime decision record."
       ]
     },
     {
