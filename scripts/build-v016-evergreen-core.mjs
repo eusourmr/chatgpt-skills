@@ -75,7 +75,7 @@ const registry = {
   schema_version: 1,
   product: 'CS Navigator',
   published_at: new Date().toISOString().slice(0, 10),
-  source_commit: process.env.GITHUB_SHA || 'development',
+  source_commit: process.env.CS_REGISTRY_SOURCE_COMMIT || 'development',
   source_repository: 'https://github.com/eusourmr/chatgpt-skills',
   policy_id: policy.policy_id,
   evidence_boundary:
