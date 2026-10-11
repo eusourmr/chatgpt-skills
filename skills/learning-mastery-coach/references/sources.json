@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "capability": "learning-mastery-coach",
+  "sources": [
+    {
+      "title": "5 prompts do ChatGPT para estudar melhor e memorizar o conteúdo",
+      "publisher": "Fast Company Brasil",
+      "published_on": "2026-10-11",
+      "url": "https://fastcompanybrasil.com/ia/5-prompts-chatgpt-estudar-melhor-memorizar-conteudo/",
+      "role": "product inspiration",
+      "extracted_patterns": [
+        "structured summary",
+        "quiz after study",
+        "Feynman-style explanation",
+        "flashcards",
+        "spaced review"
+      ],
+      "boundary": "This article is inspiration for user-facing study patterns, not scientific evidence that these specific prompts guarantee learning outcomes."
+    }
+  ]
+}
