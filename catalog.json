@@ -13,9 +13,9 @@
   },
   "review_stats": {
     "reviewed": 31,
-    "accepted": 77,
+    "accepted": 80,
     "rejected_recorded": 0,
-    "last_review_cycle": "2026-10-08"
+    "last_review_cycle": "2026-10-11"
   },
   "entries": [
     {
@@ -557,7 +557,7 @@
       "rating": 0,
       "rating_state": "unrated",
       "reviews": 0,
-      "last_verified": "2026-10-11",
+      "last_verified": "2026-10-08",
       "compatibility": [
         "ChatGPT",
         "Codex"
@@ -651,6 +651,23 @@
       "path": "skills/life-state-map"
     },
     {
+      "id": "major-life-admin-planner",
+      "name": "Major Life Admin Planner",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-11",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/major-life-admin-planner",
+      "path": "skills/major-life-admin-planner"
+    },
+    {
       "id": "major-life-change-planner",
       "name": "major-life-change-planner",
       "category": "First-Party CS",
@@ -658,7 +675,7 @@
       "rating": 0,
       "rating_state": "unrated",
       "reviews": 0,
-      "last_verified": "2026-10-11",
+      "last_verified": "2026-10-08",
       "compatibility": [
         "ChatGPT",
         "Codex"
@@ -849,6 +866,23 @@
       ],
       "publisher": "OpenAI",
       "source": "https://github.com/openai/plugins/tree/main/plugins/product-design"
+    },
+    {
+      "id": "professional-handoff-preparer",
+      "name": "Professional Handoff Preparer",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-11",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/professional-handoff-preparer",
+      "path": "skills/professional-handoff-preparer"
     },
     {
       "id": "project-execution-director",
@@ -1273,6 +1307,23 @@
       "path": "skills/text-integrity-editor"
     },
     {
+      "id": "travel-logistics-readiness",
+      "name": "Travel Logistics Readiness",
+      "category": "First-Party CS",
+      "status": "draft",
+      "rating": 0,
+      "rating_state": "unrated",
+      "reviews": 0,
+      "last_verified": "2026-10-11",
+      "compatibility": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "publisher": "eusourmr",
+      "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/skills/travel-logistics-readiness",
+      "path": "skills/travel-logistics-readiness"
+    },
+    {
       "id": "travel-readiness",
       "name": "travel-readiness",
       "category": "First-Party CS",
@@ -1280,7 +1331,7 @@
       "rating": 0,
       "rating_state": "unrated",
       "reviews": 0,
-      "last_verified": "2026-10-11",
+      "last_verified": "2026-10-08",
       "compatibility": [
         "ChatGPT",
         "Codex"
