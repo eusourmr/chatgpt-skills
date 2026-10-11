@@ -1,0 +1,407 @@
+{
+  "schema_version": 1,
+  "release": "0.17.0",
+  "reviewed_on": "2026-10-11",
+  "review_depth": "catalog-and-product-architecture-first-pass",
+  "evidence_boundary": "This is a human curation/product-fit review, not native semantic execution evidence. Detailed skill-file review is required before material behavioral rewrites.",
+  "decision_definitions": {
+    "KEEP": "Distinct real-world value; preserve capability, with ordinary maintenance.",
+    "REFINE": "Valuable but scope, activation, language, evidence, policy or handoff needs improvement.",
+    "MERGE": "Material overlap means one clearer capability/contract should absorb it.",
+    "RETIRE": "Do not present as an active distributable capability; source/history may remain for audit."
+  },
+  "delivery_definitions": {
+    "CORE": "Stable plugin core; should change rarely.",
+    "REGISTRY-ONLY": "Discoverable through the live registry; not bundled in the stable plugin.",
+    "SOURCE-ONLY": "Preserved in source/history but excluded from public capability discovery/distribution."
+  },
+  "entries": [
+    {
+      "id": "academic-integrity-reviewer",
+      "decision": "REFINE",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Strong academic integrity value; clarify handoff from Academic Writing Navigator and separate content integrity from formatting."
+    },
+    {
+      "id": "argument-article-architect",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct argument architecture workflow; avoid expanding it into research methodology."
+    },
+    {
+      "id": "art-critique-studio",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct specialist workflow with strong intent-preservation boundary."
+    },
+    {
+      "id": "bureaucracy-br-navigator",
+      "decision": "REFINE",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Useful Brazilian authority/procedure navigator; sharpen boundary versus public-service-br-navigator."
+    },
+    {
+      "id": "capability-preferences",
+      "decision": "KEEP",
+      "delivery": "CORE",
+      "rationale": "Stable user-control contract for curation, depth, evidence detail and curator offers."
+    },
+    {
+      "id": "caregiver-coordinator",
+      "decision": "RETIRE",
+      "delivery": "SOURCE-ONLY",
+      "rationale": "May involve health information and care workflows currently outside public distribution scope; preserve source/history only."
+    },
+    {
+      "id": "chatgpt-apps-deployer",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct developer release workflow; should not enlarge the everyday-user core."
+    },
+    {
+      "id": "codex-pr-reviewer",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct development workflow with repository-specific review value."
+    },
+    {
+      "id": "consumer-rights-navigator",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Clear real-world problem with evidence/jurisdiction safeguards."
+    },
+    {
+      "id": "context-continuity-manager",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct long-work continuity problem; useful across projects but not core curator behavior."
+    },
+    {
+      "id": "cs-navigator",
+      "decision": "REFINE",
+      "delivery": "CORE",
+      "rationale": "Core product; 0.17 adds relevance-gated Curator Offer and later requires new native qualification."
+    },
+    {
+      "id": "decision-stop-rule",
+      "decision": "MERGE",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Substantial overlap with personal-decision-record; stopping criteria should become part of a unified decision-support workflow."
+    },
+    {
+      "id": "design-system-studio",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct design-system workflow with explicit invariants and accessibility."
+    },
+    {
+      "id": "difficult-conversation-prep",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Practical and bounded communication workflow; remain opt-in rather than core."
+    },
+    {
+      "id": "digital-helper-simple",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Real accessibility/digital-literacy value beyond generic Simple Mode because it handles screen-by-screen procedural guidance."
+    },
+    {
+      "id": "document-compliance-auditor",
+      "decision": "REFINE",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Evolve into international versioned rule-profile engine used by Academic Writing Navigator."
+    },
+    {
+      "id": "engineering-investigator",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct falsifiable debugging/investigation method."
+    },
+    {
+      "id": "everyday-problem-solver",
+      "decision": "MERGE",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Generic Life Resolution Contract now belongs in Navigator core; preserve only if future evidence shows value beyond the core contract."
+    },
+    {
+      "id": "evidence-first-research",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Foundational evidence/freshness capability with clear UNKNOWN/contradiction handling."
+    },
+    {
+      "id": "family-digital-safety",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct family safety/privacy problem with anti-surveillance boundary."
+    },
+    {
+      "id": "founder-product-strategist",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct founder/product decision workflow; not needed in stable everyday core."
+    },
+    {
+      "id": "home-maintenance-planner",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Clear preventive home-management workflow with safety escalation."
+    },
+    {
+      "id": "household-finance-planner",
+      "decision": "REFINE",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Useful household cash-flow planning; keep strict boundary from individualized investment advice and current regulated claims."
+    },
+    {
+      "id": "human-handoff-preparer",
+      "decision": "MERGE",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Human Escalation Contract is now part of Navigator core; standalone capability should be absorbed unless distinct evidence justifies it."
+    },
+    {
+      "id": "information-expiry-guard",
+      "decision": "KEEP",
+      "delivery": "CORE",
+      "rationale": "Core freshness primitive for an evergreen capability system."
+    },
+    {
+      "id": "interactive-creative-builder",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct interactive artifact workflow; not common enough for core."
+    },
+    {
+      "id": "life-admin-organizer",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "High everyday usefulness for documents, deadlines and administrative obligations."
+    },
+    {
+      "id": "life-state-map",
+      "decision": "MERGE",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Strong overlap with Proof of Progress; state-map fields should become an optional Proof of Progress view."
+    },
+    {
+      "id": "major-life-change-planner",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Useful multi-domain Life Journey after non-medical narrowing."
+    },
+    {
+      "id": "medical-appointment-prep",
+      "decision": "RETIRE",
+      "delivery": "SOURCE-ONLY",
+      "rationale": "Explicitly rejected by current platform healthcare distribution boundary; do not rename or route around it."
+    },
+    {
+      "id": "moving-life-journey",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Concrete multi-stage Life Journey with clear evidence and completion states."
+    },
+    {
+      "id": "openai-agents-sdk-builder",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct developer workflow; remain outside stable everyday-user core."
+    },
+    {
+      "id": "overwhelm-to-next-action",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Useful operational decomposition without pretending to provide mental-health treatment."
+    },
+    {
+      "id": "personal-curator",
+      "decision": "KEEP",
+      "delivery": "CORE",
+      "rationale": "Core invisible-curation contract after explicit user intent."
+    },
+    {
+      "id": "personal-decision-record",
+      "decision": "REFINE",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Good reusable decision artifact; absorb rational stopping-rule behavior from decision-stop-rule."
+    },
+    {
+      "id": "photo-restoration-conservator",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct conservative visual-preservation workflow with identity/history safeguards."
+    },
+    {
+      "id": "project-execution-director",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct multi-step execution governance with evidence gates and anti-busywork behavior."
+    },
+    {
+      "id": "proof-of-progress",
+      "decision": "REFINE",
+      "delivery": "CORE",
+      "rationale": "Core completion truth primitive; absorb life-state-map as an optional state view."
+    },
+    {
+      "id": "public-service-br-navigator",
+      "decision": "REFINE",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Useful service-path finder; clarify distinction/possible future merge with bureaucracy-br-navigator."
+    },
+    {
+      "id": "purchase-decision-helper",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Common decision problem with total-cost and alternative framing."
+    },
+    {
+      "id": "real-world-evidence-kit",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct evidence-preservation capability for disputes and administrative processes."
+    },
+    {
+      "id": "realtime-api-integration",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct specialist developer workflow."
+    },
+    {
+      "id": "regenerative-adaptive-experiment",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct reversible-experiment method; keep explicit activation."
+    },
+    {
+      "id": "regenerative-capability-exchange",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct reciprocal-capability design; niche but coherent."
+    },
+    {
+      "id": "regenerative-conflict-repair",
+      "decision": "REFINE",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Useful conflict-repair frame; ensure voluntary participation, power asymmetry and professional escalation boundaries stay explicit."
+    },
+    {
+      "id": "regenerative-impact-map",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct systems-impact mapping capability."
+    },
+    {
+      "id": "regenerative-knowledge-commons",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct governed shared-knowledge workflow for teams/communities."
+    },
+    {
+      "id": "regenerative-language-bridge",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct from Simple Mode because it preserves technical/legal/scientific precision while translating complexity."
+    },
+    {
+      "id": "regenerative-listening-loop",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct ethical community feedback loop."
+    },
+    {
+      "id": "regenerative-participatory-decision",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct multi-stakeholder legitimacy/decision workflow."
+    },
+    {
+      "id": "regenerative-resilience-plan",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct disruption/resilience workflow."
+    },
+    {
+      "id": "regenerative-resource-cycle",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct circular-resource workflow; niche but coherent."
+    },
+    {
+      "id": "repair-decision-helper",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Clear inspect/repair/replace/professional decision workflow with safety stops."
+    },
+    {
+      "id": "scam-checker",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "High everyday safety value with non-overclaiming verification path."
+    },
+    {
+      "id": "school-family-organizer",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Concrete family-school coordination workflow."
+    },
+    {
+      "id": "simple-mode",
+      "decision": "KEEP",
+      "delivery": "CORE",
+      "rationale": "Core accessibility/plain-language behavior without patronizing users or hiding material warnings."
+    },
+    {
+      "id": "skill-workbench",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Project-internal skill engineering capability; valuable but not end-user core."
+    },
+    {
+      "id": "subscription-cleanup",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Common recurring-cost problem with explicit no-account-access boundary."
+    },
+    {
+      "id": "text-integrity-editor",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct high-fidelity editing where facts, commitments and voice are invariants."
+    },
+    {
+      "id": "travel-readiness",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Common travel-preparation workflow after non-medical scope correction."
+    },
+    {
+      "id": "visual-intent-guardian",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "Distinct visual-edit invariant protection capability."
+    },
+    {
+      "id": "learning-mastery-coach",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "New 0.17 adaptive learning loop; designed pending native semantic qualification."
+    },
+    {
+      "id": "academic-writing-navigator",
+      "decision": "KEEP",
+      "delivery": "REGISTRY-ONLY",
+      "rationale": "New 0.17 academic orchestration layer for Portuguese-language users across international rule profiles; designed pending qualification."
+    }
+  ],
+  "summary": {
+    "total": 63,
+    "by_decision": {
+      "REFINE": 9,
+      "KEEP": 48,
+      "RETIRE": 2,
+      "MERGE": 4
+    }
+  }
+}
