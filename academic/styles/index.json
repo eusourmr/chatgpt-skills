@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "purpose": "Academic style/profile resolver for Portuguese-language users. These records identify style families and source authorities; they are not a substitute for current official rules or institution/journal instructions.",
+  "precedence": [
+    "journal_or_conference_current_instructions",
+    "institution_program_or_faculty_manual",
+    "assignment_or_edital_instructions",
+    "named_style_system",
+    "generic_academic_conventions"
+  ],
+  "profiles": [
+    {
+      "id": "ABNT-BR",
+      "display_name": "ABNT / Brasil",
+      "scope": "Brazilian standards and institution-specific academic manuals",
+      "authority_name": "Associação Brasileira de Normas Técnicas (ABNT)",
+      "authority_urls": [
+        "https://www.abnt.org.br/"
+      ],
+      "exact_rules_source_required": true,
+      "notes": "Do not infer a current ABNT rule from memory. Institution manuals may specify how ABNT standards are applied and may add local requirements."
+    },
+    {
+      "id": "APA-7",
+      "display_name": "APA 7th edition",
+      "scope": "APA Style",
+      "authority_name": "American Psychological Association",
+      "authority_urls": [
+        "https://apastyle.apa.org/"
+      ],
+      "exact_rules_source_required": true,
+      "notes": "Use current APA Style guidance or user/institution instructions for detailed formatting."
+    },
+    {
+      "id": "Vancouver",
+      "display_name": "Vancouver / biomedical references",
+      "scope": "Biomedical journal reference conventions",
+      "authority_name": "ICMJE / NLM",
+      "authority_urls": [
+        "https://www.icmje.org/recommendations/",
+        "https://www.ncbi.nlm.nih.gov/books/NBK7256/"
+      ],
+      "exact_rules_source_required": true,
+      "notes": "Vancouver is a family of biomedical reference conventions; journal-specific author instructions may override or refine details."
+    },
+    {
+      "id": "IEEE",
+      "display_name": "IEEE",
+      "scope": "IEEE publication/reference conventions",
+      "authority_name": "IEEE Author Center",
+      "authority_urls": [
+        "https://journals.ieeeauthorcenter.ieee.org/"
+      ],
+      "exact_rules_source_required": true,
+      "notes": "Resolve the target publication's current author instructions before asserting submission details."
+    },
+    {
+      "id": "Chicago",
+      "display_name": "Chicago",
+      "scope": "Chicago Manual of Style systems",
+      "authority_name": "The Chicago Manual of Style",
+      "authority_urls": [
+        "https://www.chicagomanualofstyle.org/"
+      ],
+      "exact_rules_source_required": true,
+      "notes": "Resolve whether notes-bibliography or author-date applies."
+    },
+    {
+      "id": "MLA-9",
+      "display_name": "MLA 9",
+      "scope": "Modern Language Association style",
+      "authority_name": "MLA Style Center",
+      "authority_urls": [
+        "https://style.mla.org/"
+      ],
+      "exact_rules_source_required": true,
+      "notes": "Use current MLA guidance and institution/course instructions."
+    },
+    {
+      "id": "AMA",
+      "display_name": "AMA",
+      "scope": "AMA Manual of Style",
+      "authority_name": "AMA Manual of Style",
+      "authority_urls": [
+        "https://www.amamanualofstyle.com/"
+      ],
+      "exact_rules_source_required": true,
+      "notes": "Target journal instructions may add or override submission details."
+    },
+    {
+      "id": "Harvard-institution-specific",
+      "display_name": "Harvard-style",
+      "scope": "Institution-specific author-date systems commonly labeled Harvard",
+      "authority_name": "Institution or publisher using the named Harvard variant",
+      "authority_urls": [],
+      "exact_rules_source_required": true,
+      "notes": "There is no single universal Harvard standard. Require the institution, publisher, journal, course or supplied guide before asserting exact formatting."
+    }
+  ],
+  "conflict_rule": "When two applicable sources disagree, surface CONFLICTING RULES and identify which source has the more specific governing authority. Do not silently combine styles.",
+  "unknown_rule": "If the governing profile/version or source cannot be established, output Perfil/norma aplicável: UNKNOWN / EVIDENCE MISSING."
+}
