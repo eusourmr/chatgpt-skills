@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "plugin": {
+    "name": "cs-navigator-live",
+    "display_name": "CS Navigator",
+    "version": "0.16.0",
+    "type": "hybrid-skills-mcp",
+    "previous_skills_only_identity": "cs-navigator",
+    "identity_migration_reason": "Current platform guidance does not support adding MCP to an existing skills-only plugin identity."
+  },
+  "listing": {
+    "short_description": "Live capability curator",
+    "developer_name": "RICARDO MOREIRA DA ROCHA",
+    "category": "Productivity",
+    "website_url": "https://github.com/eusourmr/chatgpt-skills",
+    "support_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/SUPPORT.md",
+    "privacy_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/PRIVACY.md",
+    "terms_url": "https://github.com/eusourmr/chatgpt-skills/blob/main/docs/TERMS.md"
+  },
+  "architecture": {
+    "packaged_skills": [
+      "cs-navigator",
+      "get-started"
+    ],
+    "mcp": {
+      "required": true,
+      "transport": "streamable-http",
+      "endpoint_state": "deployment-pending",
+      "endpoint_url": null,
+      "auth": "none",
+      "write_tools": 0,
+      "read_only_tools": [
+        "search_capabilities",
+        "get_capability",
+        "get_evidence"
+      ],
+      "implementation_path": "mcp/cs-navigator"
+    },
+    "registry": {
+      "source_of_truth": "github-main",
+      "generated_artifact": "registry/public-capabilities-v1.json",
+      "policy": "registry/public-capabilities-policy.json",
+      "public_entries": 48,
+      "excluded_entries": 2,
+      "arbitrary_github_execution": false
+    }
+  },
+  "distribution_exclusions": {
+    "medical-appointment-prep": {
+      "state": "platform-out-of-scope",
+      "reason": "Healthcare/medical workflow finding from OpenAI review."
+    },
+    "caregiver-coordinator": {
+      "state": "platform-out-of-scope",
+      "reason": "Conservative healthcare distribution exclusion because the existing workflow handles medication, clinician and care-coordination information."
+    }
+  },
+  "review": {
+    "positive_cases": 5,
+    "negative_cases": 3,
+    "demo_recording_url": null,
+    "domain_verification": "pending",
+    "tool_scan": "pending",
+    "native_qualification": "pending-after-real-mcp-deployment"
+  },
+  "build_state": {
+    "registry_generation": "PASS",
+    "mcp_static_checks": "PASS",
+    "mcp_unit_tests": "PASS",
+    "healthcare_distribution_gate": "PASS",
+    "placeholder_zip_gate": "PASS",
+    "final_submission_zip": "BLOCKED_ON_REAL_PUBLIC_MCP_ENDPOINT"
+  },
+  "submission_state": "blocked-on-public-mcp-deployment",
+  "claim_boundary": "0.16.0 repository architecture and static tests do not prove MCP deployment, OpenAI domain verification, tool scan approval, native connected behavior, review approval, or public publication."
+}
