@@ -4,84 +4,24 @@ This roadmap is directional, public, and deliberately measurable. Dates may chan
 
 See [`docs/ECOSYSTEM_GROWTH_STRATEGY.md`](docs/ECOSYSTEM_GROWTH_STRATEGY.md) for the competitive/growth rationale behind the sequencing below.
 
-## Current position
+## Current position (2026-10-11)
 
-The last fully qualified GitHub release is **CS Navigator 0.15.0 — Everyday Life & Human Capability**. Its exact private candidate passed the recorded **12/12 native semantic Navigator matrix**.
+**CS Navigator 0.17.0 — Learning & Academic Mastery** is the latest GitHub release and the installed private ChatGPT plugin. Its six-skill Evergreen Core incorporates the 0.16 architecture; 0.16 was not released independently.
 
-The OpenAI Platform portal currently shows **0.15.0 Draft / Not published / Needs attention** (observed 2026-10-11). The current findings are:
+Production read-only MCP endpoint: `https://chatgpt-skills.onrender.com/mcp`. MCP Inspector tests have passed for `registry_status`, `get_capability`, `get_evidence`, and `search_capabilities`; the two healthcare exclusions returned `found:false` through `get_capability`.
 
-- Support URL required;
-- no additional skills-only submissions accepted at this time;
-- `medical-appointment-prep` is outside the currently supported public skill ecosystem because it is a healthcare/medical workflow that may involve health information.
+The **public Plugin Directory is not yet approved or published**. Remaining gates are native ChatGPT semantic qualification of the final installed plugin, registry provenance improvement (current `source_commit: development`), public review requirements and confirmed approval.
 
-The active development line is now **CS Navigator 0.16.0 — Evergreen Core & Live Registry**.
+New capabilities `learning-mastery-coach` and `academic-writing-navigator` remain **designed**, not **tested**. Tool visibility or installability does not constitute skill qualification.
 
-0.16.0 intentionally changes the maintenance model:
+### Release priorities
 
-- stable six-skill public core;
-- Native → capability-guided → Life Journey → Connected Action routing;
-- GitHub-backed live capability registry;
-- read-only remote MCP for capability discovery/evidence;
-- no arbitrary GitHub execution;
-- healthcare/medical workflows excluded from public distribution while they remain out of scope;
-- Support URL and privacy policy updated for MCP review;
-- public package generation blocked until a real HTTPS MCP endpoint exists.
+1. Record actual invocation and semantic outcomes in ChatGPT, including negative tests and permission boundaries.
+2. Resolve registry provenance and evidence freshness with auditable source references.
+3. Complete Plugin Directory identity, domain, privacy, test-case and submission requirements.
+4. Submit 0.17.0 and claim public availability only after portal approval.
 
-The repository implementation and MCP server compile successfully. The current external blocker is deployment of a stable public HTTPS Streamable HTTP endpoint ending in `/mcp`, followed by MCP Inspector, domain verification, remote-MCP review material, and exact-byte qualification of the final package.
-
-The public product name remains **CS Navigator**. The technical slug remains `cs-navigator`.
-
-Historical evidence for 0.6, 0.7, 0.7.5, 0.9.x, and 0.15 remains preserved. Historical releases are not rewritten to look current.
-
-## v0.16 — Evergreen Core & Live Registry — IN DEVELOPMENT
-
-### Product goal
-
-Make the installed plugin stable enough that most future maintenance happens in the GitHub registry and MCP evidence layer rather than by repeatedly expanding the bundled ZIP.
-
-Target experience:
-
-> Install once. Talk normally. Keep the curator current from GitHub-backed metadata.
-
-### Stable bundled core
-
-- `cs-navigator`
-- `personal-curator`
-- `simple-mode`
-- `capability-preferences`
-- `proof-of-progress`
-- `information-expiry-guard`
-
-### Live registry MCP
-
-Read-only tools:
-
-- `search_capabilities`
-- `get_capability`
-- `get_evidence`
-- `registry_status`
-
-The MCP returns bounded metadata/evidence only. It does not execute arbitrary repository content and exposes no write tools.
-
-### Public distribution gate
-
-The public plugin excludes healthcare/medical workflows that are outside the currently supported ecosystem. Source history may remain in GitHub for audit, but exclusion is explicit and machine-checked.
-
-### Exit criteria
-
-0.16 is not release-qualified until:
-
-- production HTTPS MCP endpoint is deployed;
-- MCP Inspector passes against production;
-- endpoint is inserted into `mcp.json`;
-- Support / Website / Privacy / Terms fields validate;
-- healthcare distribution gate passes;
-- domain verification succeeds;
-- remote MCP review test cases and demo material are prepared;
-- exact final ZIP passes static/security checks;
-- native semantic qualification passes against the installed final candidate;
-- GitHub tag/release is bound to exact bytes;
-- public OpenAI publication is claimed only after the portal confirms approval and publication.
+Historical 0.4/0.7/0.9/0.15/0.16 design documents remain in repository history as evidence, not current product state.
 
 ## v0.4 — Trust Layer
 

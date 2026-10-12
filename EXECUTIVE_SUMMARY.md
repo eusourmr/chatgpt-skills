@@ -2,11 +2,13 @@
 
 ChatGPT Skills (CS) is an independent, human-governed catalog and trust layer for reusable ChatGPT/Codex capabilities. The project is no longer only a curated list: it now combines discovery, evidence, distribution, runtime containment foundations, and a path for first-party/community extensibility.
 
-## Current release state
+## Current release state (2026-10-11)
 
-- **CS Navigator plugin 0.7.0 — Verifiable Trust I:** stable and natively qualified.
-- **CS Navigator 0.7.5 — Verifiable Trust II & Containers:** in qualification; Container Guardian foundation is merged, but 0.7.5 is not yet the stable plugin.
-- **`chatgpt-skills` CLI/npm 0.4.0:** independent release line.
+- **CS Navigator 0.17.0 — Learning & Academic Mastery:** latest GitHub release and currently installed private ChatGPT plugin.
+- **Evergreen Core:** six distributed skills, live GitHub-backed capability registry via public read-only MCP. MCP Inspector confirmed four tools and two healthcare exclusions through `get_capability`.
+- **Evidence boundary:** MCP Inspector success is not native ChatGPT semantic qualification or OpenAI public approval. The new learning and academic-writing capabilities remain `designed` until separately qualified.
+- **Public Plugin Directory:** not published. Final native semantic qualification and submission/review remain outstanding.
+- **CLI/npm:** `chatgpt-skills@0.4.0` is an independent release line.
 
 ## What exists today
 
@@ -60,21 +62,9 @@ The project supports distinct distribution paths:
 
 These paths have different update semantics. See [Getting Started](docs/GETTING_STARTED.md) and [Plugin Maintenance](docs/PLUGIN_MAINTENANCE.md).
 
-## Next product line — 0.8
+## Current product direction
 
-0.8 is being planned around **first-party Everyday Trust Skills** and reusable **Community Profiles**.
-
-Initial directions include:
-
-- evidence-first research;
-- document compliance auditing with versioned rule profiles such as ABNT-BR;
-- academic integrity review;
-- text-integrity editing;
-- visual-intent preservation;
-- photo-restoration conservation;
-- art critique workflows.
-
-The goal is not a larger prompt collection. A CS first-party skill should add a repeatable method, verifiable rule, safeguard, or workflow that plain ChatGPT does not already provide well enough natively.
+Focus on 0.17.0 native ChatGPT qualification and public Plugin Directory submission before opening a larger feature release. The 0.16 Evergreen architecture is incorporated into 0.17.0, not a separate public release. Historical 0.8 planning remains in repository history.
 
 ## Project principle
 

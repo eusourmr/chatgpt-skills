@@ -2,6 +2,19 @@
 
 All notable changes to ChatGPT Skills are documented here.
 
+**Current CS Navigator GitHub release and private ChatGPT plugin: 0.17.0.** Public Plugin Directory availability is still pending. The `chatgpt-skills` npm CLI remains independently versioned at `0.4.0`.
+
+## CS Navigator 0.17.0 — 2026-10-11 — Learning & Academic Mastery
+
+- Incorporates the 0.16 Evergreen Core & Live Registry architecture (0.16 is a historical architectural stage, not a separate public release).
+- Distributes a six-skill core, with additional capabilities described through a read-only live MCP registry instead of executable GitHub instructions.
+- Adds learning-mastery and international academic-writing capability metadata; both remain `designed` pending native semantic qualification.
+- Connects the production Streamable HTTP MCP endpoint; four Inspector tool smoke tests and two healthcare `get_capability` exclusion checks passed.
+- The 0.17.0 private ChatGPT plugin was updated and confirmed to contain only the six core skills and MCP metadata.
+- OpenAI Plugin Directory publication is pending review; neither passing CI nor Inspector tests proves public approval.
+
+**Historical note:** below are preserved older release records; headings such as “Unreleased” refer to their original period and are not the current product status.
+
 
 ## 0.7.5 — Unreleased / qualification
 
