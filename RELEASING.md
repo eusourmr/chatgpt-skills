@@ -7,11 +7,16 @@ This repository has **two independent release lines**:
 
 Never infer one version from the other.
 
-Current reference point:
+Current reference point (2026-10-11):
 
-- CLI/npm: `0.4.0`
-- stable CS Navigator plugin: `0.7.0`
-- CS Navigator 0.7.5: in qualification
+- CLI/npm: `0.4.0` (independent version line);
+- GitHub CS Navigator release: `0.17.0 — Learning & Academic Mastery`;
+- private ChatGPT plugin: `0.17.0`, installed with the six-skill Evergreen Core;
+- read-only registry MCP: `https://chatgpt-skills.onrender.com/mcp`, four tools smoke-tested in MCP Inspector;
+- OpenAI public Plugin Directory: **not published / not approved**;
+- remaining release gate: qualify real plugin behavior inside ChatGPT, complete review prerequisites and obtain directory approval.
+
+The older 0.7.x release instructions and evidence remain historical; never treat old qualification as evidence for 0.17.0.
 
 For the permanent plugin update checklist, read [docs/PLUGIN_MAINTENANCE.md](docs/PLUGIN_MAINTENANCE.md).
 
