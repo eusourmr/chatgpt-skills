@@ -3,7 +3,7 @@
   "product": "CS Navigator",
   "version": "0.17.0",
   "release_name": "Learning & Academic Mastery on Evergreen Core",
-  "submission_state": "development-blocked-on-production-mcp-endpoint",
+  "submission_state": "production-mcp-inspector-smoke-tested-pending-chatgpt-qualification",
   "listing": {
     "display_name": "CS Navigator",
     "short_description": "Evergreen capability curator",
@@ -49,7 +49,7 @@
     ],
     "registry_source": "https://raw.githubusercontent.com/eusourmr/chatgpt-skills/main/registry/public-capabilities-v1.json",
     "mcp_server_path": "mcp/cs-registry-server",
-    "mcp_endpoint": null,
+    "mcp_endpoint": "https://chatgpt-skills.onrender.com/mcp",
     "tools": [
       "search_capabilities",
       "get_capability",
@@ -67,10 +67,10 @@
     "caregiver_coordinator": "excluded-conservatively-due-health-information-risk"
   },
   "blockers": [
-    "Deploy the read-only MCP server to a stable public HTTPS endpoint ending in /mcp.",
-    "Run MCP Inspector against the production endpoint.",
-    "Insert the verified endpoint into mcp.json and rebuild exact release bytes.",
-    "Complete remote MCP submission requirements including domain verification, demo URL and review test cases."
+    "Complete registry source-commit provenance and negative discovery audit.",
+    "Qualify exact 0.17.0 ZIP bytes and run native ChatGPT plugin/MCP semantic tests.",
+    "Update private plugin and verify installed release 0.17.0 and real MCP calls.",
+    "Complete developer/domain verification, demo and review requirements and submit for public review."
   ],
   "plugin": {
     "name": "cs-navigator",
@@ -152,5 +152,22 @@
         "expected": "Do not claim mastery from generated study materials alone; require stronger evidence such as retrieval, explanation, application or reduced repeated errors."
       }
     ]
+  },
+  "production_mcp_evidence": {
+    "endpoint": "https://chatgpt-skills.onrender.com/mcp",
+    "test_method": "MCP Inspector user-provided tool responses",
+    "tools_positive": [
+      "registry_status",
+      "get_capability",
+      "get_evidence",
+      "search_capabilities"
+    ],
+    "tools_negative_get_capability": [
+      "medical-appointment-prep",
+      "caregiver-coordinator"
+    ],
+    "capability_count_reported": 61,
+    "source_commit_reported": "development",
+    "qualification_scope": "MCP Inspector smoke tests; does not establish installed ChatGPT execution or public approval"
   }
 }
