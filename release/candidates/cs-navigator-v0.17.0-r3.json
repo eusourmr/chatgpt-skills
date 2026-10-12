@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "product": "CS Navigator",
+  "version": "0.17.0",
+  "candidate": "r3",
+  "candidate_state": "ci-package-candidate-unqualified",
+  "zip_sha256": "d39ec956c5af4acb6c2509ec6315b56ce5f7761b8c7479fd493480272416d0c5",
+  "entries": 21,
+  "build_command": "npm run build:public-plugin",
+  "source_branch": "release/0170-mcp-production-integration",
+  "source_commit": "0bdc9b9bfb2c845a74f39ea946a6e85bf101f890",
+  "qualification": {
+    "github_actions_package_build": "built-before-candidate-validation",
+    "zip_integrity_check": "pending-rerun",
+    "native_chatgpt_semantic": "not-tested",
+    "plugin_directory": "not-published"
+  },
+  "evidence_note": "Records exact ZIP hash and entry count produced by GitHub Actions run 38187042737. This is a packaging candidate, not semantic qualification or approval."
+}
