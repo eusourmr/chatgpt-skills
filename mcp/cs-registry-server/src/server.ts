@@ -205,6 +205,18 @@ const handler = createMcpHandler(() => {
 const app = createMcpExpressApp({ host: "0.0.0.0" });
 const nodeHandler = toNodeHandler(handler);
 
+// OpenAI Platform verifies domain control at the origin's well-known URL.
+// The token is supplied only as a Render environment variable, never committed.
+app.get("/.well-known/openai-apps-challenge", (_req, res) => {
+  const token = process.env.OPENAI_APPS_CHALLENGE_TOKEN?.trim();
+  if (!token) {
+    res.status(404).type("text/plain").send("Verification token not configured");
+    return;
+  }
+  res.set("Cache-Control", "no-store");
+  res.status(200).type("text/plain").send(token);
+});
+
 app.get("/", (_req, res) => {
   res.status(200).json({
     service: "cs-navigator-registry",
