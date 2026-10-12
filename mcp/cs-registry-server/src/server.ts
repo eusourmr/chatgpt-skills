@@ -111,7 +111,7 @@ const handler = createMcpHandler(() => {
         category: z.string().max(96).optional(),
         limit: z.number().int().min(1).max(20).default(8),
       }),
-      annotations: { readOnlyHint: true, openWorldHint: true },
+      annotations: { readOnlyHint: true, destructiveHint: false, openWorldHint: true },
     },
     async ({ query, category, limit }) => {
       const registry = await loadRegistry();
@@ -141,7 +141,7 @@ const handler = createMcpHandler(() => {
       description:
         "Get one current capability record from the public CS Navigator registry, including evidence, freshness, permissions, source and known gaps.",
       inputSchema: z.object({ id: z.string().min(1).max(128) }),
-      annotations: { readOnlyHint: true, openWorldHint: true },
+      annotations: { readOnlyHint: true, destructiveHint: false, openWorldHint: true },
     },
     async ({ id }) => {
       const registry = await loadRegistry();
@@ -157,7 +157,7 @@ const handler = createMcpHandler(() => {
       description:
         "Return the evidence boundary for a CS Navigator capability without claiming that discovery, packaging, or popularity equals testing.",
       inputSchema: z.object({ id: z.string().min(1).max(128) }),
-      annotations: { readOnlyHint: true, openWorldHint: true },
+      annotations: { readOnlyHint: true, destructiveHint: false, openWorldHint: true },
     },
     async ({ id }) => {
       const registry = await loadRegistry();
@@ -184,7 +184,7 @@ const handler = createMcpHandler(() => {
       description:
         "Return the live registry publication time, source commit and number of distributable capabilities.",
       inputSchema: z.object({}),
-      annotations: { readOnlyHint: true, openWorldHint: true },
+      annotations: { readOnlyHint: true, destructiveHint: false, openWorldHint: true },
     },
     async () => {
       const registry = await loadRegistry();
