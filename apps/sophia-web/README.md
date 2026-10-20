@@ -1,4 +1,4 @@
-# SophIA Web — Alpha 0.9
+# SophIA Web — Versão 1.0.0
 
 Interface web estática, sem API própria, que prepara conversas para o ChatGPT/Gemini do visitante. A aplicação pública continua em https://sophia.meuapoio.com/. Mantém Aprender, Escrever e Resolver.
 
@@ -62,3 +62,28 @@ Teste adicional: `node --test apps/sophia-web/tests/provider-handoff.test.mjs`.
 - Confirmação de XSS: IDs estritamente validados, texto sem HTML injetado.
 - A versão do catálogo permanece 0.9.5: o patch 0.9.6 não altera modelos editoriais.
 - Testes automatizados são complementares; Safari físico, VoiceOver/NVDA e PWA offline exigem homologação real.
+
+## SophIA 1.0.0 — release pública estável candidata à publicação
+
+**Identidade funcional estável:** Aprender/Escrever/Resolver; 14 métodos editoriais, sem execução de skills, IA remota, login ou telemetria de perguntas. O visitante decide o que copiar e usar na própria conta ChatGPT/Gemini. Persiste apenas rascunhos ou preferências em caso de opt-in explícito; o navegador e a hospedagem ainda podem produzir metadados operacionais.
+
+**Melhorias da 1.0:** consistência da versão visível, índice, baseline, manifesto e PWA; nova geração de hash SHA-256; pacote verificável e documentação de publicação/rollback; indexação pública (`robots index, follow`) e metadados básicos para compartilhamento, sem compartilhar pedidos pessoais; suíte automática estendida com gates de release. Sem alterações no motor de intenção ou no comportamento de abertura de apps testado pelo mantenedor no Android e iPhone.
+
+**Testes de release (raiz do repositório):**
+
+```sh
+node scripts/generate-sophia-index.mjs --check
+node scripts/build-sophia-catalog.mjs --check
+node scripts/validate-sophia-web.mjs
+node --test apps/sophia-web/tests/*.test.mjs
+```
+
+**Antes de publicar:** testar em `https://sophia.meuapoio.com/beta/`, conferir os cabeçalhos HTTP no domínio final (`frame-ancestors 'none'` e `X-Frame-Options: DENY`, previamente relatados pelo mantenedor), testar PWA offline, clipboard em dispositivos e modo de acessibilidade quando possível. O build não efetua deploy. Em caso de regressão, restaurar o backup de produção 0.9.6 e atualizar o Service Worker.
+
+**Proveniência:** as métricas dos 116 casos são de corpus de regressão desenvolvido com o produto, não validação independente nem prova de segurança absoluta. O baseline SHA-256 garante integridade relativa aos artefatos de release, não autenticação independente do servidor. Não alegar certificação do Gemini nem aprovação de testes que não foram executados.
+
+## v1.0.0 RC2 — hotfix da transferência
+
+O gesto “Copiar e abrir” não é atômico nem garantido em Android/iOS/desktop: o navegador pode bloquear popups e links intent. Por isso, a ação foi separada: botão **1. Copiar para…** com fallback síncrono de seleção+execCommand, API Clipboard assíncrona apenas como alternativa; link oficial **2. Abrir…** sempre disponível e clicável diretamente. Nenhum popup ou redirecionamento é disparado após `await`, e o prompt não vai em query strings. O Service Worker muda para `sophia-static-v1.0.0-v2`. Após instalar, atualizar o PWA instalado ou reabrir a página.
+
+Este hotfix ainda exige teste manual de cópia e transferência em aparelhos reais; os testes Node verificam lógica e invariantes estáticos, não substituem E2E.

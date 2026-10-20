@@ -1,13 +1,15 @@
-SophIA Alpha 0.9.5 — Catálogo Confiável e Transferência
+SophIA 1.0.0 — INSTALAÇÃO, TESTE E ROLLBACK
 
-1. Faça BACKUP da versão pública 0.9 na HostGator.
-2. Para testar, extraia o ZIP na raiz física do diretório /beta/ do subdomínio SophIA, com index.html na raiz.
-3. Confirme HTTPS, ícones, manifest.webmanifest, service worker, assets/catalog-baseline.json, assets/catalog-manifest.json, assets/catalog-loader.js.
-4. Teste 4 casos: pedido direto, pedido especializado, pedido urgente e URL ?skill=travel-readiness. Não coloque pedidos pessoais em URL.
-5. Teste "Copiar e abrir" com clipboard permitido e negado, no Android Chrome, iPhone Safari e Windows. Algumas plataformas exigem o link oficial depois da cópia.
-6. Desligue o Wi-Fi, reabra o PWA depois de um carregamento completo e verifique a mensagem e o catálogo de fallback.
-7. Após a homologação e PR aprovado, substitua os arquivos do site principal manualmente. Confirme o manifesto e, se necessário, atualize/reinstale o PWA.
+1. Preserve um backup integral da versão 0.9.6 atualmente publicada, incluindo o arquivo .htaccess (se houver) e a configuração de cabeçalhos. Não inclua dados do usuário em backups do site estático.
+2. Publique primeiramente o conteúdo da pasta pública deste ZIP em https://sophia.meuapoio.com/beta/ (o index.html fica na raiz da pasta beta). A pasta `catalog` e `tests` não precisam ser publicados.
+3. Confira se a beta mostra “SophIA 1.0”, carrega os 14 métodos e produz orientações sem API. Confirme PWA (`manifest.webmanifest`, `sw.js`) e o manifesto do catálogo. URLs `?skill=id` jamais contêm texto pessoal.
+4. Teste Aprender/Escrever/Resolver; modo direto/curadoria; avaliações; copiar e abrir ChatGPT/Gemini; iPhone Safari (segundo toque); Android; compartilhamento de métodos; limpeza de preferências e modo offline após carregamento.
+5. Confirme o HTTPS, a proteção `X-Frame-Options: DENY` e `Content-Security-Policy: frame-ancestors 'none'` no domínio de produção. Cheque também nos endpoints de HTML após publicar. O usuário mostrou esses cabeçalhos em 20/10/2026, mas a confirmação da configuração atual permanece necessária.
+6. Após PR revisto e checks verdes, instale de forma controlada na raiz `sophia.meuapoio.com/`. Não substitua o `.htaccess` existente automaticamente.
+7. Abra o PWA instalado, atualize/reinicie, e confira cache novo `sophia-static-v1.0.0-v1`. Limpe o cache apenas se a atualização ficar retida.
+8. ROLLBACK: restaure o backup integral da versão 0.9.6 e seus cabeçalhos HTTP, confira o SW anterior, force atualização/reabertura dos clientes e repita os testes essenciais. Não remova dados de preferências voluntárias sem consentimento.
 
-Sem API paga, login, envio automático de pergunta, execução de skill remota ou sync com conta ChatGPT/Gemini.
+VERSÃO: 1.0.0 | DATA: 20/10/2026 | TIPO: candidata de publicação com revisão final.
+LIMITES: não houve teste automatizado em iPhone físico, NVDA/VoiceOver, nem comprovação independente de segurança; o mantenedor relatou teste manual no Android e no iPhone da 0.9.6.
 
-Alpha 0.9.6: testar especialmente no iOS Safari o fluxo COPIAR => AGORA ABRIR (segundo toque), com foco e leitor de tela. Validar também 48px e PWA em modo avião. Testar /beta/ antes da produção.
+ATENÇÃO — RC2: caso a 1.0 tenha sido instalada, ao atualizar arquivos, feche completamente a PWA e abra novamente. O service worker muda para v1.0.0-v2; caso a versão antiga continue aparecendo, limpe apenas o cache do site e reabra. Não limpe armazenamento de dados voluntários sem consentimento. Confirme os botões '1. Copiar para...' e links '2. Abrir...' no Android e iPhone.

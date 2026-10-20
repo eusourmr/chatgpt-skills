@@ -16,3 +16,10 @@ test('offline PWA pre-cache contains baseline, live catalog, router and launcher
   }
   assert.match(sw,/caches\.match\(key\)/);
 });
+
+test('network-first app modules avoid serving stale JavaScript with updated HTML',()=>{
+ const sw=readFileSync(new URL('../sw.js',import.meta.url),'utf8');
+ assert.match(sw,/filename\.startsWith\('assets\/'\) && filename\.endsWith\('\.js'\)/);
+ assert.match(sw,/new Request\(req, \{cache:'no-store'\}\)/);
+ assert.ok(sw.includes("'./assets/clipboard.js'"));
+});

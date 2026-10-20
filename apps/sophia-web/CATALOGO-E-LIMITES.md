@@ -1,4 +1,4 @@
-# SophIA 0.7: metodologia e limites
+# SophIA 1.0: metodologia e limites
 
 A aplicação usa apenas 14 templates editoriais no arquivo `assets/skill-index.json`, derivados de IDs válidos do CS Navigator. Todas as capacidades escolhidas têm **estado de evidência declarado `designed`** no registry examinado, e a forma de entrega é `registry_only`: não há instalação ou invocação automática.
 
@@ -27,3 +27,7 @@ A opção deliberada é carregar o catálogo do mesmo domínio, com verificaçã
 
 ## Alpha 0.9.6: limites confirmados
 O SHA-256 verifica integridade do pacote servido, sem autenticação criptográfica independente. O catálogo só atualiza após curadoria e novo release. O feedback externo de arquitetura não substitui acesso, revisão de código e testes em dispositivos reais.
+
+## SophIA 1.0: escopo e confiança
+
+O catálogo mantém as **mesmas 14 entradas editoriais**, ainda no estado de evidência declarado no registry; a promoção de versão NÃO eleva estados `designed` a `tested`. O roteador é lexical/heurístico: em caso de baixa confiança, preferir conversa direta. O sucesso relatado pelo visitante não é um resultado verificado. Sem coleta remota de mensagens, sem login e sem execução de skills. Publicação deve passar por PR, CI e revisão humana; HTTPS/cabeçalhos devem continuar configurados na hospedagem.
