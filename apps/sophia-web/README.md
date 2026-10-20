@@ -54,3 +54,11 @@ Teste adicional: `node --test apps/sophia-web/tests/provider-handoff.test.mjs`.
 - Compartilhamento inclui **somente ID público** em `?skill=...`. O parâmetro não ativa ou executa método sem demanda contextual do usuário.
 - Avisos de transparência não prometem 100% de anonimato: HostGator registra metadados técnicos e a pessoa decide o que enviar à IA escolhida.
 - **Não existe deploy automático para HostGator.** O GitHub é fonte de curadoria, testes e artefatos. Após CI, publicar manualmente ZIP homologado, idealmente com atualização atômica e rollback. O modo offline preserva o catálogo empacotado quando corretamente cacheado pelo PWA.
+
+## Alpha 0.9.6 — Correções a partir da auditoria externa
+- iOS/iPadOS e Safari/macOS: **cópia seguida de link explícito**; não tentar abrir popup depois de aguardar permissão do clipboard. A navegação automática segue apenas como melhor esforço em outros navegadores, sempre com link acionável de reserva.
+- Novo link de continuação com foco visível; resultado e método anunciados, foco direcionado ao título após a preparação da orientação. Alvos de toque de pelo menos 48 px nos controles principais da jornada.
+- Catálogo: SHA-256 é proteção de **integridade**, NÃO assinatura, garantia contra comprometimento do servidor nem SWR remoto.
+- Confirmação de XSS: IDs estritamente validados, texto sem HTML injetado.
+- A versão do catálogo permanece 0.9.5: o patch 0.9.6 não altera modelos editoriais.
+- Testes automatizados são complementares; Safari físico, VoiceOver/NVDA e PWA offline exigem homologação real.

@@ -24,3 +24,6 @@ O novo ciclo **não aprende semanticamente**, não treina modelos e não comprov
 ## Alpha 0.9.5 — atualização governada
 
 A opção deliberada é carregar o catálogo do mesmo domínio, com verificação SHA-256 contra manifesto e comparação com baseline imutável embutida no aplicativo. Não acessamos CDN de terceiros em nome dos visitantes. Não integramos automaticamente nenhuma das outras entradas apenas descobertas no registry. Métodos não previamente aprovados exigem PR com nova curadoria, testes, análise de segurança e uma nova aplicação. A checagem de hash não protege contra comprometimento do próprio servidor; mantém consistência de release, detecta atualização parcial e permite recuo à cópia segura.
+
+## Alpha 0.9.6: limites confirmados
+O SHA-256 verifica integridade do pacote servido, sem autenticação criptográfica independente. O catálogo só atualiza após curadoria e novo release. O feedback externo de arquitetura não substitui acesso, revisão de código e testes em dispositivos reais.

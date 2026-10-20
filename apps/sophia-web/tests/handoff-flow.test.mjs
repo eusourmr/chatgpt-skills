@@ -15,3 +15,13 @@ test('copy fails closed before navigating',()=>{
  assert.ok(block.indexOf('await navigator.clipboard.writeText(text)')<block.indexOf('window.location.assign(plan.href)'));
  assert.match(block,/catch\{\s*preview\.focus\(\);preview\.select\(\);/);
 });
+
+test('Safari takes explicit next-link route and keeps copy-first invariant',()=>{
+ const start=source.indexOf("for(const btn of document.querySelectorAll('[data-copy-open]'))");
+ const block=source.slice(start,source.indexOf('start();',start));
+ assert.match(block,/if\(needsExplicitOpen\(navigator\.userAgent\)\)\{/);
+ assert.match(block,/offerProviderContinuation\(plan\)/);
+ assert.ok(block.indexOf('await navigator.clipboard.writeText(text)') < block.indexOf('offerProviderContinuation(plan)'));
+ assert.ok(block.indexOf('offerProviderContinuation(plan)') < block.indexOf('if(needsExplicitOpen(navigator.userAgent))'));
+ assert.match(block,/if\(needsExplicitOpen\(navigator\.userAgent\)\)\{[\s\S]*?return;[\s\S]*?window\.open/);
+});

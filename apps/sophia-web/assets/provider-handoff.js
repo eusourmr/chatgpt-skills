@@ -21,6 +21,13 @@ export function planProviderOpen(provider,userAgent='') {
   }
   return {href:p.web,target:android||ios?'_self':'_blank',mode:'https',web:p.web,label:p.label};
 }
+// On WebKit/Safari, async clipboard permission may consume transient user activation.
+// An explicit second tap is reliable and avoids blank pages or blocked popups.
+export function needsExplicitOpen(userAgent='') {
+  const ua=String(userAgent);
+  if(/iPhone|iPad|iPod/i.test(ua)) return true;
+  return /Macintosh/i.test(ua) && /Safari\//i.test(ua) && !/Chrome\/|Chromium\/|CriOS\/|Edg\/|OPR\/|Firefox\/|FxiOS\//i.test(ua);
+}
 export function detectProvider(href){
   try{const u=new URL(href);if(u.protocol!=='https:')return null;
     return u.hostname==='chatgpt.com'?'chatgpt':u.hostname==='gemini.google.com'?'gemini':null;
