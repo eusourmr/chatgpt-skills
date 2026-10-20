@@ -25,7 +25,7 @@ test('PWA identity survives upgrade and ships scoped cache',()=>{
  assert.equal(manifest.id,'./');
  assert.equal(manifest.scope,'./');
  assert.equal(manifest.display,'standalone');
- assert.match(sw,/sophia-static-v1\.0\.0-v1/);
+ assert.match(sw,/sophia-static-v1\.0\.0-v2/);
  assert.match(index,/SophIA 1\.0/);
 });
 test('public discovery metadata do not disclose personal prompts',()=>{

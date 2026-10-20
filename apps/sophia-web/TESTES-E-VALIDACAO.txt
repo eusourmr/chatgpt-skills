@@ -21,3 +21,5 @@ SophIA 1.0.0 — fechamento da suíte local em 20/10/2026
 - Não houve alteração na lógica do roteador, na transferência para apps externos ou no armazenamento de rascunhos da 0.9.6.
 - Android/iPhone: usuário confirmou testes na 0.9.6; não afirmar que a 1.0 já foi homologada em aparelhos físicos.
 - GitHub CI e HostGator: verificar após PR/instalação. Testes físicos offline e VoiceOver/NVDA ainda devem ser confirmados quando disponíveis.
+
+RC2 Hotfix da cópia/abertura: 39 testes locais aprovados. Verificação estática não substitui testes nos navegadores reais. SW v1.0.0-v2 atualizado para evitar JS antigo com HTML novo.

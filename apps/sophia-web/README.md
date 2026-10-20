@@ -81,3 +81,9 @@ node --test apps/sophia-web/tests/*.test.mjs
 **Antes de publicar:** testar em `https://sophia.meuapoio.com/beta/`, conferir os cabeçalhos HTTP no domínio final (`frame-ancestors 'none'` e `X-Frame-Options: DENY`, previamente relatados pelo mantenedor), testar PWA offline, clipboard em dispositivos e modo de acessibilidade quando possível. O build não efetua deploy. Em caso de regressão, restaurar o backup de produção 0.9.6 e atualizar o Service Worker.
 
 **Proveniência:** as métricas dos 116 casos são de corpus de regressão desenvolvido com o produto, não validação independente nem prova de segurança absoluta. O baseline SHA-256 garante integridade relativa aos artefatos de release, não autenticação independente do servidor. Não alegar certificação do Gemini nem aprovação de testes que não foram executados.
+
+## v1.0.0 RC2 — hotfix da transferência
+
+O gesto “Copiar e abrir” não é atômico nem garantido em Android/iOS/desktop: o navegador pode bloquear popups e links intent. Por isso, a ação foi separada: botão **1. Copiar para…** com fallback síncrono de seleção+execCommand, API Clipboard assíncrona apenas como alternativa; link oficial **2. Abrir…** sempre disponível e clicável diretamente. Nenhum popup ou redirecionamento é disparado após `await`, e o prompt não vai em query strings. O Service Worker muda para `sophia-static-v1.0.0-v2`. Após instalar, atualizar o PWA instalado ou reabrir a página.
+
+Este hotfix ainda exige teste manual de cópia e transferência em aparelhos reais; os testes Node verificam lógica e invariantes estáticos, não substituem E2E.

@@ -1,5 +1,6 @@
 import {readGovernedCatalog,trustedShareId,shareMethodUrl} from './catalog-loader.js';
-import {planProviderOpen,needsExplicitOpen} from './provider-handoff.js';
+import {planProviderOpen} from './provider-handoff.js';
+import {copyWithFallback} from './clipboard.js';
 import {OUTCOMES,emptyPreferences,loadPreferences,savePreferences,clearPreferences,recordOutcome,orderAmbiguousOptions,feedbackPrompt} from './feedback.js';
 import {normalize,route,compose,validateCatalog,classifyRisk,clarify,composeFollowUp} from './router.js';
 const $=id=>document.getElementById(id);
@@ -26,6 +27,17 @@ const clarBox=$('launcher-clarify'),clarInput=$('launcher-clarify-input'),clarQu
 const show=(message)=>{status.textContent=message;};
 const nextProvider=$('launcher-next-provider');
 function clearProviderContinuation(){nextProvider.hidden=true;nextProvider.removeAttribute('href');}
+function selectPreview(){preview.focus({preventScroll:true});preview.select();}
+async function copyPreview(){
+  // execCommand is deprecated, but still a useful synchronous compatibility fallback
+  // on browser versions where Clipboard.writeText is unavailable or denied.
+  return copyWithFallback(preview.value,{
+    legacyCopy:()=>{selectPreview();return document.execCommand?.('copy')===true;},
+    modernCopy:window.isSecureContext&&navigator.clipboard?.writeText
+      ? text=>navigator.clipboard.writeText(text):null
+  });
+}
+
 function focusResult(){
   $('launcher-result-title').focus({preventScroll:true});
   result.scrollIntoView({behavior:'smooth',block:'start'});
@@ -38,10 +50,6 @@ function offerProviderContinuation(plan){
   nextProvider.rel='noopener noreferrer';
   nextProvider.hidden=false;
   nextProvider.focus({preventScroll:true});
-}
-if(needsExplicitOpen(navigator.userAgent)){
-  for(const button of document.querySelectorAll('[data-copy-open]'))
-    button.textContent='Copiar para '+(button.dataset.copyOpen==='gemini'?'Gemini':'ChatGPT');
 }
 
 async function start(){
@@ -126,13 +134,11 @@ field.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&even
 depth.addEventListener('change',()=>{storeOptional();if(!result.hidden && currentRoute?.status!=='urgent')update(selected);});
 document.querySelectorAll('[data-launch-example]').forEach(b=>b.addEventListener('click',()=>{field.value=b.dataset.launchExample;clearProviderContinuation();result.hidden=true;clarBox.hidden=true;resetFeedback();field.focus();}));
 $('launcher-copy').addEventListener('click',async()=>{
- const text=preview.value;
- try{
-  if(navigator.clipboard && window.isSecureContext){await navigator.clipboard.writeText(text);show('Texto copiado. Agora abra a sua IA e cole na conversa.');}
-  else throw Error('Clipboard unavailable');
- }catch(e){preview.focus();preview.select();show('Selecionei o texto. Use Ctrl+C (ou Copiar no celular), depois cole na IA.');}
+ const result=await copyPreview();
+ if(result.ok)show('Texto copiado. Toque em Abrir ChatGPT ou Abrir Gemini e cole na conversa.');
+ else {selectPreview();show('Cópia automática não disponível. O texto foi selecionado: copie manualmente e toque em Abrir ChatGPT ou Abrir Gemini.');}
 });
-$('launcher-select').addEventListener('click',()=>{preview.focus();preview.select();show('Texto selecionado. Copie e cole na IA de sua preferência.');});
+$('launcher-select').addEventListener('click',()=>{selectPreview();show('Texto selecionado. Copie e cole na IA de sua preferência.');});
 
 // Only explicit user click, only public method IDs in links; personal text is never in a URL.
 $('launcher-share').addEventListener('click',async()=>{
@@ -151,35 +157,19 @@ $('launcher-share').addEventListener('click',async()=>{
   $('launcher-restore-preview').onclick=()=>{preview.value=previous;$('launcher-restore-preview').hidden=true;};
  }
 });
-// Best effort: copy FIRST. If denied, never navigate away with an uncopied prompt.
+// Copy and open are deliberately separate user gestures. Never navigate after await.
 for(const btn of document.querySelectorAll('[data-copy-open]'))btn.addEventListener('click',async()=>{
- if(result.hidden||currentRoute?.status==='urgent')return;
- const text=preview.value;
- if(!text){show('Prepare sua orientação primeiro.');return;}
- const provider=btn.dataset.copyOpen;
- const plan=planProviderOpen(provider,navigator.userAgent);
- try{
-   if(!navigator.clipboard||!window.isSecureContext)throw Error('Clipboard unavailable');
-   await navigator.clipboard.writeText(text);
- }catch{
-   preview.focus();preview.select();
-   show('A cópia automática não foi permitida. Use Ctrl+C ou Copiar e depois toque em Abrir '+plan.label+'.');
-   return;
- }
- // Offer the explicit, keyboard-accessible follow-up BEFORE any navigation.
- offerProviderContinuation(plan);
- if(needsExplicitOpen(navigator.userAgent)){
-   show('Texto copiado. Para abrir '+plan.label+' com segurança no Safari, toque em “Agora abrir '+plan.label+'”. Depois cole a orientação.');
-   return;
- }
- show('Texto copiado. Tentando abrir '+plan.label+'. Se não abrir, toque em “Agora abrir '+plan.label+'”.');
- // A popup after await may still be blocked on other browsers. No timer or automatic retry.
- try{
-   if(plan.target==='_blank'){
-     window.open(plan.href,'_blank','noopener,noreferrer');
-     show('Texto copiado. Se a aba não abriu, toque em “Agora abrir '+plan.label+'”.');
-   }else window.location.assign(plan.href);
- }catch{show('Texto copiado. Toque em “Agora abrir '+plan.label+'” para continuar.');}
+  if(result.hidden||currentRoute?.status==='urgent')return;
+  const plan=planProviderOpen(btn.dataset.copyOpen,navigator.userAgent);
+  const copied=await copyPreview();
+  if(copied.ok){
+    offerProviderContinuation(plan);
+    show('Orientação copiada. Agora toque em “Abrir '+plan.label+'” e cole a mensagem.');
+  }else{
+    clearProviderContinuation();
+    selectPreview();
+    show('Não foi possível copiar automaticamente. Copie o texto selecionado e use o link “Abrir '+plan.label+'” logo abaixo.');
+  }
 });
 
 start();

@@ -11,3 +11,5 @@ SophIA 1.0.0 — INSTALAÇÃO, TESTE E ROLLBACK
 
 VERSÃO: 1.0.0 | DATA: 20/10/2026 | TIPO: candidata de publicação com revisão final.
 LIMITES: não houve teste automatizado em iPhone físico, NVDA/VoiceOver, nem comprovação independente de segurança; o mantenedor relatou teste manual no Android e no iPhone da 0.9.6.
+
+ATENÇÃO — RC2: caso a 1.0 tenha sido instalada, ao atualizar arquivos, feche completamente a PWA e abra novamente. O service worker muda para v1.0.0-v2; caso a versão antiga continue aparecendo, limpe apenas o cache do site e reabra. Não limpe armazenamento de dados voluntários sem consentimento. Confirme os botões '1. Copiar para...' e links '2. Abrir...' no Android e iPhone.

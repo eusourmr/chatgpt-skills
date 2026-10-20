@@ -19,3 +19,11 @@ Data: 20/10/2026. Base: Alpha 0.9.6, PR #99 já integrado à `main`.
 - CI do PR 1.0 e suíte de testes: resultados devem ser citados somente após execução.
 - Pendente para homologação final: experiência offline real, leitores de tela, captura de console no dispositivo, implantação da 1.0 na HostGator.
 - O GitHub release não faz deploy; nenhuma skill passa de `designed` para `tested` por essa versão.
+
+## Correção RC2 — handoff após relato de falha
+- Botões separados em copiar (com tentativa síncrona para compatibilidade e API moderna opcional) e abrir (link HTTPS oficial, gesto explícito).
+- Retirados links Android `intent://`, popups assíncronos e tentativa de navegação após `await`.
+- Links diretos sempre visíveis, mesmo se a cópia for negada.
+- Service Worker agora consulta a rede para HTML e módulos, usando cache offline como fallback; cache de release v1.0.0-v2.
+- Preservação do catálogo de 14 métodos e da política de não colocar dados pessoais em URLs.
+- Requer reteste em Android/iPhone; não inferir que o defeito original foi eliminado sem validação em aparelhos reais.
