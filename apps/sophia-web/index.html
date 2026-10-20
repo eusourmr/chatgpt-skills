@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#183331">
   <meta name="description" content="SophIA: organize o que deseja aprender, escrever ou resolver. Um caminho simples, responsável e sem exigir instalação.">
   <meta name="robots" content="noindex, nofollow">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-PAln6Bbma6tf0oTDc/oej5+nozxccafVcsOXASmsMGs='; style-src 'sha256-mJYOOmUCMB0j7HlgZpyOgrh4up6AG9sKiJqdpkTmbB8='; img-src data: 'self'; font-src 'none'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-PAln6Bbma6tf0oTDc/oej5+nozxccafVcsOXASmsMGs='; style-src 'sha256-8+jsKO9HpXyzTbGdVlKWxmseckT8xPAHMqHPmsukxPo='; img-src data: 'self'; font-src 'none'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
   <title>SophIA — Clareza para o próximo passo</title>
   <link rel="icon" type="image/png" href="icons/icon-192.png">
   <style>:root{--ink:#19332f;--ink2:#385450;--dark:#14302d;--cream:#f8f7f3;--paper:#fffefa;--sand:#f0eee7;--line:#e3e5de;--gold:#e7c98d;--teal:#295d55;--muted:#61716c;--shadow:0 16px 48px rgba(19,51,44,.075)}
@@ -201,6 +201,10 @@ html{overflow-x:clip}
 #pwa-install-button[hidden],.launcher-clarify[hidden]{display:none!important}
 @media(max-width:620px){.launcher-clarify-row{flex-direction:column}.launcher-clarify-row .submit-button{width:100%}.launcher-follow-actions{display:grid;grid-template-columns:1fr 1fr}.launcher-follow-actions button{width:100%}}
 @media(max-width:345px){.launcher-follow-actions{grid-template-columns:1fr}}
+
+/* Alpha 0.7.1: deliberate fallback when opening installed third-party apps. */
+a.provider-web-fallback{font-size:12px!important;font-weight:600!important;border-style:dashed!important;color:#4a6e62!important;background:#f8faf7!important}
+a.provider-web-fallback:focus-visible{outline:3px solid #d5a34d;outline-offset:3px}
 </style>
   <script type="module">'use strict';
 (() => {
@@ -735,5 +739,6 @@ html{overflow-x:clip}
   <footer class="footer"><div class="shell footer-inner"><div><div class="footer-brand"><img class="brand-icon" src="identidade/icone-lanterna.png" alt="" width="37" height="37"><strong>Soph<span>IA</span></strong></div><p>Uma experiência do projeto CS Navigator.</p></div><div><a href="privacidade.html">Privacidade e limites</a><a href="https://github.com/eusourmr/chatgpt-skills" target="_blank" rel="noopener noreferrer">Projeto no GitHub ↗</a></div><small>Alpha 0.7 · 2026</small></div></footer>
   <div class="status-message" id="status-message" role="status" aria-live="polite" hidden></div>
   <script type="module" src="./assets/launcher.js"></script>
+  <script type="module" src="./assets/provider-handoff.js"></script>
 </body>
 </html>
