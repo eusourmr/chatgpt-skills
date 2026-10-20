@@ -1,15 +1,8 @@
-SophIA 0.6 — Registro de verificação (20/10/2026)
+SophIA Alpha 0.7 — evidências verificáveis
 
-PASS: 10 testes do roteador Node.js (metadados, seleção, fallback, risco explícito, sem execução indevida).
-PASS: sintaxe JavaScript dos 3 arquivos.
-PASS: integridade dos hashes CSP de estilo e script.
-PASS: correspondência de todos os caminhos do catálogo, SW, manifest e imagens.
-PASS: integridade dos pacotes ZIP.
-PASS: gerador de índice reprodutível testado com fixture (14 entradas válidas).
-
-PENDENTE: teste end-to-end no navegador e responsividade visual em 320/390/768/1024/1366/1920 px. O navegador do ambiente bloqueou HTTP local e file:// por política de administrador; portanto NÃO foram homologados visualmente nesta execução.
-PENDENTE: teste PWA e offline em dispositivos reais e teste dos links externos após upload.
-
-Cenários sugeridos após instalação: cobrança cordial, currículo, estudo, erro no código, questão trivial 8 vezes 7, caso ambíguo, falta de internet e abertura manual no ChatGPT/Gemini.
-
-A SophIA NÃO envia perguntas automaticamente nem executa skills do registry.
+Automação local: node --test apps/sophia-web/tests/launcher.test.mjs
+Gerador: node scripts/generate-sophia-index.mjs --check (índice imutável da 0.6)
+CSP/paths: node scripts/validate-sophia-web.mjs
+Runtime sintático: node --check assets/*.js e sw.js
+PWA HTML e responsividade: verificar separadamente em navegador real ou headless, incluindo instalações reais no sistema operacional.
+IMPORTANTE: HTTP links externos não podem universalmente abrir PWA instalado.

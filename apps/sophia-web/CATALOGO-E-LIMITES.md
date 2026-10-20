@@ -1,4 +1,4 @@
-# SophIA 0.6: metodologia e limites
+# SophIA 0.7: metodologia e limites
 
 A aplicação usa apenas 14 templates editoriais no arquivo `assets/skill-index.json`, derivados de IDs válidos do CS Navigator. Todas as capacidades escolhidas têm **estado de evidência declarado `designed`** no registry examinado, e a forma de entrega é `registry_only`: não há instalação ou invocação automática.
 
@@ -9,3 +9,5 @@ O botão para a IA abre apenas a página oficial; não coloca perguntas confiden
 A geração de catálogo pelo GitHub Actions deve ser acrescentada/qualificada ao integrar `apps/sophia-web/` ao repositório; esta Alpha traz um **snapshot editorial versionado**, não um sincronizador automático. Não edite o índice de produção com conteúdos remotos sem revisão e testes.
 
 A política de privacidade deve ser auditada novamente antes de lançamento público geral, inclusive recursos que a HostGator ou terceiros possam registrar como logs de acesso.
+
+A orientação de continuidade não acessa a conversa no ChatGPT/Gemini, apenas o texto que a pessoa digitar ou colar. O navegador/SO controla abertura de links no aplicativo instalado.

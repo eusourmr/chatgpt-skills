@@ -1,7 +1,7 @@
 {
-  "name": "SophIA — Clareza para o próximo passo",
+  "name": "SophIA — Seu próximo passo",
   "short_name": "SophIA",
-  "description": "SophIA 0.6: curadoria local e orientações para a IA da própria pessoa, sem API paga pelo projeto.",
+  "description": "SophIA 0.7: orientação local, perguntas essenciais e continuidade com a IA da própria pessoa.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
@@ -21,5 +21,12 @@
       "type": "image/png",
       "purpose": "any"
     }
-  ]
+  ],
+  "id": "./",
+  "launch_handler": {
+    "client_mode": [
+      "focus-existing",
+      "auto"
+    ]
+  }
 }
