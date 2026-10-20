@@ -5,6 +5,7 @@ on:
       - 'apps/sophia-web/**'
       - 'scripts/generate-sophia-index.mjs'
       - 'scripts/validate-sophia-web.mjs'
+      - 'scripts/build-sophia-catalog.mjs'
       - 'registry/public-capabilities-v1.json'
       - '.github/workflows/validate-sophia-web.yml'
   push:
@@ -13,6 +14,7 @@ on:
       - 'apps/sophia-web/**'
       - 'scripts/generate-sophia-index.mjs'
       - 'scripts/validate-sophia-web.mjs'
+      - 'scripts/build-sophia-catalog.mjs'
       - 'registry/public-capabilities-v1.json'
       - '.github/workflows/validate-sophia-web.yml'
   workflow_dispatch:
@@ -32,6 +34,8 @@ jobs:
           node-version: '22'
       - name: Conferir índice editorial contra o registry
         run: node scripts/generate-sophia-index.mjs --check
+      - name: Verificar catálogo governado
+        run: node scripts/build-sophia-catalog.mjs --check
       - name: Verificar arquivos estáticos e CSP
         run: node scripts/validate-sophia-web.mjs
       - name: Testar busca e roteamento
@@ -40,5 +44,7 @@ jobs:
         run: |
           node --check apps/sophia-web/assets/router.js
           node --check apps/sophia-web/assets/launcher.js
+          node --check apps/sophia-web/assets/catalog-loader.js
+          node --check apps/sophia-web/assets/feedback.js
           node --check apps/sophia-web/assets/provider-handoff.js
           node --check apps/sophia-web/sw.js

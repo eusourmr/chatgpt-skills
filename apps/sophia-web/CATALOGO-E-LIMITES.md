@@ -20,3 +20,7 @@ O motor é determinístico/lexical com padrões de linguagem: não usa embedding
 ## Alpha 0.9: aprendizado limitado ao navegador
 
 O novo ciclo **não aprende semanticamente**, não treina modelos e não comprova resultados. Feedback é relato voluntário. O perfil persistente exige opt-in, contém apenas estilo e contadores limitados a 5 por método, e somente desempata dois métodos já plausíveis. Dados do pedido e respostas de outros sistemas nunca são persistidos por esta extensão. Não enviar telemetria.
+
+## Alpha 0.9.5 — atualização governada
+
+A opção deliberada é carregar o catálogo do mesmo domínio, com verificação SHA-256 contra manifesto e comparação com baseline imutável embutida no aplicativo. Não acessamos CDN de terceiros em nome dos visitantes. Não integramos automaticamente nenhuma das outras entradas apenas descobertas no registry. Métodos não previamente aprovados exigem PR com nova curadoria, testes, análise de segurança e uma nova aplicação. A checagem de hash não protege contra comprometimento do próprio servidor; mantém consistência de release, detecta atualização parcial e permite recuo à cópia segura.

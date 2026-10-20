@@ -44,3 +44,13 @@ Teste adicional: `node --test apps/sophia-web/tests/provider-handoff.test.mjs`.
 - PWA mantém comportamento de lançamento e abertura externa da 0.7.1; o novo cache carrega `assets/feedback.js`.
 - Testar: `node --test apps/sophia-web/tests/*.test.mjs`; CSP, checksums, funcional e visual em beta. Sem backend, login, chaves ou API paga.
 - Esta etapa **não implementa aprendizado de máquina**; trata-se de personalização local e controlada por feedback.
+
+## Alpha 0.9.5 — catálogo governado, transferência e privacidade
+
+- O índice `assets/skill-index.json` é resultado de **templates editoriais aprovados** e do registry, jamais das pastas `SKILL.md` automaticamente. Os 14 métodos não são executáveis nem considerados tested por mera presença no repositório.
+- `assets/catalog-manifest.json` contém SHA-256 e metadados; `assets/catalog-baseline.json` é a cópia imutável e limitada a esta versão. `assets/catalog-loader.js` compara digest e método/termos/IDs com baseline. Em caso de erro usa fallback. Integridade detecta diferença de arquivos, **não** autenticação independente do servidor. Atualização de templates requer uma release revisada e novos arquivos; não há espelhamento instantâneo de qualquer skill nem consulta ao CDN.
+- `scripts/build-sophia-catalog.mjs --check` verifica consistência das duas cópias e metadados; na raiz do repositório. Para gerar, executar sem `--check`, revisar diff e aprovar PR.
+- Ação "Copiar e abrir" tenta copiar localmente, com alternativa de seleção e link oficial quando clipboard ou sistema bloqueiam. Abrir app externo é determinado pelo navegador/SO. Nunca coloca prompt em URL.
+- Compartilhamento inclui **somente ID público** em `?skill=...`. O parâmetro não ativa ou executa método sem demanda contextual do usuário.
+- Avisos de transparência não prometem 100% de anonimato: HostGator registra metadados técnicos e a pessoa decide o que enviar à IA escolhida.
+- **Não existe deploy automático para HostGator.** O GitHub é fonte de curadoria, testes e artefatos. Após CI, publicar manualmente ZIP homologado, idealmente com atualização atômica e rollback. O modo offline preserva o catálogo empacotado quando corretamente cacheado pelo PWA.
