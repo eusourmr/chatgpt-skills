@@ -1,7 +1,7 @@
 {
   "name": "SophIA — Seu próximo passo",
   "short_name": "SophIA",
-  "description": "SophIA 0.7: orientação local, perguntas essenciais e continuidade com a IA da própria pessoa.",
+  "description": "SophIA 0.8: orientação local mais precisa, perguntas essenciais e continuidade com a IA da própria pessoa.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

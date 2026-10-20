@@ -11,3 +11,8 @@ A geração de catálogo pelo GitHub Actions deve ser acrescentada/qualificada a
 A política de privacidade deve ser auditada novamente antes de lançamento público geral, inclusive recursos que a HostGator ou terceiros possam registrar como logs de acesso.
 
 A orientação de continuidade não acessa a conversa no ChatGPT/Gemini, apenas o texto que a pessoa digitar ou colar. O navegador/SO controla abertura de links no aplicativo instalado.
+
+
+## Limite da curadoria Alpha 0.8
+
+O motor é determinístico/lexical com padrões de linguagem: não usa embeddings, modelos ou APIs. Os 14 métodos têm proveniência editorial e estado `designed`; não afirmar que foram executados nem que a qualificação humana ocorreu. Quando o mecanismo não atinge evidência suficiente, permanece em modo direto. `tests/intent-cases.json` contém 116 cenários rotulados no desenvolvimento e não se confunde com avaliação humana independente.

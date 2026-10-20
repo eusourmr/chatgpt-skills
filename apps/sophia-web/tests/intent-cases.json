@@ -1,0 +1,470 @@
+{
+  "schema_version": 1,
+  "purpose": "heuristic routing fixture — authored test corpus; not independent human evaluation",
+  "cases": [
+    {
+      "query": "Quero estudar para prova de história na escola",
+      "expected": "learning-mastery-coach"
+    },
+    {
+      "query": "Como posso memorizar matéria para o vestibular?",
+      "expected": "learning-mastery-coach"
+    },
+    {
+      "query": "Me ensine a aprender inglês em pequenas etapas",
+      "expected": "learning-mastery-coach"
+    },
+    {
+      "query": "Quero aprender matemática para o ENEM",
+      "expected": "learning-mastery-coach"
+    },
+    {
+      "query": "Preciso estudar para uma prova e testar se entendi",
+      "expected": "learning-mastery-coach"
+    },
+    {
+      "query": "Como me preparar para concurso público e revisar os temas",
+      "expected": "learning-mastery-coach"
+    },
+    {
+      "query": "Melhorar meu currículo sem inventar experiências",
+      "expected": "text-integrity-editor"
+    },
+    {
+      "query": "Pode revisar meu texto para melhorar clareza e gramática?",
+      "expected": "text-integrity-editor"
+    },
+    {
+      "query": "Quero corrigir um email de apresentação profissional",
+      "expected": "text-integrity-editor"
+    },
+    {
+      "query": "Preciso reescrever um texto de forma objetiva",
+      "expected": "text-integrity-editor"
+    },
+    {
+      "query": "Me ajude a corrigir a ortografia deste parágrafo",
+      "expected": "text-integrity-editor"
+    },
+    {
+      "query": "Preciso melhorar o meu CV profissional",
+      "expected": "text-integrity-editor"
+    },
+    {
+      "query": "Preciso cobrar um cliente atrasado mantendo o respeito",
+      "expected": "difficult-conversation-prep"
+    },
+    {
+      "query": "Quero preparar uma mensagem de cobrança cordial",
+      "expected": "difficult-conversation-prep"
+    },
+    {
+      "query": "Como pedir aumento para meu chefe sem conflito?",
+      "expected": "difficult-conversation-prep"
+    },
+    {
+      "query": "Tenho uma conversa difícil com funcionário amanhã",
+      "expected": "difficult-conversation-prep"
+    },
+    {
+      "query": "Como dar feedback construtivo para um colaborador?",
+      "expected": "difficult-conversation-prep"
+    },
+    {
+      "query": "Preciso pedir desculpas para minha amiga com delicadeza",
+      "expected": "difficult-conversation-prep"
+    },
+    {
+      "query": "Estou num impasse com dois fornecedores, não sei decidir",
+      "expected": "everyday-problem-solver"
+    },
+    {
+      "query": "Quero decidir entre mudar e ficar e avaliar alternativas",
+      "expected": "everyday-problem-solver"
+    },
+    {
+      "query": "Não sei o que fazer com este impasse no trabalho",
+      "expected": "everyday-problem-solver"
+    },
+    {
+      "query": "Preciso escolher entre duas opções para resolver o problema",
+      "expected": "everyday-problem-solver"
+    },
+    {
+      "query": "Quero avaliar alternativas para organizar uma decisão doméstica",
+      "expected": "everyday-problem-solver"
+    },
+    {
+      "query": "Preciso decidir entre dois compromissos incompatíveis",
+      "expected": "everyday-problem-solver"
+    },
+    {
+      "query": "Estou sobrecarregado com muitas tarefas hoje",
+      "expected": "overwhelm-to-next-action"
+    },
+    {
+      "query": "Quero priorizar minhas tarefas da semana",
+      "expected": "overwhelm-to-next-action"
+    },
+    {
+      "query": "Minhas pendências acumuladas estão me travando",
+      "expected": "overwhelm-to-next-action"
+    },
+    {
+      "query": "Preciso organizar a semana, sem listas gigantes",
+      "expected": "overwhelm-to-next-action"
+    },
+    {
+      "query": "A procrastinação está prejudicando a rotina e prioridades",
+      "expected": "overwhelm-to-next-action"
+    },
+    {
+      "query": "Minha rotina desorganizada virou um problema",
+      "expected": "overwhelm-to-next-action"
+    },
+    {
+      "query": "Quero fazer pesquisa com fontes confiáveis sobre energia solar",
+      "expected": "evidence-first-research"
+    },
+    {
+      "query": "Ajude a verificar uma notícia viral antes de compartilhar",
+      "expected": "evidence-first-research"
+    },
+    {
+      "query": "Preciso de estudos científicos sobre educação",
+      "expected": "evidence-first-research"
+    },
+    {
+      "query": "Quero uma checagem de fatos com fontes",
+      "expected": "evidence-first-research"
+    },
+    {
+      "query": "Como avaliar fontes acadêmicas de um debate?",
+      "expected": "evidence-first-research"
+    },
+    {
+      "query": "Preciso pesquisar evidências e distinguir fato de opinião",
+      "expected": "evidence-first-research"
+    },
+    {
+      "query": "Estou escrevendo TCC e preciso organizar citações",
+      "expected": "academic-writing-navigator"
+    },
+    {
+      "query": "Preciso formatar monografia conforme ABNT",
+      "expected": "academic-writing-navigator"
+    },
+    {
+      "query": "Como revisar minha dissertação de mestrado?",
+      "expected": "academic-writing-navigator"
+    },
+    {
+      "query": "Estou preparando uma tese com referências bibliográficas",
+      "expected": "academic-writing-navigator"
+    },
+    {
+      "query": "Quero organizar um artigo acadêmico com normas APA",
+      "expected": "academic-writing-navigator"
+    },
+    {
+      "query": "Preciso conferir as citações acadêmicas e a bibliografia",
+      "expected": "academic-writing-navigator"
+    },
+    {
+      "query": "Meu wifi não conecta no celular",
+      "expected": "digital-helper-simple"
+    },
+    {
+      "query": "Como configurar meu iPhone para receber emails?",
+      "expected": "digital-helper-simple"
+    },
+    {
+      "query": "O Windows está lento e preciso de ajuda",
+      "expected": "digital-helper-simple"
+    },
+    {
+      "query": "Não consigo entrar no aplicativo do banco",
+      "expected": "digital-helper-simple"
+    },
+    {
+      "query": "Quero instalar aplicativo novo no Android",
+      "expected": "digital-helper-simple"
+    },
+    {
+      "query": "Como atualizar navegador no computador com segurança",
+      "expected": "digital-helper-simple"
+    },
+    {
+      "query": "Vou renovar passaporte antes da viagem",
+      "expected": "travel-readiness"
+    },
+    {
+      "query": "Meu visto canadense venceu, como me preparar?",
+      "expected": "travel-readiness"
+    },
+    {
+      "query": "Preciso dos documentos para viajar para Roma",
+      "expected": "travel-readiness"
+    },
+    {
+      "query": "Tenho conexão de voo internacional e dúvida sobre embarque",
+      "expected": "travel-readiness"
+    },
+    {
+      "query": "Quero checklist de viagem para dez dias",
+      "expected": "travel-readiness"
+    },
+    {
+      "query": "O que posso levar na bagagem de mão do voo internacional?",
+      "expected": "travel-readiness"
+    },
+    {
+      "query": "Qual tablet devo comprar para desenhar?",
+      "expected": "purchase-decision-helper"
+    },
+    {
+      "query": "Quero comparar dois notebooks antes de comprar",
+      "expected": "purchase-decision-helper"
+    },
+    {
+      "query": "Preciso de um celular com bom custo benefício",
+      "expected": "purchase-decision-helper"
+    },
+    {
+      "query": "Vale a pena comprar esse modelo de aspirador?",
+      "expected": "purchase-decision-helper"
+    },
+    {
+      "query": "Quero escolher um notebook para trabalho e jogos",
+      "expected": "purchase-decision-helper"
+    },
+    {
+      "query": "Qual modelo devo comprar considerando manutenção?",
+      "expected": "purchase-decision-helper"
+    },
+    {
+      "query": "A empresa negou meu reembolso por produto com defeito",
+      "expected": "consumer-rights-navigator"
+    },
+    {
+      "query": "Preciso reclamar no Procon e guardar evidências",
+      "expected": "consumer-rights-navigator"
+    },
+    {
+      "query": "Houve cobrança indevida na minha fatura",
+      "expected": "consumer-rights-navigator"
+    },
+    {
+      "query": "Quero cancelar um serviço não prestado",
+      "expected": "consumer-rights-navigator"
+    },
+    {
+      "query": "Minha garantia foi negada pela assistência",
+      "expected": "consumer-rights-navigator"
+    },
+    {
+      "query": "Quero solicitar estorno de compra que não chegou",
+      "expected": "consumer-rights-navigator"
+    },
+    {
+      "query": "Investigar bug que faz programa travar",
+      "expected": "engineering-investigator"
+    },
+    {
+      "query": "Tenho erro no código Python e não sei a causa",
+      "expected": "engineering-investigator"
+    },
+    {
+      "query": "Como interpretar traceback no meu projeto?",
+      "expected": "engineering-investigator"
+    },
+    {
+      "query": "Meu JavaScript quebrando no build, preciso depurar",
+      "expected": "engineering-investigator"
+    },
+    {
+      "query": "Preciso compilar meu código Rust e corrigir falha",
+      "expected": "engineering-investigator"
+    },
+    {
+      "query": "Tive erro de compilação depois de alterar módulo",
+      "expected": "engineering-investigator"
+    },
+    {
+      "query": "Recebi um link suspeito pedindo dados pessoais",
+      "expected": "scam-checker"
+    },
+    {
+      "query": "Isso é um golpe pelo WhatsApp?",
+      "expected": "scam-checker"
+    },
+    {
+      "query": "Como saber se este email é falso?",
+      "expected": "scam-checker"
+    },
+    {
+      "query": "Suspeito de fraude numa cobrança por Pix",
+      "expected": "scam-checker"
+    },
+    {
+      "query": "Uma mensagem suspeita pede senha do banco",
+      "expected": "scam-checker"
+    },
+    {
+      "query": "Um site falso está copiando a loja oficial",
+      "expected": "scam-checker"
+    },
+    {
+      "query": "Preciso retomar meu projeto em outra conversa",
+      "expected": "context-continuity-manager"
+    },
+    {
+      "query": "Quero transferir contexto sem perder decisões",
+      "expected": "context-continuity-manager"
+    },
+    {
+      "query": "Me ajude a migrar chat longo para nova aba",
+      "expected": "context-continuity-manager"
+    },
+    {
+      "query": "Faça um resumo de contexto deste projeto",
+      "expected": "context-continuity-manager"
+    },
+    {
+      "query": "Como continuar uma conversa sem esquecer o que já foi definido?",
+      "expected": "context-continuity-manager"
+    },
+    {
+      "query": "Quero registro de decisão para não recomeçar tudo",
+      "expected": "context-continuity-manager"
+    },
+    {
+      "query": "Olá",
+      "expected": "native"
+    },
+    {
+      "query": "Bom dia!",
+      "expected": "native"
+    },
+    {
+      "query": "Quanto é 8 vezes 7?",
+      "expected": "native"
+    },
+    {
+      "query": "Quanto é 9 mais 6?",
+      "expected": "native"
+    },
+    {
+      "query": "Qual é a capital de Portugal?",
+      "expected": "native"
+    },
+    {
+      "query": "Obrigado",
+      "expected": "native"
+    },
+    {
+      "query": "Preciso de ajuda",
+      "expected": "native"
+    },
+    {
+      "query": "Quero resolver",
+      "expected": "native"
+    },
+    {
+      "query": "Quero escrever",
+      "expected": "native"
+    },
+    {
+      "query": "O que significa autonomia?",
+      "expected": "native"
+    },
+    {
+      "query": "Como se escreve liberdade?",
+      "expected": "native"
+    },
+    {
+      "query": "O que você acha de viajar?",
+      "expected": "native"
+    },
+    {
+      "query": "Qual a diferença entre atenção e concentração?",
+      "expected": "native"
+    },
+    {
+      "query": "Como fazer um ovo cozido?",
+      "expected": "native"
+    },
+    {
+      "query": "Me dê um sinônimo de rápido",
+      "expected": "native"
+    },
+    {
+      "query": "Quero uma frase curta de bom dia",
+      "expected": "native"
+    },
+    {
+      "query": "Explique o que é democracia em uma frase",
+      "expected": "native"
+    },
+    {
+      "query": "Gosto de música e preciso de ideias",
+      "expected": "native"
+    },
+    {
+      "query": "Preciso de um conselho",
+      "expected": "native"
+    },
+    {
+      "query": "Me conte uma piada",
+      "expected": "native"
+    },
+    {
+      "query": "Quero comprar pão no mercado",
+      "expected": "native"
+    },
+    {
+      "query": "Quero pesquisar um nome simples na internet",
+      "expected": "native"
+    },
+    {
+      "query": "Aprender não é meu objetivo, quero apenas uma frase",
+      "expected": "native"
+    },
+    {
+      "query": "Não quero revisar meu texto, só conversar",
+      "expected": "native"
+    },
+    {
+      "query": "Estou com dor no peito e falta de ar",
+      "expected": "urgent"
+    },
+    {
+      "query": "Pensei em me matar hoje",
+      "expected": "urgent"
+    },
+    {
+      "query": "Tomei uma overdose e preciso de socorro imediato",
+      "expected": "urgent"
+    },
+    {
+      "query": "Estou numa emergência médica",
+      "expected": "urgent"
+    },
+    {
+      "query": "Minha mãe teve crise convulsiva",
+      "expected": "urgent"
+    },
+    {
+      "query": "Meu filho está com falta de ar",
+      "expected": "urgent"
+    },
+    {
+      "query": "Houve intoxicação com produto químico",
+      "expected": "urgent"
+    },
+    {
+      "query": "Estou pensando em automutilação",
+      "expected": "urgent"
+    }
+  ]
+}
