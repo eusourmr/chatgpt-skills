@@ -1,7 +1,23 @@
+import {OUTCOMES,emptyPreferences,loadPreferences,savePreferences,clearPreferences,recordOutcome,orderAmbiguousOptions,feedbackPrompt} from './feedback.js';
 import {normalize,route,compose,validateCatalog,classifyRisk,clarify,composeFollowUp} from './router.js';
 const $=id=>document.getElementById(id);
 const field=$('launcher-query'),status=$('launcher-status'),result=$('launcher-result'),choice=$('launcher-choices'),badge=$('launcher-method'),preview=$('launcher-preview'),depth=$('launcher-depth');
 let currentEntries=[],selected=null, currentRoute=null;
+let preferences=emptyPreferences();let remember=false;let ratedThisRequest=false;
+const safeStorage=()=>{try{return window.localStorage;}catch{return null;}};
+const feedbackPanel=$('launcher-feedback'), feedbackResult=$('launcher-feedback-result');
+const feedbackNote=$('launcher-feedback-note'),rememberCheck=$('launcher-remember');
+const feedbackButtons=[...document.querySelectorAll('[data-outcome]')];
+const profileIds=()=>currentEntries.map(e=>e.id);
+function storeOptional(){if(!remember)return false;preferences.depth=depth.value;return savePreferences(safeStorage(),preferences,profileIds());}
+function resetFeedback(){
+  feedbackPanel.hidden=true;
+  ratedThisRequest=false;
+  feedbackResult.hidden=true;
+  feedbackNote.value='';
+  for(const button of feedbackButtons)button.setAttribute('aria-pressed','false');
+}
+
 let pendingClarification=false;
 const clarBox=$('launcher-clarify'),clarInput=$('launcher-clarify-input'),clarQuestion=$('launcher-clarify-question');
 const show=(message)=>{status.textContent=message;};
@@ -10,6 +26,8 @@ async function start(){
   const response=await fetch('./assets/skill-index.json',{cache:'no-cache'});
   if(!response.ok) throw Error('HTTP '+response.status);
   const catalog=await response.json();currentEntries=validateCatalog(catalog);
+  const existing=loadPreferences(safeStorage(),profileIds());
+  if(existing){preferences=existing;remember=true;rememberCheck.checked=true;depth.value=existing.depth;}
   show('Pronto. Os métodos são sugestões editoriais; nenhum deles é executado aqui.');
  }catch(e){
   currentEntries=[];
@@ -20,18 +38,20 @@ function render(){
  const q=field.value.trim();
  if(!q){field.setCustomValidity('Conte em uma frase o que você precisa.');field.reportValidity();field.focus();return}
  field.setCustomValidity('');
+ resetFeedback();
  const necessary=clarify(q);
  if(necessary && !pendingClarification){
    clarQuestion.textContent=necessary;clarBox.hidden=false;clarInput.focus();result.hidden=true;
    show('Uma informação curta vai evitar uma orientação genérica.');return;
  }
  clarBox.hidden=true;pendingClarification=false;
- currentRoute=route(q,currentEntries);selected=null;choice.replaceChildren();result.hidden=false;
+ currentRoute=orderAmbiguousOptions(route(q,currentEntries),preferences);selected=null;choice.replaceChildren();result.hidden=false;
  if(currentRoute.status==='urgent'){
   badge.textContent='Precisa de atenção imediata — sem roteamento automático';
   show(currentRoute.reason);preview.value='';$('launcher-actions').hidden=true;
   result.scrollIntoView({behavior:'smooth',block:'start'});return;
  }
+ feedbackPanel.hidden=false;
  if(currentRoute.status==='choice'){
   const heading=document.createElement('p');heading.textContent='Encontrei dois caminhos possíveis. Escolha um, ou siga sem especialização:';choice.appendChild(heading);
   for(const option of currentRoute.options){
@@ -65,7 +85,7 @@ function update(entry,resetBadge=true){
  }
 }
 $('launcher-find').addEventListener('click',render);
-field.addEventListener('input',()=>{field.setCustomValidity('');if(!clarBox.hidden){clarBox.hidden=true;pendingClarification=false;}});
+field.addEventListener('input',()=>{field.setCustomValidity('');if(!clarBox.hidden){clarBox.hidden=true;pendingClarification=false;}if(!result.hidden){result.hidden=true;resetFeedback();}});
 $('launcher-clarify-go').addEventListener('click',()=>{
  const extra=clarInput.value.trim();if(!extra){clarInput.focus();return;}
  field.value=(field.value.trim()+' — Objetivo: '+extra).slice(0,1200);
@@ -73,8 +93,8 @@ $('launcher-clarify-go').addEventListener('click',()=>{
 });
 clarInput.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('launcher-clarify-go').click();}});
 field.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key==='Enter')render();});
-depth.addEventListener('change',()=>{if(!result.hidden && currentRoute?.status!=='urgent')update(selected);});
-document.querySelectorAll('[data-launch-example]').forEach(b=>b.addEventListener('click',()=>{field.value=b.dataset.launchExample;result.hidden=true;clarBox.hidden=true;field.focus();}));
+depth.addEventListener('change',()=>{storeOptional();if(!result.hidden && currentRoute?.status!=='urgent')update(selected);});
+document.querySelectorAll('[data-launch-example]').forEach(b=>b.addEventListener('click',()=>{field.value=b.dataset.launchExample;result.hidden=true;clarBox.hidden=true;resetFeedback();field.focus();}));
 $('launcher-copy').addEventListener('click',async()=>{
  const text=preview.value;
  try{
@@ -126,3 +146,31 @@ if('launchQueue' in window && typeof window.launchQueue?.setConsumer==='function
  window.launchQueue.setConsumer(()=>{if(appMode())field.focus();});
 }
 updateAppHint();
+
+// Explicit, self-reported feedback. Never claim that an external action was verified.
+function reportOutcome(outcome){
+  if(!OUTCOMES.includes(outcome)||result.hidden||currentRoute?.status==='urgent')return;
+  for(const btn of feedbackButtons)btn.setAttribute('aria-pressed',String(btn.dataset.outcome===outcome));
+  const text=feedbackPrompt({query:field.value,outcome,entry:selected,note:feedbackNote.value,
+    answer:$('launcher-ai-response').value,depth:depth.value});
+  preview.value=text;
+  $('launcher-actions').hidden=false;
+  feedbackResult.hidden=false;
+  const notes={done:'Você relatou que conseguiu avançar. Preparei uma verificação final, sem presumir que o resultado foi confirmado.',
+    partial:'Você relatou progresso parcial. Preparei uma ação pequena para resolver o que falta.',
+    blocked:'Você relatou um bloqueio. Preparei um caminho alternativo, sem insistir automaticamente na mesma estratégia.'};
+  feedbackResult.textContent=notes[outcome]+' Revise o texto acima, copie e continue na sua própria IA.';
+  if(remember&&selected&&!ratedThisRequest){preferences=recordOutcome(preferences,selected.id,outcome,profileIds());ratedThisRequest=storeOptional();}
+  show('Acompanhamento pronto para revisão e cópia. Nenhum resultado foi enviado ou verificado.');
+  preview.scrollIntoView({block:'center',behavior:'smooth'});
+}
+for(const btn of feedbackButtons)btn.addEventListener('click',()=>reportOutcome(btn.dataset.outcome));
+rememberCheck.addEventListener('change',()=>{
+  remember=rememberCheck.checked;
+  if(remember){if(storeOptional()){show('Somente estilo e contadores de avaliação serão guardados neste dispositivo.');}else{remember=false;rememberCheck.checked=false;show('O navegador não permitiu salvar preferências. Tudo continuará sem armazenamento.');}}
+  else{clearPreferences(safeStorage());preferences=emptyPreferences();show('Preferências guardadas apagadas. Nenhum histórico de conversa foi armazenado.');}
+});
+$('launcher-reset-preferences').addEventListener('click',()=>{
+  clearPreferences(safeStorage());preferences=emptyPreferences();remember=false;rememberCheck.checked=false;
+  show('Preferências locais apagadas.');
+});

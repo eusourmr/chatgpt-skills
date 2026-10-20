@@ -1,4 +1,4 @@
-# SophIA Web — Alpha 0.8
+# SophIA Web — Alpha 0.9
 
 Interface web estática, sem API própria, que prepara conversas para o ChatGPT/Gemini do visitante. A aplicação pública continua em https://sophia.meuapoio.com/. Mantém Aprender, Escrever e Resolver.
 
@@ -33,3 +33,14 @@ Teste adicional: `node --test apps/sophia-web/tests/provider-handoff.test.mjs`.
 - `node --test apps/sophia-web/tests/*.test.mjs` inclui teste de 116 situações simuladas.
 - Os números do conjunto de 116 casos são **métricas internas de fixture**, não resultados de teste humano independente. Publique sem telemetria; aprimoramentos exigem revisão humana posterior.
 - Não existe deploy automático: testar beta, validar Android/iOS/Windows e realizar merge conforme gate.
+
+## Alpha 0.9 — Continuidade e Aprendizado Local
+
+- Feedback voluntário **Consegui avançar / Em parte / Ainda não funcionou** em painel integrado, sem nova tela.
+- Gera uma orientação subsequente específica ao resultado autorreferido, sem assumir que a ação foi concluída ou que o resultado foi verificado.
+- A opção de memorizar preferências é **desmarcada por padrão**. Quando marcada, persiste **somente o estilo e pequenos contadores de feedback por ID de método**, em localStorage. Nunca persiste perguntas, notas nem respostas externas por meio desta funcionalidade.
+- Preferência local **somente desempata caminhos já plausíveis**; jamais anula bloqueio, nem transforma uma busca nativa em skill.
+- A pessoa pode apagar/desativar preferências. A continuidade usa a mesma conta externa de ChatGPT/Gemini.
+- PWA mantém comportamento de lançamento e abertura externa da 0.7.1; o novo cache carrega `assets/feedback.js`.
+- Testar: `node --test apps/sophia-web/tests/*.test.mjs`; CSP, checksums, funcional e visual em beta. Sem backend, login, chaves ou API paga.
+- Esta etapa **não implementa aprendizado de máquina**; trata-se de personalização local e controlada por feedback.
