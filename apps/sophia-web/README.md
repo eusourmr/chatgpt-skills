@@ -20,7 +20,7 @@ A SophIA **não é um novo serviço de IA**. Ela ajuda visitantes a entender seu
 
 Após a importação completa, esta pasta contém:
 
-\`\`\`text
+```text
 apps/sophia-web/
 ├── README.md                  # documentação do repositório; não vai ao ZIP
 ├── CHECKSUMS.sha256
@@ -36,7 +36,7 @@ apps/sophia-web/
 └── identidade/
     ├── icone-lanterna.png
     └── logo-oficial.png
-\`\`\`
+```
 
 Os **11 arquivos distribuídos** são os mesmos da Alpha 0.5 validada no cPanel. A documentação README fica somente no repositório. O arquivo CHECKSUMS.sha256 fixa SHA-256 dos outros dez arquivos.
 
@@ -44,22 +44,22 @@ Os **11 arquivos distribuídos** são os mesmos da Alpha 0.5 validada no cPanel.
 
 Execute na raiz do repositório:
 
-\`\`\`sh
+```sh
 node scripts/validate-sophia-web.mjs
-\`\`\`
+```
 
-O workflow \`.github/workflows/sophia-web.yml\` verifica integridade, CSP, estrutura PWA e sintaxe dos scripts e gera o artefato \`sophia-web-alpha-0.5-hostgator\` contendo o ZIP instalável.
+O workflow `.github/workflows/sophia-web.yml` verifica integridade, CSP, estrutura PWA e sintaxe dos scripts e gera o artefato `sophia-web-alpha-0.5-hostgator` contendo o ZIP instalável.
 
 O ZIP **não é enviado automaticamente** para HostGator: a publicação permanece manual e requer confirmação do mantenedor. Após concluir os checks, baixe o ZIP no GitHub Actions, extraia na raiz do subdomínio, valide no celular/tablet/desktop e atualize a versão de produção.
 
-Cuidado com o cache PWA: ao instalar versões futuras, atualize \`CACHE\` no \`sw.js\`, mantenha caminhos relativos e documente a migração de rascunhos.
+Cuidado com o cache PWA: ao instalar versões futuras, atualize `CACHE` no `sw.js`, mantenha caminhos relativos e documente a migração de rascunhos.
 
 ## Critérios de aceitação
 
 1. Todos os 11 arquivos presentes e checksums íntegros.
 2. Navegação completa Aprender, Escrever, Resolver e Conversational Bridge.
 3. Telas 320, 390, 768, 1024, 1366 e 1920 px, sem rolagem horizontal e sem colisão de botões.
-4. \`Voltar\`/\`Continuar\` alinhados; rascunho salvo somente com opt-in.
+4. `Voltar`/`Continuar` alinhados; rascunho salvo somente com opt-in.
 5. Copiar e exportar .txt; links abrem apenas a IA escolhida pelo visitante.
 6. Nenhuma solicitação de senha, chave API ou acesso ao conteúdo da conta de IA.
 7. Sem upload automático de formulários, telemetria ou integração paga.
