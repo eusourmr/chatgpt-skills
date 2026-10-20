@@ -1,0 +1,15 @@
+SophIA Web Alpha 0.6 — Intelligent Skill Launcher
+==============================================
+
+1. Faça backup da versão instalada.
+2. Envie este ZIP e extraia TODOS os arquivos diretamente na raiz pública do subdomínio.
+3. Confirme index.html, privacidade.html, sw.js, manifest.webmanifest, pastas assets/, icons/ e identidade/.
+4. Abra https://sophia.meuapoio.com/?v=alpha06. Atualize e reabra o PWA instalado se usar cache antigo.
+
+NOVO: campo único de intenção + exemplos + busca local de 14 métodos editoriais extraídos como orientação do CS Navigator. Escolha entre alternativas quando houver empate; sem skill especializada quando necessário. Copiar e abrir ChatGPT ou Gemini são ações SEPARADAS para dar controle e privacidade.
+
+Não há login, API, acesso às contas, telemetria, envio automático do texto ou custos por token para o projeto.
+As três jornadas da Alpha 0.5 permanecem disponíveis.
+
+IMPORTANTE: scripts e catálogo são arquivos LOCAIS e devem ser enviados.
+Se a busca não carregar, ainda é possível preparar a conversa manualmente, expandindo a seção respectiva.
