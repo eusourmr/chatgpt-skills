@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { assessCapabilityFulfillment, BUNDLED_CORE_IDS } from "../dist/fulfillment.js";
+import { assessCapabilityFulfillment, BUNDLED_CORE_IDS, isExperimentalDeliveryToolEnabled } from "../dist/fulfillment.js";
 
 const record = (id, overrides = {}) => ({
   id,
@@ -102,4 +102,11 @@ test("known gaps and freshness are preserved without fabricating confidence", ()
 test("the assessment never treats a registry lookup as proof of outcome", () => {
   const out = assessCapabilityFulfillment("learning-mastery-coach", record("learning-mastery-coach"));
   assert.match(out.boundary, /do not prove.*user outcomes/i);
+});
+
+test("the experimental 0.18 tool requires an exact explicit opt-in", () => {
+  for (const value of [undefined, "", "false", "TRUE", "1", " true ", "enabled"]) {
+    assert.equal(isExperimentalDeliveryToolEnabled(value), false);
+  }
+  assert.equal(isExperimentalDeliveryToolEnabled("true"), true);
 });
