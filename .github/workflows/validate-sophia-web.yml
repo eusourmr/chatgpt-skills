@@ -1,0 +1,43 @@
+name: Validate SophIA Web
+on:
+  pull_request:
+    paths:
+      - 'apps/sophia-web/**'
+      - 'scripts/generate-sophia-index.mjs'
+      - 'scripts/validate-sophia-web.mjs'
+      - 'registry/public-capabilities-v1.json'
+      - '.github/workflows/validate-sophia-web.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'apps/sophia-web/**'
+      - 'scripts/generate-sophia-index.mjs'
+      - 'scripts/validate-sophia-web.mjs'
+      - 'registry/public-capabilities-v1.json'
+      - '.github/workflows/validate-sophia-web.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sophia-static-validation:
+    name: Curadoria, arquivos e testes
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Conferir índice editorial contra o registry
+        run: node scripts/generate-sophia-index.mjs --check
+      - name: Verificar arquivos estáticos e CSP
+        run: node scripts/validate-sophia-web.mjs
+      - name: Testar busca e roteamento
+        run: node --test apps/sophia-web/tests/launcher.test.mjs
+      - name: Verificar sintaxe JavaScript
+        run: |
+          node --check apps/sophia-web/assets/router.js
+          node --check apps/sophia-web/assets/launcher.js
+          node --check apps/sophia-web/sw.js
