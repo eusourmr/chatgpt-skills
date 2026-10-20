@@ -1,10 +1,10 @@
-SophIA Alpha 0.8 — Discernimento Adaptativo
+SophIA Alpha 0.9 — Continuidade e Aprendizado Local
 
-1. Faça backup da versão 0.7.1.
-2. Faça primeiro a homologação em https://sophia.meuapoio.com/beta/ (envie o conteúdo do ZIP, não a pasta-mãe).
-3. Confirme index.html, privacidade.html, manifest.webmanifest, sw.js, assets/, icons/, identidade/.
-4. Atualize cache/PWA, reabra o aplicativo instalado e teste no Android/iOS/Windows.
-5. Teste pedidos especializados e simples, opção "Sem método especializado", cópia, continuidade e abertura do ChatGPT/Gemini.
-6. Só após revisão do PR e testes reais, publicar na raiz do subdomínio.
+1. Faça backup da 0.8/0.7.1 instalada.
+2. Extraia o conteúdo deste ZIP em sophia.meuapoio.com/beta/ (pasta beta deve ter index.html na raiz).
+3. Verifique HTTPS, assets/feedback.js, sw.js, manifesto, links ChatGPT/Gemini.
+4. Teste três relatos: Consegui avançar, Em parte, Ainda não funcionou. Verifique o prompt gerado.
+5. Teste armazenar preferência marcada/desmarcada e apagar; nenhum texto deve estar no armazenamento local.
+6. Depois de homologar no Android/iOS/Windows e revisar o PR, publique manualmente no subdomínio principal.
 
-14 métodos editoriais. 116 cenários de teste locais. Sem API paga, sem telemetry, sem envio automático de dados.
+Não publica automaticamente, não usa API de IA paga, não acessa conta de terceiros.

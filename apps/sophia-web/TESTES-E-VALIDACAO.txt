@@ -1,15 +1,13 @@
-SophIA Alpha 0.8 — Evidências de validação
+SophIA Alpha 0.9 — Testes
 
-Automação: node --test apps/sophia-web/tests/*.test.mjs
-Índice: node scripts/generate-sophia-index.mjs --check (na raiz GitHub)
-Assets/CSP: node scripts/validate-sophia-web.mjs
-Checksums: sha256sum -c CHECKSUMS.sha256
+Comandos após extrair no diretório raiz do app:
+  node --test tests/*.test.mjs
+  node --check assets/feedback.js
+  node --check assets/launcher.js
+  node --check assets/router.js
+  node --check sw.js
+  sha256sum -c CHECKSUMS.sha256
 
-Teste interno rotulado com 116 cenários e comparação com o roteador 0.7.1 (mesmo catálogo):
-0.7.1: 69/116, 59,5% de correspondência ao rótulo.
-0.8: 111/116, 95,7% de correspondência ao rótulo.
-0.8: 0 recomendações indevidas entre casos rotulados "native" e 8/8 urgentes corretamente identificados.
-
-ATENÇÃO: os exemplos e rótulos foram montados no desenvolvimento para ensaios de regressão. Não são avaliação humana independente, não demonstram compreensão semântica e não estabelecem segurança abrangente.
-
-PENDENTE: homologação visual responsiva, PWA instalado e abertura de apps externos em dispositivos reais antes do lançamento.
+No repositório GitHub, rode ainda o workflow Validate SophIA Web.
+O novo recurso é local e voluntário: nenhum feedback vai para servidor, nenhuma conversa é sincronizada e não há validação independente do relato do usuário.
+Teste real de PWA e dos links externos em aparelhos continua necessário.

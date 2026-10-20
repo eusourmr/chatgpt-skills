@@ -16,3 +16,7 @@ A orientação de continuidade não acessa a conversa no ChatGPT/Gemini, apenas 
 ## Limite da curadoria Alpha 0.8
 
 O motor é determinístico/lexical com padrões de linguagem: não usa embeddings, modelos ou APIs. Os 14 métodos têm proveniência editorial e estado `designed`; não afirmar que foram executados nem que a qualificação humana ocorreu. Quando o mecanismo não atinge evidência suficiente, permanece em modo direto. `tests/intent-cases.json` contém 116 cenários rotulados no desenvolvimento e não se confunde com avaliação humana independente.
+
+## Alpha 0.9: aprendizado limitado ao navegador
+
+O novo ciclo **não aprende semanticamente**, não treina modelos e não comprova resultados. Feedback é relato voluntário. O perfil persistente exige opt-in, contém apenas estilo e contadores limitados a 5 por método, e somente desempata dois métodos já plausíveis. Dados do pedido e respostas de outros sistemas nunca são persistidos por esta extensão. Não enviar telemetria.
