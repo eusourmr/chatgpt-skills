@@ -9,3 +9,5 @@ SophIA Alpha 0.9.5 — Catálogo Confiável e Transferência
 7. Após a homologação e PR aprovado, substitua os arquivos do site principal manualmente. Confirme o manifesto e, se necessário, atualize/reinstale o PWA.
 
 Sem API paga, login, envio automático de pergunta, execução de skill remota ou sync com conta ChatGPT/Gemini.
+
+Alpha 0.9.6: testar especialmente no iOS Safari o fluxo COPIAR => AGORA ABRIR (segundo toque), com foco e leitor de tela. Validar também 48px e PWA em modo avião. Testar /beta/ antes da produção.

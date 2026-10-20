@@ -1,5 +1,5 @@
 import {readGovernedCatalog,trustedShareId,shareMethodUrl} from './catalog-loader.js';
-import {planProviderOpen} from './provider-handoff.js';
+import {planProviderOpen,needsExplicitOpen} from './provider-handoff.js';
 import {OUTCOMES,emptyPreferences,loadPreferences,savePreferences,clearPreferences,recordOutcome,orderAmbiguousOptions,feedbackPrompt} from './feedback.js';
 import {normalize,route,compose,validateCatalog,classifyRisk,clarify,composeFollowUp} from './router.js';
 const $=id=>document.getElementById(id);
@@ -24,6 +24,26 @@ function resetFeedback(){
 let pendingClarification=false;
 const clarBox=$('launcher-clarify'),clarInput=$('launcher-clarify-input'),clarQuestion=$('launcher-clarify-question');
 const show=(message)=>{status.textContent=message;};
+const nextProvider=$('launcher-next-provider');
+function clearProviderContinuation(){nextProvider.hidden=true;nextProvider.removeAttribute('href');}
+function focusResult(){
+  $('launcher-result-title').focus({preventScroll:true});
+  result.scrollIntoView({behavior:'smooth',block:'start'});
+}
+// Explicit link is used on Safari; remain usable as fallback after a blocked auto-open.
+function offerProviderContinuation(plan){
+  nextProvider.href=plan.href;
+  nextProvider.textContent='Agora abrir '+plan.label+' ↗';
+  if(plan.target==='_blank')nextProvider.target='_blank';else nextProvider.removeAttribute('target');
+  nextProvider.rel='noopener noreferrer';
+  nextProvider.hidden=false;
+  nextProvider.focus({preventScroll:true});
+}
+if(needsExplicitOpen(navigator.userAgent)){
+  for(const button of document.querySelectorAll('[data-copy-open]'))
+    button.textContent='Copiar para '+(button.dataset.copyOpen==='gemini'?'Gemini':'ChatGPT');
+}
+
 async function start(){
  try{
   const {entries,status:catalogStatus}=await readGovernedCatalog();
@@ -47,7 +67,7 @@ function render(){
  const q=field.value.trim();
  if(!q){field.setCustomValidity('Conte em uma frase o que você precisa.');field.reportValidity();field.focus();return}
  field.setCustomValidity('');
- resetFeedback();
+ resetFeedback();clearProviderContinuation();
  const necessary=clarify(q);
  if(necessary && !pendingClarification){
    clarQuestion.textContent=necessary;clarBox.hidden=false;clarInput.focus();result.hidden=true;
@@ -58,29 +78,29 @@ function render(){
  if(currentRoute.status==='urgent'){
   badge.textContent='Precisa de atenção imediata — sem roteamento automático';
   show(currentRoute.reason);preview.value='';$('launcher-actions').hidden=true;$('launcher-share').hidden=true;
-  result.scrollIntoView({behavior:'smooth',block:'start'});return;
+  focusResult();return;
  }
  feedbackPanel.hidden=false;
  if(currentRoute.status==='choice'){
   const heading=document.createElement('p');heading.textContent='Encontrei dois caminhos possíveis. Escolha um, ou siga sem especialização:';choice.appendChild(heading);
   for(const option of currentRoute.options){
     const btn=document.createElement('button');btn.type='button';btn.className='launcher-choice';
-    btn.textContent=option.title;btn.addEventListener('click',()=>update(option.entry));choice.appendChild(btn);
+    btn.textContent=option.title;btn.addEventListener('click',()=>{update(option.entry);show('Método selecionado: '+option.title+'. Revise a orientação.');preview.focus({preventScroll:true});});choice.appendChild(btn);
   }
-  const no=document.createElement('button');no.type='button';no.className='launcher-choice';no.textContent='Sem método especializado';no.addEventListener('click',()=>update(null));choice.appendChild(no);
+  const no=document.createElement('button');no.type='button';no.className='launcher-choice';no.textContent='Sem método especializado';no.addEventListener('click',()=>{update(null);show('Seguindo diretamente, sem método especializado.');preview.focus({preventScroll:true});});choice.appendChild(no);
   update(null,false);
   badge.textContent='Dois caminhos possíveis · você decide';
   }else{
   if(currentRoute.status==='match'){
     const no=document.createElement('button');no.type='button';no.className='launcher-choice launcher-no-method';
     no.textContent='Sem método especializado';no.addEventListener('click',()=>{
-      update(null);show('Tudo bem: vamos seguir de forma direta, sem método especializado.');
+      update(null);show('Tudo bem: vamos seguir de forma direta, sem método especializado.');preview.focus({preventScroll:true});
     });choice.appendChild(no);
   }
   update(currentRoute.status==='match'?currentRoute.options[0].entry:null,false);
  }
  show(currentRoute.reason);
- result.scrollIntoView({behavior:'smooth',block:'start'});
+ focusResult();
 }
 function update(entry,resetBadge=true){
  selected=entry;
@@ -95,7 +115,7 @@ function update(entry,resetBadge=true){
  }
 }
 $('launcher-find').addEventListener('click',render);
-field.addEventListener('input',()=>{field.setCustomValidity('');if(!clarBox.hidden){clarBox.hidden=true;pendingClarification=false;}if(!result.hidden){result.hidden=true;resetFeedback();}});
+field.addEventListener('input',()=>{clearProviderContinuation();field.setCustomValidity('');if(!clarBox.hidden){clarBox.hidden=true;pendingClarification=false;}if(!result.hidden){result.hidden=true;resetFeedback();}});
 $('launcher-clarify-go').addEventListener('click',()=>{
  const extra=clarInput.value.trim();if(!extra){clarInput.focus();return;}
  field.value=(field.value.trim()+' — Objetivo: '+extra).slice(0,1200);
@@ -104,7 +124,7 @@ $('launcher-clarify-go').addEventListener('click',()=>{
 clarInput.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('launcher-clarify-go').click();}});
 field.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key==='Enter')render();});
 depth.addEventListener('change',()=>{storeOptional();if(!result.hidden && currentRoute?.status!=='urgent')update(selected);});
-document.querySelectorAll('[data-launch-example]').forEach(b=>b.addEventListener('click',()=>{field.value=b.dataset.launchExample;result.hidden=true;clarBox.hidden=true;resetFeedback();field.focus();}));
+document.querySelectorAll('[data-launch-example]').forEach(b=>b.addEventListener('click',()=>{field.value=b.dataset.launchExample;clearProviderContinuation();result.hidden=true;clarBox.hidden=true;resetFeedback();field.focus();}));
 $('launcher-copy').addEventListener('click',async()=>{
  const text=preview.value;
  try{
@@ -146,15 +166,20 @@ for(const btn of document.querySelectorAll('[data-copy-open]'))btn.addEventListe
    show('A cópia automática não foi permitida. Use Ctrl+C ou Copiar e depois toque em Abrir '+plan.label+'.');
    return;
  }
- show('Texto copiado. Tentando abrir '+plan.label+'. Se não abrir, use o link Abrir '+plan.label+' abaixo; cole o texto manualmente.');
- // Some OS/browser combinations reject programmatic app launch after an async clipboard
- // operation. Never retry automatically or add the prompt to a URL.
+ // Offer the explicit, keyboard-accessible follow-up BEFORE any navigation.
+ offerProviderContinuation(plan);
+ if(needsExplicitOpen(navigator.userAgent)){
+   show('Texto copiado. Para abrir '+plan.label+' com segurança no Safari, toque em “Agora abrir '+plan.label+'”. Depois cole a orientação.');
+   return;
+ }
+ show('Texto copiado. Tentando abrir '+plan.label+'. Se não abrir, toque em “Agora abrir '+plan.label+'”.');
+ // A popup after await may still be blocked on other browsers. No timer or automatic retry.
  try{
    if(plan.target==='_blank'){
-     const pop=window.open(plan.href,'_blank','noopener,noreferrer');
-     if(!pop)show('Texto copiado. Seu navegador bloqueou a aba automática: toque em Abrir '+plan.label+'.');
+     window.open(plan.href,'_blank','noopener,noreferrer');
+     show('Texto copiado. Se a aba não abriu, toque em “Agora abrir '+plan.label+'”.');
    }else window.location.assign(plan.href);
- }catch{show('Texto copiado. Use o link Abrir '+plan.label+' abaixo para continuar.');}
+ }catch{show('Texto copiado. Toque em “Agora abrir '+plan.label+'” para continuar.');}
 });
 
 start();

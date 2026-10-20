@@ -11,3 +11,5 @@ Na raiz do repo:
 
 Na pasta pública: sha256sum -c CHECKSUMS.sha256
 As novas verificações cobrem 25 testes unitários/estáticos. Não substituem teste de interface real e abertura de terceiros.
+
+Alpha 0.9.6: conferir nova bateria handoff/accessibility e Safari. Nenhuma execução E2E com iPhone físico foi realizada.

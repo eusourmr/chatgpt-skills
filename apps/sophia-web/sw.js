@@ -1,5 +1,5 @@
-/* SophIA 0.9.5: cache public static assets only, never user input. */
-const CACHE = 'sophia-static-alpha-0.9.5-v1';
+/* SophIA 0.9.6: cache public static assets only, never user input. */
+const CACHE = 'sophia-static-alpha-0.9.6-v1';
 const ASSETS = ['./', './index.html', './privacidade.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './identidade/icone-lanterna.png', './assets/launcher.js', './assets/provider-handoff.js', './assets/router.js', './assets/feedback.js', './assets/catalog-loader.js', './assets/catalog-manifest.json', './assets/catalog-baseline.json', './assets/skill-index.json'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
