@@ -1,0 +1,74 @@
+name: SophIA Web — source, security and installable ZIP
+
+on:
+  pull_request:
+    paths:
+      - "apps/sophia-web/**"
+      - "scripts/validate-sophia-web.mjs"
+      - ".github/workflows/sophia-web.yml"
+  push:
+    branches: ["main"]
+    paths:
+      - "apps/sophia-web/**"
+      - "scripts/validate-sophia-web.mjs"
+      - ".github/workflows/sophia-web.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-and-package:
+    name: Validate SophIA and package HostGator release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Verify exact distributable source and CSP
+        run: node scripts/validate-sophia-web.mjs
+
+      - name: Syntax-check inline JavaScript
+        run: |
+          python3 - <<'PY'
+          import pathlib, re
+          html = pathlib.Path("apps/sophia-web/index.html").read_text(encoding="utf-8")
+          found = re.findall(r'<script type="module">([\s\S]*?)</script>', html)
+          assert len(found) == 1, "expected a single inline module script"
+          pathlib.Path("/tmp/sophia-site.mjs").write_text(found[0], encoding="utf-8")
+          PY
+          node --check /tmp/sophia-site.mjs
+          node --check apps/sophia-web/sw.js
+
+      - name: Build deterministic HostGator installation ZIP
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZipInfo, ZIP_DEFLATED
+          import hashlib
+          base = Path("apps/sophia-web")
+          out = Path("dist/sophia-web-alpha-0.5-hostgator.zip")
+          out.parent.mkdir(exist_ok=True)
+          lines = (base / "CHECKSUMS.sha256").read_text().splitlines()
+          names = ["CHECKSUMS.sha256"] + [line.split("  ", 1)[1] for line in lines]
+          with ZipFile(out, "w") as archive:
+              for name in sorted(names):
+                  data = (base / name).read_bytes()
+                  info = ZipInfo(name, date_time=(2026, 1, 1, 0, 0, 0))
+                  info.compress_type = ZIP_DEFLATED
+                  info.external_attr = 0o644 << 16
+                  archive.writestr(info, data, compresslevel=6)
+          print("Release ZIP:", out, out.stat().st_size, "bytes")
+          print("SHA-256:", hashlib.sha256(out.read_bytes()).hexdigest())
+          PY
+
+      - name: Upload installable ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: sophia-web-alpha-0.5-hostgator
+          path: dist/sophia-web-alpha-0.5-hostgator.zip
+          retention-days: 30
+          if-no-files-found: error
