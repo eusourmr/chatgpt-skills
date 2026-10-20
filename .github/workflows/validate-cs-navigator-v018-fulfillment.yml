@@ -44,5 +44,6 @@ jobs:
           ].sort(), "unexpected MCP tool surface");
           const annotations = server.match(/annotations: \{ readOnlyHint: true, destructiveHint: false, openWorldHint: true \}/g) || [];
           assert.equal(annotations.length, 5, "all tools must declare read-only/non-destructive/open-world");
+          assert.match(server, /if \(isExperimentalDeliveryToolEnabled\(process\.env\.CS_ENABLE_EXPERIMENTAL_DELIVERY_TOOL\)\)/, "new tool requires explicit opt-in");
           assert.doesNotMatch(server, /server\.registerPrompt\(/, "no new prompt injection surface");
           NODE
