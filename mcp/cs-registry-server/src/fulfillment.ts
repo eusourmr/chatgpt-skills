@@ -85,3 +85,8 @@ export function assessCapabilityFulfillment(
       "This is discoverable metadata only. Do not claim the skill is installed or running. Offer a native alternative or a host-supported, explicitly authorized activation path.",
   };
 }
+
+/** Experimental 0.18 tool must remain absent from live 0.17 MCP by default. */
+export function isExperimentalDeliveryToolEnabled(value: string | undefined): boolean {
+  return value === "true";
+}
