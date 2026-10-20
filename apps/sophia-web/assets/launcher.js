@@ -5,7 +5,6 @@ let currentEntries=[],selected=null, currentRoute=null;
 let pendingClarification=false;
 const clarBox=$('launcher-clarify'),clarInput=$('launcher-clarify-input'),clarQuestion=$('launcher-clarify-question');
 const show=(message)=>{status.textContent=message;};
-const safeTitle=(el,text)=>{el.textContent=text;};
 async function start(){
  try{
   const response=await fetch('./assets/skill-index.json',{cache:'no-cache'});
@@ -42,7 +41,13 @@ function render(){
   const no=document.createElement('button');no.type='button';no.className='launcher-choice';no.textContent='Sem método especializado';no.addEventListener('click',()=>update(null));choice.appendChild(no);
   update(null,false);
   badge.textContent='Dois caminhos possíveis · você decide';
- }else{
+  }else{
+  if(currentRoute.status==='match'){
+    const no=document.createElement('button');no.type='button';no.className='launcher-choice launcher-no-method';
+    no.textContent='Sem método especializado';no.addEventListener('click',()=>{
+      update(null);show('Tudo bem: vamos seguir de forma direta, sem método especializado.');
+    });choice.appendChild(no);
+  }
   update(currentRoute.status==='match'?currentRoute.options[0].entry:null,false);
  }
  show(currentRoute.reason);

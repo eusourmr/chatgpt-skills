@@ -1,11 +1,10 @@
-SophIA Web Alpha 0.7 — Facilitador Vivo e PWA
+SophIA Alpha 0.8 — Discernimento Adaptativo
 
-1. Faça backup dos arquivos da Alpha 0.6 na HostGator.
-2. Extraia este ZIP na raiz pública do subdomínio sophia.meuapoio.com/ (ou primeiro /beta/ para homologação), substituindo arquivos antigos.
-3. Confirme index.html, manifest.webmanifest, sw.js, privacidade.html, assets/, icons/ e identidade/.
-4. Acesse por HTTPS, atualize a página e reabra o PWA pelo ícone instalado.
-5. Em alguns navegadores e sistemas o app precisará ser removido/reinstalado para atualizar metadados do manifesto.
-6. Navegadores/OS decidem se links tocam no app ou abrem em aba; não prometemos redirecionamento universal.
+1. Faça backup da versão 0.7.1.
+2. Faça primeiro a homologação em https://sophia.meuapoio.com/beta/ (envie o conteúdo do ZIP, não a pasta-mãe).
+3. Confirme index.html, privacidade.html, manifest.webmanifest, sw.js, assets/, icons/, identidade/.
+4. Atualize cache/PWA, reabra o aplicativo instalado e teste no Android/iOS/Windows.
+5. Teste pedidos especializados e simples, opção "Sem método especializado", cópia, continuidade e abertura do ChatGPT/Gemini.
+6. Só após revisão do PR e testes reais, publicar na raiz do subdomínio.
 
-TESTES MANUAIS: Android Chrome, iOS Safari (Adicionar à Tela de Início), Windows Chrome/Edge, cópia e abertura da IA, offline e continuidade.
-A SophIA não possui API de IA, não acessa a conta do usuário e não transmite textos automaticamente.
+14 métodos editoriais. 116 cenários de teste locais. Sem API paga, sem telemetry, sem envio automático de dados.

@@ -1,8 +1,15 @@
-SophIA Alpha 0.7 — evidências verificáveis
+SophIA Alpha 0.8 — Evidências de validação
 
-Automação local: node --test apps/sophia-web/tests/launcher.test.mjs
-Gerador: node scripts/generate-sophia-index.mjs --check (índice imutável da 0.6)
-CSP/paths: node scripts/validate-sophia-web.mjs
-Runtime sintático: node --check assets/*.js e sw.js
-PWA HTML e responsividade: verificar separadamente em navegador real ou headless, incluindo instalações reais no sistema operacional.
-IMPORTANTE: HTTP links externos não podem universalmente abrir PWA instalado.
+Automação: node --test apps/sophia-web/tests/*.test.mjs
+Índice: node scripts/generate-sophia-index.mjs --check (na raiz GitHub)
+Assets/CSP: node scripts/validate-sophia-web.mjs
+Checksums: sha256sum -c CHECKSUMS.sha256
+
+Teste interno rotulado com 116 cenários e comparação com o roteador 0.7.1 (mesmo catálogo):
+0.7.1: 69/116, 59,5% de correspondência ao rótulo.
+0.8: 111/116, 95,7% de correspondência ao rótulo.
+0.8: 0 recomendações indevidas entre casos rotulados "native" e 8/8 urgentes corretamente identificados.
+
+ATENÇÃO: os exemplos e rótulos foram montados no desenvolvimento para ensaios de regressão. Não são avaliação humana independente, não demonstram compreensão semântica e não estabelecem segurança abrangente.
+
+PENDENTE: homologação visual responsiva, PWA instalado e abertura de apps externos em dispositivos reais antes do lançamento.
