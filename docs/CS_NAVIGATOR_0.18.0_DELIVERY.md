@@ -27,7 +27,7 @@ Nova ferramenta MCP **somente leitura**, que recebe um ID de capacidade (máximo
 
 A ferramenta não instala skills, não solicita credenciais, não executa arquivos do GitHub e não autoriza ações externas. `bundled_core` refere-se ao manifesto esperado, **não a uma verificação da instalação do usuário**.
 
-O núcleo curator incorpora o gate de entrega com fallback para hosts que ainda não oferecem a nova ferramenta.
+**Próxima etapa de integração:** incorporar o gate ao núcleo curator e manter os arquivos canônicos e distribuídos idênticos. Esse ajuste só será feito ao preparar e qualificar o pacote 0.18, com fallback para hosts que ainda não ofereçam a ferramenta.
 
 ## Aprimoramentos e revisões
 
