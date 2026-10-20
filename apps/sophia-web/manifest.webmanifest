@@ -1,7 +1,7 @@
 {
   "name": "SophIA — Seu próximo passo",
   "short_name": "SophIA",
-  "description": "SophIA 0.9.6: catálogo confiável, acessibilidade e passagem assistida para outras IAs.",
+  "description": "SophIA 1.0: orientação clara, métodos selecionados, continuidade privada e integração com sua IA.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
