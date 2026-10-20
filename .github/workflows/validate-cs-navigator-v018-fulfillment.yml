@@ -1,0 +1,48 @@
+name: Validate CS Navigator 0.18 Fulfillment
+
+on:
+  pull_request:
+    paths:
+      - "mcp/cs-registry-server/**"
+      - "plugins/cs-navigator/skills/cs-navigator/**"
+      - "docs/CS_NAVIGATOR_0.18.0_DELIVERY.md"
+      - ".github/workflows/validate-cs-navigator-v018-fulfillment.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fulfillment:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mcp/cs-registry-server
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: mcp/cs-registry-server/package-lock.json
+      - name: Install dependencies from lockfile
+        run: npm ci
+      - name: TypeScript build
+        run: npm run build
+      - name: Capability delivery negative/positive tests
+        run: npm test
+      - name: Check MCP safety annotations and bounded tools
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from "node:assert/strict";
+          import { readFileSync } from "node:fs";
+          const server = readFileSync("src/server.ts", "utf8");
+          const names = [...server.matchAll(/server\.registerTool\(\s*"([^"]+)"/g)].map((m) => m[1]);
+          assert.deepEqual(names.sort(), [
+            "assess_capability_delivery", "get_capability", "get_evidence",
+            "registry_status", "search_capabilities"
+          ].sort(), "unexpected MCP tool surface");
+          const annotations = server.match(/annotations: \{ readOnlyHint: true, destructiveHint: false, openWorldHint: true \}/g) || [];
+          assert.equal(annotations.length, 5, "all tools must declare read-only/non-destructive/open-world");
+          assert.doesNotMatch(server, /server\.registerPrompt\(/, "no new prompt injection surface");
+          NODE

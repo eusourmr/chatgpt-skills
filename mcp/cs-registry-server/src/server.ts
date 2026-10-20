@@ -2,6 +2,7 @@ import { createMcpExpressApp } from "@modelcontextprotocol/express";
 import { toNodeHandler } from "@modelcontextprotocol/node";
 import { createMcpHandler, McpServer } from "@modelcontextprotocol/server";
 import * as z from "zod/v4";
+import { assessCapabilityFulfillment } from "./fulfillment.js";
 
 const PORT = Number(process.env.PORT || 3000);
 const REGISTRY_URL =
@@ -196,6 +197,22 @@ const handler = createMcpHandler(() => {
         capability_count: registry.entries.length,
         source: REGISTRY_URL,
       });
+    },
+  );
+
+  // 0.18 development: metadata-only delivery assessment, never an execution claim.
+  server.registerTool(
+    "assess_capability_delivery",
+    {
+      description:
+        "Distinguish a bundled core skill from registry-only discovery and report what is NOT verified. Read-only; does not install or execute a capability.",
+      inputSchema: z.object({ id: z.string().min(1).max(128) }),
+      annotations: { readOnlyHint: true, destructiveHint: false, openWorldHint: true },
+    },
+    async ({ id }) => {
+      const registry = await loadRegistry();
+      const capability = registry.entries.find((x) => x.id === id);
+      return asText(assessCapabilityFulfillment(id, capability));
     },
   );
 
