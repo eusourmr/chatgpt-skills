@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#183331">
   <meta name="description" content="SophIA: organize o que deseja aprender, escrever ou resolver. Um caminho simples, responsável e sem exigir instalação.">
   <meta name="robots" content="noindex, nofollow">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-PAln6Bbma6tf0oTDc/oej5+nozxccafVcsOXASmsMGs='; style-src 'sha256-hbs6jEp+WCNBFwGvFuuPQ0PACCGzf30LSUjjAaoLccM='; img-src data: 'self'; font-src 'none'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-PAln6Bbma6tf0oTDc/oej5+nozxccafVcsOXASmsMGs='; style-src 'sha256-xgmfWR2LxkasMQvQTT/HxCNFM+/x4qfEhwYmGe2iqvk='; img-src data: 'self'; font-src 'none'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
   <title>SophIA — Clareza para o próximo passo</title>
   <link rel="icon" type="image/png" href="icons/icon-192.png">
   <style>:root{--ink:#19332f;--ink2:#385450;--dark:#14302d;--cream:#f8f7f3;--paper:#fffefa;--sand:#f0eee7;--line:#e3e5de;--gold:#e7c98d;--teal:#295d55;--muted:#61716c;--shadow:0 16px 48px rgba(19,51,44,.075)}
@@ -35,7 +35,7 @@
 .progress-state{font-size:12px;color:#446756}
 @media(max-width:700px){.brand{font-size:27px;gap:8px}.brand-icon{width:35px;height:35px}.footer-brand .brand-icon{width:35px;height:35px}.art-center{width:53%}}
 
-/* SophIA Alpha 0.9 — accessible mobile-first guided journeys */
+/* SophIA Alpha 0.9.5 — accessible mobile-first guided journeys */
 [hidden]{display:none!important}
 html{scroll-behavior:smooth;scroll-padding-top:24px}
 body{overflow-x:clip}
@@ -222,6 +222,13 @@ a.provider-web-fallback:focus-visible{outline:3px solid #d5a34d;outline-offset:3
 .launcher-personalize button{background:none;border:none;font-size:12px;font-weight:650;color:#446b5e;text-decoration:underline;text-align:left;justify-self:start;padding:4px 0}
 .launcher-personalize small{font-size:11px;color:#63796c;line-height:1.5}
 @media(max-width:620px){.launcher-feedback-options{display:grid;grid-template-columns:1fr}.launcher-feedback-options button{width:100%;text-align:center}}
+
+/* Alpha 0.9.5: fewer steps, same interface, no new navigation screens. */
+.launcher-copy-open{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.launcher-copy-open button{min-height:44px;padding:11px 15px}
+.launcher-trust{font-size:13px;line-height:1.6;color:#355f4f;max-width:65ch;margin:12px 0 18px}
+#launcher-share[hidden],#launcher-restore-preview[hidden]{display:none!important}
+@media(max-width:600px){.launcher-copy-open{display:grid;grid-template-columns:1fr}.launcher-copy-open button{width:100%}}
 </style>
   <script type="module">'use strict';
 (() => {
@@ -602,6 +609,7 @@ a.provider-web-fallback:focus-visible{outline:3px solid #d5a34d;outline-offset:3
     <div class="eyebrow dark"><span class="line"></span> SOPHIA · CONTE O QUE PRECISA</div>
     <h2 id="launcher-title">O que você quer <em>resolver ou criar hoje?</em></h2>
     <p class="launcher-subtitle">Uma frase basta. A SophIA reconhece pistas do seu pedido, sugere um método só quando ajuda e deixa você escolher o caminho direto.</p>
+    <p class="launcher-trust"><strong>Gratuito e sem cadastro.</strong> Seu pedido é preparado no dispositivo, não enviado automaticamente a serviços de IA. Você escolhe o que compartilhar.</p>
     <div class="launcher-panel">
       <label for="launcher-query">Conte em suas palavras</label>
       <textarea id="launcher-query" rows="3" maxlength="1200" placeholder="Ex.: preciso cobrar um cliente atrasado sem ser indelicado"></textarea>
@@ -631,8 +639,14 @@ a.provider-web-fallback:focus-visible{outline:3px solid #d5a34d;outline-offset:3
       <div id="launcher-actions" class="launcher-actions">
         <button type="button" class="submit-button" id="launcher-copy">1. Copiar texto</button>
         <button type="button" class="outline-button" id="launcher-select">Selecionar</button>
+        <button type="button" class="outline-button" id="launcher-share" hidden>Compartilhar método ↗</button>
+        <button type="button" class="outline-button" id="launcher-restore-preview" hidden>Restaurar texto</button>
       </div>
-      <p class="launcher-notice">2. Abra a IA que já utiliza e cole. Sua mensagem não é enviada automaticamente, e nenhuma skill do catálogo foi instalada ou executada.</p>
+      <p class="launcher-notice">Sua orientação é preparada no dispositivo. Você decide o que copiar para sua IA. Não colocamos textos pessoais em links.</p>
+      <div class="launcher-copy-open" role="group" aria-label="Copiar e abrir a sua IA">
+        <button type="button" class="submit-button" data-copy-open="chatgpt">Copiar e abrir ChatGPT ↗</button>
+        <button type="button" class="outline-button" data-copy-open="gemini">Copiar e abrir Gemini ↗</button>
+      </div>
       <div class="launcher-providers"><a target="_blank" rel="noopener noreferrer" href="https://chatgpt.com/">Abrir ChatGPT ↗</a><a target="_blank" rel="noopener noreferrer" href="https://gemini.google.com/app">Abrir Gemini ↗</a></div>
       <small>As respostas e eventuais limites de uso pertencem ao serviço escolhido. A SophIA não acessa sua conta.</small>
       <details id="launcher-follow-up" class="launcher-follow-up"><summary>Já conversei com a IA. E agora?</summary>
@@ -768,9 +782,9 @@ a.provider-web-fallback:focus-visible{outline:3px solid #d5a34d;outline-offset:3
     </section>
     <div class="shell pwa-section"><div class="install-tip"><span aria-hidden="true">◈</span><p><strong>SophIA também é aplicativo.</strong> <span id="pwa-install-hint">Abra pelo ícone instalado na tela inicial ou no computador. Links externos dependem do navegador.</span> <button id="pwa-install-button" class="outline-button" type="button" hidden>Instalar SophIA</button> As jornadas estáticas podem funcionar offline após o primeiro carregamento completo em navegadores compatíveis.</p></div></div>
     <section class="method" id="como-funciona"><div class="shell method-inner"><div><div class="eyebrow">NOSSA FORMA DE TRABALHAR</div><h2>Mais do que respostas.<br><em>Um caminho possível.</em></h2></div><div class="method-list"><div><span>01</span><div><strong>Entender primeiro</strong><p>Separar o que sabemos do que ainda precisamos descobrir.</p></div></div><div><span>02</span><div><strong>Escolher o essencial</strong><p>Evitar complexidade e recursos que não ajudam naquele momento.</p></div></div><div><span>03</span><div><strong>Deixar algo útil</strong><p>Um roteiro, uma verificação ou uma ação que você consiga realizar.</p></div></div></div></div></section>
-    <section class="final-note shell"><div><span class="asterisk" aria-hidden="true">✳</span><h2>Inteligência que amplia <em>a autonomia.</em></h2></div><p>A SophIA Alpha 0.9 facilita sua conversa com o ChatGPT ou Gemini da própria conta. Ela prepara orientações localmente; não acessa sua conta, não envia mensagens, não realiza pesquisas e não confirma resultados externos.</p></section>
+    <section class="final-note shell"><div><span class="asterisk" aria-hidden="true">✳</span><h2>Inteligência que amplia <em>a autonomia.</em></h2></div><p>A SophIA Alpha 0.9.5 facilita sua conversa com o ChatGPT ou Gemini da própria conta. Ela prepara orientações localmente; não acessa sua conta, não envia mensagens, não realiza pesquisas e não confirma resultados externos.</p></section>
   </main>
-  <footer class="footer"><div class="shell footer-inner"><div><div class="footer-brand"><img class="brand-icon" src="identidade/icone-lanterna.png" alt="" width="37" height="37"><strong>Soph<span>IA</span></strong></div><p>Uma experiência do projeto CS Navigator.</p></div><div><a href="privacidade.html">Privacidade e limites</a><a href="https://github.com/eusourmr/chatgpt-skills" target="_blank" rel="noopener noreferrer">Projeto no GitHub ↗</a></div><small>Alpha 0.9 · 2026</small></div></footer>
+  <footer class="footer"><div class="shell footer-inner"><div><div class="footer-brand"><img class="brand-icon" src="identidade/icone-lanterna.png" alt="" width="37" height="37"><strong>Soph<span>IA</span></strong></div><p>Uma experiência do projeto CS Navigator.</p></div><div><a href="privacidade.html">Privacidade e limites</a><a href="https://github.com/eusourmr/chatgpt-skills" target="_blank" rel="noopener noreferrer">Projeto no GitHub ↗</a></div><small>Alpha 0.9.5 · 2026</small></div></footer>
   <div class="status-message" id="status-message" role="status" aria-live="polite" hidden></div>
   <script type="module" src="./assets/launcher.js"></script>
   <script type="module" src="./assets/provider-handoff.js"></script>

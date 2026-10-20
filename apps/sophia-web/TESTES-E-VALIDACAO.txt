@@ -1,13 +1,13 @@
-SophIA Alpha 0.9 — Testes
+SophIA Alpha 0.9.5 — Verificações de release
 
-Comandos após extrair no diretório raiz do app:
-  node --test tests/*.test.mjs
-  node --check assets/feedback.js
-  node --check assets/launcher.js
-  node --check assets/router.js
-  node --check sw.js
-  sha256sum -c CHECKSUMS.sha256
+Na raiz do repo:
+  node scripts/generate-sophia-index.mjs --check
+  node scripts/build-sophia-catalog.mjs --check
+  node scripts/validate-sophia-web.mjs
+  node --test apps/sophia-web/tests/*.test.mjs
+  node --check apps/sophia-web/assets/catalog-loader.js
+  node --check apps/sophia-web/assets/launcher.js
+  node --check apps/sophia-web/sw.js
 
-No repositório GitHub, rode ainda o workflow Validate SophIA Web.
-O novo recurso é local e voluntário: nenhum feedback vai para servidor, nenhuma conversa é sincronizada e não há validação independente do relato do usuário.
-Teste real de PWA e dos links externos em aparelhos continua necessário.
+Na pasta pública: sha256sum -c CHECKSUMS.sha256
+As novas verificações cobrem 25 testes unitários/estáticos. Não substituem teste de interface real e abertura de terceiros.

@@ -1,7 +1,7 @@
 {
   "name": "SophIA — Seu próximo passo",
   "short_name": "SophIA",
-  "description": "SophIA 0.9: orientação, avaliação voluntária e continuidade local com a IA da própria pessoa.",
+  "description": "SophIA 0.9.5: catálogo verificado, continuidade local e transferência segura para IA de sua escolha.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

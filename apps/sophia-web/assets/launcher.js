@@ -1,8 +1,11 @@
+import {readGovernedCatalog,trustedShareId,shareMethodUrl} from './catalog-loader.js';
+import {planProviderOpen} from './provider-handoff.js';
 import {OUTCOMES,emptyPreferences,loadPreferences,savePreferences,clearPreferences,recordOutcome,orderAmbiguousOptions,feedbackPrompt} from './feedback.js';
 import {normalize,route,compose,validateCatalog,classifyRisk,clarify,composeFollowUp} from './router.js';
 const $=id=>document.getElementById(id);
 const field=$('launcher-query'),status=$('launcher-status'),result=$('launcher-result'),choice=$('launcher-choices'),badge=$('launcher-method'),preview=$('launcher-preview'),depth=$('launcher-depth');
 let currentEntries=[],selected=null, currentRoute=null;
+let initialSharedMethod=null;
 let preferences=emptyPreferences();let remember=false;let ratedThisRequest=false;
 const safeStorage=()=>{try{return window.localStorage;}catch{return null;}};
 const feedbackPanel=$('launcher-feedback'), feedbackResult=$('launcher-feedback-result');
@@ -23,17 +26,23 @@ const clarBox=$('launcher-clarify'),clarInput=$('launcher-clarify-input'),clarQu
 const show=(message)=>{status.textContent=message;};
 async function start(){
  try{
-  const response=await fetch('./assets/skill-index.json',{cache:'no-cache'});
-  if(!response.ok) throw Error('HTTP '+response.status);
-  const catalog=await response.json();currentEntries=validateCatalog(catalog);
+  const {entries,status:catalogStatus}=await readGovernedCatalog();
+  currentEntries=entries;
   const existing=loadPreferences(safeStorage(),profileIds());
   if(existing){preferences=existing;remember=true;rememberCheck.checked=true;depth.value=existing.depth;}
-  show('Pronto. Os métodos são sugestões editoriais; nenhum deles é executado aqui.');
+  initialSharedMethod=trustedShareId(window.location.search,currentEntries);
+  if(initialSharedMethod){
+    show(`Link público recebido: ${initialSharedMethod.title}. Escreva sua necessidade; a SophIA verificará se o método é adequado.`);
+    field.focus();
+  }else{
+    show(catalogStatus==='verified'?'Catálogo verificado. Nenhuma skill é executada aqui.':'Usando catálogo de segurança local; a atualização não pôde ser validada.');
+  }
  }catch(e){
   currentEntries=[];
-  show('Índice indisponível. Você ainda pode preparar uma conversa direta, sem selecionar uma skill.');
+  show('Catálogo de confiança indisponível. Use o modo direto; nenhuma skill será sugerida.');
  }
 }
+
 function render(){
  const q=field.value.trim();
  if(!q){field.setCustomValidity('Conte em uma frase o que você precisa.');field.reportValidity();field.focus();return}
@@ -48,7 +57,7 @@ function render(){
  currentRoute=orderAmbiguousOptions(route(q,currentEntries),preferences);selected=null;choice.replaceChildren();result.hidden=false;
  if(currentRoute.status==='urgent'){
   badge.textContent='Precisa de atenção imediata — sem roteamento automático';
-  show(currentRoute.reason);preview.value='';$('launcher-actions').hidden=true;
+  show(currentRoute.reason);preview.value='';$('launcher-actions').hidden=true;$('launcher-share').hidden=true;
   result.scrollIntoView({behavior:'smooth',block:'start'});return;
  }
  feedbackPanel.hidden=false;
@@ -77,6 +86,7 @@ function update(entry,resetBadge=true){
  selected=entry;
  const q=field.value.trim();preview.value=compose(q,entry,depth.value);
  $('launcher-actions').hidden=false;
+ $('launcher-share').hidden=!entry;
  if(resetBadge || currentRoute?.status!=='choice'){
   badge.textContent=entry?`Sugestão: ${entry.title} · apenas catálogo · ${entry.evidence_state}`:'Sem skill especializada · resposta direta';
  }
@@ -103,6 +113,50 @@ $('launcher-copy').addEventListener('click',async()=>{
  }catch(e){preview.focus();preview.select();show('Selecionei o texto. Use Ctrl+C (ou Copiar no celular), depois cole na IA.');}
 });
 $('launcher-select').addEventListener('click',()=>{preview.focus();preview.select();show('Texto selecionado. Copie e cole na IA de sua preferência.');});
+
+// Only explicit user click, only public method IDs in links; personal text is never in a URL.
+$('launcher-share').addEventListener('click',async()=>{
+ if(!selected)return;
+ const url=shareMethodUrl(window.location.href,selected.id,currentEntries);
+ try{
+  if(!navigator.clipboard||!window.isSecureContext)throw Error('Clipboard denied');
+  await navigator.clipboard.writeText(url);
+  show('Link público do método copiado. Nenhuma pergunta ou resposta foi incluída.');
+ }catch{
+  const previous=preview.value;
+  preview.value=url;preview.focus();preview.select();
+  show('Link público selecionado. Use Copiar e depois retorne à sua orientação.');
+  // Never overwrite user-entered text during a failed clipboard operation without recovery.
+  $('launcher-restore-preview').hidden=false;
+  $('launcher-restore-preview').onclick=()=>{preview.value=previous;$('launcher-restore-preview').hidden=true;};
+ }
+});
+// Best effort: copy FIRST. If denied, never navigate away with an uncopied prompt.
+for(const btn of document.querySelectorAll('[data-copy-open]'))btn.addEventListener('click',async()=>{
+ if(result.hidden||currentRoute?.status==='urgent')return;
+ const text=preview.value;
+ if(!text){show('Prepare sua orientação primeiro.');return;}
+ const provider=btn.dataset.copyOpen;
+ const plan=planProviderOpen(provider,navigator.userAgent);
+ try{
+   if(!navigator.clipboard||!window.isSecureContext)throw Error('Clipboard unavailable');
+   await navigator.clipboard.writeText(text);
+ }catch{
+   preview.focus();preview.select();
+   show('A cópia automática não foi permitida. Use Ctrl+C ou Copiar e depois toque em Abrir '+plan.label+'.');
+   return;
+ }
+ show('Texto copiado. Tentando abrir '+plan.label+'. Se não abrir, use o link Abrir '+plan.label+' abaixo; cole o texto manualmente.');
+ // Some OS/browser combinations reject programmatic app launch after an async clipboard
+ // operation. Never retry automatically or add the prompt to a URL.
+ try{
+   if(plan.target==='_blank'){
+     const pop=window.open(plan.href,'_blank','noopener,noreferrer');
+     if(!pop)show('Texto copiado. Seu navegador bloqueou a aba automática: toque em Abrir '+plan.label+'.');
+   }else window.location.assign(plan.href);
+ }catch{show('Texto copiado. Use o link Abrir '+plan.label+' abaixo para continuar.');}
+});
+
 start();
 
 
