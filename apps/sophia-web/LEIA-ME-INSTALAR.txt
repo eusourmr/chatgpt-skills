@@ -1,15 +1,11 @@
-SophIA Web Alpha 0.6 — Intelligent Skill Launcher
-==============================================
+SophIA Web Alpha 0.7 — Facilitador Vivo e PWA
 
-1. Faça backup da versão instalada.
-2. Envie este ZIP e extraia TODOS os arquivos diretamente na raiz pública do subdomínio.
-3. Confirme index.html, privacidade.html, sw.js, manifest.webmanifest, pastas assets/, icons/ e identidade/.
-4. Abra https://sophia.meuapoio.com/?v=alpha06. Atualize e reabra o PWA instalado se usar cache antigo.
+1. Faça backup dos arquivos da Alpha 0.6 na HostGator.
+2. Extraia este ZIP na raiz pública do subdomínio sophia.meuapoio.com/ (ou primeiro /beta/ para homologação), substituindo arquivos antigos.
+3. Confirme index.html, manifest.webmanifest, sw.js, privacidade.html, assets/, icons/ e identidade/.
+4. Acesse por HTTPS, atualize a página e reabra o PWA pelo ícone instalado.
+5. Em alguns navegadores e sistemas o app precisará ser removido/reinstalado para atualizar metadados do manifesto.
+6. Navegadores/OS decidem se links tocam no app ou abrem em aba; não prometemos redirecionamento universal.
 
-NOVO: campo único de intenção + exemplos + busca local de 14 métodos editoriais extraídos como orientação do CS Navigator. Escolha entre alternativas quando houver empate; sem skill especializada quando necessário. Copiar e abrir ChatGPT ou Gemini são ações SEPARADAS para dar controle e privacidade.
-
-Não há login, API, acesso às contas, telemetria, envio automático do texto ou custos por token para o projeto.
-As três jornadas da Alpha 0.5 permanecem disponíveis.
-
-IMPORTANTE: scripts e catálogo são arquivos LOCAIS e devem ser enviados.
-Se a busca não carregar, ainda é possível preparar a conversa manualmente, expandindo a seção respectiva.
+TESTES MANUAIS: Android Chrome, iOS Safari (Adicionar à Tela de Início), Windows Chrome/Edge, cópia e abertura da IA, offline e continuidade.
+A SophIA não possui API de IA, não acessa a conta do usuário e não transmite textos automaticamente.
