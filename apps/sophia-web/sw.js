@@ -1,6 +1,6 @@
-/* SophIA 1.0: cache public static assets only, never user input. */
-const CACHE = 'sophia-static-v1.0.0-v2';
-const ASSETS = ['./', './index.html', './privacidade.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './identidade/icone-lanterna.png', './assets/launcher.js', './assets/clipboard.js', './assets/provider-handoff.js', './assets/router.js', './assets/feedback.js', './assets/catalog-loader.js', './assets/catalog-manifest.json', './assets/catalog-baseline.json', './assets/skill-index.json'];
+/* SophIA 1.1: cache public static assets only, never user input. */
+const CACHE = 'sophia-static-v1.1.0-v1';
+const ASSETS = ['./', './index.html', './privacidade.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './identidade/icone-lanterna.png', './assets/launcher.js', './assets/flow-guidance.js', './assets/clipboard.js', './assets/provider-handoff.js', './assets/router.js', './assets/feedback.js', './assets/catalog-loader.js', './assets/catalog-manifest.json', './assets/catalog-baseline.json', './assets/skill-index.json'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
 });
@@ -15,7 +15,7 @@ self.addEventListener('fetch', event => {
   const scopePath = new URL(self.registration.scope).pathname;
   if (!url.pathname.startsWith(scopePath)) return;
   const filename = url.pathname.slice(scopePath.length);
-  const allow = ['', 'index.html', 'privacidade.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'identidade/icone-lanterna.png', 'assets/launcher.js', 'assets/clipboard.js', 'assets/provider-handoff.js', 'assets/router.js', 'assets/feedback.js', 'assets/catalog-loader.js', 'assets/catalog-manifest.json', 'assets/catalog-baseline.json', 'assets/skill-index.json'];
+  const allow = ['', 'index.html', 'privacidade.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'identidade/icone-lanterna.png', 'assets/launcher.js', 'assets/flow-guidance.js', 'assets/clipboard.js', 'assets/provider-handoff.js', 'assets/router.js', 'assets/feedback.js', 'assets/catalog-loader.js', 'assets/catalog-manifest.json', 'assets/catalog-baseline.json', 'assets/skill-index.json'];
   if (!allow.includes(filename)) return;
   // Network-first for HTML AND application modules avoids a new HTML / stale JS mismatch
   // during a PWA update. Offline falls back to a validated pre-cached copy.

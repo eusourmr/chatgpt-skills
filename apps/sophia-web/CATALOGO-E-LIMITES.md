@@ -31,3 +31,7 @@ O SHA-256 verifica integridade do pacote servido, sem autenticação criptográf
 ## SophIA 1.0: escopo e confiança
 
 O catálogo mantém as **mesmas 14 entradas editoriais**, ainda no estado de evidência declarado no registry; a promoção de versão NÃO eleva estados `designed` a `tested`. O roteador é lexical/heurístico: em caso de baixa confiança, preferir conversa direta. O sucesso relatado pelo visitante não é um resultado verificado. Sem coleta remota de mensagens, sem login e sem execução de skills. Publicação deve passar por PR, CI e revisão humana; HTTPS/cabeçalhos devem continuar configurados na hospedagem.
+
+## Versão 1.1.0
+
+As 14 entradas continuam editoriais e não executáveis. A escolha sugerida de extensão de resposta é heurística e local, feita apenas com pistas explícitas do texto, e não é prova de compreensão semântica. O usuário pode sempre substituí-la; rascunhos editados não são sobrescritos automaticamente por troca de estilo/método.

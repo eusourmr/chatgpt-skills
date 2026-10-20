@@ -1,12 +1,15 @@
 import {readGovernedCatalog,trustedShareId,shareMethodUrl} from './catalog-loader.js';
 import {planProviderOpen} from './provider-handoff.js';
 import {copyWithFallback} from './clipboard.js';
+import {suggestDepth,describeGuidance} from './flow-guidance.js';
 import {OUTCOMES,emptyPreferences,loadPreferences,savePreferences,clearPreferences,recordOutcome,orderAmbiguousOptions,feedbackPrompt} from './feedback.js';
 import {normalize,route,compose,validateCatalog,classifyRisk,clarify,composeFollowUp} from './router.js';
 const $=id=>document.getElementById(id);
 const field=$('launcher-query'),status=$('launcher-status'),result=$('launcher-result'),choice=$('launcher-choices'),badge=$('launcher-method'),preview=$('launcher-preview'),depth=$('launcher-depth');
 let currentEntries=[],selected=null, currentRoute=null;
 let initialSharedMethod=null;
+let manualDepth=false,previewDirty=false,pendingMethod=null,automaticDepth=false;
+const guidance=$('launcher-context'),applyChanges=$('launcher-regenerate');
 let preferences=emptyPreferences();let remember=false;let ratedThisRequest=false;
 const safeStorage=()=>{try{return window.localStorage;}catch{return null;}};
 const feedbackPanel=$('launcher-feedback'), feedbackResult=$('launcher-feedback-result');
@@ -76,6 +79,7 @@ function render(){
  if(!q){field.setCustomValidity('Conte em uma frase o que você precisa.');field.reportValidity();field.focus();return}
  field.setCustomValidity('');
  resetFeedback();clearProviderContinuation();
+ previewDirty=false;pendingMethod=null;applyChanges.hidden=true;
  const necessary=clarify(q);
  if(necessary && !pendingClarification){
    clarQuestion.textContent=necessary;clarBox.hidden=false;clarInput.focus();result.hidden=true;
@@ -83,9 +87,11 @@ function render(){
  }
  clarBox.hidden=true;pendingClarification=false;
  currentRoute=orderAmbiguousOptions(route(q,currentEntries),preferences);selected=null;choice.replaceChildren();result.hidden=false;
+ if(!remember&&!manualDepth){const depthHint=suggestDepth(q);depth.value=depthHint.value;automaticDepth=true;}else automaticDepth=false;
  if(currentRoute.status==='urgent'){
   badge.textContent='Precisa de atenção imediata — sem roteamento automático';
   show(currentRoute.reason);preview.value='';$('launcher-actions').hidden=true;$('launcher-share').hidden=true;
+  guidance.textContent='Este caso pode exigir ajuda imediata. Nenhuma orientação foi preparada.';
   focusResult();return;
  }
  feedbackPanel.hidden=false;
@@ -93,16 +99,16 @@ function render(){
   const heading=document.createElement('p');heading.textContent='Encontrei dois caminhos possíveis. Escolha um, ou siga sem especialização:';choice.appendChild(heading);
   for(const option of currentRoute.options){
     const btn=document.createElement('button');btn.type='button';btn.className='launcher-choice';
-    btn.textContent=option.title;btn.addEventListener('click',()=>{update(option.entry);show('Método selecionado: '+option.title+'. Revise a orientação.');preview.focus({preventScroll:true});});choice.appendChild(btn);
+    btn.textContent=option.title;btn.addEventListener('click',()=>chooseMethod(option.entry,option.title));choice.appendChild(btn);
   }
-  const no=document.createElement('button');no.type='button';no.className='launcher-choice';no.textContent='Sem método especializado';no.addEventListener('click',()=>{update(null);show('Seguindo diretamente, sem método especializado.');preview.focus({preventScroll:true});});choice.appendChild(no);
+  const no=document.createElement('button');no.type='button';no.className='launcher-choice';no.textContent='Sem método especializado';no.addEventListener('click',()=>chooseMethod(null,'Sem método especializado'));choice.appendChild(no);
   update(null,false);
   badge.textContent='Dois caminhos possíveis · você decide';
   }else{
   if(currentRoute.status==='match'){
     const no=document.createElement('button');no.type='button';no.className='launcher-choice launcher-no-method';
     no.textContent='Sem método especializado';no.addEventListener('click',()=>{
-      update(null);show('Tudo bem: vamos seguir de forma direta, sem método especializado.');preview.focus({preventScroll:true});
+      chooseMethod(null,'Sem método especializado');
     });choice.appendChild(no);
   }
   update(currentRoute.status==='match'?currentRoute.options[0].entry:null,false);
@@ -110,11 +116,16 @@ function render(){
  show(currentRoute.reason);
  focusResult();
 }
+function chooseMethod(entry,label){
+ if(previewDirty){pendingMethod={entry};applyChanges.hidden=false;show('Sua edição foi preservada. Para aplicar “'+label+'”, toque em Aplicar mudanças.');return;}
+ update(entry);show('Método selecionado: '+label+'. Revise a orientação.');preview.focus({preventScroll:true});
+}
 function update(entry,resetBadge=true){
- selected=entry;
+ selected=entry;pendingMethod=null;previewDirty=false;applyChanges.hidden=true;
  const q=field.value.trim();preview.value=compose(q,entry,depth.value);
  $('launcher-actions').hidden=false;
  $('launcher-share').hidden=!entry;
+ guidance.textContent=describeGuidance(currentRoute,depth.value,{automatic:automaticDepth,personalized:remember});
  if(resetBadge || currentRoute?.status!=='choice'){
   badge.textContent=entry?`Sugestão: ${entry.title} · apenas catálogo · ${entry.evidence_state}`:'Sem skill especializada · resposta direta';
  }
@@ -131,7 +142,19 @@ $('launcher-clarify-go').addEventListener('click',()=>{
 });
 clarInput.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('launcher-clarify-go').click();}});
 field.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key==='Enter')render();});
-depth.addEventListener('change',()=>{storeOptional();if(!result.hidden && currentRoute?.status!=='urgent')update(selected);});
+depth.addEventListener('change',()=>{
+ manualDepth=true;automaticDepth=false;storeOptional();
+ if(result.hidden||currentRoute?.status==='urgent')return;
+ if(previewDirty){applyChanges.hidden=false;show('Seu texto editado foi preservado. Toque em Aplicar mudanças para usar o novo formato.');}
+ else update(selected);
+});
+preview.addEventListener('input',()=>{if(!result.hidden){previewDirty=true;}});
+applyChanges.addEventListener('click',()=>{
+ if(result.hidden||currentRoute?.status==='urgent')return;
+ update(pendingMethod?pendingMethod.entry:selected);
+ show('Nova orientação preparada. Revise o texto antes de copiar.');
+ preview.focus({preventScroll:true});
+});
 document.querySelectorAll('[data-launch-example]').forEach(b=>b.addEventListener('click',()=>{field.value=b.dataset.launchExample;clearProviderContinuation();result.hidden=true;clarBox.hidden=true;resetFeedback();field.focus();}));
 $('launcher-copy').addEventListener('click',async()=>{
  const result=await copyPreview();
@@ -179,6 +202,7 @@ start();
 document.querySelectorAll('[data-follow]').forEach(button=>button.addEventListener('click',()=>{
   if(result.hidden||currentRoute?.status==='urgent')return;
   preview.value=composeFollowUp(field.value,button.dataset.follow,$('launcher-ai-response').value,selected,depth.value);
+  previewDirty=false;pendingMethod=null;applyChanges.hidden=true;
   $('launcher-actions').hidden=false;
   show('Nova orientação preparada. Revise, copie e cole na sua própria IA.');
   preview.focus();preview.scrollIntoView({block:'center',behavior:'smooth'});
@@ -223,6 +247,7 @@ function reportOutcome(outcome){
   const text=feedbackPrompt({query:field.value,outcome,entry:selected,note:feedbackNote.value,
     answer:$('launcher-ai-response').value,depth:depth.value});
   preview.value=text;
+  previewDirty=false;pendingMethod=null;applyChanges.hidden=true;
   $('launcher-actions').hidden=false;
   feedbackResult.hidden=false;
   const notes={done:'Você relatou que conseguiu avançar. Preparei uma verificação final, sem presumir que o resultado foi confirmado.',

@@ -1,7 +1,7 @@
 {
   "name": "SophIA — Seu próximo passo",
   "short_name": "SophIA",
-  "description": "SophIA 1.0: orientação clara, métodos selecionados, continuidade privada e integração com sua IA.",
+  "description": "SophIA 1.1: orientação proporcional e continuidade sem perder suas edições, com autonomia e privacidade.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

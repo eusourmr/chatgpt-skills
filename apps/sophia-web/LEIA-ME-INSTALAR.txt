@@ -1,15 +1,12 @@
-SophIA 1.0.0 — INSTALAÇÃO, TESTE E ROLLBACK
+SOPHIA 1.1.0 — EXPERIÊNCIA FLUIDA
 
-1. Preserve um backup integral da versão 0.9.6 atualmente publicada, incluindo o arquivo .htaccess (se houver) e a configuração de cabeçalhos. Não inclua dados do usuário em backups do site estático.
-2. Publique primeiramente o conteúdo da pasta pública deste ZIP em https://sophia.meuapoio.com/beta/ (o index.html fica na raiz da pasta beta). A pasta `catalog` e `tests` não precisam ser publicados.
-3. Confira se a beta mostra “SophIA 1.0”, carrega os 14 métodos e produz orientações sem API. Confirme PWA (`manifest.webmanifest`, `sw.js`) e o manifesto do catálogo. URLs `?skill=id` jamais contêm texto pessoal.
-4. Teste Aprender/Escrever/Resolver; modo direto/curadoria; avaliações; copiar e abrir ChatGPT/Gemini; iPhone Safari (segundo toque); Android; compartilhamento de métodos; limpeza de preferências e modo offline após carregamento.
-5. Confirme o HTTPS, a proteção `X-Frame-Options: DENY` e `Content-Security-Policy: frame-ancestors 'none'` no domínio de produção. Cheque também nos endpoints de HTML após publicar. O usuário mostrou esses cabeçalhos em 20/10/2026, mas a confirmação da configuração atual permanece necessária.
-6. Após PR revisto e checks verdes, instale de forma controlada na raiz `sophia.meuapoio.com/`. Não substitua o `.htaccess` existente automaticamente.
-7. Abra o PWA instalado, atualize/reinicie, e confira cache novo `sophia-static-v1.0.0-v1`. Limpe o cache apenas se a atualização ficar retida.
-8. ROLLBACK: restaure o backup integral da versão 0.9.6 e seus cabeçalhos HTTP, confira o SW anterior, force atualização/reabertura dos clientes e repita os testes essenciais. Não remova dados de preferências voluntárias sem consentimento.
+1. Faça backup de todos os arquivos da 1.0 instalada na HostGator e preserve o .htaccess.
+2. Extraia o ZIP para /beta/ mantendo index.html na raiz; não publique testes nem arquivos internos da curadoria.
+3. Com HTTPS, reabra o PWA para carregar o service worker `sophia-static-v1.1.0-v1`.
+4. Teste sugestão automática curta/equilibrada/aprofundada e escolha manual.
+5. Edite a orientação e mude o estilo: sua edição deve continuar, até tocar em Aplicar mudanças.
+6. Verifique copiar e abrir (dois toques) em iPhone/Android, use modo avião após carregamento e confira cabeçalhos de segurança.
+7. Após CI verde e revisão do PR, envie os mesmos arquivos para a raiz do subdomínio. Verifique atualização e comportamento.
+8. Em caso de regressão, restaure a versão 1.0 e seu SW/cache; não apague preferências locais sem necessidade/consentimento.
 
-VERSÃO: 1.0.0 | DATA: 20/10/2026 | TIPO: candidata de publicação com revisão final.
-LIMITES: não houve teste automatizado em iPhone físico, NVDA/VoiceOver, nem comprovação independente de segurança; o mantenedor relatou teste manual no Android e no iPhone da 0.9.6.
-
-ATENÇÃO — RC2: caso a 1.0 tenha sido instalada, ao atualizar arquivos, feche completamente a PWA e abra novamente. O service worker muda para v1.0.0-v2; caso a versão antiga continue aparecendo, limpe apenas o cache do site e reabra. Não limpe armazenamento de dados voluntários sem consentimento. Confirme os botões '1. Copiar para...' e links '2. Abrir...' no Android e iPhone.
+A SophIA não instala skills, não usa API paga e não envia pedidos automaticamente.

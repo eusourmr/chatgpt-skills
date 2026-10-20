@@ -1,8 +1,8 @@
 // SophIA 0.9.5: governed same-origin catalog updates. No third-party request or remote code.
 import {validateCatalog} from './router.js';
-export const CATALOG_VERSION='1.0.0';
+export const CATALOG_VERSION='1.1.0';
 // Immutable local release baseline: changing it requires a reviewed application release.
-export const TRUSTED_BASELINE_SHA256='8f6112698b5b13f843776bc0c25ef907c098411cd4c85eadc25f822f17ca29f2';
+export const TRUSTED_BASELINE_SHA256='ebaa09cda66762ed56e1cf4789a35243ac54067bb6c2f7f2d64b8a366bb71b18';
 const encode=new TextEncoder();
 export async function sha256Hex(content,cryptoProvider=globalThis.crypto){
   if(!cryptoProvider?.subtle)throw Error('SHA-256 unavailable');
