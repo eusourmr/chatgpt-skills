@@ -18,3 +18,8 @@ Interface web estática, sem API própria, que prepara conversas para o ChatGPT/
 - Continuidade: orientar após a primeira resposta externa sem ler contas do visitante; trecho colado é opcional e tratado como dados não confiáveis.
 - Zero dependências de IA, sem chave ou API cobrada.
 - Testes: `node --test apps/sophia-web/tests/launcher.test.mjs`; CI continua sem deploy automático.
+
+## Alpha 0.7.1 — Transição para apps externos
+Nos navegadores móveis, os links para ChatGPT/Gemini não forçam mais uma aba extra. No Chrome Android, tenta-se uma única intent HTTPS para os pacotes oficiais, **sem redirecionamento automático**. Se não abrir, o usuário pode clicar explicitamente na versão web. iOS e demais navegadores utilizam links HTTPS normais, sujeitos às associações de apps do sistema. O website não pode garantir a abertura de aplicativos de terceiros ou a ausência de comportamento próprio das plataformas.
+
+Teste adicional: `node --test apps/sophia-web/tests/provider-handoff.test.mjs`.

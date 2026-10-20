@@ -35,9 +35,10 @@ jobs:
       - name: Verificar arquivos estáticos e CSP
         run: node scripts/validate-sophia-web.mjs
       - name: Testar busca e roteamento
-        run: node --test apps/sophia-web/tests/launcher.test.mjs
+        run: node --test apps/sophia-web/tests/*.test.mjs
       - name: Verificar sintaxe JavaScript
         run: |
           node --check apps/sophia-web/assets/router.js
           node --check apps/sophia-web/assets/launcher.js
+          node --check apps/sophia-web/assets/provider-handoff.js
           node --check apps/sophia-web/sw.js
