@@ -82,6 +82,21 @@ Preferred tools:
 - `get_capability` — inspect one capability's current metadata;
 - `get_evidence` — inspect evidence/freshness/permission boundaries;
 - `registry_status` — inspect registry freshness/source state.
+- `assess_capability_delivery` (0.18-compatible hosts only) — distinguish a core skill declared in the package from registry-only metadata, without asserting execution.
+
+### Capability Fulfillment Contract (0.18 candidate)
+
+Before recommending a specialized capability as an executable method, check its **delivery state**, not just its evidence or search ranking.
+
+- **bundled_core**: listed in the six-skill package manifest; this alone does NOT verify that the current host installed, activated or invoked it.
+- **registry_only**: discovery/evidence metadata exists, but instructions are NOT automatically loaded or executed. Explain the limitation and use native ChatGPT when suitable.
+- **not_available**: do not offer, install, rename, or route around an excluded or missing capability.
+- `tested` describes recorded evidence for a capability; it is NOT proof of this conversation's execution or the user's real-world outcome.
+
+When the MCP host supports `assess_capability_delivery`, request it after identifying a potentially useful capability. When it is not exposed, fall back to the same conservative distinctions and do not claim it ran.
+
+A response that recommends a method should give a feasible next step and distinguish: **discovered → packaged → host-available → actually invoked → user outcome**, reporting the last two only if independently observed.
+
 
 ### Registry safety boundary
 
