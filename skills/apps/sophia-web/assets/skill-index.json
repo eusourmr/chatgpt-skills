@@ -1,0 +1,390 @@
+{
+  "schema_version": 1,
+  "app_version": "0.6.0",
+  "source_registry": "registry/public-capabilities-v1.json",
+  "source_commit": "unverified (registry current metadata says development)",
+  "generated_at": "2026-10-20",
+  "notice": "Selected editorial guidance, not executable skills or proof of host installation. This pilot bundle is curated, not all registry entries.",
+  "entries": [
+    {
+      "id": "learning-mastery-coach",
+      "title": "Aprender de verdade",
+      "category": "estudos",
+      "keywords": [
+        "aprender",
+        "estudar",
+        "entender",
+        "memorizar",
+        "prova",
+        "vestibular",
+        "ingles",
+        "concurso",
+        "exercicios",
+        "filosofia",
+        "matematica",
+        "enem"
+      ],
+      "phrases": [
+        "aprender um assunto",
+        "estudar para prova",
+        "quero aprender",
+        "aprender a programar"
+      ],
+      "method": "Separe o tema em partes pequenas. Explique no nível do usuário, peça que recupere sem consultar, proponha uma aplicação inédita e revise erros sem entregar a resposta antes da tentativa.",
+      "evidence_state": "designed",
+      "delivery_state": "registry_only",
+      "editorial_template_state": "pilot",
+      "source_id": "learning-mastery-coach"
+    },
+    {
+      "id": "text-integrity-editor",
+      "title": "Melhorar um texto",
+      "category": "escrita",
+      "keywords": [
+        "texto",
+        "redigir",
+        "escrever",
+        "reescrever",
+        "corrigir",
+        "revisar",
+        "curriculo",
+        "cv",
+        "email",
+        "e-mail",
+        "gramatica",
+        "ortografia",
+        "clareza"
+      ],
+      "phrases": [
+        "melhorar meu curriculo",
+        "corrigir meu texto"
+      ],
+      "method": "Preserve fielmente fatos, nomes, números, intenções e compromissos. Melhore clareza e organização sem acrescentar realizações ou evidências. Se o texto não tiver sido fornecido, peça que seja colado.",
+      "evidence_state": "designed",
+      "delivery_state": "registry_only",
+      "editorial_template_state": "pilot",
+      "source_id": "text-integrity-editor"
+    },
+    {
+      "id": "difficult-conversation-prep",
+      "title": "Conversar com respeito",
+      "category": "comunicacao",
+      "keywords": [
+        "cobranca",
+        "cobrar",
+        "inadimplente",
+        "cliente atrasado",
+        "conflito",
+        "conversa dificil",
+        "negociar",
+        "feedback",
+        "pedir aumento",
+        "reclamacao",
+        "comunicacao",
+        "atrasado",
+        "mensagem",
+        "cobrando"
+      ],
+      "phrases": [
+        "cobrar um cliente",
+        "conversa dificil",
+        "falar com funcionario",
+        "mensagem de cobranca"
+      ],
+      "method": "Prepare uma mensagem ou conversa firme e respeitosa. Separe fatos de interpretações, identifique o pedido e preserve limites. Não invente condições, ameaças ou fundamentos legais.",
+      "evidence_state": "designed",
+      "delivery_state": "registry_only",
+      "editorial_template_state": "pilot",
+      "source_id": "difficult-conversation-prep"
+    },
+    {
+      "id": "everyday-problem-solver",
+      "title": "Resolver um problema",
+      "category": "resolver",
+      "keywords": [
+        "problema",
+        "resolver",
+        "impasse",
+        "nao sei o que fazer",
+        "dificuldade",
+        "solucao",
+        "decidir",
+        "atrapalhado",
+        "obstaculo"
+      ],
+      "phrases": [
+        "preciso resolver algo",
+        "nao sei o que fazer"
+      ],
+      "method": "Liste fatos conhecidos, dúvidas que realmente mudam a decisão, opções viáveis e uma única próxima ação. Não apresente etapas não executadas como concluídas.",
+      "evidence_state": "designed",
+      "delivery_state": "registry_only",
+      "editorial_template_state": "pilot",
+      "source_id": "everyday-problem-solver"
+    },
+    {
+      "id": "overwhelm-to-next-action",
+      "title": "Organizar o que está acumulado",
+      "category": "organizar",
+      "keywords": [
+        "sobrecarregado",
+        "tarefas",
+        "pendencias",
+        "sem tempo",
+        "procrastinacao",
+        "organizar a semana",
+        "muitas coisas",
+        "prioridades",
+        "rotina",
+        "agenda",
+        "acumulado"
+      ],
+      "phrases": [
+        "muitas tarefas",
+        "estou sobrecarregado"
+      ],
+      "method": "Transforme o conjunto em uma única ação imediata, uma lista curta para hoje e outra para depois. Não pressione com planos extensos ou múltiplos questionários.",
+      "evidence_state": "designed",
+      "delivery_state": "registry_only",
+      "editorial_template_state": "pilot",
+      "source_id": "overwhelm-to-next-action"
+    },
+    {
+      "id": "evidence-first-research",
+      "title": "Pesquisar com fontes",
+      "category": "pesquisa",
+      "keywords": [
+        "pesquisar",
+        "investigar",
+        "fontes",
+        "evidencia",
+        "verificar",
+        "estudo cientifico",
+        "pesquisa",
+        "dados",
+        "bibliografia",
+        "fato",
+        "noticia"
+      ],
+      "phrases": [
+        "pesquisar um assunto",
+        "verificar uma noticia"
+      ],
+      "method": "Separe fatos verificados, inferências e lacunas. Solicite fontes com data e link quando pertinentes. Não invente referências nem alegue ter feito pesquisa se o assistente não tem ferramenta de busca.",
+      "evidence_state": "designed",
+      "delivery_state": "registry_only",
+      "editorial_template_state": "pilot",
+      "source_id": "evidence-first-research"
+    },
+    {
+      "id": "academic-writing-navigator",
+      "title": "Escrever trabalho acadêmico",
+      "category": "academico",
+      "keywords": [
+        "tcc",
+        "dissertacao",
+        "tese",
+        "abnt",
+        "apa",
+        "artigo academico",
+        "normas",
+        "monografia",
+        "academico",
+        "citacoes"
+      ],
+      "phrases": [
+        "revisar tcc",
+        "norma abnt",
+        "trabalho academico"
+      ],
+      "method": "Confirme antes o manual da instituição ou revista aplicável. Revise argumento, estrutura, evidências e citações sem criar fontes, DOI ou normas inexistentes.",
+      "evidence_state": "designed",
+      "delivery_state": "registry_only",
+      "editorial_template_state": "pilot",
+      "source_id": "academic-writing-navigator"
+    },
+    {
+      "id": "digital-helper-simple",
+      "title": "Entender tecnologia sem complicar",
+      "category": "tecnologia",
+      "keywords": [
+        "computador",
+        "celular",
+        "app",
+        "aplicativo",
+        "internet",
+        "configurar",
+        "senha",
+        "wifi",
+        "android",
+        "iphone",
+        "windows",
+        "instalar",
+        "tecnologia"
+      ],
+      "phrases": [
+        "configurar celular",
+        "ajuda com computador"
+      ],
+      "method": "Oriente uma etapa por vez, em linguagem simples, verificando o resultado antes de avançar. Não solicite senhas, códigos de autenticação ou acesso remoto.",
+      "evidence_state": "designed",
+      "delivery_state": "registry_only",
+      "editorial_template_state": "pilot",
+      "source_id": "digital-helper-simple"
+    },
+    {
+      "id": "travel-readiness",
+      "title": "Preparar uma viagem",
+      "category": "viagem",
+      "keywords": [
+        "viagem",
+        "viajar",
+        "passaporte",
+        "visto",
+        "aeroporto",
+        "embarque",
+        "bagagem",
+        "roteiro de viagem",
+        "hotel",
+        "conexao",
+        "turismo"
+      ],
+      "phrases": [
+        "preparar viagem",
+        "documentos para viajar"
+      ],
+      "method": "Organize documentos, prazos, deslocamentos e preparativos. Diferencie requisitos confirmados de regras que dependem do país, da data e da fonte oficial.",
+      "evidence_state": "designed",
+      "delivery_state": "registry_only",
+      "editorial_template_state": "pilot",
+      "source_id": "travel-readiness"
+    },
+    {
+      "id": "purchase-decision-helper",
+      "title": "Comparar uma compra",
+      "category": "compras",
+      "keywords": [
+        "comprar",
+        "compra",
+        "preco",
+        "custo beneficio",
+        "comparar produtos",
+        "melhor tablet",
+        "notebook",
+        "produto",
+        "orcamento",
+        "garantia"
+      ],
+      "phrases": [
+        "qual devo comprar",
+        "comparar produtos"
+      ],
+      "method": "Defina necessidade e orçamento, compare custo total, manutenção, durabilidade e trade-offs. Não invente preços ou avaliações em tempo real.",
+      "evidence_state": "designed",
+      "delivery_state": "registry_only",
+      "editorial_template_state": "pilot",
+      "source_id": "purchase-decision-helper"
+    },
+    {
+      "id": "consumer-rights-navigator",
+      "title": "Organizar uma reclamação de consumo",
+      "category": "consumidor",
+      "keywords": [
+        "reembolso",
+        "garantia",
+        "procon",
+        "consumidor",
+        "cobranca indevida",
+        "cancelamento",
+        "produto com defeito",
+        "empresa nao resolveu"
+      ],
+      "phrases": [
+        "solicitar reembolso",
+        "reclamar com empresa"
+      ],
+      "method": "Organize comprovantes, cronologia, pedido de solução e canais apropriados. Não afirme direitos específicos sem confirmar a jurisdição e a norma vigente; não substitua orientação jurídica.",
+      "evidence_state": "designed",
+      "delivery_state": "registry_only",
+      "editorial_template_state": "pilot",
+      "source_id": "consumer-rights-navigator"
+    },
+    {
+      "id": "engineering-investigator",
+      "title": "Investigar um erro técnico",
+      "category": "programacao",
+      "keywords": [
+        "programacao",
+        "codigo",
+        "bug",
+        "erro no codigo",
+        "javascript",
+        "python",
+        "rust",
+        "debug",
+        "api",
+        "compilar",
+        "software",
+        "git",
+        "github"
+      ],
+      "phrases": [
+        "corrigir erro de programacao",
+        "investigar bug"
+      ],
+      "method": "Peça a mensagem de erro relevante, ambiente e passos para reproduzir. Formule hipóteses verificáveis, proponha o menor teste e evite alterar produção sem autorização.",
+      "evidence_state": "designed",
+      "delivery_state": "registry_only",
+      "editorial_template_state": "pilot",
+      "source_id": "engineering-investigator"
+    },
+    {
+      "id": "scam-checker",
+      "title": "Verificar mensagem suspeita",
+      "category": "seguranca",
+      "keywords": [
+        "golpe",
+        "fraude",
+        "phishing",
+        "link suspeito",
+        "mensagem suspeita",
+        "pix estranho",
+        "golpista",
+        "email falso",
+        "site falso"
+      ],
+      "phrases": [
+        "suspeito de golpe",
+        "mensagem falsa"
+      ],
+      "method": "Recomende não clicar, não pagar e não revelar códigos até verificar fontes independentes. Analise sinais e indique confirmação oficial; não garanta segurança com base em aparência.",
+      "evidence_state": "designed",
+      "delivery_state": "registry_only",
+      "editorial_template_state": "pilot",
+      "source_id": "scam-checker"
+    },
+    {
+      "id": "context-continuity-manager",
+      "title": "Continuar projeto ou conversa",
+      "category": "continuidade",
+      "keywords": [
+        "retomar projeto",
+        "continuar conversa",
+        "resumo de contexto",
+        "migrar chat",
+        "nao perder contexto",
+        "registro de decisao",
+        "handoff"
+      ],
+      "phrases": [
+        "retomar projeto",
+        "transferir contexto"
+      ],
+      "method": "Monte um registro conciso de objetivo, decisões, estado confirmado, pendências, arquivos e próximo passo. Nunca fabrique histórico ausente.",
+      "evidence_state": "designed",
+      "delivery_state": "registry_only",
+      "editorial_template_state": "pilot",
+      "source_id": "context-continuity-manager"
+    }
+  ]
+}
