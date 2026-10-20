@@ -25,7 +25,10 @@ Nova ferramenta MCP **somente leitura**, que recebe um ID de capacidade (máximo
 - `evidence_state`, `qualification_state`, `freshness_state` e `known_gaps` sem promoção artificial;
 - `host_activation_verified:false`, `execution_verified:false`, `next_action` e `boundary`.
 
-A ferramenta não instala skills, não solicita credenciais, não executa arquivos do GitHub e não autoriza ações externas. `bundled_core` refere-se ao manifesto esperado, **não a uma verificação da instalação do usuário**.
+A ferramenta não instala skills, não solicita credenciais, não executa arquivos do GitHub e não autoriza ações externas.
+
+**Isolamento 0.17/0.18:** a nova ferramenta é registrada somente quando a variável de ambiente `CS_ENABLE_EXPERIMENTAL_DELIVERY_TOOL` contém exatamente `true`. Ausente (configuração padrão de produção), a superfície MCP permanece com as quatro ferramentas 0.17 submetidas à OpenAI. Ativar o recurso exige ambiente de testes e qualificação de revisão própria, nunca apenas o merge na `main`.
+ `bundled_core` refere-se ao manifesto esperado, **não a uma verificação da instalação do usuário**.
 
 **Próxima etapa de integração:** incorporar o gate ao núcleo curator e manter os arquivos canônicos e distribuídos idênticos. Esse ajuste só será feito ao preparar e qualificar o pacote 0.18, com fallback para hosts que ainda não ofereçam a ferramenta.
 
