@@ -14,7 +14,7 @@ test('same-origin manifest cryptographically matches release files',async()=>{
  assert.equal(await sha256Hex(read('catalog-baseline.json'),webcrypto),TRUSTED_BASELINE_SHA256);
  assert.equal(await sha256Hex(read('skill-index.json'),webcrypto),manifest.catalog_sha256);
  assert.equal(manifest.entries,14);
- assert.equal(manifest.release,'1.0.0');
+ assert.equal(manifest.release,'1.1.0');
 });
 test('verified catalog works with no external network calls',async()=>{
  const hits=[];const req=async(path,opts)=>{hits.push([path,opts]);return (fetcher())(path)};

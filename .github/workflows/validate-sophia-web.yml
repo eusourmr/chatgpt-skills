@@ -44,6 +44,8 @@ jobs:
         run: |
           node --check apps/sophia-web/assets/router.js
           node --check apps/sophia-web/assets/launcher.js
+          node --check apps/sophia-web/assets/flow-guidance.js
+          node --check apps/sophia-web/assets/clipboard.js
           node --check apps/sophia-web/assets/catalog-loader.js
           node --check apps/sophia-web/assets/feedback.js
           node --check apps/sophia-web/assets/provider-handoff.js

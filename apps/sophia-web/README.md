@@ -1,4 +1,4 @@
-# SophIA Web — Versão 1.0.0
+# SophIA Web — Versão 1.1.0
 
 Interface web estática, sem API própria, que prepara conversas para o ChatGPT/Gemini do visitante. A aplicação pública continua em https://sophia.meuapoio.com/. Mantém Aprender, Escrever e Resolver.
 
@@ -87,3 +87,11 @@ node --test apps/sophia-web/tests/*.test.mjs
 O gesto “Copiar e abrir” não é atômico nem garantido em Android/iOS/desktop: o navegador pode bloquear popups e links intent. Por isso, a ação foi separada: botão **1. Copiar para…** com fallback síncrono de seleção+execCommand, API Clipboard assíncrona apenas como alternativa; link oficial **2. Abrir…** sempre disponível e clicável diretamente. Nenhum popup ou redirecionamento é disparado após `await`, e o prompt não vai em query strings. O Service Worker muda para `sophia-static-v1.0.0-v2`. Após instalar, atualizar o PWA instalado ou reabrir a página.
 
 Este hotfix ainda exige teste manual de cópia e transferência em aparelhos reais; os testes Node verificam lógica e invariantes estáticos, não substituem E2E.
+
+## SophIA 1.1.0 — Experiência Fluida
+
+- `assets/flow-guidance.js`: sugestões determinísticas de extensão conforme pistas textuais; não altera roteamento das 14 skills e não confunde correspondência lexical com IA semântica.
+- `assets/launcher.js`: respeita seleções do usuário e preferências já consentidas. Em orientação editada manualmente, só refaz após clique explícito em **Aplicar mudanças**.
+- `index.html`: um aviso breve de formato no resultado e um botão contextual oculto até ser necessário; sem navegação extra.
+- **Privacidade:** tudo permanece no dispositivo e sem persistência de textos por padrão; abertura ChatGPT/Gemini mantém o fluxo testado de 2 toques.
+- Veja `RELEASE-1.1.0.md` para etapas de homologação, fallback e rollback.
