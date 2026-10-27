@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { assessCapabilityFulfillment, BUNDLED_CORE_IDS, isExperimentalDeliveryToolEnabled } from "../dist/fulfillment.js";
+import { assessCapabilityFulfillment, decideFulfillmentPath, BUNDLED_CORE_IDS, isExperimentalDeliveryToolEnabled } from "../dist/fulfillment.js";
 
 const record = (id, overrides = {}) => ({
   id,
@@ -109,4 +109,48 @@ test("the experimental 0.18 tool requires an exact explicit opt-in", () => {
     assert.equal(isExperimentalDeliveryToolEnabled(value), false);
   }
   assert.equal(isExperimentalDeliveryToolEnabled("true"), true);
+});
+
+test("0.18 guidance maps discovery to a conservative, achievable path", () => {
+  const cases = [
+    ["cs-navigator", record("cs-navigator"), "host_confirmation_required"],
+    ["learning-mastery-coach", record("learning-mastery-coach"), "catalog_guidance_only"],
+    ["academic-writing-navigator", record("academic-writing-navigator"), "catalog_guidance_only"],
+    ["medical-appointment-prep", record("medical-appointment-prep", { distribution_state: "excluded" }), "native_only"],
+    ["caregiver-coordinator", record("caregiver-coordinator", { distribution_state: "excluded" }), "native_only"],
+    ["missing", undefined, "native_only"],
+  ];
+  for (const [id, source, path] of cases) {
+    const assessment = assessCapabilityFulfillment(id, source);
+    const guidance = decideFulfillmentPath(assessment);
+    assert.equal(guidance.path, path, id);
+    assert.equal(guidance.safe_to_claim_executed, false, id);
+    assert.equal(guidance.safe_to_claim_outcome, false, id);
+    assert.ok(guidance.next_step.length > 30);
+  }
+});
+
+test("excluded/mismatched metadata never leaks via the public fulfillment contract", () => {
+  for (const secret of [
+    record("medical-appointment-prep", { distribution_state: "excluded", known_gaps: ["internal-note"] }),
+    record("a-different-id", { known_gaps: ["internal-note"] }),
+  ]) {
+    const output = assessCapabilityFulfillment("medical-appointment-prep", secret);
+    assert.equal(output.found, false);
+    assert.equal(output.evidence_state, null);
+    assert.equal(output.qualification_state, null);
+    assert.deepEqual(output.known_gaps, []);
+  }
+});
+
+test("0.18 guidance never accepts registry evidence as proof of actual activation", () => {
+  const enhanced = record("learning-mastery-coach", {
+    evidence_state: "tested", qualification_state: "tested", freshness_state: "current",
+  });
+  const assessment = assessCapabilityFulfillment("learning-mastery-coach", enhanced);
+  const guidance = decideFulfillmentPath(assessment);
+  assert.equal(assessment.execution_verified, false);
+  assert.equal(assessment.host_activation_verified, false);
+  assert.equal(guidance.path, "catalog_guidance_only");
+  assert.equal(guidance.safe_to_claim_executed, false);
 });

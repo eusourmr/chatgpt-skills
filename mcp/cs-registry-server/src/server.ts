@@ -2,7 +2,7 @@ import { createMcpExpressApp } from "@modelcontextprotocol/express";
 import { toNodeHandler } from "@modelcontextprotocol/node";
 import { createMcpHandler, McpServer } from "@modelcontextprotocol/server";
 import * as z from "zod/v4";
-import { assessCapabilityFulfillment, isExperimentalDeliveryToolEnabled } from "./fulfillment.js";
+import { assessCapabilityFulfillment, decideFulfillmentPath, isExperimentalDeliveryToolEnabled } from "./fulfillment.js";
 
 const PORT = Number(process.env.PORT || 3000);
 const REGISTRY_URL =
@@ -213,7 +213,8 @@ const handler = createMcpHandler(() => {
       async ({ id }) => {
         const registry = await loadRegistry();
         const capability = registry.entries.find((x) => x.id === id);
-        return asText(assessCapabilityFulfillment(id, capability));
+        const assessment = assessCapabilityFulfillment(id, capability);
+        return asText({ ...assessment, guidance: decideFulfillmentPath(assessment) });
       },
     );
   }

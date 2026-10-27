@@ -6,6 +6,9 @@ on:
       - "mcp/cs-registry-server/**"
       - "plugins/cs-navigator/skills/cs-navigator/**"
       - "docs/CS_NAVIGATOR_0.18.0_DELIVERY.md"
+      - "release/candidates/cs-navigator-v0.18.0-rc1/**"
+      - "trust/evals/plans/cs-navigator-v018-delivery.json"
+      - "scripts/validate-cs-navigator-v018-candidate.mjs"
       - ".github/workflows/validate-cs-navigator-v018-fulfillment.yml"
   workflow_dispatch:
 
@@ -31,6 +34,8 @@ jobs:
         run: npm run build
       - name: Capability delivery negative/positive tests
         run: npm test
+      - name: Verify 0.18 candidate without modifying the 0.17 plugin
+        run: node ../../scripts/validate-cs-navigator-v018-candidate.mjs
       - name: Check MCP safety annotations and bounded tools
         run: |
           node --input-type=module <<'NODE'

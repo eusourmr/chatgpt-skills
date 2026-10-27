@@ -63,3 +63,53 @@ As métricas serão resultados observados, não números de marketing. Não marc
 - [ ] Submissão/atualização pública somente depois de verificar o estado da versão em análise e os novos requisitos da plataforma.
 
 **Limites:** esta PR de fundação não altera automaticamente o plugin privado/publicado nem comprova nenhum resultado de usuário. O GitHub pode hospedar candidatos de desenvolvimento sem torná-los releases.
+
+## RC1 — Gate de entrega integrado como candidata isolada
+
+**Marco:** candidato de implementação, **não** uma release pública nem plugin instalado.
+A versão `0.17.0` dos arquivos `plugins/cs-navigator/plugin.json`,
+`plugins/cs-navigator/capability-pack.json`, `plugins/cs-navigator/skills/**`
+e `skills/featured/cs-navigator/**` permanece intacta. O núcleo curador com o
+novo contrato está em `release/candidates/cs-navigator-v0.18.0-rc1/SKILL.md`,
+e seu manifesto conservador em `release/candidates/cs-navigator-v0.18.0-rc1/manifest.json`.
+Ao preparar efetivamente o ZIP 0.18, promover a instrução **para as duas cópias**
+do núcleo, atualizar versão/índice/artefatos e qualificá-los novamente. **Não**
+misturar a candidata com os metadados instalados da 0.17.
+
+### Decisão acionável, sem falsa execução
+
+A função pura `decideFulfillmentPath` deriva um dos três caminhos a partir do
+contrato `assessCapabilityFulfillment`:
+
+| Estado observado | Orientação permitida | Afirmações proibidas |
+| --- | --- | --- |
+| `not_available` | `native_only`: não sugerir instalação/renomeação; ajuda nativa quando apropriada | "skill executada" |
+| `bundled_core` | `host_confirmation_required`: confirmar disponibilidade e obter rastro real | "estar no pacote prova ativação" |
+| `registry_only` | `catalog_guidance_only`: usar metadados como orientação editorial ou pedir caminho autorizado | "catalogada significa instalada" |
+
+Todas as respostas da ferramenta experimental preservam
+`safe_to_claim_executed:false` e `safe_to_claim_outcome:false`, porque
+seu servidor não dispõe de evidência de host. Esses atributos não constituem
+mecanismo de autorização. A alteração também elimina qualquer divulgação de
+metadados de entradas excluídas quando o avaliador é usado diretamente.
+
+### Qualificação reproduzível
+
+```bash
+cd mcp/cs-registry-server
+npm ci
+npm run build
+npm test
+node ../../scripts/validate-cs-navigator-v018-candidate.mjs
+```
+
+O plano de 12 cenários nativos está em
+`trust/evals/plans/cs-navigator-v018-delivery.json`, **todos not-run**.
+O controle do GitHub verifica a integridade da candidata, a manutenção exata
+da 0.17 distribuída, o gate da variável experimental e as exclusões de saúde.
+O CI não executa os cenários nativos no ChatGPT e não mede impacto no usuário.
+
+**Ainda faltam:** artefato ZIP com hash fixo, piloto com comparação nativa,
+avaliação semântica real no ChatGPT, revisão de origem imutável do registro,
+qualificação de disponibilidade do MCP e decisão explícita de atualização
+da submissão à OpenAI. Nenhuma promoção `designed → tested` foi realizada.
