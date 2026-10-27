@@ -46,7 +46,7 @@ assert.match(sourceTS,/safe_to_claim_outcome: false/);
 assert.match(mcp,/if \(isExperimentalDeliveryToolEnabled\(process\.env\.CS_ENABLE_EXPERIMENTAL_DELIVERY_TOOL\)\)/);
 assert.match(mcp,/guidance: decideFulfillmentPath\(assessment\)/);
 const calls=[...mcp.matchAll(/server\.registerTool\(\s*"([^"]+)"/g)].map(x=>x[1]);
-assert.deepEqual(calls.sort(),['search_capabilities','get_capability','get_evidence','registry_status','assess_capability_delivery'].sort());
+assert.deepEqual(calls.sort(),['search_capabilities','get_capability','get_evidence','registry_status','curate_user_goal','assess_capability_delivery'].sort());
 assert.equal(plan.version,'0.18.0');
 assert.equal(plan.status,'planned-not-executed');
 assert.ok(plan.scenarios.length>=8);
