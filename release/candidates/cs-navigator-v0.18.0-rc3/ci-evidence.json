@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "product": "CS Navigator",
+  "candidate": "0.18.0-rc3",
+  "recorded_date": "2026-10-27",
+  "authorization": "Owner approved CI MCP integration milestone in ChatGPT conversation; this does not authorize deployment or publication.",
+  "ci_qualification": {
+    "status": "passed",
+    "source": "https://github.com/eusourmr/chatgpt-skills/actions/runs/40562737578",
+    "workflow_run_id": 40562737578,
+    "pr": "https://github.com/eusourmr/chatgpt-skills/pull/108",
+    "commit": "257b7bdd3f8b7053f815d7bccb94df0da20feada",
+    "tests_unit": {
+      "passed": 23,
+      "total": 23
+    },
+    "protocol": "MCP HTTP loopback on GitHub Actions",
+    "tools_discovered": [
+      "search_capabilities",
+      "get_capability",
+      "get_evidence",
+      "registry_status",
+      "assess_capability_delivery",
+      "curate_user_goal"
+    ],
+    "observed": {
+      "registry_count": 61,
+      "missing_state": "not_available",
+      "excluded_state": "not_available",
+      "learning_state": "guided",
+      "execution_verified": false
+    }
+  },
+  "conversation_semantics": {
+    "status": "observed-native-only",
+    "scenarios": 12,
+    "host_candidate_activation_verified": false
+  },
+  "pending": {
+    "chatgpt_native_tool_invocations": "not-run",
+    "human_pilots": "not-run",
+    "artifact_integrity_and_zip": "not-run",
+    "external_staging": "not-run",
+    "openai_submission": "not-updated"
+  },
+  "guardrails": [
+    "Do not modify 0.17 plugin",
+    "Do not mark native qualification passed",
+    "Do not claim skill execution from metadata",
+    "Do not publish or deploy automatically"
+  ]
+}
