@@ -1,0 +1,47 @@
+name: CS Navigator 0.18 MCP no-card qualification
+on:
+  pull_request:
+    paths:
+      - "mcp/cs-registry-server/**"
+      - "scripts/qualify-cs-navigator-mcp.mjs"
+      - ".github/workflows/qualify-cs-navigator-mcp.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mcp-loopback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: mcp/cs-registry-server/package-lock.json
+      - name: Build MCP candidate
+        working-directory: mcp/cs-registry-server
+        run: |
+          npm ci
+          npm run build
+          npm test
+      - name: Start experimental MCP on runner loopback
+        working-directory: mcp/cs-registry-server
+        env:
+          CS_ENABLE_EXPERIMENTAL_DELIVERY_TOOL: "true"
+          PORT: "3000"
+        run: |
+          npm start > "$RUNNER_TEMP/cs-mcp.log" 2>&1 &
+          echo $! > "$RUNNER_TEMP/cs-mcp.pid"
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:3000/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat "$RUNNER_TEMP/cs-mcp.log"
+          exit 1
+      - name: MCP initialize, discovery and real tool invocation
+        run: node scripts/qualify-cs-navigator-mcp.mjs
+      - name: Stop server
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/cs-mcp.pid" ]; then kill "$(cat "$RUNNER_TEMP/cs-mcp.pid")" || true; fi
