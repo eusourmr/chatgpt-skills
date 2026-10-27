@@ -7,8 +7,11 @@ on:
       - "plugins/cs-navigator/skills/cs-navigator/**"
       - "docs/CS_NAVIGATOR_0.18.0_DELIVERY.md"
       - "release/candidates/cs-navigator-v0.18.0-rc1/**"
+      - "release/candidates/cs-navigator-v0.18.0-rc2/**"
+      - "registry/curated-methods-v1.json"
       - "trust/evals/plans/cs-navigator-v018-delivery.json"
       - "scripts/validate-cs-navigator-v018-candidate.mjs"
+      - "scripts/validate-cs-navigator-v018-access.mjs"
       - ".github/workflows/validate-cs-navigator-v018-fulfillment.yml"
   workflow_dispatch:
 
@@ -36,6 +39,8 @@ jobs:
         run: npm test
       - name: Verify 0.18 candidate without modifying the 0.17 plugin
         run: node ../../scripts/validate-cs-navigator-v018-candidate.mjs
+      - name: Validate reviewed methods and simple access paths
+        run: node ../../scripts/validate-cs-navigator-v018-access.mjs
       - name: Check MCP safety annotations and bounded tools
         run: |
           node --input-type=module <<'NODE'
@@ -45,10 +50,10 @@ jobs:
           const names = [...server.matchAll(/server\.registerTool\(\s*"([^"]+)"/g)].map((m) => m[1]);
           assert.deepEqual(names.sort(), [
             "assess_capability_delivery", "get_capability", "get_evidence",
-            "registry_status", "search_capabilities"
+            "registry_status", "search_capabilities", "curate_user_goal"
           ].sort(), "unexpected MCP tool surface");
           const annotations = server.match(/annotations: \{ readOnlyHint: true, destructiveHint: false, openWorldHint: true \}/g) || [];
-          assert.equal(annotations.length, 5, "all tools must declare read-only/non-destructive/open-world");
+          assert.equal(annotations.length, 6, "all tools must declare read-only/non-destructive/open-world");
           assert.match(server, /if \(isExperimentalDeliveryToolEnabled\(process\.env\.CS_ENABLE_EXPERIMENTAL_DELIVERY_TOOL\)\)/, "new tool requires explicit opt-in");
           assert.doesNotMatch(server, /server\.registerPrompt\(/, "no new prompt injection surface");
           NODE

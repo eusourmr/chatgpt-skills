@@ -113,3 +113,32 @@ O CI não executa os cenários nativos no ChatGPT e não mede impacto no usuári
 avaliação semântica real no ChatGPT, revisão de origem imutável do registro,
 qualificação de disponibilidade do MCP e decisão explícita de atualização
 da submissão à OpenAI. Nenhuma promoção `designed → tested` foi realizada.
+
+## RC2 — Universal Curator: experiência de acesso primeiro
+
+Esta etapa prioriza **o uso por pessoas comuns**, não mais skills.
+
+Três formas de entrar (veja `release/candidates/cs-navigator-v0.18.0-rc2/COMECAR-AQUI.md`):
+
+1. **Conversa normal, sem instalar:** colar `CONVERSA-RAPIDA.txt`; é uma preferência de resposta nativa limitada à conversa, sem ativação de plugin ou MCP automaticamente.
+2. **ZIP da Skill:** pacote local com o curador e seis métodos editoriais; exige suporte de importação e seleção pelo host. O texto `@CS Navigator` só vira menção quando a interface realmente seleciona o plugin.
+3. **ZIP do plugin:** instalação privada em superfície suportada, usando MCP; o novo roteamento só ficará disponível depois da implantação do servidor e habilitação explícita da ferramenta experimental.
+
+### Um único ponto de consulta para métodos aprovados
+
+A ferramenta experimental `curate_user_goal` recebe um objetivo **curto, sem dados pessoais**, verifica o registro público de capacidades permitidas e consulta `registry/curated-methods-v1.json` no GitHub.
+
+- O arquivo contém **seis métodos já existentes**, não novas skills nem instruções executáveis.
+- Cada método traz objetivo, sinais, etapas editoriais, resultado esperado, fonte e revisão ligada a commit.
+- Validação estrita de campos, tamanhos, IDs, exclusões e padrões obviamente hostis; saída como dados não confiáveis.
+- Correspondências insuficientes voltam ao ChatGPT nativo; empates apresentam alternativas, sem inventar um vencedor.
+- O servidor guarda a última cópia validada em memória. Sem rede e sem cópia válida, mantém o caminho nativo.
+- **Nunca** importa `SKILL.md` remoto, instala, concede permissão, garante execução ou registra sucesso por consulta.
+- O arquivo de métodos pode evoluir por PR e revisão humana, sem atualizar a interface do plugin **quando a ferramenta já estiver implantada e disponível**. Alterar permissões, regras estruturais ou interface exige nova avaliação/release.
+- O texto selecionado pode ser compartilhado com o MCP pelo ChatGPT quando a pessoa optar pela curadoria. Enviar **apenas resumo desidentificado**. O servidor de catálogo realiza consulta de dados; o projeto não declara criptografia de ponta a ponta ou ausência de logs na infraestrutura.
+
+### Gate de qualidade
+
+Ações do GitHub devem compilar o MCP e rodar testes de roteamento, catálogo hostil, exclusões, abstenção e privacidade básica; o validador `scripts/validate-cs-navigator-v018-access.mjs` impede que a RC2 altere silenciosamente o plugin privado 0.17. Aprovação no CI **não** qualifica ativação nativa no ChatGPT nem atualiza a submissão pública. Validar primeiro em uma instância **staging** do MCP. Nenhuma instalação/merge/deploy ocorre só por criar a candidata.
+
+A candidata pode entregar uma orientação útil mesmo sem o MCP, por meio do prompt conversacional e do guia empacotado. Esse fallback não equivale à execução de uma skill especializada.
