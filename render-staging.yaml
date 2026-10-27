@@ -1,0 +1,19 @@
+# Staging-only Render Blueprint. Do not replace production render.yaml.
+# Create as a separate Blueprint/service; review target branch and deployment manually.
+services:
+  - type: web
+    runtime: docker
+    name: cs-navigator-registry-staging
+    repo: https://github.com/eusourmr/chatgpt-skills
+    branch: feat/cs-navigator-018-isolated-staging
+    dockerfilePath: ./mcp/cs-registry-server/Dockerfile
+    dockerContext: ./mcp/cs-registry-server
+    healthCheckPath: /
+    autoDeployTrigger: off
+    envVars:
+      - key: CS_ENABLE_EXPERIMENTAL_DELIVERY_TOOL
+        value: "true"
+      - key: CS_REGISTRY_URL
+        value: https://raw.githubusercontent.com/eusourmr/chatgpt-skills/main/registry/public-capabilities-v1.json
+      - key: CS_REGISTRY_CACHE_MS
+        value: "60000"
