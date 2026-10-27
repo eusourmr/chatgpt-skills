@@ -45,14 +45,19 @@ export function assessCapabilityFulfillment(
 ): DeliveryAssessment {
   const boundary =
     "Catalog presence and successful MCP discovery do not prove host installation, activation, execution, safety, or user outcomes.";
+  // Fail closed: excluded/mismatched records do not disclose private distribution
+  // metadata, even when this pure helper is called outside the filtered registry.
+  const publicRecord = record?.id === requestedId && record.distribution_state === "available"
+    ? record
+    : undefined;
   const base = {
     id: requestedId,
     host_activation_verified: false as const,
     execution_verified: false as const,
-    evidence_state: record?.evidence_state ?? null,
-    qualification_state: record?.qualification_state ?? null,
-    freshness_state: record?.freshness_state ?? null,
-    known_gaps: Array.isArray(record?.known_gaps) ? [...record.known_gaps] : [],
+    evidence_state: publicRecord?.evidence_state ?? null,
+    qualification_state: publicRecord?.qualification_state ?? null,
+    freshness_state: publicRecord?.freshness_state ?? null,
+    known_gaps: Array.isArray(publicRecord?.known_gaps) ? [...publicRecord.known_gaps] : [],
     boundary,
   };
 
@@ -89,4 +94,39 @@ export function assessCapabilityFulfillment(
 /** Experimental 0.18 tool must remain absent from live 0.17 MCP by default. */
 export function isExperimentalDeliveryToolEnabled(value: string | undefined): boolean {
   return value === "true";
+}
+
+/**
+ * Conservative delivery decision. This is an advisory gate, not an executor.
+ * Only a trusted host runtime can later supply actual activation/execution
+ * evidence; neither registry data nor model assertions can do that.
+ */
+export type FulfillmentGuidance = {
+  path: "native_only" | "host_confirmation_required" | "catalog_guidance_only";
+  safe_to_claim_executed: false;
+  safe_to_claim_outcome: false;
+  next_step: string;
+};
+
+export function decideFulfillmentPath(assessment: DeliveryAssessment): FulfillmentGuidance {
+  const base = { safe_to_claim_executed: false as const, safe_to_claim_outcome: false as const };
+  if (!assessment.found || assessment.delivery_state === "not_available") {
+    return {
+      ...base,
+      path: "native_only",
+      next_step: "Do not use, suggest installation of, or relabel this capability. Help natively if appropriate, without bypassing exclusions.",
+    };
+  }
+  if (assessment.delivery_state === "bundled_core") {
+    return {
+      ...base,
+      path: "host_confirmation_required",
+      next_step: "Ask the host to verify availability/activation. Do not report invocation or outcomes without independent host/user evidence.",
+    };
+  }
+  return {
+    ...base,
+    path: "catalog_guidance_only",
+    next_step: "Explain this capability as a possible method only. Use native assistance now or request a separately authorized host-supported activation.",
+  };
 }

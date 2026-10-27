@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "product": "CS Navigator",
+  "catalog_version": "0.18.0-rc2",
+  "distribution": "read-only-editorial-guidance",
+  "source_revision": "29a3f9ff91b8b79152f7eb29366699ca1eee25ad",
+  "privacy": "No user prompts are included in the catalog. The MCP receives only the goal the user elects to submit.",
+  "entries": [
+    {
+      "id": "simple-mode",
+      "title": "Explicar com clareza",
+      "signals": [
+        "explicar",
+        "entender",
+        "simplificar",
+        "linguagem simples",
+        "passo a passo",
+        "explicacao"
+      ],
+      "steps": [
+        "Identificar a dúvida concreta e o conhecimento prévio que foi informado.",
+        "Responder primeiro em linguagem simples, preservando os termos técnicos indispensáveis.",
+        "Apresentar um exemplo e só aprofundar quando necessário."
+      ],
+      "expected_output": "Explicação curta e um próximo passo",
+      "source_commit": "29a3f9ff91b8b79152f7eb29366699ca1eee25ad",
+      "source_path": "skills/simple-mode/SKILL.md",
+      "approval_state": "editorial-reviewed",
+      "execution_mode": "guidance-only",
+      "limitations": "A orientação é editorial. Não comprova instalação, invocação ou conclusão no ChatGPT."
+    },
+    {
+      "id": "proof-of-progress",
+      "title": "Concluir uma tarefa",
+      "signals": [
+        "progresso",
+        "concluir",
+        "terminar",
+        "pendencia",
+        "andamento",
+        "acompanhar",
+        "resultado",
+        "retomar"
+      ],
+      "steps": [
+        "Definir resultado observável e o responsável pelo próximo passo.",
+        "Separar concluído, em andamento, bloqueado e aguardando terceiro.",
+        "Definir uma verificação objetiva e quando revisar."
+      ],
+      "expected_output": "Registro de avanço e próximo passo",
+      "source_commit": "29a3f9ff91b8b79152f7eb29366699ca1eee25ad",
+      "source_path": "skills/proof-of-progress/SKILL.md",
+      "approval_state": "editorial-reviewed",
+      "execution_mode": "guidance-only",
+      "limitations": "A orientação é editorial. Não comprova instalação, invocação ou conclusão no ChatGPT."
+    },
+    {
+      "id": "information-expiry-guard",
+      "title": "Conferir informação atual",
+      "signals": [
+        "atualizado",
+        "atualizacao",
+        "mudou",
+        "validade",
+        "norma vigente",
+        "regras atuais",
+        "prazo",
+        "legislacao"
+      ],
+      "steps": [
+        "Identificar qual informação depende de data, jurisdição ou versão.",
+        "Solicitar ou consultar a fonte oficial atual quando houver ferramenta autorizada.",
+        "Separar fatos verificados, incertezas e revisão futura."
+      ],
+      "expected_output": "Resposta com fonte, data e limitações",
+      "source_commit": "29a3f9ff91b8b79152f7eb29366699ca1eee25ad",
+      "source_path": "skills/information-expiry-guard/SKILL.md",
+      "approval_state": "editorial-reviewed",
+      "execution_mode": "guidance-only",
+      "limitations": "A orientação é editorial. Não comprova instalação, invocação ou conclusão no ChatGPT."
+    },
+    {
+      "id": "learning-mastery-coach",
+      "title": "Aprender e fixar",
+      "signals": [
+        "estudar",
+        "aprender",
+        "memorizar",
+        "revisar materia",
+        "prova",
+        "questoes",
+        "exercicio",
+        "lembrar"
+      ],
+      "steps": [
+        "Explicar apenas o conceito essencial antes de testar entendimento.",
+        "Pedir recuperação ativa e aplicação a exemplo novo.",
+        "Corrigir a dificuldade e propor revisão espaçada opcional."
+      ],
+      "expected_output": "Mini ciclo de estudo e exercício de aplicação",
+      "source_commit": "29a3f9ff91b8b79152f7eb29366699ca1eee25ad",
+      "source_path": "skills/learning-mastery-coach/SKILL.md",
+      "approval_state": "editorial-reviewed",
+      "execution_mode": "guidance-only",
+      "limitations": "A orientação é editorial. Não comprova instalação, invocação ou conclusão no ChatGPT."
+    },
+    {
+      "id": "academic-writing-navigator",
+      "title": "Organizar escrita acadêmica",
+      "signals": [
+        "artigo academico",
+        "tcc",
+        "dissertacao",
+        "tese",
+        "citacao",
+        "referencias",
+        "abnt",
+        "apa",
+        "vancouver"
+      ],
+      "steps": [
+        "Identificar instituição, edital, periódico ou norma governante sem presumir padrão.",
+        "Distinguir estrutura argumentativa, integridade das fontes e formatação.",
+        "Esboçar revisão com itens verificáveis, sem inventar citações."
+      ],
+      "expected_output": "Plano de escrita com perfil normativo conhecido ou UNKNOWN",
+      "source_commit": "29a3f9ff91b8b79152f7eb29366699ca1eee25ad",
+      "source_path": "skills/academic-writing-navigator/SKILL.md",
+      "approval_state": "editorial-reviewed",
+      "execution_mode": "guidance-only",
+      "limitations": "A orientação é editorial. Não comprova instalação, invocação ou conclusão no ChatGPT."
+    },
+    {
+      "id": "context-continuity-manager",
+      "title": "Retomar trabalho sem recomeçar",
+      "signals": [
+        "retomar projeto",
+        "outra conversa",
+        "continuidade",
+        "historico",
+        "resumo de projeto",
+        "passagem de contexto",
+        "checkpoint"
+      ],
+      "steps": [
+        "Identificar decisões duráveis, objetivos, restrições e evidências.",
+        "Separar pendências, responsáveis e próximos passos de detalhes passageiros.",
+        "Produzir um resumo reutilizável sem incluir dados sigilosos desnecessários."
+      ],
+      "expected_output": "Resumo de continuidade, riscos e próxima ação",
+      "source_commit": "29a3f9ff91b8b79152f7eb29366699ca1eee25ad",
+      "source_path": "skills/context-continuity-manager/SKILL.md",
+      "approval_state": "editorial-reviewed",
+      "execution_mode": "guidance-only",
+      "limitations": "A orientação é editorial. Não comprova instalação, invocação ou conclusão no ChatGPT."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "product": "CS Navigator",
+  "version": "0.18.0",
+  "candidate": "rc2-universal-curator",
+  "state": "implementation-and-access-package-candidate",
+  "base_release": "0.17.0",
+  "stable_plugin_not_modified": true,
+  "plugin_distribution": "PRIVATE - candidate ZIP for supported ChatGPT import surfaces; no public submission",
+  "curation_modes": [
+    "conversation-starter-no-plugin",
+    "standalone-skill-zip",
+    "full-plugin-zip-private-test"
+  ],
+  "curated_method_registry": "registry/curated-methods-v1.json",
+  "tool": "curate_user_goal",
+  "tool_default_enabled": false,
+  "tool_enable_setting": "CS_ENABLE_EXPERIMENTAL_DELIVERY_TOOL=true (permitted staging host only)",
+  "security": "No arbitrary SKILL.md execution; data-only reviewed editorial catalog; healthcare excluded; no automatic cross-chat persistence.",
+  "qualification": {
+    "ci": "pending",
+    "native_chatgpt": "not-run",
+    "mobile_desktop": "not-run",
+    "public_distribution": "not-submitted",
+    "semantic_behavior": "not-tested",
+    "product_value": "not-measured"
+  },
+  "gate": "Build and review do not change private 0.17 installation or deployed Render service; explicit qualification and authorization required."
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "product": "CS Navigator",
+  "version": "0.18.0",
+  "candidate": "rc1",
+  "candidate_state": "implementation-pending-native-qualification",
+  "base_release": "0.17.0",
+  "base_main_commit": "29a3f9ff91b8b79152f7eb29366699ca1eee25ad",
+  "scope": "Capability Delivery Gate & Proof of Value",
+  "artifact_kind": "candidate-skill-instructions-not-distributed-plugin",
+  "candidate_skill_path": "release/candidates/cs-navigator-v0.18.0-rc1/SKILL.md",
+  "mcp_tool": "assess_capability_delivery",
+  "mcp_default_enabled": false,
+  "mcp_required_opt_in": "CS_ENABLE_EXPERIMENTAL_DELIVERY_TOOL=true",
+  "stable_plugin_version_unchanged": "0.17.0",
+  "native_semantic_qualification": "not-run",
+  "user_outcome_pilots": "not-run",
+  "evidence_promotion": false,
+  "excludes": [
+    "medical-appointment-prep",
+    "caregiver-coordinator"
+  ],
+  "merge_and_release_policy": "GitHub PR may merge implementation, but installing/updating plugin, activating experimental MCP and public submission are separate gated actions.",
+  "release_blockers": [
+    "Exact artifact ZIP, contents and SHA-256 not yet generated/qualified",
+    "Native ChatGPT semantic scenarios not run against exact 0.18 candidate",
+    "Proof-of-value pilots not executed",
+    "Experimental MCP not approved for production",
+    "Immutable registry source_commit and Render availability not yet certified",
+    "No OpenAI Platform publication approval claimed"
+  ]
+}
