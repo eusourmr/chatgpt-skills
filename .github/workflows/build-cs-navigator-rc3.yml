@@ -1,0 +1,28 @@
+name: Build CS Navigator 0.18 RC3 evaluation bundle
+on:
+  pull_request:
+    paths:
+      - "scripts/build-cs-navigator-rc3.py"
+      - ".github/workflows/build-cs-navigator-rc3.yml"
+      - "release/candidates/cs-navigator-v0.18.0-rc2/**"
+      - "release/candidates/cs-navigator-v0.18.0-rc3/**"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rc3-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build deterministic qualification package
+        run: python3 scripts/build-cs-navigator-rc3.py
+      - name: Verify archive checksum
+        run: |
+          cd dist/cs-navigator-018-rc3
+          sha256sum -c SHA256SUMS.txt
+          unzip -t cs-navigator-0.18.0-rc3-skill-evaluation.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cs-navigator-018-rc3-skill-evaluation
+          path: dist/cs-navigator-018-rc3/*
+          retention-days: 30
