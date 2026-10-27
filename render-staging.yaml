@@ -3,6 +3,7 @@
 services:
   - type: web
     runtime: docker
+    plan: free
     name: cs-navigator-registry-staging
     repo: https://github.com/eusourmr/chatgpt-skills
     branch: feat/cs-navigator-018-isolated-staging
