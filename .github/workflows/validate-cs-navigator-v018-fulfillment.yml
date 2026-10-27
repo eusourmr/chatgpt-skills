@@ -52,7 +52,7 @@ jobs:
             "assess_capability_delivery", "get_capability", "get_evidence",
             "registry_status", "search_capabilities", "curate_user_goal"
           ].sort(), "unexpected MCP tool surface");
-          const annotations = server.match(/annotations: \{ readOnlyHint: true, destructiveHint: false, openWorldHint: true \}/g) || [];
+          const annotations = server.match(/annotations\s*:\s*\{\s*readOnlyHint\s*:\s*true\s*,\s*destructiveHint\s*:\s*false\s*,\s*openWorldHint\s*:\s*true\s*\}/g) || [];
           assert.equal(annotations.length, 6, "all tools must declare read-only/non-destructive/open-world");
           assert.match(server, /if \(isExperimentalDeliveryToolEnabled\(process\.env\.CS_ENABLE_EXPERIMENTAL_DELIVERY_TOOL\)\)/, "new tool requires explicit opt-in");
           assert.doesNotMatch(server, /server\.registerPrompt\(/, "no new prompt injection surface");
