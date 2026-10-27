@@ -246,7 +246,7 @@ const handler = createMcpHandler(() => {
         description:
           "Given a voluntary user goal, select from reviewed, read-only editorial methods. Never installs or executes GitHub skills and never verifies host activation.",
         inputSchema:z.object({goal:z.string().min(4).max(1000)}),
-        annotations:{readOnlyHint:true,destructiveHint:false,openWorldHint:true},
+        annotations: { readOnlyHint: true, destructiveHint: false, openWorldHint: true },
       },
       async ({goal})=>{
         try {
