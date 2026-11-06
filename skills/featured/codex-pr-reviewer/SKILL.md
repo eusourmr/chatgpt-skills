@@ -59,3 +59,28 @@ Return findings ordered by severity, evidence, violated rule, why it matters, su
 ## References
 
 - https://developers.openai.com/
+
+## Repository lifecycle quality gate (reviewed 2026-11-06)
+
+A passing automated workflow alone is not approval for merge. Before recommending release, inspect the exact base/head revisions and distinguish:
+- **Static:** syntax, formatting, types, lint and unit tests.
+- **Behavior:** integration, API contract and user-journey tests.
+- **Operational:** migration sequencing, compatibility, secrets, permissions, monitoring and rollback/forward-fix.
+- **Human:** policy authorization, privacy-sensitive diffs, architecture change approval and release sign-off.
+
+For changes in money, personal data, authentication, asynchronous operations and external APIs, ask whether the test proves the required invariant, not simply whether it passed. Check negative and boundary cases. Do not assign a confidence percentage without an explicit validated calibration method.
+
+### Branch, PR and release management
+1. Preserve the protected stable branch; make scoped commits on a feature branch.
+2. Explain *why* each changed file is necessary; avoid unrelated cleanup.
+3. Compare rendered or affected outputs before and after; identify changed interface contracts.
+4. Confirm tests were run against the **same commit** being merged.
+5. Identify merge dependencies, environment variables, migrations and documentation drift.
+6. Separate "merged", "deployed", "enabled for users", "observed healthy" and "released". These are different states.
+7. Require explicit user/owner authorization for destructive migrations or production actions; do not interpret a PR success as blanket consent.
+8. Keep evidence of deployment, rollback/forward-fix and a specific post-release health check, where material.
+
+### Review record
+`PR, base_sha, head_sha, scope, invariants, findings[file:line], evidence_type, CI_runs, missing_tests, approvals, merge_state, deployment_state`.
+
+If the review has no verified blockers, say **no high-confidence blockers found in inspected scope**, not that the change is fully safe or universally tested.
