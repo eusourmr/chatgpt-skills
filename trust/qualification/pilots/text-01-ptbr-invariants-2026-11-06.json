@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "test_id": "TEXT-01",
+  "date": "2026-11-06",
+  "plugin": "cs-navigator-labs",
+  "package_version_declared": "0.19.0-alpha.1",
+  "target_skill": "text-integrity-labs",
+  "test_kind": "user_supplied_conversational_output_review",
+  "input_kind": "synthetic agency lodging and ticket notice in Brazilian Portuguese",
+  "output_evidence": "User supplied full revised wording plus five invariants in the conversation; raw response not stored as a public file.",
+  "criteria": [
+    {
+      "id": "grammar",
+      "status": "pass",
+      "observed": "'Conforme conversamos', 'está incluída', 'agência', 'dependem', 'prévia', 'entre 3 e 5 dias úteis'"
+    },
+    {
+      "id": "conditional_confirmation",
+      "status": "pass",
+      "observed": "'poderá ocorrer até 18/01/2027' remains conditional on supplier availability; no guarantee added"
+    },
+    {
+      "id": "amounts",
+      "status": "pass",
+      "observed": "R$ 2.870,50 estimated for two people, inclusive of R$ 150,00 service fee"
+    },
+    {
+      "id": "refund_ticket_change",
+      "status": "pass",
+      "observed": "No agency refund guarantee without supplier authorization, ticket still unissued and date changes require prior supplier authorization"
+    },
+    {
+      "id": "estimated_deadline",
+      "status": "pass",
+      "observed": "Estimated 3 to 5 business days, no mandatory or guaranteed deadline"
+    },
+    {
+      "id": "explicit_invariants",
+      "status": "pass",
+      "observed": "Five invariants separately enumerated and consistent with the edited output"
+    },
+    {
+      "id": "no_invented_facts",
+      "status": "pass",
+      "observed": "No new material rights, obligations, actors, dates, conditions, or performed action asserted"
+    }
+  ],
+  "conclusion": "pass_for_written_PT_BR_semantic_integrity",
+  "reviewer_observation": "No material shift in modal verbs, value inclusion, negative terms, authorization conditions or time estimates.",
+  "limitations": [
+    "Output review does not independently prove plugin tool invocation in the producing chat.",
+    "No comparative native-model baseline or human peer-review result was performed.",
+    "No external document or production CRM record was edited.",
+    "TEXT-02 adversarial semantic-modification gate remains unexecuted.",
+    "Pass does not automatically promote catalog draft or distribute plugin."
+  ],
+  "skill_promoted": false,
+  "production_plugin_modified": false,
+  "next_case": "TEXT-02"
+}

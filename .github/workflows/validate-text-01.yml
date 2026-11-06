@@ -1,0 +1,33 @@
+name: Validate TEXT-01 semantic-integrity evidence
+on:
+  pull_request:
+    paths:
+      - "trust/qualification/pilots/text-01-ptbr-invariants-2026-11-06.json"
+      - "docs/CS_TEXT_01_AND_TEXT_02_2026-11-06.md"
+      - ".github/workflows/validate-text-01.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify bounded response assessment and unchanged status
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("trust/qualification/pilots/text-01-ptbr-invariants-2026-11-06.json")
+          r=json.loads(p.read_text(encoding="utf-8"))
+          assert r["test_id"]=="TEXT-01"
+          assert r["conclusion"]=="pass_for_written_PT_BR_semantic_integrity"
+          assert len(r["criteria"])==7
+          assert all(x["status"]=="pass" for x in r["criteria"])
+          assert r["skill_promoted"] is False
+          assert r["production_plugin_modified"] is False
+          assert r["next_case"]=="TEXT-02"
+          assert any("TEXT-02" in s for s in r["limitations"])
+          print("TEXT-01 passed textual checks; no claimed tool execution, unrun TEXT-02 or auto promotion")
+          PY
