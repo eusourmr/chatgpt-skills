@@ -1,101 +1,47 @@
-# Getting Started — CS Navigator
+# CS Navigator — How to use in ChatGPT, Codex and this repository
 
-This is the canonical installation and first-use guide for CS Navigator.
+**Reviewed 2026-11-06.** This is an operating guide, not a claim of public availability.
 
-[Português do Brasil](GETTING_STARTED.pt-BR.md)
+## Start with the job, not the folder
+- For ordinary tasks, use native ChatGPT; no skill installation is required.
+- For reusable workflows, install or select a skill/plugin in an actually supported host UI. Merely typing its name is not a tool call.
+- For local programming, use compatible Codex desktop/CLI/IDE skills. The npm `chatgpt-skills` CLI manages local discovery/installation and does **not** automatically install a plugin in ChatGPT web/mobile.
+- MCP tools require a real deployed server and a compatible connected plugin.
 
-## Public-directory status
+## Evidence ladder
 
-The version currently submitted to OpenAI is **CS Navigator 0.9.4 — Submission Compliance**.
-
-As of **2026-10-08**:
-- review status: **in review**;
-- publication status: **not published**.
-
-The active development candidate is **0.15.0 — Everyday Life & Human Capability**. It is not yet the public-directory release.
-
-## If you only want to use it
-
-When CS Navigator is publicly published:
-
-1. Open **Plugins** in ChatGPT.
-2. Search **CS Navigator**.
-3. Install it once.
-4. Start a normal conversation.
-5. If you want quiet capability curation in that conversation, write:
-
-```text
-Use CS Navigator as my curator.
-```
-
-Then talk normally.
-
-The intended behavior is:
-- stay native when ChatGPT can do the job directly;
-- use a focused skill when a reusable workflow materially helps;
-- use a Life Journey only for genuinely multi-stage situations;
-- use connected actions only when external access materially changes the outcome.
-
-## Persistence boundary
-
-A sentence in one chat does **not** prove that curator mode is active in every future chat. Cross-chat persistence may only be claimed when the host product explicitly provides and confirms it.
-
-## Simple Mode
-
-For the simplest interaction, write:
-
-```text
-Use CS Navigator as my curator and explain things in Simple Mode.
-```
-
-Simple Mode should use plain language, short steps, and one action at a time when useful, without hiding material warnings or uncertainty.
-
-## Current development candidate
-
-| Component | Status |
+| State | Required evidence |
 |---|---|
-| OpenAI directory submission | **0.9.4 — in review / not published** |
-| Development candidate | **0.15.0 — private native-qualified candidate; 12/12 Navigator matrix PASS** |
-| Candidate ZIP entries | **126** |
-| Candidate ZIP SHA-256 | `b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2` |
-| New 0.15 skills | **31, all initially designed** |
-| Live registry MCP | **planned, not active** |
+| Discovered | Versioned catalog entry, not activation |
+| Installed | Host/account confirmation; downloading a ZIP is not enough |
+| Loaded | Evidence that the session exposed or read the skill instructions |
+| Invoked | Actual tool/runtime invocation trace, distinct from outcome proof |
+| Outcome verified | Observed, user-reported or independently supported success |
 
-## How 0.15.0 is different
+## ChatGPT first use
+1. Open **Plugins** and check options available for your account and workspace.
+2. Check **Skills** if present; standalone skill access depends on plan, workspace, and interface. Do not assume every account supports upload.
+3. For plugins, use the directory or the Plugin Creator where available. ZIP uploads can require workspace/admin permissions.
+4. Only use an `@` selector if the host actually offers it. Confirm the resource and tools are visible in that session.
+5. Without a supported install option, you can still give native ChatGPT a curation instruction; it is **not** skill/MCP activation.
 
-0.15.0 introduces four routing levels:
+## Version and surface distinction
+- GitHub editorial catalog: 80 entries, including one collection. The quality catalog `catalog.json` has 79 tracked items.
+- 63 repository-authored core skills are design assets, not 63 host-executed skills.
+- A private CS Navigator 0.17 plugin is recorded in account metadata, but this does not prove selection in any current chat.
+- 0.18 RC3: the MCP protocol integration passed in GitHub Actions; a CI/evaluation archive is **not** an installable plugin unless it includes a valid plugin package.
+- No public directory approval can be claimed without verified portal status.
 
-```text
-Native → Skill → Life Journey → Connected Action
-```
+## ZIP types
+**Standalone skill ZIP** must be uploaded in an eligible skill surface. **Plugin ZIP** needs root `plugin.json`, `skills/<name>/SKILL.md` and `mcp.json` only for a declared MCP connection. **CI artifact ZIP** may be evaluation-only. Never conflate the three.
 
-It also adds:
-- Personal Curator;
-- Simple Mode;
-- Capability Preferences;
-- Life Resolution Contract;
-- Human Escalation Contract;
-- Proof of Progress;
-- Everyday Life, Family & Care, Citizen Brazil, Home, Travel, Digital Safety, and Life Journey skills;
-- a bundled registry-ready capability data contract.
+## Troubleshooting
+If a resource is absent, check whether you're in Plugins or Skills, your account/workspace, whether installation actually occurred, the host selection UI, permissions, and the MCP endpoint if applicable. Absence from a single session does not prove absence from an account. Never infer skill invocation from a prompt or registry search. Do not send private data to experimental endpoints.
 
-## Evidence boundary
+## Sources
+- [Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)
+- [Plugins in ChatGPT](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt)
+- [Build skills](https://learn.chatgpt.com/docs/build-skills)
+- [Package plugins](https://developers.openai.com/plugins/build/plugins)
 
-The 31 new skills are **designed**, not automatically tested.
-
-Static validation, bundling, installation, or a successful build do not convert them to `tested` or `qualified`.
-
-The exact 0.15.0 private candidate passed the recorded 12/12 native semantic Navigator matrix. The 31 new workflows remain individually designed unless separately tested.
-
-## Technical identity
-
-- public name: **CS Navigator**
-- technical slug: `cs-navigator`
-- submitted directory version: `0.9.4`
-- development candidate: `0.15.0`
-- candidate build workflow: `.github/workflows/build-v015-human-capability.yml`
-- release manifest: `release/v015-human-capability.json`
-- capability registry foundation: `registry/capabilities-v1.json`
-- architecture: `docs/CS_NAVIGATOR_0.15.0_HUMAN_CAPABILITY.md`
-
-Independent community project. Not affiliated with or endorsed by OpenAI.
+**Use the evidence labels:** `designed`, `CI-tested`, `host-loaded`, `tool-invoked`, `outcome-verified`. Earlier evidence never automatically proves later states.
