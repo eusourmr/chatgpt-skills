@@ -28,6 +28,14 @@ As duas ferramentas `curate_user_goal` e `assess_capability_delivery` são **exp
 4. Em tarefas simples, espere a resposta nativa. Em tarefas especializadas, a curadoria deverá utilizar a skill disponível apropriada **quando o ambiente permitir**, com suas restrições de evidência.
 5. Para verificar a integração, use o teste de aceitação abaixo. A simples instalação do plugin não garante roteamento automático entre conversas.
 
+## Teste externo MCP concluído (06/11/2026)
+
+O GitHub Actions completou um teste **real** contra o serviço HTTPS existente: `initialize` MCP 2025-06-18, `tools/list` com quatro ferramentas, chamada `registry_status` e chamadas `get_capability` para os dois registros médicos excluídos (ambos `found:false`). A origem respondeu como serviço **0.17.0, read-only**. Este número é o da versão do **servidor**, não da versão do plugin cliente Beta 0.20.0.
+
+**Descoberta de governança:** `registry_status` retornou `capability_count=61`, `source_commit="development"`, `published_at="2026-10-11"`. A referência de origem não está fixada a um commit imutável e a data de publicação está defasada. **Não** classificar o registro inteiro como revisão atualizada/comprovada só porque o MCP respondeu. Inspecionar cada evidência e registrar pendências de proveniência/freshness em etapa própria.
+
+Registro estruturado: `trust/qualification/pilots/cs-universal-beta-live-mcp-2026-11-06.json`. Workflows executados em GitHub Actions não demonstram que o ChatGPT ativou a conexão na sessão de um usuário.
+
 ## Aceitação final no ChatGPT (pendente até usuário executar no host)
 
 **MCP-01 — teste de chamada real:** na conversa com o plugin selecionado, envie:
