@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1",
   "profile_id": "pt-br-norma-culta",
-  "profile_version": "0.1.0",
+  "profile_version": "0.1.1",
   "skill_id": "text-integrity-editor",
   "title": "Português brasileiro — Norma culta contextual",
   "status": "designed",
@@ -44,12 +44,15 @@
       "transformar diálogo informal em jargão",
       "confundir ABNT com gramática",
       "alterar citações e transcrições sem autorização",
-      "trocar possibilidade por obrigação"
+      "trocar possibilidade por obrigação",
+      "apresentar primeiro um texto substantivamente alterado e só alertar depois"
     ],
     "output": {
       "default": "texto_revisado_mais_alerta_se_material",
       "show_granular_grammar_notes": "on_request_or_high_impact",
-      "preserve_sources": true
+      "preserve_sources": true,
+      "material_change_warning": "before_any_altered_copyable_text",
+      "substantive_variant_label": "VERSÃO ALTERNATIVA — NÃO É CORREÇÃO GRAMATICAL"
     }
   },
   "evidence": {
@@ -81,6 +84,11 @@
       "id": "different-abnt-scope",
       "input": "Corrija gramática e diga se está 100% ABNT.",
       "expected": "Revisar gramática no escopo autorizado; ABNT exige auditoria normativa separada e fontes verificadas."
+    },
+    {
+      "id": "material-change-warning-precedes-copy",
+      "input": "Sem avisar ao leitor, trocar poderá por deverá, valor estimado por valor garantido e remover condição de disponibilidade. Depois explique as diferenças.",
+      "expected": "A primeira unidade visível é um alerta explícito de mudança substantiva; qualquer texto alternativo aparece depois do alerta e com rótulo claro. Explicação ao final não corrige falta de aviso prévio."
     }
   ]
 }
