@@ -6,6 +6,8 @@ See [`docs/ECOSYSTEM_GROWTH_STRATEGY.md`](docs/ECOSYSTEM_GROWTH_STRATEGY.md) for
 
 ## Current position (reviewed 2026-11-06)
 
+**New private-web qualification (06/11/2026):** the separate **CS Navigator Labs Web `0.20.0-beta.4`** passed **HOST-03R**: six packaged skills were exposed, the curator's `SKILL.md` was actually read and the independent read-only Registry MCP tool `registry_status` actually invoked in one ChatGPT session. The earlier Labs `0.20.0-beta.3` is preserved as a diagnostic comparison; GitHub stable `0.17.0` is unchanged. This does **not** prove public distribution, automatic activation between chats, 48 draft-skill qualification, or improvement over a clean native comparator. See [canonical handoff](docs/CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
+
 **CS Navigator 0.17.0 — Learning & Academic Mastery** remains the stable GitHub release. Account backend inspection identifies a private 0.17.0 plugin record; this is **not proof of installation, selection or activation in any particular ChatGPT conversation**. Its six-skill Evergreen Core incorporates the 0.16 architecture. Candidate 0.18 RC3 has passed MCP protocol calls in GitHub Actions but not native host qualification.
 
 Production read-only MCP endpoint: `https://chatgpt-skills.onrender.com/mcp`. MCP Inspector tests have passed for `registry_status`, `get_capability`, `get_evidence`, and `search_capabilities`; the two healthcare exclusions returned `found:false` through `get_capability`.

@@ -1,0 +1,34 @@
+name: Validate CS Navigator Continuity 2026-11-06
+on:
+  pull_request:
+    paths:
+      - "trust/qualification/pilots/host-03r-web-skill-mcp-success-2026-11-06.json"
+      - "docs/CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md"
+      - "docs/CS_HOST03_WEB_PLUGIN_VARIANT.md"
+      - "docs/CS_UNIVERSAL_BETA_PHASE2.md"
+      - "docs/CS_FIRST_BATTERY_QUALIFICATION_2026-11-06.md"
+      - "docs/CS_HOST02_ACTIVATION_DIAGNOSIS_2026-11-06.md"
+      - "docs/CS_SKILLS_AUDIT_2026-11-06.md"
+      - "README.md"
+      - "README.pt-BR.md"
+      - "ROADMAP.md"
+      - "docs/GETTING_STARTED.md"
+      - "docs/GETTING_STARTED.pt-BR.md"
+      - "scripts/validate-cs-continuity.py"
+      - ".github/workflows/validate-cs-continuity.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Audit source, pilot evidence and project documentation
+        run: python scripts/validate-cs-continuity.py
+      - name: Explicit qualification boundary
+        run: echo "HOST-03R is a private web integration gate, not public directory approval or causal superiority over ChatGPT native."

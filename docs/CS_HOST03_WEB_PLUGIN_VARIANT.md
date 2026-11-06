@@ -1,5 +1,7 @@
 # HOST-03 — Beta web sem MCP portátil
 
+> **ATUALIZAÇÃO — HOST-03R APROVADO em 06/11/2026.** O plugin Web `0.20.0-beta.4` foi lido pelo host com `skills__read` e o MCP `registry_status` foi invocado na mesma sessão revisora. `skills__list` retornou **41 skills**, incluindo **6 do Web Labs**. As passagens abaixo sobre "aguardando aceite" documentam a fase anterior ao reteste, e não o estado atual. Evidência: [HOST-03R](../trust/qualification/pilots/host-03r-web-skill-mcp-success-2026-11-06.json) · [Estado e continuidade](CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
+
 **Data:** 06/11/2026. **Plugin de teste:** CS Navigator Labs Web `0.20.0-beta.4` (privado).
 
 ## Motivo

@@ -15,6 +15,8 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 **Release atual no GitHub:** **CS Navigator 0.17.0 — Learning & Academic Mastery**.
 
+**Beta privada com integração técnica validada na web (06/11/2026):** [CS Navigator Labs Web `0.20.0-beta.4`](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218). O host expôs as **seis skills**, leu `cs-navigator-labs/SKILL.md` e executou `registry_status` na mesma conversa. **Isso não é publicação no Diretório OpenAI, roteamento automático entre chats nem qualificação das 48 skills em rascunho.** [Estado completo e passagem de continuidade](docs/CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
+
 A arquitetura **0.16 Evergreen Core & Live Registry** foi incorporada à 0.17, sem release pública independente da 0.16.
 
 A release GitHub 0.17.0 **não equivale à publicação no Diretório de Plugins do ChatGPT**. A inspeção do backend da conta identificou um plugin privado registrado como **0.17.0**, mas isso não prova que esteja instalado, selecionável ou ativo na conversa. A linha 0.18 RC3 passou nos testes MCP em CI, mas não foi homologada no ChatGPT. O status de publicação pública exige verificação atual do portal.

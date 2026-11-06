@@ -1,5 +1,7 @@
 # CS Navigator Labs — Primeira bateria de qualificação (2026-11-06)
 
+> **Snapshot da primeira bateria.** Esta avaliação foi escrita antes da validação de integração no ChatGPT web. Em 06/11/2026 a variante privada `cs-navigator-web-labs 0.20.0-beta.4` passou no **HOST-03R**, comprovando leitura da skill de curadoria e chamada MCP em uma sessão. Isso **não** muda retroativamente os resultados de testes antigos nem comprova roteamento automático ou eficácia comparativa. Consulte [estado canônico](CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
+
 ## Escopo e decisão
 
 **Estado da avaliação:** resultados positivos em vários pilotos, **não** homologação integral nem demonstração causal de que o plugin melhora qualquer modelo nativo. A skill `academic-writing-labs` passou no ACADEMIC-01 em seis critérios de redação científica responsável, conforme `trust/qualification/pilots/academic-01-source-integrity-2026-11-06.json`.
