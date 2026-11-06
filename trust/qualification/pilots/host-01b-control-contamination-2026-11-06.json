@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "test_id": "HOST-01B",
+  "reviewed_on": "2026-11-06",
+  "task": "Synthetic receivables matching: spreadsheet versus management system; date+amount collision, cancelled receivable, payable",
+  "conditions": {
+    "labeled_with_cs": {
+      "label": "COM CS",
+      "source": "User pasted response; independent producing-session trace not supplied",
+      "claims_skill_used": "engineering-investigator-labs",
+      "claims_skill_file_read": "skill://plugins_6aedc9218d1c8191a5084bf09301973d/engineering-investigator-labs/SKILL.md",
+      "reported_tests": {
+        "language": "JavaScript / Node.js",
+        "node_version": "v24.22.1",
+        "count": 12
+      },
+      "zip_received": true
+    },
+    "labeled_without_cs": {
+      "label": "SEM CS",
+      "source": "User pasted response; independent producing-session trace not supplied",
+      "claims_skill_used": "cs-navigator-labs:engineering-investigator-labs",
+      "claims_skill_file_read": "skill://plugins_6aedc9218d1c8191a5084bf09301973d/engineering-investigator-labs/SKILL.md",
+      "reported_tests": {
+        "language": "Python",
+        "count": 18
+      },
+      "test_artifact_received": false
+    }
+  },
+  "comparative_quality": {
+    "reviewed_dimensions": [
+      {
+        "id": "eligibility",
+        "with_cs": "adequate",
+        "without_cs": "adequate",
+        "finding": "Both exclude M-101 (cancelled) and M-102 (payable)."
+      },
+      {
+        "id": "global_cardinality",
+        "with_cs": "adequate",
+        "without_cs": "adequate",
+        "finding": "Both note AP-001 and AP-002 compete for M-100 (2:1) and no automatic confirmation."
+      },
+      {
+        "id": "separate_candidate_from_reconciliation",
+        "with_cs": "adequate",
+        "without_cs": "adequate",
+        "finding": "Both require documentary identity; match does not prove financial settlement."
+      },
+      {
+        "id": "regression_testing",
+        "with_cs": "independently_replayed_12",
+        "without_cs": "reported_18_unverified",
+        "finding": "With-CS Node source and TAP provided; without-CS Python tests not provided."
+      },
+      {
+        "id": "host_provenance",
+        "with_cs": "self_report_only",
+        "without_cs": "self_report_claims_same_cs_skill",
+        "finding": "No independent producing-session logs; control condition is contaminated or provenance claim is false."
+      }
+    ],
+    "result": "no_causal_superiority_claim",
+    "reason": "Labeled non-plugin arm also declares the same plugin skill and file URI. Neither producing-session tool trace is available. Similar outputs cannot establish benefit of the plugin."
+  },
+  "synthetic_zip_independent_replay": {
+    "original_filename": "conciliacao-ficticia.zip",
+    "zip_sha256": "d109e985a089836e2283b6abca74889b23cb926a8ef47f6d1bf6d294c6500325",
+    "node_version": "v22.16.0",
+    "command": "node --test --test-reporter=tap conciliacao.test.cjs",
+    "exit_code": 0,
+    "tests_total": 12,
+    "passed": 12,
+    "failed": 0,
+    "characterization_tests_of_insecure_algorithm": 2,
+    "corrected_selector_tests": 10,
+    "extracted_source_sha256": "83af8dadcc6b7fb1aac248a1529a8e220f49a68fc084b43d00e4426eebbbb4c9",
+    "test_source_sha256": "c6eb3f212fd22691ad791e5b7e39410d3a2a944026798f9c3983a190ec3d7214",
+    "provided_tap_sha256": "f21bab145d431c4c6cc3159a84dd2a2cef0a08c6eba38350e910f402ef35ee3e",
+    "independently_replayed_tap_sha256": "c7b26b7e688e3d76c9640ed5fbcc0b33f3303de2f11fc5357b01ae332464cc01",
+    "caveats": [
+      "Characterization tests passing means the insecure behavior was reproduced; they are not passes of a safe original implementation.",
+      "The corrected code is a candidate selector on normalized synthetic records, not a production accounting reconciliation engine.",
+      "The ZIP was inspected before execution: only four ordinary UTF-8 files under one directory, no path traversal or symlinks.",
+      "No real AP+ Intelligence, Monde, customer or financial data inspected."
+    ]
+  },
+  "host_in_reviewer_session": {
+    "plugin_skill_file_read": true,
+    "lab_plugin_version": "0.19.0-alpha.2",
+    "note": "Reviewer host read is independent of, and does not prove calls in, either producing conversation."
+  },
+  "final_gate": "inconclusive_control_contaminated",
+  "next_step": "Repeat a single identical prompt with an actually isolated no-CS control where CS skill is not available and archive tool-run evidence from both conditions; do not rely on selection labels or self-reported skills.",
+  "skill_promoted": false,
+  "plugin_modified": false,
+  "catalog_modified": false
+}
