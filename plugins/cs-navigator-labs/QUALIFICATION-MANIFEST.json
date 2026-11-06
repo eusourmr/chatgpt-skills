@@ -1,12 +1,12 @@
 {
   "plugin_name": "cs-navigator-labs",
-  "version": "0.20.0-beta.2",
-  "source_intent": "private Universal Curator Beta; six preserved skills and existing read-only CS Registry MCP; not production 0.17",
+  "version": "0.20.0-beta.3",
+  "source_intent": "private Universal Curator Beta; six skills + registered CS Navigator Registry app binding and unchanged portable MCP; not production 0.17",
   "mcp_config_present": true,
   "skill_count": 6,
   "files": {
     "skills/academic-writing-labs/SKILL.md": "0ee90b07443eb178effc15b0f712333112c0563672c48617c594e51eefe59484",
-    "skills/cs-navigator-labs/SKILL.md": "b22e9718ca044a83d5d351e395bffb0d314d48db9341ae1bdc712464cab9b968",
+    "skills/cs-navigator-labs/SKILL.md": "9c3376286d8b644a22f167f8b83ec71713bbc8d25f6de2804f20fede43c029d3",
     "skills/cs-navigator-labs/references/ROUTING_PLAYBOOK.md": "0aad61f4a5a43075b97e3ac80ed5d8ff8e11a4a9706911c526aeeafb2ce08669",
     "skills/document-compliance-labs/SKILL.md": "ccbcc75968b6cc6dbed38b2483c24dc43f632f30118de721cb66f9f132f449a3",
     "skills/engineering-investigator-labs/SKILL.md": "33bf6a6f465db309b443878bed034a65e3e9bab5aba8df12f08ae3f3b77c543c",
@@ -14,9 +14,14 @@
     "skills/ux-quality-gate-labs/SKILL.md": "170b4f2c4c9fe3404695f394ac2a6b2d37c71275bec48cc9e43ee37b8d3bd58f",
     "skills/ux-quality-gate-labs/knowledge/design-cognition.json": "7646e770a1d3ae61919f5d16d5daa173f458200d6e1847cc4af25a58372c0d06"
   },
-  "qualification_note": "TEXT-02 material-change preflight added; host behavior pending retest.",
+  "qualification_note": "TEXT-02 semantic guard preserved; standalone Registry MCP-01 tool call observed; combined plugin tool call pending host confirmation.",
   "mcp_endpoint": "https://chatgpt-skills.onrender.com/mcp",
   "mcp_runtime_tested": false,
   "native_host_invocation_tested": false,
-  "experimental_delivery_tools_required": false
+  "experimental_delivery_tools_required": false,
+  "app_binding_present": true,
+  "app_binding_id": "asdk_app_6aee1bad0884819196a97a44393e1a53",
+  "app_binding_source": "account-owned CS Navigator Registry app .app.json verified through Plugin Creator",
+  "standalone_registry_tool_call_verified_in_reviewer_session": true,
+  "combined_plugin_host_invocation_tested": false
 }
