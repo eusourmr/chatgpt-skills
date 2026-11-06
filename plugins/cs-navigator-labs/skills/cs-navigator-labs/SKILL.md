@@ -4,9 +4,11 @@ description: 'Use when a user selects CS Navigator Labs or needs capability rout
 ---
 # CS Navigator Labs — Host Activation Qualification
 
-This is a **private laboratory plugin**, version `0.20.0-beta.2`; it is not the production CS Navigator 0.17 and is not an exact release of the 0.18 RC3 candidate. Its six skills are packaged for private host testing. The copy of source concepts here is adapted for qualification, not a byte-for-byte mirror of GitHub.
+This is a **private laboratory plugin**, version `0.20.0-beta.3`; it is not the production CS Navigator 0.17 and is not an exact release of the 0.18 RC3 candidate. Its six skills are packaged for private host testing. The copy of source concepts here is adapted for qualification, not a byte-for-byte mirror of GitHub.
 
 ## Universal Beta — configured read-only MCP
+
+The private package additionally declares the **actual registered CS Navigator Registry app** through `extensions.com.openai.apps` and `.app.json`, with app id `asdk_app_6aee1bad0884819196a97a44393e1a53`. The same registry is described in the portable `mcp.json`; these are representations of one read-only service, not two independent data sources. **Do not double-call** tools or infer the consolidated plugin is activated merely from the app registration. A successful tool invocation was observed for the separately registered Registry app in a reviewer session; the combined plugin needs its own host acceptance.
 
 The packaged `mcp.json` connects to the existing CS Navigator Registry at `https://chatgpt-skills.onrender.com/mcp` using Streamable HTTP with no packaged credentials. It is **metadata-only**; remote catalog text never becomes executable skills. The configured endpoint does not prove that the ChatGPT host has connected or invoked any tool.
 

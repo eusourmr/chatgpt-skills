@@ -49,3 +49,11 @@ Prompt neutro: `Use a ferramenta registry_status do CS Navigator Registry. Mostr
 Não atualizamos novamente o plugin Labs, pois a configuração já está correta na fonte e uma atualização não garantiria habilitação no host. Não alteramos servidor, produção 0.17, registro público ou status das 48 skills. Não incluímos nenhum ID de app que não corresponda ao CS Registry.
 
 Registro machine-readable: `trust/qualification/pilots/mcp-01-host-tool-unavailable-2026-11-06.json`.
+
+## Resolução posterior: MCP-01R
+
+Em 06/11/2026 o usuário conectou o **CS Navigator Registry** como app privado. A sessão revisora passou a expor `registry_status`, `get_capability`, `get_evidence` e `search_capabilities`. A chamada real de `registry_status` foi executada com resposta do servidor (61 capacidades, fonte publicada em 11/10/2026, `source_commit=development`). Foram executadas chamadas a `get_capability` e `search_capabilities`.
+
+O registro MCP foi associado ao pacote privado **CS Navigator Labs 0.20.0-beta.3** por seu app ID verificado, preservando seis skills e o MCP portátil. A falha original permanece registrada, mas a ligação do app independente passou no teste. O aceite do plugin **consolidado** ainda não foi executado em uma conversa nova.
+
+Evidência: `trust/qualification/pilots/mcp-01r-registry-connected-2026-11-06.json`.

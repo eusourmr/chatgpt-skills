@@ -8,8 +8,9 @@
     "capabilities": [],
     "defaultPrompt": "Use CS Navigator Labs para ajudar a escolher o caminho mais simples para minha tarefa. Antes de afirmar que uma skill esta carregada ou foi executada, apresente a evidencia disponivel."
   },
+  "apps": "./.app.json",
   "name": "cs-navigator-labs",
-  "version": "0.20.0-beta.2",
+  "version": "0.20.0-beta.3",
   "description": "Laborat\u00f3rio privado do CS Navigator: seis skills e consulta opcional ao registro MCP existente, sem servidor pr\u00f3prio.",
   "author": {
     "name": "Ricardo Rocha",

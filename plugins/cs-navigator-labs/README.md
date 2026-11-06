@@ -1,4 +1,4 @@
-# CS Navigator Labs — Universal Curator Beta 0.20.0-beta.2
+# CS Navigator Labs — Universal Curator Beta 0.20.0-beta.3
 
 **Private, experimental; not the CS Navigator 0.17 public/release lineage.** This update preserves the six previously tested laboratory skills and adds a connection to the **existing** CS Registry MCP. Plugin and MCP installation are not equivalent to tool activation.
 
@@ -31,3 +31,7 @@
 The root `mcp.json` defines an HTTPS Streamable HTTP connection to `https://chatgpt-skills.onrender.com/mcp` (no secrets). Runtime reachability and user-side approval must be verified separately. Registry content is bounded data; immutable local instructions remain in the plugin until a versioned plugin update.
 
 GitHub project: https://github.com/eusourmr/chatgpt-skills. Keep healthcare distribution exclusions in the public registry unchanged.
+
+## Registered CS Navigator Registry app binding
+
+This Beta release includes an app binding to the existing **CS Navigator Registry** app (`asdk_app_6aee1bad0884819196a97a44393e1a53`), created and connected by the account owner. The app has four read-only tools. The Registry tool `registry_status` was invoked successfully from a reviewer chat after the app connection. The six skill files and portable `mcp.json` remain intact; this combined plugin release still requires its own **new-chat tool-invocation** acceptance test. No Registry data remotely installs or executes a skill.

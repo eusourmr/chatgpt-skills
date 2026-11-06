@@ -1,6 +1,6 @@
 # Fase 2 — CS Navigator Universal Curator Beta
 
-**Produto:** CS Navigator Labs `0.20.0-beta.2`, plugin privado existente; **não** substitui o CS Navigator `0.17.0` de produção.
+**Produto:** CS Navigator Labs `0.20.0-beta.3`, plugin privado existente; **não** substitui o CS Navigator `0.17.0` de produção.
 
 ## Entregas verificáveis
 
@@ -10,7 +10,7 @@
 | Curadoria native-first | Novo contrato `skills/cs-navigator-labs/SKILL.md` e playbook local |
 | Registro de capacidades dinâmico | `mcp.json` aponta ao **MCP existente**: `https://chatgpt-skills.onrender.com/mcp` |
 | MCP de registro | Descoberta **somente leitura**; quatro ferramentas básicas esperadas: `registry_status`, `search_capabilities`, `get_capability`, `get_evidence` |
-| Distribuição | Pacote versionado `cs-navigator-labs-0.20.0-beta.2.zip` gerado por `scripts/build-cs-universal-beta.py` |
+| Distribuição | Pacote versionado `cs-navigator-labs-0.20.0-beta.3.zip` gerado por `scripts/build-cs-universal-beta.py` |
 | Testes | `tests/test_cs_universal_beta.py` + workflow CI de pacote e sonda HTTP/MCP externa |
 | Estado do plugin na conta | Atualização privada salva via Plugin Creator e arquivos lidos novamente, **não** prova de chamada das ferramentas em ChatGPT |
 | Produção 0.17 | Intacta, com nomes e identidades separados |
@@ -43,6 +43,14 @@ O usuário confirmou que a ferramenta `registry_status` **não foi exposta na se
 **Prioridade de resolução:** registrar/conectar o MCP na interface suportada, verificar permissões de plano/workspace e só então registrar uma chamada de ferramenta efetiva no ChatGPT. Não reutilizar ID de app diferente do Registry, nem tentar um novo ZIP como suposta correção da disponibilidade de ferramentas.
 
 Diagnóstico e passos oficiais em [MCP-01: binding do host](CS_MCP_01_HOST_BINDING_DIAGNOSIS_2026-11-06.md). Registro em `trust/qualification/pilots/mcp-01-host-tool-unavailable-2026-11-06.json`. O estado da Fase 2 é `beta_saved_external_mcp_pass_host_binding_failed`, e **não** `fase integralmente homologada`.
+
+## MCP-01R — Conexão registrada e chamada real (06/11/2026)
+
+Após o erro anterior, o usuário conectou o **CS Navigator Registry** pela interface do ChatGPT. O app registrado foi encontrado no backend com o identificador real `asdk_app_6aee1bad0884819196a97a44393e1a53`. A ferramenta `registry_status` foi **efetivamente chamada pelo revisor nesta conversa**, retornando **61 capacidades**, `published_at=2026-10-11` e `source_commit=development`. Chamadas reais a `get_capability` (uma exclusão de saúde, `found:false`) e `search_capabilities` (três itens de escrita, estado `designed`) também responderam.
+
+O plugin **CS Navigator Labs 0.20.0-beta.3** agora referencia esse app por `.app.json` e `extensions.com.openai.apps`, conservando `mcp.json` e as seis skills. O registro dessa chamada **valida a conexão do app independente**, mas a execução pela versão **consolidada** do Labs ainda precisa de aceite em uma nova conversa com esse plugin selecionado. Portanto, a falha histórica em `MCP-01` não foi apagada; o progresso é registrado separadamente como `MCP-01R`.
+
+Registro auditável: `trust/qualification/pilots/mcp-01r-registry-connected-2026-11-06.json`. Os metadados do registro continuam com origem `development` não imutável e data de publicação anterior.
 
 ## Aceitação final no ChatGPT (pendente até usuário executar no host)
 
@@ -78,6 +86,6 @@ Diagnóstico e passos oficiais em [MCP-01: binding do host](CS_MCP_01_HOST_BINDI
 ## Critérios de fecho
 
 **Engenharia/empacotamento:** plugin Beta salvo, arquivos confirmados, segurança estática/CI aprovada, e endpoint validado externamente pelo job CI se passar.  
-**Produto/host:** exigem retorno real das ferramentas do plugin no ChatGPT e observação do roteamento nativo/especialista. Enquanto essa evidência não existir, reportar `beta_saved_source_validated_host_mcp_pending`, não `universally_activated`.
+**Produto/host:** a chamada real de ferramenta pelo app Registry independente está confirmada; faltam chamadas na versão consolidada do Labs e observação do roteamento nativo/especialista. Enquanto essa evidência não existir, reportar `beta_saved_source_validated_host_mcp_pending`, não `universally_activated`.
 
 **Proposta de evolução:** após aceitação no host, congelar a Beta e iniciar Fase 3 com lotes controlados de drafts (positivo/negativo/adversarial), sem promover automaticamente as 48.
