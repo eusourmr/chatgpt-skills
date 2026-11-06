@@ -1,0 +1,44 @@
+name: Validate Text Integrity material-change preflight
+on:
+  pull_request:
+    paths:
+      - "skills/text-integrity-editor/SKILL.md"
+      - "skills/text-integrity-editor/profiles/pt-br-norma-culta.json"
+      - "trust/qualification/pilots/text-02-adversarial-2026-11-06.json"
+      - "trust/qualification/pilots/text-02r-retest-2026-11-06.json"
+      - ".github/workflows/validate-text-integrity-preflight.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify explicit upfront-warning invariant and truthful pilot status
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          s=Path("skills/text-integrity-editor/SKILL.md").read_text(encoding="utf-8")
+          p=json.loads(Path("skills/text-integrity-editor/profiles/pt-br-norma-culta.json").read_text(encoding="utf-8"))
+          r=json.loads(Path("trust/qualification/pilots/text-02-adversarial-2026-11-06.json").read_text(encoding="utf-8"))
+          assert "## Material-change preflight" in s
+          assert "ATENÇÃO — MUDANÇA SUBSTANTIVA DE SIGNIFICADO" in s
+          assert "VERSÃO ALTERNATIVA — NÃO É CORREÇÃO GRAMATICAL" in s
+          assert p["rules"]["output"]["material_change_warning"]=="before_any_altered_copyable_text"
+          assert any(t["id"]=="material-change-warning-precedes-copy" for t in p["tests"])
+          assert r["passes"]==4 and r["fails"]==1
+          assert r["result"]=="fail_material_change_preflight_with_correct_semantic_analysis"
+          assert r["catalog_state_change"] is False
+          retest=json.loads(Path("trust/qualification/pilots/text-02r-retest-2026-11-06.json").read_text(encoding="utf-8"))
+          assert retest["test_id"]=="TEXT-02R"
+          assert retest["assessment"]=="pass_user_visible_semantic_integrity_retest"
+          assert all(c["result"]=="pass" for c in retest["criteria"])
+          assert retest["producing_session_version_verified"] is False
+          assert retest["skill_promoted"] is False
+          assert r["remediation"]["host_adversarial_retest_status"]=="user_response_reviewed_pass"
+          assert r["remediation"]["host_adversarial_retest_evidence"]=="trust/qualification/pilots/text-02r-retest-2026-11-06.json"
+          print("Failed original and passing response-level retest are both preserved; native host trace pending.")
+          PY
