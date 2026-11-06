@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "test_id": "ux-01-mobile-event-lodging",
+  "reviewed_on": "2026-11-06",
+  "target_skill": "ux-quality-gate-labs",
+  "test_plugin": "cs-navigator-labs",
+  "declared_package_version": "0.19.0-alpha.1",
+  "source_graph": "activation-test-subset-0.1",
+  "record_type": "human-assisted-artifact-review-of-user-provided-conversation",
+  "user_supplied_answer": {
+    "sha256": "2c076be39ac6809ccc5c283c6f5383d37991c148fadf821a1b313c6bcb66b96b",
+    "bytes": 14694,
+    "lines": 103,
+    "storage": "user-provided conversation attachment; answer text intentionally not committed to public repository"
+  },
+  "task": "Mobile journey: find lodging through event or city in AP+ Eventos; discuss search, results, no availability, errors/recovery, design principles, accessibility, objective acceptance tests and evidence boundaries.",
+  "review": {
+    "status": "pass_for_conversational_design_response",
+    "reviewer": "assisted review of submitted text; no independent usability participants",
+    "criteria": [
+      {
+        "id": "entry-intent",
+        "result": "pass",
+        "evidence": "Three clearly differentiated intents: events, lodging, event spaces; event-to-lodging context preserved"
+      },
+      {
+        "id": "critical-path-and-recovery",
+        "result": "pass",
+        "evidence": "Search form fields, result semantics, availability vs inquiry, delayed responses, errors, retained state"
+      },
+      {
+        "id": "design-cognition",
+        "result": "pass",
+        "evidence": "Wurman/LATCH organization, Norman feedback/signifiers, Rams useful restraint; source linked as synthesis not verbatim rules"
+      },
+      {
+        "id": "accessibility-responsive",
+        "result": "pass_at_recommendation_level",
+        "evidence": "320px CSS reflow, 44px voluntary touch targets distinct from 24px AA minimum/exceptions, labels/focus/status announcements/keyboard/zoom proposed"
+      },
+      {
+        "id": "testability-and-evidence",
+        "result": "pass",
+        "evidence": "Specific scenario matrix; explicitly states tests have not been executed and no live UI was inspected"
+      }
+    ],
+    "normative_references_checked": [
+      "https://www.w3.org/WAI/WCAG22/Understanding/reflow.html",
+      "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
+      "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+      "https://www.wurman.com/publishedarticles"
+    ]
+  },
+  "evidence_boundaries": {
+    "host_availability": "Six laboratory skills listed and their instruction files read in reviewer conversation; the pilot conversation's specific host calls are reported in the submitted answer, not independently captured as a trace in this record.",
+    "code_patch_implemented": false,
+    "app_ui_inspected": false,
+    "wcag_conformity_certified": false,
+    "field_ux_tested": false,
+    "user_research_executed": false,
+    "plugin_skill_promoted": false,
+    "no_automatic_learning": true,
+    "note": "Pass is restricted to quality/completeness of the conversational UX plan; source graph is a reduced lab subset and the 22-card full source was not demonstrated in this pilot."
+  },
+  "follow_ups": [
+    "Run an identical prompt in a ChatGPT conversation without selecting CS Navigator Labs; compare blinded using fixed criteria, not a fabricated statistical score.",
+    "Run a negative activation case (ordinary small task) and an adversarial claim-of-execution case.",
+    "Inspect an actual rendered AP+ Eventos flow or authorized prototype and execute responsive/keyboard/error testing.",
+    "Record exact sources, environment, iteration, reviewer, errors and any fixes. Review before changing evidence state."
+  ]
+}
