@@ -1,0 +1,37 @@
+name: Validate HOST-01B comparative evidence
+on:
+  pull_request:
+    paths:
+      - "trust/qualification/pilots/host-01b-control-contamination-2026-11-06.json"
+      - "docs/CS_HOST_01B_CONTROL_CONTAMINATION_2026-11-06.md"
+      - ".github/workflows/validate-host-01b.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Confirm contaminated control and no causal claims
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("trust/qualification/pilots/host-01b-control-contamination-2026-11-06.json")
+          j=json.loads(p.read_text(encoding="utf8"))
+          assert j["test_id"]=="HOST-01B"
+          a=j["conditions"]["labeled_with_cs"]
+          b=j["conditions"]["labeled_without_cs"]
+          assert a["claims_skill_file_read"]==b["claims_skill_file_read"]
+          assert "engineering-investigator-labs" in b["claims_skill_used"]
+          assert j["final_gate"]=="inconclusive_control_contaminated"
+          assert j["comparative_quality"]["result"]=="no_causal_superiority_claim"
+          assert j["synthetic_zip_independent_replay"]["passed"]==12
+          assert j["synthetic_zip_independent_replay"]["node_version"]=="v22.16.0"
+          assert j["synthetic_zip_independent_replay"]["characterization_tests_of_insecure_algorithm"]==2
+          assert j["conditions"]["labeled_without_cs"]["test_artifact_received"] is False
+          assert j["skill_promoted"] is False and j["plugin_modified"] is False
+          print("HOST-01B evidence boundaries passed. No superiority or true no-skill control asserted.")
+          PY
