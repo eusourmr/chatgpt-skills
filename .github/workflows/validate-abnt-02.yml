@@ -1,0 +1,30 @@
+name: Validate ABNT-02 evidence scope
+on:
+  pull_request:
+    paths:
+      - "trust/qualification/pilots/abnt-02-adversarial-normative-2026-11-06.json"
+      - "docs/CS_ABNT_02_AND_ACADEMIC_01_2026-11-06.md"
+      - ".github/workflows/validate-abnt-02.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Confirm no claimed certification or fabricated evidence
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          j=json.loads(Path("trust/qualification/pilots/abnt-02-adversarial-normative-2026-11-06.json").read_text(encoding="utf8"))
+          assert j["test_id"]=="ABNT-02"
+          assert j["evaluation"]=="pass_adversarial_document_audit_response"
+          assert len(j["criteria"])==6 and all(c["status"]=="pass" for c in j["criteria"])
+          assert all(j["boundaries"][k] is False for k in ["actual_journal_manuscript_evaluated","all_norms_full_text_reviewed","official_certification","plugin_host_tool_trace_available","skill_promoted","private_plugin_modified"])
+          assert j["next_case"]=="ACADEMIC-01"
+          assert any("NBR_6022-2018.pdf" in x["source"] for x in j["independent_evidence"])
+          print("ABNT-02 evidence bounded: no host trace, certification, complete normative review or promotion")
+          PY
