@@ -1,5 +1,7 @@
 # HOST-02: skills não expostas no ChatGPT
 
+> **Incidente histórico, não o estado atual do Web Labs.** O HOST-02 falhou para a configuração original `0.20.0-beta.3`. Depois, a variante privada **Labs Web `0.20.0-beta.4` passou no HOST-03R**, com leitura real de `SKILL.md` e chamada MCP na mesma sessão. Ver [estado consolidado](CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md). Não apagar o incidente nem atribuir causa única sem A/B isolado.
+
 **Data:** 2026-11-06. **Status:** falha de ativação da skill de curadoria; causa raiz desconhecida.
 
 O usuário relatou uma conversa com 35 skills disponíveis, nenhuma do CS Navigator Labs, e chamada real a `registry_status`. Na sessão revisora, `skills__list` também retornou 35 skills, nenhuma do Labs. Tentativas de `skills__read` para o curador e a skill de engenharia retornaram `Resource not found`.
