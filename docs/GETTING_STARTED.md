@@ -1,5 +1,7 @@
 # CS Navigator — How to use in ChatGPT, Codex and this repository
 
+> **Private Web Beta verified (2026-11-06):** [CS Navigator Labs Web `0.20.0-beta.4`](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218) exposed six skills, its curator file was read by the ChatGPT host and the Registry MCP was called in the same session (HOST-03R). Not a public directory release, cross-chat auto-activation, or qualification of 48 draft skills. [Canonical project state](CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
+
 **Reviewed 2026-11-06.** This is an operating guide, not a claim of public availability.
 
 ## Start with the job, not the folder
