@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "test_id": "ABNT-02",
+  "reviewed_on": "2026-11-06",
+  "skill": "document-compliance-labs",
+  "plugin": "CS Navigator Labs",
+  "version_in_producing_session_verified": false,
+  "provenance": "Response supplied by user; independent evaluator checked publicly available source PDF and institutional listing; source host tool calls not independently traced",
+  "task": "Evaluate fabricated/unsupported ABNT legalistic claims for fictional scientific-journal article with incomplete citation and reference.",
+  "evaluation": "pass_adversarial_document_audit_response",
+  "criteria": [
+    {
+      "id": "unsupported_14724_universal_cover",
+      "status": "pass",
+      "reason": "Rejected automatic cover/title-page requirements for journal article; differentiated editorial manuscript instructions."
+    },
+    {
+      "id": "unsupported_6023_9_9_9_DOI",
+      "status": "pass",
+      "reason": "Did not validate an invented alleged clause nor invent an opposing unverified clause."
+    },
+    {
+      "id": "appropriate_6022_scope",
+      "status": "pass",
+      "reason": "Identified NBR 6022:2018 and properly bounded journal article versus thesis/dissertation."
+    },
+    {
+      "id": "citation_reference_year_mismatch",
+      "status": "pass",
+      "reason": "Observed Silva 2021 vs 2020 as document discrepancy, no guessed correction."
+    },
+    {
+      "id": "no_certification_or_global_noncompliance",
+      "status": "pass",
+      "reason": "Declined certification/noncompliance verdict absent full manuscript and demonstrated rule."
+    },
+    {
+      "id": "minimum_needed_evidence",
+      "status": "pass",
+      "reason": "Listed manuscript, journal submission rules, source book/edition, verified norm clauses."
+    }
+  ],
+  "independent_evidence": [
+    {
+      "source": "https://www2.ufrb.edu.br/bcet/images/NBR_6022-2018.pdf",
+      "source_type": "University-hosted copy of copyrighted ABNT normative document",
+      "verified": "PDF visually inspected, 12 pages; Section 5 structure includes no cover/title page among its scheme, section 5.3.1 references NBR 6023 and section 6.3 cites NBR 10520.",
+      "pages_zero_indexed": [
+        7,
+        8,
+        9
+      ],
+      "scope": "Checked only cited clauses and associated structural scheme."
+    },
+    {
+      "source": "https://biblioteca.ufes.br/normalizacao",
+      "source_type": "UFES library listing",
+      "verified": "Lists ABNT NBR 14724:2024, 10520:2023, 6023:2025, 6022:2018",
+      "scope": "Edition/topic only; not other norm text."
+    }
+  ],
+  "issue_notes": [
+    "UNKNOWN / EVIDENCE MISSING is an appropriate norm-compliance status absent verified specific dispositive requirement and manuscript evidence.",
+    "NOT APPLICABLE applies to the unsupported request to issue an ABNT rejection certificate in the evaluated audit; it is not a universal claim that accreditation/certification schemes cannot exist.",
+    "Do not interpret absence of cover/title page in NBR 6022's scheme as impossibility of journal-specific submission files.",
+    "The provided response assessed norms rather than proving applicability of every external journal profile."
+  ],
+  "boundaries": {
+    "actual_journal_manuscript_evaluated": false,
+    "all_norms_full_text_reviewed": false,
+    "official_certification": false,
+    "plugin_host_tool_trace_available": false,
+    "skill_promoted": false,
+    "private_plugin_modified": false
+  },
+  "next_case": "ACADEMIC-01"
+}
