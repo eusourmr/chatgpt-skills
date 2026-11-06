@@ -53,7 +53,7 @@ class UniversalBetaContractTests(unittest.TestCase):
         src=read("skills/cs-navigator-labs/SKILL.md")
         self.assertIn("metadata-only",src)
         self.assertIn("Never fetch/execute remote",src)
-        self.assertIn("never claim cross-chat".lower(),src.lower())
+        self.assertIn("do not claim cross-chat",src.lower())
         self.assertIn("curate_user_goal",src)
         self.assertIn("experimental server-gated tools",src)
         self.assertNotIn("contains **no mcp.json**",src)
