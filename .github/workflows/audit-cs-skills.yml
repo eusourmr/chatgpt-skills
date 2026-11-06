@@ -1,0 +1,47 @@
+name: Audit CS Skills contracts and onboarding
+on:
+  pull_request:
+    paths:
+      - "skills/**/SKILL.md"
+      - "skills/**/profiles/*.json"
+      - "experiments/code-lifecycle-governor/**"
+      - "docs/GETTING_STARTED*"
+      - "docs/CS_SKILLS_AUDIT_2026-11-06.md"
+      - "scripts/audit-core-skills.py"
+      - ".github/workflows/audit-cs-skills.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  maturity-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inventory and structural evidence
+        run: python3 scripts/audit-core-skills.py --output "$RUNNER_TEMP/cs-skills-source-audit.json"
+      - name: Verify profile JSON validity and conservative evidence
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path("skills")
+          for file in root.glob("**/profiles/*.json"):
+              profile=json.loads(file.read_text(encoding="utf-8"))
+              assert profile.get("profile_id"), str(file)
+          abnt=json.loads(Path("skills/document-compliance-auditor/profiles/abnt-br.json").read_text())
+          assert abnt["status"]=="designed"
+          assert {n["edition"] for n in abnt["rules"]["edition_snapshot"]["documents"]}=={"2023","2024","2025"}
+          norma=json.loads(Path("skills/text-integrity-editor/profiles/pt-br-norma-culta.json").read_text())
+          assert norma["status"]=="designed"
+          assert norma["activation"]["explicit_select"] is True
+          for file in Path("experiments/code-lifecycle-governor").glob("*.json"):
+              x=json.loads(file.read_text())
+              assert x["status"]=="designed-not-executed"
+          PY
+      - name: Upload static audit evidence (not native qualification)
+        uses: actions/upload-artifact@v4
+        with:
+          name: cs-skill-source-audit
+          path: ${{ runner.temp }}/cs-skills-source-audit.json
+          retention-days: 30
