@@ -27,13 +27,13 @@ O arquivo entregue pelo usuário não é armazenado integralmente no repositóri
 - A verificação normativa confirmou a distinção entre 24 × 24 CSS px (WCAG 2.2 AA, com exceções) e a meta de projeto de 44 × 44; reflow de 320 CSS px para conteúdo de rolagem vertical e anúncios de status sem mudança de foco.
 - O critério de 44 × 44 não é universalmente obrigatório para todo controle sob WCAG 2.2 AA.
 
-## UX-02 — comparação com ChatGPT nativo (não executada)
+## UX-02 — comparação pareada com e sem plugin (não executada)
 
-Abra **uma nova conversa sem selecionar CS Navigator Labs**. Se possível, use a mesma configuração de modelo utilizada em UX-01. Cole **exatamente** o texto abaixo, sem citar os onze autores e sem mencionar a skill. Guarde a resposta integral. Há limitações de comparabilidade: estado da conversa, contexto, variante de modelo e diferenças amostrais.
+Abra **duas conversas novas**, preferencialmente com a mesma configuração de modelo, sem histórico contextual adicional: uma **com CS Navigator Labs selecionado** e outra **sem o plugin**. Cole **exatamente o mesmo texto abaixo nas duas conversas**, sem citar os onze autores e sem mencionar o nome da skill no prompt. Guarde ambas as respostas integrais. A UX-01 original foi um piloto exploratório com prompt diferente e **não deve contar como o braço com plugin desta comparação pareada**. Há limitações de comparabilidade: estado das conversas, memória, modelo e variação amostral.
 
 > Analise a jornada de uma pessoa que acessa pelo celular o AP+ Eventos e deseja encontrar hospedagem para participar de um evento. A plataforma prevê buscas por eventos, espaços e hospedagens. Proponha o fluxo mais claro, incluindo campos de busca, resultados, ausência de disponibilidade, carregamento, erros e recuperação. Aplique até três princípios relevantes de design, identificando seus autores e justificando as escolhas. Inclua acessibilidade, responsividade e critérios objetivos para testar a solução. Diferencie recomendações de UX de problemas efetivamente observados. Não afirme ter visto ou testado a interface real.
 
-**Comparação pareada:** use os mesmos cinco critérios do UX-01 e compare falhas/omissões com exemplos específicos. Idealmente, retire os nomes do modelo/skill das respostas antes de uma avaliação por terceiro. Não converter diferença de redação em "skill melhor" sem ganho observável.
+**Comparação pareada:** use os mesmos cinco critérios do UX-01 e compare falhas/omissões com exemplos específicos. Registre qual braço declarou ter efetivamente carregado os arquivos da skill, sem afirmar isso apenas pelo texto produzido. Idealmente, retire os nomes do modelo/skill das respostas antes de uma avaliação por terceiro. Não converter diferença de redação em "skill melhor" sem ganho observável.
 
 ## UX-03 — negativa/limites (não executado)
 
