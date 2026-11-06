@@ -4,6 +4,8 @@ on:
     paths:
       - "experiments/ux-quality-gate/**"
       - ".github/workflows/validate-ux-quality-gate.yml"
+      - "trust/qualification/pilots/ux-01-conversational-2026-11-06.json"
+      - "docs/CS_UX_01_PILOT_AND_BASELINE_2026-11-06.md"
   workflow_dispatch:
 permissions:
   contents: read
@@ -27,6 +29,22 @@ jobs:
           assert r["field_ux_validated"] is False
           assert any(v["author"]=="Donald Norman" for v in r["results"])
           assert all(v["source"].startswith("https://") for v in r["results"])
+          PY
+      - name: Verify UX-01 evidence is bounded, never promoted
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("trust/qualification/pilots/ux-01-conversational-2026-11-06.json")
+          a=json.loads(p.read_text(encoding="utf-8"))
+          assert a["test_id"]=="ux-01-mobile-event-lodging"
+          assert a["review"]["status"]=="pass_for_conversational_design_response"
+          assert len(a["review"]["criteria"])==5
+          assert all(x["result"].startswith("pass") for x in a["review"]["criteria"])
+          assert len(a["user_supplied_answer"]["sha256"])==64
+          assert not a["evidence_boundaries"]["field_ux_tested"]
+          assert not a["evidence_boundaries"]["wcag_conformity_certified"]
+          assert not a["evidence_boundaries"]["plugin_skill_promoted"]
           PY
       - name: Smoke test JSON contract and no certification claim
         run: |
