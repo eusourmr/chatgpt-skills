@@ -1,0 +1,33 @@
+name: Qualify CS draft portfolio source and scenario plan
+on:
+  pull_request:
+    paths:
+      - "catalog.json"
+      - "catalog/skills.json"
+      - "registry/public-capabilities-v1.json"
+      - "skills/**/SKILL.md"
+      - "trust/qualification/draft-behavior-scenarios-v1.json"
+      - "scripts/qualify-draft-skills.py"
+      - "tests/test_qualify_draft_skills.py"
+      - ".github/workflows/qualify-cs-drafts.yml"
+      - "docs/CS_48_DRAFTS_QUALIFICATION_CAMPAIGN.md"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qualification-plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check all draft sources and produce audit manifest
+        run: |
+          python3 scripts/qualify-draft-skills.py --expect-drafts 48 --output "$RUNNER_TEMP/draft-qualification-plan.json"
+      - name: Verify three evidence-bounded scenarios for each draft
+        run: python3 -m unittest discover -s tests -p test_qualify_draft_skills.py -v
+      - name: Preserve review manifest for future manual native pilots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cs-48-drafts-qualification-plan
+          path: ${{ runner.temp }}/draft-qualification-plan.json
+          retention-days: 30
