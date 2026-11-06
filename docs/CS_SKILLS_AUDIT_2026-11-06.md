@@ -74,7 +74,7 @@ Este relatório é uma **auditoria documental e de catálogo**, não uma auditor
 
 ## 5. Priorização recomendada
 
-**Agora:** terminar PR #111 de UX; homologar `code-lifecycle-governor`; testar ABNT 6023:2025, 10520:2023 e 14724:2024 em documentos com manual identificado; corrigir o onboarding e a ativação real do CS Navigator.
+**Estado deste plano em 06/11/2026:** PRs #111/#112 foram mesclados; ABNT-01/02, TEXT-01/02R, ENG-01/02 e ACADEMIC-01 tiveram pilotos registrados; **a ativação de curadoria web passou no HOST-03R**, com skill efetivamente lida e Registry MCP chamado. Pendem testes de roteamento mínimo/especializado (ROUTE-01/02), A/B limpo, proveniência do Registry, homologação de documentos reais com regras verificadas e qualificação individual dos drafts. Não retomar a lista antiga de tarefas como se esses passos não tivessem ocorrido.
 
 **Em seguida:** pilotos de API Contract Verifier, Data Migration Guardian, Test Matrix Architect e Plugin Activation Diagnostician — problemas com risco mensurável.
 
