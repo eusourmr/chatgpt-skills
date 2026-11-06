@@ -1,0 +1,31 @@
+name: Validate ABNT-01 bounded evidence record
+on:
+  pull_request:
+    paths:
+      - "trust/qualification/pilots/abnt-01-bounded-document-audit-2026-11-06.json"
+      - "docs/CS_ABNT_01_AND_02_2026-11-06.md"
+      - ".github/workflows/validate-abnt-01.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check ABNT response provenance and source boundaries
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("trust/qualification/pilots/abnt-01-bounded-document-audit-2026-11-06.json").read_text(encoding="utf-8"))
+          assert d["test_id"]=="ABNT-01"
+          assert d["evaluation_status"]=="pass_conversational_source_integrity"
+          assert len(d["criteria"])==6 and all(c["result"]=="pass" for c in d["criteria"])
+          assert d["independent_reference_check"]["corroborated_editions"]["ABNT NBR 6022"]=="2018"
+          assert d["no_skill_promotion"] is True
+          assert d["no_production_plugin_change"] is True
+          assert "No producing-session tool invocation trace." in d["limitations"]
+          print("ABNT-01 textual review recorded without normative certification or tool-trace inference")
+          PY
