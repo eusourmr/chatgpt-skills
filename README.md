@@ -11,6 +11,8 @@
 [![npm](https://img.shields.io/npm/v/chatgpt-skills.svg)](https://www.npmjs.com/package/chatgpt-skills)
 [![Standard](https://img.shields.io/badge/Agent%20Skills-agentskills.io-6f42c1.svg)](https://agentskills.io/)
 
+> **Private CS Navigator Web Beta (06 Nov 2026):** [CS Navigator Labs Web `0.20.0-beta.4`](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218) passed a **host-level integration test**: the curator skill was actually read and the CS Registry MCP `registry_status` actually called in the same ChatGPT session. This is **not** a public Plugin Directory release, proof of universal auto-routing, or qualification of 48 draft skills. The stable GitHub CS Navigator line remains `0.17.0`. [Audited state and handoff](docs/CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
+
 **The curated skills catalog for the OpenAI ecosystem.** Unlike a flat community list, entries here are source-checked, categorized by use case, mapped to the open Agent Skills format, and separated by provenance: OpenAI-published, independently verified, or community-authored.
 
 [Português do Brasil](README.pt-BR.md) · [Getting Started](docs/GETTING_STARTED.md) · [Bundles](BUNDLES.md) · [Progress](PROGRESS.md) · [Roadmap](ROADMAP.md) · [Community](COMMUNITY.md)
