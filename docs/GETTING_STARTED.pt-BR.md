@@ -4,6 +4,8 @@
 
 ## Comece pelo problema, não pela pasta
 
+> **Piloto privado disponível (06/11/2026):** [CS Navigator Labs Web `0.20.0-beta.4`](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218) teve sua skill de curadoria realmente lida e o Registry MCP chamado na mesma conversa (HOST-03R). Não é um plugin público universal, nem instala automaticamente as 48 skills `draft` do catálogo. [Leia o estado e o roteiro atual](CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
+
 - Para uma tarefa simples, use o ChatGPT normalmente. **Não é necessário instalar uma skill** para perguntar, escrever, criar ou analisar com os recursos nativos.
 - Para um workflow reutilizável, verifique se há uma skill **disponibilizada pela interface** ou um plugin que realmente a contenha. Use o seletor `@` quando ele aparecer ou siga a invocação suportada pelo seu host.
 - Para trabalho de programação local, use Codex/CLI/IDE e configure as skills no ambiente local. O pacote npm `chatgpt-skills` é uma ferramenta de descoberta/instalação **local**; executar `npx` não instala automaticamente um plugin no ChatGPT web ou Android.
