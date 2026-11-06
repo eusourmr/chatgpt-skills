@@ -1,0 +1,49 @@
+name: Validate MCP-01R registered app binding
+on:
+  pull_request:
+    paths:
+      - "plugins/cs-navigator-labs/**"
+      - "trust/qualification/pilots/mcp-01r-registry-connected-2026-11-06.json"
+      - ".github/workflows/validate-mcp-01r.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check actual registry App ID and host proof boundary
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path("plugins/cs-navigator-labs")
+          evidence=json.loads(Path("trust/qualification/pilots/mcp-01r-registry-connected-2026-11-06.json").read_text(encoding="utf-8"))
+          plugin=json.loads((root/"plugin.json").read_text(encoding="utf-8"))
+          overlay=json.loads((root/".codex-plugin/plugin.json").read_text(encoding="utf-8"))
+          app=json.loads((root/".app.json").read_text(encoding="utf-8"))
+          qual=json.loads((root/"QUALIFICATION-MANIFEST.json").read_text(encoding="utf-8"))
+          assert evidence["test_id"]=="MCP-01R"
+          assert evidence["status"]=="pass_registry_app_host_tool_invocation"
+          assert evidence["tool_evidence"]["actual_host_action"]
+          assert evidence["tool_evidence"]["standalone_registered_app"]
+          assert len(evidence["tool_evidence"]["called_in_reviewer_chat"])==3
+          assert plugin["version"]==overlay["version"]==qual["version"]=="0.20.0-beta.3"
+          assert plugin["extensions"]["com.openai"]["apps"]=="./.app.json"
+          assert overlay["apps"]=="./.app.json"
+          id="asdk_app_6aee1bad0884819196a97a44393e1a53"
+          assert list(app["apps"].values())==[{"id":id}]
+          assert evidence["registered_app"]["app_id"]==id
+          assert evidence["combined_private_plugin"]["app_binding"]=="./.app.json"
+          assert evidence["combined_private_plugin"]["combined_host_tool_call_tested"] is False
+          assert qual["combined_plugin_host_invocation_tested"] is False
+          assert evidence["promotion_authorized"] is False
+          assert evidence["production_plugin_modified"] is False
+          production=json.loads(Path("plugins/cs-navigator/plugin.json").read_text(encoding="utf-8"))
+          assert production["version"]=="0.17.0"
+          old=json.loads(Path("trust/qualification/pilots/mcp-01-host-tool-unavailable-2026-11-06.json").read_text(encoding="utf-8"))
+          assert old["evaluation"]=="fail_host_tool_exposure_no_invocation"
+          print("Registered app and actual standalone MCP calls recorded; consolidated host behavior remains unverified.")
+          PY
