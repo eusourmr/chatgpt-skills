@@ -1,99 +1,78 @@
-# Primeiros Passos — CS Navigator
+# CS Navigator — Como usar no ChatGPT, Codex e no repositório
 
-Este é o guia principal de instalação e primeiro uso do CS Navigator.
+**Revisão:** 06/11/2026. Guia operacional, não um anúncio de publicação.
 
-[English](GETTING_STARTED.md)
+## Comece pelo problema, não pela pasta
 
-## Situação no diretório público
+- Para uma tarefa simples, use o ChatGPT normalmente. **Não é necessário instalar uma skill** para perguntar, escrever, criar ou analisar com os recursos nativos.
+- Para um workflow reutilizável, verifique se há uma skill **disponibilizada pela interface** ou um plugin que realmente a contenha. Use o seletor `@` quando ele aparecer ou siga a invocação suportada pelo seu host.
+- Para trabalho de programação local, use Codex/CLI/IDE e configure as skills no ambiente local. O pacote npm `chatgpt-skills` é uma ferramenta de descoberta/instalação **local**; executar `npx` não instala automaticamente um plugin no ChatGPT web ou Android.
+- Para acesso a catálogo remoto/ferramentas MCP, um plugin precisa estar instalado, acessível e com servidor real configurado. Um arquivo ZIP ou link de GitHub **não** constitui conexão.
 
-A versão atualmente submetida à OpenAI é **CS Navigator 0.9.4 — Submission Compliance**.
+## Quatro estados que não podem ser confundidos
 
-Em **08/10/2026**:
-- revisão: **em andamento**;
-- publicação: **ainda não publicada**.
-
-O candidato ativo de desenvolvimento é **0.15.0 — Everyday Life & Human Capability**. Ele ainda não é a versão pública do diretório.
-
-## Se você só quer usar
-
-Quando o CS Navigator estiver publicado:
-
-1. Abra **Plugins** no ChatGPT.
-2. Pesquise **CS Navigator**.
-3. Instale uma vez.
-4. Abra uma conversa normal.
-5. Se quiser curadoria silenciosa naquela conversa, escreva:
-
-```text
-Use o CS Navigator como meu curador.
-```
-
-Depois converse normalmente.
-
-O comportamento pretendido é:
-- ficar no ChatGPT nativo quando isso bastar;
-- usar uma skill quando um workflow especializado trouxer ganho real;
-- usar uma Jornada de Vida apenas quando houver várias etapas dependentes;
-- usar ações conectadas somente quando o acesso externo mudar materialmente o resultado.
-
-## Limite de persistência
-
-Uma frase em uma conversa **não prova** que o modo curador está ativo em todas as conversas futuras. Só podemos afirmar persistência entre chats quando o produto hospedeiro oferecer e confirmar esse mecanismo.
-
-## Simple Mode
-
-Para a experiência mais simples:
-
-```text
-Use o CS Navigator como meu curador e explique tudo em Simple Mode.
-```
-
-O Simple Mode deve usar linguagem simples, passos curtos e uma ação por vez quando útil, sem esconder alertas ou incertezas importantes.
-
-## Candidato atual de desenvolvimento
-
-| Componente | Estado |
+| Estado | Evidência necessária |
 |---|---|
-| Submissão ao diretório OpenAI | **0.9.4 — em revisão / não publicada** |
-| Candidato de desenvolvimento | **0.15.0 — candidato privado native-qualified; matriz do Navigator 12/12 PASS** |
-| Entradas no ZIP candidato | **126** |
-| SHA-256 do ZIP candidato | `b8a18c87526883dc01331c1f3428c77a375ebf5dd33a8b038db3c6641af29bb2` |
-| Novas skills da 0.15 | **31, todas inicialmente designed** |
-| Registry MCP ao vivo | **planejado, ainda não ativo** |
+| Descoberta | A capacidade consta no catálogo versionado; isso não é ativação |
+| Instalação | O host/conta indica o recurso instalado ou plugin cadastrado; ZIP baixado não conta |
+| Carregamento | O host expõe o recurso na conversa ou evidencia leitura do arquivo de skill |
+| Execução | Registros de chamada/ferramenta/resultado e, separadamente, evidência do objetivo do usuário |
 
-## O que muda na 0.15.0
+A ausência de uma skill numa lista **da sessão atual** é apenas ausência de evidência de disponibilização naquela sessão, não prova de ausência no backend da conta. Uma frase como "use CS Navigator" não executa por si uma ferramenta MCP.
 
-A 0.15.0 introduz quatro níveis:
+## ChatGPT — caminho para usuário final
 
-```text
-Nativo → Skill → Jornada de Vida → Ação Conectada
-```
+1. Abra **Plugins** na barra lateral e examine o que está disponível para sua conta e espaço de trabalho.
+2. Se houver uma seção **Habilidades/Skills**, confira se existe uma skill instalada ou criável. A disponibilidade para skills autônomas depende do plano, da configuração do workspace e da interface; não presuma que esteja presente.
+3. Para plugins, use o diretório para instalar um plugin compatível ou o Plugin Creator quando disponível. A permissão de **upload de ZIP de plugin** pode depender de um administrador/workspace na interface web.
+4. Em uma nova conversa, selecione/mencione pelo `@` **somente se a interface realmente apresentar** o plugin ou a skill. Verifique o comportamento e se ferramentas esperadas aparecem.
+5. Se não houver recurso instalável na interface, ainda é possível usar uma instrução de curadoria como **preferência conversacional**, mas não atribua a ela execução de skill, registro, persistência ou MCP.
 
-Também adiciona:
-- Personal Curator;
-- Simple Mode;
-- Capability Preferences;
-- Life Resolution Contract;
-- Human Escalation Contract;
-- Proof of Progress;
-- skills para vida cotidiana, família e cuidado, cidadania no Brasil, casa, viagens, segurança digital e grandes mudanças de vida;
-- uma base de registry versionada e pronta para evolução futura.
+**Exemplos de tarefas**
+- Sem plugin: "Analise esta decisão e diga o próximo passo com os fatos disponíveis." (ChatGPT nativo).
+- Com recurso **realmente disponível**: selecione `@CS Navigator` na interface e diga "Escolha o caminho mais simples para revisar meu texto sem mudar seus fatos".
+- Para teste: "Quais ferramentas deste plugin você realmente tem disponíveis e quais invocou? Distinga instruções carregadas de ferramentas executadas."
 
-## Limite de evidência
+## Codex e instalações locais
 
-As 31 novas skills são **designed**. Não viram `tested` ou `qualified` só porque foram criadas, empacotadas ou validadas estaticamente.
+- Uma pasta contendo `SKILL.md` pode ser usada no ambiente local/IDE/CLI compatível. Leia a documentação da ferramenta e veja seu diretório de destino.
+- A CLI npm `chatgpt-skills` não sincroniza automaticamente skills com a conta ChatGPT. A presença de arquivos no seu dispositivo é apenas evidência local.
+- Reabra/recarregue o host quando necessário; confirme que o recurso é listado antes de declarar sucesso.
 
-O candidato privado exato 0.15.0 passou a matriz semântica nativa registrada do Navigator em 12/12 casos. As 31 novas workflows continuam individualmente `designed` até terem testes próprios.
+## Projeto CS — situação verificável (em 06/11/2026)
 
-## Identidade técnica
+| Linha | Evidência e limite |
+|---|---|
+| Catálogo do GitHub | `catalog/skills.json` contém 80 entradas editoriais; uma é coleção; `catalog.json` contém 79 itens classificados para acompanhamento |
+| Core autoral | 63 skills no catálogo editorial, mas a maior parte permanece em estado de projeto e não possui piloto de execução individual |
+| Plugin privado 0.17 | Versão 0.17.0 está registrada no backend da conta em inspeção anterior; isso não garante visibilidade ou instalação nesta sessão |
+| RC3/0.18 | Testes de MCP no CI passaram; pacote de avaliação não prova instalação ou ativação no ChatGPT |
+| Submissão pública | Não tratar como aprovada/publicada sem confirmação do portal e fonte atual |
+| MCP | Registry é metadado; nenhuma skill externa arbitrária é automaticamente executável por estar indexada |
 
-- nome público: **CS Navigator**
-- slug técnico: `cs-navigator`
-- versão submetida ao diretório: `0.9.4`
-- candidato de desenvolvimento: `0.15.0`
-- workflow de build: `.github/workflows/build-v015-human-capability.yml`
-- manifesto: `release/v015-human-capability.json`
-- registry-base: `registry/capabilities-v1.json`
-- arquitetura: `docs/CS_NAVIGATOR_0.15.0_HUMAN_CAPABILITY.md`
+Os documentos históricos da 0.9.4, 0.15 e da 0.16 são registros de versão, não guia de instalação atual.
 
-Projeto comunitário independente. Não afiliado nem endossado pela OpenAI.
+## Quando um ZIP serve
+
+**ZIP de skill independente**: tem formato de skill e só deve ser enviado à superfície compatível quando disponibilizada.
+
+**ZIP de plugin**: tem raiz `plugin.json` e `skills/<nome>/SKILL.md`; um `mcp.json` válido é necessário se o plugin declarar um servidor. A interface de envio, permissões e disponibilidade são específicas do host.
+
+**ZIP de avaliação/CI**: pode conter instruções, relatórios e checksums sem estrutura instalável. **Não instalar como se fosse plugin**.
+
+## Solução de problemas
+
+1. Se "não aparece em Criados por você", confira o **escopo correto** (plugin vs habilidade), a conta/workspace e a forma como o pacote foi efetivamente cadastrado.
+2. Se o plugin consta no backend, mas não está selecionável, considere a ativação **pendente**, não "testada".
+3. Se a skill é visível, mas o MCP não, examine endpoint, permissão, autenticação, superfície e versão do servidor — sem inventar logs.
+4. Não envie dados privados a um endpoint experimental; use objetivos sintéticos.
+5. Se a instalação autônoma não está disponível no seu plano/workspace, use o ChatGPT nativo ou um plugin compatível; não prometa um botão inexistente.
+
+## Documentação de referência
+
+- [OpenAI — Skills no ChatGPT](https://help.openai.com/pt-br/articles/20001066-skills-in-chatgpt)
+- [OpenAI — Plugins no ChatGPT](https://help.openai.com/pt-br/articles/20001256-plugins-in-chatgpt)
+- [OpenAI — Build Skills](https://learn.chatgpt.com/docs/build-skills)
+- [OpenAI — Package your plugin](https://developers.openai.com/plugins/build/plugins)
+
+**Política de linguagem:** diferenciar `designed`, `CI-tested`, `host-loaded`, `tool-invoked` e `outcome-verified`. Nunca inferir os últimos três pelos anteriores.
