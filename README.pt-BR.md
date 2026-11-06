@@ -17,7 +17,7 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 A arquitetura **0.16 Evergreen Core & Live Registry** foi incorporada à 0.17, sem release pública independente da 0.16.
 
-A release GitHub 0.17.0 **não equivale à publicação no Diretório de Plugins do ChatGPT**. O plugin privado instalado permanece em **0.15.0** até a geração, qualificação e atualização do pacote 0.17.0. O portal foi observado com rascunho 0.15.0 / não publicado / precisa de atenção. Falta implantar e testar o endpoint MCP HTTPS público, qualificar os bytes finais e submeter novamente.
+A release GitHub 0.17.0 **não equivale à publicação no Diretório de Plugins do ChatGPT**. A inspeção do backend da conta identificou um plugin privado registrado como **0.17.0**, mas isso não prova que esteja instalado, selecionável ou ativo na conversa. A linha 0.18 RC3 passou nos testes MCP em CI, mas não foi homologada no ChatGPT. O status de publicação pública exige verificação atual do portal.
 
 As novas capacidades `learning-mastery-coach` e `academic-writing-navigator` estão no registry em estado **designed**, não **tested**. O núcleo distribuído contém seis skills; o registry fornece metadados limitados, sem execução automática de arquivos arbitrários do GitHub. As exclusões de saúde continuam obrigatórias.
 
@@ -29,21 +29,22 @@ Leia: [Submissão pública](docs/PUBLIC_PLUGIN_SUBMISSION.md) · [Primeiros pass
 
 A experiência pretendida é simples:
 
-1. Instale **CS Navigator** uma vez.
-2. Abra uma conversa normal no ChatGPT.
-3. Se quiser curadoria silenciosa naquela conversa, escreva: `Use o CS Navigator como meu curador.`
-4. Depois converse normalmente. O Navigator deve manter a tarefa nativa quando isso bastar e só acrescentar skill, Jornada de Vida ou ação conectada quando houver ganho material.
+1. Confira em **Plugins** se o CS Navigator está realmente disponível; skills independentes e plugins usam fluxos diferentes.
+2. Se aparecer, selecione-o pelo `@` quando o ChatGPT oferecer essa opção.
+3. Se não aparecer, use o ChatGPT nativo. A frase `Use o CS Navigator como meu curador` sozinha é preferência conversacional, não execução da skill ou do MCP.
+4. Consulte o [guia atualizado](docs/GETTING_STARTED.pt-BR.md), com procedimentos por superfície.
 
 **Limite de persistência:** uma frase em uma conversa não prova ativação em todas as conversas futuras. Só podemos afirmar persistência entre chats quando o produto hospedeiro oferecer e confirmar esse mecanismo.
 
 Linhas de versão:
-- portal OpenAI (última observação): **0.15.0 Draft / Needs attention / Not published**
-- release GitHub atual: **0.17.0 / endpoint MCP de produção ainda necessário para plugin público**
+- publicação no portal OpenAI: **sem confirmação atual de aprovação**
+- release GitHub da linha estável: **0.17.0**; plugin privado registrado na conta, mas não comprovadamente ativado nesta sessão
+- 0.18 RC3: **MCP qualificado em CI; ChatGPT host ainda pendente**
 - slug técnico: `cs-navigator`
 - 0.7.5: fundação histórica de confiança/runtime
 - 0.9.x: fundação da plataforma first-party e conformidade de submissão
 - `chatgpt-skills` CLI/npm: linha independente
-- próximo passo arquitetural após qualificar a 0.15: registry vivo somente leitura e continuidade pessoal mais forte, sem tornar conteúdo arbitrário do GitHub executável
+- próximo gate: comprovar instalação, carregamento e invocação no ChatGPT, sem tornar conteúdo arbitrário do GitHub executável
 
 ## Por que esta lista existe
 
