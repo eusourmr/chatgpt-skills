@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "test_id": "MCP-01",
+  "observed_on": "2026-11-06",
+  "plugin": "CS Navigator Labs",
+  "plugin_id": "plugins_6aedc9218d1c8191a5084bf09301973d",
+  "stored_plugin_version": "0.20.0-beta.2",
+  "plugin_stored_source_readback": true,
+  "readback": {
+    "installed_plugin_scope": "USER",
+    "discoverability": "PRIVATE",
+    "mcp_file_present": true,
+    "generated_compatibility_mcp_file_present": true,
+    "endpoint": "https://chatgpt-skills.onrender.com/mcp",
+    "protocol_type": "streamable-http",
+    "auth_mode": "none",
+    "plugin_has_registered_app_binding": false
+  },
+  "producing_session": {
+    "source": "User copied response of ChatGPT session attempting MCP-01; independent execution trace not present",
+    "reported_registry_status_visible": false,
+    "reported_call_executed": false,
+    "response_from_registry": "not_obtained",
+    "factual_results_invented": false
+  },
+  "independent_external": {
+    "previous_workflow_run": 42267515610,
+    "external_initialize_and_tool_list": "pass",
+    "four_tools": [
+      "get_capability",
+      "get_evidence",
+      "registry_status",
+      "search_capabilities"
+    ],
+    "registry_status_invocation_external": "pass",
+    "note": "This only shows the server functioning from GitHub Actions, not ChatGPT host exposure."
+  },
+  "reviewer_host": {
+    "skills_available": true,
+    "native_registry_tool_listed": false,
+    "tool_inventory_method": "Tool metadata enumeration in reviewer session, not producing-session tool trace"
+  },
+  "evaluation": "fail_host_tool_exposure_no_invocation",
+  "risk": "A skills-only ChatGPT conversation may not acquire MCP actions just by having a valid portable mcp.json stored in a private plugin.",
+  "likely_causes_not_yet_proved": [
+    "No separately registered ChatGPT MCP app/connector binding; no .app.json present in stored plugin.",
+    "Plugin may be installed but MCP connection not enabled or linked in ChatGPT.",
+    "Plan/workspace policy or interface may prevent custom MCP connections.",
+    "Conversation may not have loaded current plugin release despite saved account state."
+  ],
+  "officially_documented_path": "In eligible ChatGPT environment, use Plugins > Add > Add custom MCP server, enter verified HTTPS endpoint, review risk disclosure, Create as plugin, inspect detected tools; use actual returned plugin_asdk_app ID for binding if supported.",
+  "next_acceptance": {
+    "prerequisite": "Registered supported MCP app is visible and enabled to user in ChatGPT; do not invent or use an unrelated app ID.",
+    "tool": "registry_status",
+    "evidence": "Concrete host tool invocation/response with provenance; saved manifest and external CI alone are insufficient.",
+    "status": "blocked_pending_host_registration_and_entitlement",
+    "success_not_claimed": true
+  },
+  "safe_behavior": "Keep read-only registry, six skills, and stable 0.17 unchanged; do not attempt repeated archive uploads or fake tool results.",
+  "qualification_state": "beta_source_and_external_mcp_pass_host_binding_failed",
+  "no_skill_promotion": true,
+  "no_production_plugin_mutation": true,
+  "no_private_beta_mutation": true
+}
