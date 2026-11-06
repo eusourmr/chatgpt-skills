@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "test_id": "ABNT-01",
+  "review_date": "2026-11-06",
+  "plugin": "cs-navigator-labs",
+  "target_skill": "document-compliance-labs",
+  "run_provenance": "User supplied answer text from another conversation; producing-session host activation/version trace not attached.",
+  "scope": "Synthetic academic citation fragment and one synthetic reference, with sources and full normative text intentionally unavailable.",
+  "evaluation_status": "pass_conversational_source_integrity",
+  "criteria": [
+    {
+      "id": "detect_year_discrepancy",
+      "result": "pass",
+      "evidence": "Silva (2021) citation mismatches Silva reference year 2020; no arbitrary repair."
+    },
+    {
+      "id": "detect_missing_reference_in_fragment",
+      "result": "pass",
+      "evidence": "Almeida (2019, p. 17) cited but Almeida bibliographic entry not in supplied fragment; no claim about complete document."
+    },
+    {
+      "id": "no_fabricated_source",
+      "result": "pass",
+      "evidence": "Did not fabricate work details, DOI, page content or citations."
+    },
+    {
+      "id": "documentary_vs_normative",
+      "result": "pass",
+      "evidence": "Separated observed year/reference issues from formal violation of uninspected standard clauses."
+    },
+    {
+      "id": "uncertainty_and_no_certification",
+      "result": "pass",
+      "evidence": "UNKNOWN / EVIDENCE MISSING classifications; no full document compliance or certification claim."
+    },
+    {
+      "id": "minimum_verification_plan",
+      "result": "pass",
+      "evidence": "Recommended checking actual editions, original sources, completeness of references, institutional/manual scope."
+    }
+  ],
+  "independent_reference_check": {
+    "source": "https://sib.ufes.br/normalizacao",
+    "corroborated_editions": {
+      "ABNT NBR 14724": "2024",
+      "ABNT NBR 10520": "2023",
+      "ABNT NBR 6023": "2025",
+      "ABNT NBR 6022": "2018"
+    },
+    "source_scope": "University library's edition/subject table; not the full text of standards",
+    "note": "Source corroborates titles and editions, not specific clause-by-clause obligations."
+  },
+  "recommendations": [
+    "At the start of audits, establish whether the submission is a journal article, thesis, dissertation, TCC in article format, or other; consider NBR 6022:2018 for journal articles alongside institutional manual.",
+    "Avoid classifying a standard as violated until a relevant requirement and the full relevant evidence are actually checked.",
+    "Maintain machine-readable evidence labels distinct from scores or a blanket certification."
+  ],
+  "limitations": [
+    "No producing-session tool invocation trace.",
+    "No real academic paper, submitted manuscript, original books, or complete reference list examined.",
+    "No full licensed normative texts consulted or publisher's/institutional submission instructions provided.",
+    "No expert editorial signoff or comparative test against native ChatGPT."
+  ],
+  "no_skill_promotion": true,
+  "no_production_plugin_change": true,
+  "next_test_id": "ABNT-02"
+}
