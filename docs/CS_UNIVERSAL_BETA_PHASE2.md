@@ -36,6 +36,14 @@ O GitHub Actions completou um teste **real** contra o serviço HTTPS existente: 
 
 Registro estruturado: `trust/qualification/pilots/cs-universal-beta-live-mcp-2026-11-06.json`. Workflows executados em GitHub Actions não demonstram que o ChatGPT ativou a conexão na sessão de um usuário.
 
+## Resultado do aceite MCP-01 (06/11/2026): FALHOU NO HOST
+
+O usuário confirmou que a ferramenta `registry_status` **não foi exposta na sessão ChatGPT** e que **não houve chamada**. A configuração `mcp.json` permanece salva no plugin e o endpoint foi verificado por CI, mas essas duas evidências não satisfazem o gate de host.
+
+**Prioridade de resolução:** registrar/conectar o MCP na interface suportada, verificar permissões de plano/workspace e só então registrar uma chamada de ferramenta efetiva no ChatGPT. Não reutilizar ID de app diferente do Registry, nem tentar um novo ZIP como suposta correção da disponibilidade de ferramentas.
+
+Diagnóstico e passos oficiais em [MCP-01: binding do host](CS_MCP_01_HOST_BINDING_DIAGNOSIS_2026-11-06.md). Registro em `trust/qualification/pilots/mcp-01-host-tool-unavailable-2026-11-06.json`. O estado da Fase 2 é `beta_saved_external_mcp_pass_host_binding_failed`, e **não** `fase integralmente homologada`.
+
 ## Aceitação final no ChatGPT (pendente até usuário executar no host)
 
 **MCP-01 — teste de chamada real:** na conversa com o plugin selecionado, envie:

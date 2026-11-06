@@ -1,0 +1,39 @@
+name: Validate MCP-01 host-exposure incident
+on:
+  pull_request:
+    paths:
+      - "trust/qualification/pilots/mcp-01-host-tool-unavailable-2026-11-06.json"
+      - "docs/CS_MCP_01_HOST_BINDING_DIAGNOSIS_2026-11-06.md"
+      - "docs/CS_UNIVERSAL_BETA_PHASE2.md"
+      - ".github/workflows/validate-mcp01-host-binding.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preserve failure, supported registration path and evidence limits
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('trust/qualification/pilots/mcp-01-host-tool-unavailable-2026-11-06.json').read_text(encoding='utf8'))
+          assert d['test_id']=='MCP-01'
+          assert d['evaluation']=='fail_host_tool_exposure_no_invocation'
+          assert d['readback']['mcp_file_present'] and d['readback']['generated_compatibility_mcp_file_present']
+          assert not d['readback']['plugin_has_registered_app_binding']
+          assert d['independent_external']['external_initialize_and_tool_list']=='pass'
+          assert not d['producing_session']['reported_registry_status_visible']
+          assert not d['producing_session']['reported_call_executed']
+          assert d['next_acceptance']['status']=='blocked_pending_host_registration_and_entitlement'
+          assert d['no_private_beta_mutation'] and d['no_production_plugin_mutation'] and d['no_skill_promotion']
+          x=Path('docs/CS_UNIVERSAL_BETA_PHASE2.md').read_text(encoding='utf8')
+          assert 'FALHOU NO HOST' in x
+          y=Path('docs/CS_MCP_01_HOST_BINDING_DIAGNOSIS_2026-11-06.md').read_text(encoding='utf8')
+          assert 'plugin_asdk_app' in y
+          assert 'Não atualizamos novamente o plugin Labs' in y
+          print('MCP-01 failure recorded. External service healthy does not imply ChatGPT tool exposure.')
+          PY
