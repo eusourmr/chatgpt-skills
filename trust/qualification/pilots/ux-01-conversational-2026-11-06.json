@@ -63,7 +63,7 @@
     "note": "Pass is restricted to quality/completeness of the conversational UX plan; source graph is a reduced lab subset and the 22-card full source was not demonstrated in this pilot."
   },
   "follow_ups": [
-    "Run an identical prompt in a ChatGPT conversation without selecting CS Navigator Labs; compare blinded using fixed criteria, not a fabricated statistical score.",
+    "Re-run a neutral identical prompt in TWO fresh conversations (with and without CS Navigator Labs selected); UX-01 differs in prompt and is not directly the plugin arm of the paired trial. Blind-score same criteria; do not invent statistical improvement.",
     "Run a negative activation case (ordinary small task) and an adversarial claim-of-execution case.",
     "Inspect an actual rendered AP+ Eventos flow or authorized prototype and execute responsive/keyboard/error testing.",
     "Record exact sources, environment, iteration, reviewer, errors and any fixes. Review before changing evidence state."
