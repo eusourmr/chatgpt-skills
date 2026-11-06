@@ -38,3 +38,14 @@ This skill inherits the CS fail-closed principles: no fabricated evidence, no pe
 ## Systemic contract
 
 A valid use should improve at least three of human, social, knowledge, resources and ecology when materially applicable. It must state material trade-offs, avoid solving one local metric by exporting harm, and leave a reusable artifact, decision record, profile, map or learned pattern that reduces future effort.
+
+## Regra ABNT auditável (2026-11)
+
+A verificação de **edição** não comprova a **redação de uma regra** nem a conformidade de um documento. Ao usar o perfil `profiles/abnt-br.json`, registre por requisito:
+- `norma_id`, `edicao`, `autoridade/fonte`, `manual_institucional`, `trecho_ou_regra_confirmada`, `objeto_inspecionado`, `evidencia_localizacao`, `status`, `acao`.
+- Diferencie três escopos: ABNT (norma técnica), regras próprias da instituição/editora e correção gramatical/norma culta. Não transplante convenções de uma área para outra.
+- Verifique se o manual institucional aponta edição antiga e sinalize conflito de versões sem inventar hierarquia jurídica universal.
+- Se a regra detalhada não foi consultada em fonte autorizada ou fornecida, escolha `UNKNOWN / EVIDENCE MISSING` — jamais marque conformidade por plausibilidade.
+- Preserve autoria, citações, metadados de referência, DOI e demais identificadores; indicar dados bibliográficos ausentes em vez de completá-los por suposição.
+
+Como referência de edição verificada em 06/11/2026: NBR 14724:2024 (apresentação), 10520:2023 (citações), 6023:2025 (referências). Conferir https://biblioteca.ufes.br/normalizacao e eventual atualização no catálogo da ABNT antes de uso normativo.

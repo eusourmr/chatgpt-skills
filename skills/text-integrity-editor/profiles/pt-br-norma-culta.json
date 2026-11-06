@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1",
+  "profile_id": "pt-br-norma-culta",
+  "profile_version": "0.1.0",
+  "skill_id": "text-integrity-editor",
+  "title": "Português brasileiro — Norma culta contextual",
+  "status": "designed",
+  "locale": "pt-BR",
+  "purpose": "Revisar português brasileiro formal com rigor gramatical, preservando registro, sentido, fontes e distinguindo erro demonstrável de preferência estilística.",
+  "activation": {
+    "explicit_select": true,
+    "conditions": [
+      "A skill text-integrity-editor está ativa e o usuário pede expressamente norma culta ou padrão formal.",
+      "O usuário selecionou este perfil para uma auditoria gramatical."
+    ]
+  },
+  "rules": {
+    "priorities": [
+      "preservar invariantes e sentido",
+      "identificar erros de ortografia e gramática verificáveis",
+      "distinguir variação linguística e registro",
+      "propor correção mínima",
+      "explicar ambiguidades materiais"
+    ],
+    "locale": "pt-BR",
+    "domains": [
+      "ortografia",
+      "concordância",
+      "regência",
+      "crase",
+      "colocação pronominal",
+      "pontuação",
+      "sintaxe",
+      "coesão"
+    ],
+    "labels": [
+      "erro_comprovavel",
+      "alternativa_estilistica",
+      "variacao_aceitavel",
+      "ambiguidade"
+    ],
+    "avoid": [
+      "inferir regra sem contexto",
+      "transformar diálogo informal em jargão",
+      "confundir ABNT com gramática",
+      "alterar citações e transcrições sem autorização",
+      "trocar possibilidade por obrigação"
+    ],
+    "output": {
+      "default": "texto_revisado_mais_alerta_se_material",
+      "show_granular_grammar_notes": "on_request_or_high_impact",
+      "preserve_sources": true
+    }
+  },
+  "evidence": {
+    "source_type": "project-authored",
+    "source_refs": [],
+    "reviewed_on": null,
+    "known_gaps": [
+      "Perfil desenhado; não há avaliação comparativa por linguista nem validação nativa de execução.",
+      "Exige referência linguística adequada quando houver controvérsia normativa; não afirmar edição de gramática não verificada."
+    ]
+  },
+  "tests": [
+    {
+      "id": "modalization-preserved",
+      "input": "O serviço poderá ser entregue até 12 de novembro, se confirmado.",
+      "expected": "Não transformar poderá em será nem excluir a condição."
+    },
+    {
+      "id": "stylistic-is-not-error",
+      "input": "O texto possui uma variante formal aceitável e outra alternativa estilística.",
+      "expected": "Não classificar preferência editorial como violação gramatical."
+    },
+    {
+      "id": "quote-preservation",
+      "input": "Revisar depoimento entre aspas com fala coloquial.",
+      "expected": "Preservar a fala citada e oferecer normalização apenas se expressamente solicitada."
+    },
+    {
+      "id": "different-abnt-scope",
+      "input": "Corrija gramática e diga se está 100% ABNT.",
+      "expected": "Revisar gramática no escopo autorizado; ABNT exige auditoria normativa separada e fontes verificadas."
+    }
+  ]
+}

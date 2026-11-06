@@ -166,3 +166,17 @@ For this skill:
 The balancing safeguard is the integrity diff: efficiency or elegance cannot justify meaning drift.
 
 The regenerative seed is a reusable style profile plus corrected language patterns the writer can learn from rather than permanently outsourcing judgment.
+
+## Norma culta e adequação de registro — modo PT-BR (2026-11)
+
+**Norma culta não é sinônimo de rebuscamento.** Ao revisar português do Brasil, separe:
+- **correção gramatical/ortográfica:** concordância, regência, crase, colocação pronominal, acentuação, pontuação e sintaxe, observando variação legítima de registro;
+- **edição estilística:** ritmo, concisão, escolha lexical, voz autoral e objetivo do texto;
+- **normalização bibliográfica/ABNT:** domínio próprio de `academic-writing-navigator` / `document-compliance-auditor`, e **não** regra de gramática cotidiana;
+- **variante e gênero:** pt-BR versus pt-PT; ensaio, artigo, mensagem informal, contrato e publicação acadêmica demandam intervenções diferentes.
+
+**Contrato de mudança mínima:** marque `erro comprovável`, `alternativa estilística`, `variação aceitável` ou `ambiguidade`. Não chame toda preferência de pontuação, pronome ou léxico de erro de norma culta. Preserve intencionalidade literária, fala citada e marcas dialetais, salvo pedido explícito de adequação. Quando houver divergência de obras de referência, registre a incerteza antes de padronizar.
+
+**Perfis:** o perfil padrão `pt-br-clareza-rica` prioriza clareza; o perfil opcional `profiles/pt-br-norma-culta.json` serve para documentos formais e auditorias gramaticais. O segundo não deve se ativar automaticamente para mensagens casuais.
+
+**Teste de integridade:** ao revisar "O pagamento pode ocorrer até 12/11, sujeito à confirmação", nunca alterar para "O pagamento ocorrerá em 12/11". Manter modalização, prazo e condição mesmo quando a frase resultante seria mais breve.
