@@ -14,11 +14,11 @@
   },
   "integrity": {
     "algorithm": "sha256-manifest-v1",
-    "artifact_sha256": "8440532b0a4228394371a43103fd4a78cada653e5d3b745c58de6aeee629e399",
+    "artifact_sha256": "13006a226a157908476397bfd6d0f5af755fcbb748ea1081fc223c290263e825",
     "files": [
       {
         "path": "SKILL.md",
-        "sha256": "4c5c51b95a82e442b6b93266ab97fedbebdc8cfcb426a841c8340757ddd06c62"
+        "sha256": "50f271d53ccaa30c8b2c2b9344d9444296dce3913f8ef9f595e02d806689d90a"
       },
       {
         "path": "agents/openai.yaml",
