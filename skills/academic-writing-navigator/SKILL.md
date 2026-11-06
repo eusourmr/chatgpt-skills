@@ -204,3 +204,22 @@ For a complex task, prefer:
 ## Systemic contract
 
 The goal is not to maximize formal compliance alone. A strong academic document should improve clarity, evidentiary integrity, reproducibility of reasoning and the student's own understanding.
+
+## ABNT Brasil — identificação de edição e fontes (revisado 2026-11-06)
+
+Quando o usuário exigir **ABNT**, identificar a norma por **escopo e edição**, não apenas dizer "normas da ABNT":
+
+| Assunto | Edição confirmada em fontes institucionais nesta revisão |
+|---|---|
+| Apresentação de trabalhos acadêmicos | ABNT NBR 14724:2024 |
+| Citações em documentos | ABNT NBR 10520:2023 |
+| Referências | ABNT NBR 6023:2025 |
+
+Fontes para verificação de existência/data (não são licença para reproduzir integralmente o texto técnico):
+- Universidade Federal do Espírito Santo, página de normalização: https://biblioteca.ufes.br/normalizacao
+- Universidade Federal de Uberlândia, atualização NBR 6023 em 2025: https://bibliotecas.ufu.br/acontece/2025/07/atualizacao-da-norma-de-elaboracao-de-referencias-abnt-nbr-6023
+- IBICT, atualização do estilo de referências de 2025: https://www.gov.br/ibict/pt-br/central-de-conteudos/noticias/2025/novembro/ibict-atualiza-estilo-gerador-automatico-de-referencias-abnt-e-amplia-variedade-de-formatos
+
+**Vigência e instituição:** a data desta tabela é um snapshot de edição, não garantia de aplicabilidade em toda instituição, periódico ou data de entrega. Confirmar manual/editais e o catálogo ABNT atual quando houver impacto. Uma edição nomeada não fornece automaticamente os itens detalhados da regra. Para uma exigência exata de formatação, obter o texto autorizado da norma, manual ou trecho fornecido pelo usuário; caso contrário, devolver `UNKNOWN / EVIDENCE MISSING`.
+
+Use `document-compliance-auditor` com `profiles/abnt-br.json` para uma matriz por regra; use `text-integrity-editor` para gramática e norma culta **sem confundir correção linguística com conformidade bibliográfica**.
