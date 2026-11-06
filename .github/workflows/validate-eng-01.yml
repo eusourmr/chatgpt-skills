@@ -1,0 +1,57 @@
+name: Validate ENG-01 independent race regression
+on:
+  pull_request:
+    paths:
+      - "experiments/engineering-investigator/eng01/**"
+      - "trust/qualification/pilots/eng-01-synthetic-race-2026-11-06.json"
+      - "docs/CS_ENG_01_REGRESSION_2026-11-06.md"
+      - ".github/workflows/validate-eng-01.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["22", "24"]
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Validate uploaded source integrity and limited evidence
+        run: |
+          python3 - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          r=Path("experiments/engineering-investigator/eng01")
+          evidence=json.loads(Path("trust/qualification/pilots/eng-01-synthetic-race-2026-11-06.json").read_text())
+          assert hashlib.sha256((r/"original.js").read_bytes()).hexdigest()==evidence["baseline"]["sha256"]
+          assert hashlib.sha256((r/"corrigido.js").read_bytes()).hexdigest()==evidence["fix"]["sha256"]
+          assert evidence["skill_promoted"] is False
+          assert evidence["production_plugin_modified"] is False
+          assert evidence["review"]["prompt_to_host_skill_invocation_trace"].startswith("not ")
+          PY
+      - name: Corrected code passes deterministic regression subset
+        working-directory: experiments/engineering-investigator/eng01
+        run: node --test --test-reporter=tap eng01.test.cjs
+      - name: Original code must fail the known race test
+        working-directory: experiments/engineering-investigator/eng01
+        run: |
+          set +e
+          HOSPEDAGENS_IMPL=original node --test --test-reporter=tap --test-name-pattern="B vence A atrasada sem mudar estado ou renderizações" eng01.test.cjs > "$RUNNER_TEMP/original-expected-failure.tap" 2>&1
+          rc=$?
+          set -e
+          cat "$RUNNER_TEMP/original-expected-failure.tap"
+          if [ "$rc" -eq 0 ]; then
+            echo "ERROR: original implementation unexpectedly passed the race regression"
+            exit 1
+          fi
+          grep -q "not ok 1" "$RUNNER_TEMP/original-expected-failure.tap"
+      - name: Keep exact runtime and negative-evidence traces
+        run: |
+          node --version
+          echo "This proves a synthetic bug regression on Node ${{ matrix.node }}, not real browser deployment or skill host invocation."
