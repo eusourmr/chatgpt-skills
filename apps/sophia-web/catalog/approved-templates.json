@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "app_version": "1.1.0",
+  "app_version": "1.2.0",
   "source_registry": "registry/public-capabilities-v1.json",
-  "source_commit": "unverified (registry current metadata says development)",
-  "generated_at": "2026-10-20",
+  "source_commit": "df4e7e4470ee12b880dce350a66bfd4c937182dd",
+  "generated_at": "2026-11-06",
   "notice": "Selected editorial guidance, not executable skills or proof of host installation. This pilot bundle is curated, not all registry entries.",
   "entries": [
     {
@@ -58,7 +58,7 @@
         "melhorar meu curriculo",
         "corrigir meu texto"
       ],
-      "method": "Preserve fielmente fatos, nomes, números, intenções e compromissos. Melhore clareza e organização sem acrescentar realizações ou evidências. Se o texto não tiver sido fornecido, peça que seja colado.",
+      "method": "Preserve fatos, nomes, números, negações, prazos, condições, compromissos e graus de certeza. Antes de entregar qualquer texto revisado, confira se poderá virou deverá, estimado virou garantido ou alguma condição foi removida. Se a alteração mudar o significado, comece a resposta com ATENÇÃO — MUDANÇA SUBSTANTIVA DE SIGNIFICADO e explique a mudança antes de qualquer trecho alterado. Só apresente uma alternativa substancial identificada como VERSÃO ALTERNATIVA — NÃO É CORREÇÃO GRAMATICAL; nunca diga que preserva o sentido. Em revisão fiel, entregue o texto normalmente. Não acrescente fatos ou evidências. Se o texto não foi fornecido, peça que seja colado.",
       "delivery_state": "registry_only",
       "editorial_template_state": "pilot",
       "source_id": "text-integrity-editor"
@@ -165,7 +165,7 @@
         "pesquisar um assunto",
         "verificar uma noticia"
       ],
-      "method": "Separe fatos verificados, inferências e lacunas. Solicite fontes com data e link quando pertinentes. Não invente referências nem alegue ter feito pesquisa se o assistente não tem ferramenta de busca.",
+      "method": "Separe fatos verificados, inferências e lacunas. Quando a informação exigir atualização, use fonte primária com data e link se houver ferramenta de busca disponível; caso contrário, identifique o que falta verificar. Uma fonte encontrada não prova que foi lida nem que sua conclusão foi confirmada. Não invente citações, referências, chamadas de ferramenta ou pesquisa executada. Registre divergências relevantes e limites sem criar notas artificiais de confiança.",
       "delivery_state": "registry_only",
       "editorial_template_state": "pilot",
       "source_id": "evidence-first-research"
@@ -191,7 +191,7 @@
         "norma abnt",
         "trabalho academico"
       ],
-      "method": "Confirme antes o manual da instituição ou revista aplicável. Revise argumento, estrutura, evidências e citações sem criar fontes, DOI ou normas inexistentes.",
+      "method": "Confirme o objetivo e o manual da instituição ou revista aplicável. Separe revisão de argumento, estrutura, evidências e citações. Trate dados ou resultados não coletados como proposta; não invente participantes, percentuais, referências, DOI ou aprovação ética. Em auditoria de norma, confronte apenas regras cuja fonte foi fornecida ou verificada e diga o que não pôde conferir. Não emita certificado nem declare conformidade integral a partir de um trecho.",
       "delivery_state": "registry_only",
       "editorial_template_state": "pilot",
       "source_id": "academic-writing-navigator"
@@ -321,7 +321,7 @@
         "corrigir erro de programacao",
         "investigar bug"
       ],
-      "method": "Peça a mensagem de erro relevante, ambiente e passos para reproduzir. Formule hipóteses verificáveis, proponha o menor teste e evite alterar produção sem autorização.",
+      "method": "Defina a falha observável a partir do erro, ambiente e passos disponíveis. Formule uma hipótese refutável por vez e proponha o menor teste que diferencie as causas. Preserve invariantes e prefira uma correção reversível. Distinga teste planejado de teste executado; só declare aprovação com retorno verificável e registre falhas e limites. Fonte lida, código gerado, teste aprovado, merge e implantação são estados diferentes. Não alegue acesso a logs nem reparo em produção sem evidência e autorização.",
       "delivery_state": "registry_only",
       "editorial_template_state": "pilot",
       "source_id": "engineering-investigator"
@@ -367,10 +367,38 @@
         "retomar projeto",
         "transferir contexto"
       ],
-      "method": "Monte um registro conciso de objetivo, decisões, estado confirmado, pendências, arquivos e próximo passo. Nunca fabrique histórico ausente.",
+      "method": "Monte um registro conciso de objetivo, decisões, versões, invariantes, estado confirmado, pendências, arquivos e próxima ação. Relacione cada marco à evidência que o encerrou. Preserve falhas e testes não executados; não converta planejado em aprovado ou merge em implantação. Marque informação incerta ou desatualizada e use somente o histórico fornecido ou fontes realmente consultadas; não alegue memória oculta ou persistência em outras conversas.",
       "delivery_state": "registry_only",
       "editorial_template_state": "pilot",
       "source_id": "context-continuity-manager"
     }
-  ]
+  ],
+  "registry_metadata": {
+    "declared_source_commit": "development",
+    "declared_published_at": "2026-10-11",
+    "file_sha256": "90925ec7c4968c56729c547582d8477df40c798547a59ff51a71a9db0851aa11"
+  },
+  "editorial_review": {
+    "reviewed_on": "2026-11-06",
+    "source_commit": "df4e7e4470ee12b880dce350a66bfd4c937182dd",
+    "scope": "Adapted editorial guidance; not executable skills or host-qualified outcomes",
+    "sources": [
+      {
+        "path": "plugins/cs-navigator-web-labs/skills/text-integrity-labs/SKILL.md",
+        "sha256": "c4194b60281cee5619850ad8f637f3f1a83c51462c1e56921fc0e48e2beba1cf"
+      },
+      {
+        "path": "plugins/cs-navigator-web-labs/skills/engineering-investigator-labs/SKILL.md",
+        "sha256": "33bf6a6f465db309b443878bed034a65e3e9bab5aba8df12f08ae3f3b77c543c"
+      },
+      {
+        "path": "plugins/cs-navigator-web-labs/skills/academic-writing-labs/SKILL.md",
+        "sha256": "0ee90b07443eb178effc15b0f712333112c0563672c48617c594e51eefe59484"
+      },
+      {
+        "path": "plugins/cs-navigator-web-labs/skills/document-compliance-labs/SKILL.md",
+        "sha256": "ccbcc75968b6cc6dbed38b2483c24dc43f632f30118de721cb66f9f132f449a3"
+      }
+    ]
+  }
 }

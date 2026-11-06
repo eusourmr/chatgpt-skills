@@ -1,4 +1,4 @@
-# SophIA 1.0: metodologia e limites
+# SophIA 1.2: metodologia e limites
 
 A aplicação usa apenas 14 templates editoriais no arquivo `assets/skill-index.json`, derivados de IDs válidos do CS Navigator. Todas as capacidades escolhidas têm **estado de evidência declarado `designed`** no registry examinado, e a forma de entrega é `registry_only`: não há instalação ou invocação automática.
 
@@ -35,3 +35,10 @@ O catálogo mantém as **mesmas 14 entradas editoriais**, ainda no estado de evi
 ## Versão 1.1.0
 
 As 14 entradas continuam editoriais e não executáveis. A escolha sugerida de extensão de resposta é heurística e local, feita apenas com pistas explícitas do texto, e não é prova de compreensão semântica. O usuário pode sempre substituí-la; rascunhos editados não são sobrescritos automaticamente por troca de estilo/método.
+
+
+## Versão 1.2.0 — revisão sem promoção
+
+Cinco templates editoriais foram adaptados de fontes revisadas em commit imutável; permanecem instruções preparadas para outra IA, não execução de skills. O índice expõe `source_commit` como referência Git dos insumos e preserva separadamente `registry_metadata.declared_source_commit=development` e a data original do Registry. Isso resolve a rastreabilidade deste pacote, não a proveniência global do servidor Registry.
+
+O roteador diferencia alguns padrões de incapacidade e recusa e mantém definições breves no caminho direto. Continua lexical; falhas não cobertas são possíveis. Oito novos testes locais ampliam a regressão sem criar qualificação humana independente. O alerta de mudança substancial é um contrato no texto preparado; a resposta de uma IA externa ainda precisa ser conferida.
