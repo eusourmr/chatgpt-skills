@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "test_id": "MCP-01R",
+  "date": "2026-11-06",
+  "status": "pass_registry_app_host_tool_invocation",
+  "registered_app": {
+    "name": "CS Navigator Registry",
+    "plugin_id": "plugin_asdk_app_6aee1bad0884819196a97a44393e1a53",
+    "app_id": "asdk_app_6aee1bad0884819196a97a44393e1a53",
+    "scope": "USER",
+    "private": true
+  },
+  "tool_evidence": {
+    "called_in_reviewer_chat": [
+      {
+        "name": "mcp__CS_Navigator_Registry__registry_status",
+        "returned": {
+          "product": "CS Navigator",
+          "schema_version": 1,
+          "published_at": "2026-10-11",
+          "source_commit": "development",
+          "capability_count": 61,
+          "source": "https://raw.githubusercontent.com/eusourmr/chatgpt-skills/main/registry/public-capabilities-v1.json"
+        }
+      },
+      {
+        "name": "mcp__CS_Navigator_Registry__get_capability",
+        "input": {
+          "id": "medical-appointment-prep"
+        },
+        "returned": {
+          "found": false,
+          "id": "medical-appointment-prep"
+        }
+      },
+      {
+        "name": "mcp__CS_Navigator_Registry__search_capabilities",
+        "input": {
+          "query": "academic writing",
+          "limit": 3
+        },
+        "returned_ids": [
+          "academic-writing-navigator",
+          "argument-article-architect",
+          "academic-integrity-reviewer"
+        ],
+        "evidence_state": "designed for these three results"
+      }
+    ],
+    "actual_host_action": true,
+    "reviewer_session": true,
+    "standalone_registered_app": true
+  },
+  "combined_private_plugin": {
+    "name": "CS Navigator Labs",
+    "plugin_id": "plugins_6aedc9218d1c8191a5084bf09301973d",
+    "version": "0.20.0-beta.3",
+    "source_read_back": true,
+    "app_binding": "./.app.json",
+    "mcp_endpoint": "https://chatgpt-skills.onrender.com/mcp",
+    "skills": 6,
+    "combined_host_tool_call_tested": false
+  },
+  "limitations": [
+    "These tool calls prove Registry access in the reviewer chat, not separate auto-routing by CS Navigator Labs 0.20.0-beta.3 in a fresh conversation.",
+    "The previous MCP-01 failure remains historical and must not be overwritten.",
+    "The source_commit 'development' is not an immutable Git commit; published_at 2026-10-11 is not fresh as of 2026-11-06.",
+    "Returned registry entries are metadata, not loaded, invoked, evaluated or distributable executable skills unless separately substantiated.",
+    "Production CS Navigator 0.17 was not modified; no public listing was approved."
+  ],
+  "promotion_authorized": false,
+  "production_plugin_modified": false,
+  "next_gate": "Select updated CS Navigator Labs 0.20.0-beta.3 in a new chat and capture actual registry_status MCP tool call and skill read; check that registered app binding is exposed through consolidated plugin."
+}
