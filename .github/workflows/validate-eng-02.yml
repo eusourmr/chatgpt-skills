@@ -1,0 +1,32 @@
+name: Validate ENG-02 release-boundary evidence
+on:
+  pull_request:
+    paths:
+      - "trust/qualification/pilots/eng-02-release-boundary-2026-11-06.json"
+      - "docs/CS_ENG_02_AND_TEXT_01_2026-11-06.md"
+      - ".github/workflows/validate-eng-02.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check response-review scope and truthful CI provenance
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("trust/qualification/pilots/eng-02-release-boundary-2026-11-06.json").read_text())
+          assert d["case_id"]=="ENG-02"
+          assert d["review_result"]=="pass_response_behavior"
+          assert len(d["criteria"])==5 and all(c["result"]=="pass" for c in d["criteria"])
+          assert d["skills_promoted"]==0
+          assert d["independent_confirmation_in_reviewer_chat"]["merged"] is True
+          assert d["independent_confirmation_in_reviewer_chat"]["github_pr"]==117
+          assert "synthetic" in d["independent_confirmation_in_reviewer_chat"]["scope"].lower()
+          assert any("No inspected AP+ Eventos" in x for x in d["limitations"])
+          print("ENG-02 truthfulness and scope gates preserved")
+          PY
