@@ -1,0 +1,37 @@
+name: Validate CS Navigator Labs Web Beta
+on:
+  pull_request:
+    paths:
+      - "plugins/cs-navigator-web-labs/**"
+      - "trust/qualification/pilots/host-03-web-surface-mcp-isolation-2026-11-06.json"
+      - "tests/test_cs_web_labs.py"
+      - "scripts/build-cs-web-labs.py"
+      - "docs/CS_HOST03_WEB_PLUGIN_VARIANT.md"
+      - ".github/workflows/validate-cs-web-labs.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  web-variant:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check web package without portable MCP declarations
+        run: python -m unittest discover -s tests -p 'test_cs_web_labs.py' -v
+      - name: Build reproducible web package
+        run: python scripts/build-cs-web-labs.py
+      - name: Verify archive checksum and structure
+        run: |
+          unzip -t dist/cs-navigator-web-labs-0.20.0-beta.4.zip
+          (cd dist && sha256sum -c cs-navigator-web-labs-0.20.0-beta.4.zip.sha256)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cs-navigator-web-labs-0.20.0-beta.4
+          path: |
+            dist/cs-navigator-web-labs-0.20.0-beta.4.zip
+            dist/cs-navigator-web-labs-0.20.0-beta.4.zip.sha256
+          if-no-files-found: error
