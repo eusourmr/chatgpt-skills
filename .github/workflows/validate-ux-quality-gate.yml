@@ -17,6 +17,17 @@ jobs:
         run: python3 -m py_compile experiments/ux-quality-gate/scripts/ux_static_audit.py
       - name: Test conservative HTML heuristics
         run: python3 -m unittest discover -s experiments/ux-quality-gate/scripts -p 'test_*.py' -v
+      - name: Verify sourced design cognition retrieval
+        run: |
+          python3 experiments/ux-quality-gate/scripts/design_knowledge.py "formulário botão salvar erro feedback" > "$RUNNER_TEMP/design-cognition.json"
+          python3 - "$RUNNER_TEMP/design-cognition.json" <<'PY'
+          import json,sys
+          r=json.load(open(sys.argv[1],encoding="utf-8"))
+          assert r["neural_network_trained"] is False
+          assert r["field_ux_validated"] is False
+          assert any(v["author"]=="Donald Norman" for v in r["results"])
+          assert all(v["source"].startswith("https://") for v in r["results"])
+          PY
       - name: Smoke test JSON contract and no certification claim
         run: |
           printf '%s\n' '<html lang="pt-BR"><head><meta name="viewport" content="width=device-width, initial-scale=1"></head><body><main><button>Salvar</button></main></body></html>' > "$RUNNER_TEMP/ux-sample.html"
