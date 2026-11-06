@@ -1,0 +1,36 @@
+name: Validate CS first-battery assessment
+on:
+  pull_request:
+    paths:
+      - "trust/qualification/pilots/academic-01-source-integrity-2026-11-06.json"
+      - "docs/CS_FIRST_BATTERY_QUALIFICATION_2026-11-06.md"
+      - ".github/workflows/validate-first-battery.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check scientific integrity and prevent qualification inflation
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          j=json.loads(Path("trust/qualification/pilots/academic-01-source-integrity-2026-11-06.json").read_text(encoding="utf-8"))
+          assert j["test_id"] == "ACADEMIC-01"
+          assert j["assessment"] == "pass_conversational_academic_integrity"
+          assert len(j["rubric"]) == 6
+          assert all(c["result"] == "pass" for c in j["rubric"])
+          assert j["host_evidence_boundaries"]["skill_instructions_read_in_current_review_session"] is True
+          assert j["host_evidence_boundaries"]["producing_session_skill_execution_or_read_trace_verified"] is False
+          assert j["host_evidence_boundaries"]["controlled_native_comparator_performed"] is False
+          assert j["skill_promoted"] is False and j["plugin_modified"] is False
+          doc=Path("docs/CS_FIRST_BATTERY_QUALIFICATION_2026-11-06.md").read_text(encoding="utf-8")
+          assert "UX-02 sem A/B pareado" in doc
+          assert "48 cenários positivos" in doc
+          assert "v0.17" in doc
+          print("ACADEMIC-01 recorded and first-battery evidence boundaries intact.")
+          PY
