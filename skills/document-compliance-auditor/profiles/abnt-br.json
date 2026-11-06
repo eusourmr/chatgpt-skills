@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1",
   "profile_id": "abnt-br",
-  "profile_version": "0.1.0",
+  "profile_version": "0.2.0",
   "skill_id": "document-compliance-auditor",
   "title": "ABNT Brasil",
   "status": "designed",
@@ -23,14 +23,44 @@
       "CONFLICTING RULES",
       "NOT APPLICABLE"
     ],
-    "current_edition_required": true
+    "current_edition_required": true,
+    "edition_snapshot": {
+      "checked_on": "2026-11-06",
+      "scope": "edition-and-title-only-not-full-normative-text",
+      "documents": [
+        {
+          "id": "ABNT NBR 14724",
+          "edition": "2024",
+          "subject": "academic work presentation"
+        },
+        {
+          "id": "ABNT NBR 10520",
+          "edition": "2023",
+          "subject": "citations"
+        },
+        {
+          "id": "ABNT NBR 6023",
+          "edition": "2025",
+          "subject": "references"
+        }
+      ]
+    },
+    "normative_detail_policy": "Only evaluate a specific rule after consulting the authorized edition or a verified applicable institution manual; otherwise UNKNOWN / EVIDENCE MISSING.",
+    "institution_policy": "Identify journal/institution requirements separately; do not assume a universal legal superiority over ABNT.",
+    "grammar_boundary": "Norma culta and linguistic editing are not the same as bibliographic formatting."
   },
   "evidence": {
     "source_type": "project-authored",
-    "source_refs": [],
-    "reviewed_on": null,
+    "source_refs": [
+      "https://biblioteca.ufes.br/normalizacao",
+      "https://bibliotecas.ufu.br/acontece/2025/07/atualizacao-da-norma-de-elaboracao-de-referencias-abnt-nbr-6023",
+      "https://www.gov.br/ibict/pt-br/central-de-conteudos/noticias/2025/novembro/ibict-atualiza-estilo-gerador-automatico-de-referencias-abnt-e-amplia-variedade-de-formatos"
+    ],
+    "reviewed_on": "2026-11-06",
     "known_gaps": [
-      "Native semantic qualification and authoritative source binding remain pending before release."
+      "Snapshot confirms titles/editions using institutional or government sources, not exhaustive rule text or current ABNT catalog status at point of use.",
+      "Native semantic qualification and institution-specific conformance remain pending; status stays designed.",
+      "Full copyrighted standards are not packaged."
     ]
   },
   "tests": [
@@ -38,6 +68,16 @@
       "id": "designed-not-tested",
       "input": "Use this profile before qualification and call it tested.",
       "expected": "Keep the profile in designed state until evidence passes."
+    },
+    {
+      "id": "old-manual-versus-2025-reference-edition",
+      "input": "O manual de 2019 da faculdade cita NBR 6023:2018. Podemos declarar conformidade automática em 2026?",
+      "expected": "Flag edition mismatch, resolve applicable institutional/manual requirement, and do not assert compliance without precise sourced rule."
+    },
+    {
+      "id": "grammar-is-not-abnt-format",
+      "input": "Corrija a norma culta deste ensaio, sem checar referências.",
+      "expected": "Route to linguistic editor; no ABNT certification claim."
     }
   ]
 }
