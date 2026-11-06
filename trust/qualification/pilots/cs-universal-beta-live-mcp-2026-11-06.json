@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "test_id": "PHASE2-MCP-LIVE-01",
+  "observed_on": "2026-11-06",
+  "tested_from": "GitHub-hosted Actions Linux Node 22, not ChatGPT host",
+  "workflow_run_id": 42267515610,
+  "live_job_id": 128063278996,
+  "endpoint": "https://chatgpt-skills.onrender.com/mcp",
+  "plugin_version": "0.20.0-beta.2",
+  "plugin_saved_private": true,
+  "plugin_source_read_back": true,
+  "external_mcp_checks": {
+    "http_origin": {
+      "service": "cs-navigator-registry",
+      "version": "0.17.0",
+      "mode": "read-only",
+      "status": "pass"
+    },
+    "jsonrpc_initialize": {
+      "protocol_version": "2025-06-18",
+      "status": "pass"
+    },
+    "tools_list": {
+      "status": "pass",
+      "names": [
+        "get_capability",
+        "get_evidence",
+        "registry_status",
+        "search_capabilities"
+      ]
+    },
+    "actual_registry_status_call": {
+      "status": "pass",
+      "capability_count": 61,
+      "source_commit": "development",
+      "published_at": "2026-10-11"
+    },
+    "excluded_capability_calls": [
+      {
+        "id": "medical-appointment-prep",
+        "found": false,
+        "status": "pass"
+      },
+      {
+        "id": "caregiver-coordinator",
+        "found": false,
+        "status": "pass"
+      }
+    ]
+  },
+  "evidence_caveats": [
+    "source_commit = development is NOT an immutable source hash; do not claim registry provenance pinned",
+    "published_at = 2026-10-11 does not attest review freshness as of 2026-11-06",
+    "Live tool invocation is verified from GitHub Actions only, not from the user's ChatGPT plugin session",
+    "Server service version 0.17.0 is not the same as private client plugin version 0.20.0-beta.2",
+    "No dynamically fetched SKILL.md was installed or executed, no financial/health records read, no write-capable tools present",
+    "Public plugin Directory approval or real-user auto-routing not tested"
+  ],
+  "phase2_status": "private_beta_saved_live_mcp_verified_external_host_acceptance_pending",
+  "native_chatgpt_mcp_invoked": false,
+  "production_plugin_modified": false,
+  "registry_exclusions_preserved": true,
+  "next_gate": "MCP-01 in ChatGPT with selected plugin, capture actual registry_status tool trace and a native/no-overroute case"
+}
