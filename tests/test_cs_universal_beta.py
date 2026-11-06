@@ -18,7 +18,7 @@ class UniversalBetaContractTests(unittest.TestCase):
         b=json.loads(read(".codex-plugin/plugin.json"))
         q=json.loads(read("QUALIFICATION-MANIFEST.json"))
         self.assertEqual(a["name"],"cs-navigator-labs")
-        self.assertEqual(a["version"],"0.20.0-beta.2")
+        self.assertEqual(a["version"],"0.20.0-beta.3")
         self.assertEqual(a["version"],b["version"])
         self.assertEqual(a["version"],q["version"])
         self.assertEqual(a["extensions"]["com.openai"]["interface"]["defaultPrompt"],b["interface"]["defaultPrompt"])
@@ -49,6 +49,21 @@ class UniversalBetaContractTests(unittest.TestCase):
         self.assertNotIn("apiKey",json.dumps(m))
         self.assertNotIn("clientSecret",json.dumps(m))
         self.assertTrue(json.loads(read("QUALIFICATION-MANIFEST.json"))["mcp_config_present"])
+    def test_registered_registry_app_binding(self):
+        p=json.loads(read("plugin.json"))
+        o=json.loads(read(".codex-plugin/plugin.json"))
+        q=json.loads(read("QUALIFICATION-MANIFEST.json"))
+        app=json.loads(read(".app.json"))
+        expected="asdk_app_6aee1bad0884819196a97a44393e1a53"
+        self.assertEqual(p["extensions"]["com.openai"]["apps"],"./.app.json")
+        self.assertEqual(o["apps"],"./.app.json")
+        self.assertEqual(len(app["apps"]),1)
+        self.assertEqual(next(iter(app["apps"].values()))["id"],expected)
+        self.assertEqual(q["app_binding_id"],expected)
+        self.assertTrue(q["standalone_registry_tool_call_verified_in_reviewer_session"])
+        self.assertFalse(q["combined_plugin_host_invocation_tested"])
+        self.assertFalse(q["native_host_invocation_tested"])
+
     def test_live_registry_does_not_execute_remote_skills(self):
         src=read("skills/cs-navigator-labs/SKILL.md")
         self.assertIn("metadata-only",src)
