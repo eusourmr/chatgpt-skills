@@ -39,3 +39,21 @@ This skill inherits the CS fail-closed principles: no fabricated evidence, no pe
 ## Systemic contract
 
 A valid use should improve at least three of human, social, knowledge, resources and ecology when materially applicable. It must state material trade-offs, avoid solving one local metric by exporting harm, and leave a reusable artifact, decision record, profile, map or learned pattern that reduces future effort.
+
+## Architecture and change-management addendum (reviewed 2026-11-06)
+
+Before changing code, make a small **change contract**: affected user behavior; dependency graph; source of truth; relevant data contracts; invariants; entry points; and safety/regression exposure. Distinguish a reported symptom from verified root cause.
+
+For work spanning multiple modules:
+1. Inspect repository guidance, existing interfaces, tests, migrations, build and release path before design.
+2. Draw the data/control flow through input → validation → domain logic → storage or external call → output.
+3. Prefer a reversible, narrowly scoped change with a backward-compatibility plan; document when a broader refactor is necessary.
+4. Add appropriate automated tests (unit, integration, contract, migration and/or end-to-end) with an expected failure before the fix where possible.
+5. Test failure paths: timeouts, retries, partial writes, duplicate events, auth denial, missing input and dependency outage when relevant.
+6. For database and API changes, state migration order, compatibility window, rollback/forward-fix strategy and data integrity invariants.
+7. Never claim an architecture review, performance benchmark, test, code execution or production effect that was not actually observed.
+8. Hand off to `codex-pr-reviewer` for **diff-level independent review**, not as a substitute for diagnosing the bug.
+9. Retain decision notes and reproduction steps so future changes do not reopen the same failure.
+
+### Final engineering evidence ledger
+Record: `scope`, `baseline`, `hypothesis`, `changed_files`, `tests_run`, `tests_not_run`, `known_risks`, `reversibility`, `deployment_needed`, `next_action`. No green build implies production deployment.
