@@ -54,7 +54,7 @@ O plugin **CS Navigator Labs 0.20.0-beta.3** agora referencia esse app por `.app
 
 Registro auditável: `trust/qualification/pilots/mcp-01r-registry-connected-2026-11-06.json`. Os metadados do registro continuam com origem `development` não imutável e data de publicação anterior.
 
-## Aceitação final no ChatGPT (pendente até usuário executar no host)
+## Roteiro de aceite originalmente proposto (histórico: concluído no Labs Web beta.4)
 
 **MCP-01 — teste de chamada real:** na conversa com o plugin selecionado, envie:
 
