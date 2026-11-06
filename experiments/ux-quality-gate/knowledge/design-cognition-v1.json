@@ -1,0 +1,608 @@
+{
+  "schema_version": 1,
+  "knowledge_type": "auditable_associative_graph_not_neural_network",
+  "created_on": "2026-11-06",
+  "neural_network_trained": false,
+  "people": [
+    {
+      "id": "walter-gropius",
+      "name": "Walter Gropius",
+      "source_url": "https://www.bauhaus.de/en/discover/article/the-bauhaus-idea-and-programme/"
+    },
+    {
+      "id": "jan-tschichold",
+      "name": "Jan Tschichold",
+      "source_url": "https://www.penguin.co.uk/discover/articles/penguin-modern-classics-design"
+    },
+    {
+      "id": "paul-rand",
+      "name": "Paul Rand",
+      "source_url": "https://www.paulrand.design/writing/articles/1991-logos-flags-and-escutcheons.html"
+    },
+    {
+      "id": "saul-bass",
+      "name": "Saul Bass",
+      "source_url": "https://www.mdpi.com/2571-9408/8/8/329"
+    },
+    {
+      "id": "walter-landor",
+      "name": "Walter Landor",
+      "source_url": "https://www.si.edu/object/archives/sova-nmah-ac-0500?edan_fq%5B0%5D=-online_media_type%3A%22PDF%22"
+    },
+    {
+      "id": "dieter-rams",
+      "name": "Dieter Rams",
+      "source_url": "https://www.vitsoe.com/us/about/good-design"
+    },
+    {
+      "id": "aloisio-magalhaes",
+      "name": "Aloísio Magalhães",
+      "source_url": "https://www.esdi.uerj.br/esdianos/274/aloisio-magalhaes"
+    },
+    {
+      "id": "donald-norman",
+      "name": "Donald Norman",
+      "source_url": "https://www.nngroup.com/books/design-everyday-things-revised/"
+    },
+    {
+      "id": "jonathan-ive",
+      "name": "Jonathan Ive",
+      "source_url": "https://designmuseum.org/designers/jonathan-ive"
+    },
+    {
+      "id": "richard-saul-wurman",
+      "name": "Richard Saul Wurman",
+      "source_url": "https://www.wurman.com/publishedarticles"
+    },
+    {
+      "id": "alexandre-wollner",
+      "name": "Alexandre Wollner",
+      "source_url": "https://esdi.uerj.br/esdianos/442/alexandre-wollner"
+    }
+  ],
+  "cards": [
+    {
+      "id": "walter-gropius-unity",
+      "author_id": "walter-gropius",
+      "title": "Coerência entre arte, técnica e fabricação",
+      "keywords": [
+        "sistema",
+        "componentes",
+        "arquitetura",
+        "desenvolvimento",
+        "tokens",
+        "coerente"
+      ],
+      "principle": "Reunir concepção visual, conteúdo, tecnologia e implementação num único sistema verificável.",
+      "verification": "Conferir se padrões visuais, componentes e interfaces de desenvolvimento concordam em três telas reais.",
+      "provenance": {
+        "source_url": "https://www.bauhaus.de/en/discover/article/the-bauhaus-idea-and-programme/",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "walter-gropius-prototyping",
+      "author_id": "walter-gropius",
+      "title": "Aprender fabricando e revisando",
+      "keywords": [
+        "protótipo",
+        "produção",
+        "oficina",
+        "teste",
+        "implementação"
+      ],
+      "principle": "Prototipar decisões com restrições reais de produção; revisar com as equipes que executarão.",
+      "verification": "Verificar protótipo no navegador, não apenas em desenho ou mockup.",
+      "provenance": {
+        "source_url": "https://www.bauhaus.de/en/discover/article/the-bauhaus-idea-and-programme/",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "jan-tschichold-typography",
+      "author_id": "jan-tschichold",
+      "title": "Regras tipográficas para consistência editorial",
+      "keywords": [
+        "texto",
+        "tipografia",
+        "hierarquia",
+        "leitura",
+        "livro",
+        "conteúdo",
+        "títulos"
+      ],
+      "principle": "Definir escala, espaçamento e regras claras de composição, sem copiar um estilo histórico fixo.",
+      "verification": "Comparar título, corpo, lista e legenda em artigos longos e pequenos dispositivos.",
+      "provenance": {
+        "source_url": "https://www.penguin.co.uk/discover/articles/penguin-modern-classics-design",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "jan-tschichold-systems",
+      "author_id": "jan-tschichold",
+      "title": "Padrões reprodutíveis sem rigidez cega",
+      "keywords": [
+        "manual",
+        "template",
+        "componentes",
+        "tipografia",
+        "editorial",
+        "consistência"
+      ],
+      "principle": "Normalizar decisões recorrentes e preservar exceções funcionais de legibilidade.",
+      "verification": "Revisar três páginas para identificar desvios não intencionais de hierarquia.",
+      "provenance": {
+        "source_url": "https://www.penguin.co.uk/discover/articles/penguin-modern-classics-design",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "paul-rand-identity",
+      "author_id": "paul-rand",
+      "title": "Identidade clara e memorável",
+      "keywords": [
+        "logo",
+        "identidade",
+        "marca",
+        "distintivo",
+        "simplicidade",
+        "reconhecimento"
+      ],
+      "principle": "Buscar uma ideia visual reconhecível em diversos tamanhos e aplicações, sem confundir logotipo com UX.",
+      "verification": "Testar distinção, legibilidade e reconhecimento em ícone pequeno e cabeçalho.",
+      "provenance": {
+        "source_url": "https://www.paulrand.design/writing/articles/1991-logos-flags-and-escutcheons.html",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "paul-rand-reduction",
+      "author_id": "paul-rand",
+      "title": "Simplicidade como efeito da boa ideia",
+      "keywords": [
+        "simplificação",
+        "marca",
+        "símbolo",
+        "redundância"
+      ],
+      "principle": "Remover ruído apenas depois de preservar o significado e a função da mensagem.",
+      "verification": "Comparar variante simplificada: uma pessoa ainda compreende a marca ou o serviço?",
+      "provenance": {
+        "source_url": "https://www.paulrand.design/writing/articles/1991-logos-flags-and-escutcheons.html",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "saul-bass-motion",
+      "author_id": "saul-bass",
+      "title": "Movimento que introduz uma ideia",
+      "keywords": [
+        "animação",
+        "transição",
+        "narrativa",
+        "movimento",
+        "abertura",
+        "motion"
+      ],
+      "principle": "Usar sequência visual curta para explicar transição, estado ou narrativa; não decorar cada clique.",
+      "verification": "Verificar entendimento sem áudio, interrupção, preferências de movimento reduzido e latência.",
+      "provenance": {
+        "source_url": "https://www.mdpi.com/2571-9408/8/8/329",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "saul-bass-visual-rhythm",
+      "author_id": "saul-bass",
+      "title": "Ritmo e metáfora visual",
+      "keywords": [
+        "ritmo",
+        "identidade",
+        "filme",
+        "narrativa",
+        "visual",
+        "ícone",
+        "sequência"
+      ],
+      "principle": "Manter continuidade entre título, imagem e transição para evidenciar uma única ideia.",
+      "verification": "Conferir se a metáfora ajuda reconhecer a ação, sem esconder informação funcional.",
+      "provenance": {
+        "source_url": "https://www.mdpi.com/2571-9408/8/8/329",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "walter-landor-audience",
+      "author_id": "walter-landor",
+      "title": "Investigar percepção real da marca",
+      "keywords": [
+        "pesquisa",
+        "usuário",
+        "consumidores",
+        "percepção",
+        "marca",
+        "entrevistas",
+        "confiança"
+      ],
+      "principle": "Entrevistar ou observar usuários reais antes de concluir que uma identidade comunica segurança ou acolhimento.",
+      "verification": "Pedir a participantes que descrevam a percepção sem revelar a intenção do designer.",
+      "provenance": {
+        "source_url": "https://www.si.edu/object/archives/sova-nmah-ac-0500?edan_fq%5B0%5D=-online_media_type%3A%22PDF%22",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "walter-landor-experience",
+      "author_id": "walter-landor",
+      "title": "Marca como expectativa confirmada na experiência",
+      "keywords": [
+        "promessa",
+        "marca",
+        "confiança",
+        "experiência",
+        "cliente",
+        "retenção"
+      ],
+      "principle": "Comparar promessa verbal/visual com cada etapa do serviço; não maquiar fricções de processo.",
+      "verification": "Rever jornada de ponta a ponta para confirmar se a promessa é entregue.",
+      "provenance": {
+        "source_url": "https://www.si.edu/object/archives/sova-nmah-ac-0500?edan_fq%5B0%5D=-online_media_type%3A%22PDF%22",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "dieter-rams-restraint",
+      "author_id": "dieter-rams",
+      "title": "Menos, porém melhor, sem esconder funções",
+      "keywords": [
+        "minimalismo",
+        "função",
+        "conteúdo",
+        "botão",
+        "simplificação",
+        "ruído",
+        "interface"
+      ],
+      "principle": "Reduzir elementos não essenciais mantendo ações, feedback, acessibilidade e recuperação.",
+      "verification": "Verificar que o usuário ainda localiza funções críticas e reconhece status e erros.",
+      "provenance": {
+        "source_url": "https://www.vitsoe.com/us/about/good-design",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "dieter-rams-durability",
+      "author_id": "dieter-rams",
+      "title": "Design responsável, durável e honesto",
+      "keywords": [
+        "manutenção",
+        "longevidade",
+        "sustentabilidade",
+        "desempenho",
+        "honnesto"
+      ],
+      "principle": "Evitar prometer capacidades inexistentes, seguir manutenção e reduzir retrabalho e resíduos digitais.",
+      "verification": "Revisar alegações, estabilidade visual, reutilização e custo de manutenção.",
+      "provenance": {
+        "source_url": "https://www.vitsoe.com/us/about/good-design",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "aloisio-magalhaes-context",
+      "author_id": "aloisio-magalhaes",
+      "title": "Linguagem visual com identidade cultural situada",
+      "keywords": [
+        "brasil",
+        "brasilidade",
+        "cultural",
+        "identidade",
+        "contexto",
+        "regional",
+        "local"
+      ],
+      "principle": "Projetar a partir das referências e necessidades locais sem reduzir a cultura brasileira a clichês.",
+      "verification": "Revisão com participantes locais: termos, símbolos e associações são adequados?",
+      "provenance": {
+        "source_url": "https://www.esdi.uerj.br/esdianos/274/aloisio-magalhaes",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "aloisio-magalhaes-public-signage",
+      "author_id": "aloisio-magalhaes",
+      "title": "Informação pública legível em contexto urbano",
+      "keywords": [
+        "sinalização",
+        "cidade",
+        "serviço",
+        "público",
+        "comunicação",
+        "informação"
+      ],
+      "principle": "Conceber orientação clara também para serviços coletivos, ambientes movimentados e diversos públicos.",
+      "verification": "Pessoas encontram o caminho e as informações essenciais sem explicação de um mediador?",
+      "provenance": {
+        "source_url": "https://www.esdi.uerj.br/esdianos/274/aloisio-magalhaes",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "donald-norman-signifiers",
+      "author_id": "donald-norman",
+      "title": "Tornar ações e estados perceptíveis",
+      "keywords": [
+        "botão",
+        "formulário",
+        "salvar",
+        "clicável",
+        "affordance",
+        "signifier",
+        "feedback"
+      ],
+      "principle": "Sinalizar o que pode ser feito e o estado resultante com mapeamento e feedback coerentes.",
+      "verification": "Uma pessoa descobre a ação e vê confirmação ou erro sem adivinhar?",
+      "provenance": {
+        "source_url": "https://www.nngroup.com/books/design-everyday-things-revised/",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "donald-norman-recovery",
+      "author_id": "donald-norman",
+      "title": "Reduzir o abismo entre ação e avaliação",
+      "keywords": [
+        "erro",
+        "recuperação",
+        "desfazer",
+        "aviso",
+        "estado",
+        "salvar",
+        "interação"
+      ],
+      "principle": "Testar previsibilidade, prevenção de erro, desfazer e recuperação de falhas.",
+      "verification": "Simular falha de envio e retorno à tarefa sem perda desnecessária de dados.",
+      "provenance": {
+        "source_url": "https://www.nngroup.com/books/design-everyday-things-revised/",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "jonathan-ive-experience-craft",
+      "author_id": "jonathan-ive",
+      "title": "Cuidado em cada detalhe a serviço do uso",
+      "keywords": [
+        "detalhes",
+        "material",
+        "interface",
+        "simplicidade",
+        "uso",
+        "qualidade",
+        "gesto"
+      ],
+      "principle": "Alinhar detalhes de transição, acabamento e conteúdo com facilidade de uso, não com luxo visual.",
+      "verification": "Testar consistência dos estados e compreender se o refinamento preserva controle.",
+      "provenance": {
+        "source_url": "https://designmuseum.org/designers/jonathan-ive",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "jonathan-ive-cohesion",
+      "author_id": "jonathan-ive",
+      "title": "Experiência coerente entre disciplinas",
+      "keywords": [
+        "produto",
+        "hardware",
+        "software",
+        "interface",
+        "equipes",
+        "colaboração"
+      ],
+      "principle": "Manter colaboração entre design, desenvolvimento e conteúdo nas decisões de interface.",
+      "verification": "Revisar componente construído comparado ao fluxo esperado e ao sistema visual.",
+      "provenance": {
+        "source_url": "https://designmuseum.org/designers/jonathan-ive",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "richard-saul-wurman-latch",
+      "author_id": "richard-saul-wurman",
+      "title": "Organizar informação segundo localização, alfabeto, tempo, categoria e hierarquia",
+      "keywords": [
+        "navegação",
+        "categorias",
+        "busca",
+        "calendário",
+        "localizacao",
+        "ordem",
+        "informação"
+      ],
+      "principle": "Escolher ordenação pela pergunta que a pessoa tenta responder; comparar mais de uma lógica.",
+      "verification": "Testar tarefas de encontrar um item por data, local ou categoria sem instruções extras.",
+      "provenance": {
+        "source_url": "https://www.wurman.com/publishedarticles",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "richard-saul-wurman-comprehension",
+      "author_id": "richard-saul-wurman",
+      "title": "Dados precisam se tornar informação compreensível",
+      "keywords": [
+        "painel",
+        "dashboard",
+        "dados",
+        "informação",
+        "entendimento",
+        "organização"
+      ],
+      "principle": "Substituir densidade indiferenciada por respostas progressivas a perguntas reais.",
+      "verification": "Usuário explica o que uma métrica significa e qual decisão ela informa?",
+      "provenance": {
+        "source_url": "https://www.wurman.com/publishedarticles",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "alexandre-wollner-identity-system",
+      "author_id": "alexandre-wollner",
+      "title": "Identidade como sistema replicável",
+      "keywords": [
+        "símbolos",
+        "manual",
+        "marca",
+        "identidade",
+        "visual",
+        "grade",
+        "sistema",
+        "componentes"
+      ],
+      "principle": "Construir regras de aplicação consistentes em formatos e equipes diversas.",
+      "verification": "Conferir variações de tela, tamanho, idioma e contraste sem perda de reconhecimento.",
+      "provenance": {
+        "source_url": "https://esdi.uerj.br/esdianos/442/alexandre-wollner",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    },
+    {
+      "id": "alexandre-wollner-rational-structure",
+      "author_id": "alexandre-wollner",
+      "title": "Estrutura visual geométrica e disciplinada",
+      "keywords": [
+        "grid",
+        "grade",
+        "estrutura",
+        "alinhamento",
+        "tipografia",
+        "coesão"
+      ],
+      "principle": "Usar grade e alinhamento como instrumentos de entendimento, não como ornamentação rígida.",
+      "verification": "Verificar hierarquia, leitura, adaptação a telas pequenas e conteúdo extenso.",
+      "provenance": {
+        "source_url": "https://esdi.uerj.br/esdianos/442/alexandre-wollner",
+        "source_scope": "documented design legacy",
+        "operationalization": "CS synthesis for contemporary UX; not a verbatim quote or endorsement"
+      },
+      "status": "design-reviewed-source-mapped-not-field-tested"
+    }
+  ],
+  "relations": [
+    {
+      "from": "walter-gropius-unity",
+      "to": "jonathan-ive-cohesion",
+      "type": "reinforces",
+      "resolution": "Concilia arte, conteúdo e tecnologia"
+    },
+    {
+      "from": "jan-tschichold-typography",
+      "to": "richard-saul-wurman-latch",
+      "type": "reinforces",
+      "resolution": "Tipografia sustenta a organização da informação"
+    },
+    {
+      "from": "paul-rand-identity",
+      "to": "alexandre-wollner-identity-system",
+      "type": "reinforces",
+      "resolution": "Identidade reconhecível exige regras de aplicação"
+    },
+    {
+      "from": "saul-bass-motion",
+      "to": "dieter-rams-restraint",
+      "type": "tension",
+      "resolution": "Usar movimento expressivo somente se o objetivo funcional justificar"
+    },
+    {
+      "from": "walter-landor-audience",
+      "to": "aloisio-magalhaes-context",
+      "type": "reinforces",
+      "resolution": "Pesquisar percepção sem estereotipar contextos culturais"
+    },
+    {
+      "from": "donald-norman-signifiers",
+      "to": "dieter-rams-restraint",
+      "type": "tension",
+      "resolution": "Simplicidade não pode esconder controles ou feedback"
+    },
+    {
+      "from": "richard-saul-wurman-comprehension",
+      "to": "dieter-rams-restraint",
+      "type": "reinforces",
+      "resolution": "Reduzir ruído informacional sem perder significado"
+    },
+    {
+      "from": "alexandre-wollner-rational-structure",
+      "to": "jan-tschichold-systems",
+      "type": "reinforces",
+      "resolution": "Sistemas visuais reprodutíveis"
+    },
+    {
+      "from": "jonathan-ive-experience-craft",
+      "to": "donald-norman-recovery",
+      "type": "tension",
+      "resolution": "Polimento sem sacrificar controle e reparação"
+    },
+    {
+      "from": "saul-bass-visual-rhythm",
+      "to": "donald-norman-signifiers",
+      "type": "tension",
+      "resolution": "Metáforas não podem obscurecer semântica do controle"
+    },
+    {
+      "from": "walter-gropius-prototyping",
+      "to": "walter-landor-audience",
+      "type": "reinforces",
+      "resolution": "Verificar decisões com protótipos e usuários reais"
+    }
+  ],
+  "policy": {
+    "prioritize": "user_task_evidence_accessibility_then_aesthetic_synthesis",
+    "feedback": "Human-reviewed versioned updates only; no silent learning from user conversations or personal data.",
+    "copyright": "Original summaries and original application tests; linked sources are not redistributed.",
+    "scope": "Heuristic inspiration; not UX certification, designer impersonation or proof of live skill activation."
+  }
+}
