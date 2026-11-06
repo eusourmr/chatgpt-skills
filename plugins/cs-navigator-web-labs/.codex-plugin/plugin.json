@@ -1,0 +1,36 @@
+{
+  "apps": "./.app.json",
+  "interface": {
+    "capabilities": [],
+    "category": "Productivity",
+    "defaultPrompt": "Use CS Navigator Labs para ajudar a escolher o caminho mais simples para minha tarefa. Antes de afirmar que uma skill esta carregada ou foi executada, apresente a evidencia disponivel.",
+    "developerName": "Ricardo Rocha",
+    "displayName": "CS Navigator Labs Web",
+    "longDescription": "Variante privada de diagn\u00f3stico para ChatGPT web. Re\u00fane seis skills e o app Registry registrado, sem configura\u00e7\u00e3o MCP port\u00e1til. Uso das skills depende da disponibilidade do host.",
+    "shortDescription": "Curadoria e skills na web"
+  },
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/cs-navigator-labs/SKILL.md"
+    }
+  },
+  "name": "cs-navigator-web-labs",
+  "version": "0.20.0-beta.4",
+  "description": "Variante web de valida\u00e7\u00e3o do CS Navigator Labs: seis skills e app Registry conectado; sem MCP port\u00e1til para evitar classifica\u00e7\u00e3o como desktop only.",
+  "author": {
+    "name": "Ricardo Rocha",
+    "email": "ricardo.rocha@meuapoio.com"
+  },
+  "keywords": [
+    "skills",
+    "curadoria",
+    "ux",
+    "engenharia",
+    "abnt",
+    "portugues"
+  ],
+  "homepage": "https://github.com/eusourmr/chatgpt-skills",
+  "repository": "https://github.com/eusourmr/chatgpt-skills",
+  "license": "MIT",
+  "skills": "./skills"
+}

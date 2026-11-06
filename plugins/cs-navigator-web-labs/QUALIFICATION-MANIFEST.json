@@ -1,0 +1,28 @@
+{
+  "plugin_name": "cs-navigator-web-labs",
+  "version": "0.20.0-beta.4",
+  "source_intent": "private web compatibility A/B; no bundled MCP, retain registered Registry app; six lab skills; production v0.17 untouched",
+  "mcp_config_present": false,
+  "skill_count": 6,
+  "files": {
+    "skills/academic-writing-labs/SKILL.md": "0ee90b07443eb178effc15b0f712333112c0563672c48617c594e51eefe59484",
+    "skills/cs-navigator-labs/SKILL.md": "8d4f75a79421d4458a9fbac4612661fd5302a17386735a51b62c8b5b6d6a2a51",
+    "skills/cs-navigator-labs/references/ROUTING_PLAYBOOK.md": "0aad61f4a5a43075b97e3ac80ed5d8ff8e11a4a9706911c526aeeafb2ce08669",
+    "skills/document-compliance-labs/SKILL.md": "ccbcc75968b6cc6dbed38b2483c24dc43f632f30118de721cb66f9f132f449a3",
+    "skills/engineering-investigator-labs/SKILL.md": "33bf6a6f465db309b443878bed034a65e3e9bab5aba8df12f08ae3f3b77c543c",
+    "skills/text-integrity-labs/SKILL.md": "c4194b60281cee5619850ad8f637f3f1a83c51462c1e56921fc0e48e2beba1cf",
+    "skills/ux-quality-gate-labs/SKILL.md": "170b4f2c4c9fe3404695f394ac2a6b2d37c71275bec48cc9e43ee37b8d3bd58f",
+    "skills/ux-quality-gate-labs/knowledge/design-cognition.json": "7646e770a1d3ae61919f5d16d5daa173f458200d6e1847cc4af25a58372c0d06"
+  },
+  "qualification_note": "HOST-03 package comparison to test Desktop only label; no guarantee of ChatGPT web skill entitlement.",
+  "mcp_endpoint": null,
+  "mcp_runtime_tested": false,
+  "native_host_invocation_tested": false,
+  "experimental_delivery_tools_required": false,
+  "app_binding_present": true,
+  "app_binding_id": "asdk_app_6aee1bad0884819196a97a44393e1a53",
+  "app_binding_source": "account-owned CS Navigator Registry app .app.json verified through Plugin Creator",
+  "standalone_registry_tool_call_verified_in_reviewer_session": true,
+  "combined_plugin_host_invocation_tested": false,
+  "mcp_owner": "registered_app_only"
+}

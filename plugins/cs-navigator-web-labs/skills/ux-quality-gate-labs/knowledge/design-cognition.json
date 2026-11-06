@@ -1,0 +1,74 @@
+{
+  "version": "activation-test-subset-0.1",
+  "source": "https://github.com/eusourmr/chatgpt-skills/tree/main/experiments/ux-quality-gate",
+  "neural_network_trained": false,
+  "status": "source-linked-operational-synthesis-not-field-tested",
+  "designers": [
+    {
+      "name": "Walter Gropius",
+      "idea": "Integrate art, technology and production",
+      "test": "Compare design specification and implemented component consistency",
+      "source": "https://www.bauhaus.de/en/discover/article/the-bauhaus-idea-and-programme/"
+    },
+    {
+      "name": "Jan Tschichold",
+      "idea": "Typographic order and editorial consistency",
+      "test": "Check hierarchy, line lengths and long-form readability on small screens",
+      "source": "https://www.penguin.co.uk/discover/articles/penguin-modern-classics-design"
+    },
+    {
+      "name": "Paul Rand",
+      "idea": "Distinctive coherent visual identity",
+      "test": "Check legibility and recognition at small sizes",
+      "source": "https://www.paulrand.design/writing/articles/1991-logos-flags-and-escutcheons.html"
+    },
+    {
+      "name": "Saul Bass",
+      "idea": "Purposeful motion and visual storytelling",
+      "test": "Check meaning without sound and usability with reduced motion",
+      "source": "https://www.mdpi.com/2571-9408/8/8/329"
+    },
+    {
+      "name": "Walter Landor",
+      "idea": "Understand real brand perception",
+      "test": "Ask actual users what meaning and promise the design conveys",
+      "source": "https://www.si.edu/object/archives/sova-nmah-ac-0500"
+    },
+    {
+      "name": "Dieter Rams",
+      "idea": "Useful, restrained, honest design",
+      "test": "Check that simplifying preserves discovery, state and recovery",
+      "source": "https://www.vitsoe.com/us/about/good-design"
+    },
+    {
+      "name": "Aloísio Magalhães",
+      "idea": "Culturally grounded Brazilian graphic and civic design",
+      "test": "Review terminology, symbols and comprehension with local users",
+      "source": "https://www.esdi.uerj.br/esdianos/274/aloisio-magalhaes"
+    },
+    {
+      "name": "Donald Norman",
+      "idea": "Signifiers, mappings, feedback and recovery",
+      "test": "Can users discover actions and verify success/error without guessing?",
+      "source": "https://www.nngroup.com/books/design-everyday-things-revised/"
+    },
+    {
+      "name": "Jonathan Ive",
+      "idea": "Integrated craftsmanship in interaction",
+      "test": "Does the polish improve real usability, not only decoration?",
+      "source": "https://designmuseum.org/designers/jonathan-ive"
+    },
+    {
+      "name": "Richard Saul Wurman",
+      "idea": "Information organization and comprehension",
+      "test": "Find items by location, alphabet, time, category or hierarchy",
+      "source": "https://www.wurman.com/publishedarticles"
+    },
+    {
+      "name": "Alexandre Wollner",
+      "idea": "Replicable disciplined identity systems",
+      "test": "Check identity consistency across sizes, surfaces and languages",
+      "source": "https://esdi.uerj.br/esdianos/442/alexandre-wollner"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "test_id": "HOST-03",
+  "date": "2026-11-06",
+  "reason": "Two host conversations could use CS Registry MCP but not read CS Navigator Labs skill; plugin details screenshot displayed 'Open in desktop app'.",
+  "official_references": [
+    "https://help.openai.com/en/articles/20001256-plugins-in-chatgpt",
+    "https://help.openai.com/en/articles/20001504-importing-and-syncing-plugin-marketplaces-from-github",
+    "https://developers.openai.com/plugins/build/plugins",
+    "https://help.openai.com/en/articles/20001066-skills-in-chatgpt"
+  ],
+  "diagnosis": "Desktop only restriction is a plausible cause because imported portable MCP manifests can trigger it even with HTTPS; not proven until UI and actual skill access are retested.",
+  "original_plugin": {
+    "id": "plugins_6aedc9218d1c8191a5084bf09301973d",
+    "version": "0.20.0-beta.3",
+    "preserved": true,
+    "portable_mcp_present": true
+  },
+  "web_variant": {
+    "id": "plugins_6aee22530eb88191bed0e982d96d1218",
+    "version": "0.20.0-beta.4",
+    "scope": "USER",
+    "private": true,
+    "source_read_back": true,
+    "packaged_skill_count": 6,
+    "portable_mcp_present": false,
+    "compatibility_mcp_present": false,
+    "actual_app_id": "asdk_app_6aee1bad0884819196a97a44393e1a53",
+    "only_existing_registered_app_binding": true,
+    "onboarding_skill": "./skills/cs-navigator-labs/SKILL.md"
+  },
+  "source_integrity": {
+    "original_skill_methods_preserved": true,
+    "contains_no_remote_dynamic_skill_execution": true,
+    "original_labs_and_prod_untouched": true
+  },
+  "host_acceptance": {
+    "state": "pending_new_chat",
+    "required": [
+      "New web plugin details no longer restrict execution to desktop",
+      "Fresh chat specifically selecting CS Navigator Labs Web",
+      "Host skills inventory includes cs-navigator-labs in new plugin",
+      "Successful host skills__read returns version 0.20.0-beta.4",
+      "Actual mcp__CS_Navigator_Registry__registry_status call in same session"
+    ],
+    "cannot_infer_from_source_only": true
+  },
+  "fallback_if_host_skills_still_missing": "Recheck plan/workspace Skills entitlement and actual plugin selection; preserve separate MCP app access and do not invent loaded skills.",
+  "production_modified": false,
+  "skill_status_promotions": 0
+}
