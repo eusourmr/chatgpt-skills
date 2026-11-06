@@ -1,7 +1,7 @@
 {
   "name": "SophIA — Seu próximo passo",
   "short_name": "SophIA",
-  "description": "SophIA 1.1: orientação proporcional e continuidade sem perder suas edições, com autonomia e privacidade.",
+  "description": "SophIA 1.2: orientação proporcional e continuidade sem perder suas edições, com autonomia e privacidade.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

@@ -1,4 +1,8 @@
-# SophIA Web — Versão 1.1.0
+# SophIA Web — Versão 1.2.0
+
+**Atualização 1.2.0 (06/11/2026):** pedidos de ajuda com “não consigo” e definições curtas têm roteamento corrigido; cinco métodos incorporam preservação de significado e evidência; insumos editoriais/Registry estão ligados a commit imutável sem reescrever os metadados antigos do Registry. 54 testes automáticos passaram; não há homologação desta build em navegador/aparelhos nem publicação automática. [Release e instalação](RELEASE-1.2.0.md).
+
+**Pacote para servidor:** `python scripts/build-sophia-release.py --output /tmp/SophIA-Web-v1.2.0-Atualizacao.zip`. Contém apenas arquivos públicos na raiz, licença e checksums. Preserve `.htaccess`. A política de privacidade distingue o código da aplicação dos recursos acrescentados pela hospedagem/CDN.
 
 Interface web estática, sem API própria, que prepara conversas para o ChatGPT/Gemini do visitante. A aplicação pública continua em https://sophia.meuapoio.com/. Mantém Aprender, Escrever e Resolver.
 
