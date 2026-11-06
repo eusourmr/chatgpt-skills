@@ -1,5 +1,7 @@
 # Fase 2 — CS Navigator Universal Curator Beta
 
+> **ESTADO ATUAL em 06/11/2026:** o aceite técnico privado **HOST-03R PASSOU** para o **CS Navigator Labs Web `0.20.0-beta.4`**, que expôs **seis skills**, leu a curadoria pelo host e executou `registry_status` na mesma conversa. Este documento descreve principalmente a evolução histórica do laboratório original `0.20.0-beta.3`; os incidentes MCP-01/HOST-02 e seus gates em aberto **continuam válidos para o cenário antigo**, mas **não indicam falha atual da variante Web**. Registro: [HOST-03R](../trust/qualification/pilots/host-03r-web-skill-mcp-success-2026-11-06.json) · [Continuar o projeto](CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
+
 **Produto:** CS Navigator Labs `0.20.0-beta.3`, plugin privado existente; **não** substitui o CS Navigator `0.17.0` de produção.
 
 ## Entregas verificáveis
@@ -83,9 +85,9 @@ Registro auditável: `trust/qualification/pilots/mcp-01r-registry-connected-2026
 - Escopo público do catálogo é restrito: `caregiver-coordinator` e `medical-appointment-prep` permanecem explicitamente excluídos.
 - O registro do GitHub pode mudar metadados sem novo ZIP; **mudanças de instruções executáveis no plugin exigem atualização versionada**, e a disponibilização no host é dependente da plataforma.
 
-## Critérios de fecho
+## Critérios de fecho (historicamente referentes ao Labs original beta.3)
 
 **Engenharia/empacotamento:** plugin Beta salvo, arquivos confirmados, segurança estática/CI aprovada, e endpoint validado externamente pelo job CI se passar.  
-**Produto/host:** a chamada real de ferramenta pelo app Registry independente está confirmada; faltam chamadas na versão consolidada do Labs e observação do roteamento nativo/especialista. Enquanto essa evidência não existir, reportar `beta_saved_source_validated_host_mcp_pending`, não `universally_activated`.
+**Produto/host:** este era o bloqueio da configuração original `beta.3`. A variante web `beta.4` ultrapassou o gate de leitura da skill + MCP na mesma sessão (HOST-03R), mas o roteamento mínimo/especializado, benefício relativo ao nativo, publicidade e autoativação entre conversas permanecem **não verificados**.
 
 **Proposta de evolução:** após aceitação no host, congelar a Beta e iniciar Fase 3 com lotes controlados de drafts (positivo/negativo/adversarial), sem promover automaticamente as 48.
