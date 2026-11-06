@@ -1,0 +1,32 @@
+name: Validate CS conversational pilot evidence
+on:
+  pull_request:
+    paths:
+      - "trust/qualification/pilots/ux-03-04-conversational-2026-11-06.json"
+      - "docs/CS_UX_03_04_AND_ENG_01_2026-11-06.md"
+      - ".github/workflows/validate-cs-conversational-pilots.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prevent unsupported promotions
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("trust/qualification/pilots/ux-03-04-conversational-2026-11-06.json")
+          d=json.loads(p.read_text(encoding="utf-8"))
+          assert len(d["cases"])==2
+          assert all(c["assessment"]=="pass_response_behavior" for c in d["cases"])
+          assert d["summary"]["behavior_cases_passed"]==2
+          assert d["summary"]["host_specific_invocation_verified"] is False
+          assert d["summary"]["field_user_test_verified"] is False
+          assert d["summary"]["skill_promoted"] is False
+          assert d["next_gate"]["behavior_test_not_yet_executed"] is True
+          print("Two response-only checks recorded; no invented host/tool/field evidence")
+          PY
