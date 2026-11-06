@@ -4,15 +4,17 @@ This roadmap is directional, public, and deliberately measurable. Dates may chan
 
 See [`docs/ECOSYSTEM_GROWTH_STRATEGY.md`](docs/ECOSYSTEM_GROWTH_STRATEGY.md) for the competitive/growth rationale behind the sequencing below.
 
-## Current position (2026-10-11)
+## Current position (reviewed 2026-11-06)
 
-**CS Navigator 0.17.0 — Learning & Academic Mastery** is the latest GitHub release and the installed private ChatGPT plugin. Its six-skill Evergreen Core incorporates the 0.16 architecture; 0.16 was not released independently.
+**CS Navigator 0.17.0 — Learning & Academic Mastery** remains the stable GitHub release. Account backend inspection identifies a private 0.17.0 plugin record; this is **not proof of installation, selection or activation in any particular ChatGPT conversation**. Its six-skill Evergreen Core incorporates the 0.16 architecture. Candidate 0.18 RC3 has passed MCP protocol calls in GitHub Actions but not native host qualification.
 
 Production read-only MCP endpoint: `https://chatgpt-skills.onrender.com/mcp`. MCP Inspector tests have passed for `registry_status`, `get_capability`, `get_evidence`, and `search_capabilities`; the two healthcare exclusions returned `found:false` through `get_capability`.
 
-The **public Plugin Directory is not yet approved or published**. Remaining gates are native ChatGPT semantic qualification of the final installed plugin, registry provenance improvement (current `source_commit: development`), public review requirements and confirmed approval.
+The **public Plugin Directory approval remains unverified**. Required gates: confirm exact host install/activation and native tool invocations, resolve registry provenance (snapshot contains `source_commit: development`), complete independent security/evidence review, verify platform permissions and record actual approval. Do not confuse registry discovery with downloaded, loaded, invoked or completed capability.
 
 New capabilities `learning-mastery-coach` and `academic-writing-navigator` remain **designed**, not **tested**. Tool visibility or installability does not constitute skill qualification.
+
+Portfolio review (06/11/2026): 63 author-authored core skills appear in the editorial catalog; the 79-item quality catalog and the 80-entry editorial catalog count different surfaces (the extra entry is a source collection). Candidate UX Quality Gate is in PR #111, and 2026 code/ABNT/PT-BR/onboarding review is in PR #112. See `docs/CS_SKILLS_AUDIT_2026-11-06.md`. These candidates have not been promoted to the public plugin or registry.
 
 ### Release priorities
 
