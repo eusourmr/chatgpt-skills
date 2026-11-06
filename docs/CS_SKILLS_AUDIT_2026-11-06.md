@@ -19,7 +19,7 @@ Este relatório é uma **auditoria documental e de catálogo**, não uma auditor
 
 - Guia de instalação reescrito para ChatGPT (plugin vs skill), Codex, ZIP de avaliação e host/execução real. Removidas versões históricas indevidamente apresentadas como atuais.
 - `engineering-investigator`: contratos de mudança, diagnóstico, integrações, regressões, esquema e evidência.
-- `codex-pr-reviewer`: revisão por riscos, CI no commit correto, release/rollback, separação de merged/deployed/activated.
+- `codex-pr-reviewer`: versão distribuída preservada sem alterações — possui passaporte imutável e exige novo processo de revisão/qualificação. As melhorias de CI, merge, release e rollback foram especificadas em `experiments/code-lifecycle-governor` para futura promoção.
 - `text-integrity-editor`: norma culta contextual, variante pt-BR e voz do autor, modalidade e citações preservadas.
 - `document-compliance-auditor` + `academic-writing-navigator`: identificação e fontes de edições ABNT, manual institucional, perfil `abnt-br` sem inventar conteúdo normativo.
 - Novo perfil opcional `pt-br-norma-culta`, ainda `designed`.
