@@ -15,7 +15,7 @@ def build(output: Path):
     overlay = json.loads((PACKAGE / ".codex-plugin/plugin.json").read_text(encoding="utf-8"))
     qualification = json.loads((PACKAGE / "QUALIFICATION-MANIFEST.json").read_text(encoding="utf-8"))
     assert manifest["name"] == overlay["name"] == "cs-navigator-labs"
-    assert manifest["version"] == overlay["version"] == qualification["version"] == "0.20.0-beta.2"
+    assert manifest["version"] == overlay["version"] == qualification["version"] == "0.20.0-beta.3"
     assert manifest["extensions"]["com.openai"]["interface"]["defaultPrompt"] == overlay["interface"]["defaultPrompt"]
     mcp = json.loads((PACKAGE / "mcp.json").read_text(encoding="utf-8"))
     assert list(mcp["mcpServers"]) == ["cs-navigator-registry"]
@@ -24,8 +24,17 @@ def build(output: Path):
     assert server["type"] == "streamable-http"
     assert server["extensions"]["com.openai"]["auth"]["type"] == "none"
 
+    app = json.loads((PACKAGE / ".app.json").read_text(encoding="utf-8"))
+    app_id = "asdk_app_6aee1bad0884819196a97a44393e1a53"
+    assert manifest["extensions"]["com.openai"]["apps"] == "./.app.json"
+    assert overlay["apps"] == "./.app.json"
+    assert list(app["apps"].values()) == [{"id": app_id}]
+    assert qualification["app_binding_present"] is True
+    assert qualification["app_binding_id"] == app_id
+    assert qualification["combined_plugin_host_invocation_tested"] is False
+
     entries = sorted(p for p in PACKAGE.rglob("*") if p.is_file())
-    assert len(entries) == 13, f"Unexpected packaged file inventory: {len(entries)}"
+    assert len(entries) == 14, f"Unexpected packaged file inventory: {len(entries)}"
     for f in entries:
         assert not f.is_symlink(), f"Unexpected symlink: {f}"
         assert f.resolve().is_relative_to(PACKAGE.resolve()), f"Path escapes package: {f}"
@@ -46,5 +55,5 @@ def build(output: Path):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output", type=Path, default=ROOT / "dist" / "cs-navigator-labs-0.20.0-beta.2.zip")
+    parser.add_argument("--output", type=Path, default=ROOT / "dist" / "cs-navigator-labs-0.20.0-beta.3.zip")
     build(parser.parse_args().output)
