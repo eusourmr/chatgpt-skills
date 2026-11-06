@@ -1,5 +1,7 @@
 # Auditoria das Skills — base 06/11/2026 e carteira de 27 frentes
 
+> **Atualização de estado:** o inventário e a carteira de drafts abaixo são um snapshot editorial. A integração **privada** do CS Navigator Labs Web `0.20.0-beta.4` passou no HOST-03R (leitura de skill + Registry MCP no host); isso **não altera a classificação das 48 drafts**. Próximos gates em [estado consolidado](CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
+
 ## 1. Diagnóstico de inventário (não confundir as contagens)
 
 | Fonte | Quantidade | O que conta |
