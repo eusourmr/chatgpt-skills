@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "test_id": "ENG-01",
+  "date": "2026-11-06",
+  "evaluated_skill": "engineering-investigator-labs",
+  "plugin_declared_version": "0.19.0-alpha.1",
+  "scope": "Synthetic code from user-supplied evidence ZIP, independently examined and re-run; not an AP+ Eventos deployment.",
+  "input_artifact": {
+    "filename": "investigacao-hospedagens.zip",
+    "sha256": "7a186fba39d8680e6448c40287bdd5ae92c082ee43da0d93feca8c9b48a3b6a5",
+    "total_files": 7,
+    "zip_extracted_after_path_validation": true
+  },
+  "baseline": {
+    "source": "original.js",
+    "sha256": "5356f3c67931d7c47b5829c02859e4a69fc578a9395bf190f7598ad3587b7916",
+    "bytes": 613,
+    "root_cause": "Out-of-order asynchronous calls mutate a shared UI state without checking whether the call is still current."
+  },
+  "fix": {
+    "source": "corrigido.js",
+    "sha256": "41220d22353f74cf787063abcad542ec019ca48ab038cac91b41542c74d98b10",
+    "bytes": 891,
+    "mechanism": "Monotonic request counter; guards result after await response.json(), catch, finally; clears prior results and shallow-copies city filter."
+  },
+  "independent_replay": {
+    "runner": "container-executed Node.js",
+    "version": "v22.16.0",
+    "suite": "regressao.test.cjs",
+    "suite_sha256": "6a8eb48bffcfa0a8636d305e3ac5d3cb9cf6873dde595dca05681246508620f9",
+    "corrected": {
+      "command": "node --test --test-reporter=tap regressao.test.cjs",
+      "exit_code": 0,
+      "total": 13,
+      "passed": 13,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "local_tap_sha256": "81555e6d744f43dd34e71ea60772e3a0f307bdf4438d1f80061c3ca7ad9f8722"
+    },
+    "original": {
+      "command": "HOSPEDAGENS_IMPL=original node --test --test-reporter=tap --test-name-pattern='B permanece atual quando A termina depois' regressao.test.cjs",
+      "exit_code": 1,
+      "total": 1,
+      "passed": 0,
+      "failed": 1,
+      "local_tap_sha256": "a6ea5e5d217e0ca51ee2b5867885de1a8d6cd2b3ac5e454140219f08558e5c93"
+    }
+  },
+  "ci_regression_subset": {
+    "path": "experiments/engineering-investigator/eng01/eng01.test.cjs",
+    "tests": 7,
+    "runner_versions": [
+      "Node 22",
+      "Node 24"
+    ],
+    "status": "pending_CI_at_creation"
+  },
+  "review": {
+    "code_correctness": "pass_for_synthetic_scope",
+    "independent_race_reproduction": true,
+    "full_user_claim_of_node_24_execution": "reported_by_user_not_yet_independently_reproduced_at_record_creation",
+    "prompt_to_host_skill_invocation_trace": "not independently inspected in the producing chat",
+    "limits": [
+      "Simulated fetch and render only; no real network, browser, backend, or app integration",
+      "AbortController cancellation not implemented or tested",
+      "Unmount/component lifecycle invalidation not implemented",
+      "Filter copy shallow and valid input assumed",
+      "Proposed code not applied to AP+ Eventos",
+      "Runtime test passing does not prove installed plugin behavior or production readiness"
+    ]
+  },
+  "status": "pass_independent_synthetic_code_regression_not_host_qualified",
+  "skill_promoted": false,
+  "production_plugin_modified": false
+}
