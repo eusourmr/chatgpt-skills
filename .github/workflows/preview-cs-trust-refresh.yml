@@ -1,0 +1,35 @@
+name: Preview refreshed CS skill trust evidence
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/preview-cs-trust-refresh.yml"
+      - "skills/featured/codex-pr-reviewer/SKILL.md"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  generate-reviewable-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Generate exact-source trust evidence without publishing
+        run: |
+          node scripts/generate-trust-passports.mjs --write
+          node scripts/security-gate-v2.mjs --write
+          node scripts/generate-risk-labels.mjs --write
+      - name: Emit reviewed candidate JSON for maintainer commit
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          for (const path of [
+            'trust/passports/codex-pr-reviewer.json',
+            'trust/security-reports/codex-pr-reviewer.json',
+            'trust/risk-labels/codex-pr-reviewer.json'
+          ]) {
+            console.log('CS_REFRESH_JSON::'+path+'::'+JSON.stringify(JSON.parse(fs.readFileSync(path,'utf8'))));
+          }
+          JS
