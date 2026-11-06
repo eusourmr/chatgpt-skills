@@ -1,0 +1,34 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "cs-navigator-labs",
+  "version": "0.20.0-beta.2",
+  "description": "Laboratório privado do CS Navigator: seis skills e consulta opcional ao registro MCP existente, sem servidor próprio.",
+  "author": {
+    "email": "ricardo.rocha@meuapoio.com",
+    "name": "Ricardo Rocha"
+  },
+  "homepage": "https://github.com/eusourmr/chatgpt-skills",
+  "repository": "https://github.com/eusourmr/chatgpt-skills",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "curadoria",
+    "ux",
+    "engenharia",
+    "abnt",
+    "portugues"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "CS Navigator Labs",
+        "shortDescription": "Curadoria e skills em testes",
+        "longDescription": "Laboratório privado para testar curadoria, seis skills e consulta somente leitura ao registro MCP existente; não altera a linha 0.17 de produção.",
+        "developerName": "Ricardo Rocha",
+        "category": "Productivity",
+        "capabilities": [],
+        "defaultPrompt": "Use CS Navigator Labs para ajudar a escolher o caminho mais simples para minha tarefa. Antes de afirmar que uma skill esta carregada ou foi executada, apresente a evidencia disponivel."
+      }
+    }
+  }
+}

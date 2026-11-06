@@ -1,0 +1,50 @@
+name: Validate CS Universal Beta 0.20
+on:
+  pull_request:
+    paths:
+      - "plugins/cs-navigator-labs/**"
+      - "scripts/build-cs-universal-beta.py"
+      - "scripts/probe-cs-registry.mjs"
+      - "tests/test_cs_universal_beta.py"
+      - "docs/CS_UNIVERSAL_BETA_PHASE2.md"
+      - ".github/workflows/validate-cs-universal-beta.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate plugin source, trust, and backward compatibility
+        run: python -m unittest discover -s tests -p 'test_cs_universal_beta.py' -v
+      - name: Build reproducible portable plugin ZIP
+        run: python scripts/build-cs-universal-beta.py --output dist/cs-navigator-labs-0.20.0-beta.2.zip
+      - name: Inspect ZIP integrity
+        run: |
+          unzip -t dist/cs-navigator-labs-0.20.0-beta.2.zip
+          (cd dist && sha256sum -c cs-navigator-labs-0.20.0-beta.2.zip.sha256)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cs-navigator-labs-0.20.0-beta.2
+          path: |
+            dist/cs-navigator-labs-0.20.0-beta.2.zip
+            dist/cs-navigator-labs-0.20.0-beta.2.zip.sha256
+          if-no-files-found: error
+  live-readonly-mcp:
+    runs-on: ubuntu-latest
+    needs: package
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify externally hosted MCP protocol and read-only tools
+        run: node scripts/probe-cs-registry.mjs
+      - name: Preserve live-connection evidence boundary
+        run: echo "Successful MCP tool calls from GitHub Actions do not prove that ChatGPT selected or invoked the plugin."
