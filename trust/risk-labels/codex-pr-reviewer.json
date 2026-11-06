@@ -2,7 +2,7 @@
   "schema_version": "0.1",
   "skill_id": "codex-pr-reviewer",
   "source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
-  "artifact_sha256": "13006a226a157908476397bfd6d0f5af755fcbb748ea1081fc223c290263e825",
+  "artifact_sha256": "8440532b0a4228394371a43103fd4a78cada653e5d3b745c58de6aeee629e399",
   "security_gate": {
     "version": "v2",
     "result": "pass",
@@ -31,7 +31,7 @@
   "secrets": {
     "state": "declared-plus-static-scan",
     "declared": "none required",
-    "observed": "No secret/credential reference observed."
+    "observed": "Secret/credential terminology observed."
   },
   "destructive_potential": {
     "state": "declared-plus-static-scan",
