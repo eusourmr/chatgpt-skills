@@ -1,0 +1,39 @@
+name: Validate HOST-02 activation evidence boundary
+on:
+  pull_request:
+    paths:
+      - "trust/qualification/pilots/host-02-labs-skill-exposure-2026-11-06.json"
+      - "docs/CS_HOST02_ACTIVATION_DIAGNOSIS_2026-11-06.md"
+      - ".github/workflows/validate-host02.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Keep source, host loading and MCP evidence separate
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          j=json.loads(Path("trust/qualification/pilots/host-02-labs-skill-exposure-2026-11-06.json").read_text(encoding="utf8"))
+          assert j["test_id"]=="HOST-02"
+          assert j["diagnosis"]["result"]=="fail_skill_exposure_in_two_sessions"
+          assert j["independent_reviewer_session"]["exposed_skills_count"]==35
+          assert j["independent_reviewer_session"]["cs_navigator_labs_entries"]==0
+          assert j["independent_reviewer_session"]["exact_curator_skill_read_attempt"]["result"]=="resource_not_found"
+          assert j["persisted_plugin_source"]["version"]=="0.20.0-beta.3"
+          assert j["persisted_plugin_source"]["skill_files_present"]==6
+          assert j["diagnosis"]["root_cause_confirmed"] is False
+          assert j["diagnosis"]["evidence_is_sufficient_to_claim_skills_loaded"] is False
+          assert j["no_plugin_update_performed"] is True
+          assert j["no_catalog_promotion"] is True
+          assert j["no_production_change"] is True
+          assert "not actually installed" in j["diagnosis"]["candidates"][0]
+          production=json.loads(Path("plugins/cs-navigator/plugin.json").read_text(encoding="utf8"))
+          assert production["version"]=="0.17.0"
+          print("HOST-02 bounded evidence verified; no fabricated host activation.")
+          PY
