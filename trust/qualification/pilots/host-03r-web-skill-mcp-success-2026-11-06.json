@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "test_id": "HOST-03R",
+  "date": "2026-11-06",
+  "assessment": "pass_combined_host_skill_and_mcp_activation",
+  "plugin": {
+    "name": "CS Navigator Labs Web",
+    "id": "plugins_6aee22530eb88191bed0e982d96d1218",
+    "version": "0.20.0-beta.4",
+    "release": "pluginrel_6aee225471d08191a77c053ed904590c",
+    "private": true
+  },
+  "user_supplied_producing_session": {
+    "skill_read_reported": true,
+    "skill_name": "cs-navigator-labs",
+    "declared_version": "0.20.0-beta.4",
+    "reported_source_uri": "skill://plugins_6aee22530eb88191bed0e982d96d1218/cs-navigator-labs/SKILL.md",
+    "mcp_registry_status_reported": true,
+    "mcp_returned": {
+      "product": "CS Navigator",
+      "schema_version": 1,
+      "published_at": "2026-10-11",
+      "source_commit": "development",
+      "capability_count": 61,
+      "source": "https://raw.githubusercontent.com/eusourmr/chatgpt-skills/main/registry/public-capabilities-v1.json"
+    },
+    "limitation": "Tool transcript from producing chat not independently exported, but independently repeated with real calls in reviewer chat."
+  },
+  "reviewer_independent_host_test": {
+    "skills_list_invoked": true,
+    "total_exposed_skills": 41,
+    "lab_skills_exposed": 6,
+    "exact_skill_uri": "skills://plugins/cs-navigator-web-labs/cs-navigator-labs/skill.md",
+    "skill_read_invoked": true,
+    "read_succeeded": true,
+    "version_in_read_skill": "0.20.0-beta.4",
+    "mcp_tool_name": "mcp__CS_Navigator_Registry__registry_status",
+    "mcp_tool_invoked": true,
+    "returned": {
+      "product": "CS Navigator",
+      "schema_version": 1,
+      "published_at": "2026-10-11",
+      "source_commit": "development",
+      "capability_count": 61,
+      "source": "https://raw.githubusercontent.com/eusourmr/chatgpt-skills/main/registry/public-capabilities-v1.json"
+    }
+  },
+  "stored_package_readback": {
+    "confirmed": true,
+    "skills_count": 6,
+    "portable_mcp_present": false,
+    "registered_app_binding": "./.app.json",
+    "version": "0.20.0-beta.4"
+  },
+  "criteria": [
+    {
+      "id": "plugin_source_in_account",
+      "status": "pass"
+    },
+    {
+      "id": "six_skills_listed_by_host",
+      "status": "pass"
+    },
+    {
+      "id": "curator_skill_host_read",
+      "status": "pass"
+    },
+    {
+      "id": "declared_version_in_loaded_file",
+      "status": "pass"
+    },
+    {
+      "id": "registry_tool_called_in_same_reviewer_session",
+      "status": "pass"
+    },
+    {
+      "id": "no_fabricated_mcp_values",
+      "status": "pass"
+    }
+  ],
+  "limitations": [
+    "Skill and MCP activation verified for Web variant in reviewer host; it does not prove cross-chat automatic routing or benefit compared with native model.",
+    "Variants differ in multiple properties: absent portable MCP, onboardingSkill setting and plugin identity; root cause of prior desktop-only behavior is not causally isolated.",
+    "Registry source_commit 'development' is not a Git commit hash, and its published_at is 2026-10-11; catalog freshness/provenance needs separate remediation.",
+    "Source listing of 61 capabilities does not prove 61 installed or executable specialized skills.",
+    "Six specialist skill invocations and effectiveness across ordinary tasks have not been benchmarked in this phase.",
+    "The older Labs 0.20.0-beta.3 and production CS Navigator v0.17 are unchanged."
+  ],
+  "phase_2_gate": "pass_private_web_plugin_host_activation",
+  "phase_2_scope": "Private web technical integration acceptance closed. Public distribution, universal automatic activation, specialized routing quality, and catalog provenance remain separate gates.",
+  "next_phase": "Phase 3: controlled qualification, route-selection/no-overroute tests and source provenance improvement",
+  "no_catalog_promotion": true,
+  "no_production_change": true,
+  "no_plugin_mutation": true
+}
