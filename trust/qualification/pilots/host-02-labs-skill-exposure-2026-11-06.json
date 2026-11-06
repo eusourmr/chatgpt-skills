@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "test_id": "HOST-02",
+  "observed_on": "2026-11-06",
+  "target": "CS Navigator Labs 0.20.0-beta.3 skill exposure in ChatGPT",
+  "observed_user_producing_session": {
+    "source": "User-pasted audit from a separate ChatGPT conversation",
+    "skill_inventory_count_reported": 35,
+    "curator_skill_found_reported": false,
+    "curator_skill_read_reported": false,
+    "loaded_plugin_version_verified_reported": false,
+    "registry_status_tool_called_reported": true,
+    "tool_result_reported": {
+      "product": "CS Navigator",
+      "schema_version": 1,
+      "capability_count": 61,
+      "published_at": "2026-10-11",
+      "source_commit": "development"
+    },
+    "limitation": "No independent producing-session trace or plugin selection/install UI screenshot supplied"
+  },
+  "independent_reviewer_session": {
+    "skills_list_tool_invoked": true,
+    "exposed_skills_count": 35,
+    "cs_navigator_labs_entries": 0,
+    "exact_curator_skill_read_attempt": {
+      "uri": "skills://plugins/cs-navigator-labs/cs-navigator-labs/skill.md",
+      "result": "resource_not_found"
+    },
+    "exact_engineering_skill_read_attempt": {
+      "uri": "skills://plugins/cs-navigator-labs/engineering-investigator-labs/skill.md",
+      "result": "resource_not_found"
+    },
+    "registry_tools_visible": [
+      "registry_status",
+      "search_capabilities",
+      "get_capability",
+      "get_evidence"
+    ]
+  },
+  "persisted_plugin_source": {
+    "source": "Plugin Creator account release, not a host install/activation record",
+    "plugin_id": "plugins_6aedc9218d1c8191a5084bf09301973d",
+    "scope": "USER",
+    "release_id": "pluginrel_6aee1c6fa8548191a05675be4d30fa71",
+    "version": "0.20.0-beta.3",
+    "root_manifest_valid_format_observed": true,
+    "skill_files_present": 6,
+    "skill_file_example": "skills/cs-navigator-labs/SKILL.md",
+    "registered_app_binding": "asdk_app_6aee1bad0884819196a97a44393e1a53",
+    "source_and_host_inventory_distinct": true
+  },
+  "diagnosis": {
+    "result": "fail_skill_exposure_in_two_sessions",
+    "evidence_is_sufficient_to_claim_persisted_package_contains_skills": true,
+    "evidence_is_sufficient_to_claim_plugin_installed_and_selected_in_chat": false,
+    "evidence_is_sufficient_to_claim_skills_loaded": false,
+    "server_mcp_operational_separately": true,
+    "root_cause_confirmed": false,
+    "candidates": [
+      "Plugin release stored but not actually installed/selected in the chat",
+      "Cached/stale host plugin registration or new release not refreshed",
+      "Skills availability constrained by plan/workspace/surface",
+      "Host compatibility or ingestion issue for combined skills+registered app"
+    ]
+  },
+  "official_sources": [
+    "https://help.openai.com/en/articles/20001256-plugins-in-chatgpt",
+    "https://help.openai.com/en/articles/20001066-skills-in-chatgpt",
+    "https://developers.openai.com/plugins/build/plugins"
+  ],
+  "remediation_gate": {
+    "stage": "host_UI_validation",
+    "checks": [
+      "Open ChatGPT Plugins > Personal and locate CS Navigator Labs separately from CS Navigator Registry app",
+      "Confirm the Labs plugin is installed/enabled, shows six included skills if the surface exposes them, and the displayed version is 0.20.0-beta.3 if version visibility is offered",
+      "If Install plugin is shown, install and authorize its registered Registry app if requested",
+      "Refresh ChatGPT, create a new chat explicitly selecting CS Navigator Labs via composer/@, verify its skill appears and its file is actually read",
+      "If Skills tab/feature unavailable due to plan/workspace limitations, report platform gate and do not claim workaround"
+    ],
+    "test_prompt": "Com CS Navigator Labs selecionado, liste as skills disponíveis nesta conversa, leia a skill cs-navigator-labs e diga a versão encontrada no arquivo. Execute registry_status separadamente. Não invente qualquer leitura.",
+    "acceptance": "Actual skill read trace + MCP call trace in same conversation; source-only read-back is insufficient",
+    "current_state": "blocked"
+  },
+  "no_plugin_update_performed": true,
+  "no_production_change": true,
+  "no_catalog_promotion": true,
+  "severity": "functional_activation_blocker",
+  "next_step": "Verify plugin installation/selection, platform access and skill reader exposure in ChatGPT host before changing package or publicizing beta."
+}
