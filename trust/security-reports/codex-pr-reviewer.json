@@ -4,37 +4,26 @@
   "skill_id": "codex-pr-reviewer",
   "scanned_at": "2026-10-01",
   "source_revision": "6e565a981c9a3d7dc224cc10b0a992650913bee8",
-  "artifact_sha256": "8440532b0a4228394371a43103fd4a78cada653e5d3b745c58de6aeee629e399",
+  "artifact_sha256": "13006a226a157908476397bfd6d0f5af755fcbb748ea1081fc223c290263e825",
   "result": "pass",
   "summary": {
     "critical": 0,
     "high": 0,
-    "medium": 1,
+    "medium": 0,
     "low": 0,
-    "info": 2,
+    "info": 1,
     "blocking": 0
   },
   "observed_capabilities": {
     "network_operations": false,
     "process_execution": false,
     "filesystem_writes": true,
-    "secret_references": true,
+    "secret_references": false,
     "destructive_operations": false,
     "lifecycle_hooks": false,
     "encoded_or_obfuscated_content": false
   },
   "findings": [
-    {
-      "rule_id": "permission-description-mismatch",
-      "family": "description-behavior-mismatch",
-      "severity": "medium",
-      "blocking": false,
-      "path": "skills/featured/codex-pr-reviewer",
-      "line": null,
-      "evidence_sha256": "e2f8e06f435d828bbe94bb1fc178237e88534a9f59cd8335a53cdadce49c8a1e",
-      "message": "Observed secrets signal while permission declaration says none.",
-      "disposition": "review"
-    },
     {
       "rule_id": "filesystem-write-reference",
       "family": "filesystem-write",
@@ -44,17 +33,6 @@
       "line": 27,
       "evidence_sha256": "e6f4359cad289f861b4950060b597199ff1a66de862f3e58377c9b6f40b9f851",
       "message": "Filesystem write reference observed.",
-      "disposition": "review"
-    },
-    {
-      "rule_id": "secret-reference",
-      "family": "secrets",
-      "severity": "info",
-      "blocking": false,
-      "path": "SKILL.md",
-      "line": 68,
-      "evidence_sha256": "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b",
-      "message": "Secret or credential terminology observed.",
       "disposition": "review"
     }
   ],
