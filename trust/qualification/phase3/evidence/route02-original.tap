@@ -1,0 +1,60 @@
+TAP version 13
+# Subtest: B vence A atrasada sem mudar estado ou renderizações
+not ok 1 - B vence A atrasada sem mudar estado ou renderizações
+  ---
+  duration_ms: 4.115339
+  type: 'test'
+  location: '/workspace/scratch/ae86372e9f5f/chatgpt-skills/experiments/engineering-investigator/eng01/eng01.test.cjs:29:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    ... Skipped lines
+    
+      {
+        carregando: false,
+        erro: null,
+        filtros: {
+          cidade: 'Aparecida de Goiânia'
+    ...
+          {
+    +       id: 'A'
+    -       id: 'B'
+          }
+        ]
+      }
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    filtros:
+      cidade: 'Aparecida de Goiânia'
+    resultados:
+      0:
+        id: 'B'
+    carregando: false
+    erro: ~
+  actual:
+    filtros:
+      cidade: 'Aparecida de Goiânia'
+    resultados:
+      0:
+        id: 'A'
+    carregando: false
+    erro: ~
+  operator: 'deepStrictEqual'
+  stack: |-
+    unchanged (/workspace/scratch/ae86372e9f5f/chatgpt-skills/experiments/engineering-investigator/eng01/eng01.test.cjs:27:32)
+    TestContext.<anonymous> (/workspace/scratch/ae86372e9f5f/chatgpt-skills/experiments/engineering-investigator/eng01/eng01.test.cjs:33:52)
+    async Test.run (node:internal/test_runner/test:1409:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 181.407762

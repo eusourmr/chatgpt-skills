@@ -119,3 +119,29 @@ A próxima conversa **não** deve voltar a investigar se o Registry existe ou se
 - Não modificar `PROGRESS.md` manualmente: é gerado.
 - Não apagar as falhas MCP-01, HOST-02 e HOST-01B: fazem parte da trilha de auditoria.
 - Não mudar a linha estável `0.17.0`, os limites de privacidade ou as exclusões de saúde sem autorização e evidência.
+
+## 10. Fase 3 iniciada — incremento posterior ao corte acima
+
+O [roadmap ativo](../ROADMAP.md) foi refeito por gates e o anterior preservado em
+`docs/archive/ROADMAP_PRE_PHASE3_2026-11-06.md`. A
+[revisão de maturidade](CS_ROADMAP_REVIEW_2026-11-06.md) separa integração funcional,
+valor ainda não demonstrado, proveniência, drafts e experiência por terceiros.
+
+A entrega inicial tem protocolo/validador de evidências e prompts congelados de
+ROUTE-01/02; não repete HOST-03R. Um ensaio de desenvolvimento teve leitura real
+do especialista pelo host e reproduziu o ENG-01: corrigido 7/7, original falha
+esperada na corrida selecionada (Node v24.22.1). O recibo da leitura é transcrito,
+não uma exportação completa de conversa. **ROUTE-01/02 independentes continuam
+pendentes e A/B permanece `control_unavailable`**, pois esta conversa expõe CS.
+
+Primeiro lote: fontes de `capability-preferences`, `context-continuity-manager` e
+`decision-stop-rule` revistas, 12 casos próprios planejados, zero comportamentos
+executados no lote e zero promoções. `decision-stop-rule` requer fronteira
+explícita de ativação/não ativação no `SKILL.md` portátil, harmonizada com a
+seleção explícita já exigida por `agents/openai.yaml`, antes de qualificar comportamento. As 48
+continuam drafts; os dois itens de saúde continuam excluídos. Nenhum pacote de
+plugin, catálogo, manifesto histórico ou dado do Registry foi alterado.
+
+Operação e próximos passos: [protocolo da Fase 3](CS_PHASE3_QUALIFICATION.md).
+O verificador confere consistência dos arquivos e hashes, não autentica o host
+nem aprova um resultado, vantagem causal ou promoção automaticamente.

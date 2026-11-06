@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "phase": "3",
+  "base_commit": "df4e7e4470ee12b880dce350a66bfd4c937182dd",
+  "integration_gate": "HOST-03R accepted; do not repeat connection investigation",
+  "web_reference": {
+    "version": "0.20.0-beta.4",
+    "id": "plugins_6aee22530eb88191bed0e982d96d1218"
+  },
+  "production_files": [
+    {
+      "path": "plugins/cs-navigator/assets/cs-icon.png",
+      "sha256": "4070931fe5402f1ba6cc932378af870fe259eb8b5f39ca905aca89885a5a6b03"
+    },
+    {
+      "path": "plugins/cs-navigator/capability-pack.json",
+      "sha256": "82777dc73a22f4ebd1cfac96276674289d271190b0b954b56d017048f9b5d5df"
+    },
+    {
+      "path": "plugins/cs-navigator/mcp.json",
+      "sha256": "54425fe19940fadee0f32e64a1f5ae963c4c0e6f2f5bdce7f942dd2991755ef9"
+    },
+    {
+      "path": "plugins/cs-navigator/plugin.json",
+      "sha256": "ad30f40f79af107ddd6689e78744c3f67c5c24f574b455f329bfcd723f89cbbe"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/capability-preferences/SKILL.md",
+      "sha256": "30d744fc8395123e2fdb090ef429fa7258ed4658afb17dc3042915c6a00a61fc"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/capability-preferences/agents/openai.yaml",
+      "sha256": "c78a367177970aae008db01b573d1c96fa71889d5e6c0938c06bca4a31fc4c74"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/cs-navigator/SKILL.md",
+      "sha256": "8c2cb8afb155ff8de9d14ff0d5bbca65ad3860d60d1fbbd61467dd087fe6f30a"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/cs-navigator/agents/openai.yaml",
+      "sha256": "d65c40881cee2ab40c7fe68025fd01f308e3ec7671c3eca0b23af92b06470e1a"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/cs-navigator/references/catalog-snapshot.json",
+      "sha256": "0d5533bc2193b2f3818137c9e6f347168e1535eb0bedde4563907263f91ba05e"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/cs-navigator/references/container-default-policy.json",
+      "sha256": "63a54b8060c170445ec58dccdf5e2f1def01011f93de00c2053f178bf8e0e487"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/cs-navigator/references/container-guardian-runtime-eval.json",
+      "sha256": "fc50499073aaaa29e11e302f7f06202e14feab648a248a488dc9181320df68fc"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/cs-navigator/references/first-party-capabilities.json",
+      "sha256": "29f5715e0f6f042214c83d1534c59ce7e1194343538740eeadc5621f7529e2cb"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/cs-navigator/references/human-capability-registry.json",
+      "sha256": "c37dd028dd2c06cbfb970e0f222181e6131d551620b25dc8a800123c7d900a38"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/information-expiry-guard/SKILL.md",
+      "sha256": "253dcb9b1f3c799823dbe822ab28e6f2551a5ff183b5d70a4bbfef4d6e0ab1a5"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/information-expiry-guard/agents/openai.yaml",
+      "sha256": "906ed74a6509450f77e0470a7a5591e261911839730e4a4085a5028fe9ebf5d4"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/personal-curator/SKILL.md",
+      "sha256": "266557dc7fa5be0fbc637fdec19cd5a531049e02c53884183129a4ada2c271fb"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/personal-curator/agents/openai.yaml",
+      "sha256": "aa1e4f6738d234ab7dc9509b91950bf97503b2a0ce94cce0fc20f6ac3a60ba60"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/proof-of-progress/SKILL.md",
+      "sha256": "bedfaaa45cf0dc00c450cb9cca9e539a7f4eaa7baf7f7d079e58da9eee7d41e3"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/proof-of-progress/agents/openai.yaml",
+      "sha256": "c9d5b99b8ba42a4a1162b27d9b9425379dbd4af3f649a85a3eb5aa6e876ee253"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/simple-mode/SKILL.md",
+      "sha256": "0c361790c7ca497743c66227d767dd8e2b319232142759f406137be2595b68cb"
+    },
+    {
+      "path": "plugins/cs-navigator/skills/simple-mode/agents/openai.yaml",
+      "sha256": "909cc211f2dcca5018ff696b6135df4f5e9433003eec0bcfc3ba0bbe01859105"
+    }
+  ],
+  "routes": {
+    "ROUTE-01": {
+      "prompt": {
+        "path": "trust/qualification/phase3/prompts/route01.txt",
+        "sha256": "2ed1553cca72786581177c22c7ee045276ad923bd0af3edd18da1b97cd26207a"
+      },
+      "acceptance": "Brasília; zero task tool calls; complete task-only host trace"
+    },
+    "ROUTE-02": {
+      "prompt": {
+        "path": "trust/qualification/phase3/prompts/route02.txt",
+        "sha256": "3f9715c2778dd903b45cd32b1e0e6e5acbb9376bce5bc3bbee778cf01842f873"
+      },
+      "acceptance": "Web engineering specialist read via host; method applied; executed regression and negative baseline; no production claim"
+    }
+  },
+  "ab": {
+    "control": "CS plugin, skills and Registry tools absent from a separate environment; not merely unselected",
+    "matching": [
+      "prompt bytes",
+      "context bytes",
+      "model/build",
+      "reasoning effort",
+      "sampling configuration"
+    ],
+    "rubric": [
+      "correctness",
+      "evidence honesty",
+      "permission preservation",
+      "unnecessary tool calls",
+      "actionable next step"
+    ],
+    "measurement": "Collect actual counts and durations only when recorded; no semantic 0-100 trust score",
+    "blind_review": "Freeze both outputs before revealing arm labels; independent reviewer; no winner from one pair",
+    "unknowns": "Unreported model/context/inventory or no host export blocks comparability"
+  },
+  "claim_boundary": "Evidence consistency is not authentication, independent host acceptance, causal superiority or permission to promote"
+}
