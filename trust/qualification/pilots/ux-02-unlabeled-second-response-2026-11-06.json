@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "test_id": "ux-02-second-response-unlabeled",
+  "received_on": "2026-11-06",
+  "source_file": {
+    "name": "Pasted markdown(6).md",
+    "sha256": "af82d6e5baa577d30f6a19cc1ab570873b89062c24deb63e202c4600b1356346",
+    "bytes": 12278,
+    "lines": 90,
+    "publication": "hash and evaluative observations only; original response not committed"
+  },
+  "provenance": {
+    "user_provided_response": true,
+    "run_arm": "unknown_user_did_not_label",
+    "host_tool_trace_available": false,
+    "prompt_identity_with_ux01": "not_proven_identical",
+    "attribution_to_native_or_plugin": "not_proven"
+  },
+  "evaluation": {
+    "status": "pass_written_output_quality_not_valid_comparative_trial",
+    "passed_criteria": 5,
+    "total_criteria": 5,
+    "criteria": [
+      {
+        "id": "intent-split",
+        "result": "pass",
+        "evidence": "Distinct entry for Events, Event spaces, Lodging"
+      },
+      {
+        "id": "search-context",
+        "result": "pass",
+        "evidence": "Event/city, check-in, check-out, guests; event-linked dates are suggested and editable"
+      },
+      {
+        "id": "failure-states-and-recovery",
+        "result": "pass",
+        "evidence": "No matches, timeouts, connection failure, unknown availability, stale responses, preserved filters"
+      },
+      {
+        "id": "designer-application",
+        "result": "pass",
+        "evidence": "Wurman/LATCH, Norman feedback, Rams useful restraint with linked sources and application"
+      },
+      {
+        "id": "accessibility-and-testing",
+        "result": "pass",
+        "evidence": "Reflow, keyboard, focus, reduced-motion, status announcements, concrete acceptance tests; no claim of actual WCAG audit"
+      }
+    ]
+  },
+  "comparison_to_ux01": {
+    "ux01_sha256": "2c076be39ac6809ccc5c283c6f5383d37991c148fadf821a1b313c6bcb66b96b",
+    "substantive_overlap": "high; both provide nearly identical categories of guidance and same three designer choices",
+    "ux01_distinctions": [
+      "More detailed stale-query state handling and explicitly retaining results corresponding only to current search",
+      "Slightly more detail on late availability/empty states and result list recovery"
+    ],
+    "submission_distinctions": [
+      "More concise formulation of stages and controls",
+      "Still proposes handling out-of-order responses and differentiating inquiry from confirmed booking"
+    ],
+    "superiority_evidence": "none; no matched-prompt labeled host runs or blind evaluation available"
+  },
+  "limits": {
+    "result_quality_is_not_plugin_effect": true,
+    "plugin_used_unverified": true,
+    "ux_field_test_executed": false,
+    "live_ui_inspected": false,
+    "wcag_certified": false,
+    "promotion_authorized": false
+  },
+  "next_steps": [
+    "User identifies whether new answer is with or without CS; this alone will still not turn UX-01 into a matched-prompt comparator",
+    "Collect a second fresh answer on the identical neutral prompt using the other host condition",
+    "Blind compare quality using predefined rubric and verify tool/read traces for plugin arm; do not infer effect from a single run",
+    "Continue with a real interactive prototype and observed task-completion checks"
+  ]
+}
