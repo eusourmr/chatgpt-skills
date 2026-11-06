@@ -50,3 +50,13 @@ Após autorização e acesso a um protótipo ou implementação, verificar busca
 ## Gate de promoção
 
 Só recomendar `host-qualified` após evidência de versão carregada no host **e** cenários positivo/negativo/adversarial executados. Só afirmar **melhoria efetiva de UX** após avaliação com interface ou participante e métrica associada. Manter `experiments/ux-quality-gate` fora do catálogo distribuído até revisão independente e autorização de release.
+
+## UX-02 — segunda resposta recebida, braço ainda não identificado
+
+Recebido um segundo texto, 90 linhas, SHA-256 `af82d6e5baa577d30f6a19cc1ab570873b89062c24deb63e202c4600b1356346`, armazenado apenas como evidência de origem em conversa; o conteúdo integral não foi publicado. Ver `trust/qualification/pilots/ux-02-unlabeled-second-response-2026-11-06.json`.
+
+**Revisão qualitativa:** os mesmos cinco critérios de qualidade de saída foram atendidos. As duas respostas cobrem caminhos de entrada distintos, formulário essencial, reserva versus consulta, recuperação, Wurman/Norman/Rams, WCAG e planos verificáveis. O UX-01 original é um pouco mais específico em alguns estados assíncronos e recuperação. A segunda resposta é mais concisa. Não há melhoria efetiva observada em software ou estudo com usuários.
+
+**Status da comparação:** `incomplete`. O arquivo novo **não informa se foi gerado com ou sem CS Navigator Labs**; e o UX-01 anterior não compartilha necessariamente o prompt neutro exato. A similaridade temática não autentica ferramenta, qualidade diferencial, carregamento do plugin ou impacto causal da skill.
+
+Para comparação controlada, obter **duas respostas com o mesmo prompt neutro e condições rotuladas**; separar avaliação do texto da prova de host. Mesmo que o novo arquivo seja do ChatGPT nativo, uma comparação exploratória UX-01 versus ele terá confundimento de prompt e contexto.
