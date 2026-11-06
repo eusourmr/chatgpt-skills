@@ -23,17 +23,17 @@ jobs:
       - name: Validate plugin source, trust, and backward compatibility
         run: python -m unittest discover -s tests -p 'test_cs_universal_beta.py' -v
       - name: Build reproducible portable plugin ZIP
-        run: python scripts/build-cs-universal-beta.py --output dist/cs-navigator-labs-0.20.0-beta.2.zip
+        run: python scripts/build-cs-universal-beta.py --output dist/cs-navigator-labs-0.20.0-beta.3.zip
       - name: Inspect ZIP integrity
         run: |
-          unzip -t dist/cs-navigator-labs-0.20.0-beta.2.zip
-          (cd dist && sha256sum -c cs-navigator-labs-0.20.0-beta.2.zip.sha256)
+          unzip -t dist/cs-navigator-labs-0.20.0-beta.3.zip
+          (cd dist && sha256sum -c cs-navigator-labs-0.20.0-beta.3.zip.sha256)
       - uses: actions/upload-artifact@v4
         with:
-          name: cs-navigator-labs-0.20.0-beta.2
+          name: cs-navigator-labs-0.20.0-beta.3
           path: |
-            dist/cs-navigator-labs-0.20.0-beta.2.zip
-            dist/cs-navigator-labs-0.20.0-beta.2.zip.sha256
+            dist/cs-navigator-labs-0.20.0-beta.3.zip
+            dist/cs-navigator-labs-0.20.0-beta.3.zip.sha256
           if-no-files-found: error
   live-readonly-mcp:
     runs-on: ubuntu-latest
