@@ -7,7 +7,7 @@ Já existe `skills/design-system-studio`, centrada em linguagem visual, tokens, 
 `nextlevelbuilder/ui-ux-pro-max-skill` (MIT, versão indicada em `skill.json`: 2.15.0 na consulta). O projeto oferece estilos/paletas/fontes/casos de uso, diretrizes UX e guidance de stacks. Sua busca Python é local e depende de catálogos específicos. Não instalar automaticamente CLI nem importar a árvore inteira para o CS.
 
 ## Decisão de engenharia
-Adicionar `skills/ux-quality-gate` como **candidata**, distinta de Design System Studio. Primeiro portão: revisão de código + testes unitários de scanner. Segundo portão: avaliação com captura/HTML de interface real e verificação de navegador/dispositivo/teclado. Terceiro portão: autorização humana antes de incluir no registry ou plugin distribuído.
+Adicionar `experiments/ux-quality-gate` como **candidata**, distinta de Design System Studio. Primeiro portão: revisão de código + testes unitários de scanner. Segundo portão: avaliação com captura/HTML de interface real e verificação de navegador/dispositivo/teclado. Terceiro portão: autorização humana antes de incluir no registry ou plugin distribuído.
 
 | Capacidade | Design System Studio | UX Quality Gate candidato | UI/UX Pro Max upstream |
 | --- | --- | --- | --- |
