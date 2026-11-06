@@ -7,7 +7,7 @@
 [![Validate catalog](https://github.com/eusourmr/chatgpt-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/eusourmr/chatgpt-skills/actions/workflows/validate.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Curation](https://img.shields.io/badge/curation-human--governed-2f6f4e.svg)](CONTRIBUTING.md)
-[![Catalog](https://img.shields.io/badge/catalog-78%20entries-4c1.svg)](PROGRESS.md)
+[![Catalog](https://img.shields.io/badge/quality%20catalog-79%20items-4c1.svg)](PROGRESS.md)
 [![npm](https://img.shields.io/npm/v/chatgpt-skills.svg)](https://www.npmjs.com/package/chatgpt-skills)
 [![Standard](https://img.shields.io/badge/Agent%20Skills-agentskills.io-6f42c1.svg)](https://agentskills.io/)
 
@@ -25,7 +25,7 @@ This section is a **source-verified window into OpenAI-published skills/plugins*
 [![OpenAI Build Web Apps](https://img.shields.io/badge/OpenAI-Build%20Web%20Apps-000000?logo=openai&logoColor=white)](https://github.com/openai/plugins/tree/main/plugins/build-web-apps)
 [![OpenAI Developers](https://img.shields.io/badge/OpenAI-Developers-000000?logo=openai&logoColor=white)](https://github.com/openai/plugins/tree/main/plugins/openai-developers)
 
-The quality catalog currently tracks **78 entries**: **77 skills + 1 source collection**, comprising **61 regenerative-core** and **17 OpenAI-catalog** entries. Catalog presence is not execution evidence; `designed`, `tested`, freshness, security findings, and recommendation state remain separate. See [`PROGRESS.md`](PROGRESS.md) and [`catalog.json`](catalog.json).
+The quality catalog tracks **79 items** (`catalog.json`); the editorial catalog has **80 entries** (`catalog/skills.json`, including one collection). **63** are repository-authored core skills, not 63 host-tested executions. Discovery, installation, activation and outcomes remain separate. See [`PROGRESS.md`](PROGRESS.md).
 
 ## Why this catalog is different
 
@@ -46,7 +46,7 @@ The quality catalog currently tracks **78 entries**: **77 skills + 1 source coll
 
 **Current GitHub release: CS Navigator 0.17.0 — Learning & Academic Mastery.** The 0.16.0 Evergreen Core & Live Registry architecture is incorporated into 0.17.0; 0.16.0 is not a separate public release.
 
-The GitHub release is **not** an OpenAI Plugin Directory publication. The existing private ChatGPT plugin is still 0.15.0 until an exact 0.17.0 package is qualified and installed. The portal's last observed draft was 0.15.0 / Not published / Needs attention. Public submission requires a real HTTPS read-only MCP endpoint, MCP Inspector verification, exact-byte packaging, review evidence and portal approval.
+The GitHub release is **not** an OpenAI Plugin Directory publication. Account backend inspection identified a **0.17.0 private plugin record**, which does **not** prove that the plugin is active in a chat. The 0.18 RC3 candidate passed MCP protocol/tool-call checks **in CI**, not native ChatGPT qualification. Directory approval and publication remain unverified without a fresh portal record.
 
 0.17.0 adds `learning-mastery-coach` and `academic-writing-navigator` as registry-discoverable capabilities; both remain **designed**, not **tested**. The Evergreen Core contains six distributed skills; GitHub registry entries are bounded metadata, not remotely executable instructions. Healthcare workflows excluded by review remain outside public distribution.
 
@@ -58,17 +58,18 @@ Read: [Public plugin submission](docs/PUBLIC_PLUGIN_SUBMISSION.md) · [Getting S
 
 The intended end-user experience is deliberately simple:
 
-1. Install **CS Navigator** once.
-2. Start a normal ChatGPT conversation.
-3. If you want silent capability curation in that conversation, write: `Use CS Navigator as my curator.`
-4. Then talk normally. Navigator should keep work native when sufficient and only add a skill, Life Journey, or connected action when it materially helps.
+1. Check **Plugins** for CS Navigator availability in your account/workspace; standalone skills and plugins have different install flows.
+2. Select its `@` entry **only if your host offers it**; otherwise continue with native ChatGPT.
+3. `Use CS Navigator as my curator` alone is a conversational preference, not proof of installation, MCP invocation or persistence.
+4. Read [Getting Started](docs/GETTING_STARTED.md) for host-specific verification.
 
 **Persistence boundary:** one chat instruction does not prove that curator mode is active in every future conversation. Cross-chat persistence may only be claimed when the host product explicitly supports and confirms it.
 
 Version lines:
 - GitHub CS Navigator release: **0.17.0**
-- ChatGPT private plugin installed: **0.15.0** (pending 0.17.0 qualification and replacement)
-- OpenAI Platform portal (last observed): **0.15.0 Draft / Needs attention / Not published**
+- ChatGPT private plugin **registered** in account metadata: **0.17.0**; host activation unverified
+- OpenAI public directory submission: **approval/publication not currently verified**
+- 0.18 RC3: **CI MCP verified, native host activation pending**
 - 0.16.0: historical Evergreen Core architecture, incorporated into 0.17.0
 - 0.9.x and earlier: historical foundation
 - `chatgpt-skills` CLI/npm: independently versioned (see `package.json`)
