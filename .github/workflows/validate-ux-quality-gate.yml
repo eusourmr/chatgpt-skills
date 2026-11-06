@@ -2,7 +2,7 @@ name: Validate UX Quality Gate candidate
 on:
   pull_request:
     paths:
-      - "skills/ux-quality-gate/**"
+      - "experiments/ux-quality-gate/**"
       - ".github/workflows/validate-ux-quality-gate.yml"
   workflow_dispatch:
 permissions:
@@ -14,13 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Verify scanner syntax
-        run: python3 -m py_compile skills/ux-quality-gate/scripts/ux_static_audit.py
+        run: python3 -m py_compile experiments/ux-quality-gate/scripts/ux_static_audit.py
       - name: Test conservative HTML heuristics
-        run: python3 -m unittest discover -s skills/ux-quality-gate/scripts -p 'test_*.py' -v
+        run: python3 -m unittest discover -s experiments/ux-quality-gate/scripts -p 'test_*.py' -v
       - name: Smoke test JSON contract and no certification claim
         run: |
           printf '%s\n' '<html lang="pt-BR"><head><meta name="viewport" content="width=device-width, initial-scale=1"></head><body><main><button>Salvar</button></main></body></html>' > "$RUNNER_TEMP/ux-sample.html"
-          python3 skills/ux-quality-gate/scripts/ux_static_audit.py "$RUNNER_TEMP/ux-sample.html" > "$RUNNER_TEMP/ux-result.json"
+          python3 experiments/ux-quality-gate/scripts/ux_static_audit.py "$RUNNER_TEMP/ux-sample.html" > "$RUNNER_TEMP/ux-result.json"
           python3 - "$RUNNER_TEMP/ux-result.json" <<'PY'
           import json,sys
           data=json.load(open(sys.argv[1],encoding='utf-8'))
