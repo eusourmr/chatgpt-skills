@@ -58,8 +58,9 @@
     "lab_archive_sha256": "b1dc0e841aa9b0f2cdcc0cfb5721d85b5f8152782d30ac3b424058363b88cebd",
     "lab_plugin_source_preflight_found": true,
     "lab_plugin_component_read_back": true,
-    "host_adversarial_retest_passed": false,
-    "host_adversarial_retest_status": "not_run",
-    "note": "Source read-back confirms a changed instruction, not successful human-facing behavior."
+    "host_adversarial_retest_passed": true,
+    "host_adversarial_retest_status": "user_response_reviewed_pass",
+    "note": "Behavioral re-test output passed the warning-first criterion; source read-back confirmed alpha.2 package, but the producing conversation did not provide an independently verified version/tool trace. Earlier TEXT-02 failure is preserved.",
+    "host_adversarial_retest_evidence": "trust/qualification/pilots/text-02r-retest-2026-11-06.json"
   }
 }
