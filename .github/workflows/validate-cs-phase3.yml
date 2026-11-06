@@ -1,0 +1,32 @@
+name: Validate CS Navigator Phase 3 evidence
+on:
+  pull_request:
+    paths:
+      - "trust/qualification/phase3/**"
+      - "scripts/qualify-cs-phase3.py"
+      - "tests/test_cs_phase3.py"
+      - "docs/CS_PHASE3_QUALIFICATION.md"
+      - "docs/CS_ROADMAP_REVIEW_2026-11-06.md"
+      - "ROADMAP.md"
+      - ".github/workflows/validate-cs-phase3.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  consistency:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate source pins, honest pending states and small batch
+        run: python scripts/qualify-cs-phase3.py --check
+      - name: Reject contaminated controls and fabricated receipt consistency
+        run: python -m unittest discover -s tests -p 'test_cs_phase3.py' -v
+      - name: Validate canonical continuity and unchanged draft portfolio
+        run: |
+          python scripts/validate-cs-continuity.py
+          python scripts/qualify-draft-skills.py
+          python scripts/catalog.py --check

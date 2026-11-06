@@ -1,0 +1,9 @@
+{
+  "capture_kind": "tool_result_transcription",
+  "tool": "skills__read",
+  "package": "c21/engineering-investigator-labs",
+  "resource": "skill://plugins_6aee22530eb88191bed0e982d96d1218/engineering-investigator-labs/SKILL.md",
+  "success": true,
+  "source_sha256": "33bf6a6f465db309b443878bed034a65e3e9bab5aba8df12f08ae3f3b77c543c",
+  "limitation": "Manually transcribed from actual tool return in the development conversation. Not a full host transcript, an isolated routing trial, or independently authenticated receipt."
+}
