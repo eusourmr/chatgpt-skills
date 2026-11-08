@@ -6,6 +6,7 @@ on:
       - 'scripts/generate-sophia-index.mjs'
       - 'scripts/validate-sophia-web.mjs'
       - 'scripts/build-sophia-catalog.mjs'
+      - 'scripts/build-sophia-release.py'
       - 'registry/public-capabilities-v1.json'
       - '.github/workflows/validate-sophia-web.yml'
   push:
@@ -15,6 +16,7 @@ on:
       - 'scripts/generate-sophia-index.mjs'
       - 'scripts/validate-sophia-web.mjs'
       - 'scripts/build-sophia-catalog.mjs'
+      - 'scripts/build-sophia-release.py'
       - 'registry/public-capabilities-v1.json'
       - '.github/workflows/validate-sophia-web.yml'
   workflow_dispatch:
@@ -29,6 +31,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -38,8 +42,17 @@ jobs:
         run: node scripts/build-sophia-catalog.mjs --check
       - name: Verificar arquivos estáticos e CSP
         run: node scripts/validate-sophia-web.mjs
+      - name: Conferir pacote de publicação e checksums
+        run: python3 scripts/build-sophia-release.py --check
       - name: Testar busca e roteamento
         run: node --test apps/sophia-web/tests/*.test.mjs
+      - name: Montar ZIP público sem deploy
+        run: python3 scripts/build-sophia-release.py --output dist/SophIA-Web-v1.2.0-Atualizacao.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SophIA-Web-v1.2.0-Atualizacao
+          path: dist/SophIA-Web-v1.2.0-Atualizacao.zip
+          if-no-files-found: error
       - name: Verificar sintaxe JavaScript
         run: |
           node --check apps/sophia-web/assets/router.js

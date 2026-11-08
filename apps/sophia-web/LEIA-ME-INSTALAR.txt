@@ -1,12 +1,14 @@
-SOPHIA 1.1.0 — EXPERIÊNCIA FLUIDA
+SOPHIA 1.2.0 — ATUALIZAÇÃO DO SITE
 
-1. Faça backup de todos os arquivos da 1.0 instalada na HostGator e preserve o .htaccess.
-2. Extraia o ZIP para /beta/ mantendo index.html na raiz; não publique testes nem arquivos internos da curadoria.
-3. Com HTTPS, reabra o PWA para carregar o service worker `sophia-static-v1.1.0-v1`.
-4. Teste sugestão automática curta/equilibrada/aprofundada e escolha manual.
-5. Edite a orientação e mude o estilo: sua edição deve continuar, até tocar em Aplicar mudanças.
-6. Verifique copiar e abrir (dois toques) em iPhone/Android, use modo avião após carregamento e confira cabeçalhos de segurança.
-7. Após CI verde e revisão do PR, envie os mesmos arquivos para a raiz do subdomínio. Verifique atualização e comportamento.
-8. Em caso de regressão, restaure a versão 1.0 e seu SW/cache; não apague preferências locais sem necessidade/consentimento.
+1. Faça backup da pasta da SophIA 1.1.0 no servidor. Preserve .htaccess e configurações da hospedagem.
+2. Extraia o conteúdo do ZIP primeiro em /beta/. index.html deve ficar diretamente nessa pasta, sem outra subpasta.
+3. Teste os exemplos “não consigo configurar meu celular” e “o que é ABNT?”, além de copiar/abrir, edição preservada e modo offline após o primeiro acesso.
+4. Envie os mesmos arquivos à pasta de sophia.meuapoio.com, substituindo os arquivos correspondentes e mantendo .htaccess.
+5. Recarregue a página com internet e reabra o aplicativo instalado. A versão visível passa a SophIA 1.2; o cache é sophia-static-v1.2.0-v1.
+6. Em caso de regressão, restaure o backup 1.1.0 completo, incluindo SW, catálogo e loader. Não misture arquivos de versões diferentes nem apague preferências locais sem necessidade.
 
-A SophIA não instala skills, não usa API paga e não envia pedidos automaticamente.
+O ZIP contém apenas arquivos públicos e checksums. Não inclui testes, curadoria interna ou configuração do servidor.
+Os 54 testes automáticos passaram; não substituem validação em Android/iPhone e navegador real.
+A SophIA prepara orientações, não executa skills e não usa API paga.
+
+CLOUDFLARE: o servidor/CDN estava acrescentando um script externo ausente no pacote. O ZIP não muda essa configuração. Se Web Analytics estiver habilitado, revise/desative a injeção automática para servir somente scripts locais. Não libere o domínio na CSP apenas para remover avisos de bloqueio.

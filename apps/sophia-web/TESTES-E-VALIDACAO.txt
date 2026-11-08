@@ -1,12 +1,11 @@
-SophIA 1.1.0 — RELATÓRIO DE VALIDAÇÃO (20/10/2026)
+SophIA 1.2.0 — VALIDAÇÃO DE DESENVOLVIMENTO (06/11/2026)
 
-1. Testes Node: 46/46 aprovações em execução local (node --test tests/*.test.mjs).
-2. Novos testes: regras determinísticas de formato, pedido curto/extenso, prioridade da escolha manual,
-   preservação de texto editado e aplicação explícita de mudanças; manutenção dos links oficiais em dois toques.
-3. Service Worker: cache sophia-static-v1.1.0-v1 inclui assets/flow-guidance.js e demais módulos.
-4. Manifesto do catálogo e baseline versionados em 1.1.0, SHA-256 conferido.
-5. Revisão de CSP inline e verificações SHA-256 do pacote realizadas localmente.
-6. TENTATIVA de teste no Chromium/Playwright bloqueada por ERR_BLOCKED_BY_ADMINISTRATOR.
-   Não representa sucesso nem fracasso de execução da SophIA em navegador real.
-7. Android e iPhone: o mantenedor validou a cópia/abertura na versão 1.0, não nesta 1.1.
-8. Homologar em /beta/ antes do merge e da publicação; nenhum deploy automático.
+- node scripts/generate-sophia-index.mjs --check: aprovado, origem imutável e insumos conferidos.
+- node scripts/build-sophia-catalog.mjs --check: aprovado, baseline/manifesto/loader consistentes.
+- node scripts/validate-sophia-web.mjs: aprovado, arquivos, CSP e links oficiais.
+- node --test apps/sophia-web/tests/*.test.mjs: 54/54 aprovados em Node v24.22.1.
+- Oito testes novos cobrem pedidos de ajuda com negação, definições nativas, tarefa substantiva após definição, bloqueio prioritário, contratos editoriais e proveniência.
+- O corpus de 116 cenários anteriores é interno ao produto e permaneceu na regressão; não é avaliação humana independente.
+- Os testes editoriais comprovam o conteúdo preparado, não a obediência de ChatGPT/Gemini nem resultado real.
+- Nenhum teste em navegador, aparelho físico, leitor de tela ou implantação desta build foi executado.
+- Catálogo mantém 14 métodos designed/registry_only; nenhum estado foi promovido.

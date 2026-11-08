@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "release": "1.1.0",
-  "catalog_sha256": "ebaa09cda66762ed56e1cf4789a35243ac54067bb6c2f7f2d64b8a366bb71b18",
+  "release": "1.2.0",
+  "catalog_sha256": "67236fa1a79c363d003a974cda9fe13bd08fe2a393a16157aed824589d47a24e",
   "entries": 14,
   "distribution": "same-origin",
   "policy": "approved-templates-only; no auto-activation"

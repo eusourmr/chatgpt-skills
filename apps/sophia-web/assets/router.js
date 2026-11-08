@@ -1,4 +1,4 @@
-// SophIA 0.8 — deterministic, local routing; rules are editorial, NOT a semantic model.
+// SophIA 1.2 — deterministic, local routing; rules are editorial, NOT a semantic model.
 // Public catalog entries are discoverable guidance, never automatically installed skills.
 export function normalize(value) {
   return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -21,6 +21,11 @@ const trivial = [
   /^(ola|oi|bom dia|boa tarde|boa noite|obrigado|obrigada)\W*$/,
   /^(qual e a capital de|quanto e a raiz quadrada de|que horas sao)\b/
 ];
+// A short definition does not need a specialist just because it names a domain.
+// Preserve substantive requests appended to a definition, such as formatting a TCC.
+const simpleDefinition = text =>
+  /^(o que (e|eh|significa)\b|qual (e |eh )?(o significado|a definicao) de\b|defina\b|explique em uma frase\b)/.test(text)
+  && !/\b(e como|e me ajude a|e preciso|mas preciso|alem disso|e quero)\b/.test(text);
 const boundaries = term=>new RegExp('(?:^| )'+normalize(term)+'(?:$| )');
 // High-specificity patterns. They provide a strong signal only for a relevant goal.
 // General verbs (escrever, resolver, aprender, comprar) cannot alone force a skill.
@@ -82,6 +87,9 @@ const negated=(text,phrase)=>{
   const words=text.split(' '),tokens=normalize(phrase).split(' ');
   for(let i=0;i<=words.length-tokens.length;i++){
     if(tokens.every((t,j)=>words[i+j]===t)){
+      const before=words.slice(Math.max(0,i-4),i).join(' ');
+      // "Não consigo configurar" requests help; "não quero configurar" declines it.
+      if(/(?:^| )(?:nao (?:consigo|consegui|sei|entendo)(?: como)?|sem saber(?: como)?)$/.test(before))continue;
       if(words.slice(Math.max(0,i-3),i).some(w=>['nao','nunca','sem'].includes(w)))return true;
     }
   }
@@ -103,7 +111,7 @@ export function route(query,entries) {
   const s=normalize(query);
   if(!s)return {...DIRECT,reason:'Descreva primeiro o que você precisa.'};
   if(classifyRisk(s)==='urgent')return {status:'urgent',options:[],reason:'Pode haver urgência. A SophIA não faz triagem: procure atendimento ou serviço de emergência apropriado.'};
-  if(trivial.some(p=>p.test(s)))return {...DIRECT};
+  if(trivial.some(p=>p.test(s))||simpleDefinition(s))return {...DIRECT};
   const words=s.split(' ').filter(w=>!stopWords.has(w));
   const scored=[];
   for(const entry of entries){
