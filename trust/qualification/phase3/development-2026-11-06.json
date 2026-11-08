@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "base_commit": "df4e7e4470ee12b880dce350a66bfd4c937182dd",
+  "host_routes": {
+    "ROUTE-01": null,
+    "ROUTE-02": null
+  },
+  "route02_development_rehearsal": {
+    "formal_host_gate_passed": false,
+    "skill_source": {
+      "path": "trust/qualification/phase3/evidence/engineering-skill.md",
+      "sha256": "33bf6a6f465db309b443878bed034a65e3e9bab5aba8df12f08ae3f3b77c543c"
+    },
+    "read_receipt": {
+      "path": "trust/qualification/phase3/evidence/specialist-read.json",
+      "sha256": "0bd2c563870399960b861821ecaa9b393a1ed8312fd276d0801ad1ce26257cec"
+    },
+    "analysis": {
+      "path": "trust/qualification/phase3/evidence/route02-analysis.md",
+      "sha256": "d151a43ce51be1479c893bc41defceeafecafe5ff895d3b639ad676ae04931e8"
+    },
+    "runtime": "Node v24.22.1",
+    "test_receipts": [
+      {
+        "command": "node --test --test-reporter=tap experiments/engineering-investigator/eng01/eng01.test.cjs",
+        "inputs": [
+          {
+            "path": "experiments/engineering-investigator/eng01/original.js",
+            "sha256": "5356f3c67931d7c47b5829c02859e4a69fc578a9395bf190f7598ad3587b7916"
+          },
+          {
+            "path": "experiments/engineering-investigator/eng01/corrigido.js",
+            "sha256": "41220d22353f74cf787063abcad542ec019ca48ab038cac91b41542c74d98b10"
+          },
+          {
+            "path": "experiments/engineering-investigator/eng01/eng01.test.cjs",
+            "sha256": "4af15f7752cc6c27468b3c933716d694026607f73b4be8b931987ebcf0a60550"
+          }
+        ],
+        "output": {
+          "path": "trust/qualification/phase3/evidence/route02-corrected.tap",
+          "sha256": "f14081291b84cc6c34ab52fe2642e0d925d61006fb480c7f7786a42933c08f1a"
+        },
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "role": "corrected"
+      },
+      {
+        "command": "HOSPEDAGENS_IMPL=original node --test --test-reporter=tap --test-name-pattern='B vence A atrasada sem mudar estado ou renderizações' experiments/engineering-investigator/eng01/eng01.test.cjs",
+        "inputs": [
+          {
+            "path": "experiments/engineering-investigator/eng01/original.js",
+            "sha256": "5356f3c67931d7c47b5829c02859e4a69fc578a9395bf190f7598ad3587b7916"
+          },
+          {
+            "path": "experiments/engineering-investigator/eng01/corrigido.js",
+            "sha256": "41220d22353f74cf787063abcad542ec019ca48ab038cac91b41542c74d98b10"
+          },
+          {
+            "path": "experiments/engineering-investigator/eng01/eng01.test.cjs",
+            "sha256": "4af15f7752cc6c27468b3c933716d694026607f73b4be8b931987ebcf0a60550"
+          }
+        ],
+        "output": {
+          "path": "trust/qualification/phase3/evidence/route02-original.tap",
+          "sha256": "36e5d4b876eac9897c2ffcadb8bccaad9f7b55c1cef23e85650e1041e8bcee01"
+        },
+        "exit_code": 1,
+        "expected_exit_code": 1,
+        "tests": 1,
+        "pass": 0,
+        "fail": 1,
+        "role": "baseline"
+      }
+    ]
+  },
+  "ab": {
+    "state": "control_unavailable",
+    "reason": "The current host exposes CS Labs/Web skills and Registry tools; no separate host with absent CS capabilities and known matching model configuration is available in this conversation. No comparator was fabricated."
+  },
+  "no_catalog_promotion": true,
+  "no_production_change": true,
+  "no_plugin_mutation": true
+}
