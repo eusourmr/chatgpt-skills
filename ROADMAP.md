@@ -94,3 +94,7 @@ reviewed change is authorized. No public release or universal activation is
 announced by this roadmap. Registry metadata never becomes executable remote
 instructions. Keep least privilege, plain language, reversible changes, no paid
 trust and the stronger multi-lens standard for regenerative-core claims.
+
+## PC-01 — engenharia contextual de prompts (laboratório, 22/11/2026)
+
+Incremento experimental **não integrado ao plugin**: biblioteca pura `runtime/prompt-contract.mjs`, testes unitários `tests/test_prompt_contract.mjs` no comando `npm run validate`, contrato e limites em [documentação PC-01](docs/CS_PROMPT_CONTRACT_AND_UMNOO_BOUNDARY_2026-11-22.md). Gera um envelope determinístico e verificável para solicitação estruturada: `prepared_not_executed`. **Não** faz seleção semântica, leitura de Skills, chamadas MCP ou ações conectadas. Engenharia de prompts continua proposta para qualificação em PC-02/03; F3.1/F3.2 seguem P0 e não foram fechadas por este incremento. **UMNOO / Noem é projeto separado, sem integração ou compartilhamento de dados** até avaliação futura expressamente autorizada.
