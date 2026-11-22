@@ -1,5 +1,16 @@
 name: Validate CS Navigator Web Labs beta.5
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "plugins/cs-navigator-web-labs-beta5/**"
+      - "scripts/build-cs-web-labs-beta5.py"
+      - "tests/test_cs_web_labs_beta5.py"
+      - "runtime/prompt-contract.mjs"
+      - "tests/test_prompt_contract.mjs"
+      - "docs/CS_WEB_BETA5_PROMPT_ENGINEERING_2026-11-22.md"
+      - ".github/workflows/validate-cs-web-beta5.yml"
   pull_request:
     paths:
       - "plugins/cs-navigator-web-labs-beta5/**"
