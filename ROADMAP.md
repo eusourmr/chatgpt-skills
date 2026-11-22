@@ -108,3 +108,7 @@ A versão estável 0.17.0 e a beta.4 são **referências de regressão, não lim
 ## Web Labs beta.6 — curadoria natural (candidata, 22/11/2026)
 
 Correção verificável de três contratos de experiência na beta.5: URI de especialistas deve vir do inventário real (sem nome fixo do plugin Labs portátil); não realizar auditoria de instalação a cada conversa; não exibir relatórios de roteamento em tarefas cotidianas. Nenhuma nova Skill foi adicionada. A engenharia contextual de prompts continua no curador e só entrega prompt copiável quando solicitado. Fonte e testes: [beta.6](docs/CS_WEB_BETA6_NATURAL_USE_2026-11-22.md). O GitHub Actions gera ZIP e checksum; atualização do plugin na conta e homologação no ChatGPT exigem estados próprios. CS Navigator 0.17, beta.4 e beta.5 são marcos de comparação e rollback, não limites imutáveis. UMNOO segue independente.
+
+## 22/11/2026 — instalação da Web Labs beta.6 comprovada
+
+Após o build de CI e merge da PR #136, a beta.6 foi enviada ao **plugin pessoal existente** pelo Plugin Creator e confirmada por leitura posterior da fonte: 14 arquivos, seis Skills e mesma associação ao app Registry. Não confundir este estado com validação de roteamento automático em uma conversa nova. Os oito casos NAT-01 a NAT-08 permanecem pendentes, descritos no [checkpoint do plugin](docs/CS_WEB_BETA6_PLUGIN_ACCOUNT_CHECKPOINT_2026-11-22.md). A proveniência imutável do Registry continua F3.2. O GitHub compila automaticamente, mas ainda não há sincronização comprovadamente automática da instalação pessoal.
