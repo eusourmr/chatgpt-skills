@@ -98,3 +98,9 @@ trust and the stronger multi-lens standard for regenerative-core claims.
 ## PC-01 — engenharia contextual de prompts (laboratório, 22/11/2026)
 
 Incremento experimental **não integrado ao plugin**: biblioteca pura `runtime/prompt-contract.mjs`, testes unitários `tests/test_prompt_contract.mjs` no comando `npm run validate`, contrato e limites em [documentação PC-01](docs/CS_PROMPT_CONTRACT_AND_UMNOO_BOUNDARY_2026-11-22.md). Gera um envelope determinístico e verificável para solicitação estruturada: `prepared_not_executed`. **Não** faz seleção semântica, leitura de Skills, chamadas MCP ou ações conectadas. Engenharia de prompts continua proposta para qualificação em PC-02/03; F3.1/F3.2 seguem P0 e não foram fechadas por este incremento. **UMNOO / Noem é projeto separado, sem integração ou compartilhamento de dados** até avaliação futura expressamente autorizada.
+
+## PC-02 — Web Labs 0.20.0-beta.5 (candidata, 22/11/2026)
+
+A beta.5 acrescenta engenharia contextual de prompts **como método transversal do curador**, sem sétima Skill, mantendo os três modos executar/criar/revisar e preservação da intenção. Fontes em `plugins/cs-navigator-web-labs-beta5/`; geração reproduzível do ZIP no workflow GitHub Actions e documentação em [beta.5](docs/CS_WEB_BETA5_PROMPT_ENGINEERING_2026-11-22.md). **Estados distintos:** fonte versionada, testes de pacote/CI, upload, host carregado e eficácia comprovada. O sucesso de CI não prova os últimos três. F3.1/F3.2 permanecem P0 e os oito cenários PC02 de host ainda exigem avaliação.
+
+A versão estável 0.17.0 e a beta.4 são **referências de regressão, não limites permanentes de evolução**. A meta de atualização é sincronização pelo GitHub quando o host/workspace permitir; sem essa capacidade, manter ZIP versionado, checksum e atualização manual única, sem prometer automatismo. Preservar rollback. UMNOO/Noem permanece sem ponte ou troca de dados até decisão e testes independentes.
