@@ -4,6 +4,13 @@ All notable changes to ChatGPT Skills are documented here.
 
 **Current CS Navigator GitHub release and private ChatGPT plugin: 0.17.0.** Public Plugin Directory availability is still pending. The `chatgpt-skills` npm CLI remains independently versioned at `0.4.0`.
 
+## Web Labs 0.20.0-beta.6 — candidata natural-use — 2026-11-22
+
+- Corrigido o URI fixo incorreto de leitura de especialistas do plugin Web: usar o caminho efetivamente listado no host.
+- Removida a orientação de executar diagnósticos e expor relatórios técnicos em toda nova conversa.
+- Método de engenharia contextual de prompts continua transversal, sem sétima Skill nem ponte UMNOO.
+- Geração reproduzível com testes de regressão; leitura e execução no ChatGPT ainda precisam de homologação.
+
 ## Web Labs 0.20.0-beta.5 — candidata técnica — 2026-11-22
 
 - Método transversal de engenharia contextual de prompts no curador: executar, criar e revisar; abstenção nativa e aviso antes de alterações materiais.
