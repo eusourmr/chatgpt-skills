@@ -1,0 +1,43 @@
+name: Validate CS Navigator Web Labs beta.5
+on:
+  pull_request:
+    paths:
+      - "plugins/cs-navigator-web-labs-beta5/**"
+      - "scripts/build-cs-web-labs-beta5.py"
+      - "tests/test_cs_web_labs_beta5.py"
+      - "runtime/prompt-contract.mjs"
+      - "tests/test_prompt_contract.mjs"
+      - "docs/CS_WEB_BETA5_PROMPT_ENGINEERING_2026-11-22.md"
+      - ".github/workflows/validate-cs-web-beta5.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate PC-01 contract
+        run: node --test tests/test_prompt_contract.mjs
+      - name: Validate beta.5 integrity and regression
+        run: python -m unittest discover -s tests -p 'test_cs_web_labs_beta5.py' -v
+      - name: Build versioned private ZIP
+        run: python scripts/build-cs-web-labs-beta5.py
+      - name: Verify ZIP structure and SHA-256
+        run: |
+          unzip -t dist/cs-navigator-web-labs-0.20.0-beta.5.zip
+          (cd dist && sha256sum -c cs-navigator-web-labs-0.20.0-beta.5.zip.sha256)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cs-navigator-web-labs-0.20.0-beta.5-candidate
+          path: |
+            dist/cs-navigator-web-labs-0.20.0-beta.5.zip
+            dist/cs-navigator-web-labs-0.20.0-beta.5.zip.sha256
+          if-no-files-found: error
