@@ -24,7 +24,7 @@ O `runtime/prompt-contract.mjs` da PC-01 segue disponível como biblioteca estru
 
 ## Distribuição e atualização com mínimo esforço
 
-1. Cada PR da variante executa `Validate CS Navigator Web Labs beta.5`; o workflow monta o ZIP com checksum e o arquiva como artefato versionado.
+1. Cada PR e cada atualização pertinente mesclada à `main` executam `Validate CS Navigator Web Labs beta.5`; o workflow monta automaticamente o ZIP com checksum e o arquiva como artefato versionado. Também é possível dispará-lo manualmente quando necessário.
 2. O administrador revisa integridade, testes e risco antes de incorporar à `main`. A beta.4 continua disponível como rollback.
 3. Em ambiente que suporte **sincronização de marketplaces GitHub**, usar esse caminho após revisão das configurações de organização e da versão do plugin; sincronização nativa precisa ser comprovada no host.
 4. Na conta sem sincronização, baixar o artefato do GitHub e atualizar o plugin privado pelo fluxo de edição suportado. Isso exige uma ação manual; um commit não atualiza a instalação por si só.
