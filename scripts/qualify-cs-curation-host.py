@@ -115,20 +115,26 @@ def validate_dossier(dossier):
         if tcase["expected"]=="native" or tcase["expect_specialist_reads"]==0:
             require(not treated["events"],"Native-first case invoked tools")
         # Verified reads require the exact URI and source hash in a host trace.
+        installed = {p.parent.name:p for p in (WEB_SOURCE/"skills").glob("*/SKILL.md")}
         for event in treated["events"]:
             if event["event"]=="skill_read":
-                require(event.get("success") is True and
-                        event.get("uri") in treated["available_skills"] and
-                        isinstance(event.get("source_sha256"),str) and
-                        len(event["source_sha256"])==64,
-                        "Unverified specialist source read")
+                uri=event.get("uri","")
+                require(isinstance(uri,str) and uri.startswith("skills://plugins/cs-navigator-web-labs/"),
+                        "Unknown plugin skill URI")
+                slug=uri.removeprefix("skills://plugins/cs-navigator-web-labs/").removesuffix("/skill.md")
+                normalized_uri="skills://plugins/cs-navigator-web-labs/"+slug
+                require(slug in installed and (uri in treated["available_skills"] or
+                        normalized_uri in treated["available_skills"]) and
+                        event.get("success") is True and
+                        event.get("source_sha256")==hashlib.sha256(installed[slug].read_bytes()).hexdigest(),
+                        "Specialist read source differs from installed version")
         reviewers=dossier.get("blind_review",{}).get(case_id)
         require(isinstance(reviewers,list) and len(reviewers)>=2,
                 "Two independent blind reviewers required")
-        reviewer_ids=set()
         by_arm={"control":[],"treatment":[]}
         for review in reviewers:
-            reviewer_ids.add(review.get("reviewer_id"))
+            rid=review.get("reviewer_id")
+            require(isinstance(rid,str) and rid.strip(),"Reviewer identity missing")
             require(review.get("arm") in ("control","treatment"),
                     "Blind review arm missing")
             require(review.get("identity_unblinded") is False,
@@ -137,11 +143,12 @@ def validate_dossier(dossier):
             require(set(scores)==RUBRIC_KEYS,"Incomplete reviewer rubric")
             require(all(type(n) is int and 0<=n<=4 for n in scores.values()),
                     "Review scores must be integers 0..4")
-            by_arm[review["arm"]].append(sum(scores.values()))
-        require(len(reviewer_ids)>=2 and
-                all(len(by_arm[k])>=2 for k in by_arm),
-                "At least two independent reviews of EACH arm required")
-        delta=sum(by_arm["treatment"])/len(by_arm["treatment"])-sum(by_arm["control"])/len(by_arm["control"])
+            by_arm[review["arm"]].append((rid,sum(scores.values())))
+        require(all(len({rid for rid,_ in by_arm[arm]})>=2 for arm in by_arm),
+                "At least two DISTINCT independent reviewers per arm required")
+        control_scores=[score for _,score in by_arm["control"]]
+        treatment_scores=[score for _,score in by_arm["treatment"]]
+        delta=sum(treatment_scores)/len(treatment_scores)-sum(control_scores)/len(control_scores)
         differences.append(delta)
         score_summary.append({"case_id":case_id,"score_delta_16_point_scale":delta})
     require(observed_ids==set(lookup),"Not all cases evaluated")
