@@ -8,6 +8,8 @@ on:
       - "tests/test_cs_web_flat_builder.py"
       - "tests/test_cs_curation_host_evidence.py"
       - "registry/publication-manifest-v1.json"
+      - "trust/qualification/registry/live-provenance-checkpoint-2026-11-23.json"
+      - "tests/test_cs_registry_live_checkpoint.py"
       - "mcp/cs-registry-server/**"
       - "trust/qualification/curation/host-protocol-v1.json"
       - ".github/workflows/validate-cs-f3-foundations.yml"
@@ -21,6 +23,8 @@ on:
       - "tests/test_cs_web_flat_builder.py"
       - "tests/test_cs_curation_host_evidence.py"
       - "registry/publication-manifest-v1.json"
+      - "trust/qualification/registry/live-provenance-checkpoint-2026-11-23.json"
+      - "tests/test_cs_registry_live_checkpoint.py"
       - "mcp/cs-registry-server/**"
       - "trust/qualification/curation/host-protocol-v1.json"
       - ".github/workflows/validate-cs-f3-foundations.yml"
@@ -50,6 +54,7 @@ jobs:
         run: |
           python scripts/qualify-cs-curation-host.py --check
           python -m unittest discover -s tests -p 'test_cs_curation_host_evidence.py' -v
+          python -m unittest discover -s tests -p 'test_cs_registry_live_checkpoint.py' -v
       - name: Build from canonical source and compare historical package byte for byte
         run: |
           python -m unittest discover -s tests -p 'test_cs_web_flat_builder.py' -v
