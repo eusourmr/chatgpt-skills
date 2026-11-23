@@ -4,6 +4,13 @@ All notable changes to ChatGPT Skills are documented here.
 
 **Current CS Navigator GitHub release and private ChatGPT plugin: 0.17.0.** Public Plugin Directory availability is still pending. The `chatgpt-skills` npm CLI remains independently versioned at `0.4.0`.
 
+## Web Labs 0.20.0-beta.8 — conhecimento curatorial — 2026-11-23
+
+- Curador agora organiza nove decisões verificáveis de quando usar, quando não usar e como comprovar Skills existentes, derivadas de revisão de fonte com atribuição e da experiência interna.
+- Registro `cs.curatorial-knowledge.v1` e referência humana de decisão em `cs-navigator-labs`; 12 casos de aceitação sintéticos, marcados como não executados no ChatGPT.
+- Corrigidos a versão interna do curador e um caminho/trecho malformado de leitura de Skills no host.
+- Seis Skills preservadas, sem inclusão de código/serviço externo nem integração ao UMNOO. Evidência semântica real e atualização automática continuam não comprovadas.
+
 ## Web Labs 0.20.0-beta.7 — UX e integridade de microcopy — 2026-11-23
 
 - Reavaliação de duas Skills externas, UI UX Pro Max (MIT) e Unslop (CC BY 4.0), com fontes e revisões identificadas.
