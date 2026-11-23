@@ -1,6 +1,6 @@
 # CS Navigator — How to use in ChatGPT, Codex and this repository
 
-> **Personal Web Labs plugin installed (2026-11-23):** [`0.20.0-beta.8`](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218), with six Skills and nine source-reviewed curation rules read back from the stored release. CI/package integrity passed; **fresh-chat semantic routing and outcome benefit remain unverified**. The beta.4 HOST-03R host skill read + Registry invocation is a separate historical baseline. [Audit](CS_AUDIT_AND_POSITIONING_2026-11-23.md).
+> **Personal Web Labs plugin installed (2026-11-23):** [`0.20.0-beta.8`](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218), with six Skills and nine source-reviewed curation rules read back from the stored release. CI/package integrity passed; **fresh-chat semantic routing and outcome benefit remain unverified**. The beta.4 HOST-03R host skill read + Registry invocation is a separate historical baseline. [Audit](CS_AUDIT_AND_POSITIONING_2026-11-23.md). Historical HOST-03R baseline: [`0.20.0-beta.4`](CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
 
 **Operational guidance baseline reviewed 2026-11-06; private Web Labs status refreshed 2026-11-23.** This is an operating guide, not a claim of public availability.
 
