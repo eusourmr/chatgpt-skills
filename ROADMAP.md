@@ -120,3 +120,9 @@ Revisados [UI UX Pro Max e Unslop](docs/CS_UPSTREAM_UX_UNSLOP_2026-11-23.md) con
 ## 23/11/2026 — beta.7 instalada na conta, ativação nova conversa pendente
 
 A beta.7 de UX/Text foi atualizada **no plugin privado pessoal**, e o Plugin Creator releu 17 arquivos incluindo seis Skills e referências. Na mesma conversa, uma leitura via `skills__read` continuou retornando conteúdo antigo, portanto a aplicação imediata da nova fonte pelo host **não foi confirmada**. O [checkpoint beta.7](docs/CS_WEB_BETA7_INSTALL_CHECKPOINT_2026-11-23.md) distingue release armazenada, cache/instantâneo de conversa (hipótese), Skill lida e resultado realmente observado. Prioridade: testar em uma **nova conversa**, mantendo critérios de ativação e comparações intactos.
+
+## 23/11/2026 — Web Labs beta.8: conhecimento curatorial explicitado
+
+O curador recebeu um **ledger próprio de nove regras**, cada uma com escopo, roteamento recomendado, restrições de não ativação, fonte, evidência necessária e estado `source_reviewed_not_host_behavior_validated`, além de **12 casos sintéticos** com resultados não executados no host. O incremento corrige versão declarada e uma instrução de URI malformada, preserva os cinco especialistas, as seis Skills totais e o vínculo do Registry. Ver [relatório e roadmap detalhado](docs/CS_CURATION_KNOWLEDGE_BETA8_2026-11-23.md). A beta.8 é um ganho na governança do conhecimento — não aprendizado neural ou comprovação de roteamento automático.
+
+**Próximas prioridades:** F3.1/CUR08 (executar casos reais e verificar rota), F3.2 (proveniência imutável do Registry), F4.0 (update/rollback na instalação pessoal), F4.1 (remover dependência sequencial dos construtores 5→6→7→8), PC-04 (A/B nativo isolado), CUR09 (composição proporcional), CUR10 (revisão supervisionada por falhas). Não lançar uma sétima Skill para substituir o aprendizado de curadoria; UMNOO permanece separado.

@@ -1,0 +1,54 @@
+name: Validate CS Navigator Web Labs beta.8
+on:
+  pull_request:
+    paths:
+      - "plugins/cs-navigator-web-labs-beta8/**"
+      - "scripts/build-cs-web-labs-beta8.py"
+      - "tests/test_cs_web_labs_beta8.py"
+      - "trust/qualification/curation/cases-beta8.json"
+      - ".github/workflows/validate-cs-web-beta8.yml"
+      - "docs/CS_CURATION_KNOWLEDGE_BETA8_2026-11-23.md"
+      - "ROADMAP.md"
+  push:
+    branches: [main]
+    paths:
+      - "plugins/cs-navigator-web-labs-beta8/**"
+      - "scripts/build-cs-web-labs-beta8.py"
+      - "tests/test_cs_web_labs_beta8.py"
+      - "trust/qualification/curation/cases-beta8.json"
+      - ".github/workflows/validate-cs-web-beta8.yml"
+      - "docs/CS_CURATION_KNOWLEDGE_BETA8_2026-11-23.md"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  knowledge-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate knowledge ledger, negative cases, version and regression
+        run: python -m unittest discover -s tests -p 'test_cs_web_labs_beta8.py' -v
+      - name: Retest beta.7 and PC-01
+        run: |
+          python -m unittest discover -s tests -p 'test_cs_web_labs_beta7.py' -v
+          node --test tests/test_prompt_contract.mjs
+      - name: Build private Web plugin
+        run: python scripts/build-cs-web-labs-beta8.py
+      - name: Verify checksum and ZIP structure
+        run: |
+          unzip -t dist/cs-navigator-web-labs-0.20.0-beta.8.zip
+          (cd dist && sha256sum -c cs-navigator-web-labs-0.20.0-beta.8.zip.sha256)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cs-navigator-web-labs-0.20.0-beta.8-candidate
+          path: |
+            dist/cs-navigator-web-labs-0.20.0-beta.8.zip
+            dist/cs-navigator-web-labs-0.20.0-beta.8.zip.sha256
+          if-no-files-found: error

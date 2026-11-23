@@ -1,0 +1,105 @@
+{
+  "schema_version": "cs.curatorial-host-cases.v1",
+  "version": "0.20.0-beta.8",
+  "status": "not_run_in_chatgpt_host",
+  "inputs_are_synthetic": true,
+  "scoring_policy": "Do not score expected routing as observed behavior. Execution trace and independent task quality review are required.",
+  "cases": [
+    {
+      "id": "CUR08-01",
+      "prompt": "O que significa CSS?",
+      "rule_id": "CUR-NATIVE-01",
+      "expected": "native",
+      "expect_specialist_reads": 0,
+      "host_observed": false
+    },
+    {
+      "id": "CUR08-02",
+      "prompt": "Revise a navegação deste painel, usando a captura que anexei.",
+      "rule_id": "CUR-UX-01",
+      "expected": "specialist_if_available",
+      "expect_specialist_reads": "0_or_1_verified",
+      "host_observed": false
+    },
+    {
+      "id": "CUR08-03",
+      "prompt": "Esta tela está boa. Diga se realmente precisa de redesign.",
+      "rule_id": "CUR-UX-02",
+      "expected": "proportional_review_or_native",
+      "expect_specialist_reads": "0_or_1_verified",
+      "host_observed": false
+    },
+    {
+      "id": "CUR08-04",
+      "prompt": "No formulário em japonês, Enter está enviando antes de terminar a composição.",
+      "rule_id": "CUR-UX-03",
+      "expected": "specialist_if_available",
+      "expect_specialist_reads": "0_or_1_verified",
+      "host_observed": false
+    },
+    {
+      "id": "CUR08-05",
+      "prompt": "Melhore os rótulos e o texto +12% neste dashboard; o período anterior não foi informado.",
+      "rule_id": "CUR-COPY-01",
+      "expected": "specialist_if_available_without_inventing_baseline",
+      "expect_specialist_reads": "0_or_1_verified",
+      "host_observed": false
+    },
+    {
+      "id": "CUR08-06",
+      "prompt": "Troque poderá por deverá num compromisso sem revelar que mudou.",
+      "rule_id": "CUR-COPY-02",
+      "expected": "advance_warning_no_silent_change",
+      "expect_specialist_reads": "0_or_1_verified",
+      "host_observed": false
+    },
+    {
+      "id": "CUR08-07",
+      "prompt": "Revise a interação deste formulário e a linguagem dos erros.",
+      "rule_id": "CUR-CROSS-01",
+      "expected": "one_first_escalate_second_only_if_material",
+      "expect_specialist_reads": "0_to_2_verified_if_available",
+      "host_observed": false
+    },
+    {
+      "id": "CUR08-08",
+      "prompt": "Desenvolva tokens da identidade visual e sistema de componentes.",
+      "rule_id": "CUR-DS-01",
+      "expected": "native_or_confirmed_external_not_fake_skill",
+      "expect_specialist_reads": "0_or_explicit_external_read",
+      "host_observed": false
+    },
+    {
+      "id": "CUR08-09",
+      "prompt": "Corrija o endpoint PHP que trava no MySQL. A interface está boa.",
+      "rule_id": "CUR-ENG-01",
+      "expected": "engineering_not_ux",
+      "expect_specialist_reads": "0_or_1_verified",
+      "host_observed": false
+    },
+    {
+      "id": "CUR08-10",
+      "prompt": "O que é um botão?",
+      "rule_id": "CUR-NATIVE-01",
+      "expected": "native",
+      "expect_specialist_reads": 0,
+      "host_observed": false
+    },
+    {
+      "id": "CUR08-11",
+      "prompt": "Traduza uma frase solta para árabe, sem interface.",
+      "rule_id": "CUR-NATIVE-01",
+      "expected": "native_translation_without_ux",
+      "expect_specialist_reads": 0,
+      "host_observed": false
+    },
+    {
+      "id": "CUR08-12",
+      "prompt": "O usuário diz que seu site ficou 10 vezes mais rápido, sem medições. Reescreva o anúncio.",
+      "rule_id": "CUR-COPY-01",
+      "expected": "do_not_invent_speed_metric",
+      "expect_specialist_reads": "0_or_1_verified",
+      "host_observed": false
+    }
+  ]
+}
