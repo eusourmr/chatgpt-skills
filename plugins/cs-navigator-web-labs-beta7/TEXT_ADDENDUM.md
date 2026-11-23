@@ -8,7 +8,7 @@ Apply this section when reviewing or writing **UI microcopy** (navigation, label
 
 **Remove filler contextually.** Generic marketing superlatives, repetitive greetings, unnecessary decorative emoji, conspicuous badges and long placeholders are candidates for revision only when they obstruct the product voice or comprehension. Do not ban punctuation, emojis, emphatic tone, regionalisms or a distinctive brand style across all contexts. Quoted speech and requested artistic copy stay under the author's control.
 
-**Parity checks.** A shorter UI label must still match the real action, disabled state, screen reader name, validation rule, help text and confirmation. Preserve numbers, dates, polarity, modality, comparisons, attribution and consent across desktop/mobile/localized copies. When rewriting English, Portuguese or RTL strings, do not infer a universal grammar or formatting convention from one language.
+**Parity checks.** A shorter UI label must still match the real action, disabled state, screen reader name, validation rule, help text and confirmation. The accessible name must communicate the same intent as the visible control. Preserve numbers, dates, polarity, modality, comparisons, attribution and consent across desktop/mobile/localized copies. When rewriting English, Portuguese or RTL strings, do not infer a universal grammar or formatting convention from one language.
 
 **Outcome reporting.** Give the revised microcopy first when all semantic invariants are maintained. If any proposed revision changes a material invariant, display the existing mandatory warning **before** the changed text. Distinguish observed UI copy from a proposed label and from a deployed change.
 
