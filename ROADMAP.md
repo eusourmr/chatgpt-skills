@@ -1,6 +1,6 @@
 # CS Navigator — active roadmap
 
-Reviewed on **2026-11-06**, starting from `main` at `df4e7e4` (merged PR #130).
+Phase 3 baseline reviewed on **2026-11-06**, starting from `main` at `df4e7e4` (merged PR #130). Current installation and curation checkpoint verified on **2026-11-23**; retain the earlier baseline as history.
 This page is the forward plan. The previous release-by-release roadmap is
 preserved in [the historical archive](docs/archive/ROADMAP_PRE_PHASE3_2026-11-06.md).
 Read the [maturity review in Portuguese](docs/CS_ROADMAP_REVIEW_2026-11-06.md),
@@ -14,12 +14,15 @@ a relevant available specialist, or a permitted connected workflow. Curation mus
 earn its additional steps. Catalog size, skill activation and version count are
 not measures of user benefit.
 
+Product positioning: **"CS Navigator é o canivete suíço para quem quer usar o ChatGPT ao máximo."** This describes a governed **curation/orchestration goal**, not universal plugin availability, guaranteed invocation or trained autonomous intelligence.
+
 ## Baseline: established and still unknown
 
 | Component | Established | Not established |
 | --- | --- | --- |
 | Production `0.17.0` | Preserved GitHub production line | Public Directory approval or activation in every conversation |
 | Private Web Labs `0.20.0-beta.4` | HOST-03R passed: six skills exposed, curator read, Registry called in the same session | Universal activation, effective routing or advantage over native ChatGPT |
+| Private Web Labs `0.20.0-beta.8` | **Installed in personal account, source reread:** six Skills and nine rules; package CI passed | Automatic activation/skill selection in a fresh chat, independent outcomes and A/B advantage |
 | Original Labs `0.20.0-beta.3` | Historical comparison/rollback reference | A reason to reopen the completed Web connection investigation |
 | Registry | 63 source entries, 61 distributable; read-only metadata | Installation or execution of those 61 capabilities; immutable publication provenance (`development` remains) |
 | Quality catalog | 79 items including 48 drafts; separate editorial catalog has 80 entries | Individual qualification of the 48 drafts |
@@ -126,3 +129,7 @@ A beta.7 de UX/Text foi atualizada **no plugin privado pessoal**, e o Plugin Cre
 O curador recebeu um **ledger próprio de nove regras**, cada uma com escopo, roteamento recomendado, restrições de não ativação, fonte, evidência necessária e estado `source_reviewed_not_host_behavior_validated`, além de **12 casos sintéticos** com resultados não executados no host. O incremento corrige versão declarada e uma instrução de URI malformada, preserva os cinco especialistas, as seis Skills totais e o vínculo do Registry. Ver [relatório e roadmap detalhado](docs/CS_CURATION_KNOWLEDGE_BETA8_2026-11-23.md). A beta.8 é um ganho na governança do conhecimento — não aprendizado neural ou comprovação de roteamento automático.
 
 **Próximas prioridades:** F3.1/CUR08 (executar casos reais e verificar rota), F3.2 (proveniência imutável do Registry), F4.0 (update/rollback na instalação pessoal), F4.1 (remover dependência sequencial dos construtores 5→6→7→8), PC-04 (A/B nativo isolado), CUR09 (composição proporcional), CUR10 (revisão supervisionada por falhas). Não lançar uma sétima Skill para substituir o aprendizado de curadoria; UMNOO permanece separado.
+
+## 23/11/2026 — auditoria de apresentação e instalação
+
+O [registro de auditoria](docs/CS_AUDIT_AND_POSITIONING_2026-11-23.md) sincroniza as páginas README/Getting Started com a versão realmente instalada **0.20.0-beta.8**, mantém 0.17 como produção histórica e a beta.4 como evidência HOST-03R. GitHub Actions, plugin armazenado e Registry foram inspecionados separadamente. Ainda faltam proveniência imutável do Registry (F3.2), homologação de roteamento em conversa nova (F3.1/CUR08), testes A/B e canal de atualização automática do plugin pessoal. Não confundir integridade de pacote com eficácia demonstrada.
