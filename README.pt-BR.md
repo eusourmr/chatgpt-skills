@@ -17,7 +17,7 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 **Release atual no GitHub:** **CS Navigator 0.17.0 — Learning & Academic Mastery**.
 
-**Web Labs `0.20.0-beta.8` instalada na conta (23/11/2026):** [Abrir plugin privado](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218). A nova versão foi lida de volta na fonte da instalação: **seis Skills** e **nove regras de conhecimento curatorial**. O GitHub Actions validou o pacote; porém, **roteamento automático e ganhos reais em novas conversas ainda precisam de homologação**. O ensaio anterior da beta.4 (HOST-03R) comprovou a leitura do curador e a consulta ao Registry na mesma sessão, mas não valida automaticamente a beta.8. [Auditoria e estado atual](docs/CS_AUDIT_AND_POSITIONING_2026-11-23.md).
+**Web Labs `0.20.0-beta.8` instalada na conta (23/11/2026):** [Abrir plugin privado](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218). A nova versão foi lida de volta na fonte da instalação: **seis Skills** e **nove regras de conhecimento curatorial**. O GitHub Actions validou o pacote; porém, **roteamento automático e ganhos reais em novas conversas ainda precisam de homologação**. O ensaio anterior da beta.4 (HOST-03R) comprovou a leitura do curador e a consulta ao Registry na mesma sessão, mas não valida automaticamente a beta.8. [Auditoria e estado atual](docs/CS_AUDIT_AND_POSITIONING_2026-11-23.md). Evidência histórica HOST-03R da [`0.20.0-beta.4`](docs/CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
 
 A arquitetura **0.16 Evergreen Core & Live Registry** foi incorporada à 0.17, sem release pública independente da 0.16.
 
