@@ -116,3 +116,7 @@ Após o build de CI e merge da PR #136, a beta.6 foi enviada ao **plugin pessoal
 ## 23/11/2026 — beta.7: avaliação visual e integridade de microcopy
 
 Revisados [UI UX Pro Max e Unslop](docs/CS_UPSTREAM_UX_UNSLOP_2026-11-23.md) contra nossas Skills já instaladas. A beta.7 evolui `ux-quality-gate-labs` e `text-integrity-labs` com intervenções proporcionais, direção fundada no produto, correção por estados/etapas, UI copy com baseline e fonte, cuidados web/native/RTL/IME e atribuição das licenças MIT/CC BY 4.0. São apenas duas Skills alteradas, **seis mantidas**. Sem código externo ou sétima Skill. Geração do ZIP versionado e regressões em CI; atualização do plugin pessoal e testes semânticos de host são marcos distintos. O UMNOO/Noem permanece isolado.
+
+## 23/11/2026 — beta.7 instalada na conta, ativação nova conversa pendente
+
+A beta.7 de UX/Text foi atualizada **no plugin privado pessoal**, e o Plugin Creator releu 17 arquivos incluindo seis Skills e referências. Na mesma conversa, uma leitura via `skills__read` continuou retornando conteúdo antigo, portanto a aplicação imediata da nova fonte pelo host **não foi confirmada**. O [checkpoint beta.7](docs/CS_WEB_BETA7_INSTALL_CHECKPOINT_2026-11-23.md) distingue release armazenada, cache/instantâneo de conversa (hipótese), Skill lida e resultado realmente observado. Prioridade: testar em uma **nova conversa**, mantendo critérios de ativação e comparações intactos.
