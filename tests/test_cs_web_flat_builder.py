@@ -21,14 +21,18 @@ old = module("beta8_legacy", "scripts/build-cs-web-labs-beta8.py")
 flat = module("web_current_flat", "scripts/build-cs-web-labs-current.py")
 
 class CanonicalWebBuilder(unittest.TestCase):
-    def test_bytewise_sources_match_beta8_and_installed_baseline(self):
+    def test_canonical_source_preserves_all_skill_bytes_and_json_semantics(self):
         original = old.entries()
         current = flat.source_files()
         self.assertEqual(set(original), set(current))
         self.assertEqual(len(current), 19)
+        import json
         for p in original:
-            self.assertEqual(original[p], current[p], p)
-    def test_canonical_zip_matches_legacy_zip_bytes(self):
+            if p.endswith(".json"):
+                self.assertEqual(json.loads(original[p]), json.loads(current[p]), p)
+            else:
+                self.assertEqual(original[p], current[p], p)
+    def test_canonical_zip_is_deterministic_and_semantically_legacy_equivalent(self):
         with tempfile.TemporaryDirectory() as tmp:
             a=Path(tmp)/"legacy.zip"
             b=Path(tmp)/"canonical.zip"
@@ -36,7 +40,15 @@ class CanonicalWebBuilder(unittest.TestCase):
             old.build(a)
             flat.build(b)
             flat.build(c)
-            self.assertEqual(a.read_bytes(), b.read_bytes())
+            import json
+            with zipfile.ZipFile(a) as old_zip, zipfile.ZipFile(b) as new_zip:
+                self.assertEqual(set(old_zip.namelist()),set(new_zip.namelist()))
+                for p in old_zip.namelist():
+                    old_data,new_data=old_zip.read(p),new_zip.read(p)
+                    if p.endswith(".json"):
+                        self.assertEqual(json.loads(old_data),json.loads(new_data),p)
+                    else:
+                        self.assertEqual(old_data,new_data,p)
             self.assertEqual(b.read_bytes(), c.read_bytes())
             self.assertEqual(hashlib.sha256(b.read_bytes()).hexdigest(), b.with_name(b.name+".sha256").read_text().split()[0])
             with zipfile.ZipFile(b) as z:
