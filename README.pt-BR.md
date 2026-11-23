@@ -5,6 +5,8 @@
 [![npm](https://img.shields.io/npm/v/chatgpt-skills.svg)](https://www.npmjs.com/package/chatgpt-skills)
 [![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-blue.svg)](LICENSE)
 
+**CS Navigator é o canivete suíço para quem quer usar o ChatGPT ao máximo.** Sua curadoria procura o caminho mais útil entre respostas nativas, Skills realmente disponíveis e ferramentas conectadas com autorização — sem exigir que a pessoa domine engenharia de prompts. O catálogo é um mapa de possibilidades, não a promessa de que todas já estão instaladas ou ativadas.
+
 Um diretório selecionado e conferido de skills reutilizáveis e plugins orientados por skills para ChatGPT e Codex, com um núcleo regenerativo auditável.
 
 [English](README.md) · [Primeiros Passos](docs/GETTING_STARTED.pt-BR.md)
@@ -15,11 +17,11 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 **Release atual no GitHub:** **CS Navigator 0.17.0 — Learning & Academic Mastery**.
 
-**Beta privada com integração técnica validada na web (06/11/2026):** [CS Navigator Labs Web `0.20.0-beta.4`](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218). O host expôs as **seis skills**, leu `cs-navigator-labs/SKILL.md` e executou `registry_status` na mesma conversa. **Isso não é publicação no Diretório OpenAI, roteamento automático entre chats nem qualificação das 48 skills em rascunho.** [Estado completo e passagem de continuidade](docs/CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
+**Web Labs `0.20.0-beta.8` instalada na conta (23/11/2026):** [Abrir plugin privado](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218). A nova versão foi lida de volta na fonte da instalação: **seis Skills** e **nove regras de conhecimento curatorial**. O GitHub Actions validou o pacote; porém, **roteamento automático e ganhos reais em novas conversas ainda precisam de homologação**. O ensaio anterior da beta.4 (HOST-03R) comprovou a leitura do curador e a consulta ao Registry na mesma sessão, mas não valida automaticamente a beta.8. [Auditoria e estado atual](docs/CS_AUDIT_AND_POSITIONING_2026-11-23.md).
 
 A arquitetura **0.16 Evergreen Core & Live Registry** foi incorporada à 0.17, sem release pública independente da 0.16.
 
-A release GitHub 0.17.0 **não equivale à publicação no Diretório de Plugins do ChatGPT**. A inspeção do backend da conta identificou um plugin privado registrado como **0.17.0**, mas isso não prova que esteja instalado, selecionável ou ativo na conversa. A linha 0.18 RC3 passou nos testes MCP em CI, mas não foi homologada no ChatGPT. O status de publicação pública exige verificação atual do portal.
+A release GitHub 0.17.0 **não equivale à publicação no Diretório de Plugins do ChatGPT**. Um registro privado histórico **0.17.0** foi observado separadamente. A instalação pessoal Web Labs **0.20.0-beta.8** foi confirmada por inspeção da fonte, mas a ativação automática em conversas novas continua sem comprovação. A linha 0.18 RC3 passou nos testes MCP em CI, mas não foi homologada no ChatGPT. O status de publicação pública exige verificação atual do portal.
 
 As novas capacidades `learning-mastery-coach` e `academic-writing-navigator` estão no registry em estado **designed**, não **tested**. O núcleo distribuído contém seis skills; o registry fornece metadados limitados, sem execução automática de arquivos arbitrários do GitHub. As exclusões de saúde continuam obrigatórias.
 
@@ -39,6 +41,7 @@ A experiência pretendida é simples:
 **Limite de persistência:** uma frase em uma conversa não prova ativação em todas as conversas futuras. Só podemos afirmar persistência entre chats quando o produto hospedeiro oferecer e confirmar esse mecanismo.
 
 Linhas de versão:
+- plugin pessoal ChatGPT Web Labs: **0.20.0-beta.8 instalada e fonte conferida**, seis Skills; resultados de roteamento em novas conversas pendentes
 - publicação no portal OpenAI: **sem confirmação atual de aprovação**
 - release GitHub da linha estável: **0.17.0**; plugin privado registrado na conta, mas não comprovadamente ativado nesta sessão
 - 0.18 RC3: **MCP qualificado em CI; ChatGPT host ainda pendente**
