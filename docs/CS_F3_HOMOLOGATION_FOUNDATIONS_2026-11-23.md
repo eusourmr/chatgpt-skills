@@ -8,7 +8,7 @@
 | --- | --- | --- |
 | F3.1/CUR08 — roteamento do ChatGPT | Inventário e leitura do curador beta.8 observados nesta sessão; 12 casos e validador de receipts com isolamento, zero chamadas em casos triviais e rastros exigidos | **Não há 12 execuções independentes em novas conversas**, nem prova automática de seleção. Não homologar esse portão |
 | F3.2 — proveniência do Registry | Manifesto de conteúdo com **commit Git imutável** e hash Git blob; servidor valida bytes efetivos antes de divulgar hash ou expor capacidades; mismatch bloqueia metadados não verificados | É necessário confirmar o deployment do novo servidor e `registry_status` ao vivo. Commit fixado prova identidade do snapshot, **não** a autoria/data exata de publicação original |
-| F4.1 — builds | Fonte canônica `plugins/cs-navigator-web-labs-current/`, 19 arquivos da beta.8 instalada; único construtor sem dependência de builders 5→6→7→8; testes exigem igualdade de bytes com histórico | A instalação pessoal **não sincroniza automaticamente** com GitHub; atualização e rollback de conta são operações próprias |
+| F4.1 — builds | Fonte canônica `plugins/cs-navigator-web-labs-current/`, 19 arquivos da beta.8 instalada; único construtor sem dependência de builders 5→6→7→8; testes exigem equivalência de conteúdo (Skills e referências byte a byte, JSON por estrutura) com o histórico | A instalação pessoal **não sincroniza automaticamente** com GitHub; atualização e rollback de conta são operações próprias |
 | PC-04 — benefício contra nativo | Protocolo A/B pré-fixado, 12 pares, modelo/configuração equivalentes, ambientes isolados, rastros, revisão cega com duas pessoas por braço, score 0–4 | Não existe comparação independente executada; sem dados, não há ganho mensurado nem homologação causal |
 
 ## Estado observado em ChatGPT nesta sessão
@@ -27,7 +27,7 @@ Esse manifesto é governado pelo GitHub e continua revisável por PR; a verifica
 
 O conteúdo do plugin instalado na conta foi recuperado por `Plugin Creator` e gravado como fonte de release sob `plugins/cs-navigator-web-labs-current/`. O construtor `scripts/build-cs-web-labs-current.py` exige seis Skills, app Registry preservado, manifesto consistente, mesmas hashes de instruções e `candidate_host_accepted=false`, e gera ZIP determinístico, SHA-256 e versão do próprio manifesto.
 
-`tests/test_cs_web_flat_builder.py` exige **igualdade byte a byte** entre cada arquivo da nova fonte e os `entries()` do builder histórico beta.8, mais igualdade do ZIP final e resistência a manipulação. Não se deve apagar os construtores antigos até concluir os testes de rollback.
+`tests/test_cs_web_flat_builder.py` exige **igualdade exata dos arquivos de Skills e referências, equivalência semântica dos manifestos JSON** entre cada arquivo da nova fonte e os `entries()` do builder histórico beta.8, mais reprodutibilidade byte a byte entre dois builds novos e resistência a manipulação. Não se deve apagar os construtores antigos até concluir os testes de rollback.
 
 ## Protocolo CUR08 / PC-04
 
