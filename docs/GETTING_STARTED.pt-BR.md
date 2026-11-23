@@ -4,7 +4,7 @@
 
 ## Comece pelo problema, não pela pasta
 
-> **Web Labs privada instalada (23/11/2026):** [`0.20.0-beta.8`](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218), com seis Skills e nove regras curatoriais conferidas na fonte armazenada. CI e pacote aprovados; **roteamento automático em conversa nova e benefício real ainda não homologados**. O teste beta.4 HOST-03R continua como evidência histórica de leitura e chamada ao Registry. [Auditoria atual](CS_AUDIT_AND_POSITIONING_2026-11-23.md).
+> **Web Labs privada instalada (23/11/2026):** [`0.20.0-beta.8`](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218), com seis Skills e nove regras curatoriais conferidas na fonte armazenada. CI e pacote aprovados; **roteamento automático em conversa nova e benefício real ainda não homologados**. O teste beta.4 HOST-03R continua como evidência histórica de leitura e chamada ao Registry. [Auditoria atual](CS_AUDIT_AND_POSITIONING_2026-11-23.md). Marco histórico HOST-03R: [`0.20.0-beta.4`](CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
 
 - Para uma tarefa simples, use o ChatGPT normalmente. **Não é necessário instalar uma skill** para perguntar, escrever, criar ou analisar com os recursos nativos.
 - Para um workflow reutilizável, verifique se há uma skill **disponibilizada pela interface** ou um plugin que realmente a contenha. Use o seletor `@` quando ele aparecer ou siga a invocação suportada pelo seu host.
