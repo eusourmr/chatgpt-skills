@@ -4,6 +4,7 @@ import { createMcpHandler, McpServer } from "@modelcontextprotocol/server";
 import * as z from "zod/v4";
 import { assessCapabilityFulfillment, decideFulfillmentPath, isExperimentalDeliveryToolEnabled } from "./fulfillment.js";
 import { parseCuratedCatalog, curateGoal, type CuratedCatalog } from "./curator.js";
+import { verifyPublication } from "./provenance.js";
 
 const PORT = Number(process.env.PORT || 3000);
 const REGISTRY_URL =
@@ -11,6 +12,8 @@ const REGISTRY_URL =
   "https://raw.githubusercontent.com/eusourmr/chatgpt-skills/main/registry/public-capabilities-v1.json";
 
 const CACHE_TTL_MS = Number(process.env.CS_REGISTRY_CACHE_MS || 60_000);
+const PROVENANCE_URL = process.env.CS_REGISTRY_PROVENANCE_URL ||
+  "https://raw.githubusercontent.com/eusourmr/chatgpt-skills/main/registry/publication-manifest-v1.json";
 
 type Capability = {
   id: string;
@@ -31,6 +34,12 @@ type Registry = {
   product: string;
   published_at?: string;
   source_commit?: string;
+  source_git_blob_sha1?: string;
+  provenance_state?: string;
+  raw_source_commit?: string;
+  original_publication_commit_verified?: boolean;
+  pinned_source_url?: string;
+  source_snapshot_reviewed_date?: string;
   entries: Capability[];
 };
 
@@ -71,7 +80,18 @@ async function loadRegistry(): Promise<Registry> {
     });
     if (!response.ok) throw new Error(`Registry fetch failed: HTTP ${response.status}`);
 
-    const raw = (await response.json()) as Record<string, unknown>;
+    const registryText = await response.text();
+    const publication = await fetch(PROVENANCE_URL, {
+      headers: { "user-agent": "cs-navigator-registry-provenance/1.0" },
+      signal: controller.signal,
+    });
+    if (!publication.ok) throw new Error("Registry publication manifest unavailable");
+    const provenance = verifyPublication(
+      registryText,
+      await publication.json(),
+      REGISTRY_URL,
+    );
+    const raw = JSON.parse(registryText) as Record<string, unknown>;
     const entries = Array.isArray(raw.entries)
       ? raw.entries.map(sanitizeCapability).filter((x): x is Capability => Boolean(x))
       : [];
@@ -80,7 +100,13 @@ async function loadRegistry(): Promise<Registry> {
       schema_version: typeof raw.schema_version === "number" ? raw.schema_version : 1,
       product: typeof raw.product === "string" ? raw.product.slice(0, 120) : "CS Navigator",
       published_at: typeof raw.published_at === "string" ? raw.published_at.slice(0, 64) : undefined,
-      source_commit: typeof raw.source_commit === "string" ? raw.source_commit.slice(0, 64) : undefined,
+      source_commit: provenance.verified_source_commit,
+      source_git_blob_sha1: provenance.source_blob_sha1,
+      provenance_state: provenance.provenance_state,
+      raw_source_commit: provenance.raw_source_commit,
+      original_publication_commit_verified: provenance.original_publication_commit_verified,
+      pinned_source_url: provenance.pinned_source_url,
+      source_snapshot_reviewed_date: provenance.source_snapshot_reviewed_date,
       entries: entries.filter((x) => x.distribution_state !== "excluded"),
     };
     cached = { at: Date.now(), value: registry };
@@ -153,7 +179,7 @@ const handler = createMcpHandler(() => {
         .map((x) => x.capability);
 
       return asText({
-        registry: { published_at: registry.published_at, source_commit: registry.source_commit },
+        registry: { published_at: registry.published_at, source_commit: registry.source_commit, source_git_blob_sha1: registry.source_git_blob_sha1, provenance_state: registry.provenance_state, original_publication_commit_verified: registry.original_publication_commit_verified },
         results: rows,
       });
     },
@@ -171,7 +197,7 @@ const handler = createMcpHandler(() => {
       const registry = await loadRegistry();
       const capability = registry.entries.find((x) => x.id === id);
       if (!capability) return asText({ found: false, id });
-      return asText({ found: true, capability, registry: { published_at: registry.published_at, source_commit: registry.source_commit } });
+      return asText({ found: true, capability, registry: { published_at: registry.published_at, source_commit: registry.source_commit, source_git_blob_sha1: registry.source_git_blob_sha1, provenance_state: registry.provenance_state, original_publication_commit_verified: registry.original_publication_commit_verified } });
     },
   );
 
@@ -217,6 +243,12 @@ const handler = createMcpHandler(() => {
         schema_version: registry.schema_version,
         published_at: registry.published_at,
         source_commit: registry.source_commit,
+        source_git_blob_sha1: registry.source_git_blob_sha1,
+        raw_source_commit: registry.raw_source_commit,
+        provenance_state: registry.provenance_state,
+        original_publication_commit_verified: registry.original_publication_commit_verified,
+        pinned_source_url: registry.pinned_source_url,
+        source_snapshot_reviewed_date: registry.source_snapshot_reviewed_date,
         capability_count: registry.entries.length,
         source: REGISTRY_URL,
       });

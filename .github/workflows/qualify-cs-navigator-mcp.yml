@@ -29,8 +29,17 @@ jobs:
         working-directory: mcp/cs-registry-server
         env:
           CS_ENABLE_EXPERIMENTAL_DELIVERY_TOOL: "true"
+          CS_REGISTRY_PROVENANCE_URL: "http://127.0.0.1:8001/registry/publication-manifest-v1.json"
           PORT: "3000"
         run: |
+          # PR-only fixture: use the manifest from the checked-out source, not from mutable main.
+          python3 -m http.server 8001 --bind 127.0.0.1 --directory "$GITHUB_WORKSPACE" > "$RUNNER_TEMP/cs-registry-fixture.log" 2>&1 &
+          echo $! > "$RUNNER_TEMP/cs-registry-fixture.pid"
+          for i in $(seq 1 20); do
+            if curl -fsS http://127.0.0.1:8001/registry/publication-manifest-v1.json >/dev/null; then break; fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:8001/registry/publication-manifest-v1.json >/dev/null
           npm start > "$RUNNER_TEMP/cs-mcp.log" 2>&1 &
           echo $! > "$RUNNER_TEMP/cs-mcp.pid"
           for i in $(seq 1 30); do
@@ -45,3 +54,4 @@ jobs:
         if: always()
         run: |
           if [ -f "$RUNNER_TEMP/cs-mcp.pid" ]; then kill "$(cat "$RUNNER_TEMP/cs-mcp.pid")" || true; fi
+          if [ -f "$RUNNER_TEMP/cs-registry-fixture.pid" ]; then kill "$(cat "$RUNNER_TEMP/cs-registry-fixture.pid")" || true; fi
