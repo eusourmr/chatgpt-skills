@@ -59,3 +59,11 @@ O validador informa no máximo `structurally_consistent_pending_independent_host
 - O UMNOO/Noem segue isolado, sem ponte ou transmissão de memórias/dados.
 
 **Posicionamento:** CS Navigator é o canivete suíço para quem quer usar o ChatGPT ao máximo; o objetivo é tornar cada capacidade útil sem obrigar o usuário a conhecer o mecanismo. A marca não substitui provas de funcionamento.
+
+## Atualização operacional observada — produção em 23/11/2026
+
+Após a integração da PR #142, o serviço MCP real `registry_status` respondeu com `source_commit=946723c75683021ab5e733e83c08aa44522f540d`, `source_git_blob_sha1=96128c4ef9bbc09415e01c09d6e7aa64bb115877`, `raw_source_commit=development`, `provenance_state=snapshot_content_verified_original_publication_unknown`, `original_publication_commit_verified=false`, `capability_count=61` e a data original preservada `published_at=2026-10-11`. Uma busca real retornou metadados com essa proveniência; `get_capability(medical-appointment-prep)` manteve `found=false`; `get_evidence(academic-writing-navigator)` continuou com estado `designed`. Evidência registrada em [checkpoint do Registry](../trust/qualification/registry/live-provenance-checkpoint-2026-11-23.json).
+
+**F3.2 — conteúdo publicado e rastreabilidade do snapshot: verificado no serviço em produção.** A identidade da publicação original de 11/10 segue desconhecida e explicitamente não comprovada. O teste de mutação em ambiente controlado demonstrou falha fechada; não foi feito ataque contra produção.
+
+**F3.1 e PC-04 — não homologados:** os 12 casos não foram executados em conversas novas com controle isolado. A implementação do validador/protocolo é real, mas não substitui a coleta de evidências. **F4.1 — build canônico aprovado em CI**; instalação automática da conta continua pendente.
