@@ -1,8 +1,6 @@
 # ChatGPT Skills
 
 <img width="1774" height="887" alt="banner" src="https://github.com/user-attachments/assets/108b98b3-1c3d-4cc1-8daa-a71abf0debf9" />
-</br>
-</br>
 
 [![Validate catalog](https://github.com/eusourmr/chatgpt-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/eusourmr/chatgpt-skills/actions/workflows/validate.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -11,7 +9,9 @@
 [![npm](https://img.shields.io/npm/v/chatgpt-skills.svg)](https://www.npmjs.com/package/chatgpt-skills)
 [![Standard](https://img.shields.io/badge/Agent%20Skills-agentskills.io-6f42c1.svg)](https://agentskills.io/)
 
-> **Private CS Navigator Web Beta (06 Nov 2026):** [CS Navigator Labs Web `0.20.0-beta.4`](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218) passed a **host-level integration test**: the curator skill was actually read and the CS Registry MCP `registry_status` actually called in the same ChatGPT session. This is **not** a public Plugin Directory release, proof of universal auto-routing, or qualification of 48 draft skills. The stable GitHub CS Navigator line remains `0.17.0`. [Audited state and handoff](docs/CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
+> **CS Navigator é o canivete suíço para quem quer usar o ChatGPT ao máximo.** A practical curation layer that selects the smallest useful path between native ChatGPT, available specialist Skills and authorized connected tools. It does not magically install every capability in the catalog or activate tools without host permission.
+
+> **Private CS Navigator Labs Web — verified 23 Nov 2026:** [`0.20.0-beta.8`](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218) is **installed in the personal ChatGPT account**; its stored release was read back with **six Skills and nine versioned curation rules**. Its package and repository CI passed, but **automatic skill routing and task-quality gains in fresh conversations have not been established**. The earlier **beta.4 HOST-03R** same-session skill read and Registry call remain historical evidence, not a beta.8 behavioral result. The stable GitHub CS Navigator line remains `0.17.0`. [Current audit and evidence](docs/CS_AUDIT_AND_POSITIONING_2026-11-23.md). Historical HOST-03R reference: [`0.20.0-beta.4`](docs/CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
 
 **The curated skills catalog for the OpenAI ecosystem.** Unlike a flat community list, entries here are source-checked, categorized by use case, mapped to the open Agent Skills format, and separated by provenance: OpenAI-published, independently verified, or community-authored.
 
@@ -48,7 +48,7 @@ The quality catalog tracks **79 items** (`catalog.json`); the editorial catalog 
 
 **Current GitHub release: CS Navigator 0.17.0 — Learning & Academic Mastery.** The 0.16.0 Evergreen Core & Live Registry architecture is incorporated into 0.17.0; 0.16.0 is not a separate public release.
 
-The GitHub release is **not** an OpenAI Plugin Directory publication. Account backend inspection identified a **0.17.0 private plugin record**, which does **not** prove that the plugin is active in a chat. The 0.18 RC3 candidate passed MCP protocol/tool-call checks **in CI**, not native ChatGPT qualification. Directory approval and publication remain unverified without a fresh portal record.
+The GitHub release is **not** an OpenAI Plugin Directory publication. A separate historical **0.17.0 private plugin record** was inspected. The **0.20.0-beta.8 Web Labs private plugin** is installed and its source checked, but its automatic application to a new chat has not been confirmed. The 0.18 RC3 candidate passed MCP protocol/tool-call checks **in CI**, not native ChatGPT qualification. Directory approval and publication remain unverified without a fresh portal record.
 
 0.17.0 adds `learning-mastery-coach` and `academic-writing-navigator` as registry-discoverable capabilities; both remain **designed**, not **tested**. The Evergreen Core contains six distributed skills; GitHub registry entries are bounded metadata, not remotely executable instructions. Healthcare workflows excluded by review remain outside public distribution.
 
@@ -69,7 +69,8 @@ The intended end-user experience is deliberately simple:
 
 Version lines:
 - GitHub CS Navigator release: **0.17.0**
-- ChatGPT private plugin **registered** in account metadata: **0.17.0**; host activation unverified
+- Personal ChatGPT Web Labs plugin: **0.20.0-beta.8 installed, source checked, 6 Skills**, host auto-routing and outcomes unverified (23 Nov 2026)
+- Separate historical 0.17.0 private account record: host activation unverified
 - OpenAI public directory submission: **approval/publication not currently verified**
 - 0.18 RC3: **CI MCP verified, native host activation pending**
 - 0.16.0: historical Evergreen Core architecture, incorporated into 0.17.0
