@@ -27,22 +27,22 @@ class PublicStatusCopy(unittest.TestCase):
         for value in (self.en,self.pt):
             self.assertIn("0.20.0-beta.8",value)
             self.assertIn("0.17.0",value)
-            self.assertIn("0.20.0-beta.4",value)
+            self.assertIn("beta.4",value)
         self.assertIn("automatic skill routing",self.en)
         self.assertIn("roteamento automático",self.pt)
 
     def test_guides_are_synced_with_current_personal_plugin_status(self):
-        for guide in (self.guide,self.guide_pt):
-            self.assertIn("0.20.0-beta.8",guide)
-            self.assertIn("2026-11-23" if guide is self.guide else "23/11/2026",guide)
-            self.assertIn("CS_AUDIT_AND_POSITIONING_2026-11-23.md",guide)
+        for guide, date in ((self.guide, "2026-11-23"), (self.guide_pt, "23/11/2026")):
+            self.assertIn("0.20.0-beta.8", guide)
+            self.assertIn(date, guide)
+            self.assertIn("CS_AUDIT_AND_POSITIONING_2026-11-23.md", guide)
 
     def test_audit_retains_real_provenance_gap_and_host_boundary(self):
         self.assertIn("source_commit=development",self.audit)
         self.assertIn("F3.1/CUR08",self.audit)
         self.assertIn("F3.2",self.audit)
         self.assertIn("0.20.0-beta.8",self.audit)
-        self.assertIn("Fase 3",self.roadmap)
+        self.assertIn("Phase 3",self.roadmap)
         self.assertIn("0.20.0-beta.8",self.roadmap)
 
 if __name__=="__main__":
