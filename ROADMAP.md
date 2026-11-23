@@ -112,3 +112,7 @@ Correção verificável de três contratos de experiência na beta.5: URI de esp
 ## 22/11/2026 — instalação da Web Labs beta.6 comprovada
 
 Após o build de CI e merge da PR #136, a beta.6 foi enviada ao **plugin pessoal existente** pelo Plugin Creator e confirmada por leitura posterior da fonte: 14 arquivos, seis Skills e mesma associação ao app Registry. Não confundir este estado com validação de roteamento automático em uma conversa nova. Os oito casos NAT-01 a NAT-08 permanecem pendentes, descritos no [checkpoint do plugin](docs/CS_WEB_BETA6_PLUGIN_ACCOUNT_CHECKPOINT_2026-11-22.md). A proveniência imutável do Registry continua F3.2. O GitHub compila automaticamente, mas ainda não há sincronização comprovadamente automática da instalação pessoal.
+
+## 23/11/2026 — beta.7: avaliação visual e integridade de microcopy
+
+Revisados [UI UX Pro Max e Unslop](docs/CS_UPSTREAM_UX_UNSLOP_2026-11-23.md) contra nossas Skills já instaladas. A beta.7 evolui `ux-quality-gate-labs` e `text-integrity-labs` com intervenções proporcionais, direção fundada no produto, correção por estados/etapas, UI copy com baseline e fonte, cuidados web/native/RTL/IME e atribuição das licenças MIT/CC BY 4.0. São apenas duas Skills alteradas, **seis mantidas**. Sem código externo ou sétima Skill. Geração do ZIP versionado e regressões em CI; atualização do plugin pessoal e testes semânticos de host são marcos distintos. O UMNOO/Noem permanece isolado.
