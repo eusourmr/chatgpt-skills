@@ -1,0 +1,67 @@
+name: Validate CS Navigator F3 gates, Registry provenance and canonical Web build
+on:
+  pull_request:
+    paths:
+      - "plugins/cs-navigator-web-labs-current/**"
+      - "scripts/build-cs-web-labs-current.py"
+      - "scripts/qualify-cs-curation-host.py"
+      - "tests/test_cs_web_flat_builder.py"
+      - "tests/test_cs_curation_host_evidence.py"
+      - "registry/publication-manifest-v1.json"
+      - "mcp/cs-registry-server/**"
+      - "trust/qualification/curation/host-protocol-v1.json"
+      - ".github/workflows/validate-cs-f3-foundations.yml"
+      - "docs/CS_F3_HOMOLOGATION_FOUNDATIONS_2026-11-23.md"
+  push:
+    branches: [main]
+    paths:
+      - "plugins/cs-navigator-web-labs-current/**"
+      - "scripts/build-cs-web-labs-current.py"
+      - "scripts/qualify-cs-curation-host.py"
+      - "tests/test_cs_web_flat_builder.py"
+      - "tests/test_cs_curation_host_evidence.py"
+      - "registry/publication-manifest-v1.json"
+      - "mcp/cs-registry-server/**"
+      - "trust/qualification/curation/host-protocol-v1.json"
+      - ".github/workflows/validate-cs-f3-foundations.yml"
+      - "docs/CS_F3_HOMOLOGATION_FOUNDATIONS_2026-11-23.md"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-and-provenance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Build and test actual Registry service
+        working-directory: mcp/cs-registry-server
+        run: |
+          npm ci --ignore-scripts
+          npm run build
+          npm test
+      - name: Check frozen host case protocol and no fabricated receipts
+        run: |
+          python scripts/qualify-cs-curation-host.py --check
+          python -m unittest discover -s tests -p 'test_cs_curation_host_evidence.py' -v
+      - name: Build from canonical source and compare historical package byte for byte
+        run: |
+          python -m unittest discover -s tests -p 'test_cs_web_flat_builder.py' -v
+          python scripts/build-cs-web-labs-current.py
+          unzip -t dist/cs-navigator-web-labs-0.20.0-beta.8.zip
+          (cd dist && sha256sum -c cs-navigator-web-labs-0.20.0-beta.8.zip.sha256)
+      - name: Re-test source-curation baseline
+        run: python -m unittest discover -s tests -p 'test_cs_web_labs_beta8.py' -v
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cs-navigator-web-beta8-canonical-package
+          path: |
+            dist/cs-navigator-web-labs-0.20.0-beta.8.zip
+            dist/cs-navigator-web-labs-0.20.0-beta.8.zip.sha256
+          if-no-files-found: error
