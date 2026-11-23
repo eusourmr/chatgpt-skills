@@ -4,6 +4,13 @@ All notable changes to ChatGPT Skills are documented here.
 
 **Current CS Navigator GitHub release and private ChatGPT plugin: 0.17.0.** Public Plugin Directory availability is still pending. The `chatgpt-skills` npm CLI remains independently versioned at `0.4.0`.
 
+## Web Labs 0.20.0-beta.7 — UX e integridade de microcopy — 2026-11-23
+
+- Reavaliação de duas Skills externas, UI UX Pro Max (MIT) e Unslop (CC BY 4.0), com fontes e revisões identificadas.
+- `ux-quality-gate-labs`: auditoria por severidade, direção visual específica do produto, verificações por etapa, contexto de stack, RTL/IME, dados demonstrativos identificados e fronteiras com design-system-studio.
+- `text-integrity-labs`: precisão de microcopy, unidade/período/fonte em indicadores e integridade de nomes acessíveis, mantendo o alerta antecipado TEXT-02.
+- Nenhum novo especialista ou pacote externo importado; ZIP com checksum e atribuição incluída. Validação de host posterior e independente.
+
 ## Web Labs 0.20.0-beta.6 — candidata natural-use — 2026-11-22
 
 - Corrigido o URI fixo incorreto de leitura de especialistas do plugin Web: usar o caminho efetivamente listado no host.
