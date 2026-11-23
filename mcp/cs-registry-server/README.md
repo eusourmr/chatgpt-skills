@@ -42,3 +42,11 @@ The server is container-ready. Deploy it to a stable HTTPS host, then put the re
 ## Security boundary
 
 GitHub registry data is parsed through a fixed schema and only allowlisted metadata fields are returned. Free-form repository files are not fetched or executed.
+
+## Proveniência de snapshot verificável (23/11/2026)
+
+Um novo arquivo `registry/publication-manifest-v1.json` contém commit Git imutável, SHA-1 do blob Git e URL fixa que identificam o **conteúdo** do Registry. O serviço busca os dados configurados por `CS_REGISTRY_URL` e o manifesto em `CS_REGISTRY_PROVENANCE_URL` (padrão: manifesto na `main`). Cada conjunto precisa corresponder exatamente à impressão digital antes de ser divulgado como verificado. Se o manifesto estiver ausente ou os bytes mudarem, o serviço falha fechado, em vez de afirmar proveniência incorreta.
+
+Os campos retornados incluem `source_commit` verificado do **snapshot**, `source_git_blob_sha1`, `provenance_state`, `raw_source_commit` (historicamente `development`) e `original_publication_commit_verified=false`. A data original `2026-10-11` continua apenas uma afirmação histórica. **Não inferir publicação original no commit de 23/11/2026**. Ao atualizar dados, publicar novo manifesto com commit de conteúdo exato, revisar CI, conferir o serviço real e registrar rollback.
+
+Testes: dentro de `mcp/cs-registry-server`, executar `npm ci && npm run build && npm test`. O teste `test/provenance.test.mjs` rejeita conteúdo alterado, URLs divergentes e commits inventados.
