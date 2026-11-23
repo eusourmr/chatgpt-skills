@@ -1,0 +1,222 @@
+{
+  "schema_version": "cs.curatorial-knowledge.v1",
+  "version": "0.20.0-beta.8",
+  "role": "advisory_evidence_bound_selection_not_executable_instructions",
+  "evidence_state": "source_reviewed_not_host_behavior_validated",
+  "owner": "cs-navigator-labs",
+  "privacy_policy": "No user prompts, account data, credentials or private task content stored in this ledger.",
+  "source_reviews": [
+    {
+      "id": "CS-BASE",
+      "name": "CS Navigator Web Labs beta.7",
+      "ref": "docs/CS_UPSTREAM_UX_UNSLOP_2026-11-23.md",
+      "evidence": "existing_project_skill_source"
+    },
+    {
+      "id": "UXPM",
+      "name": "UI UX Pro Max",
+      "author": "Next Level Builder",
+      "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "commit": "281e4537afb11333ac9947783779aaf314ebfbf2",
+      "license": "MIT",
+      "notice": "NOTICE-UX-SOURCES.md",
+      "evidence": "third_party_source_review"
+    },
+    {
+      "id": "UNSLOP",
+      "name": "Unslop",
+      "author": "Damir Sokolovsky",
+      "repository": "https://github.com/heydamir/unslop",
+      "commit": "620163eedb3529d9cd23a3994ed8d287d06f760d",
+      "license": "CC BY 4.0",
+      "notice": "NOTICE-UX-SOURCES.md",
+      "evidence": "third_party_source_review"
+    }
+  ],
+  "rules": [
+    {
+      "id": "CUR-NATIVE-01",
+      "scope": "simple_fact_or_unrelated_query",
+      "intent_examples": [
+        "O que significa CSS?",
+        "Quanto é 2 + 2?"
+      ],
+      "choose": "native",
+      "specialists": [],
+      "why": "No substantial specialist value; preserve direct concise reply.",
+      "skip_if": "Never invent Registry/tool calls to justify any skill.",
+      "evidence_required": "none",
+      "source_ids": [
+        "CS-BASE"
+      ],
+      "status": "source_reviewed_not_host_behavior_validated"
+    },
+    {
+      "id": "CUR-UX-01",
+      "scope": "visual_quality_or_interaction_audit",
+      "intent_examples": [
+        "Revise o fluxo de navegação deste dashboard",
+        "A tela está confusa no celular"
+      ],
+      "choose": "specialist",
+      "specialists": [
+        "ux-quality-gate-labs"
+      ],
+      "why": "Audit observed task states, access and proportional correction before aesthetic polish.",
+      "skip_if": "Only backend API/data logic is involved; no visible user task or UI.",
+      "evidence_required": "real host-listed specialist URI and SKILL read to claim specialist applied",
+      "source_ids": [
+        "CS-BASE",
+        "UXPM",
+        "UNSLOP"
+      ],
+      "status": "source_reviewed_not_host_behavior_validated"
+    },
+    {
+      "id": "CUR-UX-02",
+      "scope": "retain_or_target_visual_polish",
+      "intent_examples": [
+        "A página está boa; há algo pequeno para aprimorar?"
+      ],
+      "choose": "specialist",
+      "specialists": [
+        "ux-quality-gate-labs"
+      ],
+      "why": "Distinguish retain, targeted correction and systemic redesign; preserve approved brand and features.",
+      "skip_if": "No artifact is supplied and the user requests proof of specific screen defects.",
+      "evidence_required": "screen/source actually inspected or hypothesis explicitly marked",
+      "source_ids": [
+        "UNSLOP",
+        "CS-BASE"
+      ],
+      "status": "source_reviewed_not_host_behavior_validated"
+    },
+    {
+      "id": "CUR-UX-03",
+      "scope": "web_mobile_rtl_ime_inclusive_interface",
+      "intent_examples": [
+        "No japonês, Enter está enviando o formulário durante a composição",
+        "Verifique o layout RTL do aplicativo"
+      ],
+      "choose": "specialist",
+      "specialists": [
+        "ux-quality-gate-labs"
+      ],
+      "why": "Validate platform-specific focus, native touch, text reflow, logical direction and IME behavior.",
+      "skip_if": "The request is only translation of isolated prose, without UI behavior.",
+      "evidence_required": "exact platform and evidence scope; simulated checks do not prove device compatibility",
+      "source_ids": [
+        "UXPM",
+        "UNSLOP"
+      ],
+      "status": "source_reviewed_not_host_behavior_validated"
+    },
+    {
+      "id": "CUR-COPY-01",
+      "scope": "microcopy_clarity_and_claims",
+      "intent_examples": [
+        "Melhore os textos dos botões deste formulário",
+        "Reescreva +12% de crescimento sem inventar o comparador"
+      ],
+      "choose": "specialist",
+      "specialists": [
+        "text-integrity-labs"
+      ],
+      "why": "Preserve action meaning and metric denominator, units, evidence and user tone.",
+      "skip_if": "The user asks a purely visual layout question with no copy or factual claims.",
+      "evidence_required": "source text and factual basis for new claims",
+      "source_ids": [
+        "CS-BASE",
+        "UNSLOP",
+        "UXPM"
+      ],
+      "status": "source_reviewed_not_host_behavior_validated"
+    },
+    {
+      "id": "CUR-COPY-02",
+      "scope": "semantic_preservation_and_material_edit_warning",
+      "intent_examples": [
+        "Troque poderá por deverá neste contrato",
+        "Melhore este texto sem mudar o compromisso"
+      ],
+      "choose": "specialist",
+      "specialists": [
+        "text-integrity-labs"
+      ],
+      "why": "Prevent hidden changes in certainty, negation, consent, amount or deadlines; warn before material alternative.",
+      "skip_if": "The task is purely visual or programmatic and needs no text revision.",
+      "evidence_required": "original vs revised semantic invariants verified before copyable draft",
+      "source_ids": [
+        "CS-BASE"
+      ],
+      "status": "source_reviewed_not_host_behavior_validated"
+    },
+    {
+      "id": "CUR-CROSS-01",
+      "scope": "ui_flow_and_ui_copy_combined",
+      "intent_examples": [
+        "Revise a experiência do formulário e as mensagens de erro"
+      ],
+      "choose": "composite_if_material",
+      "specialists": [
+        "ux-quality-gate-labs",
+        "text-integrity-labs"
+      ],
+      "why": "UX owns states and accessibility; Text owns language, claims and meaning. Use each only when needed and available.",
+      "skip_if": "One specialist suffices or a simple native response fully solves the task.",
+      "evidence_required": "separate real source reads; do not infer both activated from a shared plan",
+      "source_ids": [
+        "CS-BASE",
+        "UXPM",
+        "UNSLOP"
+      ],
+      "status": "source_reviewed_not_host_behavior_validated"
+    },
+    {
+      "id": "CUR-DS-01",
+      "scope": "explicit_visual_system_or_brand_tokens",
+      "intent_examples": [
+        "Crie tokens e uma identidade reutilizável para o produto"
+      ],
+      "choose": "native_or_verified_external",
+      "specialists": [],
+      "why": "Design System Studio owns visual identity but is not one of six installed Web Labs Skills; never claim it was loaded from this plugin.",
+      "skip_if": "User requests only UX audit, not a reusable visual system.",
+      "evidence_required": "actual external skill availability/read before claiming Design System Studio used",
+      "source_ids": [
+        "CS-BASE",
+        "UXPM"
+      ],
+      "status": "source_reviewed_not_host_behavior_validated"
+    },
+    {
+      "id": "CUR-ENG-01",
+      "scope": "non_visual_backend_debug",
+      "intent_examples": [
+        "Corrija falhas no endpoint PHP sem mudar a interface"
+      ],
+      "choose": "specialist",
+      "specialists": [
+        "engineering-investigator-labs"
+      ],
+      "why": "Use engineering investigation, never misroute to UX polish.",
+      "skip_if": "An actual UI interaction defect is also present and material.",
+      "evidence_required": "real engineering specialist URI/read when claimed",
+      "source_ids": [
+        "CS-BASE"
+      ],
+      "status": "source_reviewed_not_host_behavior_validated"
+    }
+  ],
+  "activation_contract": {
+    "max_initial_specialists": 1,
+    "composite_only_when_distinct_material_needs": true,
+    "host_skill_read_required_to_claim_application": true,
+    "no_registry_on_trivial_tasks": true,
+    "never_auto_install_from_registry": true,
+    "no_remote_skill_instruction_execution": true,
+    "no_cross_conversation_learning_or_persistence": true,
+    "umnoo_bridge": "disabled_not_integrated",
+    "abstention_is_valid_success": true
+  }
+}
