@@ -1,10 +1,10 @@
 # CS Navigator — Como usar no ChatGPT, Codex e no repositório
 
-**Revisão operacional inicial:** 06/11/2026. **Estado do Web Labs atualizado:** 23/11/2026. Guia operacional, não anúncio de publicação pública.
+**Revisão operacional inicial:** 06/11/2026. **Estado do Web Labs atualizado:** 26/11/2026. Guia operacional, não anúncio de publicação pública.
 
 ## Comece pelo problema, não pela pasta
 
-> **Web Labs privada instalada (23/11/2026):** [`0.20.0-beta.8`](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218), com seis Skills e nove regras curatoriais conferidas na fonte armazenada. CI e pacote aprovados; **roteamento automático em conversa nova e benefício real ainda não homologados**. O teste beta.4 HOST-03R continua como evidência histórica de leitura e chamada ao Registry. [Auditoria atual](CS_AUDIT_AND_POSITIONING_2026-11-23.md). Marco histórico HOST-03R: [`0.20.0-beta.4`](CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
+> **Web Labs privada instalada (26/11/2026):** [`0.20.0-beta.9`](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218), com 21 arquivos, seis Skills e CS-SQ-01 confirmados após atualização. A versão `0.20.0-beta.8` permanece como rollback. **Roteamento automático e ganho comparativo em conversas novas ainda não homologados.** [Checkpoint](CS_BETA9_PLUGIN_INSTALL_2026-11-26.md). Marco histórico HOST-03R: [`0.20.0-beta.4`](CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
 
 - Para uma tarefa simples, use o ChatGPT normalmente. **Não é necessário instalar uma skill** para perguntar, escrever, criar ou analisar com os recursos nativos.
 - Para um workflow reutilizável, verifique se há uma skill **disponibilizada pela interface** ou um plugin que realmente a contenha. Use o seletor `@` quando ele aparecer ou siga a invocação suportada pelo seu host.
@@ -47,7 +47,7 @@ A ausência de uma skill numa lista **da sessão atual** é apenas ausência de 
 |---|---|
 | Catálogo do GitHub | `catalog/skills.json` contém 80 entradas editoriais; uma é coleção; `catalog.json` contém 79 itens classificados para acompanhamento |
 | Core autoral | 63 skills no catálogo editorial, mas a maior parte permanece em estado de projeto e não possui piloto de execução individual |
-| Web Labs 0.20.0-beta.8 | Plugin pessoal instalado, com fonte conferida; seis Skills, roteamento semântico de nova conversa ainda a testar |
+| Web Labs 0.20.0-beta.9 | Plugin pessoal instalado, fonte conferida; seis Skills e ciclo semântico; roteamento em conversa nova ainda a testar |
 | Plugin privado 0.17 | Versão 0.17.0 está registrada no backend da conta em inspeção anterior; isso não garante visibilidade ou instalação nesta sessão |
 | RC3/0.18 | Testes de MCP no CI passaram; pacote de avaliação não prova instalação ou ativação no ChatGPT |
 | Submissão pública | Não tratar como aprovada/publicada sem confirmação do portal e fonte atual |
