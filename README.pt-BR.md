@@ -17,11 +17,11 @@ Um diretório selecionado e conferido de skills reutilizáveis e plugins orienta
 
 **Release atual no GitHub:** **CS Navigator 0.17.0 — Learning & Academic Mastery**.
 
-**Web Labs `0.20.0-beta.8` instalada na conta (23/11/2026):** [Abrir plugin privado](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218). A nova versão foi lida de volta na fonte da instalação: **seis Skills** e **nove regras de conhecimento curatorial**. O GitHub Actions validou o pacote; porém, **roteamento automático e ganhos reais em novas conversas ainda precisam de homologação**. O ensaio anterior da beta.4 (HOST-03R) comprovou a leitura do curador e a consulta ao Registry na mesma sessão, mas não valida automaticamente a beta.8. [Auditoria e estado atual](docs/CS_AUDIT_AND_POSITIONING_2026-11-23.md). Evidência histórica HOST-03R da [`0.20.0-beta.4`](docs/CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
+**Web Labs `0.20.0-beta.9` instalada na conta (26/11/2026):** [Abrir plugin privado](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218). A fonte foi conferida após a atualização: **21 arquivos, seis Skills, nove regras curatoriais anteriores e o novo ciclo CS-SQ-01**. A versão `0.20.0-beta.8` permanece como referência de rollback. O GitHub Actions aprovou a integridade do pacote; **roteamento automático e melhoria comparativa em novas conversas ainda exigem homologação independente**. [Checkpoint beta.9](docs/CS_BETA9_PLUGIN_INSTALL_2026-11-26.md). Evidência histórica HOST-03R da [`0.20.0-beta.4`](docs/CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
 
 A arquitetura **0.16 Evergreen Core & Live Registry** foi incorporada à 0.17, sem release pública independente da 0.16.
 
-A release GitHub 0.17.0 **não equivale à publicação no Diretório de Plugins do ChatGPT**. Um registro privado histórico **0.17.0** foi observado separadamente. A instalação pessoal Web Labs **0.20.0-beta.8** foi confirmada por inspeção da fonte, mas a ativação automática em conversas novas continua sem comprovação. A linha 0.18 RC3 passou nos testes MCP em CI, mas não foi homologada no ChatGPT. O status de publicação pública exige verificação atual do portal.
+A release GitHub 0.17.0 **não equivale à publicação no Diretório de Plugins do ChatGPT**. Um registro privado histórico **0.17.0** foi observado separadamente. A instalação pessoal Web Labs **0.20.0-beta.9** foi confirmada por inspeção da fonte, mas a ativação automática em conversas novas continua sem comprovação. A linha 0.18 RC3 passou nos testes MCP em CI, mas não foi homologada no ChatGPT. O status de publicação pública exige verificação atual do portal.
 
 As novas capacidades `learning-mastery-coach` e `academic-writing-navigator` estão no registry em estado **designed**, não **tested**. O núcleo distribuído contém seis skills; o registry fornece metadados limitados, sem execução automática de arquivos arbitrários do GitHub. As exclusões de saúde continuam obrigatórias.
 
@@ -41,7 +41,7 @@ A experiência pretendida é simples:
 **Limite de persistência:** uma frase em uma conversa não prova ativação em todas as conversas futuras. Só podemos afirmar persistência entre chats quando o produto hospedeiro oferecer e confirmar esse mecanismo.
 
 Linhas de versão:
-- plugin pessoal ChatGPT Web Labs: **0.20.0-beta.8 instalada e fonte conferida**, seis Skills; resultados de roteamento em novas conversas pendentes
+- plugin pessoal ChatGPT Web Labs: **0.20.0-beta.9 instalada e fonte conferida**, seis Skills; beta.8 preservada para rollback e roteamento em novas conversas ainda pendente
 - publicação no portal OpenAI: **sem confirmação atual de aprovação**
 - release GitHub da linha estável: **0.17.0**; plugin privado registrado na conta, mas não comprovadamente ativado nesta sessão
 - 0.18 RC3: **MCP qualificado em CI; ChatGPT host ainda pendente**

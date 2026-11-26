@@ -23,19 +23,21 @@ class PublicStatusCopy(unittest.TestCase):
         self.assertIn("não",self.pt.lower())
         self.assertIn("não",self.audit.lower())
 
-    def test_both_readmes_report_installed_beta8_but_reject_fake_qualification(self):
+    def test_readmes_separate_current_beta9_historical_beta8_and_stable_line(self):
         for value in (self.en,self.pt):
+            self.assertIn("0.20.0-beta.9",value)
             self.assertIn("0.20.0-beta.8",value)
             self.assertIn("0.17.0",value)
             self.assertIn("beta.4",value)
-        self.assertIn("automatic skill routing",self.en)
+        self.assertIn("automatic routing",self.en)
         self.assertIn("roteamento automático",self.pt)
 
     def test_guides_are_synced_with_current_personal_plugin_status(self):
-        for guide, date in ((self.guide, "2026-11-23"), (self.guide_pt, "23/11/2026")):
+        for guide, date in ((self.guide, "2026-11-26"), (self.guide_pt, "26/11/2026")):
+            self.assertIn("0.20.0-beta.9", guide)
             self.assertIn("0.20.0-beta.8", guide)
             self.assertIn(date, guide)
-            self.assertIn("CS_AUDIT_AND_POSITIONING_2026-11-23.md", guide)
+            self.assertIn("CS_BETA9_PLUGIN_INSTALL_2026-11-26.md", guide)
 
     def test_audit_retains_real_provenance_gap_and_host_boundary(self):
         self.assertIn("source_commit=development",self.audit)

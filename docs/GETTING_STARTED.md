@@ -1,8 +1,8 @@
 # CS Navigator — How to use in ChatGPT, Codex and this repository
 
-> **Personal Web Labs plugin installed (2026-11-23):** [`0.20.0-beta.8`](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218), with six Skills and nine source-reviewed curation rules read back from the stored release. CI/package integrity passed; **fresh-chat semantic routing and outcome benefit remain unverified**. The beta.4 HOST-03R host skill read + Registry invocation is a separate historical baseline. [Audit](CS_AUDIT_AND_POSITIONING_2026-11-23.md). Historical HOST-03R baseline: [`0.20.0-beta.4`](CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
+> **Personal Web Labs plugin installed (2026-11-26):** [`0.20.0-beta.9`](https://chatgpt.com/plugins/plugins_6aee22530eb88191bed0e982d96d1218) source verified after update (21 files; six Skills; semantic-quality cycle CS-SQ-01). The prior `0.20.0-beta.8` is the rollback baseline. **Automatic skill routing and comparative benefit remain unverified.** The beta.4 HOST-03R skill read and Registry invocation are separate historical evidence. [Checkpoint](CS_BETA9_PLUGIN_INSTALL_2026-11-26.md). Historical [`0.20.0-beta.4`](CS_NAVIGATOR_ESTADO_E_CONTINUIDADE_2026-11-06.md).
 
-**Operational guidance baseline reviewed 2026-11-06; private Web Labs status refreshed 2026-11-23.** This is an operating guide, not a claim of public availability.
+**Operational guidance baseline reviewed 2026-11-06; private Web Labs status refreshed 2026-11-26.** This is an operating guide, not a claim of public availability.
 
 ## Start with the job, not the folder
 - For ordinary tasks, use native ChatGPT; no skill installation is required.
@@ -30,7 +30,7 @@
 ## Version and surface distinction
 - GitHub editorial catalog: 80 entries, including one collection. The quality catalog `catalog.json` has 79 tracked items.
 - 63 repository-authored core skills are design assets, not 63 host-executed skills.
-- Personal Web Labs `0.20.0-beta.8`: installed and source-verified; six Skills, nine curation rules, automatic host selection and output improvement still to be measured.
+- Personal Web Labs `0.20.0-beta.9`: installed and source-verified; six Skills, nine curation rules plus CS-SQ-01. Beta.8 remains rollback; automatic host selection and output improvement still to be measured.
 - A private CS Navigator 0.17 plugin is recorded in account metadata, but this does not prove selection in any current chat.
 - 0.18 RC3: the MCP protocol integration passed in GitHub Actions; a CI/evaluation archive is **not** an installable plugin unless it includes a valid plugin package.
 - No public directory approval can be claimed without verified portal status.

@@ -1,6 +1,6 @@
 # CS Navigator — active roadmap
 
-Phase 3 baseline reviewed on **2026-11-06**, starting from `main` at `df4e7e4` (merged PR #130). Current installation and curation checkpoint verified on **2026-11-23**; retain the earlier baseline as history.
+Phase 3 baseline reviewed on **2026-11-06**, starting from `main` at `df4e7e4` (merged PR #130). Current personal plugin installation verified on **2026-11-26**; retain the earlier baseline as history.
 This page is the forward plan. The previous release-by-release roadmap is
 preserved in [the historical archive](docs/archive/ROADMAP_PRE_PHASE3_2026-11-06.md).
 Read the [maturity review in Portuguese](docs/CS_ROADMAP_REVIEW_2026-11-06.md),
@@ -23,6 +23,7 @@ Product positioning: **"CS Navigator é o canivete suíço para quem quer usar o
 | Production `0.17.0` | Preserved GitHub production line | Public Directory approval or activation in every conversation |
 | Private Web Labs `0.20.0-beta.4` | HOST-03R passed: six skills exposed, curator read, Registry called in the same session | Universal activation, effective routing or advantage over native ChatGPT |
 | Private Web Labs `0.20.0-beta.8` | **Installed in personal account, source reread:** six Skills and nine rules; package CI passed | Automatic activation/skill selection in a fresh chat, independent outcomes and A/B advantage |
+| Private Web Labs `0.20.0-beta.9` | **Installed 26 Nov 2026, read back:** 21 files, six Skills and CS-SQ-01; nine existing curator rules preserved | New-chat auto-routing, independent behavior and A/B quality improvement remain unqualified |
 | Original Labs `0.20.0-beta.3` | Historical comparison/rollback reference | A reason to reopen the completed Web connection investigation |
 | Registry | 63 source entries, 61 distributable; read-only metadata | Installation or execution of those 61 capabilities; immutable publication provenance (`development` remains) |
 | Quality catalog | 79 items including 48 drafts; separate editorial catalog has 80 entries | Individual qualification of the 48 drafts |
@@ -145,3 +146,7 @@ O MCP de produção passou a retornar commit de snapshot e Git blob SHA verific�
 ## 26/11/2026 — Web Labs beta.9: qualidade semântica transversal
 
 O procedimento **CS-SQ-01** (compreender → executar → avaliar → corrigir seletivamente) foi incorporado aos **seis arquivos de Skills Web existentes** com critérios específicos para curadoria, escrita acadêmica, conformidade documental, investigação técnica, fidelidade de texto e UX. A melhoria é declarativa: não adiciona Skill, não treina pesos nem comprova automaticamente benefício. Versão `0.20.0-beta.9` candidata; método e QA em [relatório beta.9](docs/CS_SEMANTIC_QUALITY_BETA9_2026-11-26.md). Os critérios CUR08/PC-04 continuam independentes e não foram artificialmente homologados. A beta.8 permanece como referência de rollback.
+
+## 26/11/2026 — beta.9 instalada e fonte relida
+
+A nova beta.9 foi atualizada no plugin privado já existente após a aprovação dos testes do GitHub, com 21 arquivos e seis Skills. A leitura posterior confirmou a presença do ciclo CS-SQ-01 em todas elas, sem nomear terceiros, alterar permissões, adicionar Skills ou ligar UMNOO. [Checkpoint de instalação](docs/CS_BETA9_PLUGIN_INSTALL_2026-11-26.md). A beta.8 permanece baseline para rollback; roteamento em conversas independentes e desempenho A/B permanecem pendentes na issue #144.
