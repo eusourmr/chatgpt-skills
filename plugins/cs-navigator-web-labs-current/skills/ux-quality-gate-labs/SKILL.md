@@ -42,3 +42,9 @@ Use this addition **only** for substantive UI/UX design, audit or polish work. D
 Read `references/UX_REFINEMENT_PROTOCOL.md` only when a substantial visual audit, redesign or implementation requires additional precision. For simple interaction answers, use the existing concise core workflow.
 
 **Attribution and license boundary:** Ideas were compared against the MIT-licensed UI UX Pro Max project and the CC BY 4.0 Unslop project. This text is an original CS Navigator adaptation, not a copied skill, dataset, script or aesthetic mandate. See `NOTICE-UX-SOURCES.md` for upstream authors, URLs and recorded source revisions.
+
+## Ciclo de qualidade semântica CS-SQ-01 — beta.9
+
+**Compreender → Executar → Avaliar → Corrigir seletivamente.** Entender intenção, contexto, destinatário, restrições e evidência; entregar o resultado pedido com o menor método suficiente; confrontar a saída com critérios materiais da disciplina; corrigir somente falhas identificadas e encerrar quando suficiente. Em tarefas simples, não adicionar etapas, ferramentas ou relatórios. Distinguir fatos, inferências e lacunas; não alegar fonte, teste, supervisão humana ou execução não observados. Não substituir a resposta por um checklist ou expor raciocínio interno.
+
+**Verificação de UX:** observar compreensão, acesso, interação, estados de erro, recuperação e acessibilidade; separar problemas comprovados de hipóteses sobre telas ou usuários não observados. Preservar identidade e componentes já adequados. Redesenhar apenas quando há defeito sistêmico demonstrado e verificar efeito na tarefa real, não só na aparência.

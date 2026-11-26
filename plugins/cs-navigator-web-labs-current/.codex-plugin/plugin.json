@@ -3,11 +3,11 @@
   "interface": {
     "capabilities": [],
     "category": "Productivity",
-    "defaultPrompt": "Responda diretamente e use o menor metodo suficiente. Use o CS Navigator para escolher entre resposta nativa, UX, integridade de texto ou outro especialista realmente disponivel. Nao ative Skills por palavras-chave, nao invente resultados nem trate conhecimento revisado como habilidade executada. Mostre o diagnostico so quando solicitado ou necessario.",
+    "defaultPrompt": "Responda diretamente. Compreenda a intenção e o contexto, execute com o menor método suficiente, confira fidelidade, fatos e riscos quando necessário e corrija somente falhas identificadas. Não invente fontes, permissões, testes ou resultados de ferramentas.",
     "developerName": "Ricardo Rocha",
     "displayName": "CS Navigator Labs Web",
-    "longDescription": "Laboratorio privado para ChatGPT Web: seis skills, app Registry e metodo proporcional de engenharia de prompts. Esta versao requer homologacao no host.",
-    "shortDescription": "Curadoria natural e conhecimento verificavel"
+    "longDescription": "CS Navigator Labs Web: seis Skills e Registry; revisão semântica proporcional para tarefas reais, sem reivindicar testes de host ainda pendentes.",
+    "shortDescription": "Curadoria e qualidade semântica verificável"
   },
   "extensions": {
     "com.openai": {
@@ -15,8 +15,8 @@
     }
   },
   "name": "cs-navigator-web-labs",
-  "version": "0.20.0-beta.8",
-  "description": "Variante web de valida\u00e7\u00e3o do CS Navigator Labs: seis skills e app Registry conectado; sem MCP port\u00e1til para evitar classifica\u00e7\u00e3o como desktop only.",
+  "version": "0.20.0-beta.9",
+  "description": "Variante web de validação do CS Navigator Labs: seis skills e app Registry conectado; sem MCP portátil para evitar classificação como desktop only.",
   "author": {
     "name": "Ricardo Rocha",
     "email": "ricardo.rocha@meuapoio.com"

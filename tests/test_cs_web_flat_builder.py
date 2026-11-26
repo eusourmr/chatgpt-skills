@@ -1,9 +1,12 @@
-"""Verify the new flat-source Web Labs builder and original beta.8 are identical.
+"""Regression for canonical Web Labs source after the beta.9 semantic-quality upgrade.
 
-This is source/package regression, NOT a ChatGPT host activation test.
+Historical beta.8 builders remain runnable for rollback. Tests verify precisely
+approved differences, source digests and reproducible beta.9 output; they do
+not claim the ChatGPT host has executed the six specialists.
 """
 import hashlib
 import importlib.util
+import json
 import tempfile
 import unittest
 import zipfile
@@ -11,61 +14,85 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
+
 def module(name, path):
     spec = importlib.util.spec_from_file_location(name, ROOT / path)
-    x = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(x)
-    return x
+    result = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(result)
+    return result
+
 
 old = module("beta8_legacy", "scripts/build-cs-web-labs-beta8.py")
 flat = module("web_current_flat", "scripts/build-cs-web-labs-current.py")
+NEW = {
+    "skills/cs-navigator-labs/references/SEMANTIC_QUALITY_CYCLE.md",
+    "skills/cs-navigator-labs/knowledge/semantic-quality-v1.json",
+}
+METADATA = {"plugin.json", ".codex-plugin/plugin.json", "QUALIFICATION-MANIFEST.json", "README.md"}
+
 
 class CanonicalWebBuilder(unittest.TestCase):
-    def test_canonical_source_preserves_all_skill_bytes_and_json_semantics(self):
-        original = old.entries()
-        current = flat.source_files()
-        self.assertEqual(set(original), set(current))
-        self.assertEqual(len(current), 19)
-        import json
-        for p in original:
-            if p.endswith(".json"):
-                self.assertEqual(json.loads(original[p]), json.loads(current[p]), p)
-            else:
-                self.assertEqual(original[p], current[p], p)
-    def test_canonical_zip_is_deterministic_and_semantically_legacy_equivalent(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            a=Path(tmp)/"legacy.zip"
-            b=Path(tmp)/"canonical.zip"
-            c=Path(tmp)/"repeat.zip"
-            old.build(a)
-            flat.build(b)
-            flat.build(c)
-            import json
-            with zipfile.ZipFile(a) as old_zip, zipfile.ZipFile(b) as new_zip:
-                self.assertEqual(set(old_zip.namelist()),set(new_zip.namelist()))
-                for p in old_zip.namelist():
-                    old_data,new_data=old_zip.read(p),new_zip.read(p)
-                    if p.endswith(".json"):
-                        self.assertEqual(json.loads(old_data),json.loads(new_data),p)
-                    else:
-                        self.assertEqual(old_data,new_data,p)
-            self.assertEqual(b.read_bytes(), c.read_bytes())
-            self.assertEqual(hashlib.sha256(b.read_bytes()).hexdigest(), b.with_name(b.name+".sha256").read_text().split()[0])
-            with zipfile.ZipFile(b) as z:
-                self.assertIsNone(z.testzip())
-                self.assertEqual(len(z.namelist()),19)
-    def test_rejects_tampered_manifest_and_rebrand(self):
-        files = flat.source_files()
-        import json
-        manifest=json.loads(files["QUALIFICATION-MANIFEST.json"])
-        manifest["candidate_host_accepted"]=True
-        altered=dict(files,**{"QUALIFICATION-MANIFEST.json":json.dumps(manifest).encode()})
-        with self.assertRaisesRegex(ValueError,"Cannot promote host"):
-            flat.validate(altered)
-        altered=dict(files)
-        altered[".app.json"]=b'{"apps":{}}'
-        with self.assertRaises((ValueError, KeyError)):
-            flat.validate(altered)
+    @classmethod
+    def setUpClass(cls):
+        cls.before = old.entries()
+        cls.after = flat.source_files()
 
-if __name__=="__main__":
+    def test_exact_inventory_and_existing_specialist_contents(self):
+        self.assertEqual(set(self.after) - set(self.before), NEW)
+        self.assertEqual(len(self.before), 19)
+        self.assertEqual(len(self.after), 21)
+        self.assertEqual(sum(path.endswith("/SKILL.md") for path in self.after), 6)
+        for path, content in self.before.items():
+            if path.endswith("/SKILL.md"):
+                if path == "skills/cs-navigator-labs/SKILL.md":
+                    content = content.replace(b"version `0.20.0-beta.8`;", b"version `0.20.0-beta.9`;")
+                self.assertTrue(self.after[path].startswith(content.rstrip()), path)
+                self.assertIn(b"CS-SQ-01", self.after[path], path)
+            elif path not in METADATA:
+                self.assertEqual(self.after[path], content, path)
+
+    def test_version_manifest_registry_and_safety(self):
+        q = json.loads(self.after["QUALIFICATION-MANIFEST.json"])
+        self.assertEqual(q["version"], "0.20.0-beta.9")
+        self.assertEqual(q["skill_count"], 6)
+        self.assertEqual(q["semantic_quality_skills_reviewed"], 6)
+        self.assertEqual(q["semantic_quality_host_cases_executed"], 0)
+        self.assertFalse(q["candidate_host_accepted"])
+        self.assertEqual(q["umnoo_integration"], "disabled_not_integrated")
+        for path, expected in q["files"].items():
+            self.assertEqual(hashlib.sha256(self.after[path]).hexdigest(), expected, path)
+        for path in ("plugin.json", ".codex-plugin/plugin.json"):
+            self.assertEqual(json.loads(self.after[path])["version"], q["version"])
+        self.assertEqual(self.after[".app.json"], self.before[".app.json"])
+        self.assertIn(b"canivete su", self.after["README.md"])
+
+    def test_beta9_archive_reproducible_and_rollback_intact(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            before = Path(tmp) / "old" / "beta8.zip"
+            a = Path(tmp) / "newA" / "beta9.zip"
+            b = Path(tmp) / "newB" / "beta9.zip"
+            old.build(before)
+            flat.build(a)
+            flat.build(b)
+            self.assertEqual(a.read_bytes(), b.read_bytes())
+            self.assertNotEqual(a.read_bytes(), before.read_bytes())
+            sha = hashlib.sha256(a.read_bytes()).hexdigest()
+            self.assertEqual(a.with_name(a.name + ".sha256").read_text().split()[0], sha)
+            with zipfile.ZipFile(a) as archive:
+                self.assertIsNone(archive.testzip())
+                self.assertEqual(len(archive.namelist()), 21)
+
+    def test_rejects_tampered_manifest_and_wrong_app(self):
+        data = dict(self.after)
+        q = json.loads(data["QUALIFICATION-MANIFEST.json"])
+        q["candidate_host_accepted"] = True
+        data["QUALIFICATION-MANIFEST.json"] = json.dumps(q).encode()
+        with self.assertRaisesRegex(ValueError, "Cannot promote host"):
+            flat.validate(data)
+        data = dict(self.after, **{".app.json": b'{"apps":{}}'})
+        with self.assertRaises((ValueError, KeyError)):
+            flat.validate(data)
+
+
+if __name__ == "__main__":
     unittest.main()

@@ -33,3 +33,9 @@ Apply this section when reviewing or writing **UI microcopy** (navigation, label
 **Outcome reporting.** Give the revised microcopy first when all semantic invariants are maintained. If any proposed revision changes a material invariant, display the existing mandatory warning **before** the changed text. Distinguish observed UI copy from a proposed label and from a deployed change.
 
 Read `references/UI_COPY_INTEGRITY.md` for a substantive interface-copy review; do not impose a long report on a routine sentence edit. External UX writing inspiration and license/provenance are acknowledged in `NOTICE-UX-SOURCES.md`.
+
+## Ciclo de qualidade semântica CS-SQ-01 — beta.9
+
+**Compreender → Executar → Avaliar → Corrigir seletivamente.** Entender intenção, contexto, destinatário, restrições e evidência; entregar o resultado pedido com o menor método suficiente; confrontar a saída com critérios materiais da disciplina; corrigir somente falhas identificadas e encerrar quando suficiente. Em tarefas simples, não adicionar etapas, ferramentas ou relatórios. Distinguir fatos, inferências e lacunas; não alegar fonte, teste, supervisão humana ou execução não observados. Não substituir a resposta por um checklist ou expor raciocínio interno.
+
+**Verificação linguística:** confrontar original e revisão quanto a intenção, voz, público, negação, possibilidade/obrigação, números, datas, atribuições e promessas. Corrigir ambiguidades sem neutralizar a voz do autor. Em qualquer alteração material, manter o alerta prévio obrigatório desta Skill antes da versão alternativa; revisão não significa autorização para alterar fatos.

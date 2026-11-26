@@ -6,6 +6,7 @@ on:
       - "scripts/build-cs-web-labs-current.py"
       - "scripts/qualify-cs-curation-host.py"
       - "tests/test_cs_web_flat_builder.py"
+      - "tests/test_cs_semantic_quality.py"
       - "tests/test_cs_curation_host_evidence.py"
       - "registry/publication-manifest-v1.json"
       - "trust/qualification/registry/live-provenance-checkpoint-2026-11-23.json"
@@ -21,6 +22,7 @@ on:
       - "scripts/build-cs-web-labs-current.py"
       - "scripts/qualify-cs-curation-host.py"
       - "tests/test_cs_web_flat_builder.py"
+      - "tests/test_cs_semantic_quality.py"
       - "tests/test_cs_curation_host_evidence.py"
       - "registry/publication-manifest-v1.json"
       - "trust/qualification/registry/live-provenance-checkpoint-2026-11-23.json"
@@ -58,15 +60,16 @@ jobs:
       - name: Build from canonical source and compare historical package byte for byte
         run: |
           python -m unittest discover -s tests -p 'test_cs_web_flat_builder.py' -v
+          python -m unittest discover -s tests -p 'test_cs_semantic_quality.py' -v
           python scripts/build-cs-web-labs-current.py
-          unzip -t dist/cs-navigator-web-labs-0.20.0-beta.8.zip
-          (cd dist && sha256sum -c cs-navigator-web-labs-0.20.0-beta.8.zip.sha256)
+          unzip -t dist/cs-navigator-web-labs-0.20.0-beta.9.zip
+          (cd dist && sha256sum -c cs-navigator-web-labs-0.20.0-beta.9.zip.sha256)
       - name: Re-test source-curation baseline
         run: python -m unittest discover -s tests -p 'test_cs_web_labs_beta8.py' -v
       - uses: actions/upload-artifact@v4
         with:
-          name: cs-navigator-web-beta8-canonical-package
+          name: cs-navigator-web-beta9-canonical-package
           path: |
-            dist/cs-navigator-web-labs-0.20.0-beta.8.zip
-            dist/cs-navigator-web-labs-0.20.0-beta.8.zip.sha256
+            dist/cs-navigator-web-labs-0.20.0-beta.9.zip
+            dist/cs-navigator-web-labs-0.20.0-beta.9.zip.sha256
           if-no-files-found: error
