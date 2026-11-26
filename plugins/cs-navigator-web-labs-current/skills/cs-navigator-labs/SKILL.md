@@ -4,7 +4,7 @@ description: 'Use when a user selects CS Navigator Labs or needs capability rout
 ---
 # CS Navigator Labs — Host Activation Qualification
 
-This is a **private laboratory plugin**, version `0.20.0-beta.8`; it is not the production CS Navigator 0.17 and is not an exact release of the 0.18 RC3 candidate. Its six skills are packaged for private host testing. The copy of source concepts here is adapted for qualification, not a byte-for-byte mirror of GitHub.
+This is a **private laboratory plugin**, version `0.20.0-beta.9`; it is not the production CS Navigator 0.17 and is not an exact release of the 0.18 RC3 candidate. Its six skills are packaged for private host testing. The copy of source concepts here is adapted for qualification, not a byte-for-byte mirror of GitHub.
 
 ## Web Beta — registered Registry app (no bundled MCP)
 
@@ -96,3 +96,9 @@ O conhecimento operacional do curador não é uma coleção de modismos ou cópi
 **Proveniência:** `NOTICE-UX-SOURCES.md` mantém créditos e licenças de UI UX Pro Max (MIT) e Unslop (CC BY 4.0). As nove regras são síntese original de curadoria; não incorporam código ou base de treinamento externa.
 
 **UMNOO:** segue independente, sem comunicação, aprendizado ou transferência de memória neste plugin.
+
+## Ciclo de qualidade semântica CS-SQ-01 — beta.9
+
+**Compreender → Executar → Avaliar → Corrigir seletivamente.** Entender intenção, contexto, destinatário, restrições e evidência; entregar o resultado pedido com o menor método suficiente; confrontar a saída com critérios materiais da disciplina; corrigir somente falhas identificadas e encerrar quando suficiente. Em tarefas simples, não adicionar etapas, ferramentas ou relatórios. Distinguir fatos, inferências e lacunas; não alegar fonte, teste, supervisão humana ou execução não observados. Não substituir a resposta por um checklist ou expor raciocínio interno.
+
+**Verificação curatorial:** confirmar se o resultado cumpre a tarefa e se a Skill usada estava realmente disponível e foi lida. Resposta nativa quando suficiente; especialistas somente por benefício material. Não converter um pedido de execução em prompt para copiar. Em auditoria, separar Skill mencionada, arquivo lido, método aplicado e resultado verificado. Referência transversal: `references/SEMANTIC_QUALITY_CYCLE.md`.

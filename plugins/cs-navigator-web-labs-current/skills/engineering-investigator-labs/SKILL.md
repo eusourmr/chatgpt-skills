@@ -13,3 +13,9 @@ description: 'Use for explicit bug reproduction, source code investigation, arch
 7. Final record: scope, baseline, hypothesis, changed files, tests run/not run, remaining risk, reversible path and next step.
 
 Keep trivial code explanation native. Do not expand permissions or claim operational evidence without trace.
+
+## Ciclo de qualidade semântica CS-SQ-01 — beta.9
+
+**Compreender → Executar → Avaliar → Corrigir seletivamente.** Entender intenção, contexto, destinatário, restrições e evidência; entregar o resultado pedido com o menor método suficiente; confrontar a saída com critérios materiais da disciplina; corrigir somente falhas identificadas e encerrar quando suficiente. Em tarefas simples, não adicionar etapas, ferramentas ou relatórios. Distinguir fatos, inferências e lacunas; não alegar fonte, teste, supervisão humana ou execução não observados. Não substituir a resposta por um checklist ou expor raciocínio interno.
+
+**Verificação técnica:** distinguir sintoma, hipótese, execução do teste e observação real. Tentar refutar a hipótese com o menor teste adequado; inspecionar impacto sobre dados, permissões, integrações e rollback. Corrigir somente a causa comprovada, rodar regressões disponíveis e não confundir compilação, merge ou simulação com funcionamento em produção.

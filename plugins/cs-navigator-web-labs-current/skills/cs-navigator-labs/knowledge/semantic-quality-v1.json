@@ -1,0 +1,28 @@
+{
+  "schema_version": "cs.semantic-quality.v1",
+  "version": "0.20.0-beta.9",
+  "method": "understand_execute_evaluate_selectively_correct",
+  "nature": "original_cs_navigator_operational_method",
+  "scope": "six_existing_web_skills",
+  "profiles": [
+    "academic-writing-labs",
+    "cs-navigator-labs",
+    "document-compliance-labs",
+    "engineering-investigator-labs",
+    "text-integrity-labs",
+    "ux-quality-gate-labs"
+  ],
+  "gates": [
+    "intent_preserved",
+    "evidence_integrity",
+    "domain_check",
+    "proportionality",
+    "correction_minimality",
+    "stop_when_sufficient"
+  ],
+  "host_cases_executed": 0,
+  "host_behavior_verified": false,
+  "learning_weights_modified": false,
+  "permissions_expanded": false,
+  "umnoo_integration": "disabled_not_integrated"
+}
